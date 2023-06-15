@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+     <t t-name="DatabaseExpirationPanel" t-inherit="web_enterprise.DatabaseExpirationPanel" t-inherit-mode="extension" owl="1">
+         <xpath expr="//div[hasclass('alert')]" position="replace">
+			 <div role="alert" class="database_expiration_panel alert"
+        t-attf-class="alert-{{state.alertType}}" style="display: none !important;"/>
+		</xpath>
+     </t>
+
+    <t t-name="res_config_edition" t-inherit="base_setup.res_config_edition" t-inherit-mode="extension" owl="1">
+         <xpath expr="//div[hasclass('o_setting_right_pane')]" position="replace">
+             <div class="o_setting_right_pane"/>
+		</xpath>
+     </t>
+</templates>

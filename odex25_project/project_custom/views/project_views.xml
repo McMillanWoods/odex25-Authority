@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Project Project -->
+   <record id="view_edit_project_inherit_form" model="ir.ui.view">
+        <field name="name">project.project.view.inherit</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <div class="oe_button_box" position="inside">
+                <button class="d-none d-md-inline oe_stat_button" 
+                    type="object" name="action_view_subproject" icon="fa-code-fork" 
+                    attrs="{'invisible': [('sub_project_id', '=', [])]}" 
+                    string="Sub-Projects">
+                    <field name="sub_project_id" attrs="{'invisible': True}"/> 
+                </button>
+                <!-- TODO Edit the function after dms and ir attachment sync -->
+                <!-- <button class="d-none d-md-inline oe_stat_button" 
+                    type="object" name="action_view_files" icon="fa-folder" 
+                    string="Sub-Projects">
+                    <field name="sub_project_id" attrs="{'invisible': True}"/> 
+                </button> -->
+            </div>
+            <xpath expr="//button[@name='%(portal.portal_share_action)d']" position="attributes">
+                <attribute name="attrs">{'invisible':True}</attribute>
+            </xpath>
+            <xpath expr="//header" position="inside">
+                <button name="action_confirm" string="Confirm" type="object" attrs="{'invisible':[('state','not in',['draft'])]}" class="oe_highlight"/>
+                <button name="action_open" string="Open" type="object" attrs="{'invisible':[('state','not in',['confirmed'])]}" class="oe_highlight"/>
+                <button name="action_suspended" string="Suspend" type="object" attrs="{'invisible':[('state','not in',['open'])]}" class="oe_highlight"/>
+                <button name="action_pending" string="Pending" type="object" attrs="{'invisible':[('state','not in',['open'])]}" class="oe_highlight"/>
+                <button name="action_done" string="Done" type="object" attrs="{'invisible':[('state','not in',['open'])]}" class="oe_highlight"/>
+                <button name="action_draft" string="Set to Draft" type="object" attrs="{'invisible':[('state','in',['draft'])]}"/>
+                <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,open,done"/>
+            </xpath>
+            <xpath expr="//div[hasclass('oe_title')]" position="replace">
+                <div class="oe_title">
+                    <h1>
+                        <label for="project_no" string=" " />
+                        <div class="address_format">
+                             <field name="project_no" style="width: 25%" attrs="{'readonly':True}"/> - 
+                             <field name="name" style="width: 70%" />
+                        </div>
+                    </h1>
+                </div>
+                <group>
+                    <group>
+                        <!-- <field name="project_type" attrs="{'required':True}" widget="radio"/>  -->
+                        <field name="code" attrs="{'required':False}"/> 
+                        <field name="short_name"/>
+                        <field name="customer_project_no"/> 
+                        <field name="project_id"/> 
+                        <field name="department_id" string="Business Unit" attrs="{'required':True}"/> 
+                    </group>
+                    <group>
+                        <field name="user_id" attrs="{'required':True}"/> 
+                        <field name="coordinator_user_id"/> 
+                        <field name="account_user_id"/> 
+                        <field name="partner_id" string="Client" attrs="{'required':True}"/> 
+                        <field name="sale_order_id" string="Proposal" attrs="{'readonly':True}"/>
+                    </group>
+                </group>
+                <group>
+                    <group>
+                        <field name="related_project_id"/> 
+                        <field name="related_project_user_id"/>
+                    </group>
+                    <group>
+                        <field name="category_id" attrs="{'required':True}"/> 
+                        <field name="classification_id" attrs="{'required':True}"/> 
+                        <field name="sub_classification_id" attrs="{'required':False}"/> 
+                    </group>
+                </group>
+            </xpath>
+            <xpath expr="//page[@name='settings']/group/group" position="inside">
+                <field name="folder_id" attrs="{'required':True}"/> 
+            </xpath>
+            <xpath expr="//page[@name='settings']/group/group/field[@name='user_id']" position="attributes">
+                <attribute name="attrs">{'invisible':True}</attribute>
+            </xpath>
+            <xpath expr="//page[@name='settings']/group/group/field[@name='partner_id']" position="attributes">
+                <attribute name="attrs">{'invisible':True}</attribute>
+            </xpath>
+            <xpath expr="//page[@name='settings']/group/group/field[@name='partner_phone']" position="attributes">
+                <attribute name="attrs">{'invisible':True}</attribute>
+            </xpath>
+            <xpath expr="//page[@name='settings']/group/group/field[@name='partner_email']" position="attributes">
+                <attribute name="attrs">{'invisible':True}</attribute>
+            </xpath>
+            <xpath expr="//page[@name='settings']/group/group/div[@name='alias_def']" position="attributes">
+                <attribute name="attrs">{'invisible':True}</attribute>
+            </xpath>
+            <xpath expr="//page[@name='settings']/group/group/field[@name='alias_contact']" position="attributes">
+                <attribute name="attrs">{'invisible':True}</attribute>
+            </xpath>
+            <xpath expr="//page[@name='settings']/group/group[2]/field[@name='privacy_visibility']" position="attributes">
+                <attribute name="attrs">{'invisible':True}</attribute>
+            </xpath>
+            <xpath expr="//page[@name='settings']/group/group[2]/field[@name='allowed_internal_user_ids']" position="attributes">
+                <attribute name="attrs">{'invisible':True}</attribute>
+            </xpath>
+            <xpath expr="//page[@name='settings']/group/group[2]/field[@name='allowed_portal_user_ids']" position="attributes">
+                <attribute name="attrs">{'invisible':True}</attribute>
+            </xpath>
+            <xpath expr="//div[@id='rating_settings']" position="attributes">
+                <attribute name="attrs">{'invisible':True}</attribute>
+            </xpath>
+            <xpath expr="//notebook" position="before">
+                <group string="Project Stages">
+                    <field name="project_phase_ids" nolabel="1"> 
+                        <tree editable="top">
+                            <field name="stage_id" attrs="{'required':True}"/> 
+                            <field name="start_date" attrs="{'required':True}"/> 
+                            <field name="end_date" attrs="{'required':True}"/> 
+                            <field name="estimated_hours" attrs="{'required':True}" widget="float_time" sum="estimated_hours"/>
+                            <field name="department_ids" attrs="{'required':True}" widget="many2many_tags"/> 
+                            <!-- <button name="action_read_phase" type="object" string="Details" icon="fa-refresh" /> -->
+                        </tree>
+                    </field>
+                </group>
+            </xpath>
+            <xpath expr="//page[@name='settings']" position="before">
+                <page name="location" string="Location">
+                    <group>
+                        <group>
+                            <div class="o_address_format">
+                                <field name="country_id" placeholder="Country" class="o_address_state" options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}" attrs="{'required':True}"/>
+                                <field name="state_id" class="o_address_state" placeholder="Region" options="{'no_open': True, 'no_quick_create': True}" context="{'country_id': country_id, 'default_country_id': country_id}" attrs="{'required':True}"/>
+                                <field name="city" placeholder="City" class="o_address_city" attrs="{'required':True}"/>
+                                <div>
+                                    <field name="box_no" placeholder="B.O Box: 123..." class="o_address_street" attrs="{'required':False}" style="width: 25%"/>
+                                </div>
+                            </div>
+                        </group>
+                        <group>
+                            <field name="site_area" attrs="{'required':True}"/> 
+                            <field name="bua" attrs="{'required':False}"/> 
+                        </group>
+                    </group>
+                    <group string="Components Buildings">
+                        <field name="project_component_ids" nolabel="1"> 
+                            <tree editable="top">
+                                <field name="name" attrs="{'required':True}"/> 
+                                <field name="code" attrs="{'required':True}"/> 
+                                <field name="bua" attrs="{'required':True}"/> 
+                            </tree>
+                        </field>
+                    </group>
+                </page>
+
+                <page name="valuation" string="Valuation">
+                    <group>
+                        <group>
+                            <field name="contract_number" attrs="{'required':False}"/> 
+                            <field name="contract_type_id" domain="[('department_id','=',department_id)]" attrs="{'required':True}"/>
+                            <field name="signature_date" attrs="{'required':True}"/>
+                            <field name="currency_id" attrs="{'required':True}"/> 
+                            <field name="contract_value" attrs="{'required':True}"/> 
+                            
+                        </group>
+                        <group>
+                            <field name="date_start" attrs="{'required':True}"/> 
+                            <field name="date" attrs="{'required':True}"/>
+                            <field name="launch_date" attrs="{'required':False}"/> 
+                            <field name="duration_days" attrs="{'required':True}"/>
+                            <field name="duration_months" attrs="{'required':True}"/> 
+                            <field name="estimated_hours" attrs="{'required':True}" widget="float_time"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+            <xpath expr="//field[@name='message_follower_ids']" position="after"> 
+                <field name="message_ids"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_edit_project_hr_timesheet" model="ir.ui.view">
+        <field name="name">project.project.view.timesheet</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="hr_timesheet.project_invoice_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='timesheet_settings']" position="attributes">
+                <attribute name="attrs">{'invisible':True}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="project.open_view_project_all" model="ir.actions.act_window">
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <record id="view_project_inherit" model="ir.ui.view">
+            <field name="name">project.project.tree</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.view_project"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="project_no"/>
+                </xpath>
+
+                <!-- <tree decoration-muted="active == False" string="Projects" delete="0" multi_edit="1" sample="1">
+                    <field name="sequence" optional="show" widget="handle"/>
+                    <field name="message_needaction" invisible="1"/>
+                    <field name="active" invisible="1"/>
+                    <field name="name" string="Name" class="font-weight-bold"/>
+                    <field name="user_id" optional="show" string="Project Manager" widget="many2one_avatar_user"/>
+                    <field name="partner_id" optional="show" string="Customer"/>
+                    <field name="analytic_account_id" optional="hide"/>
+                    <field name="privacy_visibility" optional="hide"/>
+                    <field name="subtask_project_id" optional="hide"/>
+                    <field name="label_tasks" optional="hide"/>
+                    <field name="company_id" optional="show"  groups="base.group_multi_company"/>
+                </tree> -->
+            </field>
+        </record>
+        
+     <record id="view_edit_project_sale_timesheet" model="ir.ui.view">
+        <field name="name">project.project.view.inherit</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="sale_timesheet.project_project_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='allow_billable_container']" position="attributes">
+                <attribute name="attrs">{'invisible':True}</attribute>
+            </xpath>
+<!--             <xpath expr="//page[@name='billing_employee_rate']" position="attributes">
+                <attribute name="attrs">{'invisible':True}</attribute>
+            </xpath>
+            <xpath expr="//page[@name='billing_employee_rate']" position="after">
+                <page name="invoices" string="Invoicing">
+                    <separator string="Invoice items"/>
+                            <field name="invoice_employee_ids" nolabel='1' attrs="{'invisible':[('project_type','!=','supervision')]}">
+                                <tree editable='button'>
+                                    <field name="job_id" attrs="{'required':True}"/> 
+                                    <field name="number" attrs="{'required':True}"/> 
+                                    <field name="sale_rate" attrs="{'required':True}"/> 
+                                    <field name="total" attrs="{'required':True}" sum='total'/> 
+                                </tree>
+                            </field>
+                            <field name="invoice_ids" nolabel='1' attrs="{'invisible':[('project_type','!=','design')]}">
+                                <tree editable='button'>
+                                    <field name="phase_id" attrs="{'required':True}"/> 
+                                    <field name="amount" attrs="{'required':True}" sum='amount'/> 
+                                </tree>
+                            </field>
+                </page>
+            </xpath>
+ -->            
+        </field>
+    </record> 
+
+    <record model="ir.ui.view" id="view_project_kanban_inherit">
+        <field name="name">project.project.kanban</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('o_project_kanban_boxes')]/a[@name='action_view_tasks']" position="replace">
+            </xpath>
+        </field>
+    </record>
+
+
+    <!-- Project Category -->
+    <record id="project_category_form_view" model="ir.ui.view">
+        <field name="name">project.category.form</field>
+        <field name="model">project.category</field>
+        <field name="arch" type="xml">
+            <form string="Project Category">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" required="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="project_category_tree" model="ir.ui.view">
+        <field name="name">project.category.tree</field>
+        <field name="model">project.category</field>
+        <field name="arch" type="xml">
+            <tree string="Project Category">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="open_project_category_form" model="ir.actions.act_window">
+        <field name="name">Project Category</field>
+        <field name="res_model">project.category</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="project_category_tree"/>
+    </record>
+
+    <menuitem action="open_project_category_form" id="menu_project_category" name="Category" parent="project.menu_project_config" sequence="4" groups="base.group_no_one"/>
+
+
+</odoo>

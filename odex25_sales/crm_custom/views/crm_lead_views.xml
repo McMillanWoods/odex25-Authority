@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="crm_lead_view_form_inherit" model="ir.ui.view">
+            <field name="name">crm.lead.form</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form" />
+            <field name="arch" type="xml">
+
+                <xpath expr="//widget[1]" position="attributes">
+                    <attribute name='string'>Reject</attribute>
+                </xpath>
+
+                <xpath expr="//button[@name='action_set_won_rainbowman']" position="before">
+                    <button name="action_crm_send" string="Send By Email"
+                            type="object" class="oe_highlight"/>
+                </xpath>
+
+                <xpath expr="//button[@name='%(crm.crm_lead_lost_action)d']" position="attributes">
+                    <attribute name='string'>Reject</attribute>
+                </xpath>
+
+                <xpath expr="//button[@name='action_set_lost']" position="replace">
+
+                    <button name="%(crm.crm_lead_lost_action)d" string="Reject" type="action"
+                            attrs="{'invisible': ['|', ('type', '=', 'opportunity'), '&amp;', ('probability', '=', 0), ('active', '=', False)]}"/>
+                </xpath>
+
+                <xpath expr="//button[@name='%(crm.action_crm_lead2opportunity_partner)d']" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </xpath>
+
+                <xpath expr="//button[@name='%(crm.action_crm_lead2opportunity_partner)d']" position="after">
+                    <button name="convert_rfp" string="Convert to RFP" type="object" help="Convert to RFP" class="oe_highlight" attrs="{'invisible': ['|', ('type', '=', 'opportunity'), ('active', '=', False)]}"/>
+                </xpath>
+
+                <xpath expr="//label[1]" position="attributes">
+                    <attribute name='string'>RFI</attribute>
+                </xpath>
+
+                <xpath expr="//label[2]" position="attributes">
+                    <attribute name='string'>RFP</attribute>
+                </xpath>
+
+                <xpath expr="//group[@name='lead_info']/label[@for='contact_name']" position="before">
+                    <field name="submit_date" />
+                    <field name="must_lead" invisible="1"/>
+                </xpath>
+
+                <xpath expr="//group['lead_partner']/field[@name='partner_id']" position="attributes">
+                    <attribute name="groups">base.group_user</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='date_deadline']" position="before">
+                    <field name="submit_date" />
+                    <field name="inquiry_date" />
+                    <field name="site_visit_date" />
+                </xpath>
+
+                <xpath expr="//page[@name='internal_notes']" position="after">
+                    <page name="project_location" string="Project Location">
+                        <group>
+                            <field name="project_country_id"/>
+                            <field name="project_state_id" />
+                            <field name="city_id"/>
+                        </group>
+                    </page>
+
+                    <page name="project_info" string="Project Information">
+                        <group>
+                            <group>
+                                <field name="project_category_id" />
+                                <field name="project_duration" />
+                                <field name="project_duration_internal" />
+                                <field name="total_site_area" />
+                            </group>
+                            <group>
+                                <field name="main_building_prototype" />
+                                <field name="main_building_site" />
+                                <field name="main_building_total" />
+                            </group>
+                            <group>
+                                <field name="floor_area_ratio"/>
+                                <field name="site_works_area"/>
+                                <field name="ancillary_building_prototype"/>
+                                <field name="ancillary_building_site"/>
+                                <field name="ancillary_building_total"/>
+                            </group>
+                        </group>
+                    </page>
+
+                    <page name="business_info" string="Business Information">
+                        <group>
+                            <field name="industry_id" required="1" domain="[('parent_id', '=', False)]"/>
+                            <field name="sector_id" required="1"/>
+                            <field name="department_id" required="1"/>
+                            <field name="product_id" domain="[('department_id', '=', department_id)]" required="1"/>
+                        </group>
+                    </page>
+
+                    <page name="bid_bond" string="Bid Bond">
+                        <group>
+                            <field name="bidbond"/>
+                        </group>
+                    </page>
+
+                </xpath>
+
+                <xpath expr="//page[@name='internal_notes']" position="attributes">
+                    <attribute name='string'>Project Description</attribute>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="crm_case_tree_view_leads_inherit" model="ir.ui.view">
+            <field name="name">crm.lead.tree</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_tree_view_leads" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name='string'>RFI</attribute>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="crm_case_tree_view_oppor_inherit" model="ir.ui.view">
+            <field name="name">crm.lead.tree</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_tree_view_oppor" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name='string'>RFP</attribute>
+                </xpath>
+
+            </field>
+        </record>
+
+
+        <record id="crm_lead_lost_view_form_inherit" model="ir.ui.view">
+            <field name="name">crm.lead.lost.form</field>
+            <field name="model">crm.lead.lost</field>
+            <field name="inherit_id" ref="crm.crm_lead_lost_view_form" />
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='lost_reason_id']" position="attributes">
+                    <attribute name='required'>1</attribute>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="crm.crm_lead_all_leads">
+            <field name="name">RFI</field>
+            <field name="domain">['|', '|', ('type','=','lead'), ('type','=',False), ('must_lead', '=', True)]</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="crm.crm_lead_action_pipeline">
+            <field name="name">RFP</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="crm.action_crm_lead2opportunity_partner">
+            <field name="name">Convert to RFP</field>
+        </record>
+
+        <record id="crm.crm_lost_reason_action" model="ir.actions.act_window">
+            <field name="name">Reject Reasons</field>
+        </record>
+
+        <record id="crm.action_your_pipeline" model="ir.actions.server">
+            <field name="name">RFP</field>
+        </record>
+
+        <record id="crm.crm_menu_leads" model="ir.ui.menu">
+            <field name="name">RFI</field>
+        </record>
+
+        <record id="crm.menu_crm_opportunities" model="ir.ui.menu">
+            <field name="name">RFP</field>
+        </record>
+
+        <record id="crm.crm_menu_sales" model="ir.ui.menu">
+            <field name="name">RFP</field>
+        </record>
+
+        <record id="crm.menu_crm_lost_reason" model="ir.ui.menu">
+            <field name="name">Reject Reasons</field>
+        </record>
+
+    </data>
+</odoo>

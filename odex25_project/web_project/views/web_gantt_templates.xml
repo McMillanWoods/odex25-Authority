@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="assets_backend" name="web gantt assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/scss" href="/web_project/static/web_gantt/src/scss/web_gantt.scss"/>
+            <script type="text/javascript" src="/web_project/static/web_gantt/src/js/gantt_renderer.js"/>
+            <script type="text/javascript" src="/web_project/static/web_gantt/src/js/gantt_view.js"/>
+            <script type="text/javascript" src="/web_project/static/web_gantt/src/js/gantt_model.js"/>
+            <script type="text/javascript" src="/web_project/static/web_gantt/src/js/gantt_controller.js"/>
+            <script type="text/javascript" src="/web_project/static/web_gantt/src/js/gantt_row.js"/>
+        </xpath>
+    </template>
+</odoo>

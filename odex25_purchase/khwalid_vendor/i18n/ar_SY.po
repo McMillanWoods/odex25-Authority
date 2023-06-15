@@ -1,0 +1,157 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* khwalid_vendor
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-10 22:28+0000\n"
+"PO-Revision-Date: 2022-01-10 22:28+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: khwalid_vendor
+#: model:ir.model.fields.selection,name:khwalid_vendor.selection__res_partner__state__cancel
+#: model_terms:ir.ui.view,arch_db:khwalid_vendor.view_info_wizard
+#: model_terms:ir.ui.view,arch_db:khwalid_vendor.view_partner_form_inherited
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: khwalid_vendor
+#: model:ir.model.fields,field_description:khwalid_vendor.field_res_partner__cancel_reason
+#: model:ir.model.fields,field_description:khwalid_vendor.field_res_users__cancel_reason
+msgid "Cancel Reason"
+msgstr "سبب الإلغاء"
+
+#. module: khwalid_vendor
+#: model:ir.model.fields.selection,name:khwalid_vendor.selection__res_partner__state__ceo
+#: model:res.groups,name:khwalid_vendor.group_ceo
+#: model_terms:ir.ui.view,arch_db:khwalid_vendor.view_partner_form_inherited
+msgid "Chief Executive Officer"
+msgstr "المدير التنفيذي"
+
+#. module: khwalid_vendor
+#: model:ir.model,name:khwalid_vendor.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: khwalid_vendor
+#: model:ir.module.category,name:khwalid_vendor.smart_module_management
+msgid "Contacts WorkFlow"
+msgstr "صلاحيات جهات الإتصال"
+
+#. module: khwalid_vendor
+#: model:ir.model.fields,field_description:khwalid_vendor.field_partner_cancel_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: khwalid_vendor
+#: model:ir.model.fields,field_description:khwalid_vendor.field_partner_cancel_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: khwalid_vendor
+#: model:ir.model.fields,field_description:khwalid_vendor.field_partner_cancel_wizard__display_name
+#: model:ir.model.fields,field_description:khwalid_vendor.field_res_partner__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: khwalid_vendor
+#: model:ir.model.fields.selection,name:khwalid_vendor.selection__res_partner__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: khwalid_vendor
+#: model:ir.model.fields.selection,name:khwalid_vendor.selection__res_partner__state__financial_manager
+#: model:res.groups,name:khwalid_vendor.group_financial_manager
+#: model_terms:ir.ui.view,arch_db:khwalid_vendor.view_partner_form_inherited
+msgid "Financial Manager"
+msgstr "المدير المالي"
+
+#. module: khwalid_vendor
+#: model:ir.model.fields.selection,name:khwalid_vendor.selection__res_partner__state__general_manager
+#: model:res.groups,name:khwalid_vendor.group_general_manager
+#: model_terms:ir.ui.view,arch_db:khwalid_vendor.view_partner_form_inherited
+msgid "General Manager"
+msgstr "المدير العام"
+
+#. module: khwalid_vendor
+#: model:ir.model.fields,field_description:khwalid_vendor.field_partner_cancel_wizard__id
+#: model:ir.model.fields,field_description:khwalid_vendor.field_res_partner__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: khwalid_vendor
+#: model_terms:ir.ui.view,arch_db:khwalid_vendor.view_info_wizard
+msgid "Info"
+msgstr ""
+
+#. module: khwalid_vendor
+#: model:ir.model.fields,field_description:khwalid_vendor.field_partner_cancel_wizard____last_update
+#: model:ir.model.fields,field_description:khwalid_vendor.field_res_partner____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: khwalid_vendor
+#: model:ir.model.fields,field_description:khwalid_vendor.field_partner_cancel_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: khwalid_vendor
+#: model:ir.model.fields,field_description:khwalid_vendor.field_partner_cancel_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: khwalid_vendor
+#: model_terms:ir.ui.view,arch_db:khwalid_vendor.view_info_wizard
+msgid "OK"
+msgstr "تأكيد"
+
+#. module: khwalid_vendor
+#: model:ir.model.fields,field_description:khwalid_vendor.field_partner_cancel_wizard__partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: khwalid_vendor
+#: model:ir.model.fields.selection,name:khwalid_vendor.selection__res_partner__state__project_manager
+#: model:res.groups,name:khwalid_vendor.group_project_manager
+#: model_terms:ir.ui.view,arch_db:khwalid_vendor.view_partner_form_inherited
+msgid "Project Manager"
+msgstr "مدير المشاريع"
+
+#. module: khwalid_vendor
+#: model:ir.model.fields.selection,name:khwalid_vendor.selection__res_partner__state__purchase_department
+#: model:res.groups,name:khwalid_vendor.group_purchase_department
+#: model_terms:ir.ui.view,arch_db:khwalid_vendor.view_partner_form_inherited
+msgid "Purchase Department"
+msgstr "مسؤول ادارة المشتريات"
+
+#. module: khwalid_vendor
+#: model:ir.model.fields,field_description:khwalid_vendor.field_partner_cancel_wizard__cancel_reason
+msgid "Reason"
+msgstr "السبب"
+
+#. module: khwalid_vendor
+#: model:ir.model,name:khwalid_vendor.model_partner_cancel_wizard
+msgid "Reason Wizard"
+msgstr ""
+
+#. module: khwalid_vendor
+#: model_terms:ir.ui.view,arch_db:khwalid_vendor.view_partner_form_inherited
+msgid "Rest To Draft"
+msgstr "إعادة إلي مسودة"
+
+#. module: khwalid_vendor
+#: model:ir.model.fields,field_description:khwalid_vendor.field_res_partner__state
+msgid "Status"
+msgstr "الحالة"
+
+#. module: khwalid_vendor
+#: model:ir.module.category,description:khwalid_vendor.smart_module_management
+msgid "User access level for this module"
+msgstr ""

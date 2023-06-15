@@ -1,0 +1,49 @@
+@font-face {
+    font-family: 'Droid Arabic Kufi';
+    font-style: normal;
+    font-weight: 400;
+    src: url(/saip_custom_theme/static/src/fonts/DroidKufi-Regular.eot);
+    src: url(/saip_custom_theme/static/src/fonts/DroidKufi-Regular.woff2) format('woff2'),
+        url(/saip_custom_theme/static/src/fonts/DroidKufi-Regular.woff) format('woff'),
+        url(/saip_custom_theme/static/src/fonts/DroidKufi-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Droid Arabic Kufi';
+    font-style: normal;
+    font-weight: 700;
+    src: url(/saip_custom_theme/static/src/fonts/DroidKufi-Bold.eot);
+    src: url(/saip_custom_theme/static/src/fonts/DroidKufi-Bold.woff2) format('woff2'),
+        url(/saip_custom_theme/static/src/fonts/DroidKufi-Bold.woff) format('woff'),
+        url(/saip_custom_theme/static/src/fonts/DroidKufi-Bold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Droid Arabic Naskh';
+    font-style: normal;
+    font-weight: 400;
+    src: url(/saip_custom_theme/static/src/fonts/DroidNaskh-Regular.eot);
+    src: url(/saip_custom_theme/static/src/fonts/DroidNaskh-Regular.woff2) format('woff2'),
+        url(/saip_custom_theme/static/src/fonts/DroidNaskh-Regular.woff) format('woff'),
+        url(/saip_custom_theme/static/src/fonts/DroidNaskh-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Droid Arabic Naskh';
+    font-style: normal;
+    font-weight: 700;
+    src: url(/saip_custom_theme/static/src/fonts/DroidNaskh-Bold.eot);
+    src: url(/saip_custom_theme/static/src/fonts/DroidNaskh-Bold.woff2) format('woff2'),
+        url(/saip_custom_theme/static/src/fonts/DroidNaskh-Bold.woff) format('woff'),
+        url(/saip_custom_theme/static/src/fonts/DroidNaskh-Bold.ttf) format('truetype');
+}
+.rtl{
+    *:not(.fa) {
+        font-family: 'Droid Arabic Kufi', serif !important;
+    }
+}
+.o_rtl{
+    *:not(.fa) {
+        font-family: 'Droid Arabic Kufi', serif !important;
+    }
+}

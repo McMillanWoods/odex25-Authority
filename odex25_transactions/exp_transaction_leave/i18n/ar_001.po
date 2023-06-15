@@ -1,0 +1,256 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* exp_transaction_leave
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-23 10:05+0000\n"
+"PO-Revision-Date: 2022-05-23 10:05+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: exp_transaction_leave
+#: code:addons/exp_transaction_leave/wizard/forward_trasaction.py:66
+#, python-format
+msgid "Action Taken"
+msgstr "معاملة محاله"
+
+#. module: exp_transaction_leave
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_employee_leave_alternative_employee_ids
+#: model:ir.ui.view,arch_db:exp_transaction_leave.leave_transaction_form
+msgid "Alternative Employees"
+msgstr "الموظف البديل"
+
+#. module: exp_transaction_leave
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_employee_leave_alternative_manager_ids
+#: model:ir.ui.view,arch_db:exp_transaction_leave.leave_transaction_form
+msgid "Alternative Mangers"
+msgstr "المدير البديل"
+
+#. module: exp_transaction_leave
+#: model:ir.ui.view,arch_db:exp_transaction_leave.leave_transaction_form
+msgid "Approve"
+msgstr "أعتماد"
+
+#. module: exp_transaction_leave
+#: selection:employee.leave,state:0
+msgid "Approved"
+msgstr "معتمده"
+
+#. module: exp_transaction_leave
+#: model:ir.actions.act_window,name:exp_transaction_leave.leave_approved_action
+msgid "Approved Leave "
+msgstr "التفويضات المعتمده"
+
+#. module: exp_transaction_leave
+#: model:ir.ui.view,arch_db:exp_transaction_leave.leave_transaction_form
+msgid "Are you sure you want to confirm leave ?"
+msgstr "هل انت متأكد من اعتماد هذا التفويض؟"
+
+#. module: exp_transaction_leave
+#: model:ir.ui.view,arch_db:exp_transaction_leave.leave_transaction_form
+msgid "Are you sure you want to refuse leave ?"
+msgstr "هل انت متأكد من رفض هذا التفويض؟"
+
+#. module: exp_transaction_leave
+#: model:ir.ui.view,arch_db:exp_transaction_leave.leave_transaction_form
+msgid "Are you sure you want to request leave ?"
+msgstr "هل انت متأكد من ارسال هذا التفويض؟"
+
+#. module: exp_transaction_leave
+#: model:ir.actions.act_window,help:exp_transaction_leave.leave_tran_action
+msgid "Create new record"
+msgstr "إنشاء سجل جديد"
+
+#. module: exp_transaction_leave
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_employee_leave_create_uid
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_employee_leave_line_create_uid
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_manager_leave_line_create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: exp_transaction_leave
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_employee_leave_create_date
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_employee_leave_line_create_date
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_manager_leave_line_create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: exp_transaction_leave
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_employee_leave_display_name
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_employee_leave_line_display_name
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_manager_leave_line_display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: exp_transaction_leave
+#: selection:employee.leave,state:0
+msgid "Draft"
+msgstr "جديد"
+
+#. module: exp_transaction_leave
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_employee_leave_employee_id
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_employee_leave_line_employee_id
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_manager_leave_line_employee_id
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: exp_transaction_leave
+#: selection:employee.leave,state:0
+msgid "Expired"
+msgstr "منتهية"
+
+#. module: exp_transaction_leave
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_employee_leave_from_date
+msgid "From Date"
+msgstr "من تاريخ"
+
+#. module: exp_transaction_leave
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_employee_leave_id
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_employee_leave_line_id
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_manager_leave_line_id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: exp_transaction_leave
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_employee_leave_current_is_manager
+msgid "Is Manager"
+msgstr "مدير؟"
+
+#. module: exp_transaction_leave
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_employee_leave___last_update
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_employee_leave_line___last_update
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_manager_leave_line___last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: exp_transaction_leave
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_employee_leave_line_write_uid
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_employee_leave_write_uid
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_manager_leave_line_write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: exp_transaction_leave
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_employee_leave_line_write_date
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_employee_leave_write_date
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_manager_leave_line_write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: exp_transaction_leave
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_employee_leave_line_leave_id
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_manager_leave_line_leave_id
+#: model:ir.ui.menu,name:exp_transaction_leave.leave_tran_menu
+#: model:ir.ui.view,arch_db:exp_transaction_leave.leave_transaction_form
+msgid "Leave"
+msgstr "تفويض"
+
+#. module: exp_transaction_leave
+#: model:ir.actions.act_window,name:exp_transaction_leave.leave_tran_action
+msgid "Leave Employee"
+msgstr "تفويض الموظف"
+
+#. module: exp_transaction_leave
+#: model:ir.ui.menu,name:exp_transaction_leave.parent_leave_tran_menu
+msgid "Leave Employees"
+msgstr "تفويض الموظفين"
+
+#. module: exp_transaction_leave
+#: code:addons/exp_transaction_leave/wizard/forward_trasaction.py:62
+#, python-format
+msgid "Message Has been forwarded !"
+msgstr "Message Has been forwarded !"
+
+#. module: exp_transaction_leave
+#: model:ir.ui.view,arch_db:exp_transaction_leave.leave_transaction_form
+msgid "Refuse"
+msgstr "رفض"
+
+#. module: exp_transaction_leave
+#: selection:employee.leave,state:0
+msgid "Refuse"
+msgstr "مرفوض"
+
+#. module: exp_transaction_leave
+#: model:ir.ui.view,arch_db:exp_transaction_leave.leave_transaction_form
+msgid "Request"
+msgstr "طلب"
+
+#. module: exp_transaction_leave
+#: selection:employee.leave,state:0
+msgid "Request"
+msgstr "تحت الاعتماد"
+
+#. module: exp_transaction_leave
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_employee_leave_state
+msgid "State"
+msgstr "الحالة"
+
+#. module: exp_transaction_leave
+#: model:ir.actions.act_window,name:exp_transaction_leave.leave_approve_action
+msgid "TO Approve Leave "
+msgstr "تفويضات للاعتماد"
+
+#. module: exp_transaction_leave
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_employee_leave_to_date
+msgid "To Date"
+msgstr "إلى تاريخ"
+
+#. module: exp_transaction_leave
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_employee_leave_line_unit_id
+#: model:ir.model.fields,field_description:exp_transaction_leave.field_manager_leave_line_unit_id
+msgid "Unit"
+msgstr "الوحده"
+
+#. module: exp_transaction_leave
+#: code:addons/exp_transaction_leave/models/leave.py:39
+#, python-format
+msgid "You can not create new leave for employee have leave in sam duration"
+msgstr "لايمكنك إنشاء إجازه ل موظف لديه إجازه في نفس الفتره الزمنية"
+
+#. module: exp_transaction_leave
+#: model:ir.model,name:exp_transaction_leave.model_transaction_transaction
+msgid "for common attribute between transaction"
+msgstr "for common attribute between transaction"
+
+#. module: exp_transaction_leave
+#: model:ir.model,name:exp_transaction_leave.model_employee_leave
+msgid "for mange transaction in employee leave"
+msgstr "for mange transaction in employee leave"
+
+#. module: exp_transaction_leave
+#: model:ir.model,name:exp_transaction_leave.model_employee_leave_line
+#: model:ir.model,name:exp_transaction_leave.model_manager_leave_line
+msgid "for mange transaction in employee leave line"
+msgstr "for mange transaction in employee leave line"
+
+#. module: exp_transaction_leave
+#: model:ir.model,name:exp_transaction_leave.model_forward_transaction_wizard
+msgid "forward.transaction.wizard"
+msgstr "forward.transaction.wizard"
+
+#. module: exp_transaction_leave
+#: model:ir.ui.view,arch_db:exp_transaction_leave.leave_transaction_tree
+msgid "leave"
+msgstr "التفويض"
+
+#. module: exp_transaction_leave
+#: code:addons/exp_transaction_leave/wizard/forward_trasaction.py:63
+#, python-format
+msgid "{} &larr; {}"
+msgstr "{} &larr; {}"
+
+#. module: exp_transaction_leave
+#: model:ir.actions.server,name:exp_transaction_leave.state_change_leave_ir_actions_server
+#: model:ir.cron,cron_name:exp_transaction_leave.state_change_leave
+#: model:ir.cron,name:exp_transaction_leave.state_change_leave
+msgid "التغيير التلقائى لحالة التفويض"
+msgstr "التغيير التلقائى لحالة التفويض"
+

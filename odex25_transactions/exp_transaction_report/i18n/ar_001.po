@@ -1,0 +1,732 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* exp_transaction_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-10 09:42+0000\n"
+"PO-Revision-Date: 2023-01-10 09:42+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: exp_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.achievement_tran_report_temp
+msgid "Achievement Report"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.actions.report,name:exp_transaction_report.achievement_transaction_complete_report
+msgid "Achievement Transaction Report"
+msgstr "تقرير الإنجاز"
+
+#. module: exp_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.achievement_tran_report_temp
+msgid "Administration/Employee"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__achievement_transaction_report_wizard__type_transact__all
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__close_transaction_report_wizard__type_transact__all
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__forward_transaction_report_wizard__type_transact__all
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__incoming_transaction_report_wizard__type_transact__all
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__late_transaction_report_wizard__type_transact__all
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__outgoing_transaction_report_wizard__type_transact__all
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__transaction_common_report__type_transact__all
+msgid "All"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.achievement_transaction_report_wizard_view
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.close_transaction_report_wizard_view
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.forward_transaction_report_wizard_view
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.incoming_transaction_report_wizard_view
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.late_transaction_report_wizard_view
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.outgoing_transaction_report_wizard_view
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.outstanding_transaction_report_wizard_view
+msgid "Cancel"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_close_transaction_report
+msgid "Cause of closure"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_forw_transaction_report
+msgid "Cause of ‫‪forward‬‬"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.actions.report,name:exp_transaction_report.close_transaction_complete_report
+msgid "Close Transaction Report"
+msgstr "تقرير المعاملات المغلقه"
+
+#. module: exp_transaction_report
+#: code:addons/exp_transaction_report/wizard/close_transaction_wiz.py:0
+#: code:addons/exp_transaction_report/wizard/close_transaction_wiz.py:0
+#, python-format
+msgid "Close Transactions Report"
+msgstr "تقرير المعاملات المغلقه"
+
+#. module: exp_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_close_transaction_report
+msgid "Closed Transaction Report"
+msgstr ""
+
+#. module: exp_transaction_report
+#: code:addons/exp_transaction_report/wizard/close_transaction_wiz.py:0
+#, python-format
+msgid "Closing date"
+msgstr "تاريخ الإغلاق"
+
+#. module: exp_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_close_transaction_report
+msgid "Closure Date"
+msgstr ""
+
+#. module: exp_transaction_report
+#: code:addons/exp_transaction_report/wizard/achievement_transaction_report_wiz.py:0
+#, python-format
+msgid "Compilation Report"
+msgstr "تقرير الإنجاز"
+
+#. module: exp_transaction_report
+#: model:ir.model.fields,field_description:exp_transaction_report.field_achievement_transaction_report_wizard__create_uid
+#: model:ir.model.fields,field_description:exp_transaction_report.field_close_transaction_report_wizard__create_uid
+#: model:ir.model.fields,field_description:exp_transaction_report.field_forward_transaction_report_wizard__create_uid
+#: model:ir.model.fields,field_description:exp_transaction_report.field_incoming_transaction_report_wizard__create_uid
+#: model:ir.model.fields,field_description:exp_transaction_report.field_late_transaction_report_wizard__create_uid
+#: model:ir.model.fields,field_description:exp_transaction_report.field_outgoing_transaction_report_wizard__create_uid
+#: model:ir.model.fields,field_description:exp_transaction_report.field_outstanding_transaction_report_wizard__create_uid
+#: model:ir.model.fields,field_description:exp_transaction_report.field_transaction_common_report__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.model.fields,field_description:exp_transaction_report.field_achievement_transaction_report_wizard__create_date
+#: model:ir.model.fields,field_description:exp_transaction_report.field_close_transaction_report_wizard__create_date
+#: model:ir.model.fields,field_description:exp_transaction_report.field_forward_transaction_report_wizard__create_date
+#: model:ir.model.fields,field_description:exp_transaction_report.field_incoming_transaction_report_wizard__create_date
+#: model:ir.model.fields,field_description:exp_transaction_report.field_late_transaction_report_wizard__create_date
+#: model:ir.model.fields,field_description:exp_transaction_report.field_outgoing_transaction_report_wizard__create_date
+#: model:ir.model.fields,field_description:exp_transaction_report.field_outstanding_transaction_report_wizard__create_date
+#: model:ir.model.fields,field_description:exp_transaction_report.field_transaction_common_report__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: exp_transaction_report
+#: code:addons/exp_transaction_report/wizard/close_transaction_wiz.py:0
+#, python-format
+msgid "Date of transaction"
+msgstr "تاريخ المعاملة"
+
+#. module: exp_transaction_report
+#: code:addons/exp_transaction_report/wizard/achievement_transaction_report_wiz.py:0
+#, python-format
+msgid "Department/Employee"
+msgstr "الادارة/الموظف "
+
+#. module: exp_transaction_report
+#: model:ir.model.fields,field_description:exp_transaction_report.field_achievement_transaction_report_wizard__display_name
+#: model:ir.model.fields,field_description:exp_transaction_report.field_close_transaction_report_wizard__display_name
+#: model:ir.model.fields,field_description:exp_transaction_report.field_forward_transaction_report_wizard__display_name
+#: model:ir.model.fields,field_description:exp_transaction_report.field_incoming_transaction_report_wizard__display_name
+#: model:ir.model.fields,field_description:exp_transaction_report.field_late_transaction_report_wizard__display_name
+#: model:ir.model.fields,field_description:exp_transaction_report.field_outgoing_transaction_report_wizard__display_name
+#: model:ir.model.fields,field_description:exp_transaction_report.field_outstanding_transaction_report_wizard__display_name
+#: model:ir.model.fields,field_description:exp_transaction_report.field_report_exp_transaction_report_achievement_tran_report_temp__display_name
+#: model:ir.model.fields,field_description:exp_transaction_report.field_report_exp_transaction_report_achievement_transaction_xls__display_name
+#: model:ir.model.fields,field_description:exp_transaction_report.field_report_exp_transaction_report_close_transaction_xls__display_name
+#: model:ir.model.fields,field_description:exp_transaction_report.field_report_exp_transaction_report_outstand_transaction_report_temp__display_name
+#: model:ir.model.fields,field_description:exp_transaction_report.field_report_exp_transaction_report_template_close_transaction_report__display_name
+#: model:ir.model.fields,field_description:exp_transaction_report.field_report_exp_transaction_report_template_forw_transaction_report__display_name
+#: model:ir.model.fields,field_description:exp_transaction_report.field_report_exp_transaction_report_template_incom_transaction_report__display_name
+#: model:ir.model.fields,field_description:exp_transaction_report.field_report_exp_transaction_report_template_late_transaction_report__display_name
+#: model:ir.model.fields,field_description:exp_transaction_report.field_report_exp_transaction_report_template_out_transaction_report__display_name
+#: model:ir.model.fields,field_description:exp_transaction_report.field_transaction_common_report__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_late_transaction_report
+msgid "Due Date"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__achievement_transaction_report_wizard__type__employee
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__close_transaction_report_wizard__type__employee
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__forward_transaction_report_wizard__type__employee
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__incoming_transaction_report_wizard__type__employee
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__late_transaction_report_wizard__type__employee
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__outgoing_transaction_report_wizard__type__employee
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__outstanding_transaction_report_wizard__type__employee
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__transaction_common_report__type__employee
+msgid "Employee"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.model.fields,field_description:exp_transaction_report.field_achievement_transaction_report_wizard__end_date
+#: model:ir.model.fields,field_description:exp_transaction_report.field_close_transaction_report_wizard__end_date
+#: model:ir.model.fields,field_description:exp_transaction_report.field_forward_transaction_report_wizard__end_date
+#: model:ir.model.fields,field_description:exp_transaction_report.field_incoming_transaction_report_wizard__end_date
+#: model:ir.model.fields,field_description:exp_transaction_report.field_late_transaction_report_wizard__end_date
+#: model:ir.model.fields,field_description:exp_transaction_report.field_outgoing_transaction_report_wizard__end_date
+#: model:ir.model.fields,field_description:exp_transaction_report.field_outstanding_transaction_report_wizard__end_date
+#: model:ir.model.fields,field_description:exp_transaction_report.field_transaction_common_report__end_date
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.achievement_tran_report_temp
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.outstand_transaction_report_temp
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_close_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_forw_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_incom_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_out_transaction_report
+msgid "End Date"
+msgstr ""
+
+#. module: exp_transaction_report
+#: code:addons/exp_transaction_report/wizard/achievement_transaction_report_wiz.py:0
+#: code:addons/exp_transaction_report/wizard/close_transaction_wiz.py:0
+#, python-format
+msgid "End date"
+msgstr "تاريخ الإنتهاء"
+
+#. module: exp_transaction_report
+#: model:ir.model.fields,field_description:exp_transaction_report.field_achievement_transaction_report_wizard__entity_ids
+#: model:ir.model.fields,field_description:exp_transaction_report.field_close_transaction_report_wizard__entity_ids
+#: model:ir.model.fields,field_description:exp_transaction_report.field_forward_transaction_report_wizard__entity_ids
+#: model:ir.model.fields,field_description:exp_transaction_report.field_incoming_transaction_report_wizard__entity_ids
+#: model:ir.model.fields,field_description:exp_transaction_report.field_late_transaction_report_wizard__entity_ids
+#: model:ir.model.fields,field_description:exp_transaction_report.field_outgoing_transaction_report_wizard__entity_ids
+#: model:ir.model.fields,field_description:exp_transaction_report.field_outstanding_transaction_report_wizard__entity_ids
+#: model:ir.model.fields,field_description:exp_transaction_report.field_transaction_common_report__entity_ids
+msgid "Entities"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.actions.report,name:exp_transaction_report.forward_transaction_complete_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_forw_transaction_report
+msgid "Forward Transaction Report"
+msgstr "تقرير المعاملات المحاله"
+
+#. module: exp_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_incom_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_late_transaction_report
+msgid "Going To"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.model.fields,field_description:exp_transaction_report.field_achievement_transaction_report_wizard__id
+#: model:ir.model.fields,field_description:exp_transaction_report.field_close_transaction_report_wizard__id
+#: model:ir.model.fields,field_description:exp_transaction_report.field_forward_transaction_report_wizard__id
+#: model:ir.model.fields,field_description:exp_transaction_report.field_incoming_transaction_report_wizard__id
+#: model:ir.model.fields,field_description:exp_transaction_report.field_late_transaction_report_wizard__id
+#: model:ir.model.fields,field_description:exp_transaction_report.field_outgoing_transaction_report_wizard__id
+#: model:ir.model.fields,field_description:exp_transaction_report.field_outstanding_transaction_report_wizard__id
+#: model:ir.model.fields,field_description:exp_transaction_report.field_report_exp_transaction_report_achievement_tran_report_temp__id
+#: model:ir.model.fields,field_description:exp_transaction_report.field_report_exp_transaction_report_achievement_transaction_xls__id
+#: model:ir.model.fields,field_description:exp_transaction_report.field_report_exp_transaction_report_close_transaction_xls__id
+#: model:ir.model.fields,field_description:exp_transaction_report.field_report_exp_transaction_report_outstand_transaction_report_temp__id
+#: model:ir.model.fields,field_description:exp_transaction_report.field_report_exp_transaction_report_template_close_transaction_report__id
+#: model:ir.model.fields,field_description:exp_transaction_report.field_report_exp_transaction_report_template_forw_transaction_report__id
+#: model:ir.model.fields,field_description:exp_transaction_report.field_report_exp_transaction_report_template_incom_transaction_report__id
+#: model:ir.model.fields,field_description:exp_transaction_report.field_report_exp_transaction_report_template_late_transaction_report__id
+#: model:ir.model.fields,field_description:exp_transaction_report.field_report_exp_transaction_report_template_out_transaction_report__id
+#: model:ir.model.fields,field_description:exp_transaction_report.field_transaction_common_report__id
+msgid "ID"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__achievement_transaction_report_wizard__type_transact__incoming
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__close_transaction_report_wizard__type_transact__incoming
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__forward_transaction_report_wizard__type_transact__incoming
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__incoming_transaction_report_wizard__type_transact__incoming
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__late_transaction_report_wizard__type_transact__incoming
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__outstanding_transaction_report_wizard__type_transact__incoming
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__transaction_common_report__type_transact__incoming
+msgid "Incoming"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_incom_transaction_report
+msgid "Incoming From"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.actions.report,name:exp_transaction_report.incom_transaction_complete_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_incom_transaction_report
+msgid "Incoming Transaction Report"
+msgstr "تقرير المعاملات الوارده"
+
+#. module: exp_transaction_report
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__achievement_transaction_report_wizard__type_transact__internal
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__close_transaction_report_wizard__type_transact__internal
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__forward_transaction_report_wizard__type_transact__internal
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__incoming_transaction_report_wizard__type_transact__internal
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__late_transaction_report_wizard__type_transact__internal
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__outgoing_transaction_report_wizard__type_transact__internal
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__transaction_common_report__type_transact__internal
+msgid "Internal"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.model.fields,field_description:exp_transaction_report.field_achievement_transaction_report_wizard____last_update
+#: model:ir.model.fields,field_description:exp_transaction_report.field_close_transaction_report_wizard____last_update
+#: model:ir.model.fields,field_description:exp_transaction_report.field_forward_transaction_report_wizard____last_update
+#: model:ir.model.fields,field_description:exp_transaction_report.field_incoming_transaction_report_wizard____last_update
+#: model:ir.model.fields,field_description:exp_transaction_report.field_late_transaction_report_wizard____last_update
+#: model:ir.model.fields,field_description:exp_transaction_report.field_outgoing_transaction_report_wizard____last_update
+#: model:ir.model.fields,field_description:exp_transaction_report.field_outstanding_transaction_report_wizard____last_update
+#: model:ir.model.fields,field_description:exp_transaction_report.field_report_exp_transaction_report_achievement_tran_report_temp____last_update
+#: model:ir.model.fields,field_description:exp_transaction_report.field_report_exp_transaction_report_achievement_transaction_xls____last_update
+#: model:ir.model.fields,field_description:exp_transaction_report.field_report_exp_transaction_report_close_transaction_xls____last_update
+#: model:ir.model.fields,field_description:exp_transaction_report.field_report_exp_transaction_report_outstand_transaction_report_temp____last_update
+#: model:ir.model.fields,field_description:exp_transaction_report.field_report_exp_transaction_report_template_close_transaction_report____last_update
+#: model:ir.model.fields,field_description:exp_transaction_report.field_report_exp_transaction_report_template_forw_transaction_report____last_update
+#: model:ir.model.fields,field_description:exp_transaction_report.field_report_exp_transaction_report_template_incom_transaction_report____last_update
+#: model:ir.model.fields,field_description:exp_transaction_report.field_report_exp_transaction_report_template_late_transaction_report____last_update
+#: model:ir.model.fields,field_description:exp_transaction_report.field_report_exp_transaction_report_template_out_transaction_report____last_update
+#: model:ir.model.fields,field_description:exp_transaction_report.field_transaction_common_report____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.model.fields,field_description:exp_transaction_report.field_achievement_transaction_report_wizard__write_uid
+#: model:ir.model.fields,field_description:exp_transaction_report.field_close_transaction_report_wizard__write_uid
+#: model:ir.model.fields,field_description:exp_transaction_report.field_forward_transaction_report_wizard__write_uid
+#: model:ir.model.fields,field_description:exp_transaction_report.field_incoming_transaction_report_wizard__write_uid
+#: model:ir.model.fields,field_description:exp_transaction_report.field_late_transaction_report_wizard__write_uid
+#: model:ir.model.fields,field_description:exp_transaction_report.field_outgoing_transaction_report_wizard__write_uid
+#: model:ir.model.fields,field_description:exp_transaction_report.field_outstanding_transaction_report_wizard__write_uid
+#: model:ir.model.fields,field_description:exp_transaction_report.field_transaction_common_report__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.model.fields,field_description:exp_transaction_report.field_achievement_transaction_report_wizard__write_date
+#: model:ir.model.fields,field_description:exp_transaction_report.field_close_transaction_report_wizard__write_date
+#: model:ir.model.fields,field_description:exp_transaction_report.field_forward_transaction_report_wizard__write_date
+#: model:ir.model.fields,field_description:exp_transaction_report.field_incoming_transaction_report_wizard__write_date
+#: model:ir.model.fields,field_description:exp_transaction_report.field_late_transaction_report_wizard__write_date
+#: model:ir.model.fields,field_description:exp_transaction_report.field_outgoing_transaction_report_wizard__write_date
+#: model:ir.model.fields,field_description:exp_transaction_report.field_outstanding_transaction_report_wizard__write_date
+#: model:ir.model.fields,field_description:exp_transaction_report.field_transaction_common_report__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.actions.report,name:exp_transaction_report.late_transaction_complete_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_late_transaction_report
+msgid "Late Transaction Report"
+msgstr "تقرير المعاملات المتأخره"
+
+#. module: exp_transaction_report
+#: code:addons/exp_transaction_report/wizard/achievement_transaction_report_wiz.py:0
+#: code:addons/exp_transaction_report/wizard/close_transaction_wiz.py:0
+#: code:addons/exp_transaction_report/wizard/forward_transaction_report_wiz.py:0
+#: code:addons/exp_transaction_report/wizard/incoming_transaction_report_wiz.py:0
+#: code:addons/exp_transaction_report/wizard/late_transaction_report_wiz.py:0
+#: code:addons/exp_transaction_report/wizard/outgoing_transaction_report_wiz.py:0
+#: code:addons/exp_transaction_report/wizard/outstanding_transaction_report_wiz.py:0
+#, python-format
+msgid "No data for your selection\n"
+msgstr "لا يوجد بيانات لهذه المرشحات !"
+
+#. module: exp_transaction_report
+#: code:addons/exp_transaction_report/wizard/close_transaction_wiz.py:0
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_close_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_forw_transaction_report
+#, python-format
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: exp_transaction_report
+#: code:addons/exp_transaction_report/wizard/achievement_transaction_report_wiz.py:0
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.achievement_tran_report_temp
+#, python-format
+msgid "Number of closed transactions"
+msgstr "عدد المعاملات المغلقة"
+
+#. module: exp_transaction_report
+#: code:addons/exp_transaction_report/wizard/achievement_transaction_report_wiz.py:0
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.achievement_tran_report_temp
+#, python-format
+msgid "Number of incoming transactions"
+msgstr "عدد المعاملات الوارده"
+
+#. module: exp_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.achievement_tran_report_temp
+msgid "Number of outgoing transactions"
+msgstr ""
+
+#. module: exp_transaction_report
+#: code:addons/exp_transaction_report/wizard/achievement_transaction_report_wiz.py:0
+#, python-format
+msgid "Number of transactions issued"
+msgstr "عدد المعاملات الصادرة"
+
+#. module: exp_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.achievement_tran_report_temp
+msgid "Number of transactions referred from administration"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.achievement_tran_report_temp
+msgid "Number of transactions referred to administration"
+msgstr ""
+
+#. module: exp_transaction_report
+#: code:addons/exp_transaction_report/wizard/achievement_transaction_report_wiz.py:0
+#, python-format
+msgid "Number of transactions referred to departament"
+msgstr "عدد المعاملات المحالة إلى الإدارة/الموظف"
+
+#. module: exp_transaction_report
+#: code:addons/exp_transaction_report/wizard/achievement_transaction_report_wiz.py:0
+#, python-format
+msgid "Number of transactions transferred by departament"
+msgstr "عدد المعاملات المحالة من الادارة"
+
+#. module: exp_transaction_report
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__outgoing_transaction_report_wizard__type_transact__outgoing
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__outstanding_transaction_report_wizard__type_transact__outgoing
+msgid "Outgoing"
+msgstr " الصادره"
+
+#. module: exp_transaction_report
+#: model:ir.actions.report,name:exp_transaction_report.out_transaction_complete_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_out_transaction_report
+msgid "Outgoing Transaction Report"
+msgstr "تقرير المعاملات الصادره"
+
+#. module: exp_transaction_report
+#: model:ir.actions.report,name:exp_transaction_report.outstanding_transaction_complete_report
+msgid "Outstanding Transaction Report"
+msgstr "تقرير المعاملات المسددة"
+
+#. module: exp_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.custom_external_layout_standard_all
+msgid "Page: <span class=\"page\"/> / <span class=\"topage\"/>"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.model,name:exp_transaction_report.model_achievement_transaction_report_wizard
+msgid "Print Achievement Transaction Report"
+msgstr "طباعة تقرير المعاملات المنجزه"
+
+#. module: exp_transaction_report
+#: model:ir.model,name:exp_transaction_report.model_close_transaction_report_wizard
+msgid "Print Close Transaction Report"
+msgstr "طباعة تقرير المعاملات المغلقة"
+
+#. module: exp_transaction_report
+#: model:ir.actions.act_window,name:exp_transaction_report.close_transaction_report_wiz
+#: model:ir.ui.menu,name:exp_transaction_report.close_transaction_report
+msgid "Print Close transaction Report"
+msgstr "طباعة تقرير المعاملات المغلقة"
+
+#. module: exp_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.achievement_transaction_report_wizard_view
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.close_transaction_report_wizard_view
+msgid "Print Excel Report"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.model,name:exp_transaction_report.model_forward_transaction_report_wizard
+msgid "Print Forward Transaction Report"
+msgstr "طباعة تقرير المعاملات المحاله"
+
+#. module: exp_transaction_report
+#: model:ir.actions.act_window,name:exp_transaction_report.incoming_transaction_report_wiz
+#: model:ir.ui.menu,name:exp_transaction_report.incoming_transaction_report
+msgid "Print Incoming transaction Report"
+msgstr "طباعة تقرير المعاملات الوارده"
+
+#. module: exp_transaction_report
+#: model:ir.actions.act_window,name:exp_transaction_report.outgoing_transaction_report_wiz
+#: model:ir.ui.menu,name:exp_transaction_report.outgoing_transaction_report
+msgid "Print Outgoing transaction Report"
+msgstr "طباعة تقرير المعاملات الصادره"
+
+#. module: exp_transaction_report
+#: model:ir.model,name:exp_transaction_report.model_outstanding_transaction_report_wizard
+msgid "Print Outstanding Transaction Report"
+msgstr "طباعة تقرير المعاملات المسدده"
+
+#. module: exp_transaction_report
+#: model:ir.actions.act_window,name:exp_transaction_report.outstanding_transaction_report_wiz
+#: model:ir.ui.menu,name:exp_transaction_report.outstanding_transaction_report
+msgid "Print Outstanding transaction Report"
+msgstr "طباعة تقرير المعاملات المسدده"
+
+#. module: exp_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.achievement_transaction_report_wizard_view
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.close_transaction_report_wizard_view
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.forward_transaction_report_wizard_view
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.incoming_transaction_report_wizard_view
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.late_transaction_report_wizard_view
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.outgoing_transaction_report_wizard_view
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.outstanding_transaction_report_wizard_view
+msgid "Print Report"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.actions.act_window,name:exp_transaction_report.achievement_transaction_report_wiz
+#: model:ir.ui.menu,name:exp_transaction_report.achievement_transaction_report
+msgid "Print achievement transaction Report"
+msgstr "طباعة تقرير المعاملات المنجزه"
+
+#. module: exp_transaction_report
+#: model:ir.actions.act_window,name:exp_transaction_report.forward_transaction_report_wiz
+#: model:ir.ui.menu,name:exp_transaction_report.forward_transaction_report
+msgid "Print forward transaction Report"
+msgstr "طباعة تقرير المعاملات المحاله"
+
+#. module: exp_transaction_report
+#: model:ir.model,name:exp_transaction_report.model_incoming_transaction_report_wizard
+msgid "Print incoming Transaction Report"
+msgstr "طباعة تقرير المعاملات الوارده"
+
+#. module: exp_transaction_report
+#: model:ir.model,name:exp_transaction_report.model_late_transaction_report_wizard
+msgid "Print late Transaction Report"
+msgstr "طباعة تقرير المعاملات المتأخره"
+
+#. module: exp_transaction_report
+#: model:ir.actions.act_window,name:exp_transaction_report.late_transaction_report_wiz
+#: model:ir.ui.menu,name:exp_transaction_report.late_transaction_report
+msgid "Print late transaction Report"
+msgstr "طباعة تقرير المعاملات المتأخره"
+
+#. module: exp_transaction_report
+#: model:ir.model,name:exp_transaction_report.model_outgoing_transaction_report_wizard
+msgid "Print outgoing Transaction Report"
+msgstr "طباعة تقرير المعاملات الصادره"
+
+#. module: exp_transaction_report
+#: model:ir.actions.report,name:exp_transaction_report.achievement_transaction_xls
+#: model:ir.actions.report,name:exp_transaction_report.close_transaction_xls
+msgid "Print to XLSX"
+msgstr "طباعة إكسل"
+
+#. module: exp_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.outstand_transaction_report_temp
+msgid "Process Transactions"
+msgstr ""
+
+#. module: exp_transaction_report
+#: code:addons/exp_transaction_report/wizard/close_transaction_wiz.py:0
+#, python-format
+msgid "Reason for closure"
+msgstr "سبب الاغلاق"
+
+#. module: exp_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.outstand_transaction_report_temp
+msgid "Report outstanding Transaction"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.outstand_transaction_report_temp
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_out_transaction_report
+msgid "Send To"
+msgstr "مرسلة الي"
+
+#. module: exp_transaction_report
+#: model:ir.model.fields,field_description:exp_transaction_report.field_achievement_transaction_report_wizard__start_date
+#: model:ir.model.fields,field_description:exp_transaction_report.field_close_transaction_report_wizard__start_date
+#: model:ir.model.fields,field_description:exp_transaction_report.field_forward_transaction_report_wizard__start_date
+#: model:ir.model.fields,field_description:exp_transaction_report.field_incoming_transaction_report_wizard__start_date
+#: model:ir.model.fields,field_description:exp_transaction_report.field_late_transaction_report_wizard__start_date
+#: model:ir.model.fields,field_description:exp_transaction_report.field_outgoing_transaction_report_wizard__start_date
+#: model:ir.model.fields,field_description:exp_transaction_report.field_outstanding_transaction_report_wizard__start_date
+#: model:ir.model.fields,field_description:exp_transaction_report.field_transaction_common_report__start_date
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.achievement_tran_report_temp
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.outstand_transaction_report_temp
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_close_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_forw_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_incom_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_late_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_out_transaction_report
+msgid "Start Date"
+msgstr ""
+
+#. module: exp_transaction_report
+#: code:addons/exp_transaction_report/wizard/achievement_transaction_report_wiz.py:0
+#: code:addons/exp_transaction_report/wizard/close_transaction_wiz.py:0
+#, python-format
+msgid "Start date"
+msgstr "تاريخ البدء"
+
+#. module: exp_transaction_report
+#: code:addons/exp_transaction_report/wizard/close_transaction_wiz.py:0
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.outstand_transaction_report_temp
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_close_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_forw_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_incom_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_late_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_out_transaction_report
+#, python-format
+msgid "Subject"
+msgstr "الموضوع"
+
+#. module: exp_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_close_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_forw_transaction_report
+msgid "Transaction Classification"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.model,name:exp_transaction_report.model_transaction_common_report
+msgid "Transaction Common Report"
+msgstr "تقرير المعامله المشترك"
+
+#. module: exp_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.outstand_transaction_report_temp
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_close_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_forw_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_incom_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_late_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_out_transaction_report
+msgid "Transaction Date"
+msgstr "تاريخ المعاملة"
+
+#. module: exp_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.outstand_transaction_report_temp
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_close_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_forw_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_incom_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_late_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_out_transaction_report
+msgid "Transaction Number"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.common_transaction_report_wizard_view
+msgid "Transaction Report"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.model.fields,field_description:exp_transaction_report.field_achievement_transaction_report_wizard__type_transact
+#: model:ir.model.fields,field_description:exp_transaction_report.field_close_transaction_report_wizard__type_transact
+#: model:ir.model.fields,field_description:exp_transaction_report.field_forward_transaction_report_wizard__type_transact
+#: model:ir.model.fields,field_description:exp_transaction_report.field_incoming_transaction_report_wizard__type_transact
+#: model:ir.model.fields,field_description:exp_transaction_report.field_late_transaction_report_wizard__type_transact
+#: model:ir.model.fields,field_description:exp_transaction_report.field_outgoing_transaction_report_wizard__type_transact
+#: model:ir.model.fields,field_description:exp_transaction_report.field_outstanding_transaction_report_wizard__type_transact
+#: model:ir.model.fields,field_description:exp_transaction_report.field_transaction_common_report__type_transact
+msgid "Transaction Type"
+msgstr "انواع المعاملات"
+
+#. module: exp_transaction_report
+#: code:addons/exp_transaction_report/wizard/close_transaction_wiz.py:0
+#, python-format
+msgid "Transaction classification"
+msgstr "تصنيف المعاملة"
+
+#. module: exp_transaction_report
+#: code:addons/exp_transaction_report/wizard/close_transaction_wiz.py:0
+#, python-format
+msgid "Transaction number"
+msgstr "رقم المعاملة"
+
+#. module: exp_transaction_report
+#: code:addons/exp_transaction_report/wizard/close_transaction_wiz.py:0
+#: model:ir.model.fields,field_description:exp_transaction_report.field_achievement_transaction_report_wizard__type
+#: model:ir.model.fields,field_description:exp_transaction_report.field_close_transaction_report_wizard__type
+#: model:ir.model.fields,field_description:exp_transaction_report.field_forward_transaction_report_wizard__type
+#: model:ir.model.fields,field_description:exp_transaction_report.field_incoming_transaction_report_wizard__type
+#: model:ir.model.fields,field_description:exp_transaction_report.field_late_transaction_report_wizard__type
+#: model:ir.model.fields,field_description:exp_transaction_report.field_outgoing_transaction_report_wizard__type
+#: model:ir.model.fields,field_description:exp_transaction_report.field_outstanding_transaction_report_wizard__type
+#: model:ir.model.fields,field_description:exp_transaction_report.field_transaction_common_report__type
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.outstand_transaction_report_temp
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_close_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_forw_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_incom_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_late_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_out_transaction_report
+#, python-format
+msgid "Type"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__achievement_transaction_report_wizard__type__unit
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__close_transaction_report_wizard__type__unit
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__forward_transaction_report_wizard__type__unit
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__incoming_transaction_report_wizard__type__unit
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__late_transaction_report_wizard__type__unit
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__outgoing_transaction_report_wizard__type__unit
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__outstanding_transaction_report_wizard__type__unit
+#: model:ir.model.fields.selection,name:exp_transaction_report.selection__transaction_common_report__type__unit
+msgid "Unit"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.achievement_transaction_report_wizard_view
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.close_transaction_report_wizard_view
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.forward_transaction_report_wizard_view
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.incoming_transaction_report_wizard_view
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.late_transaction_report_wizard_view
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.outgoing_transaction_report_wizard_view
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.outstanding_transaction_report_wizard_view
+msgid "or"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.model,name:exp_transaction_report.model_report_exp_transaction_report_achievement_tran_report_temp
+msgid "report.exp_transaction_report.achievement_tran_report_temp"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.model,name:exp_transaction_report.model_report_exp_transaction_report_achievement_transaction_xls
+msgid "report.exp_transaction_report.achievement_transaction_xls"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.model,name:exp_transaction_report.model_report_exp_transaction_report_close_transaction_xls
+msgid "report.exp_transaction_report.close_transaction_xls"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.model,name:exp_transaction_report.model_report_exp_transaction_report_outstand_transaction_report_temp
+msgid "report.exp_transaction_report.outstand_transaction_report_temp"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.model,name:exp_transaction_report.model_report_exp_transaction_report_template_close_transaction_report
+msgid "report.exp_transaction_report.template_close_transaction_report"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.model,name:exp_transaction_report.model_report_exp_transaction_report_template_forw_transaction_report
+msgid "report.exp_transaction_report.template_forw_transaction_report"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.model,name:exp_transaction_report.model_report_exp_transaction_report_template_incom_transaction_report
+msgid "report.exp_transaction_report.template_incom_transaction_report"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.model,name:exp_transaction_report.model_report_exp_transaction_report_template_late_transaction_report
+msgid "report.exp_transaction_report.template_late_transaction_report"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model:ir.model,name:exp_transaction_report.model_report_exp_transaction_report_template_out_transaction_report
+msgid "report.exp_transaction_report.template_out_transaction_report"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_forw_transaction_report
+msgid "‫‪From‬‬"
+msgstr ""
+
+#. module: exp_transaction_report
+#: model_terms:ir.ui.view,arch_db:exp_transaction_report.template_forw_transaction_report
+msgid "‫‪forward‬‬ Date"
+msgstr ""

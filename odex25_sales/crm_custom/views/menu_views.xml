@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_action_sector"
+        action="base_odex.action_sector"
+        parent="crm.crm_menu_config"/>
+
+    <menuitem id="menu_res_partner_industry_action" 
+        action="base.res_partner_industry_action"
+        parent="crm.crm_menu_config"/>
+
+    <menuitem id="menu_localization"
+        name="Localization"
+        parent="crm.crm_menu_config"/>
+
+
+    <menuitem id="country_menu" name="Country"
+        parent="menu_localization"
+        action="base.action_country" />
+    
+    <menuitem id="region_menu" name="Region"
+        parent="menu_localization"
+        action="base_odex.res_state_list_action" />
+
+    <menuitem id="city_menu" name="City"
+        parent="menu_localization"
+        action="base_odex.res_city_list_action" />
+
+</odoo>

@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- online.tender.report form view -->
+        <record id="employee_purchase_report_wizard_form" model="ir.ui.view">
+            <field name="name">ُOnline Tender Report</field>
+            <field name="model">online.tender.report</field>
+            <field name="arch" type="xml">
+                <form string="">
+                        <group col="4" colspan="2">
+                            <field name="date_from" required="1"/>
+                            <field name="date_to" required="1"/>
+                            <field name="type" required="1"/>
+                            <field name="department_ids" attrs="{'invisible': [('type' , '!=' , 'tender')]}" widget="many2many_tags"/>
+                            <field name="tender_id" domain="[('published_in_portal' , '=' , True)]"  attrs="{'invisible': [('type' , '!=' , 'price')],'required' : [('type' , '=' , 'price')]}" />
+                            <field name="state" attrs="{'invisible': [('type' , 'not in' , ('price' , 'application'))],'required' : [('type' , 'in' , ('price' , 'application'))]}"/>
+                        </group>
+                        <footer>
+                        <div>
+                            <button name="action_print" string="Print" type="object" default_focus="1" class="oe_highlight"/>
+                            or
+                            <button string="Cancel" class="oe_link" special="cancel" />
+                        </div>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- online.tender.report action window -->
+        <record id="action_online_tender_wizard" model="ir.actions.act_window">
+            <field name="name">Online Tender Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">online.tender.report</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="online_tender_report_menu" name="Online Tender Report" parent="purchase_requisition_custom.purchase_pdf_reports" action="action_online_tender_wizard" sequence="3"/>
+        
+    </data>
+</odoo>

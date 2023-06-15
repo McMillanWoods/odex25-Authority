@@ -1,0 +1,170 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_permission_holidays
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-06 12:40+0000\n"
+"PO-Revision-Date: 2022-11-06 12:40+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_permission_holidays
+#: model:ir.model.fields,field_description:hr_permission_holidays.field_hr_personal_permission__deduct_from_holiday
+msgid "Deduct From Holiday"
+msgstr "الخصم من رصيد الاجازة"
+
+#. module: hr_permission_holidays
+#: model:ir.model.fields,field_description:hr_permission_holidays.field_hr_holidays__display_name
+#: model:ir.model.fields,field_description:hr_permission_holidays.field_hr_holidays_status__display_name
+#: model:ir.model.fields,field_description:hr_permission_holidays.field_hr_personal_permission__display_name
+#: model:ir.model.fields,field_description:hr_permission_holidays.field_resource_calendar__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: hr_permission_holidays
+#: model:ir.model.fields,field_description:hr_permission_holidays.field_hr_personal_permission__holiday
+msgid "Holiday"
+msgstr "يوم الاجازة"
+
+#. module: hr_permission_holidays
+#: model:ir.model.fields,field_description:hr_permission_holidays.field_hr_holidays__id
+#: model:ir.model.fields,field_description:hr_permission_holidays.field_hr_holidays_status__id
+#: model:ir.model.fields,field_description:hr_permission_holidays.field_hr_personal_permission__id
+#: model:ir.model.fields,field_description:hr_permission_holidays.field_resource_calendar__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: hr_permission_holidays
+#: model:ir.model.fields,field_description:hr_permission_holidays.field_hr_holidays____last_update
+#: model:ir.model.fields,field_description:hr_permission_holidays.field_hr_holidays_status____last_update
+#: model:ir.model.fields,field_description:hr_permission_holidays.field_hr_personal_permission____last_update
+#: model:ir.model.fields,field_description:hr_permission_holidays.field_resource_calendar____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: hr_permission_holidays
+#: model:ir.model,name:hr_permission_holidays.model_hr_holidays
+msgid "Leave"
+msgstr "الإجازات"
+
+#. module: hr_permission_holidays
+#: model:ir.model,name:hr_permission_holidays.model_hr_holidays_status
+msgid "Leave Type"
+msgstr "نوع الإجازة"
+
+#. module: hr_permission_holidays
+#: model:ir.model.fields,field_description:hr_permission_holidays.field_hr_personal_permission__permission_amount
+msgid "Permission Amount"
+msgstr "مقدار الاذن"
+
+#. module: hr_permission_holidays
+#: model:ir.model.fields,field_description:hr_permission_holidays.field_hr_personal_permission__permission_number
+msgid "Permission Number"
+msgstr "رقم الإذن"
+
+#. module: hr_permission_holidays
+#: model:ir.model.fields,field_description:hr_permission_holidays.field_resource_calendar__holiday_permission_deducted
+msgid "Permission to Deduct From holiday"
+msgstr "خصم الاذن من الاجازة"
+
+#. module: hr_permission_holidays
+#: model:ir.model.fields,field_description:hr_permission_holidays.field_hr_holidays__permission_ids
+msgid "Permissions"
+msgstr "الاذونات"
+
+#. module: hr_permission_holidays
+#: model:ir.model.fields,field_description:hr_permission_holidays.field_hr_holidays_status__permission_annual_holiday
+msgid "Permissions Deduct From Holiday"
+msgstr "خصم الإذن من الاجازة السنوية"
+
+#. module: hr_permission_holidays
+#: model:ir.model,name:hr_permission_holidays.model_resource_calendar
+msgid "Resource Working Time"
+msgstr "فترة عمل المورد"
+
+#. module: hr_permission_holidays
+#: code:addons/hr_permission_holidays/models/permission.py:0
+#, python-format
+msgid "Sorry You Have No annual Leave To Deduct Permission"
+msgstr "عذرا ليس هنالك اجازة سنوية لخصم الاذن"
+
+#. module: hr_permission_holidays
+#: code:addons/hr_permission_holidays/models/permission.py:0
+#, python-format
+msgid "Sorry You Have Used All Your Permission Hours In This Month"
+msgstr "تم استخدام كل الاذونات المسموح بها خلال هذا الشهر"
+
+#. module: hr_permission_holidays
+#: code:addons/hr_permission_holidays/models/permission.py:0
+#, python-format
+msgid ""
+"Sorry You Have Used All Your Permission In This Day you have one permission "
+"per a Day"
+msgstr "عذرًا ، لقد استخدمت كل الأذونات الخاصة بك في هذا اليوم ، لديك إذن واحد لكل يوم"
+
+#. module: hr_permission_holidays
+#: code:addons/hr_permission_holidays/models/permission.py:0
+#, python-format
+msgid "Sorry You Have Used All Your Permission To Deduct From Holidays"
+msgstr "تم استخدام كل الاذونات المسموح بخصمها من الاجازة السنوية!"
+
+#. module: hr_permission_holidays
+#: code:addons/hr_permission_holidays/models/permission.py:0
+#, python-format
+msgid "Sorry You Need To use Basic Permission Before Use Holidays"
+msgstr "عذرا لايمكنك طلب خصم من اجازة وانت ﻻتمتلك  رصيد إذن غير مستخدم"
+
+#. module: hr_permission_holidays
+#: code:addons/hr_permission_holidays/models/permission.py:0
+#: code:addons/hr_permission_holidays/models/permission.py:0
+#, python-format
+msgid "Sorry you Have No leave balance"
+msgstr "لايوجد رصيد اجازة سنوية للخصم منه"
+
+#. module: hr_permission_holidays
+#: model:ir.model.fields,help:hr_permission_holidays.field_resource_calendar__holiday_permission_deducted
+msgid "The Number of permission deducted From The Annual Holiday balance"
+msgstr "عدد الإذن المقتطع من رصيد الإجازة السنوية"
+
+#. module: hr_permission_holidays
+#: model:ir.model.fields,help:hr_permission_holidays.field_hr_personal_permission__permission_number
+msgid "The Remaining Number of Hours permission This Month"
+msgstr "إذن العدد المتبقي من الساعات هذا الشهر"
+
+#. module: hr_permission_holidays
+#: code:addons/hr_permission_holidays/models/permission.py:0
+#, python-format
+msgid "This Duration Must Be Greater Than Zero"
+msgstr "يجب أن تكون هذه المدة أكبر من الصفر"
+
+#. module: hr_permission_holidays
+#: code:addons/hr_permission_holidays/models/permission.py:0
+#, python-format
+msgid "This Duration must be less than or equal to the Permission Limit"
+msgstr "يجب أن تكون هذه المدة أقل من أو تساوي حد الإذن"
+
+#. module: hr_permission_holidays
+#: code:addons/hr_permission_holidays/models/permission.py:0
+#, python-format
+msgid ""
+"This Duration not Allowed it must be Less Than or equal Permission Hours in "
+"Month"
+msgstr "هذه المدة غير مسموح بها يجب أن تكون أقل من أو تساوي ساعات الإذن في الشهر"
+
+#. module: hr_permission_holidays
+#: code:addons/hr_permission_holidays/models/permission.py:0
+#, python-format
+msgid "You can not Request Permission The Employee have Not First Hiring Date"
+msgstr "لا يمكنك طلب الإذن ليس للموظف تاريخ التعيين الأول"
+
+#. module: hr_permission_holidays
+#: model:ir.model,name:hr_permission_holidays.model_hr_personal_permission
+msgid "hr.personal.permission"
+msgstr ""

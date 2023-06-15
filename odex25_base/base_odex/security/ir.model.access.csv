@@ -1,0 +1,8 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+access_res_city,Access Country cities,base_odex.model_res_country_city,base.group_user,1,0,0,0
+access_res_city_manager,Access Country cities,base_odex.model_res_country_city,base.group_erp_manager,1,1,1,1
+access_odex_hijri,odex_hijri,base_odex.model_odex_hijri,,1,1,1,1
+access_sector,sector,base_odex.model_sector,base.group_user,1,1,1,1
+
+
+

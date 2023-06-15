@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+        <record model='ir.ui.view' id='wizard_execution_guarantee_form'>
+            <field name="name">account.execution.guarantee.wizard.form</field>
+            <field name="model">account.execution.guarantee.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <h3>Please Choose Account and Add Label, Percentage:</h3>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="account_id"/>
+                            </group>
+                            <group>
+                                <label for="percentage"/>
+                                <div name="percentage">
+                                    <field name="percentage" class="oe_inline"/>%
+                                </div>
+                            </group>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name="create_execution_guarantee_line" string="Create" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Discard" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record model='ir.actions.act_window' id='wizard_execution_guarantee_action'>
+            <field name="name">Create Execution Guarantee</field>
+            <field name="res_model">account.execution.guarantee.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="wizard_execution_guarantee_form"/>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

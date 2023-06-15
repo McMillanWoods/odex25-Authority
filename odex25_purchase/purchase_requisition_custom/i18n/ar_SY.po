@@ -1,0 +1,1357 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* purchase_requisition_custom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-15 09:00+0000\n"
+"PO-Revision-Date: 2021-09-15 09:00+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:390
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:470
+#, python-format
+msgid " No budget for this service "
+msgstr " لا توجد ميزانية لهذه الخدمة "
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.committee_meeting_minutes_report_document
+msgid "<span><strong>الإجمالي</strong></span>"
+msgstr "<span><strong>الإجمالي</strong></span>"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.committee_meeting_minutes_report_document
+msgid "<strong>Description - الوصف</strong>"
+msgstr "<strong>Description - الوصف</strong>"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.committee_meeting_minutes_report_document
+msgid "<strong>Product - الصنف</strong>"
+msgstr "<strong>Product - الصنف</strong>"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.committee_meeting_minutes_report_document
+msgid "<strong>Quantity - الكمية</strong>"
+msgstr "<strong>Quantity - الكمية</strong>"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.committee_meeting_minutes_report_document
+msgid "<strong>أعضاء اللجنة:</strong>"
+msgstr "<strong>أعضاء اللجنة:</strong>"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.committee_meeting_minutes_report_document
+msgid "<strong>أعضاء اللجنة</strong>"
+msgstr "<strong>أعضاء اللجنة</strong>"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.committee_meeting_minutes_report_document
+msgid "<strong>الإجمالي</strong>"
+msgstr "<strong>الإجمالي</strong>"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.committee_meeting_minutes_report_document
+msgid "<strong>التوقيع</strong>"
+msgstr "<strong>التوقيع</strong>"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.committee_meeting_minutes_report_document
+msgid "<strong>السعر</strong>"
+msgstr "<strong>السعر</strong>"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.committee_meeting_minutes_report_document
+msgid "<strong>الضريبة</strong>"
+msgstr "<strong>الضريبة</strong>"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.committee_meeting_minutes_report_document
+msgid "<strong>الفواتير:</strong>"
+msgstr "<strong>الفواتير:</strong>"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.committee_meeting_minutes_report_document
+msgid "<strong>الكمية</strong>"
+msgstr "<strong>الكمية</strong>"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.committee_meeting_minutes_report_document
+msgid "<strong>المنتج</strong>"
+msgstr "<strong>المنتج</strong>"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.committee_meeting_minutes_report_document
+msgid "<strong>المورد</strong>"
+msgstr "<strong>المورد</strong>"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.committee_meeting_minutes_report_document
+msgid "<strong>الموضوع: </strong>"
+msgstr "<strong>الموضوع: </strong>"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.committee_meeting_minutes_report_document
+msgid "<strong>تفاصيل المحضر:</strong>"
+msgstr "<strong>تفاصيل المحضر:</strong>"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.committee_meeting_minutes_report_document
+msgid "<strong>قرار اللجنة:</strong>"
+msgstr "<strong>قرار اللجنة:</strong>"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.committee_meeting_minutes_report_document
+msgid "<strong>مدير اللجنة</strong>"
+msgstr "<strong>مدير اللجنة</strong>"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_custom_form_view
+msgid "Accept"
+msgstr "قبول"
+
+#. module: purchase_requisition_custom
+#: model:res.groups,name:purchase_requisition_custom.group_accept_purchase_requisition
+msgid "Accept Purchase Requisition"
+msgstr "صلاحية القبول في طلب الشراء"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_custom_setting
+msgid "Activate Budget check in purchase"
+msgstr "Activate Budget check in purchase"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_request_form
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_custom_form_view
+msgid "Approve"
+msgstr "موافقة"
+
+#. module: purchase_requisition_custom
+#: model:res.groups,name:purchase_requisition_custom.approve_purchase_request
+msgid "Approve Purchase Request"
+msgstr "اعتماد طلبات شراء الإدارات"
+
+#. module: purchase_requisition_custom
+#: model:res.groups,name:purchase_requisition_custom.group_approve_purchase_requisition
+msgid "Approve Purchase Requisition"
+msgstr "صلاحية الموافقة في طلب الشراء"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_partner_document_attachment
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order_line_attachment_ids
+msgid "Attachment"
+msgstr "مرفق"
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_budget_confirmation
+msgid "Budget Confirmation"
+msgstr "تصديق الموازنة"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:64
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:204
+#, python-format
+msgid "Budget Confirmation is Canceled"
+msgstr "تم إلغاء تأكيد الميزانية"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_budget_confirmation_budget_type
+msgid "Budget Type"
+msgstr "نوع الموازنة"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_custom_setting
+msgid "Budgeting"
+msgstr "الموازنات"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_request.py:39
+#, python-format
+msgid "Can't Confirm Requset With No Item!"
+msgstr "لا يمكن تأكيد طلب مع أي عنصر!"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.order_select_wizard
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_request_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_custom_form_view
+msgid "Cancel Call"
+msgstr "إلغاء"
+
+#. module: purchase_requisition_custom
+#: model:res.groups,name:purchase_requisition_custom.group_cancel_purchase_requisition
+msgid "Cancel Purchase Requisition"
+msgstr "الغاء طلب الشراء"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order_category_id
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_category_id
+msgid "Category"
+msgstr "التصنيف"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_request.py:60
+#: code:addons/purchase_requisition_custom/models/purchase_request.py:92
+#, python-format
+msgid "Choose A Department For this Employee!"
+msgstr "اختر قسم لهذا الموظف!"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_order_custom_form_view
+msgid "Choose All"
+msgstr "تحديد الكل"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:682
+#, python-format
+msgid "Choose At Least on product to purchase"
+msgstr "يجب تحديد صنف واحد على الاقل للشراء"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.reject_wizard
+msgid "Close"
+msgstr "إقفال"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_committe_head
+msgid "Committe Head"
+msgstr "رئيس اللجنة"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order_committe_members
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_order_custom_form_view
+msgid "Committe Members"
+msgstr "أعضاء اللجنة"
+
+#. module: purchase_requisition_custom
+#: model:ir.actions.report,name:purchase_requisition_custom.action_report_committee_meeting_minutes
+msgid "Committee Meeting Report"
+msgstr "نموذج محضر اللجنة"
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_res_company
+msgid "Companies"
+msgstr "المؤسسات"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_custom_form_view
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_order_custom_form_view
+msgid "Confirm Ord"
+msgstr "تأكيد الطلب"
+
+#. module: purchase_requisition_custom
+#: model:res.groups,name:purchase_requisition_custom.group_confirm_purchase_requisition
+msgid "Confirm Purchase Requisition"
+msgstr "صلاحية التأكيد في طلب الشراء"
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: purchase_requisition_custom
+#: model:ir.actions.act_window,help:purchase_requisition_custom.purchase_request_action
+msgid "Create New purchase request"
+msgstr "Create New purchase request"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_request_form
+msgid "Create Requisition"
+msgstr "انشاء طلب عروض أسعار"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_committe_member_create_uid
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_evaluation_criteria_create_uid
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_partner_document_create_uid
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_create_uid
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_line_create_uid
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_reject_wizard_create_uid
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_select_reason_create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_committe_member_create_date
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_evaluation_criteria_create_date
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_partner_document_create_date
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_create_date
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_line_create_date
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_reject_wizard_create_date
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_select_reason_create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: purchase_requisition_custom
+msgid "Default Cost Center"
+msgstr "مركز التكلفة الافتراضي"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order_department_id
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_department_id
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_department_id
+msgid "Department"
+msgstr "الإدارة"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_line_name
+msgid "Description"
+msgstr "الوصف"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_request_form
+msgid "Direct Purchase"
+msgstr "شراء مباشر"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_committe_member_display_name
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_evaluation_criteria_display_name
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_partner_document_display_name
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_display_name
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_line_display_name
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_reject_wizard_display_name
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_select_reason_display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_partner_document_partner_id
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.res_partner_documents
+msgid "Documents"
+msgstr "الوثائق"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_custom_form_view
+msgid "Done"
+msgstr "تم"
+
+#. module: purchase_requisition_custom
+#: model:res.groups,name:purchase_requisition_custom.group_done_purchase_requisition
+msgid "Done Purchase Requisition"
+msgstr "صلاحية التمام في طلب الشراء"
+
+#. module: purchase_requisition_custom
+msgid "Draft"
+msgstr "مبدئي"
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_hr_employee
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order_employee_id
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_employee_id
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:500
+#, python-format
+msgid "Enter Quotations First!"
+msgstr "!الرجاء ادخال عرض سعر أولا"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_partner_document_exp_date
+msgid "Expiration Date"
+msgstr "تاريخ الانتهاء"
+
+#. module: purchase_requisition_custom
+msgid "Finance"
+msgstr "المالية"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_committe_member_id
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_evaluation_criteria_id
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_partner_document_id
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_id
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_line_id
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_reject_wizard_id
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_select_reason_id
+msgid "ID"
+msgstr "ID"
+
+#. module: purchase_requisition_custom
+msgid "In Purchase"
+msgstr "قسم المشتريات"
+
+#. module: purchase_requisition_custom
+msgid "Income Certificate"
+msgstr "شهادة الدخل"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_initiative_id
+msgid "Initiative"
+msgstr "المبادرة"
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_account_invoice
+msgid "Invoice"
+msgstr "الفاتورة"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_line_product_id
+msgid "Item"
+msgstr "العنصر"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_request.py:163
+#, python-format
+msgid "Item Quantity MUST be at Least ONE!"
+msgstr "!يجب أن تكون كمية العنصر واحدة على الأقل"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_request_form
+msgid "Items"
+msgstr "الأصناف"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_product_category
+msgid "Items Category"
+msgstr "فئة الصنف"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_committe_member___last_update
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_evaluation_criteria___last_update
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_partner_document___last_update
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request___last_update
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_line___last_update
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_reject_wizard___last_update
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_select_reason___last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_committe_member_write_uid
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_evaluation_criteria_write_uid
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_partner_document_write_uid
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_line_write_uid
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_write_uid
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_reject_wizard_write_uid
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_select_reason_write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_committe_member_write_date
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_evaluation_criteria_write_date
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_partner_document_write_date
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_line_write_date
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_write_date
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_reject_wizard_write_date
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_select_reason_write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_line_ids
+msgid "Line"
+msgstr "بند"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_committe_member_user_id
+msgid "Member Name"
+msgstr "اسم العضو"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:176
+#, python-format
+msgid "Minimum approves cannot be greater than members count = "
+msgstr "لا يمكن أن يكون الحد الأدنى للموافقات أكبر من عدد الأعضاء = "
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:179
+#, python-format
+msgid "Minimum votes cannot be greater than members count = "
+msgstr "لا يمكن أن يكون الحد الأدنى من الأصوات أكبر من عدد الأعضاء = "
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_evaluation_criteria_name
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_partner_document_name
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_name
+msgid "Name"
+msgstr "الإسم"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order_no_of_approve
+msgid "No. of Approves"
+msgstr "عدد الموافقات"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_min_approve
+msgid "No. of Selections"
+msgstr "اقل عدد موافقات على عرض السعر"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:170
+#, python-format
+msgid "No. of Selections cannot be Zero"
+msgstr "اقل عدد موافقات على عرض السعر لا يمكن ان يساوي الصفر"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_actual_vote
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_min_vote
+msgid "No. of Vots"
+msgstr "نصاب انعقاد اللجنة"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_note
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_request_form
+msgid "Note"
+msgstr "ملاحظات"
+
+#. module: purchase_requisition_custom
+msgid "Operational"
+msgstr "تشغيلي"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_reject_wizard_origin
+msgid "Origin"
+msgstr "المصدر"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_reject_wizard_origin_name
+msgid "Origin Name"
+msgstr "Origin Name"
+
+#. module: purchase_requisition_custom
+msgid "Other"
+msgstr "اخرى"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_evaluation_criteria_owner
+msgid "Owner"
+msgstr "المالِك"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.menu,name:purchase_requisition_custom.purchase_pdf_reports
+msgid "Pdf Reports"
+msgstr "تقارير مطبوعة"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:742
+#, python-format
+msgid "Please Choose Analytic account for This Department"
+msgstr "الرجاء اختيار حساب تحليلي لهذا القسم"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_request.py:94
+#, python-format
+msgid "Please Select A Vendor."
+msgstr "يجب اختيار مورد."
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:749
+#, python-format
+msgid "Please Set An Expense Account For Product %s"
+msgstr "الرجاء تعيين حساب مصاريف للمنتج %s"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:342
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:421
+#, python-format
+msgid "Please Sign your RFQ first"
+msgstr "الرجاء التوقيع على طلب الخاص بك أولاً"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:245
+#, python-format
+msgid "Please add Committe Members"
+msgstr "يحب اختيار اعضاء اللجنة"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:326
+#, python-format
+msgid "Please create RFQ first"
+msgstr "الرجاء إنشاء طلب عرض الأسعار أولاً"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:349
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:433
+#, python-format
+msgid "Please put cost center to the department"
+msgstr "Please put cost center to the department"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_budget_confirmation_po_id
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_committe_member_po_id
+msgid "Po"
+msgstr "Po"
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_product_product
+msgid "Product"
+msgstr "المنتج"
+
+#. module: purchase_requisition_custom
+#: model:res.groups,name:purchase_requisition_custom.group_category_product_manager
+msgid "Product Category Manager"
+msgstr "مدير فئات الأصناف"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:241
+#, python-format
+msgid "Product Quantity Can't Be Zero or less"
+msgstr "لا يمكن أن تكون كمية المنتج صفرًا أو أقل"
+
+#. module: purchase_requisition_custom
+msgid "Project"
+msgstr "مشروع"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order_line_choosen
+msgid "Purchase"
+msgstr "الشراء"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_res_company_purchase_analytic_account
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_res_config_settings_purchase_analytic_account
+msgid "Purchase Analytic Account"
+msgstr "Purchase Analytic Account"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_custom_setting
+msgid "Purchase Budget"
+msgstr "فحص الموازنة عند الشراء"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_purchase_commitee
+msgid "Purchase Commitee?"
+msgstr "يحتاج اللجان"
+
+#. module: purchase_requisition_custom
+#: model:res.groups,name:purchase_requisition_custom.committe_member
+msgid "Purchase Committe Member"
+msgstr "عضو اللجان"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_custom_form_view
+msgid "Purchase Committe Members"
+msgstr "اعضاءاللجان"
+
+#. module: purchase_requisition_custom
+#: model:ir.actions.act_window,name:purchase_requisition_custom.action_purchase_committe
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_committe_members
+msgid "Purchase Committee"
+msgstr "اللجان"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.menu,name:purchase_requisition_custom.menu_purchase_committe
+#: model:ir.ui.menu,name:purchase_requisition_custom.menu_purchase_committe_main
+msgid "Purchase Committes"
+msgstr "اللجان"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order_purchase_cost
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_purchase_cost
+msgid "Purchase Cost"
+msgstr "حدد مركز تكلفة الشراء"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order_state_of_delivery
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_state_of_delivery
+msgid "Delivery State"
+msgstr "حالة الاستلام"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_custom_setting
+msgid "Purchase Costing"
+msgstr "تكاليف المشتريات"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_purchase_create
+msgid "Purchase Create"
+msgstr "Purchase Create"
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_purchase_order
+msgid "Purchase Order"
+msgstr "أمر شراء"
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "بند طلب الشراء"
+
+#. module: purchase_requisition_custom
+#: model:ir.actions.act_window,name:purchase_requisition_custom.purchase_request_action
+#: model:ir.model,name:purchase_requisition_custom.model_purchase_request
+#: model:ir.ui.menu,name:purchase_requisition_custom.purchase_request_menu
+msgid "Purchase Request"
+msgstr "طلبات الإدارات"
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_purchase_requisition
+#: model:ir.module.category,name:purchase_requisition_custom.purchase_requisition_custom
+msgid "Purchase Requisition"
+msgstr "طلب شراء"
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_purchase_requisition_line
+msgid "Purchase Requisition Line"
+msgstr "بند المناقصة"
+
+#. module: purchase_requisition_custom
+#: model:res.groups,name:purchase_requisition_custom.purchase_requisition_second_approve
+msgid "Purchase Requisition Second Approve"
+msgstr "طلب الشراء (التصديق الثاني)"
+
+#. module: purchase_requisition_custom
+#: model:res.groups,name:purchase_requisition_custom.purchase_requisition_third_approve
+msgid "Purchase Requisition Third Approve"
+msgstr "طلب الشراء (التصديق الثالث)"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_res_company_purchase_budget
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_res_config_settings_purchase_budget
+msgid "Purchase budget"
+msgstr "Purchase budget"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order_purpose
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_purchase_purpose
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_purpose
+msgid "Purpose"
+msgstr " الغرض من الطلب"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_line_qty
+msgid "Qty"
+msgstr "الكمية"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_custom_form_view
+msgid "Quotation"
+msgstr "إدخال عروض الأسعار"
+
+#. module: purchase_requisition_custom
+#: model:res.groups,name:purchase_requisition_custom.group_quotation_purchase_requisition
+msgid "Quotation Purchase Requisition"
+msgstr "صلاحية انشاء طلب الشراء في  طلب الشراء"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.custom_view_budget_confirmation_form
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.reject_wizard
+msgid "Reject"
+msgstr "رفض"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_budget_confirmation_reject_reason
+msgid "Reject Reason"
+msgstr "Reject Reason"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_reject_wizard_reject_reason
+msgid "Reject Reson"
+msgstr "Reject Reson"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:75
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:80
+#, python-format
+msgid "Rejected by budget Manager\n"
+".<b>%s</b>"
+msgstr "رفضه مدير الميزانية\n"
+".<b>%s</b>"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.menu,name:purchase_requisition_custom.reports
+msgid "Reports"
+msgstr "التقارير"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order_request_id
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_line_request_id
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_request_id
+msgid "Request Ref."
+msgstr "مرجع الطلب"
+
+#. module: purchase_requisition_custom
+#: model:ir.actions.act_window,name:purchase_requisition_custom.action_purchase_requisition_to_so_custom
+msgid "Request for Quotation"
+msgstr "طلب التسعير"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_by_purchase
+msgid "Requested by Purchase"
+msgstr "بواسطة ادارة المشتريات"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_order_custom_form_view
+msgid "Resend To Budget Check"
+msgstr "إعادة الارسال الى الموازنة"
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_evaluation_criteria
+msgid "Rvaluatioin Creiteria"
+msgstr "معيار التقييم"
+
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_selected_purchase_id
+msgid "Selected Purchase"
+msgstr "Selected Purchase"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_committe_member_selection_reason
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order_selection_reason
+msgid "Selection Reason"
+msgstr "معيار الاختيار"
+
+#. module: purchase_requisition_custom
+#: model:res.groups,name:purchase_requisition_custom.send_pr_to_purchase
+msgid "Send PR to Purchase"
+msgstr "ارسال طلب الشراء الى ادارة المشتريات"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_custom_form_view
+msgid "Send To Budget"
+msgstr "أرسال الي الموازنة"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_order_custom_form_view
+msgid "Send To Budget Check"
+msgstr "تحقق من الموازنة"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_custom_form_view
+msgid "Send To Committee"
+msgstr "إرسال إلى اللجنة"
+
+#. module: purchase_requisition_custom
+msgid "Service Manager"
+msgstr "مدير الخدمات المساندة"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_custom_setting
+msgid "Set Defult Analytic account For Purchase"
+msgstr "حدد مركز تكلفة افتراضي للمشتريات"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_order_custom_form_view
+msgid "Sign"
+msgstr "تم التوقيع"
+
+#. module: purchase_requisition_custom
+#: model:res.groups,name:purchase_requisition_custom.group_sign_purchase_order
+msgid "Sign Purchase Order"
+msgstr "توقيع عرض السعر"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:677
+#, python-format
+msgid "Sorry The minimum number of committee member is not satsfied"
+msgstr "نصاب انعقاد اللجنة لم يكتمل بعد!"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:985
+#, python-format
+msgid "Sorry This object have no field named Selection Reasoon"
+msgstr "آسف هذا الكائن ليس لديه حقل اسمه Selection Reasoon"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:680
+#, python-format
+msgid "Sorry You cannot sign this quotation ,YOU NEED MORE COMMITTE MEMBERS TO choose it"
+msgstr "هذا العرض يحتاج الى موافقة المزيد من اغضاء اللجنة"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:545
+#, python-format
+msgid "Sorry! You Cannot Delete not Draft Document ."
+msgstr "آسف! لا يمكنك حذف المستند وليس مسودة ."
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_state
+msgid "State"
+msgstr "الحالة"
+
+#. module: purchase_requisition_custom
+msgid "Stock"
+msgstr "أسهم"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_request_form
+msgid "Submit"
+msgstr "إرسال"
+
+#. module: purchase_requisition_custom
+msgid "Tax Certificate"
+msgstr "شهادة الضرائب"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:353
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:431
+#, python-format
+msgid "The product have no expense account "
+msgstr "عفوا لايوجد حساب مصروف لهذا الصنف"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:628
+#, python-format
+msgid "This Vendor have order before"
+msgstr "هذا المورد لديه طلب من قبل"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:324
+#, python-format
+msgid "This category have no service in it"
+msgstr "هذه الفئة ليس لها خدمة فيها"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_request_form
+msgid "To Purchase"
+msgstr "إرسال لإدارة المشتريات"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:695
+#, python-format
+msgid "Total Amount Can't be Zero"
+msgstr "الاجمالي لايمكن ان يكون صفر"
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_stock_picking
+msgid "Transfer"
+msgstr "نقل"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_partner_document_type
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_type
+msgid "Type"
+msgstr "النوع"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_order_custom_form_view
+msgid "UnSign"
+msgstr "إلغاء التوقيع"
+
+#. module: purchase_requisition_custom
+#: model:res.groups,name:purchase_requisition_custom.group_unsign_purchase_order
+msgid "UnSign Purchase Order"
+msgstr "عدم التوقيع على عرض السعر"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:693
+#, python-format
+msgid "Unit Price can't be Zero Or less"
+msgstr "سعر الوحدة لا يمكن ان يكون صفرا أو أقل"
+
+#. module: purchase_requisition_custom
+#: model:ir.module.category,description:purchase_requisition_custom.purchase_requisition_custom
+msgid "User access level for this module"
+msgstr "مستوى وصول المستخدم لهذه المديول"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_partner_id
+msgid "Vendor"
+msgstr "الموردون"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_evaluation_criteria_vendor_type
+msgid "Vendor Type"
+msgstr "أنواع نشاط الموردين"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_request.py:147
+#, python-format
+msgid "You cant delete record not in darft state!"
+msgstr "لا يمكنك حذف سجل ليس في حالة مسودة!"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:723
+#, python-format
+msgid "You have already select this Quotation"
+msgstr "لقد قمت بالفعل بتحديد عرض السعر هذا"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:638
+#, python-format
+msgid "You must set a Vendor Location for this partner %s"
+msgstr "يجب عليك تعيين موقع مورد لهذا المورد %s"
+
+#. module: purchase_requisition_custom
+msgid "Zakat Certfificate"
+msgstr "شهادة الزكاة"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_res_partner_documents_ids
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_res_users_documents_ids
+msgid "Zakat Certificate"
+msgstr "Zakat Certificate"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_evaluation_criteria_active
+msgid "active"
+msgstr "active"
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_committe_member
+msgid "committe.member"
+msgstr "اعضاء اللجان"
+
+#. module: purchase_requisition_custom
+#: model:res.groups,name:purchase_requisition_custom.create_purchase_request
+msgid "create Purchase Request"
+msgstr "انشاء طلب شراء الإدارات"
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_ir_attachment
+msgid "ir.attachment"
+msgstr "ir.attachment"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.order_select_wizard
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.reject_wizard
+msgid "or"
+msgstr "أو"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_select_reason_order_id
+msgid "order id"
+msgstr "order id"
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_partner_document
+msgid "partner.document"
+msgstr "partner.document"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:675
+#, python-format
+msgid "please Add Specify the selection reason"
+msgstr "الرجاء إضافة معيار الاختيار"
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_purchase_request_line
+msgid "purchase request line"
+msgstr "purchase request line"
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_reject_wizard
+msgid "reject.wizard"
+msgstr "reject.wizard"
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_res_config_settings
+msgid "res.config.settings"
+msgstr "الدقة.التكوين.إعدادات"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_res_company_second_approve
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_res_config_settings_second_approve
+msgid "second approve"
+msgstr "أعتماد المشرف العام"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_select_reason_select_reason
+msgid "select reason"
+msgstr "سبب الاختيار"
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_select_reason
+msgid "select.reason"
+msgstr "select.reason"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.committee_meeting_minutes_report_document
+msgid "الأعضاء"
+msgstr "الأعضاء"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.committee_meeting_minutes_report_document
+msgid "التاريخ:"
+msgstr "التاريخ:"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.committee_meeting_minutes_report_document
+msgid "تمت التوصية من قبل اللجنة بأن يتم الشراء من المورد"
+msgstr "تمت التوصية من قبل اللجنة بأن يتم الشراء من المورد"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.committee_meeting_minutes_report_document
+msgid "رئيس اللجنة"
+msgstr "رئيس اللجنة"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.committee_meeting_minutes_report_document
+msgid "رقم اللجنة:"
+msgstr "رقم اللجنة:"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.committee_meeting_minutes_report_document
+msgid "وذلك للاسباب الاتية :"
+msgstr "وذلك للاسباب الاتية :"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_partner_id
+msgid "Partner"
+msgstr "المورد المقترح"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_line_name
+msgid "Descrption"
+msgstr "الوصف"
+
+#. module: purchase_requisition_custom
+#: model:res.groups,name:purchase_requisition_custom.group_purchase_control_menu
+msgid "Purchase Control Menu"
+msgstr "قائمة التحكم"
+
+
+#. module: purchase_requisition_custom
+#: model:res.groups,name:purchase_requisition_custom.group_purchase_requsition_reports
+msgid "Purchase Reports Menu"
+msgstr "تقارير المشتريات"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_res_config_settings_module_purchase_requisition
+msgid "Purchase Agreements"
+msgstr "طلبات الشراء"
+
+#. module: purchase
+#: model:ir.actions.report,name:purchase.report_purchase_quotation
+#: model:ir.ui.view,arch_db:purchase.purchase_order_form
+#: model:ir.ui.view,arch_db:purchase.report_purchasequotation_document
+msgid "Request for Quotation"
+msgstr "أوامر الشراء المبدئية"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_partner_document_type_id
+msgid "Type"
+msgstr "النوع"
+
+#. module: purchase_requisition
+#: model:ir.actions.act_window,name:purchase_requisition.action_purchase_requisition
+#: model:ir.ui.menu,name:purchase_requisition.menu_purchase_requisition_pro_mgt
+#: model:ir.ui.view,arch_db:purchase_requisition.view_purchase_requisition_filter
+#: model:ir.ui.view,arch_db:purchase_requisition.view_purchase_requisition_form
+#: model:ir.ui.view,arch_db:purchase_requisition.view_purchase_requisition_tree
+msgid "Purchase Agreements"
+msgstr "طلبات الشراء"
+
+#. module: purchase
+#: model:ir.actions.report,name:purchase.report_purchase_quotation
+#: model:ir.ui.view,arch_db:purchase.purchase_order_form
+#: model:ir.ui.view,arch_db:purchase.report_purchasequotation_document
+msgid "Request for Quotation"
+msgstr "أوامر الشراء المبدئية"
+
+#. module: purchase_requisition_custom
+#: model:ir.actions.act_window,name:purchase_requisition_custom.action_purchase_committe
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_committe_members
+msgid "Purchase Committee"
+msgstr "اللجان"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.menu,name:purchase_requisition_custom.menu_purchase_committe
+#: model:ir.ui.menu,name:purchase_requisition_custom.menu_purchase_committe_main
+msgid "Purchase Committes"
+msgstr "اللجان"
+
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:584
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_order_custom_form_view
+#, python-format
+msgid "Sign"
+msgstr "تم التوقيع"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:591
+#, python-format
+msgid "Cancelled"
+msgstr "تم رفض عرض السعر"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:127
+#, python-format
+msgid "Second Approval"
+msgstr "مدير الخدمات المشتركة"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:128
+#, python-format
+msgid "Third Approval"
+msgstr "الامين العام"
+
+#. module: purchase
+#: model:ir.actions.act_window,name:purchase.purchase_rfq
+#: model:ir.ui.menu,name:purchase.menu_purchase_rfq
+msgid "Requests for Quotation"
+msgstr "عروض الأسعار"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_order_custom_form_view
+msgid "Refuse"
+msgstr "تحفظ"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_committe_member_refusing_reason
+msgid "Refusing Reason"
+msgstr "معيار التحفظ"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.order_select_wizard
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_order_custom_form_view
+msgid "Select"
+msgstr "موافقة"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:737
+#, python-format
+msgid "You have already refused this Quotation"
+msgstr "لقد قمت بالفعل برفض عرض السعر هذا"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.order_refuse_wizard
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_request_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.order_refuse_wizard
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.purchase_order_custom_form_view
+msgid "Refuse"
+msgstr "تحفظ"
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.view,arch_db:purchase_requisition_custom.order_refuse_wizard
+msgid "or"
+msgstr "أو"
+
+#. module: purchase_requisition_custom
+#: model:res.groups,name:purchase_requisition_custom.group_po_legal_counsel
+msgid "Purchase Legal Counsel"
+msgstr "المستشار القانوني"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:128
+#, python-format
+msgid "Legal Counsel"
+msgstr "المستشار القانوني"
+
+#. module: purchase_requisition_custom
+#: model:ir.actions.report,name:purchase_requisition_custom.action_report_committee_meeting_minutes
+msgid "Committee Meeting Report"
+msgstr "نموذج محضر اللجنة"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:173
+#, python-format
+msgid "Unkown"
+msgstr "غير معروف"
+
+#. module: purchase_requisition_custom
+msgid "Sign"
+msgstr "تم التوقيع"
+
+#. module: purchase_requisition_custom
+msgid "Rejected By Budget"
+msgstr "تم الرفض من الموازنة"
+
+#. module: purchase_requisition_custom
+msgid "Waiting For Send to Budget"
+msgstr "بإنتظار الارسال للموازنة"
+
+
+#. module: purchase_requisition_custom
+msgid "Waiting For Budget Confirmation"
+msgstr "في إنتظار تصديق الموازنة"
+
+#. module: purchase_requisition_custom
+msgid "UnSign"
+msgstr "عرض السعر"
+
+#. module: purchase_requisition_custom
+msgid "Waiting To Be Signed"
+msgstr "في انتظار التوقيع"
+
+#. module: purchase_requisition_custom
+msgid "RFQ"
+msgstr "أمر شراء مبدئي"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_res_config_settings_po_double_validation_amount
+msgid "Minimum Amount"
+msgstr "مدير الخدمات المشتركة"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_res_config_settings_po_order_approval
+msgid "Order Approval"
+msgstr "إعتماد طلبات الشراء"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition__committee_type_id
+msgid "Committee Type"
+msgstr "نوع اللجنة"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition__committe_head
+msgid "Committe Head"
+msgstr "رئيس اللجنة"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order__committe_members
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_order_custom_form_view
+msgid "Committe Members"
+msgstr "اعضاء اللجنة"
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:0
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:0
+#: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__purchase_requisition__state__committee
+#: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__purchase_requisition__state_blanket_order__committee
+#, python-format
+msgid "Committee"
+msgstr "اللجنة"
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_custom_form_view
+msgid "Purchase Committe Members"
+msgstr "اعضاء لجان المشتريات"
+
+#. module: purchase_requisition_custom
+#: model:ir.actions.act_window,name:purchase_requisition_custom.action_purchase_committe
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition__committe_members
+msgid "Purchase Committee"
+msgstr "لجان المشتريات"
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.actions.act_window,help:purchase_requisition_custom.committe_type_action
+msgid "Create Purchase Committee Type"
+msgstr "انشاء نوع لجنة المشتريات"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_committee_type__type_cat
+msgid "Product cat"
+msgstr "فئة المنتج"
+
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_committee_type__committe_head
+msgid "Committee Head"
+msgstr "رئيس اللجنة"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order_line__date_end
+msgid "Date End"
+msgstr "تاريخ النهاية"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order_line__department_name
+msgid "Department Name"
+msgstr "اسم الادراة"

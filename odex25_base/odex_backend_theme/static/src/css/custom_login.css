@@ -1,0 +1,16 @@
+.btn-fill-secondary, .btn-secondary{
+    background: #5280b3;
+    border-color: #3E5D7F!important;
+}
+.btn-fill-primary, .btn-primary{
+    background-color: #5280b3;
+    border-color: #3E5D7F;
+}
+.btn-fill-primary:hover, .btn-primary:hover{
+    background-color: #3E5D7F!important;
+    border-color: #3E5D7F;
+}
+
+.o_home_menu_background{
+    background: url(/odex_backend_theme/static/src/images/login.jpg) no-repeat center/cover!important;
+}

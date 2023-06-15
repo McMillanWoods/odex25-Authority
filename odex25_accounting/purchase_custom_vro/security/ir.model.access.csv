@@ -1,0 +1,19 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_delivery_confirm,delivery confirm,model_stock_picking,purchase_custom_vro.group_delivery_confirm,1,1,0,0
+access_delivery_validate,delivery validate,model_stock_picking,purchase_custom_vro.group_delivery_validate,1,1,0,0
+access_stock_move_delivery_confirm,stock.move delivery_confirm,stock.model_stock_move,purchase_custom_vro.group_delivery_confirm,1,1,0,0
+access_stock_move_delivery_validate,stock.move delivery_validate,stock.model_stock_move,purchase_custom_vro.group_delivery_validate,1,1,0,0
+
+
+purchase.access_purchase_order,purchase.order,model_purchase_order,purchase.group_purchase_user,1,1,0,1
+
+
+
+access_group_employee_purchase_request,access group employee purchase request,model_purchase_request,purchase_requisition_custom.group_employee_purchase_request,1,1,1,1
+access_group_employee_purchase_order,access group employee purchase order,model_purchase_order,purchase_requisition_custom.group_employee_purchase_request,1,1,1,1
+access_group_employee_purchase_picking,access group employee picking request,model_stock_picking,purchase_requisition_custom.group_employee_purchase_request,1,1,1,1
+access_group_employee_purchase_picking,access group employee Purchase Order Line,model_purchase_order_line,purchase_requisition_custom.group_employee_purchase_request,1,0,0,0
+
+
+
+

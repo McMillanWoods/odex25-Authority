@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id='fleet_vehicle_delegation_view_form' model='ir.ui.view'>
+            <field name="name">fleet.delegation.vehicle.form</field>
+            <field name="model">vehicle.delegation</field>
+            <field name="arch" type="xml">
+                <form string="Vehicle">
+                    <header>
+                        <button name="action_confirm" groups="odex_fleet.fleet_group_hr"  string="Confirm" type="object" class="oe_highlight" states="draft"/>
+                        <button name="action_inprogress"  groups="odex_fleet.fleet_group_vice_gm" string="Start" type="object" class="oe_highlight" states="approve"/>
+                        <button name="action_approve" groups="odex_fleet.fleet_group_vice_gm" string="Approve" type="object" class="oe_highlight" states="confirm"/>
+                        <button name="action_refuse" groups="odex_fleet.fleet_group_vice_gm" string="Refuse" type="object" class="oe_highlight" states="confirm"/>
+                        <button name="action_close" groups="odex_fleet.fleet_group_vice_gm,odex_fleet.fleet_group_supervisor" string="Close" type="object" class="oe_highlight" states="approve,in_progress"/>
+                        <button name="action_cancel" groups="odex_fleet.fleet_group_vice_gm,odex_fleet.fleet_group_supervisor" string="Cancel" type="object" class="oe_highlight" states="draft,confirm,approve"/>
+                        <field name="state"  widget="statusbar" />
+                    </header>
+                    <sheet>
+
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" attrs="{'readonly': [('state', '!=', 'draft')],'required':True}"/>
+                            </h1>
+                            <label for="vehicle_id" class="oe_edit_only"/>
+                            <h2>
+                                <field name="vehicle_id" attrs="{'readonly': [('state', '!=', 'draft')],'required':True}"/>
+                            </h2>
+                        </div>
+                        <group col="4" colspan="2" string="Vehicle Information">
+                            <field name="start_date" attrs="{'readonly': [('state', '!=', 'draft')],'required':True}" />
+                            <field name="end_date"  attrs="{'readonly': [('state', '!=', 'draft')],'required':True}" />
+                            <field name="delegation_create_date"/>
+<!--                            <field name="today_date"/>-->
+                            <field name="last_department_id" attrs="{'invisible': [('delegation_type', '=', 'driver')]}"/>
+                            <field name="last_project_id" attrs="{'invisible': [('delegation_type', '=', 'driver')]}"/>
+                            <field name="last_branch_id"  attrs="{'invisible': [('delegation_type', '=', 'driver')]}"/>
+                            <field name="vin_sn" readonly="1" force_save="1" />
+                            <field name="model_id" readonly="1" force_save="1"/>
+                            <field name="license_plate" readonly="1" force_save="1"/>
+                            <field name="serial_number" readonly="1" force_save="1"/>
+                            <field name="fleet_type_id" readonly="1" force_save="1"/>
+                             <field name="first_odometer" attrs="{'invisible': [('delegation_type', '!=', 'driver')]}" />
+                            <field name="odometer" readonly="1" force_save="1" attrs="{'invisible': [('delegation_type', '!=', 'driver')]}"/>
+                            <field name="km_number" readonly="1" force_save="1" attrs="{'invisible': [('delegation_type', '!=', 'driver')]}"/>
+                            <field name="delegation_type" invisible="1"/>
+                        </group>
+                        <group  col="4" colspan="2" string="Employee Information" attrs="{'invisible': [('delegation_type', '!=', 'driver')]}" >
+                            <field name="employee_id"  attrs="{'readonly': [('state', '!=', 'draft')],'required':[('delegation_type', '!=', 'branch')]}"/>
+                            <field name="license_number" readonly="1" force_save="1"/>
+                            <field name="license_end" readonly="1" force_save="1"/>
+                            <field name="custody_id" invisible="1"/>
+                        </group>
+                        <group  col="4" colspan="2" string="delegated entity" attrs="{'invisible': [('delegation_type', '!=', 'branch')]}">
+<!--                            <field name="state_id" attrs="{'readonly': [('state', '!=', 'draft')],'required':[('delegation_type', '=', 'branch')]}" />-->
+                            <field name="entity_type"/>
+                            <field name="driver_department" attrs="{'invisible': [('entity_type', '!=', 'department')]}"/>
+                            <field name="branch_id" attrs="{'invisible': [('entity_type', '!=', 'department')]}"/>
+                            <field name="project_id" attrs="{'invisible': [('entity_type', '!=', 'project')]}"/>
+                        </group>
+                          <notebook>
+                          <page string="Reject Reason"  attrs="{'invisible':[('state','!=','refused')]}">
+                              <group>
+                                <field name="reason" readonly="1" force_save="1"/>
+                              </group>
+                            </page>
+                    </notebook>
+                    </sheet>
+
+                                        <div class="oe_chatter">
+                                            <field name="message_follower_ids" widget="mail_followers"/>
+                                            <field name="message_ids" widget="mail_thread" options='{"thread_level": 1}'/>
+                                        </div>
+                </form>
+            </field>
+        </record>
+        <record id='fleet_vehicle_v_view_tree' model='ir.ui.view'>
+            <field name="name">fleet.vehicle.delegation.tree</field>
+            <field name="model">vehicle.delegation</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="vehicle_id" />
+                    <field name="branch_id" />
+                    <field name="employee_id" />
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="fleet_delegation_vehicle_view_search" model="ir.ui.view">
+            <field name="name">fleet.delegation.vehicle.search</field>
+            <field name="model">vehicle.delegation</field>
+            <field name="arch" type="xml">
+                <search string="All vehicles">
+                    <field name="name" filter_domain="['|', ('name','ilike',self), ('license_plate','ilike',self)]" string="Vehicle"/>
+                    <field name="employee_id"/>
+                    <field name="vehicle_id"/>
+                    <field name="branch_id"/>
+                    <field name="state" />
+                    <separator/>
+                    <!-- <filter string="Archived" name="inactive" domain="[('active','=',False)]"/> -->
+                    <group expand="1" string="Group By">
+                        <filter name="groupby_status" context="{'group_by' : 'state'}" string="State"/>
+                        <filter name="groupby_branch" context="{'group_by' : 'branch_id'}" string="Branch"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+
+
+        <record id='fleet_vehicle_delegation_action' model='ir.actions.act_window'>
+            <field name="name">Driver Delegation</field>
+            <field name="res_model">vehicle.delegation</field>
+           
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('delegation_type','=','driver')]</field>
+            <field name="context">{'default_delegation_type':'driver'}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new Driver Delegation.
+                </p>
+
+            </field>
+        </record>
+
+        <record id='fleet_branch_delegation_action' model='ir.actions.act_window'>
+            <field name="name">Branch Delegation</field>
+            <field name="res_model">vehicle.delegation</field>
+           
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('delegation_type','=','branch')]</field>
+            <field name="context">{'default_delegation_type':'branch'}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new Branch Delegation.
+                </p>
+
+            </field>
+        </record>
+
+
+        <menuitem name="Delegation" parent="fleet.menu_root" id="fleet_vehicles_delegation" sequence="2" groups="fleet_group_hr_officer,fleet_group_vice_gm,fleet.fleet_group_user"/>
+        <menuitem action="fleet_vehicle_delegation_action" parent="fleet_vehicles_delegation" id="vehicle_delegation_menu" groups="fleet_group_hr_officer,fleet_group_vice_gm,fleet.fleet_group_user"/>
+        <menuitem action="fleet_branch_delegation_action" parent="fleet_vehicles_delegation" id="branch_delegation_menu" groups="fleet_group_hr_officer,fleet_group_vice_gm,fleet.fleet_group_user"/>
+
+    </data>
+</odoo>

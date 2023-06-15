@@ -1,0 +1,32 @@
+<odoo>
+    <data>
+
+        <record model="ir.actions.act_window" id="cm_transaction_internal_in_mail__list_action">
+            <field name="name">Email Internal Transactions</field>
+            <field name="res_model">internal.transaction</field>
+            <field name="domain">[('source','=','email'),('employee_id.user_id', '=', uid),('state', 'not in', ['closed'])]</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first Internal Transaction
+                </p>
+            </field>
+            <field name="search_view_id" ref="exp_transaction_documents.view_internal_transaction_filter"/>
+            <field name="context">{'search_default_favorite': 1,'search_default_unread': 1}</field>
+        </record>
+
+        <menuitem sequence="8" id="cm_transaction_internal_in_menu" name="Email Internal Transactions"
+                  parent="exp_transaction_documents.parent_internal_tran_menu" action="cm_transaction_internal_in_mail__list_action"/>
+
+        <record id="cm_subject_type_inherit_form" model="ir.ui.view">
+             <field name="name">cm.subject.type.form</field>
+            <field name="model">cm.subject.type</field>
+            <field name="inherit_id" ref="exp_transaction_documents.cm_subject_type_form" />
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="default_value_email"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

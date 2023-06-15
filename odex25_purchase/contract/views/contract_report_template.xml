@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--Contract Report TemplateFORM view-->
+    <record id="contract_report_template_form_view" model="ir.ui.view">
+        <field name="name">contract.report template form view</field>
+        <field name="model">contract.report.template</field>
+        <field name="mode">primary</field>
+        <field name="priority" eval="20"/>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="contract_template"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--TREE view-->
+    <record id="contract_report_template_tree_view" model="ir.ui.view">
+        <field name="name">contract.report template tree view</field>
+        <field name="model">contract.report.template</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" string="Name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_contract_report_template_tree_view">
+        <field name="name">actions contract report temp</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">contract.report.template</field>
+       
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="contract_report_template_tree_view"/>
+    </record>
+    <menuitem name="Contract Template Report" id="contract_report_template_menu" parent="contract_contract_submenu" action="action_contract_report_template_tree_view" sequence="3"/>
+
+</odoo>

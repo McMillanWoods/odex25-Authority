@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="system_dashboard.dashboard_template_1">
+        <!--View-->
+        <div class="container-fluid dashboard-container dashboard14-body dasboard14-theme-1">
+            <header class="dashboard14-header">
+                <div class="dashboard14-logo">
+                    <div class="dashboard14-logo-container" data-target="extra-nav">
+                        <img src="system_dashboard/static/src/img/avatar.png"/>
+                    </div>
+                </div>
+                <nav class="dashboard14-nav">
+                    <ul class="dashboard14-menu">
+                        <li data-target="menu-section" data-section="dashboard" class="active">
+                            <img src="/system_dashboard/static/src/icon/dashboard/dashboard.svg"/>
+                            <h4>Dashboard</h4>
+                        </li>
+                        <li data-target="menu-section" data-section="evaluation">
+                            <img src="/system_dashboard/static/src/icon/dashboard/evaluation.svg"/>
+                            <h4>Evaluation</h4>
+                        </li>
+                        <li data-target="menu-section" data-section="attendance">
+                            <img src="/system_dashboard/static/src/icon/dashboard/attendance.svg"/>
+                            <h4>Attendance</h4>
+                        </li>
+                        <li data-target="menu-section" data-section="salary">
+                            <img src="/system_dashboard/static/src/icon/dashboard/salary.svg"/>
+                            <h4>Salray</h4>
+                        </li>
+                        <li data-target="menu-section" data-section="self-service">
+                            <img src="/system_dashboard/static/src/icon/dashboard/self-service.svg"/>
+                            <h4>Self-Service</h4>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="dashboard14-extra-nav shadow">
+                    <div class="dashboard14-extra-logo">
+                        <div class="dashboard14-logo-container">
+                            <img src="system_dashboard/static/src/img/avatar.png"/>
+                        </div>
+                    </div>
+                    <div class="dashboard14-extra-data">
+                        <h3>Altahir Hassan Ibn Awf</h3>
+                        <p>Web Developer at Expert Ltd.</p>
+                        <p>5001</p>
+                    </div>
+                    <div class="dashboard14-extra-foot">
+                        <button class="btn btn-danger btn-block"><i class="fa fa-logout"></i> <span>Check Out</span></button>
+                    </div>
+                </div>
+            </header>
+            <section class="dashboard14-main">
+                <section class="dashboard14-section active" id="section-dashboard">
+                    <div class="col-12 section-head">
+                        <h2>Dashboard</h2>
+                    </div>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="evalution-tab" data-toggle="tab" href="#evaluation" role="tab" aria-controls="evaluation" aria-selected="true">Evaluation</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="attendance-tab" data-toggle="tab" href="#attendance" role="tab" aria-controls="attendance" aria-selected="false">Attendance</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="salary-tab" data-toggle="tab" href="#salary" role="tab" aria-controls="salary" aria-selected="false">salary</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="dashboardTabContent">
+                        <div class="tab-pane fade show active" id="evaluation" role="tabpanel" aria-labelledby="evalution-tab">
+                            <div class="row m-0">
+                                <div class="col-md-6 chart-box">
+                                    <div class="col-md-12 chart-body">
+                                        <h4>Evaluation History</h4>
+                                        <div class="myChartDiv">
+                                            <canvas id="myChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 chart-box">
+                                    <div class="col-md-12 chart-body">
+                                        <h4>Daily Timesheet</h4>
+                                        <div class="myChartDiv">
+                                            <canvas id="myChart2"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 chart-box">
+                                    <div class="col-md-12 chart-body">
+                                        <h4>Daily Timesheet</h4>    
+                                        <div class="myChartDiv3">
+                                            <canvas id="myChart3"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 chart-box">
+                                    <div class="col-md-12 chart-body">
+                                        <h4>Evaluation History</h4>
+                                        <div class="myChartDiv4">
+                                            <canvas id="myChart4"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="attendance" role="tabpanel" aria-labelledby="attendance-tab">....</div>
+                        <div class="tab-pane fade" id="salary" role="tabpanel" aria-labelledby="salary-tab">.....</div>
+                    </div>
+                </section>
+                <section class="dashboard14-section" id="section-attendance">
+                    <div class="col-12 section-head">
+                        <h2>Attendance</h2>
+                    </div>
+                    <div class="col-12 section-body">
+                        <div class="col-12 header-statistics">
+                            <div class="row m-0">
+                                <div class="col-md-3 statistics-box">
+                                    <div class="col-12 statistics-body">
+                                        <div class="col-md-4 statistics-percent">
+                                            <h3>50%</h3>
+                                        </div>
+                                        <div class="col-md-8 statistics-progress">
+                                            <h3>15</h3>
+                                            <p>Annul Leaves</p>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 statistics-box">
+                                    <div class="col-12 statistics-body">
+                                        <div class="col-md-4 statistics-percent">
+                                            <h3>30%</h3>
+                                        </div>
+                                        <div class="col-md-8 statistics-progress">
+                                            <h3>2</h3>
+                                            <p>Accident Leaves</p>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 statistics-box">
+                                    <div class="col-12 statistics-body">
+                                        <div class="col-md-4 statistics-percent">
+                                            <h3>10%</h3>
+                                        </div>
+                                        <div class="col-md-8 statistics-progress">
+                                            <h3>10</h3>
+                                            <p>Sick Leaves</p>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 statistics-box">
+                                    <div class="col-12 statistics-body">
+                                        <div class="col-md-4 statistics-percent">
+                                            <h3>90%</h3>
+                                        </div>
+                                        <div class="col-md-8 statistics-progress">
+                                            <h3>40</h3>
+                                            <p>Working Hours</p>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-0">
+                            <div class="col-md-6 chart-box pl-0 pr-0">
+                                <div class="col-md-12 chart-body">
+                                    <h4>Evaluation History</h4>
+                                    <div class="chartDiv">
+                                        <canvas id="chart1"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 chart-box pr-0">
+                                <div class="col-md-12 chart-body">
+                                    <h4>Daily Timesheet</h4>
+                                    <div class="chartDiv2">
+                                        <canvas id="chart2"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="dashboard14-section" id="section-self-service">
+                    <div class="col-12 top-alert">
+                        <div class="col-12 top-alert-body">
+                            <div class="col-12">
+                                <h3>Hello Altahir !</h3>
+                                <p>Your last check-In was in 12-20-2021 03:00:00 PM</p>
+                                <p>You need to check-Out to finish current session. Click on check out button</p>    
+                            </div>
+                            <img src="/system_dashboard/static/src/icon/icon.png"/>
+                        </div>
+                    </div>
+                    <div class="col-12 section-head">
+                        <h2>Self Services</h2>
+                    </div>
+                    <div class="col-12 section-body">
+                        <div class="row m-0" id="self-service-body"></div>
+                    </div>
+                </section>
+            </section>
+            <!-- SCRIPT -->
+            <script src="/system_dashboard/static/src/js/charts.js"></script>
+            <script type="text/javascript" src="/system_dashboard/static/src/js/general.js"></script>
+        </div>
+        
+    </t>
+</templates>

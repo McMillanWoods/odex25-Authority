@@ -1,0 +1,3 @@
+Version 14.0.0.1:
+	- Added branch flow in hr.payslip. 
+	- Fixed traceback issue generated on creating contracts. 

@@ -1,0 +1,164 @@
+.dashboard14-theme-2 header.dashboard14-header{
+    overflow-y: scroll;
+    padding: 20px;
+    z-index: 0;
+    padding-right: 0;
+    padding-bottom: 120px;
+    height: 100vh;
+}
+.dashboard14-theme-2 header.dashboard14-header .dashboard14-header-content{
+    background-color: #fff;
+    padding: 0;
+    height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    overflow-y: visible;
+}
+.dashboard14-theme-2 header.dashboard14-header::-webkit-scrollbar{
+    width: 0%;
+}
+
+.dashboard14-theme-2 header.dashboard14-header .dashboard14-logo{
+    text-align: center;
+    padding: 30px 0;
+    background: #fff;
+    position: relative;
+}
+.dashboard14-theme-2 header.dashboard14-header .dashboard14-logo .dashboard14-logo-container{
+    width: fit-content;
+    border-radius: 100%;
+    border: 1px solid #eee;
+    margin: auto;
+    padding: 1px;
+    position: relative;
+    cursor: pointer;
+}
+.dashboard14-theme-2 header.dashboard14-header .dashboard14-logo .dashboard14-logo-container:before{
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background: #1aca1a;
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    /* top: 82px; */
+}
+.dashboard14-theme-2 header.dashboard14-header .dashboard14-logo img{
+    height: 60px;
+    width: 60px;
+}
+
+.dashboard14-theme-2 header.dashboard14-header .dashboard14-logo .dashboard14-extra-data{
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+.dashboard14-theme-2 header.dashboard14-header .dashboard14-logo .dashboard14-extra-data h3{
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.dashboard14-theme-2 header.dashboard14-header .dashboard14-logo .dashboard14-extra-data p{
+    font-size: 12px;
+    margin: 0;
+}
+
+.dashboard14-theme-2 header.dashboard14-header .dashboard14-logo .dashboard14-extra-data p#employee_id{
+    color: red;
+    margin-top: 5px;
+}
+
+.dashboard14-theme-2 header.dashboard14-header .dashboard14-nav{
+    padding: 0;
+}
+.dashboard14-theme-2 header.dashboard14-header .dashboard14-nav ul{
+    list-style: none;
+    padding: 0;
+}
+.dashboard14-theme-2 header.dashboard14-header .dashboard14-nav ul li{
+    color: #333;
+    background-color: #dfdfe2;
+    transition: all .4s ease;
+    cursor: pointer;
+    padding: 10px 10px;
+    margin-bottom: 5px;
+}
+.dashboard14-theme-2 header.dashboard14-header .dashboard14-nav ul li:hover{
+    background: #1565c0;
+}
+.dashboard14-theme-2 header.dashboard14-header .dashboard14-nav ul li:hover a{
+    color: #fff;
+}
+.dashboard14-theme-2 header.dashboard14-header .dashboard14-nav ul li.active{
+    background: #1565c0;
+}
+.dashboard14-theme-2 header.dashboard14-header .dashboard14-nav ul li.active a{
+    color: #fff;
+}
+.dashboard14-theme-2 header.dashboard14-header .dashboard14-nav ul li a{
+    font-size: 14px;
+    color: #222;
+    margin: 0;
+}
+
+.dashboard14-theme-2 .recent_activity{
+    position: absolute;
+    bottom: 0;
+    padding: 10px;
+    width: 100%;
+}
+.dashboard14-theme-2 .recent_activity .recent_activity_head{
+    padding: 0;
+}
+.dashboard14-theme-2 .recent_activity .recent_activity_head h6{
+    float: left;
+    font-size: 14px;
+}
+.dashboard14-theme-2 .recent_activity .recent_activity_head a{
+    float: right;
+    font-size: 12px;
+}
+.dashboard14-theme-2 .recent_activity .recent_activity_body{
+    
+}
+.dashboard14-theme-2 .recent_activity .recent_activity_body table{
+    border: none;
+}
+.dashboard14-theme-2 .recent_activity .recent_activity_body table tr{
+    border: none;
+}
+.dashboard14-theme-2 .recent_activity .recent_activity_body table tr td{
+    border: none;
+    padding: 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    vertical-align: middle;
+}
+.dashboard14-theme-2 .recent_activity .recent_activity_body table tr td:first-child{
+    width: 20%;
+    text-align: center;
+}
+.dashboard14-theme-2 .recent_activity .recent_activity_body table tr td:first-child span{
+    display: block;
+    width: 25px;
+    height: 25px;
+    background-color: #eee;
+    border-radius: 100%;
+}
+.dashboard14-theme-2 .recent_activity .recent_activity_body table tr td:first-child span.checked-in{
+    background-color: #1aca1a;
+}
+.dashboard14-theme-2 .recent_activity .recent_activity_body table tr td:first-child span.checked-out{
+    background-color: #ca201af1;
+}
+.dashboard14-theme-2 .recent_activity .recent_activity_body table tr td:nth-child(2){
+    font-size: 12px;
+    width: 80%;
+}
+.dashboard14-theme-2 .recent_activity .recent_activity_body table tr:last-child td{
+    border-bottom: none;
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_inherit_form" model="ir.ui.view">
+        <field name="name">sale.order.inherit.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            
+            <!-- <xpath expr="//button[@name='%(sale.action_view_sale_advance_payment_inv)d']" position="attributes">
+                
+                <attribute name="attrs">{'invisible' : ['|',('invoice_status' , '!=' , 'to invoice'),('type' , '=' , 'contract')]}</attribute>
+                
+            </xpath> -->
+            
+            <field name="pricelist_id" position="before">
+                <field name="type" 
+                required="1"
+                  attrs="{'readonly':[('state','!=','draft')]}"/>
+                <field name="ref_order"/>
+                <field name="ref_date"/>
+                <field name="contract_template_id" attrs="{'invisible' : [('type' , '!=' , 'contract')],'readonly':[('state','!=','draft')]}"/>
+                <field name="contract_name" attrs="{'invisible' : [('type' , '!=' , 'contract')],'readonly':[('state','!=','draft')]}"/>
+                <field name="contract_id" attrs="{'invisible' : [('type' , '!=' , 'contract')],'readonly':[('state','!=','draft')]}"/>
+            </field>
+        </field>
+    </record>
+</odoo>

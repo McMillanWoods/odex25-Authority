@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Week Form -->
+    <record id="week_week_form_view" model="ir.ui.view">
+        <field name="name">week.week.form</field>
+        <field name="model">week.week</field>
+        <field name="arch" type="xml">
+            <form string="Week">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" required="1"/>
+                        </group>
+                        <group>
+                            <field name="date_from" required="0"/>
+                            <field name="date_to" required="0"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="week_week_tree_view" model="ir.ui.view">
+        <field name="name">week.week.tree</field>
+        <field name="model">week.week</field>
+        <field name="arch" type="xml">
+            <tree string="Week">
+                <field name="name"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="open_week_week_tree_view" model="ir.actions.act_window">
+        <field name="name">Weeks</field>
+        <field name="res_model">week.week</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="week_week_tree_view"/>
+    </record>
+
+    <menuitem action="open_week_week_tree_view" id="menu_week_week" name="Weeks" parent="project.menu_project_config" sequence="100"/>
+
+</odoo>

@@ -1,0 +1,143 @@
+<odoo>
+    <data>
+       <template id="purchase_general_report" name="Purchase General Report">
+       <t t-call="web.html_container">
+                    <t t-call="web.internal_layout">
+            <style type="text/css">
+             @font-face {
+                    font-family: 'GE_SS_Unique_Bold';
+                    src: local('GE_SS_Unique_Bold.otf'), local('GE_SS_Unique_Bold.otf'),
+                    url('/purchase_custom_report/static/fonts/GE_SS_Unique_Bold.otf') format('truetype');
+                    }@font-face {
+                    font-family: 'ae_AlMohanad';
+                    src: local('ae_AlMohanad.ttf'), local('ae_AlMohanad.ttf'),
+                    url('/purchase_custom_report/static/fonts/ae_AlMohanad.ttf') format('truetype');
+                    }
+                .page{
+                    font-family: Times New Roman;;
+                }
+                table{
+                    width :100%;
+                    border : 1px solid black;
+                    border-collapse : collapse;
+                    font-size : 13pt;
+                    
+                }
+                th{
+                    border : 1px solid black;
+                    background-color: #07b8ad; color: #ffffff;
+                    text-align : right;
+                    padding : 5px;
+                }
+                td{
+                    border : 1px solid black;
+                    text-align : right;
+                    padding : 3px;
+                }
+                .cr_t{
+                    text-align : center;
+                }
+
+            </style>
+            <div class="page" size="A4">
+                <center>
+                    <h2>Purchase General Report</h2>
+                </center>
+                <t t-set="count" t-value="1"/>
+                <t t-if="type == 'department'">
+                    <t t-foreach="report_values" t-as="o">
+                        <h3>Department: <t t-esc="o['department'].name"/></h3>                 
+                        <table>
+                            <!-- <thead> -->
+                                <tr>
+                                    <th>#</th>
+                                    <th >Order Sequence</th>
+                                    <t t-if="show_emp_details == True">
+                                        <th>Employee</th>
+                                    </t>
+                                    <th >Vendor</th>
+                                    <th >Date</th>
+                                    <th >Status</th>
+                                    <th>Amount</th>
+                                </tr>
+                            <!-- </thead> -->
+                            <tbody>
+                                <t t-set="total" t-value="0" />
+                                <t t-foreach="o['pos']" t-as="po">
+                                    <tr>
+                                        <td><t t-esc="count"/></td>
+                                        <td><t t-esc="po.name"/></td>
+                                        <t t-if="show_emp_details == True">
+                                            <t t-if="po.requisition_id and po.requisition_id.request_id">
+                                                <td><t t-esc="po.requisition_id.request_id.employee_id.name" /></td>
+                                            </t>
+                                            <t t-else="">
+                                                <td></td>
+                                            </t>
+                                        </t>
+                                        <td><t t-esc="po.partner_id.name" /></td>
+                                        <td><t t-esc="po.date_order" /></td>
+                                        <td><t t-esc="dict(po._fields['state']._description_selection(po.env)).get(po.state)" /></td>
+                                        <td><t t-esc="po.amount_total" /></td>
+                                    </tr>
+                                    <t t-set="count" t-value="count + 1"/>
+                                    <t t-set="total" t-value="total + po.amount_total"/>
+                                </t>
+                                <tr style="background-color: #07b8ad; color: #ffffff;">
+                                    <td colspan="5">Total</td>
+                                    <td><t t-esc="total" /></td>
+                                </tr>
+                                <t t-set="total" t-value="0" />
+                                <t t-set="count" t-value="1" />
+                            </tbody>
+                        </table>
+                        <br/>
+                    </t>
+                </t>
+                <t t-else="">
+                    <t t-foreach="report_values" t-as="o">
+                        <h3>Employee: <t t-esc="o['employee'].name"/></h3>                 
+                        <table>
+                            <!-- <thead> -->
+                                <tr>
+                                    <th>#</th>
+                                    <th >Order Sequence</th>
+                                    <th >Vendor</th>
+                                    <th >Date</th>
+                                    <th >Status</th>
+                                    <th >Amount</th>
+                                </tr>
+                            <!-- </thead> -->
+                            <tbody>
+                                <t t-set="total" t-value="0" />
+                                <t t-foreach="o['requests']" t-as="po">
+                                    <tr>
+                                        <td><t t-esc="count"/></td>
+                                        <td><t t-esc="po.name"/></td>
+                                        <td><t t-esc="po.partner_id.name" /></td>
+                                        <td><t t-esc="po.date_order" /></td>
+                                        <td><t t-esc="dict(po._fields['state']._description_selection(po.env)).get(po.state)" /></td>
+                                        <td><t t-esc="po.amount_total" /></td>
+                                    </tr>
+                                    <t t-set="count" t-value="count + 1"/>
+                                    <t t-set="total" t-value="total + po.amount_total"/>
+                                </t>
+                                <tr style="background-color: #07b8ad; color: #ffffff;">
+                                    <td colspan="5">Total</td>
+                                    <td><t t-esc="total" /></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <t t-set="total" t-value="0" />
+                        <t t-set="count" t-value="1" />
+                        <br/>
+                    </t>
+                </t>
+            </div>
+                
+        </t>
+        </t>
+           
+       </template>
+    </data>
+</odoo>

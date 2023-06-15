@@ -1,0 +1,51 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* bi_multi_branch_helpdesk
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-02 07:12+0000\n"
+"PO-Revision-Date: 2022-10-02 07:12+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: bi_multi_branch_helpdesk
+#: model:ir.model.fields,field_description:bi_multi_branch_helpdesk.field_odex25_helpdesk_team__branch_id
+#: model:ir.model.fields,field_description:bi_multi_branch_helpdesk.field_odex25_helpdesk_ticket__branch_id
+#: model_terms:ir.ui.view,arch_db:bi_multi_branch_helpdesk.helpdesk_ticket_branch_filter
+msgid "Branch"
+msgstr "الفرع"
+
+#. module: bi_multi_branch_helpdesk
+#: model:ir.model.fields,field_description:bi_multi_branch_helpdesk.field_odex25_helpdesk_team__display_name
+#: model:ir.model.fields,field_description:bi_multi_branch_helpdesk.field_odex25_helpdesk_ticket__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: bi_multi_branch_helpdesk
+#: model:ir.model,name:bi_multi_branch_helpdesk.model_odex25_helpdesk_team
+msgid "Helpdesk Team"
+msgstr "فريق مكتب المساعدة"
+
+#. module: bi_multi_branch_helpdesk
+#: model:ir.model,name:bi_multi_branch_helpdesk.model_odex25_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr "تذكرة مكتب المساعدة"
+
+#. module: bi_multi_branch_helpdesk
+#: model:ir.model.fields,field_description:bi_multi_branch_helpdesk.field_odex25_helpdesk_team__id
+#: model:ir.model.fields,field_description:bi_multi_branch_helpdesk.field_odex25_helpdesk_ticket__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: bi_multi_branch_helpdesk
+#: model:ir.model.fields,field_description:bi_multi_branch_helpdesk.field_odex25_helpdesk_team____last_update
+#: model:ir.model.fields,field_description:bi_multi_branch_helpdesk.field_odex25_helpdesk_ticket____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"

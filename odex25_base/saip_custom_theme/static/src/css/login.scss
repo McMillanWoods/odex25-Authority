@@ -1,0 +1,1634 @@
+@import "./controller.scss";
+
+
+@media screen and (max-width: 319px){
+    .login_page{
+        #wrapwrap{
+            main{
+                .oe_website_login_container{
+                    width: 100%!important;
+                    height: 100%!important;
+                    padding: 0px!important;
+                    max-width: initial!important;
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding-top: 50px!important;
+                    background-image: $login_bg_img;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    .oe_login_form{
+                        width: 90%!important;
+                        height: auto;
+                        max-width: initial!important;
+                        background-color: $form_bg_color!important;
+                        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+                        border-radius: 6px;
+                        padding: 20px!important;
+                        margin: 20px 0px!important;
+                        .form-group{
+                            label{
+                                font-size: 13px!important;
+                                font-weight: 500;
+                                font-family: 'Montserrat', sans-serif;
+                                color: $label_color!important;
+                            }
+                            .input-group{
+                                input{
+                                    border: none!important;
+                                    outline: 1px solid $inputs_outline!important;
+                                    font-size: 12px!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                    height: auto!important;
+                                    padding: 8px!important;
+                                    color: $inputs_font_color!important;
+                                    &:hover, &:focus{
+                                        outline: 1px solid $inputs_outline_hover!important;
+                                        transition: outline .2s ease-in-out!important;
+                                        box-shadow: none!important;
+                                    }
+                                }
+                                span{
+                                    a{
+                                        background-color: $login_buttons_bg!important;
+                                        font-size: 12px!important;
+                                        color: $label_color!important;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        gap: 5px;
+                                    }
+                                }
+                            }
+                            input{
+                                border: none!important;
+                                outline: 1px solid $inputs_outline!important;
+                                font-size: 12px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 8px!important;
+                                color: $inputs_font_color!important;
+                                &:hover, &:focus{
+                                    outline: 1px solid $inputs_outline_hover!important;
+                                    transition: outline .2s ease-in-out!important;
+                                    box-shadow: none!important;
+                                }
+                            }
+                        }
+                        .oe_login_buttons{
+                            button{
+                                border: none!important;
+                                outline: none!important;
+                                font-size: 12px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 8px!important;
+                                background-color: $login_buttons_bg!important;
+                                color: $buttons_font_color!important;
+                                &:hover ,&:focus{
+                                    background-color: $login_buttons_bg_hover!important;
+                                    color: $buttons_font_color_hover!important;
+                                    transition: background-color .2s ease-in-out;
+                                    box-shadow: none!important;
+                                }
+                            }
+                            div{
+                                margin: 10px 0px!important;
+                                a{
+                                    color: $label_color!important;
+                                    font-size: 12px!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 420px){
+    .login_page{
+        #wrapwrap{
+            main{
+                .oe_website_login_container{
+                    width: 100%!important;
+                    height: 100%!important;
+                    padding: 0px!important;
+                    max-width: initial!important;
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding-top: 50px!important;
+                    background-image: $login_bg_img;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    .oe_login_form{
+                        width: 90%!important;
+                        height: auto;
+                        max-width: initial!important;
+                        background-color: $form_bg_color!important;
+                        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+                        border-radius: 6px;
+                        padding: 20px!important;
+                        margin: 20px 0px!important;
+                        .form-group{
+                            label{
+                                font-size: 14px!important;
+                                font-weight: 500;
+                                font-family: 'Montserrat', sans-serif;
+                                color: $label_color!important;
+                            }
+                            .input-group{
+                                input{
+                                    border: none!important;
+                                    outline: 1px solid $inputs_outline!important;
+                                    font-size: 13px!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                    height: auto!important;
+                                    padding: 8px!important;
+                                    color: $inputs_font_color!important;
+                                    &:hover, &:focus{
+                                        outline: 1px solid $inputs_outline_hover!important;
+                                        transition: outline .2s ease-in-out!important;
+                                        box-shadow: none!important;
+                                    }
+                                }
+                                span{
+                                    a{
+                                        background-color: $login_buttons_bg!important;
+                                        font-size: 13px!important;
+                                        color: $label_color!important;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        gap: 5px;
+                                    }
+                                }
+                            }
+                            input{
+                                border: none!important;
+                                outline: 1px solid $inputs_outline!important;
+                                font-size: 13px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 8px!important;
+                                color: $inputs_font_color!important;
+                                &:hover, &:focus{
+                                    outline: 1px solid $inputs_outline_hover!important;
+                                    transition: outline .2s ease-in-out!important;
+                                    box-shadow: none!important;
+                                }
+                            }
+                        }
+                        .oe_login_buttons{
+                            button{
+                                border: none!important;
+                                outline: none!important;
+                                font-size: 13px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 8px!important;
+                                background-color: $login_buttons_bg!important;
+                                color: $buttons_font_color!important;
+                                &:hover ,&:focus{
+                                    background-color: $login_buttons_bg_hover!important;
+                                    color: $buttons_font_color_hover!important;
+                                    transition: background-color .2s ease-in-out;
+                                    box-shadow: none!important;
+                                }
+                            }
+                            div{
+                                margin: 10px 0px!important;
+                                a{
+                                    color: $label_color!important;
+                                    font-size: 13px!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 421px) and (max-width: 767px){
+    .login_page{
+        #wrapwrap{
+            main{
+                .oe_website_login_container{
+                    width: 100%!important;
+                    height: 100%!important;
+                    padding: 0px!important;
+                    max-width: initial!important;
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding-top: 50px!important;
+                    background-image: $login_bg_img;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    .oe_login_form{
+                        width: 80%!important;
+                        height: auto;
+                        max-width: initial!important;
+                        background-color: $form_bg_color!important;
+                        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+                        border-radius: 6px;
+                        padding: 20px!important;
+                        .form-group{
+                            label{
+                                font-size: 14px!important;
+                                font-weight: 500;
+                                font-family: 'Montserrat', sans-serif;
+                                color: $label_color!important;
+                            }
+                            .input-group{
+                                input{
+                                    border: none!important;
+                                    outline: 1px solid $inputs_outline!important;
+                                    font-size: 14px!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                    height: auto!important;
+                                    padding: 8px!important;
+                                    color: $inputs_font_color!important;
+                                    &:hover, &:focus{
+                                        outline: 1px solid $inputs_outline_hover!important;
+                                        transition: outline .2s ease-in-out!important;
+                                        box-shadow: none!important;
+                                    }
+                                }
+                                span{
+                                    a{
+                                        background-color: $login_buttons_bg!important;
+                                        font-size: 14px!important;
+                                        color: $label_color!important;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        gap: 5px;
+                                    }
+                                }
+                            }
+                            input{
+                                border: none!important;
+                                outline: 1px solid $inputs_outline!important;
+                                font-size: 14px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 8px!important;
+                                color: $inputs_font_color!important;
+                                &:hover, &:focus{
+                                    outline: 1px solid $inputs_outline_hover!important;
+                                    transition: outline .2s ease-in-out!important;
+                                    box-shadow: none!important;
+                                }
+                            }
+                        }
+                        .oe_login_buttons{
+                            button{
+                                border: none!important;
+                                outline: none!important;
+                                font-size: 14px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 8px!important;
+                                background-color: $login_buttons_bg!important;
+                                color: $buttons_font_color!important;
+                                &:hover ,&:focus{
+                                    background-color: $login_buttons_bg_hover!important;
+                                    color: $buttons_font_color_hover!important;
+                                    transition: background-color .2s ease-in-out;
+                                    box-shadow: none!important;
+                                }
+                            }
+                            div{
+                                margin: 10px 0px!important;
+                                a{
+                                    color: $label_color!important;
+                                    font-size: 14px!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    .login_page{
+        #wrapwrap{
+            main{
+                .oe_website_login_container{
+                    width: 100%!important;
+                    height: 100%!important;
+                    padding: 0px!important;
+                    max-width: initial!important;
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding-top: 50px!important;
+                    background-image: $login_bg_img;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    .oe_login_form{
+                        width: 50%!important;
+                        height: auto;
+                        max-width: initial!important;
+                        background-color: $form_bg_color!important;
+                        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+                        border-radius: 6px;
+                        padding: 20px!important;
+                        .form-group{
+                            label{
+                                font-size: 14px!important;
+                                font-weight: 500;
+                                font-family: 'Montserrat', sans-serif;
+                                color: $label_color!important;
+                            }
+                            .input-group{
+                                input{
+                                    border: none!important;
+                                    outline: 1px solid $inputs_outline!important;
+                                    font-size: 14px!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                    height: auto!important;
+                                    padding: 8px!important;
+                                    color: $inputs_font_color!important;
+                                    &:hover, &:focus{
+                                        outline: 1px solid $inputs_outline_hover!important;
+                                        transition: outline .2s ease-in-out!important;
+                                        box-shadow: none!important;
+                                    }
+                                }
+                                span{
+                                    a{
+                                        background-color: $login_buttons_bg!important;
+                                        font-size: 14px!important;
+                                        color: $label_color!important;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        gap: 5px;
+                                    }
+                                }
+                            }
+                            input{
+                                border: none!important;
+                                outline: 1px solid $inputs_outline!important;
+                                font-size: 14px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 8px!important;
+                                color: $inputs_font_color!important;
+                                &:hover, &:focus{
+                                    outline: 1px solid $inputs_outline_hover!important;
+                                    transition: outline .2s ease-in-out!important;
+                                    box-shadow: none!important;
+                                }
+                            }
+                        }
+                        .oe_login_buttons{
+                            button{
+                                border: none!important;
+                                outline: none!important;
+                                font-size: 14px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 8px!important;
+                                background-color: $login_buttons_bg!important;
+                                color: $buttons_font_color!important;
+                                &:hover ,&:focus{
+                                    background-color: $login_buttons_bg_hover!important;
+                                    color: $buttons_font_color_hover!important;
+                                    transition: background-color .2s ease-in-out;
+                                    box-shadow: none!important;
+                                }
+                            }
+                            div{
+                                margin: 10px 0px!important;
+                                a{
+                                    color: $label_color!important;
+                                    font-size: 14px!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 896px) and (max-width: 1024px) and (max-device-height: 768px){
+    .login_page{
+        #wrapwrap{
+            main{
+                .oe_website_login_container{
+                    width: 100%!important;
+                    height: 100%!important;
+                    padding: 0px!important;
+                    max-width: initial!important;
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding-top: 50px!important;
+                    background-image: $login_bg_img;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    .oe_login_form{
+                        width: 50%!important;
+                        height: auto;
+                        max-width: initial!important;
+                        background-color: $form_bg_color!important;
+                        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+                        border-radius: 6px;
+                        padding: 20px!important;
+                        .form-group{
+                            label{
+                                font-size: 14px!important;
+                                font-weight: 500;
+                                font-family: 'Montserrat', sans-serif;
+                                color: $label_color!important;
+                            }
+                            .input-group{
+                                input{
+                                    border: none!important;
+                                    outline: 1px solid $inputs_outline!important;
+                                    font-size: 14px!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                    height: auto!important;
+                                    padding: 8px!important;
+                                    color: $inputs_font_color!important;
+                                    &:hover, &:focus{
+                                        outline: 1px solid $inputs_outline_hover!important;
+                                        transition: outline .2s ease-in-out!important;
+                                        box-shadow: none!important;
+                                    }
+                                }
+                                span{
+                                    a{
+                                        background-color: $login_buttons_bg!important;
+                                        font-size: 14px!important;
+                                        color: $label_color!important;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        gap: 5px;
+                                    }
+                                }
+                            }
+                            input{
+                                border: none!important;
+                                outline: 1px solid $inputs_outline!important;
+                                font-size: 14px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 8px!important;
+                                color: $inputs_font_color!important;
+                                &:hover, &:focus{
+                                    outline: 1px solid $inputs_outline_hover!important;
+                                    transition: outline .2s ease-in-out!important;
+                                    box-shadow: none!important;
+                                }
+                            }
+                        }
+                        .oe_login_buttons{
+                            button{
+                                border: none!important;
+                                outline: none!important;
+                                font-size: 14px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 8px!important;
+                                background-color: $login_buttons_bg!important;
+                                color: $buttons_font_color!important;
+                                &:hover ,&:focus{
+                                    background-color: $login_buttons_bg_hover!important;
+                                    color: $buttons_font_color_hover!important;
+                                    transition: background-color .2s ease-in-out;
+                                    box-shadow: none!important;
+                                }
+                            }
+                            div{
+                                margin: 10px 0px!important;
+                                a{
+                                    color: $label_color!important;
+                                    font-size: 14px!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 700px) and (max-width: 950px) and (max-device-height: 550px){
+    .login_page{
+        #wrapwrap{
+            main{
+                .oe_website_login_container{
+                    width: 100%!important;
+                    height: 100%!important;
+                    padding: 0px!important;
+                    max-width: initial!important;
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding-top: 40px!important;
+                    background-image: $login_bg_img;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    .oe_login_form{
+                        width: 70%!important;
+                        height: auto;
+                        max-width: initial!important;
+                        background-color: $form_bg_color!important;
+                        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+                        border-radius: 6px;
+                        padding: 20px!important;
+                        margin: 20px 0px!important;
+                        .form-group{
+                            label{
+                                font-size: 14px!important;
+                                font-weight: 500;
+                                font-family: 'Montserrat', sans-serif;
+                                color: $label_color!important;
+                            }
+                            .input-group{
+                                input{
+                                    border: none!important;
+                                    outline: 1px solid $inputs_outline!important;
+                                    font-size: 14px!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                    height: auto!important;
+                                    padding: 8px!important;
+                                    color: $inputs_font_color!important;
+                                    &:hover, &:focus{
+                                        outline: 1px solid $inputs_outline_hover!important;
+                                        transition: outline .2s ease-in-out!important;
+                                        box-shadow: none!important;
+                                    }
+                                }
+                                span{
+                                    a{
+                                        background-color: $login_buttons_bg!important;
+                                        font-size: 14px!important;
+                                        color: $label_color!important;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        gap: 5px;
+                                    }
+                                }
+                            }
+                            input{
+                                border: none!important;
+                                outline: 1px solid $inputs_outline!important;
+                                font-size: 14px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 8px!important;
+                                color: $inputs_font_color!important;
+                                &:hover, &:focus{
+                                    outline: 1px solid $inputs_outline_hover!important;
+                                    transition: outline .2s ease-in-out!important;
+                                    box-shadow: none!important;
+                                }
+                            }
+                        }
+                        .oe_login_buttons{
+                            button{
+                                border: none!important;
+                                outline: none!important;
+                                font-size: 14px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 8px!important;
+                                background-color: $login_buttons_bg!important;
+                                color: $buttons_font_color!important;
+                                &:hover ,&:focus{
+                                    background-color: $login_buttons_bg_hover!important;
+                                    color: $buttons_font_color_hover!important;
+                                    transition: background-color .2s ease-in-out;
+                                    box-shadow: none!important;
+                                }
+                            }
+                            div{
+                                margin: 10px 0px!important;
+                                a{
+                                    color: $label_color!important;
+                                    font-size: 14px!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 699px) and (max-device-height: 550px){
+    .login_page{
+        #wrapwrap{
+            main{
+                .oe_website_login_container{
+                    width: 100%!important;
+                    height: 100%!important;
+                    padding: 0px!important;
+                    max-width: initial!important;
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding-top: 40px!important;
+                    background-image: $login_bg_img;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    .oe_login_form{
+                        width: 70%!important;
+                        height: auto;
+                        max-width: initial!important;
+                        background-color: $form_bg_color!important;
+                        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+                        border-radius: 6px;
+                        padding: 20px!important;
+                        margin: 20px 0px!important;
+                        .form-group{
+                            label{
+                                font-size: 13px!important;
+                                font-weight: 500;
+                                font-family: 'Montserrat', sans-serif;
+                                color: $label_color!important;
+                            }
+                            .input-group{
+                                input{
+                                    border: none!important;
+                                    outline: 1px solid $inputs_outline!important;
+                                    font-size: 12px!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                    height: auto!important;
+                                    padding: 8px!important;
+                                    color: $inputs_font_color!important;
+                                    &:hover, &:focus{
+                                        outline: 1px solid $inputs_outline_hover!important;
+                                        transition: outline .2s ease-in-out!important;
+                                        box-shadow: none!important;
+                                    }
+                                }
+                                span{
+                                    a{
+                                        background-color: $login_buttons_bg!important;
+                                        font-size: 12px!important;
+                                        color: $label_color!important;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        gap: 5px;
+                                    }
+                                }
+                            }
+                            input{
+                                border: none!important;
+                                outline: 1px solid $inputs_outline!important;
+                                font-size: 12px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 8px!important;
+                                color: $inputs_font_color!important;
+                                &:hover, &:focus{
+                                    outline: 1px solid $inputs_outline_hover!important;
+                                    transition: outline .2s ease-in-out!important;
+                                    box-shadow: none!important;
+                                }
+                            }
+                        }
+                        .oe_login_buttons{
+                            button{
+                                border: none!important;
+                                outline: none!important;
+                                font-size: 12px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 8px!important;
+                                background-color: $login_buttons_bg!important;
+                                color: $buttons_font_color!important;
+                                &:hover ,&:focus{
+                                    background-color: $login_buttons_bg_hover!important;
+                                    color: $buttons_font_color_hover!important;
+                                    transition: background-color .2s ease-in-out;
+                                    box-shadow: none!important;
+                                }
+                            }
+                            div{
+                                margin: 10px 0px!important;
+                                a{
+                                    color: $label_color!important;
+                                    font-size: 12px!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 699px) and (max-device-height: 319px){
+    .login_page{
+        #wrapwrap{
+            main{
+                .oe_website_login_container{
+                    width: 100%!important;
+                    height: 100%!important;
+                    padding: 0px!important;
+                    max-width: initial!important;
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding-top: 30px!important;
+                    background-image: $login_bg_img;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    .oe_login_form{
+                        width: 70%!important;
+                        height: auto;
+                        max-width: initial!important;
+                        background-color: $form_bg_color!important;
+                        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+                        border-radius: 6px;
+                        padding: 20px!important;
+                        margin: 20px 0px!important;
+                        .form-group{
+                            label{
+                                font-size: 13px!important;
+                                font-weight: 500;
+                                font-family: 'Montserrat', sans-serif;
+                                color: $label_color!important;
+                            }
+                            .input-group{
+                                input{
+                                    border: none!important;
+                                    outline: 1px solid $inputs_outline!important;
+                                    font-size: 12px!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                    height: auto!important;
+                                    padding: 8px!important;
+                                    color: $inputs_font_color!important;
+                                    &:hover, &:focus{
+                                        outline: 1px solid $inputs_outline_hover!important;
+                                        transition: outline .2s ease-in-out!important;
+                                        box-shadow: none!important;
+                                    }
+                                }
+                                span{
+                                    a{
+                                        background-color: $login_buttons_bg!important;
+                                        font-size: 12px!important;
+                                        color: $label_color!important;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        gap: 5px;
+                                    }
+                                }
+                            }
+                            input{
+                                border: none!important;
+                                outline: 1px solid $inputs_outline!important;
+                                font-size: 12px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 8px!important;
+                                color: $inputs_font_color!important;
+                                &:hover, &:focus{
+                                    outline: 1px solid $inputs_outline_hover!important;
+                                    transition: outline .2s ease-in-out!important;
+                                    box-shadow: none!important;
+                                }
+                            }
+                        }
+                        .oe_login_buttons{
+                            button{
+                                border: none!important;
+                                outline: none!important;
+                                font-size: 12px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 8px!important;
+                                background-color: $login_buttons_bg!important;
+                                color: $buttons_font_color!important;
+                                &:hover ,&:focus{
+                                    background-color: $login_buttons_bg_hover!important;
+                                    color: $buttons_font_color_hover!important;
+                                    transition: background-color .2s ease-in-out;
+                                    box-shadow: none!important;
+                                }
+                            }
+                            div{
+                                margin: 10px 0px!important;
+                                a{
+                                    color: $label_color!important;
+                                    font-size: 12px!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 895px) and (min-device-height: 1200px){}
+
+@media screen and (min-width: 896px) and (max-width: 1024px) and (min-device-height: 1250px){
+    .login_page{
+        #wrapwrap{
+            main{
+                .oe_website_login_container{
+                    width: 100%!important;
+                    height: 100%!important;
+                    padding: 0px!important;
+                    max-width: initial!important;
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding-top: 40px!important;
+                    background-image: $login_bg_img;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    .oe_login_form{
+                        width: 50%!important;
+                        height: auto;
+                        max-width: initial!important;
+                        background-color: $form_bg_color!important;
+                        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+                        border-radius: 6px;
+                        padding: 25px!important;
+                        .form-group{
+                            label{
+                                font-size: 16px!important;
+                                font-weight: 500;
+                                font-family: 'Montserrat', sans-serif;
+                                color: $label_color!important;
+                            }
+                            .input-group{
+                                input{
+                                    border: none!important;
+                                    outline: 1px solid $inputs_outline!important;
+                                    font-size: 16px!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                    height: auto!important;
+                                    padding: 8px!important;
+                                    color: $inputs_font_color!important;
+                                    &:hover, &:focus{
+                                        outline: 1px solid $inputs_outline_hover!important;
+                                        transition: outline .2s ease-in-out!important;
+                                        box-shadow: none!important;
+                                    }
+                                }
+                                span{
+                                    a{
+                                        background-color: $login_buttons_bg!important;
+                                        font-size: 16px!important;
+                                        color: $label_color!important;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        gap: 5px;
+                                    }
+                                }
+                            }
+                            input{
+                                border: none!important;
+                                outline: 1px solid $inputs_outline!important;
+                                font-size: 16px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 8px!important;
+                                color: $inputs_font_color!important;
+                                &:hover, &:focus{
+                                    outline: 1px solid $inputs_outline_hover!important;
+                                    transition: outline .2s ease-in-out!important;
+                                    box-shadow: none!important;
+                                }
+                            }
+                        }
+                        .oe_login_buttons{
+                            button{
+                                border: none!important;
+                                outline: none!important;
+                                font-size: 16px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 8px!important;
+                                background-color: $login_buttons_bg!important;
+                                color: $buttons_font_color!important;
+                                &:hover ,&:focus{
+                                    background-color: $login_buttons_bg_hover!important;
+                                    color: $buttons_font_color_hover!important;
+                                    transition: background-color .2s ease-in-out;
+                                    box-shadow: none!important;
+                                }
+                            }
+                            div{
+                                margin: 10px 0px!important;
+                                a{
+                                    color: $label_color!important;
+                                    font-size: 16px!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1200px){
+    .login_page{
+        #wrapwrap{
+            main{
+                .oe_website_login_container{
+                    width: 100%!important;
+                    height: 100%!important;
+                    padding: 0px!important;
+                    max-width: initial!important;
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding-top: 50px!important;
+                    background-image: $login_bg_img;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    .oe_login_form{
+                        width: 40%!important;
+                        height: auto;
+                        max-width: initial!important;
+                        background-color: $form_bg_color!important;
+                        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+                        border-radius: 6px;
+                        padding: 20px!important;
+                        .form-group{
+                            label{
+                                font-size: 14px!important;
+                                font-weight: 500;
+                                font-family: 'Montserrat', sans-serif;
+                                color: $label_color!important;
+                            }
+                            .input-group{
+                                input{
+                                    border: none!important;
+                                    outline: 1px solid $inputs_outline!important;
+                                    font-size: 14px!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                    height: auto!important;
+                                    padding: 8px!important;
+                                    color: $inputs_font_color!important;
+                                    &:hover, &:focus{
+                                        outline: 1px solid $inputs_outline_hover!important;
+                                        transition: outline .2s ease-in-out!important;
+                                        box-shadow: none!important;
+                                    }
+                                }
+                                span{
+                                    a{
+                                        background-color: $login_buttons_bg!important;
+                                        font-size: 14px!important;
+                                        color: $label_color!important;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        gap: 5px;
+                                    }
+                                }
+                            }
+                            input{
+                                border: none!important;
+                                outline: 1px solid $inputs_outline!important;
+                                font-size: 14px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 8px!important;
+                                color: $inputs_font_color!important;
+                                &:hover, &:focus{
+                                    outline: 1px solid $inputs_outline_hover!important;
+                                    transition: outline .2s ease-in-out!important;
+                                    box-shadow: none!important;
+                                }
+                            }
+                        }
+                        .oe_login_buttons{
+                            button{
+                                border: none!important;
+                                outline: none!important;
+                                font-size: 14px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 8px!important;
+                                background-color: $login_buttons_bg!important;
+                                color: $buttons_font_color!important;
+                                &:hover ,&:focus{
+                                    background-color: $login_buttons_bg_hover!important;
+                                    color: $buttons_font_color_hover!important;
+                                    transition: background-color .2s ease-in-out;
+                                    box-shadow: none!important;
+                                }
+                            }
+                            div{
+                                margin: 10px 0px!important;
+                                a{
+                                    color: $label_color!important;
+                                    font-size: 14px!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1201px) and (max-width: 1599px){
+    .login_page{
+        #wrapwrap{
+            main{
+                .oe_website_login_container{
+                    width: 100%!important;
+                    height: 100%!important;
+                    padding: 0px!important;
+                    max-width: initial!important;
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding-top: 50px!important;
+                    background-image: $login_bg_img;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    .oe_login_form{
+                        width: 30%!important;
+                        height: auto;
+                        max-width: initial!important;
+                        background-color: $form_bg_color!important;
+                        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+                        border-radius: 6px;
+                        padding: 20px!important;
+                        .form-group{
+                            label{
+                                font-size: 14px!important;
+                                font-weight: 500;
+                                font-family: 'Montserrat', sans-serif;
+                                color: $label_color!important;
+                            }
+                            .input-group{
+                                input{
+                                    border: none!important;
+                                    outline: 1px solid $inputs_outline!important;
+                                    font-size: 14px!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                    height: auto!important;
+                                    padding: 8px!important;
+                                    color: $inputs_font_color!important;
+                                    &:hover, &:focus{
+                                        outline: 1px solid $inputs_outline_hover!important;
+                                        transition: outline .2s ease-in-out!important;
+                                        box-shadow: none!important;
+                                    }
+                                }
+                                span{
+                                    a{
+                                        background-color: $login_buttons_bg!important;
+                                        font-size: 14px!important;
+                                        color: $label_color!important;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        gap: 5px;
+                                    }
+                                }
+                            }
+                            input{
+                                border: none!important;
+                                outline: 1px solid $inputs_outline!important;
+                                font-size: 14px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 8px!important;
+                                color: $inputs_font_color!important;
+                                &:hover, &:focus{
+                                    outline: 1px solid $inputs_outline_hover!important;
+                                    transition: outline .2s ease-in-out!important;
+                                    box-shadow: none!important;
+                                }
+                            }
+                        }
+                        .oe_login_buttons{
+                            button{
+                                border: none!important;
+                                outline: none!important;
+                                font-size: 14px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 8px!important;
+                                background-color: $login_buttons_bg!important;
+                                color: $buttons_font_color!important;
+                                &:hover ,&:focus{
+                                    background-color: $login_buttons_bg_hover!important;
+                                    color: $buttons_font_color_hover!important;
+                                    transition: background-color .2s ease-in-out;
+                                    box-shadow: none!important;
+                                }
+                            }
+                            div{
+                                margin: 10px 0px!important;
+                                a{
+                                    color: $label_color!important;
+                                    font-size: 14px!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1600px) and (max-width: 1919px){
+    .login_page{
+        #wrapwrap{
+            main{
+                .oe_website_login_container{
+                    width: 100%!important;
+                    height: 100%!important;
+                    padding: 0px!important;
+                    max-width: initial!important;
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding-top: 50px!important;
+                    background-image: $login_bg_img;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    .oe_login_form{
+                        width: 25%!important;
+                        height: auto;
+                        max-width: initial!important;
+                        background-color: $form_bg_color!important;
+                        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+                        border-radius: 6px;
+                        padding: 20px!important;
+                        .form-group{
+                            label{
+                                font-size: 16px!important;
+                                font-weight: 500;
+                                font-family: 'Montserrat', sans-serif;
+                                color: $label_color!important;
+                            }
+                            .input-group{
+                                input{
+                                    border: none!important;
+                                    outline: 1px solid $inputs_outline!important;
+                                    font-size: 16px!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                    height: auto!important;
+                                    padding: 8px!important;
+                                    color: $inputs_font_color!important;
+
+                                    &:hover, &:focus{
+                                        outline: 1px solid $inputs_outline_hover!important;
+                                        transition: outline .2s ease-in-out!important;
+                                        box-shadow: none!important;
+                                    }
+                                }
+                                span{
+                                    a{
+                                        background-color: $login_buttons_bg!important;
+                                        font-size: 16px!important;
+                                        color: $label_color!important;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        gap: 5px;
+                                    }
+                                }
+                            }
+                            input{
+                                border: none!important;
+                                outline: 1px solid $inputs_outline!important;
+                                font-size: 16px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 8px!important;
+                                color: $inputs_font_color!important;
+                                &:hover, &:focus{
+                                    outline: 1px solid $inputs_outline_hover!important;
+                                    transition: outline .2s ease-in-out!important;
+                                    box-shadow: none!important;
+                                }
+                            }
+                        }
+                        .oe_login_buttons{
+                            button{
+                                border: none!important;
+                                outline: none!important;
+                                font-size: 16px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 8px!important;
+                                background-color: $login_buttons_bg!important;
+                                color: $buttons_font_color!important;
+                                &:hover, &:focus{
+                                    background-color: $login_buttons_bg_hover!important;
+                                    color: $buttons_font_color_hover!important;
+                                    transition: background-color .2s ease-in-out;
+                                    box-shadow: none!important;
+                                }
+                            }
+                            div{
+                                margin: 10px 0px!important;
+                                a{
+                                    color: $label_color!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1920px) and (max-width: 2559px){
+    .login_page{
+        #wrapwrap{
+            main{
+                .oe_website_login_container{
+                    width: 100%!important;
+                    height: 100%!important;
+                    padding: 0px!important;
+                    max-width: initial!important;
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding-top: 50px!important;
+                    background-image: $login_bg_img;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    .oe_login_form{
+                        width: 25%!important;
+                        height: auto;
+                        max-width: initial!important;
+                        background-color: $form_bg_color!important;
+                        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+                        border-radius: 6px;
+                        padding: 20px!important;
+                        .form-group{
+                            label{
+                                font-size: 16px!important;
+                                font-weight: 500;
+                                font-family: 'Montserrat', sans-serif;
+                                color: $label_color!important;
+                            }
+                            .input-group{
+                                input{
+                                    border: none!important;
+                                    outline: 1px solid $inputs_outline!important;
+                                    font-size: 16px!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                    height: auto!important;
+                                    padding: 8px!important;
+                                    color: $inputs_font_color!important;
+                                    &:hover, &:focus{
+                                        outline: 1px solid $inputs_outline_hover!important;
+                                        transition: outline .2s ease-in-out!important;
+                                        box-shadow: none!important;
+                                    }
+                                }
+                                span{
+                                    a{
+                                        background-color: $login_buttons_bg!important;
+                                        font-size: 16px!important;
+                                        color: $label_color!important;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        gap: 5px;
+                                    }
+                                }
+                            }
+                            input{
+                                border: none!important;
+                                outline: 1px solid $inputs_outline!important;
+                                font-size: 16px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 8px!important;
+                                color: $inputs_font_color!important;
+                                &:hover, &:focus{
+                                    outline: 1px solid $inputs_outline_hover!important;
+                                    transition: outline .2s ease-in-out!important;
+                                    box-shadow: none!important;
+                                }
+                            }
+                        }
+                        .oe_login_buttons{
+                            button{
+                                border: none!important;
+                                outline: none!important;
+                                font-size: 16px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 8px!important;
+                                background-color: $login_buttons_bg!important;
+                                color: $buttons_font_color!important;
+                                &:hover, &:focus{
+                                    background-color: $login_buttons_bg_hover!important;
+                                    color: $buttons_font_color_hover!important;
+                                    transition: background-color .2s ease-in-out;
+                                    box-shadow: none!important;
+                                }
+                            }
+                            div{
+                                margin: 10px 0px!important;
+                                a{
+                                    color: $label_color!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 2560px) and (max-width: 3839px){
+    .login_page{
+        #wrapwrap{
+            main{
+                .oe_website_login_container{
+                    width: 100%!important;
+                    height: 100%!important;
+                    padding: 0px!important;
+                    max-width: initial!important;
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding-top: 150px!important;
+                    background-image: $login_bg_img;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    .oe_login_form{
+                        width: 25%!important;
+                        height: auto;
+                        max-width: initial!important;
+                        background-color: $form_bg_color!important;
+                        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+                        border-radius: 6px;
+                        padding: 20px!important;
+                        .form-group{
+                            margin-bottom: 30px!important;
+                            label{
+                                font-size: 20px!important;
+                                font-weight: 500;
+                                font-family: 'Montserrat', sans-serif;
+                                color: $label_color!important;
+                            }
+                            .input-group{
+                                input{
+                                    border: none!important;
+                                    outline: 1px solid $inputs_outline!important;
+                                    font-size: 20px!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                    height: auto!important;
+                                    padding: 10px!important;
+                                    color: $inputs_font_color!important;
+
+                                    &:hover, &:focus{
+                                        outline: 1px solid $inputs_outline_hover!important;
+                                        transition: outline .2s ease-in-out!important;
+                                        box-shadow: none!important;
+                                    }
+                                }
+                                span{
+                                    a{
+                                        background-color: $login_buttons_bg!important;
+                                        font-size: 20px!important;
+                                        color: $label_color!important;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        gap: 5px;
+                                    }
+                                }
+                            }
+                            input{
+                                border: none!important;
+                                outline: 1px solid $inputs_outline!important;
+                                font-size: 20px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 10px!important;
+                                color: $inputs_font_color!important;
+                                &:hover, &:focus{
+                                    outline: 1px solid $inputs_outline_hover!important;
+                                    transition: outline .2s ease-in-out!important;
+                                    box-shadow: none!important;
+                                }
+                            }
+                        }
+                        .oe_login_buttons{
+                            button{
+                                border: none!important;
+                                outline: none!important;
+                                font-size: 20px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 15px 8px!important;
+                                background-color: $login_buttons_bg!important;
+                                color: $buttons_font_color!important;
+                                margin-bottom: 20px!important;
+                                &:hover, &:focus{
+                                    background-color: $login_buttons_bg_hover!important;
+                                    color: $buttons_font_color_hover!important;
+                                    transition: background-color .2s ease-in-out;
+                                    box-shadow: none!important;
+                                }
+                            }
+                            div{
+                                margin: 10px 0px!important;
+                                a{
+                                    color: $label_color!important;
+                                    font-size: 20px!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 3840px){
+    .login_page{
+        #wrapwrap{
+            main{
+                .oe_website_login_container{
+                    width: 100%!important;
+                    height: 100%!important;
+                    padding: 0px!important;
+                    max-width: initial!important;
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding-top: 120px!important;
+                    background-image: $login_bg_img;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    .oe_login_form{
+                        width: 25%!important;
+                        height: auto;
+                        max-width: initial!important;
+                        background-color: $form_bg_color!important;
+                        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+                        border-radius: 6px;
+                        padding: 40px!important;
+                        .form-group{
+                            margin-bottom: 40px!important;
+                            label{
+                                font-size: 34px!important;
+                                font-weight: 500;
+                                font-family: 'Montserrat', sans-serif;
+                                color: $label_color!important;
+                            }
+                            .input-group{
+                                input{
+                                    border: none!important;
+                                    outline: 1px solid $inputs_outline!important;
+                                    font-size: 34px!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                    height: auto!important;
+                                    padding: 14px!important;
+                                    color: $inputs_font_color!important;
+
+                                    &:hover, &:focus{
+                                        outline: 1px solid $inputs_outline_hover!important;
+                                        transition: outline .2s ease-in-out!important;
+                                        box-shadow: none!important;
+                                    }
+                                }
+                                span{
+                                    a{
+                                        background-color: $login_buttons_bg!important;
+                                        font-size: 34px!important;
+                                        color: $label_color!important;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        gap: 5px;
+                                    }
+                                }
+                            }
+                            input{
+                                border: none!important;
+                                outline: 1px solid $inputs_outline!important;
+                                font-size: 34px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 14px!important;
+                                color: $inputs_font_color!important;
+                                &:hover, &:focus{
+                                    outline: 1px solid $inputs_outline_hover!important;
+                                    transition: outline .2s ease-in-out!important;
+                                    box-shadow: none!important;
+                                }
+                            }
+                        }
+                        .oe_login_buttons{
+                            button{
+                                border: none!important;
+                                outline: none!important;
+                                font-size: 34px!important;
+                                font-family: 'Montserrat', sans-serif;
+                                height: auto!important;
+                                padding: 20px 12px!important;
+                                background-color: $login_buttons_bg!important;
+                                color: $buttons_font_color!important;
+                                margin-bottom: 20px!important;
+                                &:hover, &:focus{
+                                    background-color: $login_buttons_bg_hover!important;
+                                    color: $buttons_font_color_hover!important;
+                                    transition: background-color .2s ease-in-out;
+                                    box-shadow: none!important;
+                                }
+                            }
+                            div{
+                                margin: 10px 0px!important;
+                                a{
+                                    color: $label_color!important;
+                                    font-size: 34px!important;
+                                    font-family: 'Montserrat', sans-serif;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!--		recive-->
+        <template id="delegation_receive_report_pdf">
+            <t t-call="web.html_container" t-translation="off">
+                <t t-call="web.external_layout">
+                    <div class="page" style="font-size:16pt;font-family:Arial;direction:rtl">
+                        <t t-foreach="docs" t-as="o">
+                            <br/>
+                            <h2 colspan="10" class="text-center" style="font-size:20px;font-weight: bold">إقرار استلام سيارة</h2>
+                            <br/>
+                            <p style="text-align:justify;margin-right:10%;margin-left:10%;color:black; line-height: 1.8;">
+                                أقر أنا /
+                                <span t-esc="o.employee_id.name"/>
+                                الجنسية
+                                <span t-esc="o.employee_id.country_id.name"/>
+                                رقم الهوية / الإقامة /
+                                <span t-esc="o.employee_id.iqama_number.iqama_id"/>
+                                صادرة من<span t-esc="o.employee_id.iqama_creat_date"/>وتنتهي في:
+                                <span t-esc="o.employee_id.iqama_expiy_date"/>
+                                بأنني استلمت سيارة نوعها
+                                <span t-esc="o.vehicle_id.fleet_type_id.name"/>
+                                موديل /
+                                <span t-esc="o.model_id.name"/>
+                                رقم اللوحة /
+                                <span t-esc="o.license_plate"/>
+                                اللون /
+                                <span t-esc="o.vehicle_id.color"/>
+                                من الشركة لاستخدامها في أغراض العمل وأتعهد
+                                بالمحافظة عليها وعلى ملحقاتها بحالة جيدة واستخدامها أثناء الدوام اليومي ولأغراض العمل.
+                            </p>
+                            <p style="text-align:justify;margin-right:10%;margin-left:10%;color:black; line-height: 1.8;">
+                                وفي حالة حدوث أي مشكلات أن أبلغ الإدارة فوراً كما أقر بمسئوليتي عن أي تلفيات تحدث للسيارة نتيجة سوء الاستخدام أو
+                                عدم العناية. وبعدم تسليم السيارة لأي شخص آخر أو السماح له باستخدام السيارة وأن أسلم السيارة على حالة التي استلمتها
+                                عليها فور طلب الإدارة ذلك وأن أراعي في استخدامها القوانين وأنظمة العمل المعمول بها في المملكة العربية السعودية.
+                            </p>
+                            <p style="text-align:justify;margin-right:10%;margin-left:10%;color:black; line-height: 1.8;">
+                                وأقر بأنني اطلعت على جميع ما ورد بسياسة استخدام السيارات بالشركة ............................................... وأقر بالتزامي
+                                الكامل بها وبما ورد فيها.
+                            </p>
+                            <br/>
+                            <p style="text-align:right;margin-right:10%;margin-left:10%;color:black;font-weight:bold; line-height: 1.8;">
+                                <span>الإسم :
+                                    <span t-esc="o.employee_id.name"/>
+                                </span>
+                                <br/>
+                                <span>التوقيع :
+                                    <span t-esc="o.employee_id.name"/>
+                                </span>
+                                <br/>
+                                <span>تاريخ إستلام السيارة :
+                                    <span t-esc="o.start_date"/>
+                                </span>
+
+                            </p>
+
+                            <!--							<p>I <span t-esc="o.employee_id.name"/>  Nationality <span t-esc="o.employee_id.country_id.name"/> Id Number/Iqama <span t-esc="o.employee_id.iqama_number.iqama_id"/><br></br>-->
+                            <!--								From <span t-esc="o.employee_id.iqama_creat_date"/> End <span t-esc="o.employee_id.iqama_expiy_date"/> Have Receive Vehicle Type <span t-esc="o.vehicle_id.fleet_type_id.name"/><br></br>-->
+                            <!--								Model <span t-esc="o.model_id.name"/> Plate <span t-esc="o.license_plate"/> Color <span t-esc="o.vehicle_id.color"/> from company <br></br> and i will use it for company work purpose only<br></br>-->
+                            <!--								I Declare All above <br></br>-->
+
+                            <!--								Name: <span t-esc="o.employee_id.name"/> <br></br>-->
+                            <!--								Signature: <span t-esc="o.employee_id.name"/> <br></br>-->
+                            <!--								Date: <br></br>-->
+                            <!--							</p>-->
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </template>
+        <report
+                id="delegation_receive_report_pdf_act"
+                model="vehicle.delegation"
+                string="Receive Report"
+                report_type="qweb-pdf"
+                name="odex_fleet.delegation_receive_report_pdf"
+                file="odex_fleet.delegation_receive_report_pdf"
+                menu="True"/>
+
+        <!--		Driver -->
+
+        <template id="driver_report_pdf">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 colspan="10" class="text-center" style="font-size:20px">Driver Report
+                            <span t-esc="date_from"/>
+                            -
+                            <span t-esc="date_to"/>
+                            <br></br>
+                            <br></br>
+                        </h2>
+                        <h2 colspan="10" class="text-center" style="font-size:20px" >
+                            <t t-esc="', '.join(department for department in department_ids)"/>
+                        </h2>
+                        <table class="table table-condensed table-bordered">
+                            <thead class="text-center">
+                                <tr style="width:100%;">
+                                    <th style="text-align:center;">#</th>
+                                    <th style="text-align:center;">Driver</th>
+                                    <th style="text-align:center;">Id Number</th>
+                                    <th style="text-align:center;">Type</th>
+                                    <th style="text-align:center;">Model</th>
+                                    <th style="text-align:center;">Plate</th>
+                                    <th style="text-align:center;">State</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                                <t t-set="sequence" t-value="0"/>
+                                <t t-foreach="docs" t-as="o">
+                                    <tr>
+                                        <td>
+                                            <t t-set="sequence" t-value="sequence +1"/>
+                                            <t t-esc="sequence"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.name"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.license_number"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.vehicle_id.fleet_type_id.name"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.vehicle_id.model_id.name"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.vehicle_id.license_plate"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.vehicle_id.states.name"/>
+                                        </td>
+                                    </tr>
+                                </t>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </t>
+            </t>
+        </template>
+        <report
+                id="driver_report_pdf_act"
+                model="hr.employee"
+                string="Driver Report"
+                report_type="qweb-pdf"
+                name="odex_fleet.driver_report_pdf"
+                file="odex_fleet.driver_report_pdf"
+                menu="False"/>
+
+        <!--		Driver Delegation -->
+
+        <template id="driver_delegation_report_pdf">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 colspan="10" class="text-center" style="font-size:20px">Driver Delegation Report
+<!--                            <span t-esc="date_from"/>-->
+<!--                            - -->
+<!--                            <span t-esc="date_to"/>-->
+                        </h2>
+                        <table class="table table-condensed table-bordered">
+                            <thead class="text-center">
+                                <tr style=" width:100%;">
+                                    <th style="text-align:center;">#</th>
+                                    <th style="text-align:center;">Driver</th>
+                                    <th style="text-align:center;">Id Number</th>
+                                    <th style="text-align:center;">Type</th>
+                                    <th style="text-align:center;">Model</th>
+                                    <th style="text-align:center;">Plate</th>
+                                    <th style="text-align:center;">State</th>
+                                    <th style="text-align:center;">Branch</th>
+                                    <th style="text-align:center;">Start</th>
+                                    <th style="text-align:center;">End</th>
+                                    <th style="text-align:center;">KM Number</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                                <t t-set="sequence" t-value="0"/>
+                                <t t-foreach="docs" t-as="o">
+                                    <tr>
+                                        <td>
+                                            <t t-set="sequence" t-value="sequence +1"/>
+                                            <t t-esc="sequence"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.employee_id.name"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.license_number"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.fleet_type_id.name"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.model_id.name"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.license_plate"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.vehicle_id.branch_id.state_id.name"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.vehicle_id.branch_id.name"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.start_date"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.end_date"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.km_number"/>
+                                        </td>
+                                    </tr>
+                                </t>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </t>
+            </t>
+        </template>
+        <report
+                id="driver_delegation_report_pdf_act"
+                model="vehicle.delegation"
+                string="Driver Delegation Report"
+                report_type="qweb-pdf"
+                name="odex_fleet.driver_delegation_report_pdf"
+                file="odex_fleet.driver_delegation_report_pdf"
+                menu="False"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="followup_report">
+        <t t-call="web.html_container">
+            <t  t-foreach="docs" t-as="doc">
+                <div class="page">
+                    <t t-call="web.external_layout">
+                        <t t-set="seq" t-value="1"/>
+                        <h2  class="text-center">Follow-UP Report</h2><br></br>
+                        <p class="text-center"> For The Period <span t-esc="data['form']['date_from']"/> -  <span t-esc="data['form']['date_to']"/> </p>
+
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;"><strong>#</strong></th>
+                                    <th style="text-align: center;"><strong>Submital Date</strong></th>
+                                    <th style="text-align: center;"><strong>Bid Bond</strong></th>
+                                    <th style="text-align: center;"><strong>RFP No <br/> P No <br/> JOB no </strong></th>
+                                    <th style="text-align: center;"><strong>Proposal Name</strong></th>
+                                    <th style="text-align: center;"><strong>Proposal Status</strong></th>
+                                    <th style="text-align: center;"><strong>Note</strong></th>
+                                    <th style="text-align: center;"><strong>BL</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody style="text-align: center;">
+                                <tr  t-foreach="followup_data" t-as="followup">
+                                    <td>
+                                        <span t-esc="seq"/>
+                                        <t t-set="seq" t-value="seq+1"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="followup['date']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="followup['bidbond']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="followup['crm_seq']"/> <br/> <span t-esc="followup['proposal']"/> 
+                                    </td>
+                                    <td>
+                                        <span t-esc="followup['name']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="followup['proposal_status']"/>
+                                    </td>
+                                    <td>
+                                        
+                                    </td>
+                                    <td>
+                                        <span t-esc="followup['business_unit']"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+    <report
+            id ="action_followup_report_pdf"
+            model ="followup.report.wiz"
+            string ="Follow-UP Report Pdf"
+            report_type ="qweb-pdf"
+            name ="sale_custom.followup_report"
+            file ="sale_custom.followup_report"
+            menu="False" />
+
+    <report id ="action_followup_report_xlsx"
+            model ="followup.report.wiz"
+            string ="Follow-UP Report XlsX"
+            report_type ="xlsx"
+            name ="sale_custom.followup_report_xlsx"
+            file ="sale_custom.followup_report_xlsx"
+            menu="False" />
+</odoo>

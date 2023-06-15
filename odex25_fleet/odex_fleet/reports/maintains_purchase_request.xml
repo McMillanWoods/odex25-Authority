@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!--     To   maintains-->
+        <template id="maintains_purchase_req">
+            <t t-call="web.html_container" t-translation="off">
+                <t t-call="web.external_layout">
+                    <div class="page" style="font-size:16pt;font-family:Arial;direction:rtl">
+                        <t t-foreach="docs" t-as="o">
+                            <br/>
+                            <h2 colspan="10" class="text-center" style="font-size:20px;font-weight: bold">
+                                <strong>طلب أمر شراء</strong>
+                                <span t-esc="o.name"/>
+                            </h2>
+                            <br/>
+                            <p style="text-align:right;margin-right:5%;font-weight: bold; line-height: 1.8;">
+                                <span style="border-bottom: 1px solid #333;">
+                                    <strong>
+                                        رقم الطلب(<span t-esc="o.id"/>-لوحة رقم
+                                        <span t-esc="o.vehicle_id.license_plate"/>)
+                                        الفرع
+                                        <span t-esc="o.branch_id.name"/>
+                                    </strong>
+                                </span>
+                            </p>
+                            <p style="text-align:justify;margin-right:5%;font-weight: bold; line-height: 1.8;">
+                                <span style="border-bottom: 1px solid #333;">
+                                    <strong>
+                                        التاريخ :
+                                        <span t-esc="o.date"/>
+                                    </strong>
+                                </span>
+                            </p>
+                            <p style="text-align:right;margin-right:5%;color:black;font-weight: bold; line-height: 1.8;">
+                                <span style="border-bottom: 1px solid #333;">
+                                    الموضـوع :
+                                    <span t-esc="o.name"/>
+                                    سيارة
+                                    رقم اللوحة
+                                    <span t-esc="o.vehicle_id.license_plate"/>
+
+                                </span>
+
+                                <br/>
+
+                            </p>
+                            <p style="text-align:justify;margin-right:5%;margin-left:5%;line-height: 1.8;">
+                                إشارة للموضوع أعلاه نرجو من سيادتكم تعميد من يلزم بصرف مبلغ و قدره إشارة للموضوع أعلاه نرجو من سيادتكم تعميد من يلزم بصرف مبلغ و قدره (<span t-esc="o.total1"/>) ريال وذلك لزوم
+                                السيارة
+                                <span t-esc="o.name"/>
+                                رقم اللوحة
+                                <span t-esc="o.vehicle_id.license_plate"/>
+                                القائد /
+                                <span t-esc="o.employee_id.name"/>
+
+                            </p>
+                            <br/>
+                            <table class="table table-condensed table-bordered"
+                                   style="margin-right:10%;margin-left:10%; width:80%">
+                                <thead class="text-center">
+                                    <tr style="height:50px;text-align:center; vertical-align:middle">
+                                        <th style="text-align:center;">م</th>
+                                        <th style="text-align:center;">البيان</th>
+                                        <th style="text-align:center;width:20%">السعر</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    <t t-set="sequence" t-value="0"/>
+                                    <t t-foreach="o.service_ids" t-as="d">
+                                        <tr>
+                                            <td>
+                                                <t t-set="sequence" t-value="sequence +1"/>
+                                                <t t-esc="sequence"/>
+                                            </td>
+
+                                            <td style="text-align:center;">
+                                                <span t-esc="d.service_id.name"/>
+                                            </td>
+                                            <td  style="text-align:center;">
+                                                <span t-esc="d.qty"/>
+                                            </td>
+
+                                        </tr>
+                                    </t>
+
+                                </tbody>
+                            </table>
+
+                            <p style="text-align:right;margin-right:5%;font-weight:bold; line-height: 1.8;">
+                                <span style="border-bottom: 1px solid #333;"> * المرفقات</span>
+                            </p>
+                            <p style="text-align:right;margin-right:5%;font-weight:bold; line-height: 1.8;">
+                                <span style="border-bottom: 1px solid #333;"> * عرض السعر</span>
+                            </p>
+                            <table class="table table-condensed table-bordered"
+                                   style="margin-right:10%;margin-left:10%; width:80%">
+                                <tr>
+                                    <td colspan="4">
+                                        <center>
+                                            <strong>مسؤول الصيانة</strong>
+                                        </center>
+                                    </td>
+                                    <td colspan="4">
+                                        <center>
+                                            <strong>تعميد المدير العام</strong>
+                                        </center>
+                                    </td>
+
+                                </tr>
+                                 <tr>
+                                    <td style="height:90px;text-align:center; vertical-align:middle" colspan="4">
+                                        <p></p>
+                                        <p style="line-height:1.8;">الإسم :........................................</p>
+                                        <p style="line-height:1.8;">التوقيع :........................................
+                                        </p>
+                                    </td>
+                                    <td style="height:90px;text-align:center; vertical-align:middle" colspan="4">
+                                        <p></p>
+                                        <p style="line-height:1.8;">الإسم :........................................</p>
+                                        <p style="line-height:1.8;">التوقيع :........................................
+                                        </p>
+                                    </td>
+                                </tr>
+
+                            </table>
+
+                        </t>
+                    </div>
+
+
+                </t>
+            </t>
+        </template>
+        <report
+                id="maintains_purchase_req_act"
+                model="fleet.maintenance"
+                string="Maintenance Purchase Request"
+                report_type="qweb-pdf"
+                name="odex_fleet.maintains_purchase_req"
+                file="odex_fleet.maintains_purchase_req"/>
+    </data>
+</odoo>

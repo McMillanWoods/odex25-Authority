@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="hr_attendance_transaction_action">
+            <field name="name">Attendance Transactions</field>
+            <field name="res_model">hr.attendance.transaction</field>
+            <field name="view_mode">tree,form,calendar,graph</field>
+        </record>
+
+        <record id="attendance_transaction_tree_view" model="ir.ui.view">
+            <field name="name">Attendance Transactions</field>
+            <field name="model">hr.attendance.transaction</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree decoration-danger="is_absent == True" decoration-primary="approve_exit_out == True" decoration-muted="approve_lateness == True">
+                    <field name="employee_id" string="Employee Name"/>
+                    <field name="calendar_id"/>
+                    <field name="date" string="Day"/>
+                    <field name="sign_in" string="Sign In" widget="float_time"/>
+                    <field name="sign_out" string="Sign Out" widget="float_time"/>
+                    <field name="lateness" string="Lateness" widget="float_time"/>
+                    <field name="early_exit" string="Early Exit" widget="float_time"/>
+                    <!--field name="break_duration" String="Break" widget="float_time"/-->
+                    <field name="office_hours" widget="float_time"/>
+                    <field name="additional_hours" widget="float_time"/>
+                    <field name="approve_exit_out" invisible="1"/>
+                    <field name="approve_lateness" invisible="1"/>
+                    <field name="is_absent"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="employee_attendance_transactions_form_view">
+            <field name="name">Attendance Transaction</field>
+            <field name="model">hr.attendance.transaction</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="employee_id" required="1" colspan="4" readonly="1"/>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="date" required="1"/>
+                                <field name="calendar_id" />
+                                <field name="attending_type" />
+                                <field name="sequence" />
+                            </group>
+                            <group>
+                                <field name="sign_in" widget="float_time" required="1"/>
+                                <field name="sign_out" widget="float_time" required="1"/>
+                            </group>
+                        </group>
+                        <group name="attendance">
+                            <group>
+                                <field name="approve_lateness" required="1" readonly="1"/>
+                                <field name="lateness" String="Lateness" widget="float_time" readonly="1" force_save="1" store="1"/>
+                                <field name="approve_exit_out" required="1" readonly="1"/>
+                                <field name="early_exit" String="Early Exit" widget="float_time" required="1" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="plan_hours" widget="float_time"/>
+                                <field name="office_hours" widget="float_time"/>
+                                <field name="official_hours" widget="float_time"/>
+                                <field name="carried_hours" widget="float_time"/>
+                                <field name="break_duration" widget="float_time"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_attendance_calendar" model="ir.ui.view">
+            <field name="name">hr.attendance.transaction.calendar</field>
+            <field name="model">hr.attendance.transaction</field>
+            <field eval="2" name="priority"/>
+            <field name="arch" type="xml">
+                <calendar date_start="date" string="Transaction" mode="month" color="employee_id">
+                    <field name="employee_id"/>
+                    <field name="sign_in" />
+                    <field name="sign_out" />
+                </calendar>
+            </field>
+        </record>
+
+        <record id="view_transaction_graph" model="ir.ui.view">
+            <field name="name">hr.attendance.transaction.graph</field>
+            <field name="model">hr.attendance.transaction</field>
+            <field name="arch" type="xml">
+                <graph string="Attendance Transactions">
+                    <field name="employee_id"/>
+                    <field name="date"/>
+                </graph>
+            </field>
+        </record>
+    </data>
+</odoo>

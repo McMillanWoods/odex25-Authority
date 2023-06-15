@@ -1,0 +1,98 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* exp_cm_mail_odex
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-22 13:13+0000\n"
+"PO-Revision-Date: 2019-09-22 13:13+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: exp_cm_mail_odex
+#: model:ir.model.fields,help:exp_cm_mail_odex.field_cm_subject_type_default_value_email
+#: model:ir.model.fields,help:exp_cm_mail_odex.field_cm_transaction_important_default_value_email
+msgid "Check if you will used in email."
+msgstr "حدد إذا كانت القيمه الافتراضية المستخدمه في معاملات البريد الالكتروني"
+
+#. module: exp_cm_mail_odex
+#: model:ir.actions.act_window,help:exp_cm_mail_odex.cm_transaction_internal_in_mail__list_action
+msgid "Create the first Internal Transaction"
+msgstr "إنشاء معامله داخلية جديده"
+
+#. module: exp_cm_mail_odex
+#: model:ir.model.fields,field_description:exp_cm_mail_odex.field_cm_subject_type_default_value_email
+#: model:ir.model.fields,field_description:exp_cm_mail_odex.field_cm_transaction_important_default_value_email
+msgid "Default value in email"
+msgstr "القيمة الافتراضية للبريد الالكتروني"
+
+#. module: exp_cm_mail_odex
+#: code:addons/exp_cm_mail_odex/models/extend_transaction.py:11
+#: selection:incoming.transaction,source:0
+#: selection:internal.transaction,source:0
+#: selection:outgoing.transaction,source:0
+#: selection:transaction.transaction,source:0
+#, python-format
+msgid "Email"
+msgstr "البريد الالكتروني"
+
+#. module: exp_cm_mail_odex
+#: model:ir.actions.act_window,name:exp_cm_mail_odex.cm_transaction_internal_in_mail__list_action
+#: model:ir.ui.menu,name:exp_cm_mail_odex.cm_transaction_internal_in_menu
+msgid "Email Internal Transactions"
+msgstr "معاملات البريد الالكتروني"
+
+#. module: exp_cm_mail_odex
+#: code:addons/exp_cm_mail_odex/models/extend_transaction.py:10
+#: selection:incoming.transaction,source:0
+#: selection:internal.transaction,source:0
+#: selection:outgoing.transaction,source:0
+#: selection:transaction.transaction,source:0
+#, python-format
+msgid "Manual"
+msgstr "يدوي"
+
+#. module: exp_cm_mail_odex
+#: code:addons/exp_cm_mail_odex/models/extend_transaction.py:12
+#: selection:incoming.transaction,source:0
+#: selection:internal.transaction,source:0
+#: selection:outgoing.transaction,source:0
+#: selection:transaction.transaction,source:0
+#, python-format
+msgid "System"
+msgstr "تلقائي"
+
+#. module: exp_cm_mail_odex
+#: model:ir.model.fields,field_description:exp_cm_mail_odex.field_incoming_transaction_source
+#: model:ir.model.fields,field_description:exp_cm_mail_odex.field_internal_transaction_source
+#: model:ir.model.fields,field_description:exp_cm_mail_odex.field_outgoing_transaction_source
+#: model:ir.model.fields,field_description:exp_cm_mail_odex.field_transaction_transaction_source
+msgid "Transaction Source"
+msgstr "مصدر المعامله"
+
+#. module: exp_cm_mail_odex
+#: model:ir.model,name:exp_cm_mail_odex.model_cm_subject_type
+msgid "cm.subject.type"
+msgstr "cm.subject.type"
+
+#. module: exp_cm_mail_odex
+#: model:ir.model,name:exp_cm_mail_odex.model_cm_transaction_important
+msgid "cm.transaction.important"
+msgstr "cm.transaction.important"
+
+#. module: exp_cm_mail_odex
+#: model:ir.model,name:exp_cm_mail_odex.model_transaction_transaction
+msgid "for common attribute between transaction"
+msgstr "for common attribute between transaction"
+
+#. module: exp_cm_mail_odex
+#: model:ir.model,name:exp_cm_mail_odex.model_internal_transaction
+msgid "internal Transaction"
+msgstr "المعاملات الداخلية"
+

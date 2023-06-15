@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="proposal_inporgress_report">
+        <t t-call="web.html_container">
+            <t  t-foreach="docs" t-as="doc">
+                <div class="page">
+                    <t t-call="web.external_layout">
+                        <t t-set="seq" t-value="1"/>
+                        <h2  class="text-center">Proposal Inprogress Report</h2><br></br>
+                        <p class="text-center"> For The Period <span t-esc="data['form']['date_from']"/> -  <span t-esc="data['form']['date_to']"/> </p>
+
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;"><strong>#</strong></th>
+                                    <th style="text-align: center;"><strong>Submital Date</strong></th>
+                                    <th style="text-align: center;"><strong>Bid Bond</strong></th>
+                                    <th style="text-align: center;"><strong>RFP No <br/> P No <br/> JOB no </strong></th>
+                                    <th style="text-align: center;"><strong>Proposal Name</strong></th>
+                                    <th style="text-align: center;"><strong>Note</strong></th>
+                                    <th style="text-align: center;"><strong>BL</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody style="text-align: center;">
+                                <tr  t-foreach="proposal_inporgress" t-as="proposal">
+                                    <td>
+                                        <span t-esc="seq"/>
+                                        <t t-set="seq" t-value="seq+1"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="proposal['date']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="proposal['bidbond']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="proposal['crm_seq']"/> <br/> <span t-esc="proposal['proposal']"/> 
+                                    </td>
+                                    <td>
+                                        <span t-esc="proposal['name']"/>
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <span t-esc="proposal['business_unit']"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+    <report
+            id ="action_proposal_inporgress_report_pdf"
+            model ="proposal.inprogress.report.wiz"
+            string ="Proposal In-Progress Report Pdf"
+            report_type ="qweb-pdf"
+            name ="sale_custom.proposal_inporgress_report"
+            file ="sale_custom.proposal_inporgress_report"
+            menu="False" />
+
+    <report id ="action_branch_sales_comparsion_report_xlsx"
+            model ="proposal.inprogress.report.wiz"
+            string ="Proposal In-Progress Report XlsX"
+            report_type ="xlsx"
+            name ="sale_custom.proposal_inporgress_report_xlsx"
+            file ="sale_custom.proposal_inporgress_report_xlsx"
+            menu="False" />
+</odoo>

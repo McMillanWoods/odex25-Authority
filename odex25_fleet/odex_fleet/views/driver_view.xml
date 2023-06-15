@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Customize hr View -->
+        <record id="hr_driver_form_view" model="ir.ui.view">
+            <field name="name">hr.drive.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field eval="500" name="priority"/>
+
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='employee_type_id']" position="after">
+                    <field name="driver" readonly='0'/>
+                </xpath>
+<!--                <xpath expr="//field/name[@name='own_license']" position="attributes">-->
+<!--                    <attribute name="invisible">1</attribute>-->
+<!--                </xpath>-->
+                <xpath expr="//notebook/page[@name='hr_settings']" position="after">
+                    <page string="Driver Information" attrs="{'invisible': [('driver', '=', False)]}">
+                        <group string ='License Information' colspan="4" col="4">
+                            <field name="license_type" attrs="{'required':[('driver','=',True)]}"/>
+                            <field name="license_number" attrs="{'required':[('driver','=',True)]}"/>
+                            <field name="license_start" attrs="{'required':[('driver','=',True)]}"/>
+                            <field name="license_end" attrs="{'required':[('driver','=',True)]}"/>
+                            <field name="license_attache"/>
+                            <field name="delegation_start"/>
+                            <field name="delegation_end"/>
+                            <field name="vehicle_id" invisable="0"/>
+                            <field name="receive_date" invisable="0"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+         <record id="hr_kanban_view" model="ir.ui.view">
+            <field name="name">res.hr.kanban.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.hr_kanban_view_employees"/>
+            <field name="arch" type="xml">
+
+                <field name="id" position="after">
+                    <field name="driver" invisable='1'/>
+                </field>
+                    <field name="category_ids" position="after">
+
+                       <group attrs="{'invisible': [('driver', '=', False)]}" col="4" colspan="1">
+
+                        <li>License Type
+                            <field name="license_type" ></field>
+                        </li>
+                        <li>License Number
+                            <field name="license_number"></field>
+                        </li>
+                        <li>License Start
+                            <field name="license_start"></field>
+                        </li>
+                        <li>License End
+                            <field name="license_end"></field>
+                        </li>
+                        <li>Delegation Start Date
+                            <field name="delegation_start"></field>
+                        </li>
+                        <li>Delegation End Date
+                            <field name="delegation_end"></field>
+                        </li>
+                        <li>Vehicle
+                            <field name="vehicle_id"></field>
+                        </li>
+                            </group>
+
+                </field>
+
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="odex_employees_list_action">
+            <field name="name">Drivers</field>
+            <field name="res_model">hr.employee</field>
+           
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[('driver','=',True)]</field>
+            <field name="context">{'default_driver':True}</field>
+        </record>
+
+        <menuitem action="odex_employees_list_action" parent="fleet_vehicles_delegation" groups="fleet_group_hr_officer,fleet_group_supervisor" id="fleet_vehicle_driver_menu"/>
+    </data>
+</odoo>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="hr_view_form_inherit_permissions_holiday" model="ir.ui.view">
+            <field name="model">hr.personal.permission</field>
+            <field name="name">Employee permissions</field>
+            <field name="inherit_id" ref="employee_requests.employee_personal_permission_form_view"/>
+            <field name="priority">100</field>
+            <field name="arch" type="xml">
+                <field name="department_id" position="after">
+                    <field name="deduct_from_holiday"  attrs="{'readonly':[('state','!=','draft')],'invisible':[('permission_number','!=',0.00)]}"/>
+                    <field name="holiday" invisible="1"/>
+                    <field name="permission_amount" invisible="1"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

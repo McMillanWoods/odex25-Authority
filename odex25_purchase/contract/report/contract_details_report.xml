@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <template id="detials_contract_report_template">
+
+                <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                  <t t-call="web.internal_layout">
+                    <t t-set="values" t-value="dict([('new', 'New'),
+                    ('to_confirm' ,'To Confirm'),
+                   ('confirmed', 'Confirmed'),
+                   ('in_progress', 'In progress'),
+                   ('suspended', 'Suspended'),
+                   ('closed', 'Closed'),
+                   ('cancel', 'Cancel'), (False,False)])"/>
+                    <div class="page">
+                        <center>
+                                <h3>Contract details Report</h3>
+                        </center>
+                        <table class="table table-bordered" style="border: 2px solid black;font-family:Arial">
+                            <!-- <thead> -->
+                            <tr>
+                                <th colspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Duration
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Supplier
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Contract
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    State
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Amount
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Amount With Tax
+                                </th>
+                            </tr>
+                            <tr>
+                                <th style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    From
+                                </th>
+                                <th style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    To
+                                </th>
+                            </tr>
+                            <!-- </thead> -->
+                            <tbody>
+                                <tr>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="o['contract'].date_start"/>
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="o['contract'].date_end"/>
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="o['contract'].partner_id.name"/>
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="o['contract'].name"/>
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="o['state']"/>
+
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="o['contract'].total_amount"/>
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="o['contract'].with_tax_amount"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br/>
+                        <br/>
+                        <table class="table table-bordered"
+                               style="border: 2px solid black;font-family:Arial;page-break-inside: avoid;">
+                            <!-- <thead> -->
+                            <tr>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    #
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    name
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    description
+                                </th>
+
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Quantity
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Unit Price
+                                </th>
+                            </tr>
+                            <!-- </thead> -->
+                            <tbody>
+                                <t t-set="total" t-value="0"/>
+                                <t t-set="o_index" t-value="0"/>
+                                <t t-foreach="o['lines']" t-as="r">
+                                    <tr>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="o_index + 1"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="r.product_id.name"/>
+                                        </td>
+
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="r.name"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="r.quantity"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="r.price_unit"/>
+                                        </td>
+
+
+                                    </tr>
+                                    <t t-set="o_index" t-value="o_index + 1"/>
+                                </t>
+
+                                <tr>
+                                    <td style="text-align:center;border:1px solid black" colspan="4">Total Amounts</td>
+                                    <td style="text-align:center;border:1px solid black">
+                                        <t t-esc="o['contract'].with_tax_amount"/>
+                                        <!-- <t t-esc="sum(request.env['contract.line'].search([('contract_id','=',o['contract'].id)]).mapped('price_unit'))"/> -->
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+             </t>
+        </template>
+
+    </data>
+</odoo>

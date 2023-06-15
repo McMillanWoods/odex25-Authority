@@ -1,0 +1,262 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* data_chart
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-15 11:38+0000\n"
+"PO-Revision-Date: 2019-06-15 11:38+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: data_chart
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_report_action_id
+msgid "Action"
+msgstr "الإجراء"
+
+#. module: data_chart
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_report_report_names
+msgid "Cols Names"
+msgstr "أسماء اﻷعمدة"
+
+#. module: data_chart
+#: model:ir.ui.view,arch_db:data_chart.data_chart_report_view_form
+msgid "Create Menu"
+msgstr "إنشاء القائمة"
+
+#. module: data_chart
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_data_item_create_uid
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_model_create_uid
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_report_create_uid
+#: model:ir.model.fields,field_description:data_chart.field_report_cols_names_create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: data_chart
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_data_item_create_date
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_model_create_date
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_report_create_date
+#: model:ir.model.fields,field_description:data_chart.field_report_cols_names_create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: data_chart
+#: model:ir.ui.menu,name:data_chart.data_chart_menu_root
+msgid "Data Chart"
+msgstr "مخطط البيانات"
+
+#. module: data_chart
+#: model:ir.model,name:data_chart.model_report_cols_names
+msgid "Data Chart Data Cols Names"
+msgstr "Data Chart Data Cols Names"
+
+#. module: data_chart
+#: model:ir.model,name:data_chart.model_data_chart_data_item
+msgid "Data Chart Data Item"
+msgstr "Data Chart Data Item"
+
+#. module: data_chart
+#: model:ir.model,name:data_chart.model_data_chart_report
+msgid "Data Chart Report"
+msgstr "Data Chart Report"
+
+#. module: data_chart
+#: model:ir.ui.view,arch_db:data_chart.data_chart_report_view_form
+msgid "Data Items"
+msgstr "وحدات بيانات"
+
+#. module: data_chart
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_data_item_data_item
+msgid "Data node"
+msgstr "وحدة بيانات"
+
+#. module: data_chart
+#: model:ir.model.fields,field_description:data_chart.field_basemodel_extend_custom_data_chart_display_name
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_data_item_display_name
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_model_display_name
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_report_display_name
+#: model:ir.model.fields,field_description:data_chart.field_report_cols_names_d_name
+#: model:ir.model.fields,field_description:data_chart.field_report_cols_names_display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: data_chart
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_report_footer
+msgid "Footer"
+msgstr "Footer"
+
+#. module: data_chart
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_report_groups_ids
+#: model:ir.ui.view,arch_db:data_chart.data_chart_report_view_form
+msgid "Groups"
+msgstr "المجموعات"
+
+#. module: data_chart
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_report_header
+msgid "Header"
+msgstr "Header"
+
+#. module: data_chart
+#: model:ir.model.fields,field_description:data_chart.field_basemodel_extend_custom_data_chart_id
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_data_item_id
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_model_id
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_report_id
+#: model:ir.model.fields,field_description:data_chart.field_report_cols_names_id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: data_chart
+#: model:ir.model.fields,field_description:data_chart.field_basemodel_extend_custom_data_chart___last_update
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_data_item___last_update
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_model___last_update
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_report___last_update
+#: model:ir.model.fields,field_description:data_chart.field_report_cols_names___last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: data_chart
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_data_item_write_uid
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_model_write_uid
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_report_write_uid
+#: model:ir.model.fields,field_description:data_chart.field_report_cols_names_write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: data_chart
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_data_item_write_date
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_model_write_date
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_report_write_date
+#: model:ir.model.fields,field_description:data_chart.field_report_cols_names_write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: data_chart
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_report_menu_id
+msgid "Menu"
+msgstr "القائمة"
+
+#. module: data_chart
+#: selection:data.chart.report,type:0
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_model_model
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_report_model_id
+msgid "Model"
+msgstr "النموذج"
+
+#. module: data_chart
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_report_data_items_ids
+msgid "Models"
+msgstr "نماذج"
+
+#. module: data_chart
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_data_item_name
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_report_name
+msgid "Name"
+msgstr "اﻹسم"
+
+#. module: data_chart
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_model_options
+msgid "Options"
+msgstr "خيارات"
+
+#. module: data_chart
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_report_parent_menu_id
+msgid "Parent Menu"
+msgstr "القائمة الأصل"
+
+#. module: data_chart
+#: selection:data.chart.report,type:0
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_report_query
+msgid "Query"
+msgstr "Query"
+
+#. module: data_chart
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_data_item_report_id
+#: model:ir.model.fields,field_description:data_chart.field_report_cols_names_report_id
+msgid "Report"
+msgstr "التقرير"
+
+#. module: data_chart
+#: model:ir.ui.view,arch_db:data_chart.data_chart_report_view_form
+msgid "Report Columns Names"
+msgstr "أسماء اﻷعمدة في التقرير"
+
+#. module: data_chart
+#: model:ir.ui.view,arch_db:data_chart.data_chart_report_view_form
+msgid "Report Data"
+msgstr "Report Data"
+
+#. module: data_chart
+#: model:ir.ui.menu,name:data_chart.data_chart_menu
+msgid "Reports"
+msgstr "التقارير"
+
+#. module: data_chart
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_model_res_id
+msgid "Res"
+msgstr "Res"
+
+#. module: data_chart
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_report_seq
+msgid "Sequence"
+msgstr "التسلسل"
+
+#. module: data_chart
+#: model:ir.model.fields,field_description:data_chart.field_report_cols_names_t_name
+msgid "Technical Name"
+msgstr "الاسم التقني"
+
+#. module: data_chart
+#: model:ir.ui.view,arch_db:data_chart.data_chart_report_view_form
+msgid "Test Data"
+msgstr "أختبار البيانات"
+
+#. module: data_chart
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_report_title
+msgid "Title"
+msgstr "العنوان"
+
+#. module: data_chart
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_report_type
+msgid "Type"
+msgstr "نوع الحساب الرئيس"
+
+#. module: data_chart
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_model_user_id
+msgid "User"
+msgstr "المستخدم"
+
+#. module: data_chart
+#: model:ir.model,name:data_chart.model_basemodel_extend_custom_data_chart
+msgid "basemodel.extend_custom_data_chart"
+msgstr "basemodel.extend_custom_data_chart"
+
+#. module: data_chart
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_model_conditions
+msgid "conditions"
+msgstr "الشروط"
+
+#. module: data_chart
+#: model:ir.actions.act_window,name:data_chart.data_chart_report_action
+msgid "data.chart.report.action"
+msgstr "data.chart.report.action"
+
+#. module: data_chart
+#: model:ir.model,name:data_chart.model_data_chart_model
+msgid "data_chart_model"
+msgstr "data_chart_model"
+
+#. module: data_chart
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_model_formats
+msgid "formats"
+msgstr "formats"
+
+#. module: data_chart
+#: model:ir.model.fields,field_description:data_chart.field_data_chart_model_slice
+msgid "slice"
+msgstr "slice"

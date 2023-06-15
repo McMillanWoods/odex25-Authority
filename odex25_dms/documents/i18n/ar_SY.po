@@ -1,0 +1,494 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* documents
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0-20200928\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-08 05:29+0000\n"
+"PO-Revision-Date: 2022-11-08 05:29+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/js/documents_controller_mixin.js:0
+#, python-format
+msgid "%s Documents"
+msgstr ""
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/js/documents_controller_mixin.js:0
+#, python-format
+msgid "%s Documents (%s locked)"
+msgstr ""
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/js/documents_search_panel.js:0
+#, python-format
+msgid "%s file(s) not moved because they are locked by another user"
+msgstr ""
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/js/documents_inspector.js:0
+#, python-format
+msgid "+ Add a tag "
+msgstr "+ اضافة وسم"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/js/tours/documents.js:0
+#, python-format
+msgid "<b>Deselect this page</b> as we plan to process all bills first."
+msgstr ""
+
+#. module: documents
+#: model_terms:ir.ui.view,arch_db:documents.export_in_pdf_group_by
+msgid ""
+"<span>Undefined</span>\n"
+"                                <span>(</span>"
+msgstr ""
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_views.xml:0
+#, python-format
+msgid "Action"
+msgstr "اجراء"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_inspector.xml:0
+#, python-format
+msgid "Actions"
+msgstr "اجراءات"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_views.xml:0
+#, python-format
+msgid "Add a Link"
+msgstr "اضافة رابط"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_inspector.xml:0
+#, python-format
+msgid "Archive"
+msgstr "ارشفة"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/js/tours/documents.js:0
+#, python-format
+msgid ""
+"As this PDF contains multiple documents, let's split and process in bulk."
+msgstr ""
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/js/documents_kanban_view.js:0
+#, python-format
+msgid "Attachments Kanban"
+msgstr ""
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/js/tours/documents.js:0
+#, python-format
+msgid "Click on a card to <b>select the document</b>."
+msgstr ""
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/js/tours/documents.js:0
+#, python-format
+msgid "Click on a thumbnail to <b>preview the document</b>."
+msgstr ""
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/js/tours/documents.js:0
+#, python-format
+msgid ""
+"Click on the <b>page separator</b>: we don't want to split these two pages "
+"as they belong to the same document."
+msgstr ""
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_inspector.xml:0
+#, python-format
+msgid "Delete"
+msgstr "حذف"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_inspector.xml:0
+#, python-format
+msgid "Documents"
+msgstr "المستندات"
+
+#. module: documents
+#: model_terms:ir.ui.view,arch_db:documents.export_in_pdf
+msgid "Documents Management System"
+msgstr "نظام ادارة الملفات"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_inspector.xml:0
+#, python-format
+msgid "Download"
+msgstr "تنزيل"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_views.xml:0
+#, python-format
+msgid "Drop files here to upload"
+msgstr "اسقط الملف هنا"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/js/documents_controller_mixin.js:0
+#: code:addons/documents/static/src/js/documents_document_viewer.js:0
+#, python-format
+msgid "Error"
+msgstr "خطاء"
+
+#. module: documents
+#: model:ir.actions.report,name:documents.export_pdf
+#: model:ir.actions.report,name:documents.export_pdf_group_by
+msgid "Export"
+msgstr "تصدير"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_views.xml:0
+#, python-format
+msgid "Export Pdf"
+msgstr "تصدير pdf"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_inspector.xml:0
+#, python-format
+msgid "History"
+msgstr "السجل"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/js/tours/documents.js:0
+#, python-format
+msgid ""
+"Let's process documents in your Inbox.<br/><i>Tip: Use Tags to filter "
+"documents and structure your process.</i>"
+msgstr ""
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/js/tours/documents.js:0
+#, python-format
+msgid "Let's process these bills: send to Finance workspace."
+msgstr ""
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/js/tours/documents.js:0
+#, python-format
+msgid "Let's process this document, coming from our scanner."
+msgstr ""
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/js/tours/documents.js:0
+#, python-format
+msgid ""
+"Let's tag this bill as legal<br/> <i>Tips: actions can be tailored to your "
+"process, according to the workspace.</i>"
+msgstr ""
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_inspector.xml:0
+#, python-format
+msgid "Lock"
+msgstr "قفل"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_inspector.xml:0
+#, python-format
+msgid "MB"
+msgstr "ميقابايت"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/js/documents_inspector.js:0
+#, python-format
+msgid "Multiple values"
+msgstr "اختيارات متعددة"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/js/documents_inspector.js:0
+#, python-format
+msgid "Name or Category contains: %s"
+msgstr ""
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_inspector.xml:0
+#, python-format
+msgid "Open chatter"
+msgstr "فتح الدردشة"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_inspector.xml:0
+#, python-format
+msgid "Replace"
+msgstr "استبدال"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_views.xml:0
+#, python-format
+msgid "Request"
+msgstr "طلب"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/systray.xml:0
+#, python-format
+msgid "Request a Document"
+msgstr "طلب مستند"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/js/documents_inspector.js:0
+#, python-format
+msgid "Search more..."
+msgstr "بحث اكثر...."
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/js/documents_inspector.js:0
+#, python-format
+msgid "Select tags"
+msgstr "تحديد الوسوم"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/js/tours/documents.js:0
+#, python-format
+msgid "Send this letter to the legal department, by assigning the right tags."
+msgstr ""
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_views.xml:0
+#, python-format
+msgid "Share"
+msgstr "مشاركة"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_views.xml:0
+#, python-format
+msgid "Share this domain"
+msgstr "مشاركة النطاق"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_inspector.xml:0
+#, python-format
+msgid "Share this selection"
+msgstr "مشاركة الاختيارات"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_inspector.xml:0
+#, python-format
+msgid "Size"
+msgstr "الحجم"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_inspector.xml:0
+#: code:addons/documents/static/src/xml/documents_inspector.xml:0
+#, python-format
+msgid "Split"
+msgstr "تقسيم"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_thread.xml:0
+#, python-format
+msgid "Split PDF"
+msgstr "تقسيم pdf"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_inspector.xml:0
+#, python-format
+msgid "Tags"
+msgstr "الوسوم"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_inspector.xml:0
+#, python-format
+msgid "Un-archive"
+msgstr "الغاء الارشفة"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/js/documents_controller_mixin.js:0
+#, python-format
+msgid "Unnamed"
+msgstr ""
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_views.xml:0
+#, python-format
+msgid "Upload"
+msgstr "رفع"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_inspector.xml:0
+#, python-format
+msgid "Upload Document"
+msgstr "رفع المستند"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/js/tours/documents.js:0
+#, python-format
+msgid ""
+"Want to become a <b>paperless company</b>? Let's discover Odoo Documents."
+msgstr ""
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/js/tours/documents.js:0
+#, python-format
+msgid ""
+"Wow... 6 documents processed in a few seconds, You're good.<br/>The tour is "
+"complete. Try uploading your own documents now."
+msgstr ""
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_inspector.xml:0
+#, python-format
+msgid "Youtube Video"
+msgstr "فيديو يوتيوب"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_search_panel.xml:0
+#: code:addons/documents/static/src/xml/documents_search_panel.xml:0
+#, python-format
+msgid "_onDragEnter(section.id, valueId)"
+msgstr ""
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_search_panel.xml:0
+#: code:addons/documents/static/src/xml/documents_search_panel.xml:0
+#, python-format
+msgid "_onDragLeave"
+msgstr ""
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_search_panel.xml:0
+#: code:addons/documents/static/src/xml/documents_search_panel.xml:0
+#, python-format
+msgid "_onDrop(section.id, valueId)"
+msgstr ""
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_inspector.xml:0
+#: code:addons/documents/static/src/xml/documents_inspector.xml:0
+#, python-format
+msgid "delete"
+msgstr "حذف"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_inspector.xml:0
+#, python-format
+msgid "document"
+msgstr "مستند"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_inspector.xml:0
+#, python-format
+msgid "documents"
+msgstr "مستندات"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_inspector.xml:0
+#, python-format
+msgid "documents selected"
+msgstr "تحديد المستندات"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_search_panel.xml:0
+#: code:addons/documents/static/src/xml/documents_search_panel.xml:0
+#, python-format
+msgid "documents.SearchPanel.Category"
+msgstr ""
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_search_panel.xml:0
+#, python-format
+msgid "documents.SearchPanel.FiltersGroup"
+msgstr ""
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_inspector.xml:0
+#: code:addons/documents/static/src/xml/documents_inspector.xml:0
+#, python-format
+msgid "download"
+msgstr "تنزيل"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_inspector.xml:0
+#: code:addons/documents/static/src/xml/documents_inspector.xml:0
+#, python-format
+msgid "restore"
+msgstr "استعادة"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/xml/documents_inspector.xml:0
+#, python-format
+msgid "selected"
+msgstr "محدد"
+
+#. module: documents
+#. openerp-web
+#: code:addons/documents/static/src/js/documents_controller_mixin.js:0
+#, python-format
+msgid "status code: %s </br> message: %s"
+msgstr ""

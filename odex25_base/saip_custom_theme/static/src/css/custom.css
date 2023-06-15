@@ -1,0 +1,95 @@
+.o_web_client {
+    background-color: #EFF5F5!important;
+}
+
+.o_main_navbar {
+    border-color: transparent!important;
+    background: rgb(156, 167, 179)!important;
+    background: linear-gradient(130deg, rgba(156, 167, 179, 1) 50%, rgba(96, 121, 146, 1) 100%)!important;
+}
+
+.o_main_navbar>ul>li>a:hover,
+.o_main_navbar>ul>li>a:focus {
+    background-color: #5280b3 !important;
+}
+
+.o_main_navbar>a:hover,
+.o_main_navbar>button:hover,
+.o_main_navbar>a:focus,
+.o_main_navbar>button:focus {
+    background: #5280b3;
+}
+
+.o_main_navbar .show .dropdown-toggle {
+    background-color: #5280b3;
+}
+
+.o_home_menu_background {
+    background: url(/standard_custom_theme/static/img/background2.jpg) no-repeat center/cover!important;
+}
+
+#about .o_setting_right_pane img {
+    height: 60px;
+}
+
+.o_home_menu_background:not(.o_home_menu_background_custom) .o_main_navbar {
+    background: transparent!important;
+}
+
+.o_searchview .o_searchview_facet .o_searchview_facet_label {
+    background-color: #5280b3;
+}
+
+.o_view_nocontent .o_nocontent_help .o_view_nocontent_smiling_face:before {
+    background: transparent url(/standard_custom_theme/static/img/smiling_face.svg) no-repeat center;
+}
+
+.o_loading {
+    background-color: #5280b3;
+}
+
+.o_tooltip::before {
+    background: radial-gradient(#3d5774, #3e5d7f);
+}
+
+.o_tooltip.active {
+    border: 3px solid #5280b3!important;
+}
+
+.btn-fill-primary,
+.btn-primary {
+    background-color: #DDC03B;
+    border-color: #DDC03B;
+    color: #000!important;
+}
+
+.btn-fill-primary:hover,
+.btn-primary:hover {
+    background-color: #DDC03B!important;
+    border-color: #DDC03B;
+    color: #000!important;
+}
+
+.o_barcode_client_action .o_barcode_header {
+    background-color: #5280b3;
+}
+
+.o_barcode_client_action .o_barcode_lines_header {
+    background-color: #5280b3;
+}
+
+.o_onboarding.o_onboarding_violet .o_onboarding_wrap {
+    background-color: rgb(39 120 63 / 60%);
+    background-image: linear-gradient(to bottom, rgba(96, 112, 195, 0.5), #5280b3);
+}
+
+.o_onboarding.o_onboarding_orange .o_onboarding_wrap {
+    background-color: rgb(39 120 63 / 60%);
+    background-image: linear-gradient(to bottom, rgba(96, 112, 195, 0.5), #5280b3);
+}
+
+.o_MessagingMenu_counter {}
+
+.o_search_panel .o_search_panel_category .o_search_panel_section_icon {
+    color: #DDC03B;
+}

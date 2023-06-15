@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="cm_entity_tree" model="ir.ui.view">
+            <field name="name">cm.entity.tree</field>
+            <field name="model">cm.entity</field>
+            <field name="arch" type="xml">
+                <tree string="Entities">
+                    <!--                    <field name="sequence"></field>-->
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="parent_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="cm_entity_form" model="ir.ui.view">
+            <field name="name">cm.entity.form</field>
+            <field name="model">cm.entity</field>
+            <field name="arch" type="xml">
+                <form string="Entity">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="type" required="True"/>
+                                <field name="employee_id" attrs="{'invisible':[('type','not in',['employee'])]}"/>
+                                <field name="department_id" attrs="{'invisible': [('type','not in',['unit'])]}"/>
+                                <field name="partner_id"
+                                       attrs="{'invisible': [('type','not in',['external'])]}"/>
+                                <field name="code" attrs="{'readonly': [('type','in',['employee','external'])]}"/>
+                                <field name="parent_id"
+                                       attrs="{'required':[('type', 'in', ['employee'])],'invisible': [('type','in',['external'])]}"/>
+                                <field name="executive_direction"
+                                       attrs="{'invisible':  [('type','in',['employee','external'])]}"/>
+                                <field name="need_approve"
+                                       attrs="{'invisible':  [('type','in',['employee','external'])]}"/>
+                                <field name="manager_id" attrs="{'invisible': [('type','not in',['unit'])]}"
+                                       domain="[('type','in',['employee'])]"/>
+                                <field name="secretary_id" attrs="{'invisible': [('type','not in',['unit'])]}"
+                                       domain="[('type','in',['employee'])]"/>
+                                <field name="child_ids" attrs="{'invisible': [('type', '!=', 'employee')]}"
+                                       widget="many2many_tags" domain="[('type', 'in', ['unit'])]"/>
+                            </group>
+                            <group>
+                                <field name="name"
+                                       attrs="{'readonly': [('type','=','employee')],'required':[('type','!=','employee')]}"/>
+                                <field name="establish_date" attrs="{'invisible': [('type', 'not in', ['unit'])]}"/>
+                                <field name="unit_location" attrs="{'invisible': [('type', 'not in', ['unit'])]}"/>
+                                <field name="email"
+                                       attrs="{'invisible': [('type','not in',['external'])]}"/>
+                                <field name="sketch_attachment_id" widget="many2one_binary"
+                                       attrs="{'invisible': [('type', 'not in', ['unit'])]}"/>
+                                <field name="person_id" attrs="{'invisible':[('type','not in',['employee'])]}"/>
+                                <field name="email" attrs="{'invisible':[('type','not in',['employee'])]}"/>
+                                <field name="phone" attrs="{'invisible':[('type','not in',['employee'])]}"/>
+                                <field name="person_id_issue_date"
+                                       attrs="{'invisible':[('type','not in',['employee'])]}"/>
+                                <field name="employee_assignment_date"
+                                       attrs="{'invisible':[('type','not in',['employee'])]}"/>
+                                <field name="is_secret" attrs="{'invisible': [('type', 'not in', ['unit'])]}"/>
+                                <field name="dynamic_year" attrs="{'invisible': [('type', 'not in', ['unit'])]}"/>
+                                <field name="year_increment" attrs="{'invisible': [('type', 'not in', ['unit'])]}"/>
+                                <field name="job_title_id"
+                                       attrs="{'required':[('type', 'in', ['employee'])],'invisible': [('type','not in',['employee'])]}"
+                                       widget="selection"/>
+                                <field name="user_id"
+                                       attrs="{'required':[('type', 'in', ['employee'])],'invisible': [('type','not in',['employee'])]}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Search View -->
+        <record id="cm_entity_search" model="ir.ui.view">
+            <field name="name">cm.entity.filter</field>
+            <field name="model">cm.entity</field>
+            <field name="arch" type="xml">
+                <search string="Search Entities">
+                    <field name="name" string="name"
+                           filter_domain="['|','|','|','|','|','|',('name','ilike',self),('job_title_id.name', 'ilike', self),('parent_id.name', 'ilike', self),('manager_id.name', 'ilike', self),('partner_id.email', 'ilike', self),('partner_id.name', 'ilike', self),('code', 'ilike', self)]"/>
+                    <filter name="Employee" string="Employee" domain="[('type','=','employee')]"/>
+                    <filter name="Internal Unit" string="Internal Unit" domain="[('type','=','unit')]"/>
+                    <filter name="External Unit" string="External Unit" domain="[('type','=','external')]"/>
+                    <group expand="1" string="Group By">
+                        <filter string="Type" name="type" domain="[]" context="{'group_by':'type'}"/>
+                        <filter string="Parent Entity" name="parent_type" domain="[]"
+                                context="{'group_by':'parent_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="extend_view_partner_form" model="ir.ui.view">
+            <field name="name">extend.view.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='lang']" position="after">
+                    <field name="is_transaction_entity"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

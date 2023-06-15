@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="custom_external_layout_standard_tran">
+            <div class="header">
+            </div>
+            <div class="article o_report_layout_standard">
+                <t t-raw="0"/>
+            </div>
+            <div class="footer">
+                <div class="text-center">
+                    <div class="text-muted">
+                        Page: <span class="page"/> / <span class="topage"/>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="letter_external_layout">
+            <!-- Multicompany -->
+            <t t-if="not o and doc">
+                <t t-set="o" t-value="doc"/>
+            </t>
+
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+             <t t-call="exp_transaction_documents.custom_external_layout_standard_tran"><t t-raw="0"/></t>
+            <!-- <t t-if="company.external_report_layout_id == 'background'">
+                <t t-call="exp_transaction_documents.custom_external_layout_standard_tran"><t t-raw="0"/></t>
+            </t>
+            <t t-if="company.external_report_layout_id == 'boxed'">
+                <t t-call="exp_transaction_documents.custom_external_layout_standard_tran"><t t-raw="0"/></t>
+            </t>
+            <t t-if="company.external_report_layout_id == 'clean'">
+                <t t-call="exp_transaction_documents.custom_external_layout_standard_tran"><t t-raw="0"/></t>
+            </t>
+            <t t-if="company.external_report_layout_id in (False, 'standard')">
+                <t t-call="exp_transaction_documents.custom_external_layout_standard_tran"><t t-raw="0"/></t>
+            </t> -->
+        </template>
+        <template id="transaction_details_report_temp">
+            <t t-call="exp_transaction_documents.custom_external_layout_standard_tran">
+                <style type="text/css">
+                    @font-face {
+                    font-family: 'ae_AlMohanad';
+                    src: local('ae_AlMohanad'), local('ae_AlMohanad'),
+                    url('/exp_transaction_documents/static/fonts/ae_AlMohanad.ttf') format('truetype');
+                    }
+                    *{
+                    font-family: ae_AlMohanad;
+                    }
+                    table {
+                    border: 1px solid black;
+                    width: 100%;
+                    }
+                    td{
+                    border: 1px solid grey;
+                    padding: 5px 5px 5px 5px;
+                    width:20%;
+                    }
+                    th{
+                    border: 1px solid grey;
+                    padding: 5px 5px 5px 5px;
+                    background-color:#d3d3d3;
+                    }
+                </style>
+                <div class="page">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <h4 style="text-align:center;margin-top:0px;font-weight:bold">Transaction Report
+                    </h4>
+                    <br/>
+                    <br/>
+                    <table>
+                        <tr>
+                            <td style="background-color:#d3d3d3;font-weight:bold;width:18%">Name</td>
+                            <td style="width:32%"><t t-esc="o.name"/></td>
+                            <td style="background-color:#d3d3d3;font-weight:bold;width:18%">state</td>
+                            <td style="width:32%"> <t t-esc="dict(o.fields_get(allfields=['state'])['state']['selection'])[o.state]"/></td></tr>
+                        <!--                            <td style="width:32%"><t t-esc="o.state"/></td>-->
+                        <tr>
+                            <td style="background-color:#d3d3d3;font-weight:bold">Transaction Type</td>
+                            <td><t t-esc="dict(o.fields_get(allfields=['type'])['type']['selection'])[o.type]"/></td>
+                            <td style="background-color:#d3d3d3;font-weight:bold"> Subject </td>
+                            <td><t t-esc="o.subject"/></td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#d3d3d3;font-weight:bold">Send To </td>
+
+                            <td><t t-esc="', '.join(map(lambda x: (x.name or x.code), o.to_ids))"/></td>
+                            <td style="background-color:#d3d3d3;font-weight:bold"> CC To  </td>
+                            <td><t t-esc="', '.join(map(lambda x: (x.name or x.code), o.cc_ids))"/></td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#d3d3d3;font-weight:bold">Important Degree </td>
+                            <td><t t-esc="o.important_id.name"/></td>
+                            <td style="background-color:#d3d3d3;font-weight:bold">Subject Type</td>
+                            <td><t t-esc="o.subject_type_id.name"/></td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#d3d3d3;font-weight:bold">Transaction Date </td>
+                            <td><t t-esc="o.transaction_date"/></td>
+                            <td style="background-color:#d3d3d3;font-weight:bold">Transaction Date (Hijri) </td>
+                            <td><t t-esc="o.transaction_date_hijri"/></td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#d3d3d3;font-weight:bold"> Preparation Unit </td>
+                            <td><t t-esc="o.preparation_id.name"/></td>
+                            <td style="background-color:#d3d3d3;font-weight:bold">Procedure </td>
+                            <td><t t-esc="o.procedure_id.name"/></td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#d3d3d3;font-weight:bold">Created By </td>
+                            <td><t t-esc="o.employee_id.name"/></td>
+                            <td style="background-color:#d3d3d3;font-weight:bold">Unit Responsible </td>
+                            <td><t t-esc="o.entity_id.name"/></td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#d3d3d3;font-weight:bold">Deadline </td>
+                            <td><t t-esc="o.due_date"/></td>
+                            <td style="background-color:#d3d3d3;font-weight:bold">No. of Attachments </td>
+                            <td><t t-esc="o.attachment_num"/></td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <br/>
+                    <p style="font-weight:bold">Transaction Details</p>
+                    <hr style="border-top: 3px solid #bbb;"/>
+                    <p style="text-align:justify;margin: 10px;">  <t t-esc="env['ir.fields.converter'].text_from_html(o.body)"/>
+                    </p>
+                    <br/>
+                    <br/>
+                    <p style="font-weight:bold">Attaches</p>
+                    <hr style="border-top: 3px solid #bbb;"/>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    #
+                                </th>
+                                <th style="text-align:center">
+                                    Create by
+                                </th>
+                                <th style="text-align:center">
+                                    Unit Responsible
+                                </th>
+                                <th style="text-align:center">
+                                    Date
+                                </th>
+                                <th style="text-align:center">
+                                    Description
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="o.attachment_rule_ids" t-as="line">
+                                <tr>
+                                    <td style="width:5%">
+                                        <!--                                    <strong t-esc="line_index + 1"/>-->
+                                    </td>
+                                    <td style="width:20%">
+                                        <t t-esc="line.employee_id.name"/>
+                                    </td>
+                                    <td style="width:20%">
+                                        <t t-esc="line.entity_id.name"/>
+                                    </td>
+                                    <td style="width:20%">
+                                        <t t-esc="line.date"/>
+                                    </td>
+                                    <td style="width:35%">
+                                        <t t-esc="line.description"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    <br/>
+                    <br/>
+                    <p style="font-weight:bold">Attachments</p>
+                    <hr style="border-top: 3px solid #bbb;"/>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    #
+                                </th>
+                                <th style="text-align:center">
+                                    Attachment type
+                                </th>
+                                <th style="text-align:center">
+                                    No. Pages
+                                </th>
+                                <th style="text-align:center">
+                                    Description
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="o.attachment_ids" t-as="line">
+                                <tr>
+                                    <td style="width:5%">
+                                        <!--                                    <strong t-esc="line_index + 1"/>-->
+                                    </td>
+                                    <td style="width:20%">
+                                        <t t-esc="line.type_id.name"/>
+                                    </td>
+                                    <td style="width:20%">
+                                        <t t-esc="line.num_page"/>
+                                    </td>
+                                    <td style="width:55%">
+                                        <t t-esc="line.name"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    <br/>
+                    <img t-if="o.signature" t-attf-src="data:image/*;base64,{{o.signature}}" style="margin-top:50px;height:200px;width:200px; border-style: double; border: 0px;border-color: gray;"/>
+                    <!--                    <div style="height:200px;width:200px; border-style: outset; border-width: 7px;border-color: gray;" t-field="o.signature" t-field-options='{"widget": "image"}'/>-->
+
+                </div>
+            </t>
+        </template>
+        <template id="report_internal_transaction_detail">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="exp_transaction_documents.transaction_details_report_temp"/>
+                </t>
+            </t>
+        </template>
+
+        <template id="report_transaction_outgoing_detail">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="exp_transaction_documents.transaction_details_report_temp"/>
+                </t>
+            </t>
+        </template>
+        <template id="report_transaction_incoming_detail">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="exp_transaction_documents.transaction_details_report_temp"/>
+                </t>
+            </t>
+        </template>
+        <record model="report.paperformat" id="paperformat_transaction_detail_report">
+            <field name="name">paperformat.transaction.report</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40</field>
+            <field name="margin_right">10</field>
+            <field name="margin_bottom">30</field>
+            <field name="margin_left">10</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">40</field>
+            <field name="dpi">90</field>
+        </record>
+        <report id="report_incoming_transaction_detail_report"
+                model="incoming.transaction"
+                string="Transaction detail Report"
+                report_type="qweb-pdf"
+                print_report_name="'Transaction Name- %s' % (object.name)"
+                name="exp_transaction_documents.report_transaction_incoming_detail"
+                paperformat="paperformat_transaction_detail_report"
+                menu="True"/>
+        <report id="report_internal_transaction_detail_report"
+                model="internal.transaction"
+                string="Transaction detail Report"
+                report_type="qweb-pdf"
+                print_report_name="'Transaction Name- %s' % (object.name)"
+                name="exp_transaction_documents.report_internal_transaction_detail"
+                paperformat="paperformat_transaction_detail_report"
+                menu="True"/>
+        <report id="report_outgoing_transaction_detail_report"
+                model="outgoing.transaction"
+                string="Transaction detail Report"
+                report_type="qweb-pdf"
+                print_report_name="'Transaction Name- %s' % (object.name)"
+                name="exp_transaction_documents.report_transaction_outgoing_detail"
+                paperformat="paperformat_transaction_detail_report"
+                menu="True"/>
+    </data>
+</odoo>

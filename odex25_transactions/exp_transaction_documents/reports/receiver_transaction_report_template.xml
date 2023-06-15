@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="transaction_outgoing_receive_report_temp">
+            <t t-call="exp_transaction_documents.custom_external_layout_standard_tran">
+                <style type="text/css">
+                    table {
+                    margin: 20px 30px;
+                    width: 80%;
+                    height:100px;
+                    }
+                    td{
+                    border: 1px solid grey;
+                    padding: 5px 5px 5px 5px;
+                    }
+                </style>
+                <div class="page">
+                    <br/>
+                    <h4 style="text-align:center;margin-top:120px;font-weight:bold">Receiver Transaction Report
+                    </h4>
+                    <br/>
+                    <br/>
+                    <center>
+                        <table>
+                            <tr>
+                                <td style="width:5%;border: 1px solid white;border-left:1px solid grey">
+                                    Number
+                                </td>
+                                <td style="width:20%;text-align:center">
+                                    <t t-esc="o.name"/>
+                                </td>
+                                <td style="width:10%;border: 1px solid white;border-left:1px solid grey;">
+                                    Date
+                                </td>
+                                <td style="width:60%;text-align:center">
+                                    <t t-esc="o.transaction_date"/>
+                                - Corresponding -
+                                     <t t-set="date_hijri" t-value="o.transaction_date_hijri"/>
+
+                                    <t t-set="date_hijri2" t-value="date_hijri.split('-')"/>
+
+                                    <t t-esc="date_hijri2[0]"/>/<t t-esc="date_hijri2[1]"/>/<t t-esc="date_hijri2[2]"/>
+                                </td>
+                                <td style="width:10%;border: 1px solid white;border-left:1px solid grey;">
+                                    Attachments
+                                </td>
+                                <td style="text-align:center;width:5%">
+                                    <t t-esc="o.attachment_num"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:5%;color:white;border: 1px solid white;">
+                                    ...
+                                </td>
+                                <td style="color:white;border: 1px solid white;border-bottom:1px solid grey">..</td>
+                                <td style="color:white;border: 1px solid white;border-bottom:1px solid grey">..</td>
+                                <td style="color:white;border: 1px solid white;border-bottom:1px solid grey">..</td>
+                                <td style="color:white;border: 1px solid white;border-bottom:1px solid grey">..</td>
+                                <td style="color:white;border: 1px solid white;border-bottom:1px solid grey">
+                                    .......
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:5%;border: 1px solid white;border-left:1px solid grey">Entity</td>
+                                <td colspan="5"><t t-esc="', '.join(map(lambda x: (x.name or x.code), o.to_ids))"/></td>
+                            </tr>
+                            <tr>
+                                <td style="width:5%;color:white;border: 1px solid white;">
+                                    ...
+                                </td>
+                                <td colspan="5" style="color:white;border: 1px solid white;border-bottom:1px solid grey">
+                                    .....
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:5%;border: 1px solid white;border-left:1px solid grey">
+                                    Subject
+                                </td>
+                                <td colspan="5"><t t-esc="o.subject"/></td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <p style="margin-right:40px;text-align:right">Receiver</p>
+                        <br/>
+                        <table>
+                            <tr>
+                                <td style="border: 1px solid white;width:8%">Name</td>
+                                <td style="border: 1px solid white;width:30%">---------------------------</td>
+                                <td style="border: 1px solid white;width:8%">Signature</td>
+                                <td style="border: 1px solid white;width:30%">---------------------------</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid white;width:8%">
+                                    Departament
+                                </td>
+                                <td style="border: 1px solid white;width:30%">---------------------------</td>
+                                <td style="border: 1px solid white;width:8%">
+                                    Date
+                                </td>
+                                <td style="border: 1px solid white;width:30%">---------------------------</td>
+
+                            </tr>
+                        </table>
+                    </center>
+
+                </div>
+            </t>
+        </template>
+        <template id="transaction_outgoing_receive_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="exp_transaction_documents.transaction_outgoing_receive_report_temp"/>
+                </t>
+            </t>
+        </template>
+
+        <template id="transaction_internal_receive_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="exp_transaction_documents.transaction_outgoing_receive_report_temp"/>
+                </t>
+            </t>
+        </template>
+        <template id="transaction_incoming_receive_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="exp_transaction_documents.transaction_outgoing_receive_report_temp"/>
+                </t>
+            </t>
+        </template>
+
+        <record model="report.paperformat" id="paperformat_transaction_receive_report">
+            <field name="name">paperformat.transaction.receive.report</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">59</field>
+            <field name="margin_right">10</field>
+            <field name="margin_bottom">30</field>
+            <field name="margin_left">10</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">35</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <report id="report_internal_transaction_receive_report"
+                model="internal.transaction"
+                string="Transaction Receive Report"
+                report_type="qweb-pdf"
+                print_report_name="'Transaction Letter Name- %s' % (object.name)"
+                name="exp_transaction_documents.transaction_internal_receive_report"
+                paperformat="paperformat_transaction_receive_report"
+                menu="True"/>
+
+        <report id="report_incoming_transaction_receive_report"
+                model="incoming.transaction"
+                string="Transaction Receive Report"
+                report_type="qweb-pdf"
+                print_report_name="'Transaction Letter Name- %s' % (object.name)"
+                name="exp_transaction_documents.transaction_incoming_receive_report"
+                paperformat="paperformat_transaction_receive_report"
+                menu="True"/>
+
+        <report id="report_outgoing_transaction_receive_report"
+                model="outgoing.transaction"
+                string="Transaction Receive Report"
+                report_type="qweb-pdf"
+                print_report_name="'Transaction Letter Name- %s' % (object.name)"
+                name="exp_transaction_documents.transaction_outgoing_receive_report"
+                paperformat="paperformat_transaction_receive_report"
+                menu="True"/>
+    </data>
+</odoo>

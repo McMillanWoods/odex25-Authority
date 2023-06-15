@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="odex25_marketing_automation_menu" name="Marketing Automation"
+        web_icon="odex25_marketing_automation,static/description/icon.png" groups="odex25_marketing_automation.group_odex25_marketing_automation_user"/>
+
+	<menuitem id="odex25_marketing_automation_reporting_menu" name="Reporting"
+        parent="odex25_marketing_automation_menu"
+        sequence="2"
+        groups="odex25_marketing_automation.group_odex25_marketing_automation_user"/>
+</odoo>

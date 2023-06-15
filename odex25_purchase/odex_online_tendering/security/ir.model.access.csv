@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_odex_online_tendering_odex_online_tendering,odex_online_tendering.odex_online_tendering,model_odex_online_tendering_odex_online_tendering,,1,0,0,0

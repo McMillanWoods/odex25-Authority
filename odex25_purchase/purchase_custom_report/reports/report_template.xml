@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- purchase requisition template -->
+        <template id="purchase_requisition_template">
+            <t t-call="web.html_container">
+                <t t-call="web.internal_layout">
+                    <style type="text/css">
+                        @font-face {
+                        font-family: 'GE_SS_Unique_Bold';
+                        src: local('GE_SS_Unique_Bold.otf'), local('GE_SS_Unique_Bold.otf'),
+                        url('/purchase_custom_report/static/fonts/GE_SS_Unique_Bold.otf') format('truetype');
+                        }@font-face {
+                        font-family: 'ae_AlMohanad';
+                        src: local('ae_AlMohanad.ttf'), local('ae_AlMohanad.ttf'),
+                        url('/purchase_custom_report/static/fonts/ae_AlMohanad.ttf') format('truetype');
+                        }
+                    </style>
+                    <div class="page">
+                        <center>
+                            <h3>Purchase Requisitions Report</h3>
+                        </center>
+                        <table class="table table-bordered" style="border: 2px solid black;font-family:Arial">
+                            <!-- <thead> -->
+                            <tr>
+                                <th colspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Duration
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Category
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Department
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Type
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    State
+                                </th>
+                            </tr>
+                            <tr>
+                                <th style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    From
+                                </th>
+                                <th style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    To
+                                </th>
+                            </tr>
+                            <!-- </thead> -->
+                            <tbody>
+                                <tr>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="date_from"/>
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="date_to"/>
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="categories"/>
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="departments"/>
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="type"/>
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="state"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br/>
+                        <br/>
+                        <table class="table table-bordered" style="border: 2px solid black;width:100%;">
+                            <!-- <thead> -->
+                            <tr>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    #
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Ref
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Order Date
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Department
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Product Category
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Purpose
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Type
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    State
+                                </th>
+                            </tr>
+                            <!-- </thead> -->
+                            <tbody>
+                                <t t-set="total" t-value="0"/>
+                                <t t-foreach="docs" t-as="o">
+                                    <tr>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="o_index + 1"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="o['order']['name']"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid black;width:15%;">
+                                            <t t-esc="o['order']['ordering_date']"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="o['order']['department_id']['name']"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-foreach="o['order']['category_ids']" t-as="category_name">
+                                                <span t-esc="category_name['name']"/>-
+                                            </t>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid black;width:30%;">
+                                            <t t-esc="o['order']['purpose']"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="o['type']"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="o['state']"/>
+                                        </td>
+                                        <t t-set="total" t-value="o_index+1"/>
+                                    </tr>
+                                </t>
+                                <tr>
+                                    <td style="text-align:center;border:1px solid black;" colspan="7">Total Number Of
+                                        Requisitions
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="total"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </template>
+        <!-- vendors template -->
+        <template id="vendors_report_template">
+            <t t-call="web.html_container">
+                <t t-call="web.internal_layout">
+                    <style type="text/css">
+                        @font-face {
+                        font-family: 'GE_SS_Unique_Bold';
+                        src: local('GE_SS_Unique_Bold.otf'), local('GE_SS_Unique_Bold.otf'),
+                        url('/purchase_custom_report/static/fonts/GE_SS_Unique_Bold.otf') format('truetype');
+                        }@font-face {
+                        font-family: 'ae_AlMohanad';
+                        src: local('ae_AlMohanad.ttf'), local('ae_AlMohanad.ttf'),
+                        url('/purchase_custom_report/static/fonts/ae_AlMohanad.ttf') format('truetype');
+                        }
+                    </style>
+                    <div class="page">
+                        <center>
+                            <h3>Vendors Report</h3>
+                        </center>
+                        <table class="table table-bordered" style="border: 2px solid black;font-family:Arial">
+                            <!-- <thead> -->
+                            <tr>
+                                <th colspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Duration
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Supplier
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Department
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    State
+                                </th>
+                            </tr>
+                            <tr>
+                                <th style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    From
+                                </th>
+                                <th style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    To
+                                </th>
+                            </tr>
+                            <!-- </thead> -->
+                            <tbody>
+                                <tr>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="date_from"/>
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="date_to"/>
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="suppliers"/>
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="departments"/>
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="state"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br/>
+                        <br/>
+                        <table class="table table-bordered" style="border: 2px solid black;font-family:Arial">
+                            <!-- <thead> -->
+                            <tr>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    #
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Supplier
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Number of Orders
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Totoal Amount
+                                </th>
+                            </tr>
+                            <!-- </thead> -->
+                            <tbody>
+                                <t t-set="total" t-value="0"/>
+                                <t t-foreach="docs" t-as="o">
+                                    <tr>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="o_index + 1"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="o['supplier']"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="o['len']"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="o['total_amount']"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                                <tr>
+                                    <td style="text-align:center;border:1px solid black" colspan="3">Total Number Of
+                                        Purchase Orders
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black">
+                                        <t t-esc="lenn"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:center;border:1px solid black" colspan="3">Total Amount</td>
+                                    <td style="text-align:center;border:1px solid black">
+                                        <t t-esc="total_amount"/>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </template>
+        <!-- purchase order template -->
+        <template id="purchase_order_report_template">
+            <t t-call="web.html_container">
+                <t t-call="web.internal_layout">
+                    <div class="page">
+                        <center>
+                            <h3>Purchase Orders Report</h3>
+                        </center>
+                        <table class="table table-bordered" style="border: 2px solid black;font-family:Arial">
+                            <!-- <thead> -->
+                            <tr>
+                                <th colspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Duration
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Supplier
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Category
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Department
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    State
+                                </th>
+                            </tr>
+                            <tr>
+                                <th style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    From
+                                </th>
+                                <th style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    To
+                                </th>
+                            </tr>
+                            <!-- </thead> -->
+                            <tbody>
+                                <tr>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="date_from"/>
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="date_to"/>
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="suppliers"/>
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="categories"/>
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="departments"/>
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="state"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br/>
+                        <br/>
+                        <table class="table table-bordered" style="border: 2px solid black;font-family:Arial">
+                            <!-- <thead> -->
+                            <tr>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    #
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Ref
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Order Date
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Department
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Category
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Supplier
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Amount
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    State
+                                </th>
+                            </tr>
+                            <!-- </thead> -->
+                            <tbody>
+                                <t t-set="total" t-value="0"/>
+                                <t t-foreach="docs" t-as="o">
+                                    <tr>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="o_index + 1"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="o['order']['name']"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="o['date']"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="o['order']['department_id']['name']"/>
+                                        </td>
+                                            <td style="text-align:center;border:1px solid black;">
+                                            <t t-foreach="o['order']['category_ids']" t-as="category_name">
+                                                <span t-esc="category_name['name']"/>-
+                                            </t>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="o['order']['partner_id']['name']"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="o['order']['amount_total']"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="o['state']"/>
+                                        </td>
+                                        <t t-set="total" t-value="o_index+1"/>
+                                    </tr>
+                                </t>
+                                <tr>
+                                    <td style="text-align:center;border:1px solid black;" colspan="7">Total Number Of
+                                        Purchase Orders
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="total"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:center;border:1px solid black;" colspan="7">Total Amount</td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="total_amount"/>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

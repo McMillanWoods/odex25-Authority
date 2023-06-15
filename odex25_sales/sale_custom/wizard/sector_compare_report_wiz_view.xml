@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+	<data>
+
+		<record model="ir.ui.view" id="sector_compare_report_wiz_form">
+			<field name="name">sector.compare.report.wiz.form</field>
+			<field name="model">sector.compare.report.wiz</field>
+			<field name="inherit_id" ref="sale_custom.proposal_common_report_wiz_form"/>
+			<field name="arch" type="xml">
+
+				<xpath expr="//field[@name='company_id']" position="before">
+					<field name="business_unit_ids" widget="many2many_tags" required="1"/>
+				</xpath>
+				<xpath expr="//group[1]" position="after">
+					<group>
+						<field name="sector_id" required="1" />
+						<field name="sector_compare_id" required="1" />
+					</group>
+				</xpath>
+
+			</field>
+		</record>
+
+
+		<record id="sector_compare_report_wiz_action" model="ir.actions.act_window">
+			<field name="name">Sector Compare Report</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">sector.compare.report.wiz</field>
+			<field name="view_id" ref="sector_compare_report_wiz_form"/>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+		<!-- <menuitem
+				id="sector_compare_report_menu"
+				name="Sector Compare Report"
+				parent="proposal_report_common_menu"
+				sequence="6"
+				action="sector_compare_report_wiz_action"
+		/> -->
+	</data>
+
+</odoo>

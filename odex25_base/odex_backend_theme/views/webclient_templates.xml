@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<template id="assets_backend" name="Odoo 14 Custom Theme" inherit_id="web.assets_backend">
+		<xpath expr="." position="inside">
+			<!--STYLE-->
+			<link rel="stylesheet" type="text/css" href="/odex_backend_theme/static/src/css/custom.css"/>
+			<script src="/odex_backend_theme/static/src/js/custom_backend.js"></script>
+		</xpath>
+	</template>
+
+	<template id="assets_frontend_css" inherit_id="web.assets_frontend">
+        <xpath expr="." position="inside">
+			<!--STYLE-->
+			<link rel="stylesheet" type="text/css" href="/odex_backend_theme/static/src/css/custom_login.css"/>
+			<!--SCRIPT-->
+			<script src="/odex_backend_theme/static/src/js/custom_login.js"></script>
+		</xpath>
+	</template>
+	
+	
+
+	<template id="MYSITE_layout" inherit_id="web.layout" name="MYSITE layout" priority="17">
+		<xpath expr="//head//link" position="replace">
+			<link rel="shortcut icon" href="/odex_backend_theme/static/src/images/favicon.ico" type="image/x-icon"/>
+		</xpath>
+	</template>
+
+	<!-- <template id="assets" inherit_id="point_of_sale.assets">	
+		<xpath expr="." position="inside">
+			<link rel="stylesheet" type="text/css" href="/odex_backend_theme/static/src/css/custom_point_of_sale.css"/>
+			<script src="/odex_backend_theme/static/src/js/custom_pos.js"></script>
+		</xpath>
+	</template> -->
+	
+</odoo>

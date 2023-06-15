@@ -1,0 +1,117 @@
+/*
+CUSTOM STYLING FOR THE DASHBOARD
+*/
+@font-face {
+  font-family: 'Droid Arabic Kufi';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/purchase_dashboard/static/lib/fonts/DroidKufi-Regular.eot);
+  src: url(/purchase_dashboard/static/lib/fonts/DroidKufi-Regular.woff2) format('woff2'),
+       url(/purchase_dashboard/static/lib/fonts/DroidKufi-Regular.woff) format('woff'),
+       url(/purchase_dashboard/static/lib/fonts/DroidKufi-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Droid Arabic Kufi';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/purchase_dashboard/static/lib/fonts/DroidKufi-Bold.eot);
+  src: url(/purchase_dashboard/static/lib/fonts/DroidKufi-Bold.woff2) format('woff2'),
+       url(/purchase_dashboard/static/lib/fonts/DroidKufi-Bold.woff) format('woff'),
+       url(/purchase_dashboard/static/lib/fonts/DroidKufi-Bold.ttf) format('truetype');
+}
+
+
+html .o_web_client > .o_content > .o_purchase_dashboards {
+    overflow: auto;
+    direction: ltr !important;
+    height: 100%;
+    color: black;
+    font-family: 'Droid Arabic Kufi', serif;
+    -webkit-overflow-scrolling: touch;
+}
+
+.dropdown-display-label .dropdown-selected {
+    font-size: x-small;
+    margin: 0 2px 2px 0;
+    padding: 0 15px 0 2px;
+}
+
+.dropdown-display-label .dropdown-selected .del {
+    font-size: xx-small;
+}
+
+.dash-row > div {
+    padding-right: 2px !important;
+    padding-left: 2px !important;
+}
+
+.dash-rounded {
+    border-radius: 6px;
+}
+
+.dash-text-bold {
+    font-weight: bold;
+    line-height: 1.6;
+}
+
+.dash-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+}
+
+.items-v-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dash-box > h1 {
+    font-weight: bold;
+    color: white;
+    font-family: 'roboto';
+}
+
+.dotted-top-border {
+    border-top: dotted;
+}
+
+.highcharts-text-outline {
+    display: none !important;
+}
+
+.highcharts-data-label {
+    color: #fff;
+    text-shadow: -1px -1px #000;
+}
+
+.highcharts-data-table table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.highcharts-data-table table td, .highcharts-data-table table th {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.highcharts-data-table table tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+.highcharts-data-table table tr:hover {
+    background-color: #ddd;
+}
+
+.highcharts-data-table table th {
+    text-align: center !important;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}

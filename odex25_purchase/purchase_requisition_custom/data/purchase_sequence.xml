@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- <record id="purchase_requisition_sequence_modification" model="ir.sequence">
+            <field name="name">Purchase Requisition Sequence Modification</field>
+            <field name="code">purchase.order.requisition.sequence</field>
+            <field name="prefix">TE%(year)s/%(month)s/</field>
+	        <field name="padding">6</field>
+            <field name="use_date_range">True</field>
+            <field eval="1" name="number_increment"/>
+        </record> -->
+
+         <record id="purchase_requisition_sequence" model="ir.sequence">
+            <field name="name">Purchase Requisition </field>
+             <field name="code">purchase.requisition.purchase.seq</field>
+            <field name="prefix">TE%(year)s/%(month)s/</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"></field>
+        </record>
+
+        <!-- <record id="purchase_request_sequence" model="ir.sequence">
+            <field name="name">Purchase Requst</field>
+            <field name="code">purchase.request</field>
+            <field name="prefix">PR/</field>
+	        <field name="padding">6</field>
+            <field name="use_date_range">True</field>
+            <field eval="1" name="number_increment"/>
+        </record> -->
+          
+
+    </data>
+</odoo>

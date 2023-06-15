@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <data>
+
+        <!-- Main dashboard menu -->
+        <menuitem name="Contract Dashboard" id="contract_dashboard_menu"
+                  parent="contract.contract_contract_menu" groups="contract.group_contract_manager" sequence="0"/>
+
+        <!-- Annual Dashboard Action -->
+        <record id="action_contract_dashboard" model="ir.actions.client">
+            <field name="name">Contract Dashboard</field>
+            <field name="tag">contract_dashboard</field>
+        </record>
+
+        <!-- Annual Dashboard Menu item -->
+        <menuitem name="Contract Dashboard" id="contract_dashboard"
+                  sequence="0"
+                  parent="contract_dashboard_menu"
+                  groups="purchase.group_purchase_manager"
+                  action="action_contract_dashboard"/>
+
+        <menuitem name="Contracts" id="contract_contract_menu"
+                  web_icon="contract,static/description/contract.png" sequence="40"/>
+
+        <!-- ASSETS -->
+        <template id="assets_contract_dashboard" name="Contract Dashboard" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/contract_dashboard/static/src/js/contract_dashboard.js"/>
+                <script type="text/javascript" src="/contract_dashboard/static/lib/js/jquery.dropdown.min.js"/>
+                <link href="/contract_dashboard/static/lib/css/jquery.dropdown.min.css" rel="stylesheet"/>
+                <link href="/contract_dashboard/static/src/css/dashboard.scss" rel="stylesheet"/>
+                <link href="/contract_dashboard/static/src/css/colors.less" rel="stylesheet"/>
+                
+                 <script src="https://code.highcharts.com/highcharts.src.js"></script>
+            </xpath>
+        </template>
+
+    </data>
+
+
+</odoo>

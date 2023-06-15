@@ -1,0 +1,53 @@
+<openerp>
+    <data>
+        <record id="view_cm_inter_entity_wizard" model="ir.ui.view">
+            <field name="name">CM - Inter entity Wizard</field>
+            <field name="model">cm.inter.entity.wizard</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <group>
+                        <group>
+                            <field name="broadcast"/>
+                            
+                            <field name="server_url" attrs="{'required': [('broadcast','=',True)],'invisible':[('broadcast','=',False)]}"/>
+                        </group>
+                        <group>
+                            <field name="document_id" invisible="True" readonly="True"/>
+                            <field name="key" invisible="True"/>
+                            <field name="server_key" attrs="{'required': [('broadcast','=',True)],'invisible':[('broadcast','=',False)]}"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Generate" type="object" name="generate" class="oe_highlight"/>
+                         or 
+                        <button special="cancel" string="Cancel" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>    
+
+        <record id="view_cm_inter_entity_update_wizard" model="ir.ui.view">
+            <field name="name">CM - Inter entity Update Wizard</field>
+            <field name="model">cm.inter.entity.update.wizard</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <group>
+                        <group>
+                            <field name="server_id" domain="[('id','!=',primary_id)]" widget="selection" required="True"/>
+                            
+                        </group>
+                        <group>
+                            <field name="primary_id" invisible="True" readonly="True"/>
+                            <field name="document_id" invisible="True" readonly="True"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Update" type="object" name="update" class="oe_highlight"/>
+                         or 
+                        <button special="cancel" string="Cancel" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>   
+    </data>
+</openerp>

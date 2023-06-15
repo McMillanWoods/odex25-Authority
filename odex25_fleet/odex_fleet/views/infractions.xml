@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id='vehicle_infraction_view_form' model='ir.ui.view'>
+            <field name="name">vehicle.infraction.form</field>
+            <field name="model">vehicle.infraction</field>
+            <field name="arch" type="xml">
+                <form string="Infraction">
+                    <header>
+                        <button name="action_confirm" string="Confirm" type="object" class="oe_highlight" states="draft"/>
+                        <button name="action_approve" string="Approve" type="object" class="oe_highlight" states="confirm"/>
+                        <button name="action_inprogress" string="Start" type="object" class="oe_highlight" states="approve"/>
+                        <button name="action_refuse" string="Refuse" type="object" class="oe_highlight" states="confirm,in_progress,approve"/>
+                        <button name="action_cancel" string="Cancel" type="object" class="oe_highlight" states="draft,confirm,approve,in_progress,refused"/>
+                        <field name="state"  widget="statusbar" />
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="vehicle_id" class="oe_edit_only"/>
+                            <h2>
+                                <field name="vehicle_id" attrs="{'readonly': [('state', '!=', 'draft')],'required':True}"/>
+                            </h2>
+                        </div>
+                        <group col="4" colspan="2" string="Vehicle Information">
+                            <field name="vin_sn" readonly="1" force_save="1" />
+                            <field name="model_id" readonly="1" force_save="1"/>
+                            <field name="license_plate" readonly="1" force_save="1"/>
+                            <field name="serial_number" readonly="1" force_save="1"/>
+                            <field name="fleet_type_id" readonly="1" force_save="1"/>
+                        </group>
+                        <group  col="4" colspan="2" string="Employee Information" >
+                            <field name="employee_id" readonly = "1" force_save="1"/>
+                            <field name="license_number" readonly="1" force_save="1"/>
+                            <field name="license_end" readonly="1" force_save="1"/>
+                        </group>
+                        <group  col="4" colspan="2" string="Infraction Information" >
+                            <field name="start_date" attrs="{'readonly': [('state', '!=', 'draft')],'required':True}" />
+                            <field name="end_date"  attrs="{'readonly': [('state', '!=', 'draft')],'required':True}" />
+                            <field name="infraction_type" required="1"/>
+                            <field name="infraction_number" required="1"/>
+                            <field name="infraction_date" required="1"/>
+                            <field name="benefits_discounts" required="1"/>
+                            <field name="infraction_cost" required="1"/>
+                            <field name="cost_percentage" required="1" attrs="{'invisible':[('infraction_type','=','infraction')]}"/>
+
+                        </group>
+                        <notebook>
+                          <page string="Reject Reason"  attrs="{'invisible':[('state','!=','refused')]}">
+                              <group>
+                                <field name="reason" readonly="1" force_save="1"/>
+                              </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id='vehicle_infraction_view_tree' model='ir.ui.view'>
+            <field name="name">vehicle.infraction.tree</field>
+            <field name="model">vehicle.infraction</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="vehicle_id" />
+                    <field name="branch_id" />
+                    <field name="employee_id" />
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="vehicle_infraction_view_view_search" model="ir.ui.view">
+            <field name="name">vehicle.infraction.search</field>
+            <field name="model">vehicle.infraction</field>
+            <field name="arch" type="xml">
+                <search string="Infraction">
+                    <field name="employee_id"/>
+                    <field name="vehicle_id"/>
+                    <field name="branch_id"/>
+                    <field name="state" />
+                    <separator/>
+                    <!-- <filter string="Archived" name="inactive" domain="[('active','=',False)]"/> -->
+                    <group expand="1" string="Group By">
+                        <filter name="groupby_status" context="{'group_by' : 'state'}" string="State"/>
+                        <filter name="groupby_branch" context="{'group_by' : 'branch_id'}" string="Branch"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id='vehicle_infraction_action' model='ir.actions.act_window'>
+            <field name="name">Vehicle Infractions</field>
+            <field name="res_model">vehicle.infraction</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new Infraction.
+                </p>
+            </field>
+        </record>
+        <menuitem name="Infractions" parent="fleet.menu_root" id="vehicles_infractions" sequence="2"/>
+        <menuitem action="vehicle_infraction_action" parent="vehicles_infractions" id="vehicles_infractions_menu"/>
+    </data>
+</odoo>

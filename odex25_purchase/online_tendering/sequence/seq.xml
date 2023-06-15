@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="tender_application_sequence" model="ir.sequence">
+            <field name="name">Tender Application sequence</field>
+            <field name="code">tender.application</field>
+            <field name="prefix">TA-%(year)s/%(month)s/0000</field>
+            <field name="company_id" eval="False"/>
+            <field name="use_date_range">True</field>
+            <field eval="1" name="number_increment"/>
+        </record>      
+    </data>
+</odoo>

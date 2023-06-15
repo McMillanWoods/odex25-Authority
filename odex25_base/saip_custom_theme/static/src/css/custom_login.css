@@ -1,0 +1,21 @@
+.btn-fill-secondary,
+.btn-secondary {
+    background: #9ca7b3;
+    border-color: #607992!important;
+}
+
+.btn-fill-primary,
+.btn-primary {
+    background-color: #9ca7b3;
+    border-color: #607992;
+}
+
+.btn-fill-primary:hover,
+.btn-primary:hover {
+    background-color: #607992!important;
+    border-color: #607992;
+}
+
+.o_home_menu_background {
+    background: url(/standard_custom_theme/static/img/background1.jpg) no-repeat center/cover!important;
+}

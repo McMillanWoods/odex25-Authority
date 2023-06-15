@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="mail_circulars" model="mail.template">
+            <field name="name">Administrative circulars and decisions publication e-mail.</field>
+            <field name="subject">Administrative circular/decision</field>
+            <field name="partner_to">${str(object.message_partner_ids.ids).replace('[', '').replace(']', '')}</field>
+            <field name="report_template" ref="hr_administrative_circular.action_report_circular_decision"/>
+            <field name="report_name">${(object.name)}_Details</field>
+            <field name="lang">${object.responsible_id.user_id.lang}</field>
+            <field name="model_id" ref="hr_administrative_circular.model_hr_administrative_circular"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" ><![CDATA[
+            <div style="margin: 10px auto;">
+            <table style="width:100%;text-align:justify;margin:0 auto;border-collapse:collapse;border-top:1px solid lightgray"">
+                <tbody>
+                    <tr>
+                        <td style="padding:15px 10px;font-size:20px">
+                            <p dir="ltr" style="font-size:15px;margin-top:0pt;margin-bottom:0pt;">
+                            <span></span></p><br>
+                            <p style="color:#875A7B;margin:0" >Dear All,</p><br>
+                            <p dir="ltr" style="font-size:15px;margin-top:0pt;margin-bottom:0pt;">
+                                <span>Greetings, we would like to inform you with the details of our administrative decision
+                                 <strong>${object.name}</strong>, kindly find the attached document.</span></p><br>
+                            <p dir="ltr" style="font-size:15px;margin-top:0pt;margin-bottom:0pt;">
+                            <p dir="ltr" style="font-size:15px;margin-top:0pt;margin-bottom:0pt;">
+                                <span>Thank you,</span></p><br>
+                                <span>Best Regards,</span></p><br>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>]]></field>
+        </record>
+    </data>
+</odoo>

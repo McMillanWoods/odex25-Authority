@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="proposal_common_report_wiz_form">
+			<field name="name">proposal.common.report.wiz.form</field>
+			<field name="model">proposal.common.report.wiz</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group col="4" colspan="2">
+							<field name="date_from" />
+							<field name="date_to" />
+							<field name="company_id" groups="base.group_multi_company"/>
+						</group>
+
+					</sheet>
+					<footer>
+						<button name="print_pdf" string="Print PDF" type="object" class="oe_highlight"/>
+						<button name="print_xlsx" string="Print Excel" type="object" class="oe_highlight"/>
+						<button string="Cancel" class="oe_link" special="cancel"/>
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<record id="proposal_common_report_action" model="ir.actions.act_window">
+			<field name="name">Proposal Common Report</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">proposal.common.report.wiz</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+
+		<menuitem
+			id="proposal_report_common_menu"
+			name="Proposal Reports"
+			parent="sale.menu_sale_report"
+			sequence="20"
+			/>
+
+	</data>
+
+
+</odoo>

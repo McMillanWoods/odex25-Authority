@@ -1,0 +1,57 @@
+<odoo>
+    <data>
+        <!-- budget root menu-->
+        <menuitem id="private_budget_main_menu"
+                  name="Budget Management"
+                  sequence="11"
+                  parent="account.menu_finance"
+                  groups="account_budget_custom.group_budget_user"/>
+
+        <!-- budget sub menues-->
+<!--        <menuitem id="account_budget.menu_act_crossovered_budget_view"-->
+<!--                  name="Budgets"-->
+<!--                  action="account_budget.act_crossovered_budget_view"-->
+<!--                  parent="private_budget_main_menu"-->
+<!--                  sequence="1"/>-->
+        <menuitem id="account_budget_custom.menu_budget_confirmation"
+                  action="account_budget_custom.action_budget_confirmation_form"
+                  parent="private_budget_main_menu"
+                  sequence="2"/>
+<!--        <menuitem id="account_budget.menu_budget_post_form"-->
+<!--                  name="Budgetary Position"-->
+<!--                  action="account_budget.open_budget_post_form"-->
+<!--                  parent="private_budget_main_menu"-->
+<!--                  sequence="3"/>-->
+        <menuitem id="account.account_analytic_def_account"
+                  name="Cost Center Tree"
+                  parent="private_budget_main_menu"
+                  sequence="4"/>
+<!--        <menuitem id="analytic_account.menu_hierarchical_chart_analytic_accounts"-->
+<!--                  name="Hierarchical Chart Of Cost Centers"-->
+<!--                  action="analytic_account.hr_action_hierarchical_chart"-->
+<!--                  parent="private_budget_main_menu"-->
+<!--                  sequence="5"/>-->
+        <menuitem id="account.account_analytic_tag_menu"
+                  name="Cost Centers Tags"
+                  action="analytic.account_analytic_tag_action"
+                  parent="private_budget_main_menu"
+                  sequence="6"/>
+
+        <menuitem id="account_budget_custom.menu_budget_operations"
+                  name="Budget Operations"
+                  parent="private_budget_main_menu"
+                 groups="account_budget_custom.group_manager_budget"
+                  sequence="9"/>
+
+        <menuitem id="private_budget_reporting_menu"
+                  name="Reports"
+                  parent="private_budget_main_menu"
+                  sequence="10"/>
+<!--        <menuitem id="account_budget.menu_act_crossovered_budget_lines_view"-->
+<!--                  name="Budgets lines"-->
+<!--                  action="account_budget.act_crossovered_budget_lines_view"-->
+<!--                  parent="private_budget_reporting_menu"-->
+<!--                  sequence="1"/>-->
+
+    </data>
+</odoo>

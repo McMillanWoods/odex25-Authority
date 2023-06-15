@@ -1,0 +1,841 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <menuitem name="Fleet" id="fleet.menu_root" sequence="115"  web_icon="fleet,static/description/icon.png"/>
+        <menuitem name="Vehicles" parent="fleet.menu_root" id="fleet.fleet_vehicles" sequence="2" groups="fleet_group_hr_officer,fleet.fleet_group_user"/>
+
+        <menuitem name="Configuration" parent="fleet.menu_root" id="fleet.fleet_configuration" sequence="100" groups="fleet.fleet_group_user,fleet_group_hr_officer,fleet_group_account"/>
+        <!--        Vehicle-->
+        <record id='fleet_vehicle_cost_view_tree' model='ir.ui.view'>
+            <field name="name">fleet.vehicle.cost.tree</field>
+            <field name="model">fleet.vehicle.cost</field>
+            <field name="arch" type="xml">
+                <tree string="Vehicle Costs">
+                    <field name="vehicle_id"/>
+                    <field name="description"/>
+                    <field name="cost_subtype_id"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id='fleet_vehicle_cost_view_kanban' model='ir.ui.view'>
+            <field name="name">fleet.vehicle.cost.kanban</field>
+            <field name="model">fleet.vehicle.cost</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div>
+                                    <strong>
+                                        <field name="vehicle_id"/>
+                                        <span class="pull-right"><field name="date"/></span>
+                                    </strong>
+                                </div>
+                                <div>
+                                    <field name="cost_subtype_id"/>
+                                    <span class="pull-right"><field name="amount"/></span>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id='fleet_vehicle_cost_view_pivot' model='ir.ui.view'>
+            <field name="name">fleet.vehicle.cost.pivot</field>
+            <field name="model">fleet.vehicle.cost</field>
+            <field name="arch" type="xml">
+                <pivot string="Vehicles costs">
+                    <field name="vehicle_id" type="row"/>
+                    <field name="cost_type" type="row"/>
+                    <field name="date" interval="year" type="col"/>
+                    <field name="amount" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id='fleet_vehicle_cost_view_graph' model='ir.ui.view'>
+            <field name="name">fleet.vehicle.cost.graph</field>
+            <field name="model">fleet.vehicle.cost</field>
+            <field name="arch" type="xml">
+                <graph string="Vehicles costs">
+                    <field name="vehicle_id"/>
+                    <field name="date" interval="year"/>
+                    <field name="amount" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id='fleet_vehicle_cost_indicative_view_pivot' model='ir.ui.view'>
+            <field name="name">fleet.vehicle.cost.pivot</field>
+            <field name="model">fleet.vehicle.cost</field>
+            <field name="arch" type="xml">
+                <pivot string="Vehicles costs" >
+                    <field name="vehicle_id" type="row"/>
+                    <field name="cost_type" type="col"/>
+                    <field name="amount" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id='fleet_vehicle_cost_indicative_view_graph' model='ir.ui.view'>
+            <field name="name">fleet.vehicle.cost.graph</field>
+            <field name="model">fleet.vehicle.cost</field>
+            <field name="arch" type="xml">
+                <graph string="Vehicles costs">
+                    <field name="parent_id" type="row"/>
+                    <field name="cost_type" type="col"/>
+                    <field name="amount" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id='fleet_vehicle_costs_view_search' model='ir.ui.view'>
+            <field name="name">fleet.vehicle.cost.search</field>
+            <field name="model">fleet.vehicle.cost</field>
+            <field name="arch" type="xml">
+                <search string="Vehicles costs" >
+                    <field name="vehicle_id" />
+                    <field name="cost_subtype_id"/>
+                    <field name="date"/>
+                    <field name="parent_id"/>
+                    <filter name="parent_false" domain="[('parent_id','=',False)]" string="Effective Costs"/>
+                    <filter name="parent_true" domain="[('parent_id','!=',False)]" string="Indicative Costs"/>
+                    <group expand="1" string="Group By">
+                        <filter name="groupby_cost_type" context="{'group_by': 'cost_type'}" string="Cost Type"/>
+                        <filter name="groupby_cost_subtype_id" context="{'group_by': 'cost_subtype_id'}" string="Cost Subtype"/>
+                        <filter name="groupby_vehicle_id" context="{'group_by': 'vehicle_id'}" string="Vehicle"/>
+                        <filter name="groupby_parent_id" context="{'group_by': 'parent_id'}" string="Parent"/>
+                        <separator/>
+                        <filter name="groupby_date" context="{'group_by': 'date:month'}" string="Month" help="Vehicle Costs by Month"/>
+                        <filter name="groupby_year" context="{'group_by': 'date:year'}" string="Year"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id='fleet_vehicle_costs_view_form' model='ir.ui.view'>
+            <field name="name">fleet.vehicle.cost.form</field>
+            <field name="model">fleet.vehicle.cost</field>
+            <field name="arch" type="xml">
+                <form string="Vehicle costs">
+                    <sheet>
+                        <group col="2" string="Cost Details">
+                            <group>
+                                <field name="vehicle_id" />
+                                <field name="cost_subtype_id"/>
+                                <field name="amount"/>
+                                <field name="description"/>
+                            </group>
+                            <group>
+                                <field name="date"/>
+                                <field name="parent_id" groups="base.group_no_one"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="fleet_vehicle_costs_view_graph" model="ir.ui.view">
+           <field name="name">fleet.vehicle.cost.graph</field>
+           <field name="model">fleet.vehicle.cost</field>
+           <field name="arch" type="xml">
+                <graph string="Costs Per Month" stacked="True">
+                    <field name="date" type="row"/>
+                    <field name="vehicle_id" type="col"/>
+                    <field name="amount" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id='fleet_vehicle_costs_action' model='ir.actions.act_window'>
+            <field name="name">Vehicle Costs</field>
+            <field name="res_model">fleet.vehicle.cost</field>
+            
+            <field name="view_mode">tree,kanban,form,graph</field>
+            <field name="context">{"search_default_parent_false" : True, "search_default_groupby_vehicle_id" : True,}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create a new cost.
+              </p><p>
+                Odoo helps you managing the costs for your different
+                vehicles. Costs are created automatically from services,
+                contracts (fixed or recurring) and fuel logs.
+              </p>
+            </field>
+        </record>
+
+        <menuitem action="fleet_vehicle_costs_action" parent="fleet.fleet_vehicles" id="fleet_vehicle_costs_menu" groups="fleet.fleet_group_manager"/>
+
+
+        <record model="ir.ui.view" id="odex_view_fleet_vehicle_form">
+            <field name="name">odex.fleet.vehicle.form</field>
+            <field name="model">fleet.vehicle</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="replace">
+
+                    <sheet>
+                        <field name="currency_id" invisible="1"/>
+                        
+                    <div class="oe_button_box" name="button_box">
+                        <button name="open_assignation_logs"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-history">
+                            <field name="history_count" widget="statinfo" string="Drivers History"/>
+                        </button>
+                        <button name="return_action_to_open"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-book"
+                            context="{'xml_id':'fleet_vehicle_log_contract_action'}"
+                            help="show the contract for this vehicle">
+                            <field name="contract_count" widget="statinfo" string="Contracts"/>
+                        </button>
+                        <button name="return_action_to_open"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-wrench"
+                            context="{'xml_id':'fleet_vehicle_log_services_action'}"
+                            help="show the services logs for this vehicle" >
+                            <field name="service_count" widget="statinfo" string="Services"/>
+                        </button>
+                        <button name="return_action_to_open"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-tachometer"
+                            context="{'xml_id':'fleet_vehicle_odometer_action'}"
+                            help="show the odometer logs for this vehicle"
+                            attrs="{'invisible': [('vehicle_type', '!=', 'car')]}">
+                            <field name="odometer_count" widget="statinfo" string="Odometer"/>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                    <field name="image_128" widget='image' class="oe_avatar"/>
+                    <div class="oe_title">
+                        <label for="model_id" class="oe_edit_only"/>
+                        <h1>
+                            <field name="model_id" placeholder="e.g. Model S"/>
+                        </h1>
+                        <label for="license_plate" class="oe_edit_only"/>
+                        <h2>
+                            <field name="license_plate" class="oe_inline" placeholder="e.g. PAE 326"/>
+                        </h2>
+                        <label for="tag_ids" class="oe_edit_only"/>
+                        <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}"/>
+                    </div>
+                        <group col="4" colspan="2" string="General Properties">
+                         <field name="active" invisible="1"/>
+                            <field name="vehicle_type" invisible="1"/>
+                            <field name="states"/>
+                            <field name="branch_id" domain="[('state_id', '=', states)]"/>
+                            <field name="owner_id" domain="[('car_owner','=',True)]"/>
+                            <field name="fleet_type_id"  readonly="1"/>
+                            <field name="car_category"/>
+                            <field name="man_company" readonly="1"/>
+                            <field name="license_end"/>
+                            <field name="serial_number"/>
+                            <field name="computer_number"/>
+                            <field name="employee_id" readonly="1" force_save="1"/>
+                            <field name="location" />
+                            <field name="department_id" readonly="1" force_save="1"/>
+                            <field name="project_id" readonly="1" force_save="1"/>
+                            <field name="vin_sn" />
+                            <field name="model_year"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <label for="odometer"/>
+                            <div class="o_row">
+                                <field name="odometer"/>
+                                <field name="odometer_unit"/>
+                            </div>
+                            <!--                            <field name="acquisition_date" />-->
+                            <!--                            <field name="car_value" />-->
+                            <!--                            <field name="residual_value"/>-->
+                        </group>
+                        <group col="4" colspan="2" string="Additional Properties">
+                            <field name="seats" />
+                            <field name="doors" />
+                            <field name="color" />
+                            <field name="car_weight" />
+                        </group>
+                        <notebook>
+                            <page string="Insurance Information">
+                                <group col="4" colspan="2">
+                                    <field name="insurance_number" required="1"/>
+                                    <field name="insurance_start_date" required="1"/>
+                                    <field name="insurance_end_date" required="1"/>
+                                    <field name="insurance_attachment" required="1"/>
+                                    <field name="installment_number" required="1"/>
+                                    <field name="insurance_cost" required="1"/>
+                                </group>
+                                <field name="installment_ids" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="name" required="1"/>
+                                        <field name="date" required="1"/>
+                                        <field name="amount" required="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Engine Options">
+                                <group col="4" colspan="2">
+                                    <field name="transmission_id" required="1"/>
+                                    <field name="fuel_type" required="1" />
+                                    <label for="co2"  invisible="1"/>
+                                    <div class="o_row" name="co2" invisible="1">
+                                        <field name="co2" /><span>g/km</span>
+                                    </div>
+                                    <field name="horsepower"  invisible="1"/>
+                                    <field name="horsepower_tax" invisible="1" />
+                                    <label for="power"  invisible="1"/>
+                                    <div class="o_row"  invisible="1">
+                                        <field name="power"/><span>kW</span>
+                                    </div>
+                                    <label for="fuel_consumption"/>
+                                    <div class="o_row">
+                                        <field name="fuel_consumption"/><span>Km</span>
+                                    </div>
+                                </group>
+                            </page>
+                            <page string="Operation">
+                                <group col="4" colspan="2">
+                                    <field name="check_end" required="1"/>
+                                    <field name="form_end" required="1"/>
+                                    <field name="operation_card_number"/>
+                                    <field name="operation_card_end"/>
+                                    <field name="form_renew_cost" readonly="1"/>
+
+                                    <!--                                    <field name="next_request_date"/>-->
+                                </group>
+                            </page>
+                            <page string="Maintenance Settings">
+                                <field name="service_ids" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="service_ids" required="1" widget="many2many_tags"/>
+                                        <field name="type" required="1"/>
+                                        <field name="date"  attrs="{'invisible': [('type','=','odometer')],
+                                    'required': [('type','!=','odometer')]}"/>
+                                        <field name="odometer" attrs="{'invisible': [('type','!=','odometer')],
+                                    'required': [('type','=','odometer')]}"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </xpath>
+                <xpath expr="//field[@name='insurance_number']" position="after">
+                    <field name="insurance_companies_id"/>
+                </xpath>
+            </field>
+        </record>
+        <!-- fleet Type-->
+        <record id='fleet_vehicle_type_view_form' model='ir.ui.view'>
+            <field name="name">fleet.vehicle.type.model.form</field>
+            <field name="model">fleet.type</field>
+            <field name="arch" type="xml">
+                <form string="Type">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="amount"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id='fleet_vehicle_type_view_tree' model='ir.ui.view'>
+            <field name="name">fleet.vehicle.type.tree</field>
+            <field name="model">fleet.type</field>
+            <field name="arch" type="xml">
+                <tree string="Type">
+                    <field name="name" />
+                    <field name="amount" />
+                </tree>
+            </field>
+        </record>
+
+        <record id='fleet_vehicle_amount_action' model='ir.actions.act_window'>
+            <field name="name">Vehicle Type</field>
+            <field name="res_model">fleet.type</field>
+           
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new type.
+                </p><p>
+            </p>
+            </field>
+        </record>
+
+        <menuitem  action="fleet_vehicle_amount_action"
+                   name="Vehicle Type" parent="fleet.fleet_configuration" id="fleet_type_menu" sequence="100" groups="fleet.fleet_group_user" />
+
+        <menuitem id="res_states_menu" name="States" sequence="1"
+                  parent="fleet.fleet_configuration" groups="fleet.fleet_group_user,fleet_group_hr_officer" action="base.action_country_state" />
+
+        <menuitem id="res_branches_menu" name="Branch"
+                  parent="fleet.fleet_configuration" groups="fleet_group_supervisor,fleet_group_hr_officer" action="branch.branch_action_res_branch" sequence="2"/>
+
+        <!--        fuel type-->
+        <record id='fleet_fuel_price_view_form' model='ir.ui.view'>
+            <field name="name">fleet.vehicle.fuel.price.model.form</field>
+            <field name="model">fuel.price</field>
+            <field name="arch" type="xml">
+                <form string="Fuel Price">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="fuel_type" class="oe_edit_only"/>
+                            <h1>
+                                <field name="fuel_type" required="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="price" required="1"/>
+                            <field name="uom_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id='fleet_fuel_price_view_tree' model='ir.ui.view'>
+            <field name="name">fleet.vehicle.fuel.price.model.tree</field>
+            <field name="model">fuel.price</field>
+            <field name="arch" type="xml">
+                <tree string="Fuel Price">
+                    <field name="fuel_type" />
+                    <field name="price" />
+                </tree>
+            </field>
+        </record>
+
+        <record id='fuel_price_action' model='ir.actions.act_window'>
+            <field name="name">Fuel Price</field>
+            <field name="res_model">fuel.price</field>
+           
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new Fuel Price.
+                </p><p>
+            </p>
+            </field>
+        </record>
+
+        <menuitem  action="fuel_price_action"
+                   name="Fuel Price" parent="fleet.fleet_configuration" id="fuel_price_menu" groups="fleet.fleet_group_user,fleet_group_account" sequence="100" />
+
+           <!-- Car Category -->
+        <record id='fleet_car_category_view_form' model='ir.ui.view'>
+            <field name="name">fleet.vehicle.car.category.model.form</field>
+            <field name="model">car.category</field>
+            <field name="arch" type="xml">
+                <form string="Car Category">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="car_category"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id='fleet_car_category_view_tree' model='ir.ui.view'>
+            <field name="name">fleet.vehicle.car.category.model.tree</field>
+            <field name="model">car.category</field>
+            <field name="arch" type="xml">
+                <tree string="Car Category">
+                    <field name="car_category" />
+                </tree>
+            </field>
+        </record>
+
+
+        <record id='car_category_action' model='ir.actions.act_window'>
+            <field name="name">Car Category</field>
+            <field name="res_model">car.category</field>
+           
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new Car Category.
+                </p><p>
+            </p>
+            </field>
+        </record>
+
+        <menuitem  action="car_category_action"
+                   name="Car Category" parent="fleet.fleet_configuration" id="car_category_menu" groups="fleet.fleet_group_user" sequence="101"/>
+
+        <!-- Manufacture Company -->
+        <record id='fleet_man_company_view_form' model='ir.ui.view'>
+            <field name="name">fleet.vehicle.manufacture.company.model.form</field>
+            <field name="model">manufacture.company</field>
+            <field name="arch" type="xml">
+                <form string="Manufacture Company">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="man_company"/>
+                                <field name="brand_ids" widget="many2many_tags"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id='fleet_man_company_view_tree' model='ir.ui.view'>
+            <field name="name">fleet.vehicle.manufacture.company.model.tree</field>
+            <field name="model">manufacture.company</field>
+            <field name="arch" type="xml">
+                <tree string="Manufacture Company">
+                    <field name="man_company" />
+                </tree>
+            </field>
+        </record>
+
+
+        <record id='man_company_action' model='ir.actions.act_window'>
+            <field name="name">Manufacture Company</field>
+            <field name="res_model">manufacture.company</field>
+           
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new Manufacture Company.
+                </p><p>
+            </p>
+            </field>
+        </record>
+
+        <menuitem  action="man_company_action"
+                   name="Manufacture Company" parent="fleet.fleet_configuration" id="man_company_menu" groups="fleet.fleet_group_user" sequence="101"/>
+         <!-- Transmission Type -->
+        <record id='fleet_transmission_view_form' model='ir.ui.view'>
+            <field name="name">fleet.vehicle.transmission.setting.model.form</field>
+            <field name="model">transmission.setting</field>
+            <field name="arch" type="xml">
+                <form string="Transmission Type">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="transmission"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id='fleet_transmission_setting_view_tree' model='ir.ui.view'>
+            <field name="name">fleet.vehicle.transmission.setting.model.tree</field>
+            <field name="model">transmission.setting</field>
+            <field name="arch" type="xml">
+                <tree string="Transmission Type">
+                    <field name="transmission" />
+                </tree>
+            </field>
+        </record>
+
+
+        <record id='transmission_setting_action' model='ir.actions.act_window'>
+            <field name="name">Transmission Type</field>
+            <field name="res_model">transmission.setting</field>
+           
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new transmission .
+                </p><p>
+            </p>
+            </field>
+        </record>
+
+        <menuitem  action="transmission_setting_action"
+                   name="Transmission Type" parent="fleet.fleet_configuration" id="transmission_setting_menu" groups="fleet.fleet_group_user" sequence="102"/>
+
+
+        <record id='odex_fleet_vehicle_model_brand_view_form' model='ir.ui.view'>
+        <field name="name">odex.fleet.vehicle.model.brand.form</field>
+        <field name="model">fleet.vehicle.model.brand</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_model_brand_view_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <group>
+                    <field name="man_company_id" />
+
+                </group>
+            </field>
+        </field>
+    </record>
+         <record id='odex_fleet_vehicle_model_view_form' model='ir.ui.view'>
+        <field name="name">odex.fleet.vehicle.model.form</field>
+        <field name="model">fleet.vehicle.model</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_model_view_form"/>
+        <field name="arch" type="xml">
+             <field name="brand_id" position="after">
+                 <group>
+                     <group>
+                          <field name="fleet_type_id"/>
+                          <field name="man_company_id" readonly="1" />
+                     </group>
+
+
+                </group>
+             </field>
+
+
+        </field>
+         </record>
+        <!--        Branch-->
+        <record id="fleet_branch_form_view" model="ir.ui.view">
+            <field name="name">fleet.branch.inherit</field>
+            <field name="model">res.branch</field>
+            <field name="inherit_id" ref="branch.branch_res_branch_view_form"/>
+            <field eval="200" name="priority"/>
+
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="state_id"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <!--        Partner-->
+        <record id="action_partner_owner_form" model="ir.actions.act_window">
+            <field name="name">Car Owner</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+           
+            <field name="domain">[]</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[('car_owner','=',True)]</field>
+            <field name="context">{'default_car_owner':True}</field>
+            <field name="filter" eval="True"/>
+        </record>
+
+        <!--       -->
+        <menuitem action="action_partner_owner_form" groups="fleet.fleet_group_user" parent="fleet.fleet_vehicles" sequence="3" id="fleet_vehicle_owner_menu"/>
+        <!--       -->
+        <menuitem action="fleet.fleet_vehicle_action" parent="fleet.fleet_vehicles" id="fleet.fleet_vehicle_menu" groups="fleet.fleet_group_user" sequence="2"/>
+
+
+        <!--        LOg-->
+
+        <record model="ir.ui.view" id="odex_fleet_vehicle_log_fuel_view_form">
+            <field name="name">odex.fleet.vehicle.log.form</field>
+            <field name="model">fleet.vehicle.log.fuel</field>
+            <field name="arch" type="xml">
+                <form >
+               
+                    <header>
+                        <button name="create_invoice" groups="odex_fleet.fleet_group_account,odex_fleet.fleet_group_supervisor" type="object" states="approve" class="oe_highlight" string="Create Invoice"/>
+                        <button name="action_confirm" groups="odex_fleet.fleet_group_account,odex_fleet.fleet_group_supervisor" type="object" states="draft" class="oe_highlight" string="Confirm"/>
+                        <button name="action_approve" groups="odex_fleet.fleet_group_gm" type="object" states="confirm" class="oe_highlight" string="Approve"/>
+                        <button name="action_cancel" groups="odex_fleet.fleet_group_supervisor" type="object" states="draft" class="oe_highlight" string="Cancel"/>
+                        <button name="action_refuse" groups="odex_fleet.fleet_group_gm" type="object" states="confirm" class="oe_highlight" string="Refuse"/>
+                        <field name="state" widget="statusbar" nolabel="1"/>
+                    </header>
+
+                    <sheet>
+                        <group>
+                            <group string="Vehicle Details">
+                                <field name="vehicle_id" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="fuel_type" readonly="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="employee_id" />
+                            </group>
+                            <group string="Refueling Details">
+                                <field name="cal_type" attrs="{'readonly': [('state', '!=', 'draft'),('edit_access', '!=', True)],'required':True}"/>
+                                <field name="liter" attrs="{'readonly': [('state', '!=', 'draft'),('edit_access', '!=', True)],'required':True}"/>
+                                <field name="price_per_liter" attrs="{'readonly': [('state', '!=', 'draft'),('edit_access', '!=', True)],'required':True}"/>
+                                <field name="price_tax" readonly="1" force_save="1"/>
+                                <field name="amount" readonly="1" force_save="1"/>
+                                <field name="total_price_tax"  force_save="1" attrs="{'readonly':['|',('cal_type','!=','total'),('state','!=','draft'),('edit_access', '!=', True)]}"/>
+                            </group>
+                            <group string="Account Details">
+                                <field name="branch_id" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="partner_id" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="account_id"  required="1" readonly="1" force_save="1"/>
+                                <field name="tax_id"  required="1" readonly="1" force_save="1"/>
+                                <field name="invoice_id" readonly="1" force_save="1"/>
+                                <field name="inv_ref"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Odometer Details">
+                                <label for="odometer"/>
+                                <div class="o_row">
+                                    <field name="odometer" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                    <field name="odometer_unit" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                </div>
+                            </group>
+                            <group string="Additional Details">
+                                <field name="date" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="purchaser_id" required="0" invisible="1" />
+                                     <field name="edit_access" invisible="1"/>
+                            <field name="user_id" invisible="1"/>
+                               
+                            </group>
+                        </group>
+                        <field name="notes" placeholder="Write here any other information" attrs="{'readonly':[('state','!=','draft')]}"/>
+                    </sheet>
+
+                </form>
+            </field>
+
+        </record>
+
+       
+    <record id='fleet_vehicle_log_fuel_view_tree' model='ir.ui.view'>
+        <field name="name">fleet.vehicle.log.fuel.tree</field>
+        <field name="model">fleet.vehicle.log.fuel</field>
+        <field name="arch" type="xml">
+            <tree string="Fuel Logs">
+                <field name="date" />
+                <field name="vehicle_id" />
+                <field name="purchaser_id" />
+                <field name="inv_ref" invisible="1"/>
+                <field name="vendor_id" invisible="1"/>
+                <field name="odometer" />
+                <field name="odometer_unit" />
+                <field name="liter" />
+                 <field name="state" />
+                <field name="price_per_liter" invisible="1"/>
+                <field name="amount" sum="Price"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id='fleet_vehicle_log_fuel_action' model='ir.actions.act_window'>
+        <field name="name">Vehicles Fuel Logs</field>
+        <field name="res_model">fleet.vehicle.log.fuel</field>
+        
+        <field name="view_mode">tree,kanban,form,graph</field>
+        <field name="context">{"search_default_groupby_vehicle" : True}</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to create a new fuel log.
+          </p><p>
+            Here you can add refuelling entries for all vehicles.  You can
+            also filter logs of a particular vehicle using the search
+            field.
+          </p>
+        </field>
+    </record>
+
+    <menuitem action="fleet_vehicle_log_fuel_action" parent="fleet.fleet_vehicles" id="fleet_vehicle_log_fuel_menu" />
+
+        <!--        service log-->
+
+        <record model="ir.ui.view" id="odex_fleet_vehicle_log_services_view_form">
+            <field name="name">odex.fleet.vehicle.log.services.form</field>
+            <field name="model">fleet.vehicle.log.services</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_log_services_view_form"/>
+            <field name="arch" type="xml">
+            <xpath expr="//form" position="replace">
+                <form>
+                <field name="active" invisible="1" />
+                 <field name="state" invisible="1" />
+                <field name="currency_id" invisible="1" />
+                    <header>
+                        <button name="create_invoice" groups="odex_fleet.fleet_group_account,odex_fleet.fleet_group_supervisor" type="object" states="approve" class="oe_highlight" string="Create Invoice"/>
+                        <button name="action_confirm" groups="odex_fleet.fleet_group_account,odex_fleet.fleet_group_supervisor" type="object" states="draft" class="oe_highlight" string="Confirm"/>
+                        <button name="action_approve" groups="odex_fleet.fleet_group_gm" type="object" states="confirm" class="oe_highlight" string="Approve"/>
+                        <button name="action_cancel" groups="odex_fleet.fleet_group_supervisor" type="object" states="draft" class="oe_highlight" string="Cancel"/>
+                        <button name="action_refuse" groups="odex_fleet.fleet_group_gm" type="object" states="confirm" class="oe_highlight" string="Refuse"/>
+                        <field name="status" widget="statusbar" nolabel="1"/>
+                    </header>
+                    <sheet>
+                        <group col="2">
+                            <group string="Services Details">
+                                <field name="vehicle_id" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="employee_id"/>
+                                <field name="cost_subtype_id" attrs="{'readonly':[('state','!=','draft')]}" string="Service Type" domain="['|',('category','=','service'),('category','=','both')]" required="1"/>
+                                <field name="amount" attrs="{'readonly':[('state','!=','draft'),('edit_access', '!=', True)]}"/>
+                            </group>
+                            <group string="Account Details">
+                                <field name="branch_id"/>
+                                <field name="partner_id" attrs="{'readonly':[('state','!=','draft')]}" />
+                                <field name="account_id" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="invoice_id" readonly="1" force_save="1"/>
+                            </group>
+                            <group string="Odometer Details">
+                                <label for="odometer"/>
+                                <div class="o_row">
+                                    <field name="odometer" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                    <field name="odometer_unit" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                </div>
+                            </group>
+                        </group>
+                        <group col="2">
+                            <group string="Additional Details">
+                                <field name="date" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="purchaser_id" required="0" invisible="1"/>
+                               <field name="vendor_id" required="0" invisible="1"/>
+                               <!-- <field name="service_type_id" /> -->
+                                <field name="inv_ref" required="0" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                     <field name="edit_access" invisible="1"/>
+                            <field name="user_id" invisible="1"/>
+                            </group>
+                        </group>
+
+                        <group string="Included Services">
+                            <field name="cost_ids" required="1" nolabel="1" attrs="{'readonly':[('state','!=','draft'),('edit_access', '!=', True)]}">
+                                <tree string="Included Services" editable="bottom">
+                                    <field name="cost_subtype_id" required="1" string="Service" domain="[('category','=','service')]"/>
+                                    <field name="number" required="1"/>
+                                    <field name="amount" required="1"  sum="Price" string="Indicative Cost"/>
+                                    <field name="total" sum="Total"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Notes">
+                            <field nolabel="1" attrs="{'readonly':[('state','!=','draft')]}" name="notes" placeholder="Write here any other information related to the service completed."/>
+                        </group>
+                    </sheet>
+                    </form>
+                </xpath>
+
+            </field>
+
+        </record>
+
+        <record id='odex_fleet_vehicle_log_services_view_tree' model='ir.ui.view'>
+        <field name="name">odex.vehicle.log.services.tree</field>
+        <field name="model">fleet.vehicle.log.services</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_log_services_view_tree"/>
+
+        <field name="arch" type="xml">
+                <field name="inv_ref" position="after" >
+                    <field name="state" />
+                </field>
+
+        </field>
+    </record>
+
+
+        <!--        menu overwrite-->
+        <menuitem action="fleet.fleet_vehicle_model_action" groups="fleet.fleet_group_user" parent="fleet.fleet_configuration" id="fleet.fleet_vehicle_model_menu" sequence="1"/>
+        <menuitem action="fleet.fleet_vehicle_model_brand_action" groups="fleet.fleet_group_user" parent="fleet.fleet_configuration" id="fleet.fleet_vehicle_model_brand_menu" sequence="2"/>
+       
+        <menuitem action="fleet.fleet_vehicle_log_contract_action" parent="fleet.fleet_vehicles" id="fleet.fleet_vehicle_log_contract_menu" groups="fleet.fleet_group_user,fleet_group_hr_officer"/>
+    <menuitem action="fleet.fleet_vehicle_service_types_action" parent="fleet.fleet_configuration" groups="fleet.fleet_group_user" id="fleet.fleet_vehicle_service_types_menu" sequence="3"/>
+    <menuitem id="fleet.fleet_vehicle_tag_menu" parent="fleet.fleet_configuration" action="fleet.fleet_vehicle_tag_action" groups="fleet.fleet_group_user" sequence="112"/>
+
+
+    </data>
+</odoo>

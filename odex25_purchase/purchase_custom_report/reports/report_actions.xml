@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <record id="action_purchase_general_report" model="ir.actions.report">
+        <field name="name">Purchase General Report</field>
+        <field name="model">purchase.general.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">purchase_custom_report.purchase_general_report</field>
+        <field name="report_file">purchase_custom_report.purchase_general_report</field>
+    </record>
+
+
+
+    <record id="action_total_purchase" model="ir.actions.report">
+        <field name="name">Purchase Total Report</field>
+        <field name="model">purchase.general.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">purchase_custom_report.purchase_total_report</field>
+        <field name="report_file">purchase_custom_report.purchase_total_report</field>
+    </record>
+
+
+    <record id="action_employee_purchase_report" model="ir.actions.report">
+        <field name="name">Employee Purchase Report</field>
+        <field name="model">employee.purchase.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">purchase_custom_report.employee_purchase_report</field>
+        <field name="report_file">purchase_custom_report.employee_purchase_report</field>
+    </record>
+
+
+    <record id="action_report_vendor" model="ir.actions.report">
+        <field name="name">Vendors</field>
+        <field name="model">res.partner</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">purchase_custom_report.vendors_report_template</field>
+        <field name="report_file">purchase_custom_report.vendors_report_template</field>
+    </record>
+
+    <record id="action_report_purchase_requisition" model="ir.actions.report">
+        <field name="name">Purchase Requisitions</field>
+        <field name="model">purchase.requisition</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">purchase_custom_report.purchase_requisition_template</field>
+        <field name="report_file">purchase_custom_report.purchase_requisition_template</field>
+    </record>
+
+    <record id="action_report_purchase_order" model="ir.actions.report">
+        <field name="name">Purchase Orders</field>
+        <field name="model">purchase.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">purchase_custom_report.purchase_order_report_template</field>
+        <field name="report_file">purchase_custom_report.purchase_order_report_template</field>
+    </record>
+
+    <record id="action_report_purchase_committee" model="ir.actions.report">
+        <field name="name">Purchase Comittee Report</field>
+        <field name="model">purchase.committee.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">purchase_custom_report.purchase_comittee_report</field>
+        <field name="report_file">purchase_custom_report.purchase_comittee_report</field>
+    </record>
+
+    <record id="action_report_purchase_committee_details" model="ir.actions.report">
+        <field name="name">Purchase Committee Report</field>
+        <field name="model">purchase.requisition</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">purchase_custom_report.purchase_comittee_report_details</field>
+        <field name="report_file">purchase_custom_report.purchase_comittee_report_details</field>
+    </record>
+
+</odoo>

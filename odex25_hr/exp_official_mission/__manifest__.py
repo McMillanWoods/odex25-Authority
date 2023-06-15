@@ -1,0 +1,32 @@
+{
+    'name': 'HR Official mission',
+    'category': 'HR-Odex',
+    'summary': 'Employee Official mission and Training',
+    'version': '1.0',
+    'sequence': 4,
+    'website': 'http://exp-sa.com',
+    'license': 'GPL-3',
+    'author': 'Expert Co. Ltd.',
+    'depends': ['base', 'hr', 'hr_base', 'mail', 'account', 'employee_requests', 'attendances', 'exp_ticket_request',
+                'exp_hr_appraisal', 'hr_contract_custom'],
+    'data': [
+        'data/data.xml',
+        'security/official_mission_security.xml',
+        'security/ir.model.access.csv',
+
+        'views/hr_official_mission.xml',
+        'views/hr_official_mission_type_view.xml',
+        'views/attendance_view.xml',
+        'views/training.xml',
+        'views/especially_hours.xml',
+        'report/official_training_report_template.xml',
+        'report/official_mission_report_template.xml',
+        'views/hr_employee_view.xml',
+        'views/ticket_view.xml',
+        'views/course_view.xml',
+        'views/appraisal_view.xml',
+
+    ],
+    'installable': True,
+    'application': True,
+}

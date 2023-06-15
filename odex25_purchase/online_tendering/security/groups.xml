@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data noupdate="0">
+
+    <record id="group_online_tender_portal_user" model="res.groups">
+        <field name="name">Tender Portal User</field>
+        <!-- <field name="is_portal">True</field> -->
+    </record>
+
+    <record id="group_online_tender_user" model="res.groups">
+        <field name="name">Online Tender User</field>
+    </record>
+
+    <record id="base.group_portal" model="res.groups">
+         <field name="implied_ids" eval="[(4, ref('online_tendering.group_online_tender_portal_user'))]"/>
+    </record>
+
+</data>
+</odoo>

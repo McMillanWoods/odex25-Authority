@@ -1,0 +1,345 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* cm_entity_sync_odex
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-16 03:24+0000\n"
+"PO-Revision-Date: 2020-05-16 03:24+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,help:cm_entity_sync_odex.field_cm_entity_is_inter_entity
+#: model:ir.model.fields,help:cm_entity_sync_odex.field_cm_entity_is_master_entity
+msgid "\n"
+"        If checked, this entity will be syncronized by other entities in the group.\n"
+"    "
+msgstr "\n"
+"       اذا تمّ اختياره، سيتم مشاركة المؤسسة مع بقية المؤسسات في المجموعة.\n"
+"    "
+
+#. module: cm_entity_sync_odex
+#: code:addons/cm_entity_sync_odex/models/entity.py:278
+#: code:addons/cm_entity_sync_odex/models/entity.py:280
+#, python-format
+msgid "Access Error"
+msgstr "ليس لديك صلاحية !"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_sync_activated
+#: model:ir.ui.view,arch_db:cm_entity_sync_odex.view_cm_sync_config
+msgid "Activate Syncronization"
+msgstr "تفعيل نظام المزامنة"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_wizard_broadcast
+msgid "Broadcast"
+msgstr "مزامنة"
+
+#. module: cm_entity_sync_odex
+#: code:addons/cm_entity_sync_odex/wizards/wizards.py:34
+#, python-format
+msgid "Broadcast Error !Error While Broadcast new Server, please check server key and url."
+msgstr "خطا في المزامنة ! خطا عند مزامنة مخدم الجديد , الرجاء التأكد من عنوان الويب او مفتاح المخدم."
+
+#. module: cm_entity_sync_odex
+#: model:ir.ui.view,arch_db:cm_entity_sync_odex.view_cm_inter_entity_update_wizard
+#: model:ir.ui.view,arch_db:cm_entity_sync_odex.view_cm_inter_entity_wizard
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_code
+msgid "Code"
+msgstr "رمز"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_create_uid
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_sync_create_uid
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_update_wizard_create_uid
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_wizard_create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_create_date
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_sync_create_date
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_update_wizard_create_date
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_wizard_create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_sync_server_id
+msgid "Current Server"
+msgstr "السيرفر (النظام) الحالي"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_sync_employee_id
+msgid "Default Created By"
+msgstr "مدخل المعاملة الافتراضي"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_sync_important_id
+msgid "Default Important Degree"
+msgstr "درجة الأهمية الافتراضية"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_sync_subject_type_id
+msgid "Default Transaction Type"
+msgstr "نوع المعاملة الافتراضي"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_name
+msgid "Description"
+msgstr "الوصف"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_display_name
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_sync_display_name
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_update_wizard_display_name
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_wizard_display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_update_wizard_document_id
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_wizard_document_id
+msgid "Document"
+msgstr "مستند"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_sync_entities
+msgid "Entities"
+msgstr "العناوين و الجهات"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model,name:cm_entity_sync_odex.model_cm_inter_entity_sync
+msgid "Entity Syncronization"
+msgstr "الوحدات المتزامنه"
+
+#. module: cm_entity_sync_odex
+#: model:ir.ui.view,arch_db:cm_entity_sync_odex.view_cm_inter_entity_wizard
+msgid "Generate"
+msgstr "توليــد"
+
+#. module: cm_entity_sync_odex
+#: model:ir.ui.view,arch_db:cm_entity_sync_odex.view_cm_sync_config
+msgid "Generate Key"
+msgstr "توليد مفتاح مزامنة"
+
+#. module: cm_entity_sync_odex
+#: code:addons/cm_entity_sync_odex/models/settings.py:36
+#, python-format
+msgid "Generate new Key"
+msgstr "توليد مفتاح مزامنة جديدة"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_id
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_sync_id
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_update_wizard_id
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_wizard_id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: cm_entity_sync_odex
+#: model:ir.ui.view,arch_db:cm_entity_sync_odex.view_cm_sync_config
+msgid "Inter Entities"
+msgstr "المؤسسات المتزامنة"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_incoming_transaction_inter_entity_id
+msgid "Inter Entity"
+msgstr "مؤسسة متزامنة"
+
+#. module: cm_entity_sync_odex
+#: model:ir.actions.act_window,name:cm_entity_sync_odex.cm_inter_entity_sync_action
+#: model:ir.ui.menu,name:cm_entity_sync_odex.cm_inter_entity_sync_menu
+msgid "Inter Entity Sync"
+msgstr "إعدادات المؤسسات المتزامنة"
+
+#. module: cm_entity_sync_odex
+#: model:ir.ui.view,arch_db:cm_entity_sync_odex.cm_inter_entity_tree
+msgid "Inter-Entities"
+msgstr "المؤسسات المتزامنة"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_entity_inter_entity_code
+msgid "Inter-Entities Code"
+msgstr "رمز التزامن"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_entity_inter_entity_id
+msgid "Inter-Entities Ref"
+msgstr "مرجع المؤسسة المتزامنة"
+
+#. module: cm_entity_sync_odex
+#: model:ir.ui.view,arch_db:cm_entity_sync_odex.cm_inter_entity_form
+msgid "Inter-Entity"
+msgstr "مؤسسة متزامنة"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_entity_is_inter_entity
+msgid "Is Inter-Entity ?"
+msgstr "مؤسسة متزامنة ؟"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_entity_is_master_entity
+msgid "Is Master-Entity ?"
+msgstr "مؤسسة متزمنة رئيسية ؟"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity___last_update
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_sync___last_update
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_update_wizard___last_update
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_wizard___last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_sync_write_uid
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_update_wizard_write_uid
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_wizard_write_uid
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_sync_write_date
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_update_wizard_write_date
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_wizard_write_date
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_update_wizard_primary_id
+msgid "Main Server"
+msgstr "الخادم الرئيسي"
+
+#. module: cm_entity_sync_odex
+#: code:addons/cm_entity_sync_odex/controllers/sync.py:290
+#, python-format
+msgid "Message Has been send !"
+msgstr "تم ارسال الرساله"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_uuid
+msgid "Secret Key"
+msgstr "الرمز السري"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_wizard_server_key
+msgid "Server Key"
+msgstr "مفتاح التزامن للسيرفر"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_url
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_wizard_server_url
+msgid "Server URL"
+msgstr "رابط السيرفر"
+
+#. module: cm_entity_sync_odex
+#: code:addons/cm_entity_sync_odex/models/entity.py:165
+#: code:addons/cm_entity_sync_odex/models/entity.py:266
+#: code:addons/cm_entity_sync_odex/models/entity.py:294
+#, python-format
+msgid "Sync Error Cannot Syncronize new key to Server {}, URL \"{}\""
+msgstr "مشكلة في التزامن , غير قادر على مزامنة المفتاح الجديد Server {}, URL \"{}\""
+
+#. module: cm_entity_sync_odex
+#: code:addons/cm_entity_sync_odex/models/entity.py:242
+#, python-format
+msgid "Sync Error Cannot send Transaction to server {}"
+msgstr "مشكلة تزامن , لا يمكن ارسال المعاملة لمخدم  {}"
+
+#. module: cm_entity_sync_odex
+#: code:addons/cm_entity_sync_odex/models/entity.py:150
+#, python-format
+msgid "Sync ErrorCannot Syncronize new key to Server {}, URL \"{}\""
+msgstr "مشكلة في التزامن , غير قادر على مزامنة المفتاح الجديد Server {}, URL \"{}\""
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_sync_sync_key
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_wizard_key
+msgid "Sync Key"
+msgstr "مفتاح التزامن"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_incoming_transaction_syncronized
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_outgoing_transaction_syncronized
+msgid "Syncronized ?"
+msgstr "متزامن ؟"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model,name:cm_entity_sync_odex.model_cm_entity
+msgid "Transactions Contacts"
+msgstr "Transactions Contacts"
+
+#. module: cm_entity_sync_odex
+#: model:ir.ui.view,arch_db:cm_entity_sync_odex.view_cm_inter_entity_update_wizard
+msgid "Update"
+msgstr "تحديث الخوادم"
+
+#. module: cm_entity_sync_odex
+#: code:addons/cm_entity_sync_odex/models/settings.py:63
+#: model:ir.ui.view,arch_db:cm_entity_sync_odex.view_cm_sync_config
+#, python-format
+msgid "Update From ..."
+msgstr "تحديث من ..."
+
+#. module: cm_entity_sync_odex
+#: model:ir.model.fields,field_description:cm_entity_sync_odex.field_cm_inter_entity_update_wizard_server_id
+msgid "Update Server"
+msgstr "خادم التحديث"
+
+#. module: cm_entity_sync_odex
+#: code:addons/cm_entity_sync_odex/models/entity.py:280
+#, python-format
+msgid "You cannot change syncronized entity data !"
+msgstr "لا يمكنك تعديل بيانات المؤسسات المتزامنة !"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model,name:cm_entity_sync_odex.model_cm_inter_entity_update_wizard
+msgid "cm.inter.entity.update.wizard"
+msgstr "cm.inter.entity.update.wizard"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model,name:cm_entity_sync_odex.model_cm_inter_entity_wizard
+msgid "cm.inter.entity.wizard"
+msgstr "cm.inter.entity.wizard"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model,name:cm_entity_sync_odex.model_cm_inter_entity
+msgid "cm.inter_entity"
+msgstr "cm.inter_entity"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model,name:cm_entity_sync_odex.model_incoming_transaction
+msgid "incoming Transaction"
+msgstr "معاملات الوارد الخارجي"
+
+#. module: cm_entity_sync_odex
+#: model:ir.ui.view,arch_db:cm_entity_sync_odex.view_cm_inter_entity_update_wizard
+#: model:ir.ui.view,arch_db:cm_entity_sync_odex.view_cm_inter_entity_wizard
+msgid "or"
+msgstr "أو"
+
+#. module: cm_entity_sync_odex
+#: model:ir.model,name:cm_entity_sync_odex.model_outgoing_transaction
+msgid "outgoing Transaction"
+msgstr "معاملات الصادر الخارجي"
+
+#. module: cm_entity_sync_odex
+#: code:addons/cm_entity_sync_odex/controllers/sync.py:291
+#, python-format
+msgid "{} &larr; {}.{}"
+msgstr "{} &larr; {}.{}"
+

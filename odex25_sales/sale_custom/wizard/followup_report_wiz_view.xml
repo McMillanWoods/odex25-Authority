@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+	<data>
+
+		<record id="followup_report_action" model="ir.actions.act_window">
+			<field name="name">Followup Report</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">followup.report.wiz</field>
+			<field name="view_id" ref="proposal_common_report_wiz_form"/>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+		<menuitem
+				id="followup_report_menu"
+				name="Followup Report"
+				parent="proposal_report_common_menu"
+				sequence="1"
+				action="followup_report_action"
+		/>
+	</data>
+
+
+</odoo>

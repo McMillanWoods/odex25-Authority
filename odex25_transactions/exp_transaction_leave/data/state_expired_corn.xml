@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record model="ir.cron" id="state_change_leave">
+            <field name="name">التغيير التلقائى لحالة التفويض</field>
+            <field name="active">True</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model_id" ref="model_employee_leave" />
+            <field name="state">code</field>
+            <field name="code">model.action_expired()</field>
+        </record>
+    </data>
+</odoo>

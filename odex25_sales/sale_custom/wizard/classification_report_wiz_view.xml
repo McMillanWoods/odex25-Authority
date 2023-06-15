@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+	<data>
+
+		<record model="ir.ui.view" id="classification_report_wiz_form">
+			<field name="name">classification.report.wiz.form</field>
+			<field name="model">classification.report.wiz</field>
+			<field name="inherit_id" ref="sale_custom.proposal_common_report_wiz_form"/>
+			<field name="arch" type="xml">
+
+				<xpath expr="//field[@name='company_id']" position="before">
+					<field name="classification_ids" widget="many2many_tags" required="1"/>
+				</xpath>
+
+			</field>
+		</record>
+
+
+		<record id="classification_report_wiz_action" model="ir.actions.act_window">
+			<field name="name">Classification Report</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">classification.report.wiz</field>
+			<field name="view_id" ref="classification_report_wiz_form"/>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+		<menuitem
+				id="classification_report_menu"
+				name="Classification Report"
+				parent="proposal_report_common_menu"
+				sequence="4"
+				action="classification_report_wiz_action"
+		/>
+	</data>
+
+</odoo>

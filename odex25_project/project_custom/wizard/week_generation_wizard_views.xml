@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="week_generation_wizard_form" model="ir.ui.view">
+            <field name="name">Generation Year Week</field>
+            <field name="model">week.generation.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Generation Year Week">
+                    <group>
+                        <group>
+                            <field name="year" required="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <span>Select Year to generate weeks on it ,And make sure you don't enter any week in this year.</span>
+                    </group>
+                    <footer>
+                        <button string="Generate" type="object" name="generate_week" class="btn btn-primary" />
+                        <button string="Cancel" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="week_generation_wizard_action" model="ir.actions.act_window">
+            <field name="name">Generation Year Week</field>
+            <field name="res_model">week.generation.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="view_id" ref="week_generation_wizard_form"/>
+        </record>
+
+        <menuitem action="week_generation_wizard_action" id="menu_week_generation_wizard" name="Generation Year Week" parent="project.menu_project_config" sequence="200"/>
+
+
+    </data>
+</odoo>

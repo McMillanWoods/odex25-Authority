@@ -1,0 +1,6 @@
+Version:
+ 13.0.0.1 : Improve index according to new mobile compatible format.
+
+ 13.0.0.2 : Removed field in asset reports and now reports do not override existing reports.
+
+13.0.0.3 : Added default_get method which automatically displays branch id in form view of account assets.

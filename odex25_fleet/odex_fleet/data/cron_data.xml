@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="ir_cron_data_check_driver_expiry" model="ir.cron">
+            <field name="name">Check Driver Expiry</field>
+            <field name="model_id" ref="hr.model_hr_employee"/>
+            <field name="state">code</field>
+            <field name="code">model.driver_expired_cron()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+        <record id="ir_cron_data_check_fleet_expiry" model="ir.cron">
+            <field name="name">Check Fleet Expiry</field>
+            <field name="model_id" ref="fleet.model_fleet_vehicle"/>
+            <field name="state">code</field>
+            <field name="code">model.fleet_expired_cron()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+
+           <record id="ir_cron_data_check_fleet_maintenance" model="ir.cron">
+            <field name="name">Check Fleet Maintenance</field>
+            <field name="model_id" ref="model_fleet_service_line_config"/>
+            <field name="state">code</field>
+            <field name="code">model.fleet_maintenance_cron()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+        <record id="ir_cron_data_check_delegation_expiry" model="ir.cron">
+            <field name="name">Check Delegation Expiry</field>
+            <field name="model_id" ref="odex_fleet.model_vehicle_delegation"/>
+            <field name="state">code</field>
+            <field name="code">model.delegation_expired_cron()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+        <record id="ir_cron_data_check_delegation_start" model="ir.cron">
+            <field name="name">Check Delegation Start</field>
+            <field name="model_id" ref="odex_fleet.model_vehicle_delegation"/>
+            <field name="state">code</field>
+            <field name="code">model.delegation_start_cron()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+        <record id="ir_cron_data_check_delegation_close" model="ir.cron">
+            <field name="name">Check Delegation Close</field>
+            <field name="model_id" ref="odex_fleet.model_vehicle_delegation"/>
+            <field name="state">code</field>
+            <field name="code">model.delegation_close_cron()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+    </data>
+</odoo>

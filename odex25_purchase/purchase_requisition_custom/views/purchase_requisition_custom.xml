@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- model.name inherit form view -->
+
+        <record id="committee_type_list" model="ir.ui.view">
+            <field name="name">committe type list</field>
+            <field name="model">purchase.committee.type</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="committe_head"/>
+                </tree>
+            </field>
+        </record>
+        <!-- purchase.committee.type form view -->
+        <record id="purchase_committe_type_form" model="ir.ui.view">
+            <field name="name">purchase.committee.type.view.form</field>
+            <field name="model">purchase.committee.type</field>
+            <field name="arch" type="xml">
+                <form string="committe type">
+                    <sheet>
+                        <group col="4" colsapn="2">
+                            <field name="name" required="1"/>
+                            <field name="committe_head"/>
+                            <field name="type_cat" required="1" widget="many2many_tags"/>
+                        </group>
+                        <notebook>
+                            <page string="Committee Members">
+                                <field name="committe_members"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- committee type action -->
+        <record id="committe_type_action" model="ir.actions.act_window">
+            <field name="name">purchase committee type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.committee.type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create Purchase Committee Type
+                </p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_purchase_requisition_to_so_custom">
+            <field name="name">Request for Quotation</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.order</field>
+
+            <field name="view_mode">form,tree</field>
+            <field name="domain">[('requisition_id','=',active_id)]</field>
+            <field name="context">{"default_requisition_id":active_id}</field>
+        </record>
+        <!-- inherit [purchase ]tree-->
+        <record id="purchase_order_custom_tree" model="ir.ui.view">
+            <field name="name">purchase.order.tree.custom</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_tree"/>
+            <field eval="101" name="priority"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="request_id"/>
+                    <field name="requisition_id" string="Source Document"/>
+                </tree>
+                <xpath expr="/tree[1]/field[@name='origin']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Inherit the Purchase Order form ?purchase.purchase_order_form?-->
+        <record id="purchase_order_custom_form_view" model="ir.ui.view">
+            <field name="name">purchase.order.form.custom</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field eval="100" name="priority"/>
+            <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                  <button
+                    class="oe_stat_button"
+                    name="open_confirmation"
+                    type="object"
+                    string="Budget Confirmation"
+                    icon="fa-list-ol"
+                />
+            </xpath>
+                <field name="partner_id" position="attributes">
+                    <attribute name="options">{'no_create': True, 'no_open': True}</attribute>
+                </field>
+                <xpath expr="/form/header/button[@name='action_rfq_send']" position="after">
+                    <button type="object" name="action_sign"
+                            groups="purchase_requisition_custom.group_sign_purchase_order"
+                            attrs="{'invisible':['|',('requisition_id','=',False),('state','in',['sign','purchase','to approve','sent','done','cancel','budget_rejected','wait_for_send','waiting'])]}" string="Sign"/>
+                    <button name="to_Cancel" type="object" string="Cancel" states="purchase"
+                            attrs="{'readonly': [('state','in',['cancel'])]}" groups="purchase.group_purchase_manager"/>
+
+                    <!-- ('select','=',True) -->
+                    <button type="object" name="action_select"
+                            groups="purchase_requisition_custom.committe_member"
+                            attrs="{'invisible':[('state','in',['done','purchase'])]}" string="Select"/>
+
+                    <button type="object" name="action_refuse" groups="purchase_requisition_custom.committe_member"
+                            attrs="{'invisible':['|',('select','=',True),('state','in',['done','purchase'])]}"
+                            string="Refuse"/>
+                    <button type="object" name="action_unsign"
+                            groups="purchase_requisition_custom.group_unsign_purchase_order" string="UnSign"
+                            states="sign"/>
+                    <button type="object" name="budget_resend" string="Resend To Budget Check" class="oe_highlight"
+                            states="budget_rejected"/>
+
+                    <button type="object" name="action_budget" string="Send To Budget Check" class="oe_highlight"
+                            states="wait_for_send"/>
+                    <button name="action_skip_budget" type="object" string="Skip Budget"
+                            states="wait_for_send" groups="purchase_requisition_custom.group_skip_purchase_budget"/>
+                    <button name="button_draft" states="wait_for_send" string="Set to Draft" type="object"/>
+
+
+                    <!--  states="wait_for_send" -->
+
+                    <!-- attrs="{'invisible' : [('state' , 'not in' , ('wait_for_send' ,'budget_rejected')) ]}" -->
+                </xpath>
+
+                <!-- Adding contract features -->
+                <xpath expr="//button[@name='button_draft']" position="after">
+                    <button string='PO To Contract' states="draft" name="open_convert_po_contract" type="object" class="oe_highlight"/>
+                </xpath>
+
+                 <xpath expr="//field[@name='date_order']" position="after">
+                    <field name="type" />
+                </xpath>
+                
+                 <xpath expr="//field[@name='category_ids']" position="after">
+                    <field name="contract_name" attrs="{'invisible':[('type','!=', 'contract')],'required':[('type','=', 'contract'),]}"/>
+                    <field name="responsible_id" attrs="{'invisible':[('type','!=', 'contract')],'required':[('type','=', 'contract'),]}"/>
+                    <field name="start_date" attrs="{'invisible':[('type','!=', 'contract')],'required':[('type','=', 'contract'),]}"/>
+                    <field name="end_date" attrs="{'invisible':[('type','!=', 'contract')],'required':[('type','=', 'contract'),]}"/>
+                    
+                    <field name="auto_notification" attrs="{'invisible':[('type','!=', 'contract')]}"/>
+                    <field name="notify_before" string="Notify Before End" attrs="{'invisible':['|',('type','!=', 'contract'), ('auto_notification','=', False)],'required':[('auto_notification','=', True),]}"/>
+
+                    <field name="period_type" attrs="{'invisible':['|',('type','!=', 'contract'), ('auto_notification','=', False)],'required':[('auto_notification','=', True),]}"/>
+                    
+                    <field name="cron_end_date" invisible="1"/>
+                </xpath>
+                <!-- End contract features -->
+
+                <xpath expr="/form/header/button[@id='draft_confirm']" position="attributes">
+                    <attribute name="groups">purchase.group_purchase_manager,purchase.group_purchase_user</attribute>
+                </xpath>
+
+                <!-- <xpath expr="/form/header/button[@name='button_draft']" position="attributes">
+                    <attribute name="groups">purchase.group_purchase_manager</attribute>
+                </xpath> -->
+
+                <xpath expr="/form/header/button[@name='action_rfq_send']" position="attributes">
+                    <attribute name="groups">purchase.group_purchase_manager,purchase.group_purchase_user</attribute>
+                </xpath>
+                <xpath expr="/form/header/button[@name='print_quotation']" position="attributes">
+                    <attribute name="groups">purchase.group_purchase_manager,purchase.group_purchase_user</attribute>
+                </xpath>
+
+                <xpath expr="/form/header/button[@name='button_cancel']" position="attributes">
+                    <attribute name="states">"draft,to approve,sent,purchase"</attribute>
+                </xpath>
+                <xpath expr="/form/sheet/group/group[2]/field[@name='date_order']" position="after">
+                    <field name="select" invisible="1"/>
+                    <!-- <field name="category_ids" attrs="{'readonly': [('state','in',['done','cancel'])]}"/> -->
+                </xpath>
+                <xpath expr="//field[@name='partner_ref']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','in',('done','cancel','waiting'))]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='requisition_id']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','in',('done','cancel','waiting'))]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='origin']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','in',('done','cancel','waiting'))]}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='payment_term_id']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','in',('waiting','done','cancel'))]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='fiscal_position_id']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','in',('done','waiting','cancel'))]}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='order_line']/tree[1]/field[@name='date_planned']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='order_line']/tree[1]/field[@name='analytic_tag_ids']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='origin']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='origin']" position="replace">
+                    <field name="send_to_budget" invisible="1"/>
+                    <field name="email_to_vendor" invisible="1"/>
+                    <field name="request_id" readonly="1"/>
+                    <field name="project_id" readonly="1"/>
+                    <field name="project_stage_id" readonly="1"/>
+                    <field name="purchase_cost" invisible="1"/>
+                </xpath>
+
+                <xpath expr="//field[@name='order_line']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','in',('done','cancel','waiting'))]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','in',('done','cancel','waiting'))]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='date_order']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','in',('done','cancel','waiting'))]}</attribute>
+                </xpath>
+
+                <!--here2 <xpath expr="//field[@name='discount_type']" position="after">
+                    <field name="purchase_cost" invisible="1"/>
+                    <field name="department_id" invisible="1"/>
+                    <field name="purpose" attrs="{'readonly': [('state','in',['done','cancel'])]}"/>
+                </xpath> -->
+
+                <xpath expr="//field[@name='currency_id']" position="after">
+                    <field name="state_of_delivery"/>
+                    <field name="is_purchase_budget" invisible="1"/>
+                    <field name="no_of_approve" readonly="1"/>
+                    <!--here -->
+                    <field name="purchase_cost" invisible="1"/>
+                    <field name="department_id" invisible="1"/>
+                    <field name="purpose" attrs="{'readonly': [('state','in',['done','cancel'])]}"/>
+                    <!--<field name="selection_reason" 
+                           context="{'default_owner' : 'purchase'}"
+                           attrs="{'readonly':[('state','in',('done','cancel','waiting'))]}"/>-->
+                </xpath>
+                <xpath expr="//field[@name='order_line']" position="before">
+                    <button name="action_select_all" class="oe_highlight" type="object"
+                            attrs="{'invisible':[('state','in',('done','cancel','waiting', 'sign','purchase'))]}"
+                            string="Choose All"/>
+                </xpath>
+                <!-- delete Purchase Order-->
+                <xpath expr="//form//notebook//page//field//tree" position="attributes">
+                    <attribute name="delete">true</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='price_subtotal']" position="after">
+                    <!-- <field name="project_num"/> -->
+                    <field name="department_name"
+                           attrs="{'readonly':[('parent.state','in',('done','cancel','waiting', 'sign'))]}"/>
+                    <field name="date_end"/>
+                    <field name="choosen"
+                           attrs="{'readonly':[('parent.state','in',('done','cancel','waiting', 'sign'))]}"/>
+                </xpath>
+                <!-- i edit here readonly="1"-->
+                <xpath expr="//notebook//page[1]" position="after">
+                    <page string="Committe Members" groups="purchase_requisition_custom.committe_member">
+                        <field name="committe_members">
+                            <tree>
+                                <field name="user_id"/>
+                                <field name="selection_reason"/>
+                                <field name="select"/>
+                                <field name="refusing_reason"/>
+
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+        <!-- Inherit the Purchase Requisition form and adding buttons to header tag -->
+        <record id="purchase_requisition_custom_form_view" model="ir.ui.view">
+            <field name="name">purchase.requisition.form.custom</field>
+            <field name="model">purchase.requisition</field>
+            <field name="inherit_id" ref="purchase_requisition.view_purchase_requisition_form"/>
+            <field name="arch" type="xml">
+                <!-- header modificaton -->
+                <xpath expr="/form/header/button[@name='action_open']" position="after">
+                    <button type="object" groups="purchase_requisition_custom.group_accept_purchase_requisition"
+                            name="action_accept" string="Accept"
+                            attrs="{'invisible':['|',('state','!=','in_progress'),('type','!=','project')]}"
+                            class="oe_highlight"/>
+                    <button type="object" groups="purchase_requisition_custom.group_quotation_purchase_requisition"
+                            name="action_quotation" string="Quotation"
+                            attrs="{'invisible':['&amp;','|',('state','!=','accept'),('type','!=','project'),'|',('state','!=','in_progress'),('type','!=','operational')]}"
+                            class="btn-primary"/>
+                    <button type="object" groups="purchase.group_purchase_user" name="action_budget"
+                            string="Send To Budget"
+                            states="purchase_manager" class="btn-primary"/>
+
+                    <button name="action_skip_purchase_budget" type="object" string="Skip Budget"
+                            attrs="{'invisible':['|', ('state','!=', 'purchase_manager'),('is_purchase_budget','=',False)]}"
+                            groups="purchase_requisition_custom.group_skip_purchase_budget"/>
+
+                    <button type="object" groups="purchase_requisition_custom.group_approve_purchase_requisition"
+                            name="action_approve" string="Approve" states="checked" class="btn-primary"/>
+
+                    <button type="object" groups="purchase_requisition_custom.purchase_requisition_second_approve"
+                            name="second_approval" string="Approve" states="second_approve" class="btn-primary"/>
+                    <button type="object" groups="purchase_requisition_custom.purchase_requisition_third_approve"
+                            name="third_approve" string="Approve" states="third_approve" class="btn-primary"/>
+
+                    <button name="to_committee" class="oe_highlight"
+                            attrs="{'invisible' : ['|','|',('order_count','=', 0),('purchase_commitee','=',False),'&amp;',('purchase_commitee','=',True),('sent_to_commitee','=', True)]}"
+                            type="object" string="Send To Committee"
+                            groups="purchase_requisition_custom.purchase_rfq_send_to_committee"/>
+
+                    <field name="sent_to_commitee" invisible="1"/>
+
+                </xpath>
+                <xpath expr="//field[@name='line_ids']/tree[1]/field[@name='product_qty']" position="before">
+                    <field name="department_id"
+                           attrs="{'column_invisible': [('parent.purchase_cost', '=', 'default')], 'readonly': ['|', ('parent.state', '=', 'accept'), ('parent.order_count', '>', 0)]}"/>
+                </xpath>
+
+                <xpath expr="/form/header/button[@name='action_done']" position="replace">
+                    <button type="object" name="action_done"
+                            groups="purchase_requisition_custom.group_done_purchase_requisition" string="Done"
+                            attrs="{'invisible':[('state','!=','open')]}" class="btn-primary"/>
+                </xpath>
+                <xpath expr="/form/header/button[@type='action'][1]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='user_id']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='vendor_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='type_id']" position="replace">
+                    <field name="type_id" attrs="{
+                'readonly': [('state','in',('done','cancel','checked','waiting'))],
+                'required': [('state','not in',('draft','in_progress'))],
+                }" widget="selection" eval="[]" invisible="1"/>
+                </xpath>
+
+                <xpath expr="//field[@name='user_id']" position="before">
+                    <field name="type_id_test" readonly="1"/>
+                </xpath>
+
+                <xpath expr="//field[@name='line_ids']/tree[1]/field[@name='price_unit']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="/form/header/button[@name='action_cancel']" position="attributes">
+                    <attribute name="attrs">{'invisible':[('state','in',('done','cancel'))]}</attribute>
+                </xpath>
+                <xpath expr="/form/header/button[@name='action_in_progress']" position="replace">
+                    <button name="action_in_progress"
+                            groups="purchase_requisition_custom.group_confirm_purchase_requisition" states="draft"
+                            string="Confirm" type="object" class="btn-primary"/>
+                </xpath>
+                <xpath expr="/form/header/button[@name='action_cancel']" position="replace">
+                    <button name="action_cancel" groups="purchase_requisition_custom.group_cancel_purchase_requisition"
+                            states="draft,in_progress" string="Cancel Call" type="object"/>
+                </xpath>
+                <xpath expr="/form/header/button[@name='action_draft']" position="attributes">
+                    <attribute name="attrs">{'invisible':[('state','!=','cancel')]}</attribute>
+                </xpath>
+                <xpath expr="/form/header/button[@name='action_open']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="/form/header/button[@type='action'][2]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="/form/header/field[@name='state']" position="replace">
+                    <field name="state" widget="statusbar" statusbar_visible="draft,in_progress,done"/>
+                </xpath>
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="category_ids" required="1"
+                           attrs="{'readonly':[('state','in',('cancel','checked','done','waiting'))]}"
+                           widget="many2many_tags"/>
+
+                    <field name="purchase_cost" invisible="1"
+                           attrs="{'readonly':[('state','in',('cancel','checked','done','waiting'))]}"/>
+
+                    <field name="department_id"
+                           attrs="{'readonly':[('state','in',('cancel','checked','done','waiting'))]}"/>
+                    <field name="purpose" required="1"
+                           attrs="{'readonly':[('state','in',('cancel','checked','done','waiting'))]}"/>
+
+                    <field name="type" required="1"
+                           attrs="{'readonly':[('state','in',('cancel','checked','done','waiting'))]}"/>
+                    <field name="project_id" attrs="{'invisible':[('type','!=', 'project')],
+                     'required':[('type','=', 'project')], 'readonly':[('state' , '!=' , 'draft')]}"/>
+                    <!-- this main <field name="project_id" options ="{'no_create': True, 'no_open': True}" attrs="{'invisible':[('type','=', 'project')], 'readonly':[('state' , '!=' , 'draft')]}"/> -->
+                    <field name="project_stage_id" options="{'no_create': True, 'no_open': True}"
+                           domain="[('project_id', '=', project_id)]"
+                           attrs="{'invisible':['|',('type','!=', 'project'), ('project_id','=', False)]}"/>
+
+                    <field name="request_id" readonly="1"/>
+                </xpath>
+                <xpath expr="//field[@name='vendor_id']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','in',('cancel','checked','done','waiting'))]}
+                    </attribute>
+                </xpath>
+                <xpath expr="//field[@name='ordering_date']" position="attributes">
+                    <attribute name="required">1</attribute>
+                </xpath>
+                <xpath expr="//notebook/page[1]/field[@name='line_ids']/tree[1]/field[@name='product_id']"
+                       position="replace">
+                    <field name="product_id" context="{'product_id':parent.line_ids}"
+                           domain="[('purchase_ok', '=', True),('categ_id','child_of',parent.category_ids)]"/>
+                </xpath>
+                <xpath expr="//notebook/page[1]/field[@name='line_ids']/tree[1]/field[@name='account_analytic_id']"
+                       position="after">
+                    <field name="name"/>
+                </xpath>
+
+                <xpath expr="//notebook/page[1]/field[@name='line_ids']" position="attributes">
+                    <attribute name="attrs">
+                        {'readonly':['|',('category_ids','=',False),('state','in',('cancel','done','waiting','checked'))]}
+                    </attribute>
+                </xpath>
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="is_purchase_budget" invisible="1"/>
+                    <field name="purchase_commitee"/>
+                    <field name="committe_head"
+                           attrs="{'invisible' : [('purchase_commitee' , '!=' , True)], 'required' : [('purchase_commitee' , '=' , True)]}"/>
+
+                    <field name="committee_type_id" attrs="{'invisible' : [('purchase_commitee' , '!=' , True)]}"
+                           domain="[('type_cat', '=', category_ids)]"/>
+                    <field name="min_approve"
+                           attrs="{'invisible' : [('purchase_commitee' , '!=' , True)] , 'required' : [('purchase_commitee' , '=' , True)]}"/>
+                    <field name="min_vote"
+                           attrs="{'invisible' : [('purchase_commitee' , '!=' , True)] , 'required' : [('purchase_commitee' , '=' , True)]}"/>
+                </xpath>
+                <xpath expr="//page[last()]" position="after">
+                    <page string="Purchase Committe Members"
+                          attrs="{'invisible' : [('purchase_commitee' , '!=' , True)], 'required': [('purchase_commitee' , '=' , True)]}">
+                        <field name="committe_members" attrs="{'required': [('purchase_commitee' , '=' , True)]}">
+                            <tree>
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+                <xpath expr="//field[@name='company_id']" position="after">
+
+                    <field name="department_id" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='company_id']" position="after">
+
+                    <field name="days_count" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='date_end']" position="before">
+
+                    <field name="Project_name"/>
+                    <field name="Chair_number"/>
+                    <field name="city_name"/>
+                    <field name="agreement_data"/>
+                </xpath>
+
+
+            </field>
+        </record>
+
+        <!-- Purchase Requisition tree modifications -->
+        <record id="purchase_requisition_custom_tree_view" model="ir.ui.view">
+            <field name="name">purchase.requisition.tree.custom</field>
+            <field name="model">purchase.requisition</field>
+            <field name="inherit_id" ref="purchase_requisition.view_purchase_requisition_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="replace">
+                    <!-- show edit button -->
+                    <tree>
+                        <field name="name"/>
+                        <field name="ordering_date"/>
+                        <field name="department_id"/>
+                        <field name="category_ids" widget="many2many_tags"/>
+                        <field name="state"/>
+                    </tree>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Show Products menu -->
+        <record model="ir.ui.menu" id="purchase.menu_purchase_products">
+            <field name="groups_id"
+                   eval="[(4,ref('purchase.group_purchase_manager')), (4,ref('purchase.group_purchase_user'))]"/>
+        </record>
+
+        <!-- adding group category manager to inventory and purchase menus -->
+        <record model='ir.ui.menu' id='purchase.menu_product_category_config_purchase'>
+            <field name="groups_id" eval="[(4,ref('purchase_requisition_custom.group_category_product_manager'))]"/>
+        </record>
+        <record model='ir.ui.menu' id='stock.menu_product_category_config_stock'>
+            <field name="groups_id" eval="[(4,ref('purchase_requisition_custom.group_category_product_manager'))]"/>
+        </record>
+
+        <!-- add configuration to purchase manager -->
+        <record model='ir.ui.menu' id='purchase.menu_purchase_config'>
+            <field name="groups_id" eval="[(4,ref('purchase.group_purchase_manager'))]"/>
+        </record>
+        <record model='ir.ui.menu' id='purchase_requisition.menu_purchase_requisition_type'>
+            <field name="groups_id" eval="[(4,ref('purchase.group_purchase_manager'))]"/>
+        </record>
+        <record model='ir.ui.menu' id='purchase.menu_product_in_config_purchase'>
+            <field name="groups_id" eval="[(4,ref('purchase.group_purchase_manager'))]"/>
+        </record>
+        <record model='ir.ui.menu' id='purchase.menu_product_category_config_purchase'>
+            <field name="groups_id" eval="[(4,ref('purchase.group_purchase_manager'))]"/>
+        </record>
+        <record model='ir.ui.menu' id='purchase.menu_purchase_uom_form_action'>
+            <field name="groups_id" eval="[(4,ref('purchase.group_purchase_manager'))]"/>
+        </record>
+
+        <record id="reject_wizard_view" model="ir.ui.view">
+            <field name="name">reject.wizard.wizard.view</field>
+            <field name="model">reject.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="origin" invisible="1"/>
+                    <field name="reject_reason" required="1"/>
+                    <footer>
+                        <button name="action_reject" string="Confirm" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="btn btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="select_wizard_view" model="ir.ui.view">
+            <field name="name">select.reason.wizard.view</field>
+            <field name="model">select.reason</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="order_id" invisible="1"/>
+                    <field name="select_reason" required="1"/>
+                    <footer>
+                        <button name="action_select" string="Confirm" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="btn btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="order_select_wizard" model="ir.ui.view">
+            <field name="name">refuse.reason.wizard.view</field>
+            <field name="model">refuse.reason</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="order_id" invisible="1"/>
+                    <field name="refuse_reason" required="1"/>
+                    <footer>
+                        <button name="action_refuse" string="Confirm" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="btn btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="action_purchase_committe" name="Purchase Committee" res_model="purchase.requisition"
+                    view_mode="search,tree,form" domain="[('state' , '=' , 'committee')]"
+                    context="{'create':False,'edit':False, 'delete': False, 'duplicate':False}"
+                    groups="purchase_requisition_custom.committe_member"/>
+
+        <!-- add domain toaction supplier form -->
+        <record id="base.action_partner_supplier_form" model="ir.actions.act_window">
+            <field name="name">Vendors</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+
+            <field name="domain">[]</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="context">{'search_default_supplier': 1,'default_customer': 0,'default_supplier': 1,
+                'default_company_type': 'company'}
+            </field>
+            <field name="filter" eval="True"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add a contact in your address book.
+                </p>
+                <p>
+                    Odoo helps you easily track all activities related to
+                    a supplier: discussions, history of purchases,
+                    documents, etc.
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_purchase_committe_main" name="Purchase Committes" parent="purchase.menu_purchase_root"
+                  sequence="18" groups="committe_member"/>
+
+        <menuitem id="menu_purchase_committe" name="Purchase Committes" action="action_purchase_committe"
+                  parent="menu_purchase_committe_main" sequence="1" groups="committe_member"/>
+
+        <menuitem id="purchase.menu_procurement_management"
+                  groups="purchase.group_purchase_user,purchase.group_purchase_manager"
+                  parent="purchase.menu_purchase_root" name="Purchase"/>
+
+
+        <menuitem id="reports" name="Reports" parent="purchase.menu_purchase_root" sequence="99"
+                  groups="purchase_requisition_custom.group_purchase_requsition_reports"/>
+        <menuitem id="purchase.purchase_report" name="Reporting" parent="reports" sequence="1"
+                  groups="purchase.group_purchase_manager" action="purchase.action_purchase_order_report_all"/>
+        <menuitem id="purchase_pdf_reports" name="Pdf Reports" parent="reports" sequence="2"/>
+        <!-- add committee on conf-->
+        <menuitem id="purchase_committe_type_menu" name="Purchase Comittee Types" parent="purchase.menu_purchase_config"
+                  action="committe_type_action" sequence="100"/>
+
+        <!-- New Added -->
+        <!-- For PO Contracts -->
+        <!-- purchase.orders only for Purchase Contracts action window -->
+        <record id="purchase_type_contract_tree" model="ir.ui.view">
+            <field name="name">Purchase Contracts List</field>
+            <field name="model">purchase.order</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="contract_name" />
+                    <field name="name"/>
+                    <field name="date_order"/>
+                    <field name="partner_id"/>
+                    <field name="date_planned"/>
+                    <field name="origin"/>
+                    <field name="amount_untaxed"/>
+                    <field name="amount_total"/>
+                    <field name="state"/>
+                    <field name="invoice_status"/>
+                </tree>
+            </field>
+        </record>
+        <record id="purchase_type_contract_action" model="ir.actions.act_window">
+            <field name="name">Purchase Contracts</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.order</field>
+            <field name="view_mode">tree,kanban,form,pivot,graph,calendar</field>
+            <field name="domain">[('type' , '=' , 'contract'), ('state' , '=' , 'purchase')]</field>
+            <field name="context">{
+                'default_type': 'contract',
+                'create': False,
+                'edit': False,
+                'delete': False,
+                'duplicate': False,
+                'tree_view_ref': 'purchase_requisition_custom.purchase_type_contract_tree',
+            }</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create New a Purchase Contract
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="purchase_type_contract_menu" name="Purchase Contracts"
+            parent="purchase.menu_procurement_management" action="purchase_type_contract_action" sequence="7" />
+
+        <!-- For PO Contracts -->
+        <!-- <record id="group_purchase_type_contract" model="res.groups">
+            <field name="name">Purchase Contracts Menu</field>
+            <field name="category_id" ref="purchase_requisition_custom.purchase_requisition_custom" />
+            <field name="menu_access"
+                eval="[(4,ref('purchase.menu_purchase_root')),(4,ref('purchase_requisition_custom.purchase_type_contract_menu'))]" />
+        </record> -->
+
+    </data>
+</odoo>

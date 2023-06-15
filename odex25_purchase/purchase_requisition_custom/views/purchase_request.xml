@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- for test-->
+        <!-- <record id="view_department_form" model="ir.ui.view">
+        <field name="name">hr.department.analytic.inherit.form</field>
+        <field name="inherit_id" ref="hr.view_department_form"/>
+        <field name="model">hr.department</field>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field name="analytic_account_id" options='{"no_open": True, "no_create": True}'/>
+            </xpath>
+
+        </field>
+    </record> -->
+        <!-- purchase.request form view -->
+        <record id="purchase_request_form" model="ir.ui.view">
+            <field name="name">purchase.request.view.form</field>
+            <field name="model">purchase.request</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                        <button name="action_confirm" groups="purchase_requisition_custom.create_purchase_request"
+                                type="object" string="Submit" states="draft" class="oe_highlight"/>
+                        <!--                        <button name="action_approve" groups="purchase_requisition_custom.group_department_approve" type="object" string=" Department Approve" states="department manager" class="oe_highlight"/>-->
+                        <button name="approve_department" type="object" string="Direct Manager Approve"
+                                groups="purchase_requisition_custom.group_direct_manger" states="direct manager"
+                                class="oe_highlight"/>
+                        <button name="action_refuse" type="object" string="Refuse"
+                                groups="purchase_requisition_custom.group_direct_manger"
+                                attrs="{'invisible':[('state', 'not in', ['direct manager','it manager'])]}"/>
+                        <!--                        <button name="action_refuse_department" type="object" string="Refuse"  groups="purchase_requisition_custom.group_department_approve" attrs="{'invisible':[('state', 'in', ['waiting', 'refuse','done','cancel','draft','it manager','direct manager','send_budget'])]}"/>-->
+
+                        <button type="object" name="action_budget" string="First Budget Check" class="oe_highlight"
+                                states="send_budget"/>
+
+                        <button name="create_requisition"
+                                groups="purchase.group_purchase_user,purchase.group_purchase_manager" type="object"
+                                string="Create Requisition"
+                                class="oe_highlight"
+                                attrs="{'invisible' : ['|',('state' , '!=' , 'budget_approve'),('purchase_create' , '=' , True)]}"/>
+
+                        <button name="create_purchase_order2" type="object" string="Create Purchase Order" invisible="1"
+                                class="oe_highlight" groups="purchase.group_purchase_manager"
+                                attrs="{'invisible' : ['|',('state' , '!=' , 'budget_approve'),('purchase_create' , '=' , True)]}"/>
+
+                        <button name="action_cancel" type="object" string="Cancel" states="draft"
+                                class="oe_stat_button" groups="purchase.group_purchase_manager"/>
+                        <button name="action_done" type="object" string="Done" class="oe_stat_button"
+                                groups="purchase.group_purchase_manager" states="waiting"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" name="open_confirmation" type="object" string="Budget Confirmation" icon="fa-list-ol"/>
+                        </div>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" required="1" readonly="1" class="oe_inline"/>
+                            </h1>
+                        </div>
+
+                        <group col="4" colspan="2">
+                            <field name="by_purchase" groups="purchase.group_purchase_user"/>
+                            <field name="department_id" force_save="1"
+                                   attrs="{'readonly' : ['|',('state' , '!=' , 'draft'),('by_purchase' , '!=' , True)] , 'required' : [('by_purchase' , '=' , True)]}"
+                                   readonly="1"/>
+                            <field name="employee_id" attrs="{'readonly':[('by_purchase' , '=' , False)]}" required="1"
+                                   options="{'no_create' : True , 'no_edit' : True ,'no_open' : True}"/>
+                            <field name="product_category_ids" widget="many2many_tags"
+                                   attrs="{'readonly':[('state' , '!=' , 'draft')]}" required="1"
+                                   options="{'no_create' : True , 'no_edit' : True ,'no_open' : True}"/>
+                            <field name="purchase_purpose" required="1"
+                                   attrs="{'readonly':[('state' , '!=' , 'draft')]}"/>
+                            <field name="date" readonly="1"/>
+                            <field name="purchase_create" invisible="1"/>
+                            <field name="partner_id"
+                                   options="{'no_create' : True , 'no_edit' : True ,'no_open' : True}"/>
+                            <field name="type" required="1" attrs="{'readonly':[('state' , '!=' , 'draft')]}"
+                                   invisible="1"/>
+
+                            <field name="type" required="1" attrs="{'readonly':[('state' , '!=' , 'draft')]}"
+                                   invisible="1"/>
+                            <field name="project_id" options="{'no_create': True, 'no_open': True}" attrs="{'invisible':[('type','!=', 'project')],
+                             'required':[('type','=', 'project')], 'readonly':[('state' , '!=' , 'draft')]}"/>
+                            <field name="project_stage_id" options="{'no_create': True, 'no_open': True}"
+                                   domain="[('project_id', '=', project_id)]"
+                                   attrs="{'invisible':['|',('type','!=', 'project'), ('project_id','=', False)]}"/>
+                            <field name="is_analytic"/>
+
+                        </group>
+                        <notebook>
+                            <page string="Items" name="">
+                                <field name="line_ids" attrs="{'readonly':[('state' , 'not in' ,['send_budget','draft'])]}">
+                                    <tree editable="bottom">
+                                        <field name="name_text"/>
+                                        <field name="product_id"
+                                               domain="[('purchase_ok', '=', True),('categ_id','child_of',parent.product_category_ids)]"
+                                               options="{'no_create' : True , 'no_edit' : True ,'no_open' : True}"
+                                                attrs="{'column_required':[('parent.state' , '!=' , 'draft')]}"/>
+                                        <field name="uom_id" attrs="{'column_required':[('parent.state' , '!=' , 'draft')]}"/>
+                                        <field name="qty" attrs="{'column_required':[('parent.state' , '!=' , 'draft')]}"/>
+                                        <field name="price_unit" attrs="{'column_required':[('parent.state' , '!=', 'draft')]}"/>
+                                        <field name="name"/>
+                                        <field name="sum_total" force_save="1" sum="Total amount"/>
+                                        <field name="max_price" force_save="1" invisible="1"/>
+                                        <field name="min_price" force_save="1" invisible="1"/>
+                                        <field name="account_id"
+                                               attrs="{'column_invisible':[('parent.is_analytic','!=',True)]}"/>
+
+                                        <field name="name_text1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Note" name="">
+                                <field name="note"/>
+                            </page>
+
+                            <page string="Use of Circuits" name="">
+                                <group>
+                                    <group string="Requesting ِAdministration"
+                                           groups="purchase_requisition_custom.group_requesting_ِadministration">
+                                        <field name="planned_for" attrs="{'readonly':[('state' , '!=' , 'draft')]}"/>
+                                        <field name="emergency" attrs="{'readonly':[('state' , '!=' , 'draft')]}"/>
+                                    </group>
+                                    <group string="Use Purchases"
+                                           attrs="{'invisible':[('state' , 'not in' , ('budget_approve', 'waiting', 'done'))]}">
+                                        <field name="type_id"
+                                               attrs="{'required':[('state' , '=' , 'budget_approve')]}"
+                                               options="{'no_create': True}"/>
+                                    </group>
+                                </group>
+                                <group string="For technical management use"
+                                       groups="purchase_requisition_custom.group_For_technical_management_use">
+                                    <group>
+                                        <field name="available"
+                                               attrs="{'readonly':[('state' , '!=' , 'direct manager')]}"/>
+                                        <field name="unavailable"
+                                               attrs="{'readonly':[('state' , '!=' , 'direct manager')]}"/>
+                                        <field name="specifications_conform"
+                                               attrs="{'readonly':[('state' , '!=' , 'direct manager')]}"/>
+                                        <field name="specifications_not_conform"
+                                               attrs="{'readonly':[('state' , '!=' , 'direct manager')]}"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                        <!--                        <field name="amount_total" sum="Total amount"/>-->
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- purchase.request tree view -->
+        <record id="model_name_view_tree" model="ir.ui.view">
+            <field name="name">Purchase Request</field>
+            <field name="model">purchase.request</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="employee_id"/>
+                    <!-- <field name="purchase_purpose"/> -->
+                    <field name="department_id"/>
+                    <field name="product_category_ids" widget="many2many_tags"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- purchase.request action window -->
+        <record id="purchase_request_action" model="ir.actions.act_window">
+            <field name="name">Employee Request</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.request</field>
+            <field name="view_mode">tree,form</field>
+
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create New Employee purchase request
+                </p>
+            </field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="purchase_request_menu" name="Employee Purchase Request" parent="purchase.menu_purchase_root"
+                  action="purchase_request_action" sequence="4"/>
+
+    </data>
+</odoo>

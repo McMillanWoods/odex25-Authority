@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+tender_application,tender_application,model_tender_application,,1,1,1,1
+tender_application_line,tender_application,model_tender_application_line,,1,1,1,1
+Purchase_requisition,Purchase_requisition,model_purchase_requisition,online_tendering.group_online_tender_portal_user,1,0,0,0
+purchase_requisition_line,purchase_requisition_line,purchase_requisition.model_purchase_requisition_line,online_tendering.group_online_tender_portal_user,1,0,0,0
+product_product,product_product,product.model_product_product,online_tendering.group_online_tender_portal_user,1,0,0,0
+product_template,product_template,product.model_product_template,online_tendering.group_online_tender_portal_user,1,0,0,0
+access_availability_period_extend,access_availability_period_extend,model_availability_period_extend,,1,1,1,1
+access_activity_type,access_activity_type,model_activity_type,,1,1,1,1
+access_application_reject_wizard,access_application_reject_wizard,model_application_reject_wizard,,1,1,1,1
+access_online_tender_report,access_online_tender_report,model_online_tender_report,,1,1,1,1

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="online_tendering_form_view" model="ir.ui.view">
+            <field name="name">activity.type</field>
+            <field name="model">activity.type</field>
+            <field name="arch" type="xml">
+                <form string="Online Tender Configuration">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1><field name="name" required="1" class="oe_inline"/></h1>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+      
+
+         <record id="activity_type" model="ir.actions.act_window">
+            <field name="name">Activity Types</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">activity.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem  id="online_tender_config_menu" 
+            name="Activity types" action="activity_type"  
+            parent="purchase.menu_purchase_config" 
+            sequence="18"/>
+
+    </data>
+</odoo>

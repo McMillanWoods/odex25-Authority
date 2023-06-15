@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_internal_transaction_filter" model="ir.ui.view">
+            <field name="name">internal.transaction.search</field>
+            <field name="model">internal.transaction</field>
+            <field name="arch" type="xml">
+                <search string="internal transaction">
+                    <field name="name" string="Transaction" filter_domain="[('name','ilike',self)]"/>
+                    <field name="tran_tag" string="tag" filter_domain="[('tran_tag','ilike',self)]"/>
+                    <field name="is_reade"/>
+                    <field name="is_favorite"/>
+                    <filter string="Unread Transaction" name="unread" domain="[('is_reade','=',False)]"/>
+                    <filter string="Favorite" name="favorite" domain="[('is_favorite','=','1')]"/>
+                    <!--                    <group expand="0" string="Group By">-->
+                    <!--                        <filter name="group_manager" string="Manager" domain="[]" context="{'group_by':'parent_id'}"/>-->
+                    <!--                        <filter name="group_coach" string="Coach" domain="[]" context="{'group_by':'coach_id'}"/>-->
+                    <!--                        <filter name="group_department" string="Department" domain="[]" context="{'group_by':'department_id'}"/>-->
+                    <!--                        <filter name="group_job" string="Job" domain="[]" context="{'group_by':'job_id'}"/>-->
+                    <!--                        <filter name="group_company" string="Company" domain="[]" context="{'group_by':'company_id'}" groups="base.group_multi_company"/>-->
+                    <!--                    </group>-->
+                </search>
+            </field>
+        </record>
+        <!--Tree and form view for Internal Transaction-->
+        <record id="common_transaction_internal_tree" model="ir.ui.view">
+            <field name="name">common.internal.transaction.tree</field>
+            <field name="model">internal.transaction</field>
+            <field name="priority" eval="1"/>
+            <field name="arch" type="xml">
+                <tree default_order="transaction_date desc" decoration-info="is_reade == False"
+                      string="Internal Transaction" create="false" edit="false">
+                    <field name="name"/>
+                    <field name="transaction_date"/>
+                    <field name="subject"/>
+                    <field name="subject_type_id"/>
+                    <field name="to_ids" widget="many2many_tags"/>
+                    <field name="due_date"/>
+                    <field name="state" optional="show"/>
+                    <field name="is_favorite" string=" " widget="priority"/>
+                    <field name="is_reade" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+        <!--test view -->
+        <record id="forward_transaction_view" model="ir.ui.view">
+            <field name="model">internal.transaction</field>
+            <field name="inherit_id" ref="exp_transaction_documents.common_transactions_internal_form"/>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='need_approve']" position="after">
+                    <field name="current_is_forward_user" invisible="1"/>
+                </xpath>
+                <xpath expr="//form/header" position="replace">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,send,closed"/>
+                    </header>
+                </xpath>
+            </field>
+        </record>
+        <!--common transaction view -->
+        <record id="common_transaction_form" model="ir.ui.view">
+            <field name="name">common.internal.transaction.form</field>
+            <field name="model">internal.transaction</field>
+            <field name="inherit_id" ref="exp_transaction_documents.common_transactions_internal_form"/>
+            <field name="mode">primary</field>
+            <field name="priority" eval="2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/header" position="replace">
+                    <header>
+                        <button type="object" name="action_draft"
+                                attrs="{'invisible':['|',('current_user','=',False),('state','!=','draft')]}"
+                                string="Send" class="oe_highlight"
+                                confirm="Are you sure you want to send transaction ?"/>
+                        <button attrs="{'invisible':['|',('current_is_manager','=',False),('state','!=','to_approve')]}"
+                                type="object" name="action_approve" string="Approve" class="oe_highlight"
+                                confirm="Are you sure you want to approve transaction ?"/>
+                        <button attrs="{'invisible':['|',('current_is_manager','=',False),('state','!=','to_approve')]}"
+                                type="object" name="action_reject_internal" string="Reject" class="oe_highlight"/>
+                        <button attrs="{'invisible':['|',('current_is_manager','=',False),('state','!=','to_approve')]}"
+                                type="object" name="action_return_internal" string="Return" class="oe_highlight"/>
+                        <button attrs="{'invisible':['|',('current_is_forward_user','=',False),('state','not in',['send','reply'])]}"
+                                type="object" name="action_forward_internal" string="Forward" class="oe_highlight"/>
+                        <button attrs="{'invisible':['|',('current_is_forward_user','=',False),('state','not in',['send','reply'])]}"
+                                type="object" name="action_reply_internal" string="Reply" class="oe_highlight"/>
+                        <button attrs="{'invisible':['|',('current_is_forward_user','=',False),('state','not in',['send','reply'])]}"
+                                type="object" name="action_archive_internal" string="Archive" class="oe_highlight"/>
+                        <button states="closed" type="object" name="action_reopen_internal" string="Reopen"
+                                class="oe_highlight"/>
+                        <button states="canceled" type="object" name="set_to_draft" string="Restore"
+                                class="oe_highlight"
+                                confirm="Are you sure you want to restore transaction ?"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,send,closed,canceled"/>
+                    </header>
+                </xpath>
+                <xpath expr="//field[@name='need_approve']" position="after">
+                    <field name="current_is_forward_user" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!--to view transaction form view -->
+        <record id="to_view_transaction_form" model="ir.ui.view">
+            <field name="name">to.view.internal.transaction.form</field>
+            <field name="model">internal.transaction</field>
+            <field name="mode">primary</field>
+            <field name="inherit_id" ref="exp_transaction_documents.common_transactions_internal_form"/>
+            <field name="priority" eval="2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/header" position="replace">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,send,closed,canceled"/>
+                    </header>
+                </xpath>
+            </field>
+        </record>
+
+        <!--Tree and form view for Internal Transaction-->
+        <record id="transaction_internal_tree" model="ir.ui.view">
+            <field name="name">transaction.internal.tree</field>
+            <field name="model">internal.transaction</field>
+            <field name="inherit_id" ref="exp_transaction_documents.common_transaction_internal_tree"/>
+            <field name="mode">primary</field>
+            <field name="priority" eval="1"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="create">true</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="internal_transaction_form" model="ir.ui.view">
+            <field name="name">internal.transaction.form</field>
+            <field name="model">internal.transaction</field>
+            <field name="mode">primary</field>
+            <field name="inherit_id" ref="exp_transaction_documents.common_transactions_internal_form"/>
+            <field name="priority" eval="1"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form" position="attributes">
+                    <attribute name="create">true</attribute>
+                    <attribute name="edit">true</attribute>
+                </xpath>
+                <xpath expr="//form/header" position="replace">
+                    <header>
+                        <button type="object" name="action_draft"
+                                attrs="{'invisible':['|',('current_user','=',False),('state','!=','draft')]}"
+                                string="Send" class="oe_highlight"
+                                confirm="Are you sure you want to send transaction ?"/>
+                        <button attrs="{'invisible':['|',('current_is_manager','=',False),('state','!=','to_approve')]}"
+                                type="object" name="action_approve" string="Approve" class="oe_highlight"
+                                confirm="Are you sure you want to approve transaction ?"/>
+                        <button type="object" name="action_cancel"
+                                attrs="{'invisible':['|',('state','=','canceled'),('state','=','closed')]}"
+                                string="Cancel" class="oe_highlight"/>
+                        <button states="closed" type="object" name="action_reopen_internal" string="Reopen"
+                                class="oe_highlight"
+                                confirm="Are you sure you want to reopen transaction ?"/>
+                        <button states="canceled" type="object" name="set_to_draft" string="Restore"
+                                class="oe_highlight"
+                                confirm="Are you sure you want to restore transaction ?"/>
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,to_approve,send,closed,canceled"/>
+                    </header>
+                </xpath>
+                <xpath expr="//field[@name='to_ids']" position="attributes">
+                    <attribute name="domain">[('type', '=', type_sender)]</attribute>
+                </xpath>
+                <xpath expr="//field[@name='to_ids']" position="after">
+                    <field name="partner_id"/>
+                </xpath>
+                <xpath expr="//field[@name='to_ids']" position="before">
+                    <field name="type_sender"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="action_read_internal_transaction_from" model="ir.actions.server">
+            <field name="name">Read</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_internal_transaction"/>
+            <field name="binding_model_id" ref="model_internal_transaction"/>
+            <field name="state">code</field>
+            <field name="code">
+                if records:
+                action = records.action_read()
+            </field>
+        </record>
+        <record id="action_unread_internal_transaction_from" model="ir.actions.server">
+            <field name="name">Unread</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_internal_transaction"/>
+            <field name="binding_model_id" ref="model_internal_transaction"/>
+            <field name="state">code</field>
+            <field name="code">
+                if records:
+                action = records.action_unread()
+            </field>
+        </record>
+        <record id="action_add_internal_transaction_from" model="ir.actions.server">
+            <field name="name">Add To Favorite</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_internal_transaction"/>
+            <field name="binding_model_id" ref="model_internal_transaction"/>
+            <field name="state">code</field>
+            <field name="code">
+                if records:
+                action = records.add_to_favorite()
+            </field>
+        </record>
+        <record id="action_remove_internal_transaction_from" model="ir.actions.server">
+            <field name="name">Remove from Favorite</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_internal_transaction"/>
+            <field name="binding_model_id" ref="model_internal_transaction"/>
+            <field name="state">code</field>
+            <field name="code">
+                if records:
+                action = records.remove_from_favorite()
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- purchase committe form view -->
+        <record id="purchase_comitte_form" model="ir.ui.view">
+            <field name="name">purchase.committe.view.form</field>
+            <field name="model">purchase.committee</field>
+            <field name="arch" type="xml">
+                <form string="Purchase Committe">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="head_of_committe" class="oe_edit_only"/>
+                            <h1><field name="head_of_committe" required="1"/></h1>
+                        </div>
+                        <group col="4" colspan="2">
+                            <field name="minimum_approve"/>
+                            <field name="minimum_approve"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- purchase.request tree view -->
+        <record id="model_committe_view_tree" model="ir.ui.view">
+            <field name="name">Purchase Commite</field>
+            <field name="model">purchase.committee</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="head_of_committe"/>
+                    <field name="minimum_approve"/>
+                    <field name="minimum_approve"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- purchase.request action window -->
+        <record id="purchase_committe_action" model="ir.actions.act_window">
+            <field name="name">Purchase commitee</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.committee</field>
+            <field name="view_mode">tree,form</field> 
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create New  Purchase committe
+                </p>
+            </field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="purchase_committe_menu" name="Purchase Committe" parent="purchase.menu_purchase_config" action="purchase_committe_action" sequence="4"/>
+        
+    </data>
+</odoo>

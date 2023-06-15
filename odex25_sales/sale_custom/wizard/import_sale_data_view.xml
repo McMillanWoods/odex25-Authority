@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <record id="import_sale_data_view_form" model="ir.ui.view">
+        <field name="name">Upload Sale Data</field>
+        <field name="model">import.sale.data</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <form string="Upload Bank Statements">
+                <group>
+                    <field name="type_import"/>
+                    <field name="attachment_ids" widget="many2many_binary" colspan="2" string="Files"/>
+
+                </group>
+                <footer>
+                    <button name="import_file" string="Upload" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_import_sale_data" model="ir.actions.act_window">
+        <field name="name">Upload Data</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">import.sale.data</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="import_sale_data_view_form"/>
+    </record>
+
+    
+
+</odoo>

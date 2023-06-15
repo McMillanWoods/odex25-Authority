@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="crossovered_budget_view_form">
+        <field name="name">crossovered.budget.view.inherit.form</field>
+        <field name="model">crossovered.budget</field>
+        <field name="inherit_id" ref="odex25_account_budget.crossovered_budget_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="reserved_percent" string="Reserved Percent %" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field name="currency_id" attrs="{'readonly':True}"/>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="attributes">
+                <attribute name="attrs">{'required':True}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="attrs">{'required':True}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='crossovered_budget_line']/tree/field[@name='date_from']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='crossovered_budget_line']/tree/field[@name='date_to']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='crossovered_budget_line']/tree/field[@name='paid_date']" position="replace"/>
+            <xpath expr="//field[@name='crossovered_budget_line']/tree/field[@name='planned_amount']" position="after">
+                <field name="provide" readonly="1" sum="Provided Amount" widget="monetary"/>
+                <field name="pull_out" readonly="1" sum="Pull Out Amount" widget="monetary"/>
+                <!--field name="reserved_amount" readonly="1" sum="Reserved Amount" widget="monetary"/-->
+                <field name="budget_confirm_amount" readonly="1" sum="Budget Confirmed Amount" widget="monetary"/>
+            </xpath>
+            <xpath expr="//field[@name='crossovered_budget_line']/tree/field[@name='theoritical_amount']"
+                   position="after">
+                <field name="purchase_remain" widget="monetary"/>
+                <field name="remain" readonly="1" sum="Remain Amount" widget="monetary"/>
+            </xpath>
+            <xpath expr="//field[@name='crossovered_budget_line']/tree/field[@name='percentage']"  position="after">
+                <button
+                        name="transfer_budget_action"
+                        type="object"
+                        string="Transfer"
+                        class="oe_highlight"  attrs="{'invisible':[('year_end', '=',False)]}"
+                />
+                <field name="crossovered_budget_state" invisible="1"/>
+                <field name="year_end" invisible="1"/>
+            </xpath>
+            <field name="pull_out" position="after">
+                <field name="initial_reserve" readonly="1" sum="Initial Reserve" widget="monetary"/>
+                <field name="reserve" readonly="1" sum="Reserve Amount" widget="monetary"/>
+                <field name="confirm" invisible="1" readonly="1" sum="Confirm Amount" widget="monetary"/>
+            </field>
+            <field name="budget_confirm_amount" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_crossovered_budget_line_pivot" model="ir.ui.view">
+        <field name="name">crossovered.budget.lines.pivot</field>
+        <field name="model">crossovered.budget.lines</field>
+        <field name="arch" type="xml">
+            <pivot string="Budget Lines" disable_linking="False">
+                <field name="crossovered_budget_id" type="row"/>
+                <field name="analytic_account_id" groups="analytic.group_analytic_accounting" type="row"/>
+                <field name="date_from" type="col"/>
+                <field name="date_to" type="col"/>
+                <field name="planned_amount" type="measure"/>
+                <field name="practical_amount" type="measure"/>
+                <field name="theoritical_amount" type="measure"/>
+                <field name="percentage" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_crossovered_budget_line_graph" model="ir.ui.view">
+        <field name="name">crossovered.budget.lines.graph</field>
+        <field name="model">crossovered.budget.lines</field>
+        <field name="arch" type="xml">
+            <graph string="Budget Lines">
+                <field name="crossovered_budget_id"/>
+                <field name="analytic_account_id" groups="analytic.group_analytic_accounting" type="row"/>
+                <field name="planned_amount" type="measure"/>
+                <field name="practical_amount" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_crossovered_budget_line_tree">
+        <field name="name">crossovered.budget.line.tree</field>
+        <field name="model">crossovered.budget.lines</field>
+        <field name="inherit_id" ref="odex25_account_budget.view_crossovered_budget_line_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="replace">
+                <tree string="Budget Lines">
+                    <field name="crossovered_budget_id" invisible="1"/>
+                    <field name="general_budget_id"/>
+                    <field name="analytic_account_id" groups="analytic.group_analytic_accounting"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="paid_date" groups="base.group_no_one"/>
+                    <field name="planned_amount" widget="monetary"/>
+                    <field name="provide" readonly="1" sum="Provided Amount" widget="monetary"/>
+                    <field name="pull_out" readonly="1" sum="Pull Out Amount" widget="monetary"/>
+                    <!--field name="reserved_amount" readonly="1" sum="Reserved Amount" widget="monetary"/-->
+                    <field name="budget_confirm_amount" readonly="1" sum="Budget Confirmed Amount" widget="monetary"/>
+                    <field name="practical_amount" widget="monetary"/>
+                    <field name="remain" readonly="1" sum="Remain Amount" widget="monetary"/>
+                    <field name="percentage"/>
+                </tree>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="odex25_account_budget.act_crossovered_budget_lines_view">
+        <field name="view_mode">tree,form,graph,pivot</field>
+    </record>
+</odoo>

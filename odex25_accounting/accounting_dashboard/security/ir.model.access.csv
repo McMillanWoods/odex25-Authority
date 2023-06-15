@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+purchase_expense,purchase_expense,model_expense_move_line_wiz,,1,1,1,1
+purchase_expense_report,purchase_expense_report,model_expense_report_wiz,,1,1,1,1

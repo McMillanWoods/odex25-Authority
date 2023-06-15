@@ -1,0 +1,226 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* odex_sms
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-07 11:16+0000\n"
+"PO-Revision-Date: 2022-04-07 11:16+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: odex_sms
+#: model:ir.ui.view,arch_db:odex_sms.grant_benefit_form
+msgid ": برجاء استخدام هذه المفاتيح لاستخدام في القالب"
+msgstr ": برجاء استخدام هذه المفاتيح لاستخدام في القالب"
+
+#. module: odex_sms
+#: selection:benefit.sms.configuration,state:0
+msgid "Approved"
+msgstr "تم الموافقة"
+
+#. module: odex_sms
+#: selection:benefit.sms.configuration,state:0
+msgid "Black List"
+msgstr "القائمة السوداء"
+
+#. module: odex_sms
+#: selection:benefit.sms.configuration,state:0
+msgid "Complete Information"
+msgstr "اكمال البيانات"
+
+#. module: odex_sms
+#: model:ir.model.fields,field_description:odex_sms.field_benefit_sms_configuration_create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: odex_sms
+#: model:ir.model.fields,field_description:odex_sms.field_benefit_sms_configuration_create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: odex_sms
+#: model:ir.model.fields,field_description:odex_sms.field_benefit_sms_configuration_display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: odex_sms
+#: selection:benefit.sms.configuration,state:0
+msgid "Draft"
+msgstr "مبدئ"
+
+#. module: odex_sms
+#: selection:benefit.sms.configuration,state:0
+msgid "Edit Information"
+msgstr "تعديل البيانات"
+
+#. module: odex_sms
+#: selection:benefit.sms.configuration,state:0
+msgid "First Refusal"
+msgstr "الرفض المبدئ"
+
+#. module: odex_sms
+#: model:ir.model.fields,field_description:odex_sms.field_benefit_sms_configuration_id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: odex_sms
+#: model:ir.model.fields,field_description:odex_sms.field_benefit_sms_configuration___last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: odex_sms
+#: model:ir.model.fields,field_description:odex_sms.field_benefit_sms_configuration_write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: odex_sms
+#: model:ir.model.fields,field_description:odex_sms.field_benefit_sms_configuration_write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: odex_sms
+#: selection:benefit.sms.configuration,state:0
+msgid "Not Leaving"
+msgstr "متوفى"
+
+#. module: odex_sms
+#: model:ir.model.fields,field_description:odex_sms.field_res_company_password
+msgid "Password"
+msgstr "كلمة المرور"
+
+#. module: odex_sms
+#: selection:benefit.sms.configuration,state:0
+msgid "Refused"
+msgstr "رفض"
+
+#. module: odex_sms
+#: model:ir.model,name:odex_sms.model_res_company
+msgid "Res Company OneDrive Configuration Customization"
+msgstr "Res Company OneDrive Configuration Customization"
+
+#. module: odex_sms
+#: model:ir.ui.view,arch_db:odex_sms.Sms_view_company_form
+msgid "SMS Gateway"
+msgstr "إعدادات الرسائل النصية"
+
+#. module: odex_sms
+#: model:ir.actions.act_window,name:odex_sms.benefit_sms_configuration_action
+#: model:ir.ui.menu,name:odex_sms.sms_menu
+#: model:ir.ui.view,arch_db:odex_sms.benefit_sms_configuration_tree
+#: model:ir.ui.view,arch_db:odex_sms.grant_benefit_form
+msgid "SMS Template"
+msgstr "قوالب الرسائل النصية "
+
+#. module: odex_sms
+#: model:ir.model.fields,field_description:odex_sms.field_res_company_user_send
+msgid "Sender"
+msgstr "اسم المرسل"
+
+#. module: odex_sms
+#: model:ir.model.fields,field_description:odex_sms.field_res_company_sms_active
+msgid "Sms Active"
+msgstr "تنشيط الرسائل"
+
+#. module: odex_sms
+#: model:ir.actions.act_window,help:odex_sms.benefit_sms_configuration_action
+msgid "Sms Configuration"
+msgstr "إعدادات الرسائل "
+
+#. module: odex_sms
+#: model:ir.model.fields,field_description:odex_sms.field_benefit_sms_configuration_state
+msgid "State"
+msgstr "الحــالة"
+
+#. module: odex_sms
+#: model:ir.model.fields,field_description:odex_sms.field_res_company_user_name
+msgid "User Name"
+msgstr "اسم المستخدم"
+
+#. module: odex_sms
+#: selection:benefit.sms.configuration,state:0
+msgid "Waiting Approved"
+msgstr "في انتظار الموافقة"
+
+#. module: odex_sms
+#: model:ir.model,name:odex_sms.model_benefit_sms_configuration
+msgid "benefit.sms.configuration"
+msgstr "benefit.sms.configuration"
+
+#. module: odex_sms
+#: model:ir.model.fields,field_description:odex_sms.field_benefit_sms_configuration_case_text
+msgid "case Text"
+msgstr "نص الرسالة"
+
+#. module: odex_sms
+#: model:ir.model,name:odex_sms.model_grant_benefit
+msgid "grant.benefit"
+msgstr "grant.benefit"
+
+#. module: odex_sms
+#: model:ir.model.fields,field_description:odex_sms.field_benefit_sms_configuration_name
+msgid "name"
+msgstr "اسم القالب"
+
+#. module: odex_sms
+#: model:ir.ui.view,arch_db:odex_sms.Sms_view_company_form
+msgid "password"
+msgstr "كلمة المرور"
+
+#. module: odex_sms
+#: model:ir.ui.view,arch_db:odex_sms.Sms_view_company_form
+msgid "user name"
+msgstr "اسم المستخدم"
+
+#. module: odex_sms
+#: code:addons/odex_sms/models/sms.py:25
+#, python-format
+msgid "عفواءً اسم المرسل غير متاح!"
+msgstr "عفواءً اسم المرسل غير متاح!"
+
+#. module: odex_sms
+#: code:addons/odex_sms/models/sms.py:21
+#, python-format
+msgid "عفواءً خطاء في اسم المستخدم!"
+msgstr "عفواءً خطاء في اسم المستخدم!"
+
+#. module: odex_sms
+#: code:addons/odex_sms/models/sms.py:23
+#, python-format
+msgid "عفواءً خطاء في كلمة المرور!"
+msgstr "عفواءً خطاء في كلمة المرور!"
+
+#. module: odex_sms
+#: code:addons/odex_sms/models/sms.py:19
+#, python-format
+msgid "عفواءً لا يوجد رصيد كافي!"
+msgstr "عفواءً لا يوجد رصيد كافي!"
+
+#. module: odex_sms
+#: code:addons/odex_sms/models/sms.py:27
+#: code:addons/odex_sms/models/sms.py:29
+#, python-format
+msgid "عفواءً لم يتم وضع رسالة!"
+msgstr "عفواءً لم يتم وضع رسالة!"
+
+#. module: odex_sms
+#: model:ir.ui.view,arch_db:odex_sms.grant_benefit_form
+msgid "عند الحوجة لاستخدام اسم المستفيد ادخل $اسم_المستفيد *"
+msgstr "عند الحوجة لاستخدام اسم المستفيد ادخل $اسم_المستفيد *"
+
+#. module: odex_sms
+#: model:ir.ui.view,arch_db:odex_sms.grant_benefit_form
+msgid "عند الحوجة لاستخدام اسم عائلة المستفيد ادخل $اسم_العائلة *"
+msgstr "عند الحوجة لاستخدام اسم عائلة المستفيد ادخل $اسم_العائلة *"
+
+#. module: odex_sms
+#: model:ir.ui.view,arch_db:odex_sms.grant_benefit_form
+msgid "عند الحوجة لاستخدام رقم هوية المستفيد ادخل $رقم_الهوية *"
+msgstr "عند الحوجة لاستخدام رقم هوية المستفيد ادخل $رقم_الهوية *"
+

@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record model="ir.cron" id="late_transaction_mail">
+            <field name="name">تأخر المعاملات عن وقت الانتهاء</field>
+            <field name="active">True</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model_id" ref="model_internal_transaction" />
+            <field name="state">code</field>
+            <field name="code">model.late_transaction_cron()</field>
+        </record>
+    </data>
+</odoo>

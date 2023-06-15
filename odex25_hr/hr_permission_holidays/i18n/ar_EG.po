@@ -1,0 +1,112 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_permission_holidays
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-20 14:09+0000\n"
+"PO-Revision-Date: 2020-04-20 14:09+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_permission_holidays
+#: model:ir.model.fields,field_description:hr_permission_holidays.field_hr_personal_permission_deduct_from_holiday
+msgid "Deduct From Holiday"
+msgstr "الخصم من رصيد الاجازة"
+
+#. module: hr_permission_holidays
+#: model:ir.model.fields,field_description:hr_permission_holidays.field_hr_personal_permission_holiday
+msgid "Holiday"
+msgstr "يوم الاجازة"
+
+#. module: hr_permission_holidays
+#: model:ir.model,name:hr_permission_holidays.model_hr_holidays
+msgid "Leave"
+msgstr "الاجازات"
+
+#. module: hr_permission_holidays
+#: model:ir.model,name:hr_permission_holidays.model_hr_holidays_status
+msgid "Leave Type"
+msgstr "نوع الإجازة"
+
+#. module: hr_permission_holidays
+#: model:ir.model.fields,field_description:hr_permission_holidays.field_hr_personal_permission_permission_amount
+msgid "Permission Amount"
+msgstr "مقدار الاذن"
+
+#. module: hr_permission_holidays
+#: model:ir.model.fields,field_description:hr_permission_holidays.field_resource_calendar_holiday_permission_deducted
+msgid "Permission to Deduct From holiday"
+msgstr "خصم الاذن من الاجازة"
+
+#. module: hr_permission_holidays
+#: model:ir.model.fields,field_description:hr_permission_holidays.field_hr_holidays_permission_ids
+msgid "Permissions"
+msgstr "الاذونات"
+
+#. module: hr_permission_holidays
+#: model:ir.model.fields,field_description:hr_permission_holidays.field_hr_holidays_status_permission_annual_holiday
+msgid "Permissions Deduct From Holiday"
+msgstr "خصم الإذن من الاجازة السنوية"
+
+#. module: hr_permission_holidays
+#: model:ir.model,name:hr_permission_holidays.model_resource_calendar
+msgid "Resource Calendar"
+msgstr "تقويم المورد"
+
+#. module: hr_permission_holidays
+#: code:addons/hr_permission_holidays/models/permission.py:68
+#, python-format
+msgid "Sorry You Have No annual Leave To Deduct Permission"
+msgstr "عذرا ليس هنالك اجازة سنوية لخصم الاذن"
+
+#. module: hr_permission_holidays
+#: code:addons/hr_permission_holidays/models/permission.py:108
+#, python-format
+msgid "Sorry You Have Used All Your Permission In This Day you have one permission per a Day"
+msgstr "لايمكن طلب اذن مره اخرى في نفس اليوم"
+
+#. module: hr_permission_holidays
+#: code:addons/hr_permission_holidays/models/permission.py:47
+#: code:addons/hr_permission_holidays/models/permission.py:66
+#, python-format
+msgid "Sorry You Have Used All Your Permission In This Month"
+msgstr "تم استخدام كل الاذونات المسموح بها خلال هذا الشهر!"
+
+
+#. module: hr_permission_holidays
+#: code:addons/hr_permission_holidays/models/permission.py:47
+#: code:addons/hr_permission_holidays/models/permission.py:66
+#, python-format
+msgid "Sorry You Have Used All Your Permission To Deduct From Holidays"
+msgstr "تم استخدام كل الاذونات المسموح بخصمها من الاجازة السنوية!"
+
+#. module: hr_permission_holidays
+#: code:addons/hr_permission_holidays/models/permission.py:70
+#, python-format
+msgid "Sorry You Need To use Basic Permission Before Use Holidays"
+msgstr "عذرا لايمكنك طلب خصم من اجازة وانت ﻻتمتلك  رصيد إذن غير مستخدم "
+
+#. module: hr_permission_holidays
+#: code:addons/hr_permission_holidays/models/permission.py:64
+#: code:addons/hr_permission_holidays/models/permission.py:78
+#, python-format
+msgid "Sorry you Have No leave balance"
+msgstr "لايوجد رصيد اجازة سنوية للخصم منه"
+
+#. module: hr_permission_holidays
+#: code:addons/hr_permission_holidays/models/permission.py:116
+#, python-format
+msgid "This Duration not Allowed it must be Less Than or  equal to Balance And Not Equal Zero"
+msgstr "فترة الاذن يجب ان تكون اكبر من الصفر واقل من او يساوي فترة الاذن المسموح بها"
+
+#. module: hr_permission_holidays
+#: model:ir.model,name:hr_permission_holidays.model_hr_personal_permission
+msgid "hr.personal.permission"
+msgstr "اذن الخروج"

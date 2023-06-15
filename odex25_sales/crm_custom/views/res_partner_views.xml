@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_partners_form_crm1" model="ir.ui.view">
+            <field name="name">view.res.partner.form.crm.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="crm.view_partners_form_crm1"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='opportunity_count']" position="attributes">
+                    <attribute name="string">RFP</attribute>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

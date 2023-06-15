@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="contract_installment_form_view" model="ir.ui.view">
+        <field name="name">contract.installment.form</field>
+        <field name="model">line.contract.installment</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <!-- <button name="send_financial_request_mail" type="object" string="Send by Email"
+                            states="not_invoiced"/> -->
+                    <button name="change_state_to_invoiced" string="To Pay" class="oe_highlight" type="object"
+                            attrs="{'invisible' : ['|',('state' , '!=' , 'not_invoiced'),('taxed_invoice' , '=' , 'without_invoice')]}"
+                    />
+                    <button name="cancel_state" string="Cancel" class="oe_highlight" type="object"
+                            states="not_invoiced"/>
+                    <field name="state" widget="statusbar" statusbar_visible="not_invoiced,invoiced,paid"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h3>
+                            <field name="name" class="oe_inline" attrs="{'readonly':[('state','!=','not_invoiced')]}"
+                                   placeholder="e.g. installment name"/>
+                        </h3>
+                    </div>
+                    <group name="main">
+                        <group>
+                            <field name="taxed_invoice" widget="radio"/>
+                        </group>
+                        <group colspan="4" col="4">
+                            <field name="installment_type"
+                                   attrs="{'readonly':['|',('state','!=','not_invoiced'),('taxed_invoice','=','final_invoice')]}"/>
+                            <field name="amount" force_save="1"
+                                   attrs="{'readonly':['|',('installment_type','=','percent'),'|',
+                                   ('state','!=','not_invoiced'),('taxed_invoice','=','final_invoice')]}"/>
+                            <field name="percent"
+                                   attrs="{'invisible':[('installment_type','!=','percent')],
+                                           'required':[('installment_type','=','percent')],
+                                           'readonly':[('state','!=','not_invoiced')]}"/>
+                            <field name="tax_id" widget="many2many_tags"
+                                   attrs="{'readonly':[('state','!=','not_invoiced')],
+                                           'invisible':[('taxed_invoice','=','without_invoice')]}"/>
+                            <field name="due_date" attrs="{'readonly':[('state','!=','not_invoiced')]}"/>
+                            <field name="tax_amount" readonly="1" force_save="1"/>
+                            <field name="total_amount" force_save="1" readonly="1"/>
+                            <field name="contract_id" domain="[('state','not in',('in_progress','closed'))]"
+                                   readonly="1" required="1"/>
+                            <field name="contract_type" readonly="1" force_save="1"/>
+                            <field name="analytic_account_id" required="1" />
+                            <field name="invoice_id" attrs="{'readonly':[('state','!=','not_invoiced')]}"/>
+                            <field name="account_id" required="1" domain="[('user_type_id.type','not in', ('payable','receivable')), ('deprecated', '=', False), ('is_off_balance', '=', False), ('company_id', '=', company_id)]"/>
+                            
+                            <!--                                    domain="[('internal_type','in', ('payable','receivable')), ('deprecated', '=', False)]" -->
+                            <field name="partner_id" invisible="1"/>
+                            <field name="company_id" invisible="1"/>
+                            <field name="user_id" invisible="1"/>
+                            <field name="currency_id" invisible="1"/>
+
+                            <field name="invoice_is_paid" invisible="1"/>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                    <group string="Payment Info"
+                           attrs="{'invisible':[('taxed_invoice','in',['taxed_invoice','final_invoice','with_invoice'])]}">
+                        <group>
+                            <field name="journal_id" attrs="{'required':[('taxed_invoice','=','without_invoice')]}"/>
+                            <field name="payment_id"/>
+                        </group>
+                    </group>
+                    <group string="Planned Date">
+                        <group>
+                            <field name="date_planned_start"/>
+                            <field name="date_planned_finished"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="contract_installment_tree_view" model="ir.ui.view">
+        <field name="name">contract.installment.tree</field>
+        <field name="model">line.contract.installment</field>
+        <field name="arch" type="xml">
+            <tree create="0">
+                <field name="name"/>
+                <field name="amount" sum="Amount"/>
+                <field name="tax_id" invisible="1"/>
+                <field name="due_date"/>
+                <field name="invoice_id"/>
+                <field name="total_amount" sum="Total Amount"/>
+                <field name="tax_amount" sum="Total Tax"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--SEARCH view-->
+    <record id="contract_installment_search_view" model="ir.ui.view">
+        <field name="name">contract.installment.search.view</field>
+        <field name="model">line.contract.installment</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" filter_domain="['|', ('name','ilike',self), ('code','ilike',self)]"/>
+                <field name="due_date"/>
+                <field name="state"/>
+                <separator/>
+                <separator/>
+                <filter name="paid" string="Paid"/>
+                <filter name="not_paid" string="Not Paid"/>
+                <field name="due_date"/>
+                <group expand="0" string="Group By...">
+                    <filter string="Name" name="group_by_name" domain="[]" context="{'group_by':'name'}"/>
+                    <filter string="Vendor Payment" name="filter_contract_type_vendor"
+                            domain="[('contract_type' , '=' , 'purchase' )]"/>
+                    <filter string="Customer Payment" name="filter_contract_type_customer"
+                            domain="[('contract_type' , '=' , 'sale' )]"/>
+                    <filter string="Contract" name="group_by_contract" domain="[]"
+                            context="{'group_by':'contract_id'}"/>
+                    <filter name="group_by_date" string="Date" context="{'group_by': 'due_date'}"/>
+                    <filter name="group_by_state" string="Status" domain="[]" context="{'group_by':'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="contract_installment_view_kanban" model="ir.ui.view">
+        <field name="name">contract.installment.kanban</field>
+        <field name="model">line.contract.installment</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_small_column" create="0">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <div class="o_dropdown_kanban dropdown" groups="base.group_user">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <span class="fa fa-ellipsis-v" title="Selection"/>
+                                </a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                    <t t-if="widget.editable">
+                                        <li>
+                                            <a type="edit">Edit Installment</a>
+                                        </li>
+                                    </t>
+                                    <t t-if="widget.deletable">
+                                        <li>
+                                            <a type="delete">Delete</a>
+                                        </li>
+                                    </t>
+                                </ul>
+                            </div>
+                            <div class="oe_kanban_content">
+                                <div>
+                                    <strong class="o_kanban_record_title">
+                                        <field name="name"/>
+                                        -
+                                        <field name="contract_id"/>
+                                    </strong>
+                                </div>
+                                <div class="o_kanban_record_subtitle">
+                                    <field name="due_date"/>
+                                </div>
+                                <div class="o_kanban_record_subtitle">
+                                    <field name="amount"/>
+                                </div>
+                                <div class="pull-right">
+                                    <button type="object" class="btn btn-primary pull-right btn-sm"
+                                            name="change_state_to_invoiced"
+                                            attrs="{'invisible' : ['|',('state' , '!=' , 'not_invoiced'),('taxed_invoice' , '=' , 'without_invoice')]}">
+                                        To Pay
+                                    </button>
+                                    <span t-if="record.state.raw_value != 'not_invoiced'"
+                                          class="pull-right text-muted mr8">
+                                        <field name="state"/>
+                                        <field name="taxed_invoice"/>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="oe_clear"></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="contract_installment_calendar" model="ir.ui.view">
+        <field name="name">contract.installment.calendar</field>
+        <field name="model">line.contract.installment</field>
+        <field name="arch" type="xml">
+            <calendar date_stop="date_planned_finished" date_start="date_planned_start" string="Installment"
+                      color="amount">
+                <field name="name"/>
+                <field name="amount"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="contract_installment_pivot_view" model="ir.ui.view">
+        <field name="name">contract.installment.pivot</field>
+        <field name="model">line.contract.installment</field>
+        <field name="arch" type="xml">
+            <pivot string="Installment Analysis" display_quantity="true" disable_linking="True">
+                <field name="amount" type="col"/>
+                <field name="due_date" type="row"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="contract_installment_graph" model="ir.ui.view">
+        <field name="name">contract.installment.graph</field>
+        <field name="model">line.contract.installment</field>
+        <field name="arch" type="xml">
+            <graph string="Installments">
+                <field name="name"/>
+                <field name="amount"/>
+                <field name="due_date"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_installment_contract" model="ir.actions.act_window">
+        <field name="name">Installment Contract</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">line.contract.installment</field>
+       
+        <field name="view_mode">kanban,tree,form,calendar,pivot,graph</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="search_view_id" ref="contract_installment_search_view"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a new installment.
+            </p>
+
+        </field>
+    </record>
+
+    <menuitem name="Installments" id="submenu_contract_installment" parent="contract_contract_menu" groups="contract.group_contract_manager,contract.group_contract_user" sequence="3"/>
+
+    <menuitem name="Installment" id="contract_installment_menu" parent="submenu_contract_installment"
+              action="action_installment_contract" sequence="4"/>
+</odoo>

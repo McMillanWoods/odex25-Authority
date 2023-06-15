@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--Tree and form view for leave Transaction-->
+        <record id="leave_transaction_tree" model="ir.ui.view">
+            <field name="name">leave.transaction.tree</field>
+            <field name="model">employee.leave</field>
+            <field name="arch" type="xml">
+                <tree string="leave" decoration-success="state == 'approve'" decoration-info="state == 'request'" decoration-muted="state== 'refuse'"  decoration-danger="state=='expired'">
+                    <field name="employee_id"/>
+                    <field name="alternative_employee_ids" widget="many2many_tags"/>
+                    <field name="from_date"/>
+                    <field name="to_date"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <!--common leave view -->
+        <record id="leave_transaction_form" model="ir.ui.view">
+            <field name="name">leave.transaction.form</field>
+            <field name="model">employee.leave</field>
+            <field name="priority" eval="2"></field>
+            <field name="arch" type="xml">
+                <form string="Leave">
+                    <header>
+                        <button states="draft" type="object" name="action_request" string="Request" class="oe_highlight" confirm="Are you sure you want to request leave ?"/>
+                        <button type="object" name="action_approve" attrs="{'invisible':['|',('current_is_manager','=',False),('state','!=','request')]}" string="Approve" class="oe_highlight" confirm="Are you sure you want to confirm leave ?"/>
+                        <button type="object" name="action_refuse" attrs="{'invisible':['|',('current_is_manager','=',False),('state','!=','request')]}" string="Refuse" class="oe_highlight" confirm="Are you sure you want to refuse leave ?"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,request,approve" />
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="current_is_manager" invisible="1"/>
+                                <field name="employee_id" domain="[('type', 'in', ['employee'])]" required="1"/>
+                            </group>
+                        </group>
+                        <group col ="4">
+                            <field name="from_date"  attrs="{'readonly':[('state','!=','draft')]}" required="1"/>
+                            <field name="to_date"  attrs="{'readonly':[('state','!=','draft')]}" required="1"/>
+                        </group>
+                        <notebook>
+                            <page string="Alternative Employees">
+                                <group>
+                                    <field name="alternative_employee_ids" attrs="{'readonly':[('state','!=','draft')]}" nolabel="1" required="1" context="{ 'default_leave_id': id}">
+                                        <tree editable="bottom">
+                                            <field name="unit_id" required="1"/>
+                                            <field name="employee_id" required="1"/>
+                                            <field name="leave_id" invisible="1"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            <page string="Alternative Mangers">
+                                <group>
+                                    <field name="alternative_manager_ids" attrs="{'readonly':[('state','!=','draft')]}" nolabel="1" required="1" context="{ 'default_leave_id': id}">
+                                        <tree editable="bottom">
+                                            <field name="unit_id" required="1"/>
+                                            <field name="employee_id" required="1"/>
+                                            <field name="leave_id" invisible="1"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <menuitem id="parent_leave_tran_menu" name="Leave Employees" parent="exp_transaction_documents.cm_root_menu" sequence="6"/>
+
+        <record model="ir.actions.act_window" id="leave_tran_action">
+            <field name="name">Leave Employee</field>
+            <field name="res_model">employee.leave</field>
+           
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create new record
+                </p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="leave_approve_action">
+            <field name="name">TO Approve Leave </field>
+            <field name="res_model">employee.leave</field>
+           
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>[('state', '=', 'request'),('employee_id.parent_id.manager_id.user_id','=',uid)]</field>
+        </record>
+        <record model="ir.actions.act_window" id="leave_approved_action">
+            <field name="name">Approved Leave </field>
+            <field name="res_model">employee.leave</field>
+           
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>[('state', '=', 'approve'),('employee_id.user_id','=',uid)]</field>
+        </record>
+        <menuitem id="leave_tran_menu" name="Leave" parent="parent_leave_tran_menu" sequence="1" action="leave_tran_action"/>
+        <!--        <menuitem id="leave_approve_menu" name="TO Approve Leave" parent="parent_leave_tran_menu" sequence="2" action="leave_approve_action"/>-->
+        <!--        <menuitem id="leave_approved_menu" name="Approved Leave" parent="parent_leave_tran_menu" sequence="3" action="leave_approved_action"/>-->
+    </data>
+</odoo>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+
+    Copyright 2017-2019 MuK IT GmbH
+    License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
+
+  -->
+<odoo>
+    <menuitem
+            id="main_menu_dms"
+            name="Documents"
+            groups="dms.group_dms_user"
+            web_icon="dms,static/description/icon.png"
+    />
+    <menuitem
+            id="cat_menu_dms_config"
+            name="Configuration"
+            parent="main_menu_dms"
+            sequence="5"
+            groups="dms.group_dms_manager"
+
+    />
+    <menuitem
+            id="cat_menu_dms_config_organizing"
+            name="Organizing"
+            parent="cat_menu_dms_config"
+            sequence="5"
+    />
+    <menuitem
+            id="cat_menu_dms_config_system"
+            name="System"
+            groups="dms.group_dms_manager"
+            parent="cat_menu_dms_config"
+            sequence="25"
+    />
+    <menuitem name="Shares &amp; Emails" id="dms.share_menu" parent="cat_menu_dms_config_organizing"
+              action="dms.share_action"
+              sequence="4"/>
+    <menuitem
+            id="menu_dms_file"
+            name="Files"
+            sequence="2"
+            parent="main_menu_dms"
+            action="dms.document_action"/>
+
+    <record id="facet_action" model="ir.actions.act_window">
+        <field name="name">Tags</field>
+        <field name="res_model">documents.facet</field>
+        <field name="context">{'simple_name': True}</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('dms.facet_view_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('dms.facet_view_form_with_folder')})]"/>
+    </record>
+    <menuitem name="Tags Group" id="dms.category_menu" parent="dms.cat_menu_dms_config_organizing" action="facet_action"
+              sequence="4"/>
+</odoo>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="data-chart-report_1" model="data.chart.report">
+            <field name="name">Partners</field>
+            <field name="title">Partners</field>
+            <field name="type">model</field>
+            <field name="model_id" ref="base.model_res_partner" />
+        </record>
+
+        <record id="report_col_name_1" model="report_cols_names">
+            <field name="t_name">city</field>
+            <field name="d_name">working city</field>
+            <field name="report_id" ref="data-chart-report_1" />
+        </record>
+
+
+        <record id="data_chart_report2" model="data.chart.report">
+            <field name="name">Query Partners</field>
+            <field name="title">Partners</field>
+            <field name="type">query</field>
+            <field name="query">select prt.name as name, prt.city as city from prt;</field>
+        </record>
+
+        <record id="report_col_name2" model="report_cols_names">
+            <field name="t_name">city</field>
+            <field name="d_name">working city</field>
+            <field name="report_id" ref="data_chart_report2" />
+        </record>
+
+        <record id="report_col_name3" model="report_cols_names">
+            <field name="t_name">name</field>
+            <field name="d_name">partner name</field>
+            <field name="report_id" ref="data_chart_report2" />
+        </record>
+
+        <record id="data_chart_data_item1" model="data_chart_data_item">
+            <field name="name">prt</field>
+            <field name="data_item" ref="base.model_res_partner" />
+            <field name="report_id" ref="data_chart_report2" />
+        </record>
+
+    </data>
+</odoo>

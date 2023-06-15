@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- res.partner inherit form view -->
+    <record id="res_partner_evaluation" model="ir.ui.view">
+        <field name="name">Res partner Vendor Evaluation</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='category_id']" position="after">
+             <field name="customer_rank" 
+            invisible="1"/>
+                <div name="final_evaluation" attrs="{'invisible': [('customer_rank' , '>' , 1)]}">
+                    <label for="final_evaluation"><strong>Final Evaluation |</strong></label>
+                    <field name="final_evaluation" class="oe_inline"/> of 10   
+                </div>             
+            </xpath>
+            <xpath expr="//page[last()]" position="after">
+                <page name="evaluation" string="Evaluation Details" attrs="{'invisible': [('customer_rank' , '>' , 1)]}">
+                    <field name="evaluation_ids" readonly="1">
+                        <tree>
+                            <field name="owner"/>
+                            <field name="cumulative_eval" string="Value"/>
+                        </tree>
+                    </field>
+                </page>
+                
+            </xpath>
+            
+        </field>
+    </record>
+</odoo>

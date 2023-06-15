@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="services_purchase_req">
+            <t t-call="web.html_container" t-translation="off">
+                <t t-call="web.external_layout">
+                    <div class="page" style="font-size:16pt;font-family:Arial;direction:rtl">
+                        <t t-foreach="docs" t-as="o">
+                            <br/>
+                            <p style="text-align:center;font-weight: bold">
+                                <strong>طلب أمر شراء
+                                <span t-esc="o.cost_subtype_id.name"/>
+                                </strong>
+                            </p>
+                            <br/>
+                            <p style="text-align:right;margin-right:5%;font-weight: bold; line-height: 1.8;">
+                                <span style="border-bottom: 1px solid #333;">
+                                    <strong>
+                                        رقم الطلب(<span t-esc="o.id"/>-لوحة رقم
+                                        <span t-esc="o.vehicle_id.license_plate"/>)
+                                        الفرع
+                                        <span t-esc="o.branch_id.name"/>
+                                    </strong>
+                                </span>
+                            </p>
+                            <p style="text-align:justify;margin-right:5%;font-weight: bold; line-height: 1.8;">
+                                <span style="border-bottom: 1px solid #333;">
+                                    <strong>
+                                        التاريخ :
+                                        <span t-esc="o.date"/>
+                                    </strong>
+                                </span>
+                            </p>
+                            <p style="text-align:right;margin-right:5%;font-weight: bold; line-height: 1.8;">
+                                <span style="border-bottom: 1px solid #333;">
+                                    الموضـوع :شراء
+                                    <span t-esc="o.cost_subtype_id.name"/>
+                                    سيارة رقم
+                                    <span t-esc="o.vehicle_id.license_plate"/>
+                                </span>
+                                <br/>
+                            </p>
+                            <p style="text-align:justify;margin-right:5%;margin-left:5%;line-height: 1.8;">
+                                إشارة للموضوع أعلاه نرجو من سيادتكم تعميد من يلزم بصرف مبلغ و قدره (<span t-esc="o.amount"/>) ريال وذلك لزوم
+                                شراء
+                                <span t-esc="o.cost_subtype_id.name"/>
+                                للسيارة
+                                <span t-esc="o.name"/>
+                                رقم
+                                <span t-esc="o.vehicle_id.license_plate"/>
+                                القائد /
+                                <span t-esc="o.vehicle_id.employee_id.name"/>
+                            </p>
+                            <br/>
+                            <table class="table table-condensed table-bordered"
+                                   style="margin-right:10%;margin-left:10%; width:80%">
+                                <thead class="text-center">
+                                    <tr style=" width:100%;">
+                                        <th style="text-align:center;">م</th>
+                                        <th style="text-align:center;">البيان</th>
+                                        <th style="text-align:center;">العدد</th>
+                                        <th style="text-align:center;">السعر</th>
+                                        <th style="text-align:center;">الإجمالي</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    <t t-set="sequence" t-value="0"/>
+                                    <t t-foreach="o.cost_ids" t-as="d">
+                                        <tr>
+                                            <td>
+                                                <t t-set="sequence" t-value="sequence +1"/>
+                                                <t t-esc="sequence"/>
+                                            </td>
+                                            <td  style="text-align:center;">
+                                                <span t-esc="d.cost_subtype_id.name"/>
+                                            </td>
+                                            <td  style="text-align:center;">
+                                                <span t-esc="d.number"/>
+                                            </td>
+                                            <td  style="text-align:center;">
+                                                <span t-esc="d.amount"/>
+                                            </td>
+                                            <td  style="text-align:center;">
+                                                <span t-esc="d.total"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                            <p style="text-align:right;margin-right:5%;font-weight:bold; line-height: 1.8;">
+                                <span style="border-bottom: 1px solid #333;"> * المرفقات</span>
+                            </p>
+                            <p style="text-align:right;margin-right:5%;font-weight:bold; line-height: 1.8;">
+                                <span style="border-bottom: 1px solid #333;"> * عرض السعر</span>
+                            </p>
+                            <table class="table table-condensed table-bordered"
+                                   style="margin-right:10%;margin-left:10%; width:80%">
+                                <tr>
+                                    <td colspan="4">
+                                        <center>
+                                            <strong>مسؤول الصيانة</strong>
+                                        </center>
+                                    </td>
+                                    <td colspan="4">
+                                        <center>
+                                            <strong>تعميد المدير العام</strong>
+                                        </center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="height:90px;text-align:center; vertical-align:middle" colspan="4">
+                                        <p></p>
+                                        <p style="line-height:1.8;">الإسم :........................................</p>
+                                        <p style="line-height:1.8;">التوقيع :........................................
+                                        </p>
+                                    </td>
+                                    <td style="height:90px;text-align:center; vertical-align:middle" colspan="4">
+                                        <p></p>
+                                        <p style="line-height:1.8;">الإسم :........................................</p>
+                                        <p style="line-height:1.8;">التوقيع :........................................
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </template>
+        <report
+                id="services_purchase_req_act"
+                model="fleet.vehicle.log.services"
+                string="Services Purchase Request"
+                report_type="qweb-pdf"
+                name="odex_fleet.services_purchase_req"
+                file="odex_fleet.services_purchase_req"/>
+    </data>
+</odoo>

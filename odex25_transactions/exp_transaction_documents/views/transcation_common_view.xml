@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--common view of transaction-->
+        <record id="common_transactions_form" model="ir.ui.view">
+            <field name="name">common.transaction.form</field>
+            <field name="model">transaction.transaction</field>
+            <field name="priority" eval="2"/>
+            <field name="arch" type="xml">
+                <form string="Transaction" create="false">
+                    <header>
+                        <button type="object" name="action_draft"
+                                attrs="{'invisible':['|',('current_user','=',False),('state','!=','draft')]}"
+                                string="Send" class="oe_highlight"
+                                confirm="Are you sure you want to send transaction ?"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <label for="name" class="oe_edit_only" string="Transaction Number"
+                                       attrs="{'invisible': True}"/>
+                                <field placeholder="" attrs="{'required':False,'readonly':True}" name="name"
+                                       class="transaction_name oe_inline"/>
+                                <field name="is_favorite" widget="priority"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="need_approve" invisible="1"/>
+                                <!--                                <field name="is_reade"/>-->
+                                <!--                                <field name="is_favorite"/>-->
+                                <field name="current_user" invisible="1"/>
+                                <field name="current_is_manager" invisible="1"/>
+                                <field name="type"
+                                       attrs="{'required':True,'readonly':[('state','not in', ['draft'])]}"/>
+                                <field name="subject"
+                                       attrs="{'required':True,'readonly':[('state','not in', ['draft'])]}"/>
+                                <field name="important_id" widget="selection"
+                                       attrs="{'required':True,'readonly':[('state','not in', ['draft'])]}"/>
+                            </group>
+                            <group>
+                                <field name="transaction_date" attrs="{'required':True}"/>
+                                <field name="transaction_date_hijri"/>
+                                <field name="receive_id" invisible="1"/>
+                                <field name="receive_manger_id" invisible="1"/>
+                                <!--                                <field name="tran_tage" widget="many2many_tags"-->
+                                <!--                                       attrs="{'readonly':[('state','not in', ['draft'])]}"-->
+                                <!--                                       options="{'no_create':True}"/>-->
+                                <field name="subject_type_id"
+                                       attrs="{'required':True,'readonly':[('state','not in', ['draft'])]}"
+                                       options="{'no_create':True}"/>
+                                <field name="current_is_receive_manger" invisible="1"/>
+                                <field name="add_rank" attrs="{'readonly': [('current_is_receive_manger','!=',True)]}"/>
+                                <field name="due_date"/>
+                                <field name="signature" widget="image"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <!--common view of internal transaction-->
+        <record id="common_transactions_internal_form" model="ir.ui.view">
+            <field name="name">common.transactions.internal.form</field>
+            <field name="model">internal.transaction</field>
+            <field name="inherit_id" ref="exp_transaction_documents.common_transactions_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='subject']" position="after">
+                    <field name="to_ids" widget="many2many_tags"
+                           attrs="{'required':True,'readonly':[('state','not in', ['draft'])]}"
+                           domain="[('type', 'in', ['unit','employee'])]" options="{'no_create':True,'no_open':True}"/>
+                    <field name="tran_tag" widget="many2many_tags"
+                           options="{'no_create':True}"/>
+                </xpath>
+                <xpath expr="//field[@name='important_id']" position="after">
+                    <field name="project_domain" widget="many2many_tags"
+                           attrs="{'readonly':[('state','not in', ['draft'])]}"/>
+                </xpath>
+                <xpath expr="//field[@name='transaction_date_hijri']" position="after">
+                    <field name="cc_ids" widget="many2many_tags" domain="[('type', 'in', ['employee', 'unit'])]"
+                           attrs="{'required':False,'readonly':[('state','not in', ['draft'])]}"
+                           options="{'no_create':True,'no_open':True}"/>
+                </xpath>
+                <xpath expr="//form/sheet" position="inside">
+                    <notebook>
+                        <page string="Related Info">
+                            <group>
+                                <group>
+                                    <field name="preparation_id" domain="[('type', 'in', ['unit'])]"
+                                           attrs="{'required':False,'readonly':[('state','not in', ['draft'])]}"
+                                           options="{'no_create':True,'no_open':True}"/>
+                                    <field name="reason" readonly="1"
+                                           attrs="{'invisible': ['|',('state','=','draft'),('reason','=',False)]}"/>
+                                    <field name="current_is_secret_user" invisible="1"/>
+                                    <field name="secret_reason" readonly="1"
+                                           attrs="{'invisible': ['|',('state','=','draft'),('current_is_secret_user','=',False)]}"/>
+                                    <field name="procedure_id"
+                                           attrs="{'required':False,'readonly':[('state','not in', ['draft'])]}"
+                                           options="{'no_create':True,'no_open':True}"/>
+                                </group>
+                                <group>
+                                </group>
+                            </group>
+                            <group>
+                                <field name="processing_ids"
+                                       attrs="{'required':[('type','in',['reply','forward'])],'invisible':[('type','not in',['reply', 'forward'])],'readonly':[('state','not in',['draft'])]}">
+                                    <tree name="">
+                                        <field name="name"/>
+                                        <field name="subject"/>
+                                        <field name="transaction_date"/>
+                                        <field name="to_ids"/>
+                                    </tree>
+                                </field>
+                            </group>
+                            <group>
+                                <field name="attachment_rule_ids" attrs="{'readonly':[('state','not in',['draft'])]}">
+                                    <tree string="Attaches" editable="bottom">
+                                        <field name="employee_id" readonly="True"/>
+                                        <field name="entity_id" readonly="True"/>
+                                        <field name="date" readonly="True"/>
+                                        <field name="description" required="False"/>
+                                        <field name="file_save" filename="attachment_filename"/>
+                                        <field name="attachment_filename" invisible="True"/>
+                                    </tree>
+                                </field>
+                                <field name="attachment_num"/>
+                            </group>
+                        </page>
+                        <page string="Transaction Details">
+                            <separator string="Transaction Details"/>
+                            <field name="body" widget="text_html" attrs="{'readonly':[('state','not in',['draft'])]}"/>
+                            <group>
+                                <field name="attachment_ids" attrs="{'readonly':[('state','not in',['draft'])]}">
+                                    <tree string="Attachments" editable="bottom">
+                                        <field name="type_id"/>
+                                        <field name="num_page"/>
+                                        <field name="name"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                        <page string="Information">
+                            <group>
+                                <group>
+                                    <field name="employee_id" readonly="True"/>
+                                </group>
+                                <group>
+                                    <field name="entity_id" readonly="True"/>
+                                </group>
+                            </group>
+                            <separator string="Trace Log"/>
+                            <field name="trace_ids" attrs="{'readonly':True}">
+                                <tree string="Trace Log">
+                                    <field name="action"/>
+                                    <field name="date"/>
+                                    <field name="from_id"/>
+                                    <field name="to_id"/>
+                                    <field name="procedure_id"/>
+                                    <field name="cc_ids" widget="many2many_tags"/>
+                                    <field name="note"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+        <!--common view of  incoming-->
+        <record id="common_transactions_incoming_form" model="ir.ui.view">
+            <field name="name">common.incoming.transactions.form</field>
+            <field name="model">incoming.transaction</field>
+            <field name="inherit_id" ref="exp_transaction_documents.common_transactions_form"/>
+            <field name="priority" eval="2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='type']" position="before">
+                    <field name="from_id" domain="[('type', 'in', ['external'])]"/>
+                    <field name="partner_id"/>
+                </xpath>
+                <xpath expr="//field[@name='subject']" position="after">
+                    <field name="to_ids" widget="many2many_tags" domain="[('type', 'in', ['employee','unit'])]"
+                           options="{'no_create':True,'no_open':True}"/>
+                </xpath>
+                <xpath expr="//field[@name='transaction_date_hijri']" position="after">
+                    <!--                    <field name="outgoing_transaction_id" domain="[('partner_id', '=', partner_id)]"/>-->
+                    <field name="incoming_number" attrs="{'required':True,'readonly':[('state','not in', ['draft'])]}"/>
+                    <field name="incoming_date" attrs="{'required':True,'readonly':[('state','not in', ['draft'])]}"/>
+                    <field name="incoming_date_hijri"/>
+                    <field name="cc_ids" widget="many2many_tags" domain="[('type', 'in', ['employee','unit'])]"
+                           options="{'no_create':True,'no_open':True}"/>
+                </xpath>
+                <xpath expr="//form/sheet" position="inside">
+                    <notebook>
+                        <page string="Related Info">
+                            <group>
+                                <group>
+                                    <field name="preparation_id" domain="[('type', 'in', ['unit'])]"
+                                           options="{'no_create':True,'no_open':True}"/>
+                                    <field name="procedure_id" options="{'no_create':True,'no_open':True}"/>
+                                </group>
+                                <group>
+                                </group>
+                            </group>
+                            <group>
+                                <field name="processing_ids"
+                                       attrs="{'required':[('type','in',['reply','forward'])],'invisible':[('type','not in',['reply', 'forward'])],'readonly':[('state','not in',['draft'])]}">
+                                    <tree name="">
+                                        <field name="name"/>
+                                        <field name="subject"/>
+                                        <field name="transaction_date"/>
+                                        <field name="to_ids"/>
+                                    </tree>
+                                </field>
+                                <field name="processing2_ids"
+                                       attrs="{'required':[('type','in',['reply','forward'])],'invisible':[('type','not in',['reply', 'forward'])],'readonly':[('state','not in',['draft'])]}">
+                                    <tree name="">
+                                        <field name="name"/>
+                                        <field name="subject"/>
+                                        <field name="transaction_date"/>
+                                        <field name="to_ids"/>
+                                    </tree>
+                                </field>
+                            </group>
+                            <group>
+                                <field name="attachment_rule_ids" attrs="{'readonly':[('state','not in',['draft'])]}">
+                                    <tree string="Attaches" editable="bottom">
+                                        <field name="employee_id" readonly="True"/>
+                                        <field name="entity_id" readonly="True"/>
+                                        <field name="date" readonly="True"/>
+                                        <field name="description" required="False"/>
+                                        <field name="file_save" filename="attachment_filename"/>
+                                        <field name="attachment_filename" invisible="True"/>
+                                    </tree>
+                                </field>
+                                <field name="attachment_num"/>
+                            </group>
+                        </page>
+                        <page string="Transaction Details">
+                            <separator string="Transaction Details"/>
+                            <field name="body" widget="text_html"/>
+                            <group>
+                                <field name="attachment_ids" attrs="{'readonly':[('state','not in',['draft'])]}">
+                                    <tree string="Attachments" editable="bottom">
+                                        <field name="type_id"/>
+                                        <field name="num_page"/>
+                                        <field name="name"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                        <page string="Information">
+                            <group>
+                                <group>
+                                    <field name="employee_id" readonly="True"/>
+                                </group>
+                                <group>
+                                    <field name="entity_id" readonly="True"/>
+                                </group>
+                            </group>
+                            <separator string="Trace Log"/>
+                            <field name="trace_ids" attrs="{'readonly':True}">
+                                <tree string="Trace Log">
+                                    <field name="action"/>
+                                    <field name="date"/>
+                                    <field name="from_id"/>
+                                    <field name="to_id"/>
+                                    <field name="procedure_id"/>
+                                    <field name="cc_ids" widget="many2many_tags"/>
+                                    <field name="note"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+
+        <!--common for view  outgoing transaction-->
+        <record id="common_transactions_outgoing_form" model="ir.ui.view">
+            <field name="name">common.outgoing.transaction.form</field>
+            <field name="model">outgoing.transaction</field>
+            <field name="inherit_id" ref="exp_transaction_documents.common_transactions_form"/>
+            <field name="priority" eval="1"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='due_date']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='subject']" position="after">
+                    <field name="to_ids" widget="many2many_tags" options="{'no_create':True,'no_open':True}"
+                           attrs="{'required':True,'readonly':[('state','not in', ['draft'])]}"
+                           domain="[('type', '=', 'external')]"/>
+                    <field name="to_name"/>
+                </xpath>
+                <xpath expr="//field[@name='transaction_date_hijri']" position="after">
+                    <field name="cc_ids" widget="many2many_tags" domain="[('type', 'in', ['employee', 'unit'])]"
+                           attrs="{'required':False,'readonly':[('state','not in', ['draft'])]}"
+                           options="{'no_create':True,'no_open':True}"/>
+                </xpath>
+                <xpath expr="//form/sheet" position="inside">
+                    <notebook>
+                        <page string="Related Info">
+
+                            <group>
+                                <group>
+                                    <field name="preparation_id" domain="[('type', 'in', ['unit'])]"
+                                           attrs="{'required':False,'readonly':[('state','not in', ['draft'])]}"
+                                           options="{'no_create':True,'no_open':True}"/>
+                                    <field name="procedure_id"
+                                           attrs="{'required':False,'readonly':[('state','not in', ['draft'])]}"
+                                           options="{'no_create':True,'no_open':True}"/>
+                                </group>
+                                <group>
+                                </group>
+                            </group>
+                            <group>
+                                <field name="processing_ids"
+                                       attrs="{'required':[('type','in',['reply','forward'])],'invisible':[('type','not in',['reply', 'forward'])],'readonly':[('state','not in',['draft'])]}">
+                                    <tree name="">
+                                        <field name="name"/>
+                                        <field name="subject"/>
+                                        <field name="transaction_date"/>
+                                        <field name="to_ids"/>
+                                    </tree>
+                                </field>
+                                <field name="processing2_ids"
+                                       attrs="{'required':[('type','in',['reply','forward'])],'invisible':[('type','not in',['reply', 'forward'])],'readonly':[('state','not in',['draft'])]}">
+                                    <tree name="">
+                                        <field name="name"/>
+                                        <field name="subject"/>
+                                        <field name="transaction_date"/>
+                                        <field name="to_ids"/>
+                                    </tree>
+                                </field>
+                            </group>
+                            <group>
+                                <field name="attachment_rule_ids" attrs="{'readonly':[('state','not in',['draft'])]}">
+                                    <tree string="Attaches" editable="bottom">
+                                        <field name="employee_id" readonly="True"/>
+                                        <field name="entity_id" readonly="True"/>
+                                        <field name="date" readonly="True"/>
+                                        <field name="description" required="False"/>
+                                        <field name="file_save" filename="attachment_filename"/>
+                                        <field name="attachment_filename" invisible="True"/>
+                                    </tree>
+                                </field>
+                                <field name="attachment_num"/>
+                            </group>
+                        </page>
+                        <page string="Transaction Details">
+                            <separator string="Transaction Details"/>
+                            <field name="body" widget="text_html"/>
+                            <group>
+                                <field name="attachment_ids" attrs="{'readonly':[('state','not in',['draft'])]}">
+                                    <tree string="Attachments" editable="bottom">
+                                        <field name="type_id"/>
+                                        <field name="num_page"/>
+                                        <field name="name"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                        <page string="Information">
+                            <group>
+                                <group>
+                                    <field name="employee_id" readonly="True"/>
+                                </group>
+                                <group>
+                                    <field name="entity_id" readonly="True"/>
+                                </group>
+                            </group>
+                            <separator string="Trace Log"/>
+                            <field name="trace_ids" attrs="{'readonly':True}">
+                                <tree string="Trace Log">
+                                    <field name="action"/>
+                                    <field name="date"/>
+                                    <field name="from_id"/>
+                                    <field name="to_id"/>
+                                    <field name="procedure_id"/>
+                                    <field name="cc_ids" widget="many2many_tags"/>
+                                    <field name="note"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

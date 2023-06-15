@@ -1,0 +1,199 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* purchase_custom_vro
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-05 23:34+0000\n"
+"PO-Revision-Date: 2021-09-05 23:34+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: purchase_custom_vro
+#: code:addons/purchase_custom_vro/models/purchase_requisition.py:154
+#: code:addons/purchase_custom_vro/models/purchase_requisition.py:228
+#, python-format
+msgid " No budget for this service "
+msgstr " لا توجد موازنة لهذه الخدمة "
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "<strong>التاريخ</strong>"
+msgstr "<strong>التاريخ</strong>"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "<strong>الصنف</strong>"
+msgstr "<strong>الصنف</strong>"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "<strong>الكمية</strong>"
+msgstr "<strong>الكمية</strong>"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "<strong>المستند المصدر</strong>"
+msgstr "<strong>المستند المصدر</strong>"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "<strong>ملاحظات</strong>"
+msgstr "<strong>ملاحظات</strong>"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.purchase_requisition_form_view_inherit
+msgid "Approve"
+msgstr "موافقة"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_purchase_requisition_line_remaining_analytic_budget
+msgid "Cost Center Remain Balance"
+msgstr "رصيد مركز التكلفة المتبقي"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_purchase_requisition_line_department_id
+msgid "Department"
+msgstr "القسم"
+
+#. module: purchase_custom_vro
+#: model:ir.actions.report,name:purchase_custom_vro.action_report_grn
+msgid "Goods Received Note"
+msgstr "محضر إستلام بضاعة"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "Goods Received Note - محضر إستلام بضاعة"
+msgstr "Goods Received Note - محضر إستلام بضاعة"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "Lot/Serial Number"
+msgstr "الحصة/الرقم المسلسل"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.purchase_order_form_view_inherit
+#: model:ir.ui.view,arch_db:purchase_custom_vro.purchase_requisition_form_view_inherit
+msgid "PR"
+msgstr "طلب الشراء"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_purchase_request_picking_ids
+msgid "Picking"
+msgstr "اختيار"
+
+#. module: purchase_custom_vro
+#: code:addons/purchase_custom_vro/models/purchase_requisition.py:110
+#: code:addons/purchase_custom_vro/models/purchase_requisition.py:178
+#, python-format
+msgid "Please Sign your RFQ first"
+msgstr "الرجاء توقيع عرض الأسعار أولا"
+
+#. module: purchase_custom_vro
+#: code:addons/purchase_custom_vro/models/purchase_requisition.py:100
+#, python-format
+msgid "Please create RFQ first"
+msgstr "الرجاء إنشاء عرض أسعار أولا"
+
+#. module: purchase_custom_vro
+#: code:addons/purchase_custom_vro/models/purchase_requisition.py:115
+#: code:addons/purchase_custom_vro/models/purchase_requisition.py:192
+#, python-format
+msgid "Please put cost center to the department"
+msgstr "الرجاء تحديد مركز التكلفة في الإدارة"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.purchase_request_form_view_inherit
+msgid "Print GRN"
+msgstr "طباعة محضر إستلام محضر البضاعة"
+
+#. module: purchase_custom_vro
+#: model:res.groups,name:purchase_custom_vro.group_po_common_services_approve
+msgid "Purchase Common Services Approval"
+msgstr "تصديق الخدمات المشتركة"
+
+#. module: purchase_custom_vro
+#: model:res.groups,name:purchase_custom_vro.group_po_finance_approve
+msgid "Purchase Finance Approval"
+msgstr "التصديق المالي"
+
+#. module: purchase_custom_vro
+#: model:res.groups,name:purchase_custom_vro.group_po_general_supervisor_approve
+msgid "Purchase General Supervisor Approval"
+msgstr "تصديق المشرف العام"
+
+#. module: purchase_custom_vro
+#: model:ir.model,name:purchase_custom_vro.model_purchase_order
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_purchase_request_purchase_order_ids
+msgid "Purchase Order"
+msgstr "عرض شراء"
+
+#. module: purchase_custom_vro
+#: model:ir.model,name:purchase_custom_vro.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "بند طلب الشراء"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_purchase_requisition_line_requisition_purchase_ids
+msgid "Purchase Orders"
+msgstr "أوامر الشراء"
+
+#. module: purchase_custom_vro
+#: model:ir.model,name:purchase_custom_vro.model_purchase_request
+msgid "Purchase Request"
+msgstr "طلبات الإدارات"
+
+#. module: purchase_custom_vro
+#: model:ir.model,name:purchase_custom_vro.model_purchase_requisition
+msgid "Purchase Requisition"
+msgstr "طلب شراء"
+
+#. module: purchase_custom_vro
+#: model:ir.model,name:purchase_custom_vro.model_purchase_requisition_line
+msgid "Purchase Requisition Line"
+msgstr "بند المناقصة"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_purchase_order_line_requisition_line_id
+msgid "Requisition Line"
+msgstr "لاين اتفاقية شراء"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_purchase_requisition_custom_three_validation_steps
+msgid "Special validation steps"
+msgstr "تصديق ثلاثي"
+
+#. module: purchase_custom_vro
+#: code:addons/purchase_custom_vro/models/purchase_requisition.py:121
+#: code:addons/purchase_custom_vro/models/purchase_requisition.py:190
+#, python-format
+msgid "The product have no expense account "
+msgstr "المنتج ليس له حساب مصروف"
+
+#. module: purchase_custom_vro
+#: code:addons/purchase_custom_vro/models/purchase_requisition.py:98
+#, python-format
+msgid "This category have no service in it"
+msgstr "هذا التصنيف لا توجد به خدمة"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "المستخدم"
+msgstr "المستخدم"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "توقيع المستخدم"
+msgstr "توقيع المستخدم"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "ــــــــــــــــــــــــــــــ"
+msgstr "ــــــــــــــــــــــــــــــ"
+

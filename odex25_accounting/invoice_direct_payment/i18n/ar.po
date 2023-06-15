@@ -1,0 +1,1082 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* invoice_direct_payment
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-09 04:29+0000\n"
+"PO-Revision-Date: 2021-09-09 04:29+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.menu,name:invoice_direct_payment.menu_action_es_partner_bank_form
+msgid "Bank Accounts"
+msgstr "الحسابات البنكية للمستفيدين"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.menu,name:invoice_direct_payment.menu_action_account_payments_receivable
+msgid "Received Payments"
+msgstr "المقبوضات"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Amount with taxes"
+msgstr "المبلغ بعد الضريبة"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Amount without taxes"
+msgstr "المبلغ قبل الضريبة"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Taxes"
+msgstr "الضرائب"
+
+#. module: invoice_direct_payment
+#: code:addons/invoice_direct_payment/models/account_invoice.py:42
+#, python-format
+msgid "Kindly Enter Account in line %s"
+msgstr "الرجاء إدخال البند في التفاصيل :  %s"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "<span style=\"font-size:15pt !important;\">الإدارة التنفيذية</span>"
+msgstr "<span style=\"font-size:15pt !important;\">الإدارة التنفيذية</span>"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "<span style=\"font-size:15pt !important;\">المحاسب</span>"
+msgstr "<span style=\"font-size:15pt !important;\">المحاسب</span>"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "<span style=\"font-size:15pt !important;\">المدير المالى</span>"
+msgstr "<span style=\"font-size:15pt !important;\">المدير المالى</span>"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.view_account_payment_form
+msgid "Approve GM"
+msgstr "إعتماد"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.view_account_payment_form
+msgid "Approve GS"
+msgstr "إعتماد"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Bank Name"
+msgstr "Bank Name"
+
+#. module: invoice_direct_payment
+#: code:addons/invoice_direct_payment/models/account_invoice.py:59
+#, python-format
+msgid "Cannot find a chart of accounts for this company, You should configure it. \n"
+"Please go to Account Configuration."
+msgstr "لم يتم العثور على شجرة حسابات لهذة الشركة، الرجاء ضبطها من الاعدادات المالية."
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.view_account_payment_form
+msgid "Check LC"
+msgstr "تدقيق و إعتماد"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.view_account_payment_form
+msgid "Confirm FM"
+msgstr "إعتماد"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.view_account_payment_form
+msgid "Accountant"
+msgstr "تأكيد الاخصائي المالي"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.view_account_payment_form
+msgid "Confirm QC"
+msgstr "تصديق"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Customer"
+msgstr "Customer"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "DATE"
+msgstr "DATE"
+
+#. module: invoice_direct_payment
+#: model:res.groups,name:invoice_direct_payment.group_general_supervisor
+msgid "General Supervisor"
+msgstr "المشرف العام"
+
+#. module: invoice_direct_payment
+#: model:res.groups,name:invoice_direct_payment.group_general_manager
+msgid "General manager"
+msgstr "المدير العام للخدمات المشتركة"
+
+#. module: invoice_direct_payment
+#: code:addons/invoice_direct_payment/models/account_invoice.py:60
+#, python-format
+msgid "Go to the configuration panel"
+msgstr "الإنتقال الى شاشة الإعدادات"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "IBAN"
+msgstr "IBAN"
+
+#. module: invoice_direct_payment
+#: model:ir.model,name:invoice_direct_payment.model_account_invoice
+msgid "Invoice"
+msgstr "الفاتورة"
+
+#. module: invoice_direct_payment
+#: model:res.groups,name:invoice_direct_payment.group_legal_counsel
+msgid "Legal Counsel"
+msgstr "المستشار القانوني"
+
+#. module: invoice_direct_payment
+#: selection:account.invoice,pay_now:0
+msgid "Pay Directly"
+msgstr "دفع مباشر"
+
+#. module: invoice_direct_payment
+#: selection:account.invoice,pay_now:0
+msgid "Pay Later"
+msgstr "دفع آجل"
+
+#. module: invoice_direct_payment
+#: model:ir.model.fields,field_description:invoice_direct_payment.field_account_invoice_pay_now
+msgid "Payment"
+msgstr "نوع الدفع"
+
+#. module: invoice_direct_payment
+#: model:ir.model.fields,field_description:invoice_direct_payment.field_account_invoice_payment_journal_id
+msgid "Payment Method"
+msgstr "الدفع من"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Payment Payable To"
+msgstr "Payment Payable To"
+
+#. module: invoice_direct_payment
+#: model:ir.actions.report,name:invoice_direct_payment.action_account_pay_invoice
+#: model:ir.actions.report,name:invoice_direct_payment.action_account_payment_receipt
+msgid "Print Receipt"
+msgstr "امر الصرف"
+
+#. module: invoice_direct_payment
+#: model:res.groups,name:invoice_direct_payment.group_quality_control
+msgid "Quality Control"
+msgstr "اخصائي الجودة والمراجعة"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "REF"
+msgstr "REF"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Total Amount"
+msgstr "Total Amount"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Total Amount In Words"
+msgstr "Total Amount In Words"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "أمر صرف"
+msgstr "أمر صرف"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "إسم البنك"
+msgstr "إسم البنك"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "إسم المستفيد"
+msgstr "إسم المستفيد"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "الإدارة"
+msgstr "الإدارة"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "البيان"
+msgstr "البيان"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "التاريخ"
+msgstr "التاريخ"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "التفاصيل"
+msgstr "التفاصيل"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "الحساب البنكي"
+msgstr "الحساب البنكي"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "العميل"
+msgstr "العميل"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "المبلغ"
+msgstr "المبلغ"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "المبلغ الكلي"
+msgstr "المبلغ الكلي"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "المبلغ الكلي كتابة"
+msgstr "المبلغ الكلي كتابة"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "المبلغ كتابة"
+msgstr "المبلغ كتابة"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "رقم أمر الشراء"
+msgstr "رقم أمر الشراء"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "رقم الأمر"
+msgstr "رقم الأمر"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "رقم الخطاب"
+msgstr "رقم الخطاب"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "رقم سند الصرف"
+msgstr "رقم سند الصرف"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "سند قبض Catch Receipt"
+msgstr "سند قبض Catch Receipt"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "نوع المصروف"
+msgstr "نوع المصروف"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "وصف مختصر للدفعة"
+msgstr "وصف مختصر للدفعة"
+
+#. module: account
+#: selection:account.payment,state:0
+msgid "QC Confirm"
+msgstr "تصديق أخصائي الجودة والمراجعة"
+
+#. module: account
+#: selection:account.payment,state:0
+msgid "FM Confirm"
+msgstr "إعتماد المدير المالي"
+
+#. module: account
+#: selection:account.payment,state:0
+msgid "LC Check"
+msgstr "تدقيق المستشار القانوني"
+
+#. module: account
+#: selection:account.payment,state:0
+msgid "GM Approve"
+msgstr "إعتماد مدير الخدمات المشتركة"
+
+#. module: account
+#: selection:account.payment,state:0
+msgid "GS Approve"
+msgstr "إعتماد المشرف العام"
+
+#. module: account
+#: selection:account.payment,state:0
+msgid "Posted"
+msgstr "معتمدة"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.invoice_supplier_form
+msgid "Beneficiary"
+msgstr "المستفيد"
+
+#. module: account
+#: model:ir.model.fields,field_description:account.field_account_invoice_reference
+#: model:ir.ui.view,arch_db:account.invoice_supplier_form
+msgid "Vendor Reference"
+msgstr "رقم فاتورة المورد"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.invoice_supplier_form
+msgid "Number"
+msgstr "رقم امر الصرف"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.view_invoice_supplier_purchase_form
+msgid "PO Number"
+msgstr "رقم امر الشراء"
+
+#. module: invoice_direct_payment
+#: code:addons/invoice_direct_payment/models/account_invoice.py:29
+#, python-format
+msgid "Invoice must be in GM approve state in order to validate it."
+msgstr "يجب ان تكون الفاتورة في حاله مصدقة من المدير العام للخدمات المشتركة ليتم إعتمادها."
+
+#. module: invoice_direct_payment
+#: code:addons/invoice_direct_payment/models/account_budget.py:44
+#, python-format
+msgid "No budget for (%s) and cost center (%s)"
+msgstr "لايوجد موازنة للحساب (%s) على مركز التكلفة (%s)"
+
+#. module: invoice_direct_payment
+#: code:addons/invoice_direct_payment/models/account_budget.py:41
+#, python-format
+msgid "No enough budget for account (%s) and cost center (%s)"
+msgstr "موازنة حساب (%s) على مركز التكلفة(%s) غير كافية"
+
+#. module: invoice_direct_payment
+#: code:addons/invoice_direct_payment/models/account_invoice.py:46
+#, python-format
+msgid "Please create some invoice lines."
+msgstr "الرجاء إدخال تفاصيل الفاتورة."
+
+#. module: invoice_direct_payment
+#: code:addons/invoice_direct_payment/models/account_invoice.py:31
+#, python-format
+msgid "You cannot validate an invoice with a negative total amount. You should create a credit note instead."
+msgstr "لا يمكن إعتماد فاتورة بقيمة سالبة. عليك إنشاء مردودات للفاتورة بدلا من ذلك."
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.crossovered_budget_view_form
+msgid "Budget Confirmed Amount"
+msgstr "مبلغ الموازنة المصدق"
+
+#. module: invoice_direct_payment
+#: model:ir.model.fields,field_description:invoice_direct_payment.field_crossovered_budget_lines_confirm_amount
+msgid "confirmation amount"
+msgstr "مبلغ التصديق"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.view_account_payment_form
+msgid "Approvals"
+msgstr "التصاديق"
+
+#. module: invoice_direct_payment
+#: model:ir.model.fields,field_description:invoice_direct_payment.field_account_payment_gm_approve
+msgid "GM Approval"
+msgstr "إعتماد مدير الخدمات المشتركة"
+
+#. module: invoice_direct_payment
+#: model:ir.model.fields,field_description:invoice_direct_payment.field_account_payment_gs_approve
+msgid "GS Approval"
+msgstr "إعتماد المشرف العام"
+
+#. module: account
+#: model:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
+#: model:ir.ui.view,arch_db:account.invoice_supplier_form
+msgid "Bill"
+msgstr "تفاصيل المصروفات"
+
+#. module: account
+#: model:ir.ui.view,arch_db:account.invoice_supplier_form
+#: model:ir.ui.view,arch_db:account.invoice_supplier_tree
+msgid "Bill Date"
+msgstr "التاريخ"
+
+#. module: account
+#: model:ir.model.fields,field_description:account.field_account_invoice_line_origin
+#: model:ir.model.fields,field_description:account.field_account_invoice_origin
+#: model:ir.ui.view,arch_db:account.portal_invoice_report
+#: model:ir.ui.view,arch_db:account.report_invoice_document
+msgid "Source Document"
+msgstr "رقم أمر الشراء/خطاب"
+
+#. module: account
+#: model:ir.model.fields,field_description:account.field_account_payment_communication
+msgid "Memo"
+msgstr "رقم أمر الشراء/خطاب/مرجع"
+
+#. module: account
+#: model:ir.model.fields,field_description:account.field_account_payment_partner_type
+msgid "Partner Type"
+msgstr "نوع المستفيد"
+
+#. module: account
+#. openerp-web
+#: code:addons/account/static/src/xml/account_reconciliation.xml:232
+#: code:addons/account/static/src/xml/account_reconciliation.xml:249
+#: model:ir.model.fields,field_description:account.field_account_abstract_payment_partner_id
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line_partner_id
+#: model:ir.model.fields,field_description:account.field_account_invoice_line_partner_id
+#: model:ir.model.fields,field_description:account.field_account_invoice_partner_id
+#: model:ir.model.fields,field_description:account.field_account_invoice_report_partner_id
+#: model:ir.model.fields,field_description:account.field_account_move_line_partner_id
+#: model:ir.model.fields,field_description:account.field_account_move_partner_id
+#: model:ir.model.fields,field_description:account.field_account_payment_partner_id
+#: model:ir.model.fields,field_description:account.field_account_register_payments_partner_id
+#: model:ir.ui.view,arch_db:account.report_generalledger
+#: model:ir.ui.view,arch_db:account.report_journal
+#: model:ir.ui.view,arch_db:account.view_account_analytic_line_filter_inherit_account
+#: model:ir.ui.view,arch_db:account.view_account_invoice_filter
+#: model:ir.ui.view,arch_db:account.view_account_invoice_report_search
+#: model:ir.ui.view,arch_db:account.view_account_move_filter
+#: model:ir.ui.view,arch_db:account.view_account_move_line_filter
+#: model:ir.ui.view,arch_db:account.view_account_payment_search
+#, python-format
+msgid "Partner"
+msgstr "المستفيد"
+
+#. module: account
+#: model:ir.model.fields,field_description:account.field_account_payment_journal_id
+msgid "Payment Journal"
+msgstr "الحساب البنكي"
+
+#. module: account
+#: model:ir.ui.view,arch_db:account.invoice_supplier_form
+msgid "Draft Bill"
+msgstr "مسودة"
+
+#. module: account
+#: model:ir.ui.menu,name:account.menu_finance
+#: model:ir.ui.view,arch_db:account.product_template_form_view
+#: model:ir.ui.view,arch_db:account.res_config_settings_view_form
+#: model:ir.ui.view,arch_db:account.view_partner_property_form
+msgid "Invoicing"
+msgstr "المالية"
+
+#. module: account
+#: model:ir.model.fields,field_description:account.field_account_payment_invoice_ids
+#: model:ir.ui.view,arch_db:account.view_account_payment_form
+#: model:ir.ui.view,arch_db:account.view_account_payment_graph
+msgid "Invoices"
+msgstr "إذن الصرف"
+
+#. module: account
+#. openerp-web
+#: code:addons/account/static/src/js/reconciliation/reconciliation_renderer.js:521
+#: code:addons/account/static/src/js/reconciliation/reconciliation_renderer.js:523
+#: code:addons/account/static/src/xml/account_reconciliation.xml:170
+#: code:addons/account/static/src/xml/account_reconciliation.xml:228
+#: code:addons/account/static/src/xml/account_reconciliation.xml:253
+#: model:ir.model,name:account.model_account_account
+#: model:ir.model.fields,field_description:account.field_account_cash_rounding_account_id
+#: model:ir.model.fields,field_description:account.field_account_invoice_account_id
+#: model:ir.model.fields,field_description:account.field_account_invoice_line_account_id
+#: model:ir.model.fields,field_description:account.field_account_invoice_report_account_id
+#: model:ir.model.fields,field_description:account.field_account_move_dummy_account_id
+#: model:ir.model.fields,field_description:account.field_account_move_line_account_id
+#: model:ir.model.fields,field_description:account.field_account_reconcile_model_account_id
+#: model:ir.model.fields,field_description:account.field_account_reconcile_model_template_account_id
+#: model:ir.ui.view,arch_db:account.report_journal
+#: model:ir.ui.view,arch_db:account.report_partnerledger
+#: model:ir.ui.view,arch_db:account.report_trialbalance
+#: model:ir.ui.view,arch_db:account.view_account_form
+#: model:ir.ui.view,arch_db:account.view_account_move_line_filter
+#: model:ir.ui.view,arch_db:account.view_account_reconcile_model_form
+#: model:ir.ui.view,arch_db:account.view_account_search
+#, python-format
+msgid "Account"
+msgstr "البند"
+
+#. module: account
+#. openerp-web
+#: code:addons/account/static/src/js/reconciliation/reconciliation_renderer.js:522
+#: code:addons/account/static/src/xml/account_reconciliation.xml:189
+#: code:addons/account/static/src/xml/account_reconciliation.xml:230
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line_name
+#: model:ir.model.fields,field_description:account.field_account_move_line_name
+#: model:ir.ui.view,arch_db:account.report_journal
+#: model:ir.ui.view,arch_db:account.view_account_payment_invoice_form
+#, python-format
+msgid "Label"
+msgstr "وصف"
+
+#. module: account_cancel
+#: model:ir.ui.view,arch_db:account_cancel.invoice_form_cancel_inherit
+#: model:ir.ui.view,arch_db:account_cancel.invoice_supplier_cancel_form_inherit
+msgid "Cancel Invoice"
+msgstr "إلغاء"
+
+#. module: invoice_direct_payment
+#: model:ir.model.fields,field_description:invoice_direct_payment.field_account_payment_description
+#: model:ir.ui.view,arch_db:invoice_direct_payment.view_account_payment_form
+#: model:ir.ui.view,arch_db:invoice_direct_payment.view_account_payment_invoice_form
+msgid "Description"
+msgstr "الوصف"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.view_account_payment_invoice_form
+msgid "Create"
+msgstr "إنشاء"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.invoice_supplier_form
+msgid "Register Payment"
+msgstr "تسجيل أمر الصرف"
+
+#. module: account
+#: model:ir.model,name:account.model_product_product
+#: model:ir.model.fields,field_description:account.field_account_analytic_line_product_id
+#: model:ir.model.fields,field_description:account.field_account_invoice_line_product_id
+#: model:ir.model.fields,field_description:account.field_account_invoice_report_product_id
+#: model:ir.model.fields,field_description:account.field_account_move_line_product_id
+#: model:ir.ui.view,arch_db:account.view_account_analytic_line_filter_inherit_account
+msgid "Product"
+msgstr "الصنف / الخدمة"
+
+#. module: account
+#: model:ir.ui.view,arch_db:account.invoice_supplier_form
+msgid "Additional notes..."
+msgstr "الوصف"
+
+#. module: account
+#: model:ir.model.fields,field_description:account.field_account_invoice_comment
+msgid "Additional Information"
+msgstr "الوصف"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.invoice_request_form
+msgid "Print Request"
+msgstr "طباعة الطلب"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.invoice_request_form
+msgid "- First Number:"
+msgstr "- الرقم الأول:"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.invoice_request_form
+msgid "Accountant Review"
+msgstr "مراجعه"
+
+#. module: invoice_direct_payment
+#: model:ir.model.fields,field_description:invoice_direct_payment.field_account_invoice_bank_account_id
+msgid "Bank Account Number"
+msgstr "رقم الحساب اي بآن"
+
+#. module: invoice_direct_payment
+#: model:ir.model.fields,field_description:invoice_direct_payment.field_account_invoice_bank_code
+msgid "Bank Name"
+msgstr "إسم البنك"
+
+#. module: invoice_direct_payment
+#: model:ir.actions.act_window,help:invoice_direct_payment.action_request_tree
+msgid "Click to record a new request."
+msgstr "إضغط لإنشاء طلب جديد."
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.invoice_request_form
+msgid "DM Validate"
+msgstr "اعتماد"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.invoice_request_form
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.invoice_request_form
+msgid "Details"
+msgstr "التفاصيل"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.invoice_request_form
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: invoice_direct_payment
+#: model:ir.model.fields,field_description:invoice_direct_payment.field_account_invoice_employee_id
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: invoice_direct_payment
+#: model:ir.model.fields,help:invoice_direct_payment.field_account_invoice_bank_account_id
+msgid "Employee bank salary account"
+msgstr "الحساب البنكي لراتب الموظف"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.invoice_request_form
+msgid "FM Approve"
+msgstr "اعتماد"
+
+#. module: invoice_direct_payment
+#: model:ir.actions.act_window,name:invoice_direct_payment.action_request_tree
+#: model:ir.ui.menu,name:invoice_direct_payment.menu_action_request_tree
+#: model:ir.ui.view,arch_db:invoice_direct_payment.invoice_request_form
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Financial Request"
+msgstr "طلب تعويض نقدي"
+
+#. module: invoice_direct_payment
+#: model:ir.model.fields,field_description:invoice_direct_payment.field_account_invoice_job_id
+msgid "Job Position"
+msgstr "المسمى الوظيفي"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.invoice_request_form
+msgid "Notes..."
+msgstr "الوصف..."
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.invoice_request_form
+msgid "Number"
+msgstr "رقم الطلب"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.invoice_request_form
+msgid "Other Info"
+msgstr "معلومات أخرى"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.invoice_request_form
+msgid "QC Approve"
+msgstr "اعتماد"
+
+#. module: invoice_direct_payment
+#: model:res.groups,name:invoice_direct_payment.group_quality_control
+msgid "Quality Control"
+msgstr "اخصائي الجودة والمراجعة"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.invoice_request_form
+msgid "Register Payment"
+msgstr "تسجيل السداد"
+
+#. module: invoice_direct_payment
+#: model:ir.model.fields,field_description:invoice_direct_payment.field_account_invoice_request
+msgid "Request"
+msgstr "اطلب"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.invoice_request_form
+msgid "Responsible"
+msgstr "المسؤول"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.invoice_request_form
+msgid "Set to Draft"
+msgstr "تعيين كمسودة"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.invoice_request_form
+msgid "Submit"
+msgstr "إرسال"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.invoice_request_form
+msgid "Taxes"
+msgstr "الضرائب"
+
+#. module: invoice_direct_payment
+#: model:ir.model.fields,field_description:invoice_direct_payment.field_account_invoice_mobile_phone
+msgid "Work Mobile"
+msgstr "رقم الجوال"
+
+#. module: invoice_direct_payment
+#: model:ir.model.fields,field_description:invoice_direct_payment.field_account_invoice_department_id
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Department"
+msgstr "الإدارة"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.invoice_request_form
+msgid "You have"
+msgstr "لديك"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.invoice_request_form
+msgid "for this supplier. You can allocate them to mark this bill as paid."
+msgstr "لهذا المورد. يمكنك توزيعها لإتمام سداد هذه الفاتورة وتحويلها إلى مدفوعة."
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.invoice_request_form
+msgid "outstanding debits"
+msgstr "الديون المستحقة"
+
+#. module: account
+#: selection:account.invoice,state:0
+msgid "Direct Manager"
+msgstr "اعتماد المدير المباشر"
+
+#. module: account
+#: selection:account.invoice,state:0
+msgid "QC Approve"
+msgstr "اعتماد الجودة والمراجعة"
+
+#. module: account
+#: selection:account.invoice,state:0
+msgid "Department Manager"
+msgstr "اعتماد مدير الإدارة"
+
+#. module: account
+#: selection:account.invoice,state:0
+msgid "Accountant"
+msgstr "مراجعه الاخصائي المالي"
+
+#. module: account
+#: selection:account.invoice,state:0
+msgid "Financial Manager"
+msgstr "اعتماد المدير المالي"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.invoice_request_form
+msgid "DM Confirm"
+msgstr "اعتماد"
+
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.invoice_request_form
+msgid "Cancel"
+msgstr "إالغاء"
+
+#. module: invoice_direct_payment
+#: model:ir.model.fields,field_description:invoice_direct_payment.field_account_invoice_line_vendor
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Vendor"
+msgstr "المورد"
+
+#. module: invoice_direct_payment
+#: model:ir.model.fields,field_description:invoice_direct_payment.field_account_invoice_line_invoice_no
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Invoice No"
+msgstr "رقم الفاتورة"
+
+#. module: invoice_direct_payment
+#: model:ir.model.fields,field_description:invoice_direct_payment.field_account_invoice_line_invoice_date
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Invoice Date"
+msgstr "تاريخ الفاتورة"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Beneficiary Info"
+msgstr "بيانات المستفيد"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Cost Center"
+msgstr "مركز التكلفة"
+
+#. module: account
+#: model:ir.model.fields,field_description:account.field_account_invoice_account_analytic_id
+msgid "Cost Center"
+msgstr "مركز التكلفة"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Direct Manager"
+msgstr "المدير المباشر"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Department Manager"
+msgstr "مدير الإدارة"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Financial Manager"
+msgstr "مدير الادارة المالية"
+
+#. module: invoice_direct_payment
+#: model:ir.actions.report,name:invoice_direct_payment.action_account_financial_request
+msgid "Financial Request"
+msgstr "طباعة طلب التعويض النقدي"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "IBAN"
+msgstr "IBAN"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Invoices Info"
+msgstr "بيانات الفواتير"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Job"
+msgstr "المسمى الوظيفي"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Mobile"
+msgstr "رقم الجوال"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Name"
+msgstr "الاسم"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Payment No"
+msgstr "رقم سند أمر الصرف"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Review"
+msgstr "رُجعت بواسطة"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Signature"
+msgstr "التوقيع"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Account"
+msgstr "حساب"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_invoice_pay
+msgid "Bank"
+msgstr "أسم البنك"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "Approved By"
+msgstr "Approved By"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "Bank Name"
+msgstr "Bank Name"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "Brief Description of pay"
+msgstr "Brief Description of pay"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "DATE"
+msgstr "DATE"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "Department"
+msgstr "Department"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "Expense Type"
+msgstr "Expense Type"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "IBAN"
+msgstr "IBAN"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "PO Number"
+msgstr "PO Number"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "Payment Payable To"
+msgstr "Payment Payable To"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "Payment Voucher"
+msgstr "Payment Voucher"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "Processed By"
+msgstr "Processed By"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "Reviewed By"
+msgstr "Reviewed By"
+
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "Total Amount"
+msgstr "Total Amount"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "Total Amount in WORDS"
+msgstr "Total Amount in WORDS"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "أسم البند"
+msgstr "أسم البند"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "أمر صرف"
+msgstr "أمر صرف"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "إسم البند"
+msgstr "إسم البند"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "إسم البنك"
+msgstr "إسم البنك"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "إسم المدفوع له"
+msgstr "إسم المدفوع له"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "إعتماد المشرف العام"
+msgstr "إعتماد المشرف العام"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "إعتماد مدير الخدمات المشتركة"
+msgstr "إعتماد مدير الخدمات المشتركة"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "إعداد"
+msgstr "إعداد"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "الإدارة"
+msgstr "الإدارة"
+
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "التاريخ"
+msgstr "التاريخ"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "التفاصيل"
+msgstr "التفاصيل"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "الحساب البنكي"
+msgstr "الحساب البنكي"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "المبلغ"
+msgstr "المبلغ"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "المبلغ الكلي"
+msgstr "المبلغ الكلي"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "المبلغ الكلي كتابة"
+msgstr "المبلغ الكلي كتابة"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "بيانات أمر الصرف"
+msgstr "بيانات أمر الصرف"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "رقم أمر الشراء/خطاب"
+msgstr "رقم أمر الشراء/خطاب"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "رقم سند الصرف"
+msgstr "رقم سند الصرف"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "مراجعة"
+msgstr "مراجعة"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "موافقة"
+msgstr "موافقة"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.report_account_payment_receipt
+msgid "وصف مختصر للدفعة"
+msgstr "وصف مختصر للدفعة"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.view_account_invoice_filter
+msgid "Cost Center"
+msgstr "مركز التكلفة"
+
+#. module: invoice_direct_payment
+#: model:res.groups,name:invoice_direct_payment.group_accountant
+msgid "Accountant"
+msgstr "الأخصائي المالي"
+
+#. module: invoice_direct_payment
+#: model:res.groups,name:invoice_direct_payment.group_create_expense_order
+msgid "Create Expense Order"
+msgstr "إنشاء أمر صرف"
+
+#. module: invoice_direct_payment
+#: model:res.groups,name:invoice_direct_payment.group_financial_request
+msgid "Create Financial Request"
+msgstr "إنشاء طلب تعويض نقدي"
+
+#. module: invoice_direct_payment
+#: code:addons/invoice_direct_payment/models/account_invoice.py:92
+#, python-format
+msgid "No period found for date (%s)"
+msgstr "لم يتم العثور على فترة مالية للتاريخ (%s)"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.crossovered_budget_view_form
+msgid "Cancel Budget"
+msgstr "إلغاء الموازنة"
+
+#. module: invoice_direct_payment
+#: model:ir.ui.view,arch_db:invoice_direct_payment.payment_cancel_form_inherit
+msgid "Cancel"
+msgstr "إلغاء"

@@ -1,0 +1,108 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <template id="contract_residual_installlments">
+        <t t-call="web.html_container">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.internal_layout">
+                        <style type="text/css">
+                            @font-face {
+                            font-family: 'ae_AlMohanad';
+                            src: local('ae_AlMohanad'), local('ae_AlMohanad'),
+                            url('/contract/static/fonts/ae_AlMohanad.ttf') format('truetype');
+                            }
+                            *{
+                            font-family: ae_AlMohanad;
+                            }
+                        </style>
+                        <div class="page">
+
+                            <strong>Contract: </strong>
+                            <span t-field="o.name"/>
+
+                            <br/>
+                            <br/>
+                            <p>Installments: </p>
+                            <table class="table table-condensed table-bordered">
+                                <t t-set="residual_total" t-value="0"/>
+                                <t t-set="amount_total" t-value="0"/>
+                                <t t-set="number" t-value="1"/>
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">
+                                            <strong>No</strong>
+                                        </th>
+                                        <th class="text-center">
+                                            <strong>Installment</strong>
+                                        </th>
+                                        <th class="text-center">
+                                            <strong>Due Date</strong>
+                                        </th>
+                                        <th class="text-center">
+                                            <strong>Amount</strong>
+                                        </th>
+                                        <th class="text-center">
+                                            <strong>Residual</strong>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="installment_data" t-as="installment">
+                                        <t t-if="installment['contract']== o.id">
+
+
+                                            <tr>
+                                                <td class="text-center">
+                                                    <span t-esc="number"/>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span t-esc="installment['name']"/>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span t-esc="installment['due_date']"/>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span t-esc="installment['total_amount']"/>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span t-esc="installment['residual']"/>
+                                                </td>
+                                                <t t-set="number" t-value="number +1"/>
+                                            </tr>
+                                            <t t-set="amount_total" t-value="amount_total + installment['total_amount']"/>
+                                            <t t-set="residual_total" t-value="residual_total + installment['residual']"/>
+
+                                        </t>
+                                    </t>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="3">Total</td>
+
+                                        <td class="text-center">
+                                            <span t-esc="amount_total"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="residual_total"/>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <br/>
+                            <div class="oe_structure"/>
+                            <div class="row" id="signture_info">
+                                <div class="col-xs-4  col-xs-offset-2">
+                                    <span>Financial Manager</span>
+                                </div>
+                                <div class="col-xs-4">
+                                    <span>Accountant</span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+            </t>
+        </template>
+    </odoo>

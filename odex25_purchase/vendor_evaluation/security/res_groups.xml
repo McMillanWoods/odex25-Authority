@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data noupdate="1">
+        <!-- Add you code here -->
+        <record id="vendor_evaluation_ctegory" model="ir.module.category">
+            <field name="name">Vendor Evaluation</field>
+        </record>
+
+         <record id="main_vendor_evalution" model="res.groups">
+            <field name="name">Evaluation</field>
+            <field name="category_id" ref="vendor_evaluation.vendor_evaluation_ctegory"/>
+        </record>
+
+        <record id="purchase_group" model="res.groups">
+            <field name="name">Purchase Evaluation</field>
+            <field name="category_id" ref="vendor_evaluation.vendor_evaluation_ctegory"/>
+        </record>
+
+        <record id="stock_group" model="res.groups">
+            <field name="name">Stock Evaluation</field>
+            <field name="category_id" ref="vendor_evaluation.vendor_evaluation_ctegory"/>
+        </record>
+
+        <record id="finance_group" model="res.groups">
+            <field name="name">Finance Evaluation</field>
+            <field name="category_id" ref="vendor_evaluation.vendor_evaluation_ctegory"/>
+        </record>
+        
+    </data>
+</odoo>

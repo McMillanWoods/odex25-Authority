@@ -1,0 +1,843 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* purchase_custom_vro
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-25 20:12+0000\n"
+"PO-Revision-Date: 2022-01-25 20:12+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.product_category_form_view_custom
+msgid "<span class=\"o_stat_text\"> Products</span>"
+msgstr "<span class=\"o_stat_text\"> المنتجات</span>"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.view_picking_form
+msgid "<span class=\"o_stat_text\">Operations</span>"
+msgstr "<span class=\"o_stat_text\">العمليات</span>"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.product_category_form_view_custom
+msgid "Account Properties"
+msgstr "خصائص الحساب"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.view_picking_form
+msgid "Additional Info"
+msgstr "معلومات اضافية"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_purchase_requisition_line_amount
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.purchase_requisition_form_view_inherit
+msgid "Approve"
+msgstr "إعتماد"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.view_picking_form
+msgid "Assign Owner"
+msgstr "تعيين مالك"
+
+#. module: purchase_custom_vro
+#: selection:res.partner,vendor_list:0
+msgid "Black List"
+msgstr "قائمة سوداء"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_purchase_requisition_line_budget_line_id
+msgid "Budget Line"
+msgstr "خط الموازنة"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_product_product_stock_ok
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_product_template_stock_ok
+msgid "Can be Stock"
+msgstr "يمكن تخزينة"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.hr_expense_refuse_wizard_view_form
+#: model:ir.ui.view,arch_db:purchase_custom_vro.view_picking_form
+#: model:ir.ui.view,arch_db:purchase_custom_vro.wizard_picking_cancel_reason_view_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.purchase_order_form_view_inherit
+msgid "Cancel Order"
+msgstr "إلغاء أمر الشراء"
+
+#. module: purchase_custom_vro
+#: model:ir.actions.act_window,name:purchase_custom_vro.wizard_picking_cancel_reason_action
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_stock_picking_cancel_reason
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_stock_picking_cancel_reason_wiz_cancel_reason
+msgid "Cancel Reason"
+msgstr "سبب الإلغاء"
+
+#. module: purchase_custom_vro
+#: code:addons/purchase_custom_vro/models/stock_picking.py:22
+#, python-format
+msgid "Cancellation Reason"
+msgstr "سبب الإلغاء"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.product_category_form_view_custom
+msgid "Category name"
+msgstr "اسم الفئة"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.view_picking_form
+msgid "Check Availability"
+msgstr "تحقق من توفر الكمية"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.purchase_requisition_custom_form_view
+msgid "Check Budget"
+msgstr "التأكد من الموازنة"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.purchase_requisition_custom_form_view
+msgid "Choose All"
+msgstr "تحديد الكل"
+
+#. module: purchase_custom_vro
+#: code:addons/purchase_custom_vro/models/purchase_requisition.py:155
+#, python-format
+msgid "Choose At Least one product to purchase"
+msgstr "قم بتحديد صنف واحد على الأقل للشراء"
+
+#. module: purchase_custom_vro
+#: model:ir.model,name:purchase_custom_vro.model_res_company
+msgid "Companies"
+msgstr "المؤسسات"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.view_picking_form
+#: model:ir.ui.view,arch_db:purchase_custom_vro.wizard_picking_cancel_reason_view_form
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: purchase_custom_vro
+#: model:ir.model,name:purchase_custom_vro.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_purchase_requisition_line_remaining_analytic_budget
+msgid "Cost Center Remain Balance"
+msgstr "رصيد مركز التكلفة المتبقي"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_stock_picking_cancel_reason_wiz_create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_stock_picking_cancel_reason_wiz_create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: purchase_custom_vro
+#: model:ir.actions.act_window,name:purchase_custom_vro.action_picking_tree_incoming
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_purchase_request_picking_count
+#: model:ir.ui.menu,name:purchase_custom_vro.purchase_request_delivery_menu
+#: model:ir.ui.view,arch_db:purchase_custom_vro.purchase_request_form_view_inherit
+msgid "Deliveries"
+msgstr "مستلمات"
+
+#. module: purchase_custom_vro
+#: model:res.groups,name:purchase_custom_vro.group_delivery_confirm
+msgid "Deliveries Confirm"
+msgstr "تأكيد الإستلام"
+
+#. module: purchase_custom_vro
+#: model:res.groups,name:purchase_custom_vro.group_delivery_validate
+msgid "Deliveries Validate"
+msgstr "إعتماد الأستلام"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_purchase_requisition_line_department_id
+msgid "Department"
+msgstr "الإدارة"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.view_picking_form
+msgid "Detailed Operations"
+msgstr "عمليات مفصلة"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_stock_picking_cancel_reason_wiz_display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.view_picking_form
+msgid "Done"
+msgstr "منتهي"
+
+#. module: purchase_custom_vro
+#: model:ir.model,name:purchase_custom_vro.model_mail_compose_message
+msgid "Email composition wizard"
+msgstr "معالج تكوين رسالة بريد الالكتروني"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_purchase_requisition_employee_id
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.menu,name:purchase_custom_vro.purchase_request_root_menu
+msgid "Employee Requests"
+msgstr "طلبات الموظفين"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_res_company_general_supervisor_id
+msgid "General Supervisor"
+msgstr "General Supervisor"
+
+#. module: purchase_custom_vro
+#: model:ir.actions.report,name:purchase_custom_vro.action_report_grn
+#: model:ir.actions.report,name:purchase_custom_vro.action_report_grn_picking
+msgid "Goods Received Note"
+msgstr "محضر إستلام بضاعة"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_stock_picking_cancel_reason_wiz_id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.purchase_request_form_view_inherit
+msgid "Incoming Shipments"
+msgstr "الشحنات الواردة"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.view_picking_form
+msgid "Initial Demand"
+msgstr "الكمية المبدئية"
+
+#. module: purchase_custom_vro
+#: model:ir.model,name:purchase_custom_vro.model_account_invoice
+msgid "Invoice"
+msgstr "الفاتورة"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_stock_picking_cancel_reason_wiz___last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_stock_picking_cancel_reason_wiz_write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_stock_picking_cancel_reason_wiz_write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.view_picking_form
+msgid "List view of operations"
+msgstr "قائمة العمليات"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.view_picking_form
+msgid "Mark as Todo"
+msgstr "تحديد كمنتظر التنفيذ"
+
+#. module: purchase_custom_vro
+#: selection:purchase.order,product_type:0
+msgid "Material"
+msgstr "مواد"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "Minstry of Education,Riyadh,King Abdullah,Rd Gate 3 Parking"
+msgstr "Minstry of Education,Riyadh,King Abdullah,Rd Gate 3 Parking"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_purchase_requisition_selected_order_count
+msgid "Number of Orders"
+msgstr "عدد الأوامر"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.view_picking_form
+msgid "Operations"
+msgstr "العمليات"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.purchase_order_form_view_inherit
+#: model:ir.ui.view,arch_db:purchase_custom_vro.purchase_requisition_form_view_inherit
+msgid "PR"
+msgstr "طلب الشراء"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.view_picking_form
+msgid "Packages"
+msgstr "الطرود"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_purchase_request_picking_ids
+msgid "Picking"
+msgstr "اختيار"
+
+#. module: purchase_custom_vro
+#: code:addons/purchase_custom_vro/models/purchase_requisition.py:160
+#, python-format
+msgid "Please define department and analytic account in purchase requisition lines!"
+msgstr "الرجاء تحديد الإدارة ومركز التكلفة في أصناف طلب الشراء"
+
+#. module: purchase_custom_vro
+#: code:addons/purchase_custom_vro/models/purchase_requisition.py:167
+#, python-format
+msgid "Please make sure analytic accounts have sufficient budget in purchase requisition lines!"
+msgstr "الرجاء التأكد من ان مراكز التكلفة لها موازنة كافية في أصناف طلب الشراء"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.view_picking_form
+msgid "Print GRN"
+msgstr "طباعة محضر إستلام محضر البضاعة"
+
+#. module: purchase_custom_vro
+#: model:ir.model,name:purchase_custom_vro.model_product_category
+msgid "Product Category"
+msgstr "فئة المنتج"
+
+#. module: purchase_custom_vro
+#: model:ir.model,name:purchase_custom_vro.model_product_template
+msgid "Product Template"
+msgstr "قالب المنتج"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_purchase_order_product_type
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_stock_picking_product_type
+msgid "Product Type"
+msgstr "نوع المنتج"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.hr_expense_refuse_wizard_view_form
+msgid "Purchae requistion refuse reason"
+msgstr "سبب الرفض"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_purchase_requisition_line_chosen
+msgid "Purchase"
+msgstr "الشراء"
+
+#. module: purchase_custom_vro
+#: model:res.groups,name:purchase_custom_vro.group_po_common_services_approve
+msgid "Purchase Common Services Approval"
+msgstr "تصديق الخدمات المشتركة"
+
+#. module: purchase_custom_vro
+#: model:res.groups,name:purchase_custom_vro.group_po_finance_approve
+msgid "Purchase Finance Approval"
+msgstr "التصديق المالي"
+
+#. module: purchase_custom_vro
+#: model:res.groups,name:purchase_custom_vro.group_po_general_supervisor_approve
+msgid "Purchase General Supervisor Approval"
+msgstr "تصديق المشرف العام"
+
+#. module: purchase_custom_vro
+#: model:ir.model,name:purchase_custom_vro.model_purchase_order
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_purchase_request_purchase_order_ids
+msgid "Purchase Order"
+msgstr "عرض سعر"
+
+#. module: purchase_custom_vro
+#: model:ir.model,name:purchase_custom_vro.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "بند طلب الشراء"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_purchase_requisition_line_requisition_purchase_ids
+msgid "Purchase Orders"
+msgstr "اوامر الشراء"
+
+#. module: purchase_custom_vro
+#: model:res.groups,name:purchase_custom_vro.group_quality_approve
+msgid "Purchase Quality Approve "
+msgstr "موافقة مستخدم الجودة "
+
+#. module: purchase_custom_vro
+#: model:ir.model,name:purchase_custom_vro.model_purchase_request
+msgid "Purchase Request"
+msgstr "طلبات الشراء"
+
+#. module: purchase_custom_vro
+#: model:ir.model,name:purchase_custom_vro.model_purchase_requisition
+msgid "Purchase Requisition"
+msgstr "طلب شراء"
+
+#. module: purchase_custom_vro
+#: model:ir.model,name:purchase_custom_vro.model_purchase_requisition_line
+msgid "Purchase Requisition Line"
+msgstr "بند المناقصة"
+
+#. module: purchase_custom_vro
+#: model:res.groups,name:purchase_custom_vro.group_user_approve
+msgid "Purchase User Approve "
+msgstr "موافقة الإدارة المالية علي أمر الشراء "
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.view_picking_form
+msgid "Put in Pack"
+msgstr "تغليف في حزمة"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.purchase_requisition_custom_form_view
+msgid "Quality Approve"
+msgstr "الجودة"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.hr_expense_refuse_wizard_view_form
+msgid "Reason to refuse Requsition"
+msgstr "سبب الرفض"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_purchase_order_recomandation_order
+#: model:ir.ui.view,arch_db:purchase_custom_vro.purchase_requisition_form_view_inherit
+msgid "Recommend"
+msgstr "العرض الموصي به"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.hr_expense_refuse_wizard_view_form
+msgid "Refuse"
+msgstr "تحفظ"
+
+#. module: purchase_custom_vro
+#: code:addons/purchase_custom_vro/models/purchase_requisition.py:185
+#, python-format
+msgid "Refuse Reason is : %s"
+msgstr "سبب الرفض : %s"
+
+#. module: purchase_custom_vro
+#: model:ir.actions.act_window,name:purchase_custom_vro.purchase_requistion_refuse_wizard_action
+msgid "Refuse Requistion"
+msgstr "سبب الرفض"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.view_picking_form
+msgid "Register lots, packs, location"
+msgstr "Register lots, packs, location"
+
+#. module: purchase_custom_vro
+#: model:ir.actions.act_window,name:purchase_custom_vro.action_purchase_requisition_select
+msgid "Request for Quotations"
+msgstr "طلب عروض الأسعار"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_purchase_order_line_requisition_line_id
+msgid "Requisition Line"
+msgstr "لاين اتفاقية شراء"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.view_picking_form
+msgid "Reserved"
+msgstr "محجوز"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.view_picking_form
+msgid "Scraps"
+msgstr "التوالف"
+
+#. module: purchase_custom_vro
+#: selection:purchase.order,product_type:0
+msgid "Service"
+msgstr "خدمة"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_purchase_requisition_custom_three_validation_steps
+msgid "Special validation steps"
+msgstr "طلب أستثنائي"
+
+#. module: purchase_custom_vro
+#: model:ir.model,name:purchase_custom_vro.model_stock_move
+msgid "Stock Move"
+msgstr "حركة المخزون"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.view_picking_form
+msgid "Stock Moves"
+msgstr "تحركات المخزون"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.purchase_request_form_view_inherit
+msgid "Suggest Vendor"
+msgstr "الموردون المقترحون"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_purchase_request_Suggest_vendors
+msgid "Suggest Vendors"
+msgstr "الموردون المقترحون"
+
+#. module: purchase_custom_vro
+#: code:addons/purchase_custom_vro/models/purchase_requisition.py:13
+#, python-format
+msgid "This user has no related emplyee please assign one"
+msgstr "هذا المستخدم ليس لديه موظف مرتبط يرجى تعيين واحد"
+
+#. module: purchase_custom_vro
+#: model:ir.model,name:purchase_custom_vro.model_stock_picking
+msgid "Transfer"
+msgstr "نقل"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.view_picking_form
+msgid "Unit of Measure"
+msgstr "وحده القياس "
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.view_picking_form
+msgid "Unreserve"
+msgstr "إلغاء الحجز"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.view_picking_form
+msgid "Up/Down Traceability"
+msgstr "Up/Down Traceability"
+
+#. module: purchase_custom_vro
+#: model:ir.actions.report,name:purchase_custom_vro.custom_purchase_order_report
+msgid "VRO Purchase Order"
+msgstr "VRO Purchase Order"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.view_picking_form
+msgid "Validate"
+msgstr "تحقق"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_res_partner_vendor_list
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_res_users_vendor_list
+msgid "Vendor List"
+msgstr "قائمة المورد"
+
+#. module: purchase_custom_vro
+#: selection:res.partner,vendor_list:0
+msgid "White List"
+msgstr "قائمة معتمدة"
+
+#. module: purchase_custom_vro
+#: code:addons/purchase_custom_vro/models/stock_picking.py:34
+#, python-format
+msgid "You cannot delete a done delivery!"
+msgstr "لا يمكنك حذف إستلام منتهي!"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.product_category_form_view_custom
+msgid "e.g. Lamps"
+msgstr "مثلًا: مصابيح"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.view_picking_form
+msgid "e.g. PO0032"
+msgstr "مثال.PO0032"
+
+#. module: purchase_custom_vro
+#: model:ir.model,name:purchase_custom_vro.model_purchase_requistion_refuse_wizard
+msgid "purchase refuse Reason wizard"
+msgstr "سبب الرفض"
+
+#. module: purchase_custom_vro
+#: model:ir.model.fields,field_description:purchase_custom_vro.field_purchase_requisition_send_to_commitee
+msgid "send_to_commitee"
+msgstr "send_to_commitee"
+
+#. module: purchase_custom_vro
+#: model:ir.model,name:purchase_custom_vro.model_stock_picking_cancel_reason_wiz
+msgid "stock.picking.cancel.reason.wiz"
+msgstr "stock.picking.cancel.reason.wiz"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.purchase_requisition_custom_form_view
+msgid "user approve"
+msgstr "الإدارة المالية"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "أمر الشراء"
+msgstr "أمر الشراء"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "إجمالي قيمة الشراء"
+msgstr "إجمالي قيمة الشراء"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "إسم الصنف / الوصف"
+msgstr "إسم الصنف / الوصف"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "إسم المورد"
+msgstr "إسم المورد"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "إسم المورد / مقدم الخدمة"
+msgstr "إسم المورد / مقدم الخدمة"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "الإجمالي"
+msgstr "الإجمالي"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "الإيميل"
+msgstr "الإيميل"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "التاريخ"
+msgstr "التاريخ"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "التاريخ / Date"
+msgstr "التاريخ / Date"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "التقييم"
+msgstr "التقييم"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "التواصل"
+msgstr "التواصل"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "التوقيع"
+msgstr "التوقيع"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "الجوال"
+msgstr "الجوال"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "الرقم / PO"
+msgstr "الرقم / PO"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "السعر الإجمالي"
+msgstr "السعر الإجمالي"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "السعر الفردي"
+msgstr "السعر الفردي"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "العنوان"
+msgstr "العنوان"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "الكمية/qty"
+msgstr "الكمية/qty"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "المبلغ الإجمالي (شامل الضريبة)"
+msgstr "المبلغ الإجمالي (شامل الضريبة)"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "المشرف العام علي مكتب تحقيق الرؤية"
+msgstr "المشرف العام علي مكتب تحقيق الرؤية"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "الهاتف"
+msgstr "الهاتف"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "الوحدة/unit"
+msgstr "الوحدة/unit"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "الوصف"
+msgstr "الوصف"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "بيان الخدمة/المواد"
+msgstr "بيان الخدمة/المواد"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "بيانات الإستلام"
+msgstr "بيانات الإستلام"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "بيانات الطلب"
+msgstr "بيانات الطلب"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "بيانات المورد / Supplier Info"
+msgstr "بيانات المورد / Supplier Info"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "تاريخ التسليم"
+msgstr "تاريخ التسليم"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "تحويل بنكي | Bank Transfer"
+msgstr "تحويل بنكي | Bank Transfer"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "ترسل إلي"
+msgstr "ترسل إلي"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "ترسل إلي  / Send To"
+msgstr "ترسل إلي  / Send To"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "تقييم الموردين"
+msgstr "تقييم الموردين"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "تم الاستلام بواسطة"
+msgstr "تم الاستلام بواسطة"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "جودة الطلب"
+msgstr "جودة الطلب"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "راضي"
+msgstr "راضي"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "رقم أمر الشراء/الفاتورة"
+msgstr "رقم أمر الشراء/الفاتورة"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "سرعة تنفيذ الطلب"
+msgstr "سرعة تنفيذ الطلب"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "ضريبة القيمة المضافة"
+msgstr "ضريبة القيمة المضافة"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "طريقة التسليم"
+msgstr "طريقة التسليم"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "طريقة الدفع"
+msgstr "طريقة الدفع"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "عناية"
+msgstr "عناية"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "غير راضي"
+msgstr "غير راضي"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "لا"
+msgstr "لا"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "مكتب تحقيق الرؤية في وزارة التعليم"
+msgstr "مكتب تحقيق الرؤية في وزارة التعليم"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "ملاحظات"
+msgstr "ملاحظات"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "مُعِد أمر الشراء"
+msgstr "مُعِد أمر الشراء"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "نعم"
+msgstr "نعم"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "نموذج الاستلام للمواد/ خدمة"
+msgstr "نموذج الاستلام للمواد/ خدمة"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "نوصي بالتعامل مع المورد مرة اخري"
+msgstr "نوصي بالتعامل مع المورد مرة اخري"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.report_delivery_document
+msgid "نوع الإستلام"
+msgstr "نوع الإستلام"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.custom_po_report
+msgid "وزارة التعليم على طريق الملك عبدالله - موقف 22 بوابة 6 الدور الثالث"
+msgstr "وزارة التعليم على طريق الملك عبدالله - موقف 22 بوابة 6 الدور الثالث"
+
+
+#. module: purchase_requisition
+#: code:addons/purchase_requisition/models/purchase_requisition.py:88
+#, python-format
+msgid "You cannot confirm call because there is no product line."
+msgstr "لا يمكنك تأكيد الطلب  لأنه لا يوجد منتجات."
+
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.view_immediate_transfer
+msgid ""
+"You haven't entered <i>done</i> quantities, by clicking on <i>apply</i>\n"
+"                        Odoo will process all the <i>reserved</i> quantities."
+msgstr "لم تقم بإدخال الكميات،بالضغط على تطبيق  سيتم أخذ كل الكميات"
+
+#. module: purchase_custom_vro
+#: model:ir.ui.view,arch_db:purchase_custom_vro.purchase_requisition_form_view_inherit
+msgid "Refuse"
+msgstr "رفض"

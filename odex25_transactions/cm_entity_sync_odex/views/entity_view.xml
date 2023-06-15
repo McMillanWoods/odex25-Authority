@@ -1,0 +1,60 @@
+<odoo>
+    <data>
+
+        <record id="cm_inter_entity_tree" model="ir.ui.view">
+            <field name="name">cm.inter_entity.tree</field>
+            <field name="model">cm.inter_entity</field>
+            <field name="arch" type="xml">
+                <tree string="Inter-Entities">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="url"/>
+                    <field name="uuid"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="cm_inter_entity_form" model="ir.ui.view">
+            <field name="name">cm.inter_entity.form</field>
+            <field name="model">cm.inter_entity</field>
+            <field name="arch" type="xml">
+                <form string="Inter-Entity">
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="url"/>
+                            <field name="uuid"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="cm_entity_form" model="ir.ui.view">
+            <field name="name">cm.entity.form</field>
+            <field name="model">cm.entity</field>
+            <field name="inherit_id" ref="exp_transaction_documents.cm_entity_form" />
+            <field name="arch" type="xml">
+                <field name="manager_id" position="after">
+                    <field name="is_inter_entity" attrs="{'invisible':[('type','not in',['unit','external'])], 'readonly':[('type', '=','external')]}"/>
+                    <field name="inter_entity_id" widget="selection" attrs="{'invisible':[('type','not in',['unit','external'])], 'readonly':True}"/>
+                    <field name="inter_entity_code" attrs="{'invisible':[('type','not in',['unit','external'])], 'readonly':True}"/>
+                </field>
+            </field>
+        </record>
+<!--        <record id="cm_entity_search" model="ir.ui.view">-->
+<!--            <field name="name">cm.entity.filter.ext</field>-->
+<!--            <field name="model">cm.entity</field>-->
+<!--            <field name="inherit_id" ref="cm_odex.cm_entity_search" />-->
+<!--            <field name="arch" type="xml">-->
+<!--                <field name="name" position="attributes">-->
+<!--                    <attribute name="string">Entity</attribute>-->
+<!--                    <attribute name="filter_domain">['|','|','|','|','|','|','|',('name','ilike',self),('job_title_id.name', 'ilike', self),('parent_id.name', 'ilike', self),('manager_id.name', 'ilike', self),('partner_id.email', 'ilike', self),('partner_id.name', 'ilike', self),('code', 'ilike', self),('inter_entity_id.name', 'ilike', self)]</attribute>-->
+<!--                </field>-->
+<!--            </field>-->
+<!--        </record>-->
+    </data>
+</odoo>

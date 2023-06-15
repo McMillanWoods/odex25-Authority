@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+	<data>
+		<!--     To   maintains-->
+		<template id="maintains_report_pdf">
+			<t t-call="web.html_container">
+				<t t-call="web.external_layout">
+					<div class="page">
+
+						<h2 colspan="10" class="text-center" style="font-size:20px">
+							<t t-if="report_type == 'to_maintains'"> Vehicle Need Maintenance Report</t> <t t-if="report_type == 'maintains'"> Vehicle Maintenance Report</t><span t-esc="date_from"/> - <span t-esc="date_to"/></h2>
+						<h2 colspan="10" class="text-center" style="font-size:20px" >
+                            <t t-esc="', '.join(department for department in department_ids)"/>
+                        </h2>
+						<table class="table table-condensed table-bordered">
+							<thead class="text-center">
+								<tr style=" width:100%;">
+									<th style="text-align:center;">#</th>
+									<th style="text-align:center;">Type</th>
+									<th style="text-align:center;">Model</th>
+									<th style="text-align:center;">Plate</th>
+									<th style="text-align:center;">Driver</th>
+									<th style="text-align:center;">State</th>
+									<th style="text-align:center;">Branch</th>
+									<th style="text-align:center;">Maintenance</th>
+									<th style="text-align:center;">Maintenance Date</th>
+								</tr>
+							</thead>
+							<tbody class="text-center">
+								<t t-set="sequence" t-value="0"/>
+								<t t-foreach="docs" t-as="o">
+									<tr>
+										<td>
+											<t t-set="sequence" t-value="sequence +1"/>
+											<t t-esc="sequence"/>
+										</td>
+
+										<td  class="text-center">
+											<span t-esc="o.vehicle_id.fleet_type_id.name"/>
+										</td>
+										<td  class="text-center">
+											<span t-esc="o.vehicle_id.model_id.name"/>
+										</td>
+										<td  class="text-center">
+											<span t-esc="o.license_plate"/>
+										</td>
+										<td  class="text-center">
+											<span t-esc="o.employee_id.name"/>
+										</td>
+										<td  class="text-center">
+											<span t-esc="o.branch_id.state_id.name"/>
+										</td>
+										<td  class="text-center">
+											<span t-esc="o.branch_id.name"/>
+										</td>
+										<td  class="text-center">
+											<span t-esc="o.name"/>
+										</td>
+										<td  class="text-center">
+											<span t-esc="o.date"/>
+										</td>
+									</tr>
+								</t>
+
+							</tbody>
+						</table>
+					</div>
+
+
+				</t>
+			</t>
+		</template>
+		<report
+				id ="maintains_report_pdf_act"
+				model ="fleet.maintenance"
+				string ="Maintenance Report"
+				report_type ="qweb-pdf"
+				name ="odex_fleet.maintains_report_pdf"
+				file ="odex_fleet.maintains_report_pdf"
+				menu="False" />
+	</data>
+</odoo>

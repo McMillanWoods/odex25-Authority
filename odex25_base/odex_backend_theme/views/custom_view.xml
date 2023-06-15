@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_config_settings_form_inherit" model="ir.ui.view">
+            <field name="name">res_config_settings_form_inhert</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//div[@id='about']" position="replace">
+                        <div id="about">
+                            <h2>About</h2>
+                            <div class="row mt16 o_settings_container" name="about_setting_container">
+                                <div class="col-12 col-lg-6 o_setting_box" id="appstore">
+                                    <div class="d-flex">
+                                        <div class="o_setting_right_pane">
+                                            <!-- FIXME Those links are defined directly in the template which means that we will have to
+                                            update the template code is the link ever changes -->
+                                            <a class="d-block mx-auto" href="https://exp-sa.com" target="blank">
+                                                <img alt="Odex Product" class="d-block mx-auto img img-fluid" src="/custom_theme_14/static/description/odex.png"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="o_widget">
+                                    <div class="col-12 o_setting_box" id="edition">
+                                        <div class="o_setting_right_pane">
+                                            <div class="user-heading">
+                                                <h3>
+                                                    Odex V.25
+                                                </h3>
+                                            </div>
+                                            <div>
+                                                <div class="tab-content">
+                                                    <div role="tabpanel" id="settings" class="tab-pane active text-muted o_web_settings_compact_subtitle">
+                                                        <small>Copyright © 2018 <a target="_blank" href="https://www.exp-sa.com" style="text-decoration: underline;">Expert Company</a></small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+    </data>
+</odoo>

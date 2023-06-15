@@ -1,0 +1,114 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* calendar_custom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-27 13:14+0000\n"
+"PO-Revision-Date: 2022-09-27 13:14+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: calendar_custom
+#: model:ir.model,name:calendar_custom.model_calendar_event
+msgid "Calendar Event"
+msgstr "حدث التقويم"
+
+#. module: calendar_custom
+#: model:ir.model.fields,field_description:calendar_custom.field_calendar_event_room__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: calendar_custom
+#: model:ir.model.fields,field_description:calendar_custom.field_calendar_event_room__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: calendar_custom
+#: model:ir.model.fields,field_description:calendar_custom.field_calendar_event__display_name
+#: model:ir.model.fields,field_description:calendar_custom.field_calendar_event_room__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: calendar_custom
+#: model:ir.model.fields,field_description:calendar_custom.field_calendar_event__id
+#: model:ir.model.fields,field_description:calendar_custom.field_calendar_event_room__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: calendar_custom
+#: model:ir.model.fields,field_description:calendar_custom.field_calendar_event____last_update
+#: model:ir.model.fields,field_description:calendar_custom.field_calendar_event_room____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: calendar_custom
+#: model:ir.model.fields,field_description:calendar_custom.field_calendar_event_room__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: calendar_custom
+#: model:ir.model.fields,field_description:calendar_custom.field_calendar_event_room__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: calendar_custom
+#: code:addons/calendar_custom/models/calendar.py:0
+#, python-format
+msgid "Meeting Details has been Update"
+msgstr "تم تحديث بيانات الاجتماع"
+
+#. module: calendar_custom
+#: model:ir.model.fields,field_description:calendar_custom.field_calendar_event__event_room_id
+msgid "Meeting Room"
+msgstr "غرفة الاجتماعات"
+
+#. module: calendar_custom
+#: code:addons/calendar_custom/models/calendar.py:0
+#, python-format
+msgid "Meeting Update"
+msgstr "تحديث اجتماع"
+
+#. module: calendar_custom
+#: code:addons/calendar_custom/models/calendar.py:0
+#, python-format
+msgid "Meeting room is not available at this time !"
+msgstr "غرفة الاجتماعات غير مثاحة في هذا الوقت "
+
+#. module: calendar_custom
+#: model:ir.model.fields,field_description:calendar_custom.field_calendar_event_room__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: calendar_custom
+#: model:ir.model.fields,field_description:calendar_custom.field_calendar_event_room__team_id
+msgid "team_id"
+msgstr "الفريق التقني"
+
+#. module: calendar_custom
+#: model:ir.model.fields,field_description:calendar_custom.field_calendar_event_room__branch_id
+msgid "branch_id"
+msgstr "فرع"
+
+#. module: calendar_custom
+#: code:addons/calendar_custom/models/calendar.py:0
+#, python-format
+msgid "New Meeting"
+msgstr "اجتماع جديد"
+
+#. module: calendar_custom
+#: code:addons/calendar_custom/models/calendar.py:0
+#, python-format
+msgid "New Meeting At %s"
+msgstr "اجتماع جديد في %s"
+
+#. module: calendar_custom
+#: model:ir.model,name:calendar_custom.model_calendar_event_room
+msgid "calendar.event.room"
+msgstr ""

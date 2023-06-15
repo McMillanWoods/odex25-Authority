@@ -1,0 +1,203 @@
+.dashboard14-theme-2.dashboard14-body{
+    background: #f5f5fb;
+    display: flex;
+    width: 100%;
+    padding: 0;
+}
+.dashboard14-theme-2 section.dashboard14-main{
+    background: #f5f5fb;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+    overflow-y: auto;
+    padding-bottom: 100px;
+}
+.dashboard14-theme-2 section.dashboard14-main .dashboard14-section{
+    display: none;
+}
+
+.dashboard14-theme-2 section.dashboard14-main .dashboard14-section .nav.nav-pills{
+    padding: 10px;
+    background-color: #fff;
+}
+.dashboard14-theme-2 section.dashboard14-main .dashboard14-section .nav.nav-pills li a.active{
+    background-color: rgb(0 123 255);
+    color: #fff;
+}
+
+.dashboard14-theme-2 section.dashboard14-main .dashboard14-section.active{
+    display: block;
+}
+.dashboard14-theme-2 section.dashboard14-main .dashboard14-section .section-head{
+    padding: 0;
+    margin-bottom: 20px;
+}
+.dashboard14-theme-2 section.dashboard14-main .dashboard14-section .section-head h2{
+    padding: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+.dashboard14-theme-2 section.dashboard14-main .dashboard14-section .section-body{
+    padding: 0;
+}
+
+.dashboard14-theme-2 #dashboardTabContent .tab-pane{
+    padding: 20px 5px;
+}
+
+.dashboard14-theme-2 .chart-box{
+    margin-bottom: 15px;
+}
+.dashboard14-theme-2 .chart-box .chart-body{
+    border: 1px solid #eee;
+    min-height: 200px;
+    padding: 30px 30px;
+    background: #fff;
+}
+
+.dashboard14-theme-2 .chart-box .chart-body h4{
+    text-align: center;
+    font-size: 16px;
+}
+
+.dashboard14-theme-2 .header-statistics{
+    padding: 0;
+    margin-bottom: 20px;
+}
+.dashboard14-theme-2 .header-statistics .statistics-box{
+
+}
+.dashboard14-theme-2 .header-statistics .statistics-box:nth-child(1){
+    padding-left: 0;
+    padding-right: 0;
+}
+.dashboard14-theme-2 .header-statistics .statistics-box:nth-child(2){
+    padding-right: 0;
+}
+.dashboard14-theme-2 .header-statistics .statistics-box:nth-child(3){
+    padding-right: 0;
+}
+.dashboard14-theme-2 .header-statistics .statistics-box:nth-child(4){
+    padding-right: 0;
+}
+.dashboard14-theme-2 .header-statistics .statistics-box .statistics-body{
+    height: 120px;
+    background: #fff;
+    border: 1px solid #eee;
+    display: flex;
+    padding: 0;
+}
+.dashboard14-theme-2 .header-statistics .statistics-box .statistics-body .statistics-percent{
+    padding: 0;
+    height: 100%;
+    background: rgb(44, 97, 151);
+    color: #fff;
+}
+.dashboard14-theme-2 .header-statistics .statistics-box .statistics-body .statistics-percent h3{
+    text-align: center;
+    font-weight: bold;
+    line-height: 120px;
+    font-size: 30px;
+}
+.dashboard14-theme-2 .header-statistics .statistics-box .statistics-body .statistics-progress{
+    padding-top: 0;
+    display: flex;
+    align-items: center;
+}
+.dashboard14-theme-2 .header-statistics .statistics-box .statistics-body .statistics-progress h3{
+    font-weight: bold;
+    font-size: 18px;
+}
+.dashboard14-theme-2 .header-statistics .statistics-box .statistics-body .statistics-progress p{
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.dashboard14-theme-2 .service-box{
+
+}
+.dashboard14-theme-2 .service-box .service-body{
+    background: #fff;
+    display: flex;
+    height: 100px;
+    padding: 0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: all .4s ease;
+}
+.dashboard14-theme-2 .service-box .service-body:hover{
+    background: #123;
+    color: #fff;
+    cursor: pointer;
+}
+.dashboard14-theme-2 .service-box .service-body .service-icon{
+    height: 100%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+.dashboard14-theme-2 .service-box .service-body .service-icon .service-icons{
+    height: 50px;
+    width: 50px;
+    background: rgba(0, 0, 0, 0.116);
+    text-align: center;
+    line-height: 50px;
+    border-radius: 10px;
+    margin: auto;
+}
+.dashboard14-theme-2 .service-box .service-body .service-icon .service-icons img{
+    height: 30px;
+}
+.dashboard14-theme-2 .service-box .service-body .service-content{
+    display: flex;
+    align-items: center;
+}
+.dashboard14-theme-2 .service-box .service-body .service-content h3{
+    margin-bottom: 0;
+    font-weight: bold;
+}
+.dashboard14-theme-2 .service-box .service-body .service-content p{
+    margin: 0;
+}
+.dashboard14-theme-2 .service-box .service-body .service-content a {
+    position: absolute;
+    right: 5px;
+    top: 25px;
+}
+.dashboard14-theme-2 .service-box .service-body .service-content a img{
+    height: 40px;
+}
+
+.dashboard14-theme-2 .top-alert{
+    padding: 0;
+    margin-bottom: 20px;;
+}
+.dashboard14-theme-2 .top-alert .top-alert-body{
+    background: #2d2ba5;
+    height: 200px;
+    border-radius: 8px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+.dashboard14-theme-2 .top-alert .top-alert-body h3{
+    font-size: 18px;
+    font-weight: bold;
+}
+.dashboard14-theme-2 .top-alert .top-alert-body p{
+    margin-bottom: 5px;
+}
+.dashboard14-theme-2 .top-alert .top-alert-body p:last-child{
+    margin: 0;
+}
+
+.dashboard14-theme-2 .top-alert .top-alert-body img{
+    position: absolute;
+    right: 10px;
+    height: 180px;
+}
+
+.dashboard14-theme-2 #myTab{
+    background: #fff;
+    padding: 10px;
+}

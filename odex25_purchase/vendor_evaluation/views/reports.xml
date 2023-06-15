@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+     <report
+        id="action_report_model_name"
+        model="cumulative.vendor.evaluation"
+        string="Evaluation Report"
+        report_type="qweb-pdf"
+        name="vendor_evaluation.vendor_evaluation_report"
+        menu="True"
+    />
+
+    <report
+        id="action_vendor_compaarison_report"
+        model="vendor.comparison.wizard"
+        string="Evaluation Report"
+        report_type="qweb-pdf"
+        name="vendor_evaluation.vendor_comparison_report"
+        file="vendor_evaluation.vendor_comparison_report"
+        menu="True"
+    />
+
+</odoo>

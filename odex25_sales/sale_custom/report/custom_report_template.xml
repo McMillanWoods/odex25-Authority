@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="custom_report">
+        <t t-call="web.html_container">
+            <div class="page">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                        <t t-set="seq" t-value="1"/>
+                        <h2  class="text-center">Custom Report</h2><br></br>
+                        <p class="text-center"> For The Period <span t-esc="data['form']['date_from']"/> -  <span t-esc="data['form']['date_to']"/> </p>
+
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;"><strong>#</strong></th>
+                                    <th style="text-align: center;"><strong>Submital Date</strong></th>
+                                    <th style="text-align: center;"><strong>RFP No <br/> P No <br/> JOB no </strong></th>
+                                    <th style="text-align: center;"><strong>Proposal Name</strong></th>
+                                    <th style="text-align: center;"><strong>Proposal Status</strong></th>
+                                    <th style="text-align: center;"><strong>P Fee <br/> Revised Fee</strong></th>
+                                    <th style="text-align: center;"><strong>Potential</strong></th>
+                                    <th style="text-align: center;"><strong>Lowest Bid <br/> Highest Bid</strong></th>
+                                    <th style="text-align: center;"><strong>Rank</strong></th>
+                                    <th style="text-align: center;"><strong>Contract Status</strong></th>
+                                    <th style="text-align: center;"><strong>Job Fee</strong></th>
+                                    <th style="text-align: center;"><strong>Duration</strong></th>
+                                    <th style="text-align: center;"><strong>Note</strong></th>
+                                    <th style="text-align: center;"><strong>Contact <br/> Position</strong></th>
+                                    <th style="text-align: center;"><strong>Email <br/> Mobile</strong></th>
+                                    <th style="text-align: center;"><strong>Phone <br/> Ext</strong></th>
+
+                                </tr>
+                            </thead>
+                            <tbody style="text-align: center;">
+                                <tr  t-foreach="custom_data[doc.id]" t-as="custom">
+                                    <td>
+                                        <span t-esc="seq"/>
+                                        <t t-set="seq" t-value="seq+1"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="custom['date']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="custom['crm_seq']"/> <br/> <span t-esc="custom['proposal']"/> 
+                                    </td>
+                                    <td>
+                                        <span t-esc="custom['name']"/>
+                                    </td>
+
+                                    <td>
+                                        <span t-esc="custom['proposal_status']"/>
+                                    </td>
+
+                                    <td>
+                                        <span t-esc="custom['p_fees']"/>
+                                    </td>
+
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+
+                                    <td>
+                                        <span t-esc="custom['contract_status']"/>
+                                    </td>
+                                    <td></td>
+
+                                    <td>
+                                        <span t-esc="custom['project_duration']"/>
+                                    </td>
+
+                                    <td></td>
+
+                                    <td>
+                                        <span t-esc="custom['customer'].name" /> <br/> <span t-esc="custom['customer'].name" /> 
+                                    </td>
+                                    <td>
+                                        <span t-esc="custom['customer'].email" /> <br/> <span t-esc="custom['customer'].mobile" /> 
+                                    </td>
+                                    <td>
+                                        <span t-esc="custom['customer'].phone" /> <br/> 
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </t>
+                </t>
+            </div>
+        </t>
+    </template>
+    <report
+            id ="action_custom_report_pdf"
+            model ="custom.report.wiz"
+            string ="Custom Report Pdf"
+            report_type ="qweb-pdf"
+            name ="sale_custom.custom_report"
+            file ="sale_custom.custom_report"
+            menu="False" />
+
+    <report id ="action_custom_report_xlsx"
+            model ="custom.report.wiz"
+            string ="Custom Report XlsX"
+            report_type ="xlsx"
+            name ="sale_custom.custom_report_xlsx"
+            file ="sale_custom.custom_report_xlsx"
+            menu="False" />
+</odoo>

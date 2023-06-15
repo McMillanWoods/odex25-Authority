@@ -1,0 +1,28 @@
+<templates xml:space="preserve">
+
+    <t t-name="notification_template">
+        <!-- <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix ui-draggable-handle">
+         رسائل جديدة (<t t-esc="message_no" />)
+        </div>
+        <table class="o_list_view table table-condensed table-striped" id="messages_table">
+            <thead>
+                <th>رقم الرسالة</th>
+                <th>الموضوع</th>
+                <th style="text-align :center">استلام</th>
+            </thead>
+            <tbody>
+                <tr t-foreach="data" t-as="rec" t-att-data-id="rec.id" t-att-data-res_model="rec.res_model" t-att-data-res_id="rec.res_id" t-att-data-base_url="rec.base_url" class="message_rec">
+                    <td><span t-esc="rec.id"/></td>
+                    <td><span t-esc="rec.subject" /></td>
+                    <td style="text-align :center"><button class="o_icon_button" type="button" title="إستلام المعاملة"><i class="fa fa-check" title="إستلام المعاملة" /></button></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+            <div class="ui-dialog-buttonset">
+                <div class="btn btn-primary btn-sm" id="close" type="object" title="إستلام المعاملة">إغلاق</div>
+            </div>
+        </div> -->
+    </t> 
+
+</templates>

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+   <!-- stock.picking inherit form view -->
+   <record id="view_id" model="ir.ui.view">
+       <field name="name">stock.picking.inherit.view.form</field>
+       <field name="model">stock.picking</field>
+       <field name="inherit_id" ref="stock.view_picking_form"/>
+       <field name="arch" type="xml">
+            <xpath expr="//button[@name='button_validate']" position="before">
+                <button name="action_vendor_eval" type="object" string="Evaluate"/>                
+            </xpath>
+       </field>
+   </record>
+
+   
+
+    
+
+   
+</odoo>

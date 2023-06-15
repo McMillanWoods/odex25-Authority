@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="fleet_report_form">
+			<field name="name">fleet.report.form</field>
+			<field name="model">fleet.wiz</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group col="4" colspan="2">
+							<field name="date_from" attrs="{'invisible': [('report_type', '=' ,'delegation')]}"/>
+							<field name="date_to" attrs="{'invisible': [('report_type', '=' ,'delegation')]}"/>
+
+							<field name="vehicle_del_type" attrs="{'invisible': [('report_type', '!=' ,'branch_cost'),('report_type', '!=' ,'all_branch_cost'),('report_type', '!=' ,'invoice')]}"/>
+
+							<field name="department_ids" widget="many2many_tags" attrs="{'invisible': [('report_type', '!=' ,'driver'),('report_type', '!=' ,'service'),('report_type', '!=' ,'car_consumption'),('report_type', '!=' ,'maintains'),('vehicle_del_type', '!=' ,'department')]}"/>
+							<field name="project_ids" widget="many2many_tags" attrs="{'invisible': [('vehicle_del_type', '!=' ,'project')]}"/>
+							<field name="vehicle_ids" widget="many2many_tags"
+								   attrs="{'invisible': [('report_type', 'in', ['service','maintains','to_maintains','all_branch_cost','state_cost','branch_cost','driver','delegation','renew','to_renew'])]}"/>
+							<field name="branch_ids" widget="many2many_tags"
+								   attrs="{'invisible': [('report_type', 'in', ['invoice','service','state_cost','driver','delegation','renew','to_renew'])]}"/>
+							<field name="type_ids" widget="many2many_tags"
+								   attrs="{'invisible': [('report_type', 'in', ['invoice','maintains','to_maintains','driver','delegation','renew','to_renew'])]}"/>
+							<field name="state_ids" widget="many2many_tags"
+								   attrs="{'invisible': [('report_type', 'in', ['invoice','maintains','to_maintains','car_consumption','all_branch_cost','branch_cost','renew','to_renew'])]}"/>
+							<field name="cost_subtype_ids" widget="many2many_tags"
+								   attrs="{'invisible': [('report_type', 'in', ['invoice','maintains','to_maintains','car_consumption','all_branch_cost','state_cost','branch_cost','driver','delegation','renew','to_renew'])]}"/>
+
+							<field name="report_type" invisible="1"/>
+
+						</group>
+
+					</sheet>
+					<footer>
+						<button name="print_report" string="Print PDF" type="object" class="oe_highlight"/>
+						<button string="Cancel" class="oe_link" special="cancel"/>
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<record id="fleet_report_action" model="ir.actions.act_window">
+			<field name="name">Fleet Report</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">fleet.wiz</field>
+			
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+<!--		<menuitem id="menu_fleet_reporting_general_costs"-->
+<!--				  name="General Costs"-->
+<!--				  parent="fleet.menu_fleet_reporting"-->
+<!--				  action="fleet_report_action"-->
+<!--				  sequence="4"-->
+<!--				   />-->
+		<!--fleet file-->
+		<!--Cost-->
+		<record id="cost_state_report_fleet_report_action" model="ir.actions.act_window">
+			<field name="name">Fleet State Expense Report</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">fleet.wiz</field>
+			
+			<field name="view_mode">form</field>
+			<field name="context">{'default_report_type':'state_cost'}</field>
+			<field name="target">new</field>
+		</record>
+
+		    <menuitem name="Reporting" parent="fleet.menu_root" id="fleet.menu_fleet_reporting" sequence="99" groups="fleet.fleet_group_manager,fleet.fleet_group_user,fleet_group_vice_gm"/>
+
+
+		<menuitem id="menu_fleet_reporting_state_cost"
+				  name="State Expense "
+				  parent="fleet.menu_fleet_reporting"
+				  action="cost_state_report_fleet_report_action"
+				  sequence="4"
+				  />
+
+		<!--Branch expense-->
+		<record id="branch_cost_cost_report_fleet_report_action" model="ir.actions.act_window">
+			<field name="name">Fleet Branch Expense Report</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">fleet.wiz</field>
+			
+			<field name="view_mode">form</field>
+			<field name="context">{'default_report_type':'branch_cost'}</field>
+			<field name="target">new</field>
+		</record>
+
+		<menuitem id="menu_fleet_reporting_branch_cost"
+				  name="Branch Expense "
+				  parent="fleet.menu_fleet_reporting"
+				  action="branch_cost_cost_report_fleet_report_action"
+				  sequence="4"
+				   />
+		<!--		chart-->
+		<record id="all_branch_cost_report_fleet_report_action" model="ir.actions.act_window">
+			<field name="name">Fleet All Branch Expense Report</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">fleet.wiz</field>
+			
+			<field name="view_mode">form</field>
+			<field name="context">{'default_report_type':'all_branch_cost'}</field>
+			<field name="target">new</field>
+		</record>
+
+		<menuitem id="menu_fleet_reporting_all_branch_cost"
+				  name="All Branch Expense "
+				  parent="fleet.menu_fleet_reporting"
+				  action="all_branch_cost_report_fleet_report_action"
+				  sequence="4"
+				   />
+		<!--		maintance-->
+		<record id="maintains_report_fleet_report_action" model="ir.actions.act_window">
+			<field name="name">Fleet Maintains Report</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">fleet.wiz</field>
+			
+			<field name="view_mode">form</field>
+			<field name="context">{'default_report_type':'maintains'}</field>
+			<field name="target">new</field>
+		</record>
+
+		<menuitem id="menu_fleet_reporting_maintains"
+				  name="Fleet Maintains"
+				  parent="fleet.menu_fleet_reporting"
+				  action="maintains_report_fleet_report_action"
+				  sequence="4"
+				   />
+
+		<record id="to_maintains_report_fleet_report_action" model="ir.actions.act_window">
+			<field name="name">Fleet Need Maintains Report</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">fleet.wiz</field>
+			
+			<field name="view_mode">form</field>
+			<field name="context">{'default_report_type':'to_maintains'}</field>
+			<field name="target">new</field>
+		</record>
+
+		<menuitem id="menu_fleet_reporting_to_maintains"
+				  name="Fleet Need Maintains"
+				  parent="fleet.menu_fleet_reporting"
+				  action="to_maintains_report_fleet_report_action"
+				  sequence="4"
+				   />
+
+		<!--		renew-->
+		<record id="to_renew_report_fleet_report_action" model="ir.actions.act_window">
+			<field name="name">Fleet Need Renew Report</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">fleet.wiz</field>
+			
+			<field name="view_mode">form</field>
+			<field name="context">{'default_report_type':'to_renew'}</field>
+			<field name="target">new</field>
+		</record>
+
+		<menuitem id="menu_fleet_reporting_to_renew"
+				  name="Fleet Need Renew"
+				  parent="fleet.menu_fleet_reporting"
+				  action="to_renew_report_fleet_report_action"
+				  sequence="4"
+				   />
+		<record id="renew_report_fleet_report_action" model="ir.actions.act_window">
+			<field name="name">Fleet Renew Report</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">fleet.wiz</field>
+			
+			<field name="view_mode">form</field>
+			<field name="context">{'default_report_type':'renew'}</field>
+			<field name="target">new</field>
+		</record>
+
+		<menuitem id="menu_fleet_reporting_renew"
+				  name="Renew Report"
+				  parent="fleet.menu_fleet_reporting"
+				  action="renew_report_fleet_report_action"
+				  sequence="4"
+				   />
+
+		<!--		service-->
+		<record id="car_consumption_report_fleet_report_action" model="ir.actions.act_window">
+			<field name="name">Fleet Consumption Report</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">fleet.wiz</field>
+			
+			<field name="view_mode">form</field>
+			<field name="context">{'default_report_type':'car_consumption'}</field>
+			<field name="target">new</field>
+		</record>
+
+		<menuitem id="menu_fleet_reporting_car_consumption"
+				  name="Consumption Report"
+				  parent="fleet.menu_fleet_reporting"
+				  action="car_consumption_report_fleet_report_action"
+				  sequence="4"
+				   />
+
+		<record id="service_report_fleet_report_action" model="ir.actions.act_window">
+			<field name="name">Fleet Service Report</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">fleet.wiz</field>
+			
+			<field name="view_mode">form</field>
+			<field name="context">{'default_report_type':'service'}</field>
+			<field name="target">new</field>
+		</record>
+
+		<menuitem id="menu_fleet_reporting_car_service"
+				  name="Service Report"
+				  parent="fleet.menu_fleet_reporting"
+				  action="service_report_fleet_report_action"
+				  sequence="4"
+				   />
+
+		<record id="invoice_report_fleet_report_action" model="ir.actions.act_window">
+			<field name="name">Fleet Expense Report</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">fleet.wiz</field>
+			
+			<field name="view_mode">form</field>
+			<field name="context">{'default_report_type':'invoice'}</field>
+			<field name="target">new</field>
+		</record>
+
+		<menuitem id="menu_fleet_reporting_car_invoice"
+				  name="Fleet Expense Invoice Report"
+				  parent="fleet.menu_fleet_reporting"
+				  action="invoice_report_fleet_report_action"
+				  sequence="4"
+				   />
+
+		<!--		delegation-->
+		<record id="driver_report_fleet_report_action" model="ir.actions.act_window">
+			<field name="name">Fleet Driver Report</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">fleet.wiz</field>
+			
+			<field name="view_mode">form</field>
+			<field name="context">{'default_report_type':'driver'}</field>
+			<field name="target">new</field>
+		</record>
+
+		<menuitem id="menu_fleet_reporting_car_driver"
+				  name="Fleet Driver Report"
+				  parent="fleet.menu_fleet_reporting"
+				  action="driver_report_fleet_report_action"
+				  sequence="4"
+				   />
+		<record id="delegation_report_fleet_report_action" model="ir.actions.act_window">
+			<field name="name">Fleet Delegation Report</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">fleet.wiz</field>
+			
+			<field name="view_mode">form</field>
+			<field name="context">{'default_report_type':'delegation'}</field>
+			<field name="target">new</field>
+		</record>
+
+		<menuitem id="menu_fleet_reporting_car_delegation"
+				  name="Fleet Delegation Report"
+				  parent="fleet.menu_fleet_reporting"
+				  action="delegation_report_fleet_report_action"
+				  sequence="4"
+				   />
+	</data>
+
+</odoo>

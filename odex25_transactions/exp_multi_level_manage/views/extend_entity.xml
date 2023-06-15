@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--inherit entity view -->
+        <record id="entity_view_inherit_form" model="ir.ui.view">
+            <field name="name">extend.transaction.form</field>
+            <field name="model">cm.entity</field>
+            <field name="inherit_id" ref="exp_transaction_documents.cm_entity_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='need_approve']" position="after">
+                    <field name="need_multi_approve" attrs="{'invisible': [('type', 'not in', ['unit'])]}"/>
+                    <field name="manager_entity" domain="[('type', '=', 'employee')]" options="{'no_create_edit': True}"
+                           widget="many2many_tags" attrs="{'invisible': [('need_multi_approve', '!=', True)]}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
