@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="odex_res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">odex.res.config.settings.view.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="Car Notification" string="Car Notification" data-key="spl">
+                    <h2>Fleet Notification Before</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label for="license"/>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <field name="license" class="o_light_label"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label for="car_license"/>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <field name="car_license" class="o_light_label"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label for="delegation"/>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <field name="delegation" class="o_light_label"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label for="insurance"/>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <field name="insurance" class="o_light_label"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label for="operation"/>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <field name="operation" class="o_light_label"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label for="installment"/>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <field name="installment" class="o_light_label"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label for="service"/>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <field name="service" class="o_light_label"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label for="check"/>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <field name="check" class="o_light_label"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </xpath>
+        </field>
+    </record>
+</odoo>

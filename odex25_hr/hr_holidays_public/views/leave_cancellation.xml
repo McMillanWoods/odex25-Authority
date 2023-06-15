@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record model="ir.actions.act_window" id="leave_cancellation_action">
+            <field name="name">Leave Cancellation</field>
+            <field name="res_model">leave.cancellation</field>
+
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record model="ir.ui.view" id="leave_cancellation_form_view">
+            <field name="name">Leave Cancellation</field>
+            <field name="model">leave.cancellation</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button string="Submit" name="submit" type="object" states="draft" class="oe_highlight"
+                                groups="hr_base.group_division_manager,base.group_user"/>
+
+                        <button string="Direct Manager" name="review" type="object" states="submit" class="oe_highlight"
+                                groups="hr_holidays_community.group_hr_holidays_user,hr_base.group_division_manager"/>
+                        <button string="Refuse" name="refuse" states="submit" type="object"
+                                groups="hr_base.group_division_manager" class="oe_highlight"/>
+
+                        <button string="HR Manager" name="confirm" type="object" states="review" class="oe_highlight"
+                                groups="hr.group_hr_manager,hr_holidays_community.group_hr_holidays_user"/>
+                        <button string="Refuse" name="refuse" states="review" type="object"
+                                groups="hr.group_hr_manager,hr_holidays_community.group_hr_holidays_user" class="oe_highlight"/>
+
+                        <button string="Approved" name="approve" type="object" states="confirm" class="oe_highlight"
+                                groups="hr_base.group_general_manager,hr_base.group_executive_manager,hr.group_hr_manager"/>
+                        <button string="Refuse" name="refuse" states="confirm,approve" type="object" class="oe_highlight"
+                                groups="hr_base.group_general_manager,hr_base.group_executive_manager,hr.group_hr_manager"/>
+
+                        <button string="Reset To Draft" name="draft" type="object" states="refuse" class="oe_highlight"
+                                groups="hr_holidays_community.group_hr_holidays_user" confirm="Are you sure to Reset To Draft This Record?"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="from_hr_department" string="Another Employee" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="employee_id" string="Employee"
+                                       attrs="{'readonly':['|',('from_hr_department' , '=' , False),('state','!=','draft')]}" required="1"/>
+                                <field name="job_id" string="Job Title" readonly="1"/>
+                                <field name="department_id" string="Department" readonly="1"/>
+
+                                <field name="from_date" string="From Date" required="1" attrs="{'readonly':[('state','!=','draft')]}" widget="date"/>
+                                <field name="leave_cancellation_date" required="1" string="Leave Cancellation Date"
+                                       attrs="{'readonly':[('state','!=','draft')]}" widget="date"/>
+                                <field name="duration_canceled" string="Duration Canceled" readonly="1" force_save="1"/>
+                                <field name="cause" string="Cause" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            </group>
+                            <group>
+                                <field name="leave_request_id" string="Leave Request" required="1" widget="selection"
+                                       attrs="{'readonly':[('state','!=','draft')]}"
+                                       domain = "[('employee_id', '=', employee_id),('state', '=', 'validate1'), ('type', '=', 'remove')]"/>
+
+                                <field name="leave_date_from" string="Leave Date Start" widget="date"/>
+                                <field name="leave_date_to" string="Leave Date End" widget="date"/>
+                                <field name="reconcile_leave" invisible="1"/>
+                                <field name="salary_rule_id"
+                                       attrs="{'invisible':[('reconcile_leave','=',False)],
+                                       'required':[('reconcile_leave','=',True)],
+                                       'readonly':[('state','!=','draft')]}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Attachments">
+                                <field name="attachment_ids" attrs="{'readonly':[('state','!=','draft')]}">
+                                    <tree editable="bottom">
+                                        <field name="name" string="Attachment Name"/>
+                                        <field name="datas" string="File content"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <!--Discuss widgets for history and communication -->
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="leave_cancellation_tree_view">
+            <field name="name">Leave Cancellation</field>
+            <field name="model">leave.cancellation</field>
+            <field name="arch" type="xml">
+                <tree decoration-success="state=='approve'" decoration-danger="state == 'refuse'" decoration-info="state == 'draft'" string="Leave Cancellation">
+                    <field name="employee_id" string="Employee"/>
+                    <field name="leave_request_id"  />
+                    <field name="from_date" widget="date"/>
+                    <field name="leave_cancellation_date" widget="date"/>
+                    <field name="duration_canceled"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,75 @@
+.o_main_navbar{
+    border-color: transparent!important;
+    background-color: #65656d!important;
+}
+
+.o_main_navbar > ul > li > a:hover,
+.o_main_navbar > ul > li > a:focus{
+    background-color: #fb9523 !important;
+}
+.o_main_navbar > a:hover,
+.o_main_navbar > button:hover,
+.o_main_navbar > a:focus,
+.o_main_navbar > button:focus
+{
+    background: #3c3c3f;
+}
+.o_main_navbar .show .dropdown-toggle{
+    background-color: #3c3c3f;
+}
+.o_home_menu_background{
+    background: url(/zfp_custom_theme_14/static/src/images/app_drawer.jpg) no-repeat center/cover!important;
+}
+
+#settings a{
+    display: none;
+}
+
+.o_home_menu_background:not(.o_home_menu_background_custom) .o_main_navbar{
+    background: transparent!important;
+}
+
+
+.o_searchview .o_searchview_facet .o_searchview_facet_label{
+    background-color: #65656d;
+}
+
+.o_view_nocontent .o_nocontent_help .o_view_nocontent_smiling_face:before{
+    background: transparent url(/zfp_custom_theme_14/static/src/images/smiling_face.svg) no-repeat center;
+}
+.o_loading{
+    background-color: #fb9523;
+}
+
+.o_tooltip::before{
+    background: radial-gradient(#3a3a3b, #65656d);
+}
+
+.o_tooltip.active{
+    border: 3px solid #65656d!important;
+}
+
+.btn-fill-primary, .btn-primary{
+    background-color: #fb9523;
+    border-color: #fb9523;
+}
+
+.btn-fill-primary:hover, .btn-primary:hover{
+    background-color: #fa9a2c!important;
+    border-color: #fb9523;
+}
+
+.o_barcode_client_action .o_barcode_header{
+    background-color: #65656d;
+}
+.o_barcode_client_action .o_barcode_lines_header{
+    background-color: #65656d;
+}
+.o_onboarding.o_onboarding_violet .o_onboarding_wrap{
+    background-color: rgb(39 120 63 / 60%);
+    background-image: linear-gradient(to bottom, rgba(96, 112, 195, 0.5), #65656d);
+}
+.o_onboarding.o_onboarding_orange .o_onboarding_wrap{
+    background-color: rgb(39 120 63 / 60%);
+    background-image: linear-gradient(to bottom, rgba(96, 112, 195, 0.5), #65656d);
+}

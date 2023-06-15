@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+        <record id="view_cm_sync_config" model="ir.ui.view">
+            <field name="name">CM Settings Ext</field>
+            <field name="model">cm.inter_entity.sync</field>
+            <field name="arch" type="xml">
+                <form create="false" delete="false">
+                    <group>
+                        <group string="Activate Syncronization">
+                            <field name="activated"/>
+                            <field name="sync_key" attrs="{'readonly':True,'invisible':[('activated','=',False)]}"/>
+                            <field name="server_id" attrs="{'readonly':True,'invisible':[('activated','=',False)]}"/>
+                            <button string="Generate Key" type="object" name="generate_key" attrs="{'invisible':[('activated','=',False)]}" class="oe_highlight"/>
+                        </group>
+                        <group>
+                            <field name="important_id" attrs="{'required':True}" widget="selection"/>
+                            <field name="subject_type_id" attrs="{'required':True}" widget="selection"/>
+                            <field name="employee_id" attrs="{'required':True}" domain="[('type','=','employee')]"/>
+                            <button string="Update From ..." type="object" name="update_from" attrs="{'invisible':[('activated','=',False)]}"/>
+                        </group>
+                    </group>
+                    <separator string="Inter Entities">
+                        
+                    </separator>
+                    <field name="entities" readonly="True">
+                        <tree editable="bottom">
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="url"/>
+                        </tree>
+                    </field>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

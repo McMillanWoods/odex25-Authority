@@ -1,0 +1,260 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <template id="report_account_invoice_pay">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="invoice_direct_payment.custom_internal_layout">
+                        <t t-set="o" t-value="doc"/>
+                        <style type="text/css">
+                            @font-face {
+                            font-family: 'ae_AlMohanad';
+                            src: local('ae_AlMohanad'), local('ae_AlMohanad'),
+                            url('/invoice_direct_payment/static/fonts/ae_AlMohanad.ttf') format('truetype');
+                            }
+                            *{
+                            font-family: ae_AlMohanad;
+                            }
+
+                            .tiffany-bg-white-color {
+                            background-color: #07b8ad;
+                            color: #ffffff;
+                            }
+                            .grey-bg-blue-color {
+                            background-color:#d0cece;
+                            color: #44546a;
+                            }
+                            .text-left {
+                            text-align: left;
+                            direction: ltr;
+                            }
+
+                        </style>
+                        <div class="page" style="font-size: 12pt !important;" dir="rtl">
+                            <center>
+                                <h2 style="color: #595959;">Financial Request</h2>
+                                <img src="/invoice_direct_payment/static/src/img/img.png" width="70%"/>
+                            </center>
+                            <br/>
+                            <table style="width: 100%;text-align:right;display: inline-table;" class="text-center">
+                                <colgroup>
+                                    <col width="20%"/>
+                                    <col width="30%"/>
+                                    <col width="20%"/>
+                                    <col width="30%"/>
+                                </colgroup>
+                                <tr>
+                                    <td colspan="4" class="tiffany-bg-white-color  text-center">
+                                        <p style="font-weight: bold;font-size: 12pt;">Beneficiary Info</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>Name</p>
+                                    </td>
+                                    <td>
+                                        <span  t-field="o.employee_id.name"/>
+                                    </td>
+                                    <td>
+                                        <p>Job</p>
+                                    </td>
+                                    <td>
+                                        <span  t-field="o.job_id.name"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>Department</p>
+                                    </td>
+                                    <td>
+                                        <span  t-field="o.department_id.name"/>
+                                    </td>
+                                    <td>
+                                        <p>Mobile</p>
+                                    </td>
+                                    <td>
+                                        <span  t-field="o.mobile_phone"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>IBAN</p>
+                                    </td>
+                                    <td>
+                                        <span  t-field="o.bank_account_id.acc_number"/>
+                                    </td>
+                                    <td>
+                                        <p>Bank</p>
+                                    </td>
+                                    <td>
+                                        <span  t-field="o.bank_code"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>
+                                            Direct Manager
+                                        </p>
+                                    </td>
+                                    <td colspan="3">
+                                        <span  t-esc="o.tracker_ids.filtered(lambda r: r.state == 'direct').create_uid.name"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>Signature</p>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                        <p>Date</p>
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>
+                                            Department Manager
+                                        </p>
+                                    </td>
+                                    <td colspan="3">
+                                        <span t-esc="o.tracker_ids.filtered(lambda r: r.state == 'department_manager').create_uid.name"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>Signature</p>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                        <p>Date</p>
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br/>
+                            <br/>
+                            <h3 class="text-center" style="color: #595959;">Invoices Info</h3>
+                            <table class="table table-condensed" style="width: 100%;height=90%;text-align:right">
+                                <tr>
+                                    <td class="tiffany-bg-white-color  text-center">Vendor</td>
+                                    <td class="tiffany-bg-white-color  text-center">Invoice No</td>
+                                    <td class="tiffany-bg-white-color  text-center">Invoice Date</td>
+                                    <td class="tiffany-bg-white-color  text-center">Amount without taxes</td>
+                                    <td class="tiffany-bg-white-color  text-center">Taxes</td>
+                                    <td class="tiffany-bg-white-color  text-center">Amount with taxes</td>
+                                    <td class="tiffany-bg-white-color  text-center">Cost Center</td>
+                                    <td class="tiffany-bg-white-color  text-center">Account</td>
+                                </tr>
+                                <tr t-foreach="o.invoice_line_ids" t-as="l">
+                                    <td><span t-field="l.vendor"/></td>
+                                    <td><span t-field="l.invoice_no"/></td>
+                                    <td><span t-field="l.invoice_date"/></td>
+                                    <td><span t-field="l.price_subtotal"/></td>
+                                    <td>
+                                        <t t-foreach="l.invoice_line_tax_ids" t-as="t">
+                                            <span t-field="t.name"/>
+                                        </t>
+                                    </td>
+                                    <td><span t-field="l.price_total"/></td>
+                                    <td><span t-field="l.account_analytic_id"/></td>
+                                    <td><span t-field="l.account_id.name"/></td>
+                                </tr>
+                            </table>
+                            <br/><br/>
+                            <table style="width: 100%;text-align:right;display: inline-table;" class="text-center">
+                                <colgroup>
+                                    <col width="40%"/>
+                                    <col width="40%"/>
+                                    <col width="20%"/>
+                                </colgroup>
+                                <tr>
+                                    <td>
+                                        <p>Payment No</p>
+                                    </td>
+                                    <td colspan="2">
+                                        <t t-foreach="set(o.sudo().payment_ids.filtered(lambda r: r.state != 'cancel'))" t-as="payment">
+                                            <p><t t-esc="payment.name"/></p>
+                                        </t>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>
+                                            Review <t t-esc="o.tracker_ids.filtered(lambda r: r.state == 'qc_approve').create_uid.name"/>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Signature</p>
+                                    </td>
+                                    <td>
+                                        <p>Date</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>
+                                            Financial Manager <t t-esc="o.tracker_ids.filtered(lambda r: r.state == 'financial_manager').create_uid.name"/>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Signature</p>
+                                    </td>
+                                    <td>
+                                        <p>Date</p>
+                                    </td>
+                                </tr>
+                            </table>
+                            <style>
+                                .box {
+                                position:absolute;
+                                top:43mm !important;
+                                bottom:100mm !important;
+                                left:20mm !important;
+                                right:110mm !important;
+                                }
+                                table {
+                                border-collapse: collapse;
+                                }
+
+                                table{
+                                border: 1px solid black;
+                                }
+                                td{
+                                border: 1px solid grey;
+                                padding: 5px 5px 5px 5px;
+                                }
+                                th{
+                                border: 1px solid grey;
+                                padding: 5px 5px 5px 5px;
+                                font-weight: bold;
+                                }
+                            </style>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <report
+            id="action_account_financial_request"
+            model="account.invoice"
+            string="Print Financial Request"
+            report_type="qweb-pdf"
+            menu="False"
+            paperformat="account_custom.paperformat_vro_account_report"
+            name="invoice_direct_payment.report_account_invoice_pay"/>
+
+        <record id="account.account_invoices" model="ir.actions.report">
+            <field name="binding_model_id" eval="False"/>
+        </record>
+        <record id="account.account_invoices_without_payment" model="ir.actions.report">
+            <field name="binding_model_id" eval="False"/>
+        </record>
+
+    </data>
+</openerp>

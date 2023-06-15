@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="summary_report">
+        <t t-call="web.html_container">
+            <div class="page">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                        <t t-set="seq" t-value="1"/>
+                        <h2  class="text-center">Summary Report</h2><br></br>
+                        <p class="text-center"> For The Period <span t-esc="data['form']['date_from']"/> -  <span t-esc="data['form']['date_to']"/> </p>
+
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;"><strong>#</strong></th>
+                                    <th style="text-align: center;"><strong>Business Line</strong></th>
+                                    
+                                    <t t-foreach="data['form']['proposal_state_ids']" t-as="status" style="display:table-row;">
+                                    
+                                        <!-- <div class="table-cell"><span t-esc="request.env['res.branch'].browse(payment['branch_id']).name"/></div> -->
+                                        <th class="table-cell"><span t-esc="request.env['proposal.state'].browse(status).name"/></th>
+                                        
+                                    </t>
+
+                                    <th style="text-align: center;"><strong>NO of Job</strong></th>
+
+                                </tr>
+                            </thead>
+                            <tbody style="text-align: center;">
+                                <tr  t-foreach="summary_data" t-as="summary">
+                                    <td>
+                                        <span t-esc="seq"/>
+                                        <t t-set="seq" t-value="seq+1"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="summary['business'].name"/>
+                                    </td>
+
+                                    <t t-foreach="data['form']['proposal_state_ids']" t-as="status" style="display:table-row;">
+                                        <td> <!-- <span t-esc="request.env['proposal.state'].browse(status).name"/> --> </td>
+                                    </t>
+
+                                    <td>
+                                        <span t-esc="summary['job_no']"/>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+
+                            <tr class="text-center">
+                                <td colspan="2"> Total </td>
+                                <t t-foreach="data['form']['proposal_state_ids']" t-as="status" style="display:table-row;">
+                                        <td> <!-- <span t-esc="request.env['proposal.state'].browse(status).name"/> --> </td>
+                                </t>
+                                <td>  </td>
+
+                            </tr>
+
+                            <tr class="text-center">
+                                <td colspan="2"> Percentage </td>
+                                <t t-foreach="data['form']['proposal_state_ids']" t-as="status" style="display:table-row;">
+                                        <td> <!-- <span t-esc="request.env['proposal.state'].browse(status).name"/> --> </td>
+                                </t>
+                                <td>  </td>
+
+                            </tr>
+                        </table>
+                    </t>
+                </t>
+            </div>
+        </t>
+    </template>
+    <report
+            id ="action_summary_report_pdf"
+            model ="proposal.common.report.wiz"
+            string ="Proposal Status Report Pdf"
+            report_type ="qweb-pdf"
+            name ="sale_custom.summary_report"
+            file ="sale_custom.summary_report"
+            menu="False" />
+
+    <!-- <report id ="action_branch_sales_comparsion_report_xlsx"
+            model ="branch.sales.comparsion.report.wiz"
+            string ="Branch Sales Comparsion Report XlsX"
+            report_type ="xlsx"
+            name ="sales_reports.branch_sales_comparsion_report_xlsx"
+            file ="sales_reports.branch_sales_comparsion_report_xlsx"
+            menu="False" /> -->
+</odoo>

@@ -1,0 +1,130 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* system_notification
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-11 07:39+0000\n"
+"PO-Revision-Date: 2022-08-11 07:39+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: system_notification
+#: model:ir.model,name:system_notification.model_base_automation
+msgid "Automated Action"
+msgstr "إجراء آلي"
+
+#. module: system_notification
+#: model:ir.actions.act_window,name:system_notification.base_automation_act
+msgid "Automated Actions"
+msgstr "الإجراءات التلقائية"
+
+#. module: system_notification
+#: model:ir.ui.view,arch_db:system_notification.view_base_group_automation_tree
+msgid "Automation"
+msgstr "أتمتة"
+
+#. module: system_notification
+#: model:ir.model.fields,field_description:system_notification.field_base_automation_notify_cc_groups_ids
+msgid "CC Notify Groups"
+msgstr "نسخة ايميل لـ"
+
+#. module: system_notification
+#: model:ir.actions.act_window,help:system_notification.base_automation_act
+msgid "Click to setup a new automated automation."
+msgstr "انقر لإعداد أتمتة آلية جديدة."
+
+#. module: system_notification
+#: model:ir.model.fields,field_description:system_notification.field_automation_group_create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: system_notification
+#: model:ir.model.fields,field_description:system_notification.field_automation_group_create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: system_notification
+#: model:ir.model.fields,field_description:system_notification.field_automation_group_display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: system_notification
+#: model:ir.model.fields,field_description:system_notification.field_automation_group_atuomation_ids
+msgid "Group States "
+msgstr "حالات المجموعة"
+
+#. module: system_notification
+#: model:ir.model.fields,field_description:system_notification.field_automation_group_id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: system_notification
+#: model:ir.model.fields,field_description:system_notification.field_automation_group___last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: system_notification
+#: model:ir.model.fields,field_description:system_notification.field_automation_group_write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: system_notification
+#: model:ir.model.fields,field_description:system_notification.field_automation_group_write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: system_notification
+#: model:ir.model.fields,field_description:system_notification.field_automation_group_model_id
+msgid "Model"
+msgstr "اسم الإجراء"
+
+#. module: system_notification
+#: model:ir.ui.menu,name:system_notification.menu_root
+msgid "System Notification"
+msgstr "إشعارات النظام"
+
+#. module: system_notification
+#: model:ir.model.fields,field_description:system_notification.field_base_automation_notify_to_groups_ids
+msgid "TO Notify Groups"
+msgstr "إشعار المجموعة"
+
+#. module: system_notification
+#: model:ir.actions.act_window,help:system_notification.base_automation_act
+msgid "Use automated actions to automatically trigger actions for\n"
+"                various screens. Example: a lead created by a specific user may\n"
+"                be automatically set to a specific sales channel, or an\n"
+"                opportunity which still has status pending after 14 days might\n"
+"                trigger an automatic reminder email."
+msgstr "استخدم الإجراءات التلقائية لتشغيل الإجراءات تلقائيًا لـ\n"
+"                شاشات مختلفة. مثال: قد يتم إنشاء عميل محتمل بواسطة مستخدم معين\n"
+"                يتم تعيينها تلقائيًا إلى قناة مبيعات معينة ، أو ملف\n"
+"                الفرصة التي لا تزال بحالة معلقة بعد 14 يومًا\n"
+"                تشغيل رسالة بريد إلكتروني للتذكير التلقائي."
+
+#. module: system_notification
+#: model:ir.model,name:system_notification.model_automation_group
+msgid "automation.group"
+msgstr "المجموعة التلقائية"
+
+#. module: system_notification
+#: model:ir.model,name:system_notification.model_ir_actions_server
+msgid "ir.actions.server"
+msgstr "ir.actions.server"
+
+#. module: system_notification
+#: model:ir.ui.view,arch_db:system_notification.view_base_group_automation_form
+msgid "states"
+msgstr "الحالات"
+
+#. module: system_notification
+#: model:ir.ui.menu,name:system_notification.menu_base_group_automation_form
+msgid "states notificatin"
+msgstr "حالات الاشعار"
+

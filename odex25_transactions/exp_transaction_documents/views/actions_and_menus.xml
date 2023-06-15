@@ -1,0 +1,639 @@
+<odoo>
+    <data>
+        <!-- top menu-->
+        <menuitem id="cm_root_menu" name="Transactions Management"
+                  web_icon="exp_transaction_documents,static/description/icon.png"/>
+
+        <!--setting menu-->
+        <menuitem sequence="20" id="cm_settings_menu" name="Configuration" parent="cm_root_menu"/>
+
+        <!-- Settings menus and actions-->
+        <!--Entities Menu and action -->
+        <record model="ir.actions.act_window" id="cm_entity_list_action">
+            <field name="name">Entities</field>
+            <field name="res_model">cm.entity</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first Entity
+                </p>
+            </field>
+        </record>
+
+
+         <record id="tag_view_tree" model="ir.ui.view">
+            <field name="name">tag_view_tree</field>
+            <field name="model">transaction.tag</field>
+            <field name="arch" type="xml">
+                <tree string="tag_tree" editable="bottom">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Job Titles Menu and action-->
+        <record model="ir.actions.act_window" id="transaction_tag_action">
+            <field name="name">Transaction Tag</field>
+            <field name="res_model">transaction.tag</field>
+            <field name="view_mode">tree</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first Transaction Tag
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="cm_entity_menu" name="Entities"
+                  parent="cm_settings_menu" sequence="5" action="cm_entity_list_action"/>
+        <menuitem id="tag_entity_menu" name="Tag"
+                  parent="cm_settings_menu" sequence="5" action="transaction_tag_action"/>
+
+        <!--Job Titles Menu and action-->
+        <record model="ir.actions.act_window" id="cm_job_title_list_action">
+            <field name="name">Job Titles</field>
+            <field name="res_model">cm.job.title</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first Job titles
+                </p>
+            </field>
+        </record>
+
+
+        <!--        <menuitem id="cm_transaction_job_title_menu" name="Job Titles"-->
+        <!--                  parent="cm_settings_menu" sequence="9" action="cm_job_title_list_action"/>-->
+
+        <!--project domain Menu and action-->
+        <record model="ir.actions.act_window" id="cm_project_domain_list_action">
+            <field name="name">Project domain</field>
+            <field name="res_model">project.type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first Project domain
+                </p>
+            </field>
+        </record>
+
+        <!--        <menuitem id="cm_transaction_project_domain_menu" name="Project domain"-->
+        <!--                  parent="cm_settings_menu" sequence="10" action="cm_project_domain_list_action"/>-->
+
+        <!--Transaction Type menu and action-->
+        <record model="ir.actions.act_window" id="cm_subject_type_list_action">
+            <field name="name">Transaction Types</field>
+            <field name="res_model">cm.subject.type</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first Subject Type
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="cm_subject_type_menu" name="Transaction Types"
+                  parent="cm_settings_menu" sequence="6" action="cm_subject_type_list_action"/>
+
+        <!--Important Degrees Menu and action-->
+        <record model="ir.actions.act_window" id="cm_transaction_important_list_action">
+            <field name="name">Important degrees</field>
+            <field name="res_model">cm.transaction.important</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first Important Degrees
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="cm_transaction_important_menu" name="Important Degrees"
+                  parent="cm_settings_menu" sequence="7" action="cm_transaction_important_list_action"/>
+
+        <!--Procedures Menu and action-->
+        <record model="ir.actions.act_window" id="cm_procedure_list_action">
+            <field name="name">Procedures</field>
+            <field name="res_model">cm.procedure</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first Procedures
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="cm_transaction_procedure_menu" name="Procedures"
+                  parent="cm_settings_menu" sequence="8" action="cm_procedure_list_action"/>
+
+        <!--Archive Types Menu and action-->
+        <record model="ir.actions.act_window" id="cm_archive_type_list_action">
+            <field name="name">Archive Types</field>
+            <field name="res_model">cm.archive.type</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first Archive Type
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="cm_transaction_archive_type_menu" name="Archive Types"
+                  parent="cm_settings_menu" sequence="10" action="cm_archive_type_list_action"/>
+
+        <!--Attachment Type Menu and action-->
+        <record model="ir.actions.act_window" id="cm_attachment_type_list_action">
+            <field name="name">Attachment Types</field>
+            <field name="res_model">cm.attachment.type</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first Attachment Type
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="cm_attachment_type_menu" name="Attachment Types"
+                  parent="cm_settings_menu" sequence="11" action="cm_attachment_type_list_action"/>
+        <!--        &lt;!&ndash;Global setting&ndash;&gt;-->
+        <!--        <record id="cm_config_settings_action" model="ir.actions.act_window">-->
+        <!--            <field name="name">Settings</field>-->
+        <!--            <field name="type">ir.actions.act_window</field>-->
+        <!--            <field name="res_model">res.config.settings</field>-->
+        <!--            <field name="view_id" ref="res_config_settings_view_cm_form"/>-->
+        <!--            <field name="view_mode">form</field>-->
+        <!--            <field name="target">inline</field>-->
+        <!--            <field name="context">{'module' : 'exp_transaction_documents'}</field>-->
+        <!--        </record>-->
+
+        <!--        <menuitem id="cm_config_settings_menu"-->
+        <!--                  name="Settings"-->
+        <!--                  parent="cm_settings_menu"-->
+        <!--                  action="cm_config_settings_action"-->
+        <!--                  sequence="0"/>-->
+        <!--Internal Transaction Menu And action-->
+        <menuitem id="parent_internal_tran_menu" name="Internal Transaction"
+                  parent="cm_root_menu" sequence="0"/>
+        <menuitem id="out_internal_tran_menu" name="Outgoing"
+                  parent="parent_internal_tran_menu" sequence="0"/>
+        <menuitem id="income_internal_tran_menu" name="Incoming"
+                  parent="parent_internal_tran_menu" sequence="1"/>
+
+        <!--Incoming Internal Menu and Action-->
+        <record model="ir.actions.act_window" id="incoming_internal_tran_action">
+            <field name="name">Incoming Internal Transaction</field>
+            <field name="res_model">internal.transaction</field>
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>['&amp;',('state','=','send'),'|','|',('to_ids.secretary_id.user_id', '=', uid),
+                ('to_ids.user_id', '=',
+                uid),'|',('trace_ids.to_id.user_id','=',uid),'|',('trace_ids.to_id.secretary_id.user_id','=',uid),('receive_user_id','=',uid)]
+            </field>
+            <field name="view_id" ref="exp_transaction_documents.common_transaction_internal_tree"/>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree','view_id':ref('exp_transaction_documents.common_transaction_internal_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('exp_transaction_documents.common_transaction_form')})]"/>
+            <field name="search_view_id" ref="view_internal_transaction_filter"/>
+            <field name="context">{'search_default_favorite': 1,'search_default_unread': 1}</field>
+        </record>
+        <menuitem id="incoming_internal_tran_menu" name="Incoming Transaction"
+                  parent="income_internal_tran_menu" sequence="0" action="incoming_internal_tran_action"/>
+        <!--Reply Internal Menu and Action-->
+        <record model="ir.actions.act_window" id="reply_internal_tran_action">
+            <field name="name">Replying Transaction</field>
+            <field name="res_model">internal.transaction</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>[('state','=','reply'),('forward_user_id','=',uid)]</field>
+            <field name="view_id" ref="exp_transaction_documents.common_transaction_internal_tree"/>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree','view_id':ref('exp_transaction_documents.common_transaction_internal_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('exp_transaction_documents.common_transaction_form')})]"/>
+            <field name="search_view_id" ref="view_internal_transaction_filter"/>
+            <field name="context">{'search_default_favorite': 1,'search_default_unread': 1}</field>
+        </record>
+        <menuitem id="reply_internal_tran_menu" name="Relying Transaction"
+                  parent="income_internal_tran_menu" sequence="0" action="reply_internal_tran_action"/>
+        <!--Outgoing Internal Menu and action-->
+        <record model="ir.actions.act_window" id="outgoing_internal_tran_action">
+            <field name="name">Outgoing Internal Transaction</field>
+            <field name="res_model">internal.transaction</field>
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>[('state', '!=', 'closed'),('employee_id.user_id','=',uid)]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first Outgoing Internal Transaction
+                </p>
+            </field>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree','view_id':ref('exp_transaction_documents.transaction_internal_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('exp_transaction_documents.internal_transaction_form')})]"/>
+            <field name="search_view_id" ref="view_internal_transaction_filter"/>
+            <field name="context">{'search_default_favorite': 1}</field>
+        </record>
+        <menuitem id="outgoing_internal_tran_menu" name="Outgoing Transaction"
+                  parent="out_internal_tran_menu" sequence="1" action="outgoing_internal_tran_action"/>
+        <!--To view Internal Menu and Action-->
+        <record model="ir.actions.act_window" id="to_view_internal_tran_action">
+            <field name="name">To view Transaction</field>
+            <field name="res_model">internal.transaction</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>
+                [('state','!=','draft'),'|',('trace_ids.cc_ids.user_id','=',uid),('cc_ids.user_id','=',uid)]
+            </field>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree','view_id':ref('exp_transaction_documents.common_transaction_internal_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('exp_transaction_documents.to_view_transaction_form')})]"/>
+            <field name="search_view_id" ref="view_internal_transaction_filter"/>
+            <field name="context">{'search_default_favorite': 1,'search_default_unread': 1}</field>
+        </record>
+        <menuitem id="to_view_internal_tran_menu" name="Transaction To View"
+                  parent="income_internal_tran_menu" sequence="3" action="to_view_internal_tran_action"/>
+
+        <!--To approve internal Menu and Action-->
+
+        <record model="ir.actions.act_window" id="to_approve_internal_tran_action">
+            <field name="name">To Approve Transaction</field>
+            <field name="res_model">internal.transaction</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>
+                [('state','=','to_approve'),'|',('preparation_id.manager_id.user_id','=',uid),('receive_manger_id.user_id','=',uid)]
+            </field>
+            <field name="view_id" ref="exp_transaction_documents.common_transaction_internal_tree"/>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree','view_id':ref('exp_transaction_documents.common_transaction_internal_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('exp_transaction_documents.common_transaction_form')})]"/>
+            <field name="search_view_id" ref="view_internal_transaction_filter"/>
+            <field name="context">{'search_default_favorite': 1,'search_default_unread': 1}</field>
+        </record>
+        <menuitem id="to_approve_internal_tran_menu" name="Transaction To Approve"
+                  parent="income_internal_tran_menu" sequence="4" action="to_approve_internal_tran_action"/>
+        <!--Forward internal Menu and Action-->
+
+        <record model="ir.actions.act_window" id="forward_internal_tran_action">
+            <field name="name">Forward Transaction</field>
+            <field name="res_model">internal.transaction</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>[('is_forward','=',True),('last_forwarded_user','=',uid)]</field>
+            <field name="view_id" ref="exp_transaction_documents.forward_transaction_view"/>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree','view_id':ref('exp_transaction_documents.common_transaction_internal_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('exp_transaction_documents.forward_transaction_view')})]"/>
+        </record>
+        <menuitem id="forward_internal_tran_menu" name="Forward Transaction"
+                  parent="income_internal_tran_menu" sequence="6" action="forward_internal_tran_action"/>
+        <!--Closed Internal Transaction Menu and Action-->
+        <record model="ir.actions.act_window" id="cancel_internal_tran_action">
+            <field name="name">Cancelled Transaction</field>
+            <field name="res_model">internal.transaction</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>[('state','=','canceled'),('employee_id.user_id','=',uid)]</field>
+            <field name="view_id" ref="exp_transaction_documents.common_transaction_internal_tree"/>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree','view_id':ref('exp_transaction_documents.common_transaction_internal_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('exp_transaction_documents.common_transaction_form')})]"/>
+        </record>
+        <menuitem id="cancel_internal_tran_menu" name="Cancelled Transaction"
+                  parent="income_internal_tran_menu" sequence="5" action="cancel_internal_tran_action"/>
+
+        <!--External Transaction Menu And action-->
+        <menuitem id="parent_external_tran_menu" name="External Transaction"
+                  parent="cm_root_menu" sequence="1"/>
+        <!--External Outgoing Transaction-->
+        <!--parent menu of external outgoing transaction-->
+        <menuitem id="parent_external_outgoing_tran_menu" name="Outgoing"
+                  parent="parent_external_tran_menu" sequence="1"/>
+        <!--outgoing menu and action-->
+        <record model="ir.actions.act_window" id="outgoing_external_tran_action">
+            <field name="name">Outgoing External Transaction</field>
+            <field name="res_model">outgoing.transaction</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>[('state', '!=', 'closed'),('employee_id.user_id','=',uid)]</field>
+            <field name="view_id" ref="exp_transaction_documents.outgoing_transaction_external_tree"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first External outgoing Transaction
+                </p>
+            </field>
+            <field name="search_view_id" ref="exp_transaction_documents.view_outgoing_transaction_filter"/>
+            <field name="context">{'search_default_favorite': 1}</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree','view_id':ref('exp_transaction_documents.outgoing_transaction_external_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('exp_transaction_documents.outgoing_external_transaction_form')})]"/>
+        </record>
+        <menuitem id="outgoing_external_tran_menu" name="Outgoing Transaction"
+                  parent="parent_external_outgoing_tran_menu" sequence="0" action="outgoing_external_tran_action"/>
+        <!--External Outgoing Transaction to view-->
+        <record model="ir.actions.act_window" id="outgoing_external_tran_view_action">
+            <field name="name">To view Transaction</field>
+            <field name="res_model">outgoing.transaction</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>
+                [('state','!=','draft'),'|',('trace_ids.cc_ids.user_id','=',uid),('cc_ids.user_id','=',uid)]
+            </field>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree','view_id':ref('exp_transaction_documents.common_outgoing_transaction_external_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('exp_transaction_documents.common_outgoing_external_transaction_form')})]"/>
+            <field name="search_view_id" ref="exp_transaction_documents.view_outgoing_transaction_filter"/>
+            <field name="context">{'search_default_favorite': 1,'search_default_unread': 1}</field>
+        </record>
+        <menuitem id="outgoing_external_tran_view_menu" name="To View Transaction"
+                  parent="parent_external_outgoing_tran_menu" sequence="2" action="outgoing_external_tran_view_action"/>
+        <!--External Outgoing Transaction to approve-->
+        <record model="ir.actions.act_window" id="outgoing_external_tran_approve_action">
+            <field name="name">To Approve External Transaction</field>
+            <field name="res_model">outgoing.transaction</field>
+
+            <field name="view_mode">tree,form</field>
+            <!--            <field name='domain'>[('state','=','to_approve')]</field>-->
+            <field name='domain'>
+                [('state','=','to_approve'),'|',('preparation_id.manager_id.user_id','=',uid),('receive_manger_id.user_id','=',uid)]
+            </field>
+            <field name="search_view_id" ref="exp_transaction_documents.view_outgoing_transaction_filter"/>
+            <field name="context">{'search_default_favorite': 1,'search_default_unread': 1}</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree','view_id':ref('exp_transaction_documents.common_outgoing_transaction_external_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('exp_transaction_documents.common_outgoing_external_transaction_form')})]"/>
+        </record>
+        <menuitem id="outgoing_external_tran_approve_menu" name="To Approve Transaction"
+                  parent="parent_external_outgoing_tran_menu" sequence="1"
+                  action="outgoing_external_tran_approve_action"/>
+        <!--External Outgoing Transaction cancelled-->
+        <record model="ir.actions.act_window" id="outgoing_external_tran_cancelled_action">
+            <field name="name">Canceled Transaction</field>
+            <field name="res_model">outgoing.transaction</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>[('state','=','canceled'),('employee_id.user_id','=',uid)]</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree','view_id':ref('exp_transaction_documents.common_outgoing_transaction_external_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('exp_transaction_documents.common_outgoing_external_transaction_form')})]"/>
+        </record>
+        <menuitem id="outgoing_external_tran_cancelled_menu" name="Cancelled Transaction"
+                  parent="parent_external_outgoing_tran_menu" sequence="3"
+                  action="outgoing_external_tran_cancelled_action"/>
+        <!--External Incoming Transaction Menu and action-->
+        <!--parent menu of external incoming transaction-->
+        <menuitem id="parent_external_incoming_tran_menu" name="Incoming"
+                  parent="parent_external_tran_menu" sequence="1"/>
+        <!--incoming menu and action-->
+        <record model="ir.actions.act_window" id="incoming_external_tran_action">
+            <field name="name">Incoming Transaction</field>
+            <field name="res_model">incoming.transaction</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>[('state', '!=', 'closed'),('employee_id.user_id','=',uid)]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first External Incoming Transaction
+                </p>
+            </field>
+            <field name="search_view_id" ref="exp_transaction_documents.view_incoming_transaction_filter"/>
+            <field name="context">{'search_default_favorite': 1}</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree','view_id':ref('exp_transaction_documents.incoming_transaction_external_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('exp_transaction_documents.incoming_external_transaction_form')})]"/>
+        </record>
+        <menuitem id="incoming_external_tran_menu" name="Incoming Transaction"
+                  parent="parent_external_incoming_tran_menu" sequence="1" action="incoming_external_tran_action"/>
+        <!--forward incoming transaction-->
+        <record model="ir.actions.act_window" id="forward_incoming_external_tran_action">
+            <field name="name">Forward External Transaction</field>
+            <field name="res_model">incoming.transaction</field>
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>['&amp;',('state','=','send'),'|','|',('to_ids.secretary_id.user_id', '=', uid),
+                ('to_ids.user_id', '=',
+                uid),'|',('trace_ids.to_id.user_id','=',uid),'|',('trace_ids.to_id.secretary_id.user_id','=',uid),('receive_user_id','=',uid)]
+            </field>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree','view_id':ref('exp_transaction_documents.common_transaction_external_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('exp_transaction_documents.common_transaction_external_form')})]"/>
+            <field name="search_view_id" ref="exp_transaction_documents.view_incoming_transaction_filter"/>
+            <field name="context">{'search_default_favorite': 1,'search_default_unread': 1}</field>
+        </record>
+        <menuitem id="forward_incoming_external_tran_menu" name="Forward Incoming Transaction"
+                  parent="parent_external_incoming_tran_menu" sequence="1"
+                  action="forward_incoming_external_tran_action"/>
+        <!--Reply incoming transaction-->
+        <record model="ir.actions.act_window" id="reply_incoming_external_tran_action">
+            <field name="name">Replying Transaction</field>
+            <field name="res_model">incoming.transaction</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>[('state','=','reply'),('forward_user_id','=',uid)]</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree','view_id':ref('exp_transaction_documents.common_transaction_external_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('exp_transaction_documents.common_transaction_external_form')})]"/>
+            <field name="search_view_id" ref="exp_transaction_documents.view_incoming_transaction_filter"/>
+            <field name="context">{'search_default_favorite': 1,'search_default_unread': 1}</field>
+        </record>
+        <menuitem id="reply_incoming_external_tran_menu" name="Replying Incoming Transaction"
+                  parent="parent_external_incoming_tran_menu" sequence="1"
+                  action="reply_incoming_external_tran_action"/>
+        <!--to view incoming transaction-->
+        <record model="ir.actions.act_window" id="to_view_incoming_external_tran_action">
+            <field name="name">To View Transaction</field>
+            <field name="res_model">incoming.transaction</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>
+                [('state','!=','draft'),'|',('trace_ids.cc_ids.user_id','=',uid),('cc_ids.user_id','=',uid)]
+            </field>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree','view_id':ref('exp_transaction_documents.common_transaction_external_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('exp_transaction_documents.common_transaction_external_form')})]"/>
+            <field name="search_view_id" ref="exp_transaction_documents.view_incoming_transaction_filter"/>
+            <field name="context">{'search_default_favorite': 1,'search_default_unread': 1}</field>
+        </record>
+        <menuitem id="to_view_incoming_external_tran_menu" name="To View Incoming Transaction"
+                  parent="parent_external_incoming_tran_menu" sequence="1"
+                  action="to_view_incoming_external_tran_action"/>
+        <!--Archive Transaction Menu And action-->
+        <menuitem id="parent_archive_tran_menu" name="Archive Transaction"
+                  parent="cm_root_menu" sequence="2"/>
+        <!-- Internal Archive Menu and action -->
+        <record model="ir.actions.act_window" id="internal_archive_tran_action">
+            <field name="name">Internal Transaction</field>
+            <field name="res_model">internal.transaction</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>[('state','=','closed'),('archive_user_id.user_id','=',uid)]</field>
+            <field name="view_id" ref="exp_transaction_documents.common_transaction_internal_tree"/>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree','view_id':ref('exp_transaction_documents.common_transaction_internal_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('exp_transaction_documents.common_transaction_form')})]"/>
+        </record>
+        <menuitem id="internal_archive_tran_menu" name="Internal Transaction Archive"
+                  parent="parent_archive_tran_menu" sequence="0" action="internal_archive_tran_action"/>
+        <!--External Archive Menu and action -->
+        <record model="ir.actions.act_window" id="external_archive_tran_action">
+            <field name="name">External Incoming Transaction</field>
+            <field name="res_model">incoming.transaction</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>[('state','=','closed'),('archive_user_id.user_id','=',uid)]</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree','view_id':ref('exp_transaction_documents.common_transaction_external_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('exp_transaction_documents.common_transaction_external_form')})]"/>
+        </record>
+        <menuitem id="external_archive_tran_menu" name="External Transaction Archive"
+                  parent="parent_archive_tran_menu" sequence="1" action="external_archive_tran_action"/>
+        <!--Manager department menu all transaction related with department-->
+        <!--parent menu-->
+        <menuitem id="parent_department_tran_menu" name="Department Transaction"
+                  parent="cm_root_menu" sequence="2"/>
+        <!--internal department transaction menu and action-->
+        <!--parent menu of internal-->
+        <menuitem id="internal_department_tran_menu" name="Internal Transaction"
+                  parent="parent_department_tran_menu" sequence="1"/>
+        <!--Incoming Internal Menu and Action-->
+        <record model="ir.actions.act_window" id="dep_incoming_internal_tran_action">
+            <field name="name">Incoming Transaction</field>
+            <field name="res_model">internal.transaction</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>
+                [('state','=','send'),'|','|',('to_ids.manager_id','=',uid),('to_ids.parent_id.manager_id.user_id','=',uid),('trace_ids.to_id.user_id','=',uid)]
+            </field>
+            <field name="view_id" ref="exp_transaction_documents.common_transaction_internal_tree"/>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree','view_id':ref('exp_transaction_documents.common_transaction_internal_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('exp_transaction_documents.common_transaction_form')})]"/>
+        </record>
+        <menuitem id="dep_incoming_internal_tran_menu" name="Incoming Transaction"
+                  parent="internal_department_tran_menu" sequence="0" action="dep_incoming_internal_tran_action"/>
+        <!--Outgoing Internal Menu and action-->
+        <record model="ir.actions.act_window" id="dep_outgoing_internal_tran_action">
+            <field name="name">Outgoing Transaction</field>
+            <field name="res_model">internal.transaction</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>[('employee_id.parent_id.manager_id.user_id','=',uid)]</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree','view_id':ref('exp_transaction_documents.common_transaction_internal_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('exp_transaction_documents.common_transaction_form')})]"/>
+        </record>
+        <menuitem id="dep_outgoing_internal_tran_menu" name="Outgoing Transaction"
+                  parent="internal_department_tran_menu" sequence="1" action="dep_outgoing_internal_tran_action"/>
+        <!--To approve internal Menu and Action-->
+
+        <record model="ir.actions.act_window" id="dep_to_approve_internal_tran_action">
+            <field name="name">To Approve Internal Transaction</field>
+            <field name="res_model">internal.transaction</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>[('state','=','to_approve'),('employee_id.parent_id.manager_id.user_id','=',uid)]
+            </field>
+            <field name="view_id" ref="exp_transaction_documents.common_transaction_internal_tree"/>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree','view_id':ref('exp_transaction_documents.common_transaction_internal_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('exp_transaction_documents.common_transaction_form')})]"/>
+        </record>
+        <menuitem id="dep_to_approve_internal_tran_menu" name="Transaction To Approve"
+                  parent="internal_department_tran_menu" sequence="4" action="dep_to_approve_internal_tran_action"/>
+        <!--Forward internal Menu and Action-->
+
+        <record model="ir.actions.act_window" id="dep_forward_internal_tran_action">
+            <field name="name">Forward Transaction</field>
+            <field name="res_model">internal.transaction</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>[('is_forward','=',True)]</field>
+            <field name="view_id" ref="exp_transaction_documents.common_transaction_internal_tree"/>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree','view_id':ref('exp_transaction_documents.common_transaction_internal_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('exp_transaction_documents.common_transaction_form')})]"/>
+        </record>
+        <menuitem id="dep_forward_internal_tran_menu" name="Forward Transaction"
+                  parent="internal_department_tran_menu" sequence="6" action="dep_forward_internal_tran_action"/>
+        <!--Closed Internal Transaction Menu and Action-->
+        <record model="ir.actions.act_window" id="dep_cancel_internal_tran_action">
+            <field name="name">Cancelled Transaction</field>
+            <field name="res_model">internal.transaction</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>[('state','=','canceled'),('employee_id.parent_id.manager_id.user_id','=',uid)]</field>
+            <field name="view_id" ref="exp_transaction_documents.common_transaction_internal_tree"></field>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree','view_id':ref('exp_transaction_documents.common_transaction_internal_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('exp_transaction_documents.common_transaction_form')})]"/>
+        </record>
+        <menuitem id="dep_cancel_internal_tran_menu" name="Cancelled Transaction"
+                  parent="internal_department_tran_menu" sequence="5" action="dep_cancel_internal_tran_action"/>
+        <!--parent of outgoing-->
+        <menuitem id="external_out_department_tran_menu" name="External Outgoing Transaction"
+                  parent="parent_department_tran_menu" sequence="1"/>
+        <!--outgoing menu and action-->
+        <record model="ir.actions.act_window" id="dep_outgoing_external_tran_action">
+            <field name="name">Outgoing Transaction</field>
+            <field name="res_model">outgoing.transaction</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>[('employee_id.parent_id.manager_id.user_id','=',uid)]</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree','view_id':ref('exp_transaction_documents.common_outgoing_transaction_external_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('exp_transaction_documents.common_outgoing_external_transaction_form')})]"/>
+        </record>
+        <menuitem id="dep_outgoing_external_tran_menu" name="Outgoing Transaction"
+                  parent="external_out_department_tran_menu" sequence="0" action="dep_outgoing_external_tran_action"/>
+        <!--External Outgoing Transaction to approve-->
+        <record model="ir.actions.act_window" id="dep_outgoing_external_tran_approve_action">
+            <field name="name">To Approve Transaction</field>
+            <field name="res_model">outgoing.transaction</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>[('state','=','to_approve'),('employee_id.parent_id.manager_id.user_id','=',uid)]
+            </field>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree','view_id':ref('exp_transaction_documents.common_outgoing_transaction_external_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('exp_transaction_documents.common_outgoing_external_transaction_form')})]"/>
+        </record>
+        <menuitem id="dep_outgoing_external_tran_approve_menu" name="To Approve Transaction"
+                  parent="external_out_department_tran_menu" sequence="1"
+                  action="dep_outgoing_external_tran_approve_action"/>
+        <!--External Outgoing Transaction cancelled-->
+        <record model="ir.actions.act_window" id="dep_outgoing_external_tran_cancelled_action">
+            <field name="name">Canceled Transaction</field>
+            <field name="res_model">outgoing.transaction</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>[('state','=','canceled'),('employee_id.parent_id.manager_id.user_id','=',uid)]</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree','view_id':ref('exp_transaction_documents.common_outgoing_transaction_external_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('exp_transaction_documents.common_outgoing_external_transaction_form')})]"/>
+        </record>
+        <menuitem id="dep_outgoing_external_tran_cancelled_menu" name="Cancelled Transaction"
+                  parent="external_out_department_tran_menu" sequence="3"
+                  action="dep_outgoing_external_tran_cancelled_action"/>
+        <!--external incoming transaction department-->
+        <menuitem id="external_in_department_tran_menu" name="External Incoming Transaction"
+                  parent="parent_department_tran_menu" sequence="1"/>
+        <!--incoming menu and action-->
+        <record model="ir.actions.act_window" id="dep_incoming_external_tran_action">
+            <field name="name">Incoming External Transaction</field>
+            <field name="res_model">incoming.transaction</field>
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>
+                [('state','=','send'),'|','|',('to_ids.manager_id','=',uid),('to_ids.parent_id.manager_id.user_id','=',uid),('trace_ids.to_id.user_id','=',uid)]
+            </field>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree','view_id':ref('exp_transaction_documents.common_transaction_external_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('exp_transaction_documents.common_transaction_external_form')})]"/>
+        </record>
+        <menuitem id="dep_incoming_external_tran_menu" name="Incoming Transaction"
+                  parent="external_in_department_tran_menu" sequence="1" action="dep_incoming_external_tran_action"/>
+        <!--forward incoming transaction-->
+        <record model="ir.actions.act_window" id="dep_forward_incoming_external_tran_action">
+            <field name="name">Forward Transaction</field>
+            <field name="res_model">incoming.transaction</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>[('is_forward','=',True)]</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree','view_id':ref('exp_transaction_documents.common_transaction_external_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('exp_transaction_documents.common_transaction_external_form')})]"/>
+        </record>
+        <menuitem id="dep_forward_incoming_external_tran_menu" name="Forward Incoming Transaction"
+                  parent="external_in_department_tran_menu" sequence="1"
+                  action="dep_forward_incoming_external_tran_action"/>
+        <!--Report Menu-->
+        <menuitem id="parent_report_menu" name="Reports"
+                  parent="cm_root_menu" sequence="8"/>
+    </data>
+</odoo>

@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+   <!-- evaluation.details form view -->
+   <record id="vendor_evaluation_view_form" model="ir.ui.view">
+       <field name="name">Evaluation Details</field>
+       <field name="model">vendor.evaluation</field>
+       <field name="arch" type="xml">
+           <form string="">
+               <sheet>
+                   <group col="4" colspan="2"> 
+                        <field name="vendor_id" readonly="1" />  
+                        <field name="owner" readonly="1" /> 
+                        <field name="date" readonly="1" /> 
+                        <field name="value" /> 
+                        <field name="inv_vendor_id" invisible="1" readonly="0" /> 
+                        <field name="inv_owner" invisible="1" readonly="0" />  
+                        <field name="vendor_type_id" options="{'no_create' :True ,'no_open' : True}"/> 
+                   </group>
+                   <notebook>
+                        <page string="Criteria" name="criteria">
+                            <field name="line_ids">
+                                <tree editable="bottom" create="false" >
+                                    <field name="criteria_id" />
+                                    <field name="value" required="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+               </sheet>
+           </form>
+       </field>
+   </record>
+
+   <record id="vendor_evaluation_search" model="ir.ui.view">
+            <field name="name">vendor.evaluation.search</field>
+            <field name="model">cumulative.vendor.evaluation</field>
+            <field name="arch" type="xml">
+                <search string="Purchase">
+                 <field name="vendor_id"/>
+                    <filter string="Purchase" name="purchase_filter" domain="[('owner','=','purchase')]"/>
+                    <filter name="vendor" string="Vendor" domain="[]" context="{'group_by' : 'vendor_id'}" />
+                    <filter name="department" string="Department" domain="[]" context="{'group_by' : 'owner'}" />
+                </search>
+            </field>
+        </record>
+   
+   <!-- cumulative evaluation form view  -->
+   <record id="cumulative_evaluation_view_form" model="ir.ui.view">
+       <field name="name">Cumulative Evaluation Details</field>
+       <field name="model">cumulative.vendor.evaluation</field>
+       <field name="arch" type="xml">
+           <form string="" create="false" delete="false" edit="false">
+               <sheet>
+                   <group col="4" colspan="2">
+                        <field name="vendor_id" />  
+                        <field name="owner" readonly="1"/> 
+                        <field name="last_eval" readonly="1" /> 
+                        <field name="cumulative_eval" readonly="1" /> 
+                   </group>
+                   <notebook>
+                        <page string="Evaluations" name="evaluations">
+                            <field name="line_ids" readonly="1">
+                                <tree editable="bottom" create="false" delete="false">
+                                    <field name="date" />
+                                    <field name="value" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+               </sheet>
+           </form>
+       </field>
+   </record>
+
+   <!-- cumulative vendor evaluatioin tree veiw -->
+   <record id="cumulative_evaluation_view_tree" model="ir.ui.view">
+       <field name="name">Vendor Evaluation</field>
+       <field name="model">cumulative.vendor.evaluation</field>
+       <field name="arch" type="xml">
+           <tree create="false" delete="false" edit="false">
+               <field name="vendor_id"/>
+               <field name="owner"/>
+               <field name="cumulative_eval" string="Value"/>
+           </tree>
+       </field>
+   </record>
+
+   <!-- cumulative.vendor.evaluation action window -->
+   <record id="cumulative_evaluation_actin" model="ir.actions.act_window">
+       <field name="name">Vendor Evaluation</field>
+       <field name="type">ir.actions.act_window</field>
+       <field name="res_model">cumulative.vendor.evaluation</field>
+       <field name="view_mode">search,tree,form</field>
+       
+       <field name="context">{'default_owner' : 'purchase','search_default_purchase_filter': 1}</field>
+       <field name="help" type="html">
+           <p class="oe_view_nocontent_create">
+                Create Cumulative Evaluation for a vendor
+           </p>
+       </field>
+   </record>
+
+   <!-- This Menu Item must have a parent and an action -->
+   <menuitem id="cumulative_evaluation_menu" groups="purchase_group" name="Vendors Evaluations" parent="vendor_evaluation_main" action="cumulative_evaluation_actin" sequence="1"/>
+
+    <record id="cumulative_evaluation_actin_stock" model="ir.actions.act_window">
+       <field name="name">Vendor Evaluation</field>
+       <field name="type">ir.actions.act_window</field>
+       <field name="res_model">cumulative.vendor.evaluation</field>
+       <field name="view_mode">tree,form</field>
+       
+       <field name="context">{'default_owner' : 'stock'}</field>
+        <field name="domain">[('owner' , '=' , 'stock')]</field>
+       <field name="help" type="html">
+           <p class="oe_view_nocontent_create">
+                Create Cumulative Evaluation for a vendor
+           </p>
+       </field>
+   </record>
+
+   <!-- This Menu Item must have a parent and an action -->
+   <menuitem id="cumulative_evaluation_menu_stock" groups="stock_group" name="Vendors Evaluations" parent="vendor_evaluation_main_stock" action="cumulative_evaluation_actin_stock" sequence="1"/>
+
+
+
+   <record id="cumulative_evaluation_actin_account" model="ir.actions.act_window">
+       <field name="name">Vendor Evaluation</field>
+       <field name="type">ir.actions.act_window</field>
+       <field name="res_model">cumulative.vendor.evaluation</field>
+       <field name="view_mode">tree,form</field>
+       
+       <field name="context">{'default_owner' : 'account'}</field>
+        <field name="domain">[('owner' , '=' , 'account')]</field>
+       <field name="help" type="html">
+           <p class="oe_view_nocontent_create">
+                Create Cumulative Evaluation for a vendor
+           </p>
+       </field>
+   </record>
+
+   <!-- This Menu Item must have a parent and an action -->
+   <menuitem id="cumulative_evaluation_menu_account" groups="finance_group" name="Vendors Evaluations" parent="vendor_evaluation_main_account" action="cumulative_evaluation_actin_account" sequence="1"/>
+    
+
+    <record id="vendor_comparison_action" model="ir.actions.act_window">
+       <field name="name">Vendor Comparison</field>
+       <field name="type">ir.actions.act_window</field>
+       <field name="res_model">vendor.comparison.wizard</field>
+       <field name="view_mode">form</field>
+       
+       <field name="target">new</field>
+   </record>
+
+   <!-- vendor.comarison.wizard form view -->
+   <record id="model_name_view_form" model="ir.ui.view">
+       <field name="name">vendor.comarison.wizard.view.form</field>
+       <field name="model">vendor.comparison.wizard</field>
+       <field name="arch" type="xml">
+           <form string="">
+               <sheet>
+                   <group col="4" colspan="2">  
+                        <field name="type" required="1"/>     
+                        <field name="vendor_ids" widget="many2many_tags" placeholder="leave it empty to compare all"/>
+                        <field name="criteria_ids" widget="many2many_tags" placeholder="leave it empty to compare all"/>                
+                   </group>
+                    <footer>
+                        <div>
+                            <button name="action_print" string="Print" type="object" default_focus="1" class="oe_highlight"/>
+                            or
+                            <button string="Cancel" class="oe_link" special="cancel" />
+                        </div>
+                    </footer>
+               </sheet>
+               
+           </form>
+       </field>
+   </record>
+
+    <menuitem id="vendor_comparison_repport_menu"  name="Vendors Comparison" parent="vendor_evaluation_main" action="vendor_comparison_action" sequence="3"/>
+
+</odoo>

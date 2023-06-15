@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_superset_user,odex_bi.user,odex_bi.model_superset_users,odex_bi.group_superset,1,1,1,1
+access_superset_manager,odex_bi.manager,odex_bi.model_superset_users,base.group_system,1,1,1,1
+access_superset_bi_user,odex25_bi.user,odex_bi.model_superset,odex_bi.group_superset,1,1,1,1

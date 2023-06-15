@@ -1,0 +1,612 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* exp_asset_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e-20210105\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-18 07:41+0000\n"
+"PO-Revision-Date: 2021-05-18 07:41+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset__asset_adjustment_count
+msgid "# of Adjustments"
+msgstr "الجرد"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment_line__adjustment_id
+msgid "Adjustment"
+msgstr "جرد الأصول"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment__adjustment_line_ids
+msgid "Adjustment Line"
+msgstr "تفاصيل الجرد"
+
+#. module: exp_asset_base
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.view_account_asset_form
+msgid "Adjustments"
+msgstr "الجرد"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment_line__asset_id
+msgid "Asset"
+msgstr "الأصل"
+
+#. module: exp_asset_base
+#: code:addons/exp_asset_base/models/account_asset.py:0
+#: model:ir.actions.act_window,name:exp_asset_base.action_asset_adjustment
+#: model:ir.model,name:exp_asset_base.model_account_asset_adjustment
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.asset_adjustment_form
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.asset_adjustment_line_tree
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.asset_adjustment_tree
+#, python-format
+msgid "Asset Adjustment"
+msgstr "جرد الأصول"
+
+#. module: exp_asset_base
+#: model:ir.model,name:exp_asset_base.model_account_asset_adjustment_line
+msgid "Asset Adjustment Line"
+msgstr "تفاصيل جرد الأصول"
+
+#. module: exp_asset_base
+#: model:res.groups,name:exp_asset_base.group_asset_assessment
+msgid "Asset Assessment"
+msgstr "إعادة التقييم"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_location__complete_name
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.asset_location_form
+msgid "Asset Location"
+msgstr "مواقع الأصول"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset__asset_picture
+msgid "Asset Picture"
+msgstr "صورة الأصل"
+
+#. module: exp_asset_base
+#: code:addons/exp_asset_base/reports/asset_register_report_xlsx.py:0
+#, python-format
+msgid "Asset Register"
+msgstr "سجل الأصول"
+
+#. module: exp_asset_base
+#: model:ir.actions.server,name:exp_asset_base.asset_cron_ir_actions_server
+#: model:ir.cron,cron_name:exp_asset_base.asset_cron
+#: model:ir.cron,name:exp_asset_base.asset_cron
+msgid "Asset Reminder"
+msgstr "Asset Reminder"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment_line__asset_status
+msgid "Asset Status"
+msgstr "حالة العهد"
+
+#. module: exp_asset_base
+#: model:ir.model.constraint,message:exp_asset_base.constraint_account_asset_asset_barcode_uniq
+msgid "Asset barcode must be unique."
+msgstr "يجب أن يكون باكود الأصل فريدً."
+
+#. module: exp_asset_base
+#: model:ir.actions.report,name:exp_asset_base.action_report_asset_register_xlsx
+msgid "Asset register XLSX"
+msgstr "سجل الاصول (اكسل)"
+
+#. module: exp_asset_base
+#: model:ir.model,name:exp_asset_base.model_account_asset
+msgid "Asset/Revenue Recognition"
+msgstr "أصل/ إيرادات مقدمة"
+
+#. module: exp_asset_base
+#: model:ir.ui.menu,name:exp_asset_base.menu_account_asset_adjustment
+msgid "Assets Adjustment"
+msgstr "جرد الاصول"
+
+#. module: exp_asset_base
+#: model:ir.actions.act_window,name:exp_asset_base.action_account_asset_graph
+#: model:ir.ui.menu,name:exp_asset_base.menu_account_asset_graph
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.view_account_asset_graph
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.view_account_asset_pivot
+msgid "Assets Analysis"
+msgstr "تحليل الأصول"
+
+#. module: exp_asset_base
+#: model:ir.actions.act_window,name:exp_asset_base.action_account_asset_location
+#: model:ir.ui.menu,name:exp_asset_base.menu_account_asset_location
+msgid "Assets Locations"
+msgstr "المواقع"
+
+#. module: exp_asset_base
+#: model:ir.ui.menu,name:exp_asset_base.menu_account_asset_management_main
+msgid "Assets Management"
+msgstr "إدارة الأصول"
+
+#. module: exp_asset_base
+#: model:ir.actions.act_window,name:exp_asset_base.action_account_asset_manufacturer
+msgid "Assets Manufacturer"
+msgstr "الشركات المُصنعة"
+
+#. module: exp_asset_base
+#: model:ir.model.fields.selection,name:exp_asset_base.selection__account_asset__status__available
+msgid "Available"
+msgstr "متوفر"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset__barcode
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment__barcode
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment_line__barcode
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.view_account_asset_form
+msgid "Barcode"
+msgstr "الباركود"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment___barcode_scanned
+msgid "Barcode Scanned"
+msgstr "الباركود"
+
+#. module: exp_asset_base
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.asset_adjustment_form
+msgid "Barcode..."
+msgstr "باركود..."
+
+#. module: exp_asset_base
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.view_account_asset_form
+msgid "Basic Info"
+msgstr "المعلومات الأساسية"
+
+#. module: exp_asset_base
+#: model:ir.model.fields.selection,name:exp_asset_base.selection__account_asset_adjustment__type__model
+msgid "By Model"
+msgstr "النموذج"
+
+#. module: exp_asset_base
+#: model:ir.model.fields.selection,name:exp_asset_base.selection__account_asset_adjustment__type__product
+msgid "By Product"
+msgstr "المنتج"
+
+#. module: exp_asset_base
+#: model:ir.model.fields.selection,name:exp_asset_base.selection__account_asset_adjustment__state__cancel
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: exp_asset_base
+#: code:addons/exp_asset_base/reports/asset_depreciation_report_xlsx.py:0
+#, python-format
+msgid "Categories"
+msgstr "فئات"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_location__child_id
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.asset_location_form
+msgid "Child Locations"
+msgstr "المواقع الفرعية"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_location__code
+msgid "Code"
+msgstr "الكود"
+
+#. module: exp_asset_base
+#: model:ir.ui.menu,name:exp_asset_base.menu_account_asset_configuration_main
+msgid "Configurations"
+msgstr ""
+
+#. module: exp_asset_base
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.asset_adjustment_form
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: exp_asset_base
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.view_account_asset_search
+msgid "Cost Center"
+msgstr "مركز التكلفة"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment__create_uid
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment_line__create_uid
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_location__create_uid
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_manufacturer__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment__create_date
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment_line__create_date
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_location__create_date
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_manufacturer__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset__location_id
+msgid "Current Location"
+msgstr "الموقع الحالي"
+
+#. module: exp_asset_base
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.view_account_asset_asset_purchase_tree
+msgid "Custody Status"
+msgstr "حالة العهدة"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset__value_residual
+msgid "Depreciable Value"
+msgstr "القيمة القابلة للإستهلاك"
+
+#. module: exp_asset_base
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.view_account_asset_depreciation_graph
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.view_account_asset_depreciation_pivot
+msgid "Depreciation"
+msgstr "إستهلاك"
+
+#. module: exp_asset_base
+#: model:ir.actions.act_window,name:exp_asset_base.action_account_asset_depreciation_analysis
+#: model:ir.ui.menu,name:exp_asset_base.menu_account_Depreciation_graph
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.view_account_asset_depreciation_graph
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.view_account_asset_depreciation_pivot
+msgid "Depreciation Analysis"
+msgstr "تحليل الإستهلاكات"
+
+#. module: exp_asset_base
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.view_account_asset_depreciation_graph
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.view_account_asset_depreciation_pivot
+msgid "Depreciation Date"
+msgstr "تاريخ الإستهلاك"
+
+#. module: exp_asset_base
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.asset_adjustment_form
+msgid "Details"
+msgstr "التفاصيل"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset__display_name
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment__display_name
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment_line__display_name
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_location__display_name
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_manufacturer__display_name
+#: model:ir.model.fields,field_description:exp_asset_base.field_report_asset_abstract_report_xlsx__display_name
+#: model:ir.model.fields,field_description:exp_asset_base.field_report_report_asset_register_xlsx__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: exp_asset_base
+#: model:ir.model.fields.selection,name:exp_asset_base.selection__account_asset_adjustment__state__done
+msgid "Done"
+msgstr "تم"
+
+#. module: exp_asset_base
+#: model:ir.model.fields.selection,name:exp_asset_base.selection__account_asset_adjustment__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: exp_asset_base
+#: code:addons/exp_asset_base/reports/asset_depreciation_report_xlsx.py:0
+#, python-format
+msgid "Duration"
+msgstr "الفترة"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment_line__exist
+msgid "Exist?"
+msgstr "موجود?"
+
+#. module: exp_asset_base
+#: code:addons/exp_asset_base/reports/asset_depreciation_report_xlsx.py:0
+#, python-format
+msgid "Fixed Asset Register"
+msgstr "سجل الأصول"
+
+#. module: exp_asset_base
+#: code:addons/exp_asset_base/reports/asset_depreciation_report_xlsx.py:0
+#, python-format
+msgid "From: "
+msgstr "من: "
+
+#. module: exp_asset_base
+#: model:ir.model.fields.selection,name:exp_asset_base.selection__account_asset_adjustment_line__asset_status__good
+msgid "Good"
+msgstr "جيد"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset__id
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment__id
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment_line__id
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_location__id
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_manufacturer__id
+#: model:ir.model.fields,field_description:exp_asset_base.field_report_asset_abstract_report_xlsx__id
+#: model:ir.model.fields,field_description:exp_asset_base.field_report_report_asset_register_xlsx__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: exp_asset_base
+#: model:ir.model.fields.selection,name:exp_asset_base.selection__account_asset_adjustment__state__in_progress
+msgid "In Progress"
+msgstr "جاري"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset____last_update
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment____last_update
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment_line____last_update
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_location____last_update
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_manufacturer____last_update
+#: model:ir.model.fields,field_description:exp_asset_base.field_report_asset_abstract_report_xlsx____last_update
+#: model:ir.model.fields,field_description:exp_asset_base.field_report_report_asset_register_xlsx____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment__write_uid
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment_line__write_uid
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_location__write_uid
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_manufacturer__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment__write_date
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment_line__write_date
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_location__write_date
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_manufacturer__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset__limit
+msgid "Limit"
+msgstr "حد"
+
+#. module: exp_asset_base
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.asset_location_form
+msgid "Location Name..."
+msgstr "إسم الموقع..."
+
+#. module: exp_asset_base
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.view_account_asset_form
+msgid "Lock"
+msgstr "إغلاق"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset__manufacturer_id
+#: model:ir.ui.menu,name:exp_asset_base.menu_account_manufacturer
+msgid "Manufacturer"
+msgstr "المُصنع"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset__model
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment__model_id
+msgid "Model"
+msgstr "النموذج"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment__name
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_location__name
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_manufacturer__name
+msgid "Name"
+msgstr "الإسم"
+
+#. module: exp_asset_base
+#: model:ir.model.fields.selection,name:exp_asset_base.selection__account_asset__status__new
+msgid "New"
+msgstr "جديد"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset__next_maintenance_date
+msgid "Next Maintenance Date"
+msgstr "تاريخ الصيانة القادم"
+
+#. module: exp_asset_base
+#: code:addons/exp_asset_base/models/account_asset_adjustment.py:0
+#, python-format
+msgid "No asset found with the selected barcode"
+msgstr "لم يتم العثور على أصل بالباركود المدخل"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset__note
+msgid "Note"
+msgstr "ملاحظة"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,help:exp_asset_base.field_account_asset__asset_adjustment_count
+msgid "Number of adjustments"
+msgstr "عدد عمليات الجرد"
+
+#. module: exp_asset_base
+#: model:ir.model.fields.selection,name:exp_asset_base.selection__account_asset_location__type__ordinary
+msgid "Ordinary"
+msgstr "عادي"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_location__parent_id
+msgid "Parent"
+msgstr "الأصل"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_location__parent_path
+msgid "Parent Path"
+msgstr "المسار الأصلي"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset__product_id
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment__product_id
+msgid "Product"
+msgstr "المنتج"
+
+#. module: exp_asset_base
+#: model:ir.ui.menu,name:exp_asset_base.menu_account_asset_products
+msgid "Products"
+msgstr "المنتجات"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset__receive_date
+msgid "Receive Date"
+msgstr "تاريخ الإستلام"
+
+#. module: exp_asset_base
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.asset_adjustment_form
+msgid "Reject"
+msgstr "رفض"
+
+#. module: exp_asset_base
+#: model:ir.ui.menu,name:exp_asset_base.menu_account_asset_reporting_main
+msgid "Reporting"
+msgstr "التقارير"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset__responsible_dept_id
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.view_account_asset_search
+msgid "Responsible Department"
+msgstr "الإدارة المسئولة"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset__responsible_user_id
+msgid "Responsible User"
+msgstr "الموظف المسئول"
+
+#. module: exp_asset_base
+#: model:ir.model.fields.selection,name:exp_asset_base.selection__account_asset_adjustment_line__asset_status__scrap
+msgid "Scrap"
+msgstr "تالف"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset__serial_no
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment_line__serial_no
+msgid "Serial No"
+msgstr "الرقم التسلسلي"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset__service_provider_id
+msgid "Service Provider"
+msgstr "مزود الخدمة"
+
+#. module: exp_asset_base
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.asset_adjustment_form
+msgid "Set to Draft"
+msgstr "تعيين كمسودة"
+
+#. module: exp_asset_base
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.asset_adjustment_form
+msgid "Start"
+msgstr "بدأ"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset__state
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset__status
+msgid "Status"
+msgstr "الحالة"
+
+#. module: exp_asset_base
+#: code:addons/exp_asset_base/models/account_asset.py:0
+#, python-format
+msgid "The %s with barcode %s has schedule maintenance today ,please follow."
+msgstr "%s بالكود %s لديه صيانة مجدولة اليوم,الرجاء المتابعة."
+
+#. module: exp_asset_base
+#: code:addons/exp_asset_base/models/account_asset.py:0
+#, python-format
+msgid "The warrant period of %s with barcode %s has end!"
+msgstr "فترة الضمان للأصل %s بالباركود %s قد إنتهت!"
+
+#. module: exp_asset_base
+#: code:addons/exp_asset_base/reports/asset_depreciation_report_xlsx.py:0
+#, python-format
+msgid "To: "
+msgstr "الى: "
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_adjustment__type
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset_location__type
+msgid "Type"
+msgstr "النوع"
+
+#. module: exp_asset_base
+#: model:ir.model.fields.selection,name:exp_asset_base.selection__account_asset__state__unlock
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.view_account_asset_form
+msgid "Unlock"
+msgstr "إعادة الفتح"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,help:exp_asset_base.field_account_asset_adjustment___barcode_scanned
+msgid "Value of the last barcode scanned."
+msgstr "قيمة آخر باركود ممسوح ضوئيًا."
+
+#. module: exp_asset_base
+#: model:ir.ui.menu,name:exp_asset_base.menu_account_asset_vendors
+msgid "Vendors"
+msgstr "المورد"
+
+#. module: exp_asset_base
+#: model:ir.model.fields.selection,name:exp_asset_base.selection__account_asset_location__type__view
+msgid "View"
+msgstr "عرض"
+
+#. module: exp_asset_base
+#: model_terms:ir.ui.view,arch_db:exp_asset_base.view_account_asset_form
+msgid "Warranty"
+msgstr "ضمان"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset__warranty_contract
+msgid "Warranty Contract"
+msgstr "عقد الضمان"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset__warranty_end_date
+msgid "Warranty End Date"
+msgstr "تاريخ نهاية الضمان"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,field_description:exp_asset_base.field_account_asset__warranty_period
+msgid "Warranty Period(Months)"
+msgstr "فترة الضمان (شهور)"
+
+#. module: exp_asset_base
+#: model:ir.model.fields,help:exp_asset_base.field_account_asset__state
+msgid ""
+"When an asset is created, the status is 'Draft'.\n"
+"If the asset is confirmed, the status goes in 'Running' and the depreciation lines can be posted in the accounting.\n"
+"The 'On Hold' status can be set manually when you want to pause the depreciation of an asset for some time.\n"
+"You can manually close an asset when the depreciation is over. If the last line of depreciation is posted, the asset automatically goes in that status."
+msgstr ""
+
+#. module: exp_asset_base
+#: code:addons/exp_asset_base/models/account_asset_adjustment.py:0
+#, python-format
+msgid "You should enter the asset status for all assets that marked as exist."
+msgstr "يجب تحديد حالة الأصل لجميع الأصول الموجودة."
+
+#. module: exp_asset_base
+#: model:ir.model,name:exp_asset_base.model_account_asset_location
+msgid "account.asset.location"
+msgstr ""
+
+#. module: exp_asset_base
+#: model:ir.model,name:exp_asset_base.model_account_asset_manufacturer
+msgid "account.asset.manufacturer"
+msgstr ""
+
+#. module: exp_asset_base
+#: model:ir.model,name:exp_asset_base.model_report_asset_abstract_report_xlsx
+msgid "report.asset_abstract_report_xlsx"
+msgstr ""
+
+#. module: exp_asset_base
+#: model:ir.model,name:exp_asset_base.model_report_report_asset_register_xlsx
+msgid "report.report_asset_register_xlsx"
+msgstr ""

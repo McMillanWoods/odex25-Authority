@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="template" xml:space="preserve">
+    <t t-name="tender" id="tender">
+            <!-- <t t-call="website.layout"> -->
+            <t t-esc="tender.name"/>
+                <form method="POST" action="/Application_result">  
+                    <input style="visibility: hidden;" name="tender" type="number" readonly="1" t-att-value="tender.id" />
+                    <table>
+                    <thead>
+                        <tr>
+                            <th style="visibility: hidden; border: 1px black solid">product id</th>
+                            <th style="border: 1px black solid">product</th>
+                            <th style="border: 1px black solid">quantity</th>
+                            <th style="border: 1px black solid">delivary date</th>
+                            <th style="border: 1px black solid">price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="tender.line_ids" t-as="line">
+                            <td style="visibility: hidden;"><input name="product_id" type="number" readonly="1" t-att-value="line.product_id.id" /></td>
+                            <td style="border: 1px black solid"><input   type="text" t-att-value="line.product_id.name"/></td>
+                            <td style="border: 1px black solid"> <input  type="text" t-att-value="line.product_qty"/> </td>
+                            <td style="border: 1px black solid"> <input  type="text" t-att-value="line.schedule_date"/></td>
+                            <td><input type="number" name="price" required="required" /></td>
+                        </tr> 
+
+                    </tbody>
+
+                    
+                </table>
+
+                <button type="submit" class="btn btn-primary pull-left o_signup_btn">Submit Your Prices</button>
+
+
+                </form>
+            <!-- </t> -->
+        </t>
+
+</templates>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--Tree and form view for Internal Transaction-->
+
+        <record id="view_incoming_transaction_filter" model="ir.ui.view">
+            <field name="name">incoming.transaction.search</field>
+            <field name="model">incoming.transaction</field>
+            <field name="arch" type="xml">
+                <search string="incoming transaction">
+                    <field name="name" string="Transaction" filter_domain="[('name','ilike',self)]"/>
+                    <field name="project_id" string="Project" filter_domain="[('project_id','ilike',self)]"/>
+                    <field name="sale_order_id" string="Proposal" filter_domain="[('sale_order_id','ilike',self)]"/>
+                    <field name="incoming_number" string="Incoming Number"
+                           filter_domain="[('incoming_number','ilike',self)]"/>
+                    <field name="tran_tag" string="tag" filter_domain="[('tran_tag','ilike',self)]"/>
+                    <field name="is_reade"/>
+                    <field name="is_favorite"/>
+                    <filter string="Unread Transaction" name="unread" domain="[('is_reade','=',False)]"/>
+                    <filter string="Favorite" name="favorite" domain="[('is_favorite','=','1')]"/>
+                    <!--                    <group expand="0" string="Group By">-->
+                    <!--                        <filter name="group_manager" string="Manager" domain="[]" context="{'group_by':'parent_id'}"/>-->
+                    <!--                        <filter name="group_coach" string="Coach" domain="[]" context="{'group_by':'coach_id'}"/>-->
+                    <!--                        <filter name="group_department" string="Department" domain="[]" context="{'group_by':'department_id'}"/>-->
+                    <!--                        <filter name="group_job" string="Job" domain="[]" context="{'group_by':'job_id'}"/>-->
+                    <!--                        <filter name="group_company" string="Company" domain="[]" context="{'group_by':'company_id'}" groups="base.group_multi_company"/>-->
+                    <!--                    </group>-->
+                </search>
+            </field>
+        </record>
+        <record id="common_transaction_external_tree" model="ir.ui.view">
+            <field name="name">common.incoming.transaction.tree</field>
+            <field name="model">incoming.transaction</field>
+            <field name="arch" type="xml">
+                <tree default_order="transaction_date desc" decoration-info="is_reade == False"
+                      string="Incoming Transaction" create="false" edit="false">
+                    <field name="from_id"/>
+                    <field name="partner_id"/>
+                    <field name="name"/>
+                    <field name="incoming_number"/>
+                    <field name="transaction_date" optional="hide"/>
+                    <field name="subject"/>
+                    <field name="project_id"/>
+                    <field name="sale_order_id"/>
+                    <field name="subject_type_id" optional="hide"/>
+                    <field name="to_ids" widget="many2many_tags"/>
+                    <field name="tran_tag" widget="many2many_tags"/>
+                    <field name="tran_tag_unit" widget="many2many_tags"/>
+                    <field name="due_date"/>
+                    <field name="state"/>
+                    <field name="attachment_count"/>
+                    <field name="is_favorite" string=" " widget="priority"/>
+                    <field name="is_reade" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="common_transaction_external_form" model="ir.ui.view">
+            <field name="name">common.incoming.transactions.form</field>
+            <field name="model">incoming.transaction</field>
+            <field name="inherit_id" ref="exp_transaction_documents.common_transactions_incoming_form"/>
+            <field name="mode">primary</field>
+            <field name="priority" eval="2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='need_approve']" position="after">
+                    <field name="current_is_forward_user" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='important_id']" position="after">
+                    <field name="tran_tag" widget="many2many_tags"
+                           options="{'no_create':True}"/>
+                </xpath>
+                <xpath expr="//form/header" position="replace">
+                    <header>
+                        <button attrs="{'invisible':['|',('current_is_forward_user','=',False),('state','not in',['send','reply'])]}"
+                                type="object" name="action_forward_incoming" string="Forward" class="oe_highlight"/>
+                        <button attrs="{'invisible':['|',('current_is_forward_user','=',False),('state','not in',['send','reply'])]}"
+                                type="object" name="action_reply_internal" string="Reply" class="oe_highlight"/>
+                        <button attrs="{'invisible':['|',('current_is_forward_user','=',False),('state','not in',['send','reply'])]}"
+                                type="object" name="action_archive_incoming" string="Archive" class="oe_highlight"/>
+                        <button states="closed" type="object" name="action_reopen" string="Reopen" class="oe_highlight"
+                                confirm="Are you sure you want to reopen transaction ?"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,send,closed,canceled"/>
+                    </header>
+                </xpath>
+            </field>
+        </record>
+
+        <!--Tree and form view for Internal Transaction-->
+        <record id="incoming_transaction_external_tree" model="ir.ui.view">
+            <field name="name">incoming.transaction.external.tree</field>
+            <field name="model">incoming.transaction</field>
+            <field name="inherit_id" ref="exp_transaction_documents.common_transaction_external_tree"/>
+            <field name="mode">primary</field>
+            <field name="priority" eval="1"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="create">true</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="incoming_external_transaction_form" model="ir.ui.view">
+            <field name="name">incoming.transaction.external.form</field>
+            <field name="model">incoming.transaction</field>
+            <field name="inherit_id" ref="exp_transaction_documents.common_transactions_incoming_form"/>
+            <field name="mode">primary</field>
+            <field name="priority" eval="2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form" position="attributes">
+                    <attribute name="create">true</attribute>
+                    <attribute name="edit">true</attribute>
+                </xpath>
+                <xpath expr="//field[@name='important_id']" position="after">
+                    <field name="tran_tag" widget="many2many_tags"
+                           options="{'no_create':True}"/>
+                    <field name="tran_tag_unit" widget="many2many_tags"
+                           options="{'no_create':True}"/>
+                    <field name="project_id" widget="many2many_tags"
+                           options="{'no_create':True}"/>
+                    <field name="sale_order_id"
+                           options="{'no_create':True}"/>
+                </xpath>
+                <xpath expr="//form/header" position="replace">
+                    <header>
+                        <button states="draft" type="object" name="action_draft" string="Send" class="oe_highlight"/>
+                        <button states="draft" type="object" name="action_archive_incoming" string="Archive"
+                                class="oe_highlight"/>
+                        <button type="object"
+                                attrs="{'invisible':['|',('state','=','canceled'),('state','=','closed')]}"
+                                name="action_cancel" string="Cancel" class="oe_highlight"/>
+                        <button states="closed" type="object" name="action_reopen" string="Reopen"
+                                class="oe_highlight"/>
+                        <button states="canceled" type="object" name="set_to_draft" string="Restore"
+                                class="oe_highlight"
+                                confirm="Are you sure you want to restore transaction ?"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,closed"/>
+                    </header>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="action_read_incoming_transaction_from" model="ir.actions.server">
+            <field name="name">Read</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_incoming_transaction"/>
+            <field name="binding_model_id" ref="model_incoming_transaction"/>
+            <field name="state">code</field>
+            <field name="code">
+                if records:
+                action = records.action_read()
+            </field>
+        </record>
+        <record id="action_unread_incoming_transaction_from" model="ir.actions.server">
+            <field name="name">Unread</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_incoming_transaction"/>
+            <field name="binding_model_id" ref="model_incoming_transaction"/>
+            <field name="state">code</field>
+            <field name="code">
+                if records:
+                action = records.action_unread()
+            </field>
+        </record>
+        <record id="action_add_incoming_transaction_from" model="ir.actions.server">
+            <field name="name">Add To Favorite</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_incoming_transaction"/>
+            <field name="binding_model_id" ref="model_incoming_transaction"/>
+            <field name="state">code</field>
+            <field name="code">
+                if records:
+                action = records.add_to_favorite()
+            </field>
+        </record>
+        <record id="action_remove_incoming_transaction_from" model="ir.actions.server">
+            <field name="name">Remove from Favorite</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_incoming_transaction"/>
+            <field name="binding_model_id" ref="model_incoming_transaction"/>
+            <field name="state">code</field>
+            <field name="code">
+                if records:
+                action = records.remove_from_favorite()
+            </field>
+        </record>
+    </data>
+</odoo>

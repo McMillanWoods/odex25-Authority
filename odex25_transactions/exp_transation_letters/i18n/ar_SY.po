@@ -1,0 +1,254 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* exp_transation_letters
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-29 05:51+0000\n"
+"PO-Revision-Date: 2020-04-29 05:51+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: exp_transation_letters
+#: model:ir.ui.view,arch_db:exp_transation_letters.transaction_letter_report_temp
+msgid "<strong> Date </strong>:"
+msgstr "<strong> التاريخ </strong>:"
+
+#. module: exp_transation_letters
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_template_conclusion
+msgid "Conclusion"
+msgstr "الخاتمة"
+
+#. module: exp_transation_letters
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_letters_content
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_template_content
+msgid "Content"
+msgstr "المحتوى"
+
+#. module: exp_transation_letters
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_letters_create_uid
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_template_create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: exp_transation_letters
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_letters_create_date
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_template_create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: exp_transation_letters
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_letters_date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: exp_transation_letters
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_letters_display_name
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_template_display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: exp_transation_letters
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_template_is_favorite
+#: selection:letters.template,is_favorite:0
+msgid "Favorite"
+msgstr "المفضلة"
+
+#. module: exp_transation_letters
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_letters_hijir_date
+msgid "Hijir Date"
+msgstr "التاريخ الهجري"
+
+#. module: exp_transation_letters
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_letters_id
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_template_id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: exp_transation_letters
+#: selection:letters.letters,transaction_type:0
+msgid "Incoming"
+msgstr "الوارد الخارجي"
+
+#. module: exp_transation_letters
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_letters_incoming_transaction_id
+msgid "Incoming Transaction"
+msgstr "المعاملات الوارده"
+
+#. module: exp_transation_letters
+#: selection:letters.letters,transaction_type:0
+msgid "Internal"
+msgstr "الداخلية"
+
+#. module: exp_transation_letters
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_letters_internal_transaction_id
+msgid "Internal Transaction"
+msgstr "المعاملات الداخلية"
+
+#. module: exp_transation_letters
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_template_introduction
+msgid "Introduction"
+msgstr "المقدمة"
+
+#. module: exp_transation_letters
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_letters___last_update
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_template___last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: exp_transation_letters
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_letters_write_uid
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_template_write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: exp_transation_letters
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_letters_write_date
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_template_write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: exp_transation_letters
+#: model:ir.ui.view,arch_db:exp_transation_letters.transaction_letter_report_temp
+msgid "Letter"
+msgstr "خطاب"
+
+#. module: exp_transation_letters
+#: model:ir.ui.menu,name:exp_transation_letters.letters_menu
+#: model:ir.ui.view,arch_db:exp_transation_letters.view_transaction_letters_form
+#: model:ir.ui.view,arch_db:exp_transation_letters.view_transaction_letters_tree
+msgid "Letters"
+msgstr "الخطابات"
+
+#. module: exp_transation_letters
+#: model:ir.ui.menu,name:exp_transation_letters.parent_letters_menu
+msgid "Letters Management"
+msgstr "ادارة الخطابات"
+
+#. module: exp_transation_letters
+#: model:ir.actions.act_window,name:exp_transation_letters.transaction_letters_temp_action
+#: model:ir.ui.menu,name:exp_transation_letters.letters_temp_menu
+msgid "Letters Template"
+msgstr "قوالب الخطابات"
+
+#. module: exp_transation_letters
+#: model:ir.ui.view,arch_db:exp_transation_letters.view_transaction_letters_temp_form
+#: model:ir.ui.view,arch_db:exp_transation_letters.view_transaction_letters_temp_tree
+msgid "Letters template"
+msgstr "قوالب الخطابات"
+
+#. module: exp_transation_letters
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_letters_name
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_template_name
+#: model:ir.ui.view,arch_db:exp_transation_letters.view_transaction_letters_temp_form
+msgid "Name"
+msgstr "الاسم"
+
+#. module: exp_transation_letters
+#: selection:letters.letters,transaction_type:0
+msgid "Outgoing"
+msgstr "الصادر الخارجي"
+
+#. module: exp_transation_letters
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_letters_outgoing_transaction_id
+msgid "Outgoing Transaction"
+msgstr "المعاملات الصادره"
+
+#. module: exp_transation_letters
+#: model:ir.actions.report,name:exp_transation_letters.report_letter_action_report
+msgid "Print letters"
+msgstr "طباعة الخطاب"
+
+#. module: exp_transation_letters
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_letters_letter_template
+msgid "Template"
+msgstr "قالب"
+
+#. module: exp_transation_letters
+#: model:ir.actions.act_window,name:exp_transation_letters.transaction_letters_action
+msgid "Transaction Letters"
+msgstr "خطابات المعاملة"
+
+#. module: exp_transation_letters
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_letters_transaction_type
+msgid "Transaction Type"
+msgstr "نوع المعاملة"
+
+#. module: exp_transation_letters
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_letters_unite
+#: model:ir.model.fields,field_description:exp_transation_letters.field_letters_template_unite
+msgid "Unite"
+msgstr "الوحدة"
+
+#. module: exp_transation_letters
+#: model:ir.model,name:exp_transation_letters.model_letters_letters
+msgid "letters.letters"
+msgstr "letters.letters"
+
+#. module: exp_transation_letters
+#: model:ir.model,name:exp_transation_letters.model_letters_template
+msgid "letters.template"
+msgstr "letters.template"
+
+#. module: exp_transation_letters
+#: selection:letters.template,is_favorite:0
+msgid "not"
+msgstr "لا"
+
+#. module: exp_transation_letters
+#: model:ir.ui.view,arch_db:exp_transation_letters.view_transaction_letters_form
+msgid "Add As Attachment to Transaction"
+msgstr "اضافة الخطاب كمرفق للمعاملة"
+
+#. module: exp_transation_letters
+#: model:ir.ui.view,arch_db:exp_transation_letters.transaction_letter_report_temp
+msgid "Letter"
+msgstr "خطاب"
+
+#. module: exp_transation_letters
+#: model:res.groups,name:exp_transation_letters.group_cm_letter
+msgid "Letter"
+msgstr "الخطابات"
+
+#. module: exp_transation_letters
+#: model:ir.ui.view,arch_db:exp_transation_letters.transaction_letter_report_temp
+msgid "<strong style=\"margin: 10px;margin-left:30px\"> Date </strong>:"
+msgstr "<strong style=\"margin: 10px;margin-left:30px\"> التاريخ </strong>:"
+
+#. module: exp_transation_letters
+#: model:ir.ui.view,arch_db:exp_transation_letters.custom_external_layout_standard
+msgid "<span style=\"font-weight:bold\">Attachment:</span>"
+msgstr "<span style=\"font-weight:bold\">المرفقات:</span>"
+
+#. module: exp_transation_letters
+#: model:ir.ui.view,arch_db:exp_transation_letters.custom_external_layout_standard
+msgid "<span style=\"font-weight:bold;\">Reference:</span>"
+msgstr "<span style=\"font-weight:bold;\">المرجع:</span>"
+
+#. module: exp_transation_letters
+#: model:ir.ui.view,arch_db:exp_transation_letters.custom_external_layout_standard
+msgid "<span style=\"font-weight:bold;font-stretch: expanded;\">\n"
+"                                    Date:</span>"
+msgstr "<span style=\"font-weight:bold;font-stretch: expanded;\">\n"
+"                                    التاريخ:</span>"
+
+#. module: exp_transation_letters
+#: model:ir.ui.view,arch_db:exp_transation_letters.transaction_letter_report_temp
+msgid "<strong style=\"margin: 10px;margin-left:30px\"> Date </strong>:"
+msgstr "<strong style=\"margin: 10px;margin-left:30px\"> التاريخ </strong>:"
+
+#. module: exp_transation_letters
+#: model:ir.ui.view,arch_db:exp_transation_letters.custom_external_layout_standard
+msgid "Number:"
+msgstr "رقم المعاملة:"
+
+#. module: exp_transation_letters
+#: model:ir.ui.view,arch_db:exp_transation_letters.custom_external_layout_standard
+msgid "Page: <span class=\"page\"/> / <span class=\"topage\"/>"
+msgstr "الصفحة: <span class=\"page\"/> / <span class=\"topage\"/>"

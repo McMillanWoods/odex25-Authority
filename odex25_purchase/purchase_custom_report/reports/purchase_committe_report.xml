@@ -1,0 +1,275 @@
+<odoo>
+    <data>
+       <template id="purchase_comittee_report" name="Purchase Committee Report">
+       <t t-call="web.html_container">
+                    <t t-call="web.internal_layout">
+            <style type="text/css">
+             @font-face {
+                    font-family: 'GE_SS_Unique_Bold';
+                    src: local('GE_SS_Unique_Bold.otf'), local('GE_SS_Unique_Bold.otf'),
+                    url('/purchase_custom_report/static/fonts/GE_SS_Unique_Bold.otf') format('truetype');
+                    }@font-face {
+                    font-family: 'ae_AlMohanad';
+                    src: local('ae_AlMohanad.ttf'), local('ae_AlMohanad.ttf'),
+                    url('/purchase_custom_report/static/fonts/ae_AlMohanad.ttf') format('truetype');
+                    }
+                .page{
+                    font-family: Times New Roman;;
+                }
+                table{
+                    width :100%;
+                    border : 1px solid black;
+                    border-collapse : collapse;
+                    font-size : 13pt;
+                    
+                }
+                th{
+                    border : 1px solid black;
+                    background-color: #07b8ad; color: #ffffff;
+                    text-align : center;
+                    padding : 5px;
+                }
+                td{
+                    border : 1px solid black;
+                    text-align : right;
+                    padding : 3px;
+                    text-align : center;
+                }
+                .cr_t{
+                    text-align : center;
+                }
+
+            </style>
+            <div class="page" size="A4">
+                <center>
+                <h3>Purchase Request That Need Purchase Committee</h3>
+                </center>
+                <table>
+                    <tr>
+                        <th rowspan="2" style="verical-align :center">Group By</th>
+                        <th colspan="2">Period</th>
+                    </tr>
+                    <tr>
+                        <th>From</th>
+                        <th>To</th>
+                    </tr>
+                    <tr>
+                        <td><t t-esc="group_by" /></td>
+                        <td><t t-esc="date_from" /></td>
+                        <td><t t-esc="date_to" /></td>
+                    </tr>
+                    
+                </table>
+                <br/>
+                <t t-set="count" t-value="1"/>
+                <t t-foreach="report_values" t-as="o">
+                    <h3><t t-esc="o['lable']"/></h3>                 
+                    <table>
+                        <!-- <thead> -->
+                            <tr>
+                                <th>#</th>
+                                <th >Ref</th>
+                                <th >Date</th>
+                                <th >state</th>
+                                <t t-if="show_committee_members == True">
+                                    <th>
+                                        Committe Header
+                                    </th>
+                                    <th>
+                                        Committe Members
+                                    </th>
+                                </t>
+                            </tr>
+                        <!-- </thead> -->
+                        <tbody>
+                            <t t-foreach="o['data']" t-as="d">
+                                <tr>
+                                    <td><t t-esc="count"/></td>
+                                    <td><t t-esc="d.name"/></td>
+                                    <td><t t-esc="d.ordering_date" /></td>
+                                    <td><t t-esc="dict(d._fields['state']._description_selection(d.env)).get(d.state)" /></td>
+                                    <t t-if="show_committee_members == True">
+                                        <td>
+                                            <t t-esc="d.committe_head.name"/>  
+                                        </td>
+                                        <td>
+                                            <t t-set="counter" t-value="1"/>
+                                                
+                                            <t t-foreach="d.committe_members" t-as="member">
+                                                <t t-esc="counter" />.  <t t-esc="member.name" />
+                                                <br/>
+                                                <t t-set="counter" t-value="counter + 1"/>
+                                            </t>
+                                        </td>
+                                    </t>
+                                </tr>
+                                <t t-set="count" t-value="count + 1"/>
+                            </t>
+                        </tbody>
+                    </table>
+                    <t t-set="count" t-value="1"/>
+                <br/>
+                </t>
+            </div>
+                
+        </t>
+        </t>
+           
+       </template>
+
+
+       <template id="purchase_comittee_report_details" name="Purchase Committee Report">
+        <t t-call="web.html_container">
+                    <t t-call="web.internal_layout">
+            <style type="text/css">
+                .page{
+                    font-family: Times New Roman;;
+                }
+                table{
+                    width :100%;
+                    border : 1px solid black;
+                    border-collapse : collapse;
+                    font-size : 13pt;
+                    
+                }
+                th{
+                    border : 1px solid black;
+                    background-color: #07b8ad; color: #ffffff;
+                    text-align : center;
+                    padding : 5px;
+                }
+                td{
+                    border : 1px solid black;
+                    text-align : right;
+                    padding : 3px;
+                    text-align : center;
+                }
+                .cr_t{
+                    text-align : center;
+                }
+
+            </style>
+            <t t-foreach="docs" t-as="o">
+                <div class="page" size="A4">
+                    <center>
+                        <h3>Purchase Committee Details</h3>
+                    </center>
+                    <h3>Purchase Agreement: </h3> 
+                    <table>
+                        <tr>
+                            <th>Purchase Agreement:</th>
+                            <td><t t-esc="o.name"/></td>
+                            <th>Date:</th>
+                            <td><t t-esc="o.ordering_date"/></td>
+                        </tr>
+                        <tr>
+                            <th>Department:</th>
+                            <td><t t-esc="o.department_id.name"/></td>
+                            <th>Status:</th>
+                            <td><t t-esc="dict(o._fields['state']._description_selection(o.env)).get(o.state)"/></td>
+                        </tr>
+                        <tr>
+                            <th>Comittee Members:</th>
+                            <td>
+                                <t t-foreach="o.committe_members" t-as="member">
+                                    <t t-esc="member.name" /> <br/>
+                                </t>
+                            </td>
+                            <th>Committee Head:</th>
+                            <td><t t-esc="o.committe_head.name"/></td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <h3>Vendor Offers</h3>    
+                    <table style="border-collapse: collapse;">
+                        <!-- <thead> -->
+                            <tr>    
+                                <th rowspan="2">#</th>
+                                <th rowspan="2">Offer Ref</th>
+                                <th rowspan="2">Date</th>
+                                <th rowspan="2">Vendor</th>
+                                <th rowspan="2">Number of Vots</th>
+                                <th colspan="2">Committee Members</th>
+                                <th rowspan="2">Amount</th>
+                            </tr>
+                            <tr>    
+                                <th style="width:150px;">Member</th>
+                                <th style="width:150px;">Voting Reason</th>
+                            </tr>
+                        <!-- </thead> -->
+                        <tbody>
+                            <t t-set="count" t-value="1" />
+                            <t t-foreach="self.get_orders(o.id)" t-as="order">
+                                <tr>
+                                    <td><t t-esc="count"/></td>
+                                    <td><t t-esc="order.name" /></td>
+                                    <td><t t-esc="order.date_order" /></td>
+                                    <td><t t-esc="order.partner_id.name"/></td>
+                                    <!-- <td><t t-esc="order.no_of_approve"/></td> -->
+                                    <td colspan="2" style="padding:0px">
+                                        <table style="margin:0px;border-collapse: collapse;">
+                                            <t t-foreach="order.committe_members" t-as="vot">
+                                                <tr>
+                                                    <td style="width:150px;"><t t-esc="vot.user_id.name"/></td>
+                                                    <td style="width:150px;"><t t-esc="vot.selection_reason"/></td>
+                                                </tr>
+                                            </t>
+                                        </table>
+                                    </td>
+                                    <td><t t-esc="order.amount_untaxed"/></td>
+                                </tr>
+                                <t t-set="count" t-value="count+1" />
+                            </t>
+                            
+                        </tbody>
+                    </table>  
+                    <br/>
+
+                    <h3>Win Offer</h3>
+                    <t t-foreach="self.get_win(o.id)" t-as="order">
+                        <table>
+                            <tr>
+                                <th>Offer Ref:</th>
+                                <td><t t-esc="order.name"/></td>
+                                <th>Date:</th>
+                                <td><t t-esc="order.date_order"/></td>
+                            </tr>
+                            <tr>
+                                <th>Amount:</th>
+                                <td><t t-esc="order.amount_untaxed"/></td>
+                                <th>Vendor:</th>
+                                <td><t t-esc="order.partner_id.name"/></td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <th>#</th>
+                                <th>Product</th>
+                                <th>Qty</th>
+                                <th>Unit of Measure</th>
+                                <th>unit price</th>
+                                <th>Subtotal</th>
+                            </tr>
+                            <t t-set="counter" t-value="1" />
+                            <t t-foreach="order.order_line" t-as="line">
+                                <tr>
+                                    <td><t t-esc="counter"/></td>
+                                    <td><t t-esc="line.product_id.name"/></td>
+                                    <td><t t-esc="line.product_qty"/></td>
+                                    <td><t t-esc="line.product_uom.name"/></td>
+                                    <td><t t-esc="line.price_unit"/></td>
+                                    <td><t t-esc="line.price_subtotal"/></td>
+                                </tr>
+                            </t>
+                            <t t-set="counter" t-value="counter+1" />
+                        </table>
+                        <br/>
+                    </t>
+                </div>
+            </t>  
+        </t>
+        </t>
+           
+       </template>
+    </data>
+</odoo>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="crm_case_form_view_oppor_inherit" model="ir.ui.view">
+            <field name="name">crm.lead.oppor.inherited.form</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="sale_crm.crm_case_form_view_oppor" />
+            <field name="arch" type="xml">
+
+                <xpath expr="//button[@name='action_sale_quotations_new']" position="attributes">
+                    <attribute name="string">New Proposal</attribute>
+                    <attribute name="attrs">{'invisible': ['|', '|', ('type', '=', 'lead'), ('probability', '!=', 100), ('active', '=', False)]}</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_view_sale_quotation']" position="attributes">
+
+                    <attribute name="invisible">1</attribute>
+
+                </xpath>
+
+                <xpath expr="//button[@name='action_view_sale_order']/div/span[@class='o_stat_text']" position="replace">
+
+                    <span class="o_stat_text"> Proposals</span>
+
+                </xpath>
+
+
+
+            </field>
+        </record>
+    </data>
+</odoo>

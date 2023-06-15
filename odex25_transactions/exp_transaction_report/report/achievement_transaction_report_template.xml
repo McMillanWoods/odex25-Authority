@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="custom_external_layout_standard_all">
+            <div class="header">
+            </div>
+            <div class="article o_report_layout_standard">
+                <t t-raw="0"/>
+            </div>
+            <div class="footer">
+                <div class="text-center">
+                    <div class="text-muted">
+                        Page: <span class="page"/> / <span class="topage"/>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="custom_external_layout_all">
+            <!-- Multicompany -->
+            <t t-if="not o and doc">
+                <t t-set="o" t-value="doc"/>
+            </t>
+
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+            <t t-call="exp_transaction_report.custom_external_layout_standard_all"><t t-raw="0"/></t>
+            <!-- <t t-if="company.external_layout == 'background'">
+                <t t-call="exp_transaction_report.custom_external_layout_standard_all"><t t-raw="0"/></t>
+            </t>
+            <t t-if="company.external_layout == 'boxed'">
+                <t t-call="exp_transaction_report.custom_external_layout_standard_all"><t t-raw="0"/></t>
+            </t>
+            <t t-if="company.external_layout == 'clean'">
+                <t t-call="exp_transaction_report.custom_external_layout_standard_all"><t t-raw="0"/></t>
+            </t>
+            <t t-if="company.external_layout in (False, 'standard')">
+                <t t-call="exp_transaction_report.custom_external_layout_standard_all"><t t-raw="0"/></t>
+            </t> -->
+        </template>
+        <template id="achievement_tran_report_temp">
+            <t t-call="web.html_container">
+                <t t-call="exp_transaction_report.custom_external_layout_all">
+                    <style type="text/css">
+                        @font-face {
+                        font-family: 'ae_AlMohanad';
+                        src: local('ae_AlMohanad'), local('ae_AlMohanad'),
+                        url('/exp_transaction_report/static/fonts/ae_AlMohanad.ttf') format('truetype');
+                        }
+                        *{
+                        font-family: ae_AlMohanad;
+                        }
+                    </style>
+                    <div class="page">
+                        <h4 style="text-align:center;font-weight:bold">Achievement Report</h4>
+                        <br/>
+                        <div style="width:100%;text-align:center">
+                            <h4 style="text-align:right;font-weight:bold;display:inline-block;width:30%">Start Date
+                                <t t-esc="date_start"/>
+                            </h4>
+                            <h4 style="text-align:left;font-weight:bold;display:inline-block;width:30%;">End Date
+                                <t t-esc="date_end"/>
+                            </h4>
+                        </div>
+                        <!--<table style=" border: 1px solid grey; padding: 1px; width:100%;">-->
+                        <table style="width: 100%;margin-top:10px">
+                            <thead>
+                                <tr>
+                                    <th style=" border: 1px solid black; padding: 1px; font-size:0.8em;background-color: #d3d3d3;color: black;width:5%;text-align:center">
+                                        #
+                                    </th>
+                                    <th style=" border: 1px solid black; padding: 1px; font-size:0.8em;background-color: #d3d3d3;color: black;width:10%;text-align:center">
+                                        Administration/Employee
+                                    </th>
+                                    <th style=" border: 1px solid black; padding: 1px;font-size:0.8em;background-color: #d3d3d3;color: black;text-align:center;width:15%;">
+                                        Number of incoming transactions
+                                    </th>
+                                    <th style=" border: 1px solid black; padding: 1px;font-size:0.8em;background-color: #d3d3d3;color: black;text-align:center;width:15%">
+                                        Number of outgoing transactions
+                                    </th>
+                                    <th style=" border: 1px solid black; padding: 1px;font-size:0.8em;background-color: #d3d3d3;color: black;text-align:center;width:18%">
+                                        Number of transactions referred from administration
+                                    </th>
+                                    <th style=" border: 1px solid black; padding: 1px;font-size:0.8em;background-color: #d3d3d3;color: black;text-align:center;width:22%">
+                                        Number of transactions referred to administration
+                                    </th>
+                                    <th style=" border: 1px solid black; padding: 1px;font-size:0.8em;background-color: #d3d3d3;color: black;text-align:center;width:12%">
+                                        Number of closed transactions
+                                    </th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+                                <t t-foreach="data['unit']" t-as="line">
+                                    <tr>
+                                        <td style="border: 1px solid black;padding: 1px; padding-left: 1px;font-size:0.8em;background-color: white;color: black;text-align:center ">
+                                            <strong t-esc="line_index + 1"/>
+                                        </td>
+                                        <td style="border: 1px solid black;padding: 1px; padding-left: 1px;font-size:0.8em;background-color: white;color: black;text-align:center ">
+                                            <t t-esc="line.name"/>
+                                        </td>
+                                        <td style="border: 1px solid black;padding: 1px;font-size:0.8em;background-color: white;color: black;text-align:center;">
+                                            <t t-esc="data['total_to'][line.name]"/>
+                                        </td>
+                                        <td style="border: 1px solid black;padding: 1px;font-size:0.8em;background-color: white;color: black;text-align:center;">
+                                            <t t-esc="data['total_from'][line.name]"/>
+                                        </td>
+                                        <td style="border: 1px solid black;padding: 1px;font-size:0.8em;background-color: white;color: black;text-align:center;">
+                                            <t t-esc="data['total_transfer_from'][line.name]"/>
+                                        </td>
+                                        <td style="border: 1px solid black;padding: 1px;font-size:0.8em;background-color: white;color: black;text-align:center;">
+                                            <t t-esc="data['total_transfer_to'][line.name]"/>
+                                        </td>
+                                        <td style="border: 1px solid black;padding: 1px;font-size:0.8em;background-color: white;color: black;text-align:center;">
+                                            <t t-esc="data['total_closed'][line.name]"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </template>
+        <report id="achievement_transaction_complete_report"
+                model="achievement.transaction.report.wizard"
+                string="Achievement Transaction Report"
+                report_type="qweb-pdf"
+                name="exp_transaction_report.achievement_tran_report_temp"
+                menu="False"/>
+        <report
+                id="achievement_transaction_xls"
+                model="achievement.transaction.report.wizard"
+                string="Print to XLSX"
+                report_type="xlsx"
+                name="exp_transaction_report.achievement_transaction_xls"
+                file="Achievement transaction"
+                attachment_use="False"
+                menu="False"
+        />
+    </data>
+</odoo>

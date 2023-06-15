@@ -1,0 +1,17 @@
+.pos .pos-topheader{
+    background:#27783f;
+}
+
+.pos .pos-rightheader .header-button{
+    border-right: 1px solid #266338;
+}
+.pos .pos-rightheader .header-button:last-child{
+    border-left: 1px solid #266338;
+}
+.ticket-button:hover,
+.ticket-button:focus{
+    background-color: #1a4725 !important;
+}
+.pos .pos-rightheader > *{
+    border-right: 1px solid #266338;
+}

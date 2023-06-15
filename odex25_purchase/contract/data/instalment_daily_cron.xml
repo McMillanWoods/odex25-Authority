@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding='UTF-8'?>
+
+<odoo >
+    <!--creating daily mail for installment action-->
+    <record id="send_daily_installment_contract" model="ir.cron">
+        <field name="name">Send Daily Installment Mail </field>
+        <field name="model_id" ref="model_line_contract_installment"/>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="code">model.send_daily_installment_email()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+    </record>
+
+</odoo>

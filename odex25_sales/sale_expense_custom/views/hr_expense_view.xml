@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hr_expense_form_view_inherit_sale_expense_inherit" model="ir.ui.view">
+            <field name="name">hr.expense.form</field>
+            <field name="model">hr.expense</field>
+            <field name="inherit_id" ref="sale_expense.hr_expense_form_view_inherit_sale_expense" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='sale_order_id']" position="attributes">
+                    <attribute name="attrs">{'invisible':[('sale_order_id', '=', False)]}</attribute>
+                    <attribute name="readonly">1</attribute>
+                    <attribute name="force_save">1</attribute>
+                </xpath>
+
+            </field>
+        </record>
+
+
+        <record id="hr_expense_form_view_inherit_account_manager_inherit" model="ir.ui.view">
+            <field name="name">hr.expense.form</field>
+            <field name="model">hr.expense</field>
+            <field name="inherit_id" ref="sale_expense.hr_expense_form_view_inherit_account_manager" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='sale_order_id']" position="attributes">
+                    <attribute name="attrs">{'invisible':[('sale_order_id', '=', False)]}</attribute>
+                    <attribute name="readonly">1</attribute>
+                    <attribute name="force_save">1</attribute>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

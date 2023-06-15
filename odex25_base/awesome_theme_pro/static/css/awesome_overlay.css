@@ -1,0 +1,10 @@
+.awesome_theme_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 990;
+  background: rgba(0, 0, 0, 0.3);
+  transition: opacity 0.5s;
+}/*# sourceMappingURL=awesome_overlay.css.map */

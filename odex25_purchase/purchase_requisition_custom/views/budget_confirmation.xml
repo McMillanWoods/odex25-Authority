@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+    <record id="expert_view_budget_confirmation_tree" model="ir.ui.view">
+        <field name="name">expert.budget.confirmation.tree</field>
+        <field name="model">budget.confirmation</field>
+                    <field name="inherit_id" ref="account_budget_custom.view_budget_confirmation_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='department_id']" position="after">
+                    <field name="confirm_po"/>
+                    <field name="confirm_invoice"/>
+            </xpath>        </field>
+    </record>
+    </data>
+</odoo>

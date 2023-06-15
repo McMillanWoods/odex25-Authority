@@ -1,0 +1,41 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* exp_analytic
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-04 08:00+0000\n"
+"PO-Revision-Date: 2023-01-04 08:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: exp_analytic
+#: model:ir.model.fields,field_description:exp_analytic.field_hr_department__analytic_account_id
+msgid "Analytic Account"
+msgstr "الحساب التحليلي"
+
+#. module: exp_analytic
+#: model:ir.model,name:exp_analytic.model_hr_department
+msgid "Department"
+msgstr "القسم"
+
+#. module: exp_analytic
+#: model:ir.model.fields,field_description:exp_analytic.field_hr_department__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: exp_analytic
+#: model:ir.model.fields,field_description:exp_analytic.field_hr_department__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: exp_analytic
+#: model:ir.model.fields,field_description:exp_analytic.field_hr_department____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"

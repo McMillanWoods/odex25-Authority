@@ -1,0 +1,137 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_payslip_monthly_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-24 07:16+0000\n"
+"PO-Revision-Date: 2022-11-24 07:16+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_payslip_monthly_report
+#: model:ir.model.fields,field_description:hr_payslip_monthly_report.field_hr_payroll_report_view__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: hr_payslip_monthly_report
+#: model:ir.model.fields,field_description:hr_payslip_monthly_report.field_hr_payroll_report_view__department_id
+msgid "Department"
+msgstr "الإدارة"
+
+#. module: hr_payslip_monthly_report
+#: model:ir.model.fields,field_description:hr_payslip_monthly_report.field_hr_payroll_report_view__display_name
+msgid "Display Name"
+msgstr "إسم العرض"
+
+#. module: hr_payslip_monthly_report
+#: model:ir.model.fields.selection,name:hr_payslip_monthly_report.selection__hr_payroll_report_view__state__done
+msgid "Done"
+msgstr "تم"
+
+#. module: hr_payslip_monthly_report
+#: model:ir.model.fields.selection,name:hr_payslip_monthly_report.selection__hr_payroll_report_view__state__draft
+#: model_terms:ir.ui.view,arch_db:hr_payslip_monthly_report.hr_payroll_report_view_search
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: hr_payslip_monthly_report
+#: model:ir.model.fields,field_description:hr_payslip_monthly_report.field_hr_payroll_report_view__name
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: hr_payslip_monthly_report
+#: model:ir.model.fields,field_description:hr_payslip_monthly_report.field_hr_payroll_report_view__date_from
+msgid "From"
+msgstr "من"
+
+#. module: hr_payslip_monthly_report
+#: model:ir.model.fields,field_description:hr_payslip_monthly_report.field_hr_payroll_report_view__id
+msgid "ID"
+msgstr "معرف"
+
+#. module: hr_payslip_monthly_report
+#: model:ir.model.fields,field_description:hr_payslip_monthly_report.field_hr_payroll_report_view__job_id
+msgid "Job Title"
+msgstr "المسمى الوظيفي"
+
+#. module: hr_payslip_monthly_report
+#: model:ir.model.fields,field_description:hr_payslip_monthly_report.field_hr_payroll_report_view____last_update
+msgid "Last Modified on"
+msgstr "أخر تعديل في"
+
+#. module: hr_payslip_monthly_report
+#: model:ir.model.fields,field_description:hr_payslip_monthly_report.field_hr_payroll_report_view__net
+msgid "Net Salary"
+msgstr "صافي الراتب"
+
+#. module: hr_payslip_monthly_report
+#: model_terms:ir.ui.view,arch_db:hr_payslip_monthly_report.hr_payroll_report_view_graph
+#: model_terms:ir.ui.view,arch_db:hr_payslip_monthly_report.hr_payroll_report_view_pivot
+#: model_terms:ir.ui.view,arch_db:hr_payslip_monthly_report.hr_payroll_report_view_search
+msgid "Payslip Analysis"
+msgstr "تحليل قسائم الراتب"
+
+#. module: hr_payslip_monthly_report
+#: model:ir.ui.menu,name:hr_payslip_monthly_report.menu_hr_payslip_view_report
+msgid "Payslip Report"
+msgstr "تقرير قسيمة الدفع"
+
+#. module: hr_payslip_monthly_report
+#: model:ir.actions.act_window,name:hr_payslip_monthly_report.action_hr_payslip_view_report
+msgid "Payslips"
+msgstr "كشوف الراتب"
+
+#. module: hr_payslip_monthly_report
+#: model:ir.model.fields.selection,name:hr_payslip_monthly_report.selection__hr_payroll_report_view__state__cancel
+msgid "Rejected"
+msgstr "مرفوض"
+
+#. module: hr_payslip_monthly_report
+#: model:ir.ui.menu,name:hr_payslip_monthly_report.menu_hr_payslip_reports
+msgid "Reports"
+msgstr "التقارير"
+
+#. module: hr_payslip_monthly_report
+#: model_terms:ir.ui.view,arch_db:hr_payslip_monthly_report.hr_payroll_report_view_search
+msgid "Salary"
+msgstr "مرتب"
+
+#. module: hr_payslip_monthly_report
+#: model:ir.model.fields,field_description:hr_payslip_monthly_report.field_hr_payroll_report_view__state
+msgid "Status"
+msgstr "حالة"
+
+#. module: hr_payslip_monthly_report
+#: model_terms:ir.ui.view,arch_db:hr_payslip_monthly_report.hr_payroll_report_view_search
+msgid "This Year"
+msgstr "هذه السنة"
+
+#. module: hr_payslip_monthly_report
+#: model_terms:ir.actions.act_window,help:hr_payslip_monthly_report.action_hr_payslip_view_report
+msgid ""
+"This report helps in payroll analysis. This helps you to check your pay slips and sorting\n"
+"                it out from different group\n"
+"                criteria (Employee, Job title, Department, Company, Pay slip etc.)."
+msgstr "( يساعد هذا التقرير في تحليل الرواتب. يساعدك هذا في التحقق من قسائم الرواتب والفرز من مجموعة مختلفة المعايير (الموظف ، المسمى الوظيفي ، القسم ، الشركة ، قسيمة الدفع ، إلخ)"
+
+#. module: hr_payslip_monthly_report
+#: model:ir.model.fields,field_description:hr_payslip_monthly_report.field_hr_payroll_report_view__date_to
+msgid "To"
+msgstr "إلى"
+
+#. module: hr_payslip_monthly_report
+#: model:ir.model.fields.selection,name:hr_payslip_monthly_report.selection__hr_payroll_report_view__state__verify
+msgid "Waiting"
+msgstr "انتظار"
+
+#. module: hr_payslip_monthly_report
+#: model:ir.model,name:hr_payslip_monthly_report.model_hr_payroll_report_view
+msgid "hr.payroll.report.view"
+msgstr ""

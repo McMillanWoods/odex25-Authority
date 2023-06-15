@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <record id="vendor_types_action" model="ir.actions.act_window">
+        <field name="name">Vendor Type</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">vendor.type</field>
+        <field name="view_mode">tree,form</field>
+
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+               create new type
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="vendor_type_menu" name="Vendor Types" parent="purchase.menu_purchase_config" sequence="3" action="vendor_types_action" />
+
+</odoo>

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- purchase.general.report form view -->
+        <record id="purchase_committe_report_form" model="ir.ui.view">
+            <field name="name">purchase.committee.report</field>
+            <field name="model">purchase.committee.report</field>
+            <field name="arch" type="xml">
+                <form string="">
+                        <group col="4" colspan="2">
+                            <field name="date_from" required="1"/>
+                            <field name="date_to" required="1"/>
+                            <field name="type" required="1"/>
+                            <field name="department_ids" widget="many2many_tags" />
+                            <field name="state" required="1"/>
+                            <field name="show_committee_members"/>
+                        </group>
+                        <footer>
+                        <div>
+                            <button name="action_print" string="Print" type="object" default_focus="1" class="oe_highlight"/>
+                            or
+                            <button string="Cancel" class="oe_link" special="cancel" />
+                        </div>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- purchase.general.report action window -->
+        <record id="action_purchase_committee_report" model="ir.actions.act_window">
+            <field name="name">Purchase Committee Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.committee.report</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="purchase_committee_report_menu" name="Purchase Committee Report" parent="purchase_requisition_custom.purchase_pdf_reports" action="action_purchase_committee_report" sequence="1"/>
+        
+    </data>
+</odoo>

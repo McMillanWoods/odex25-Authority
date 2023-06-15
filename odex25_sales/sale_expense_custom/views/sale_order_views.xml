@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+<!--        <record id="view_order_form_inherit" model="ir.ui.view">-->
+<!--            <field name="name">sale.order.form</field>-->
+<!--            <field name="model">sale.order</field>-->
+<!--            &lt;!&ndash; <field name="inherit_id" ref="sale.view_order_form" /> &ndash;&gt;-->
+<!--            <field name="inherit_id" ref="sale_custom.view_order_form_inherit" />-->
+<!--            <field name="arch" type="xml">-->
+
+<!--&lt;!&ndash;                <xpath expr="//button[@name='action_confirm']" position="before">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <button name="%(hr_expense.hr_expense_actions_my_unsubmitted)d" string="Expense"&ndash;&gt;-->
+<!--&lt;!&ndash;                            type="action" class="oe_highlight" context="{'default_sale_order_id': active_id}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                </xpath>&ndash;&gt;-->
+
+<!--            </field>-->
+<!--        </record>-->
+
+    </data>
+</odoo>

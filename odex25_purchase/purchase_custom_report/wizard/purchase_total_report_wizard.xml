@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- purchase.total.report form view -->
+        <record id="model_name_view_form" model="ir.ui.view">
+            <field name="name">Purchase total Report</field>
+            <field name="model">purchase.total.report</field>
+            <field name="arch" type="xml">
+                <form string="">
+                        <group col="4" colspan="2">
+                            <field name="date_from" required="1"/>
+                            <field name="date_to" required="1"/>
+                            <field name="vendor_ids" widget="many2many_tags"/>
+                            <field name="department_ids" widget="many2many_tags" />
+                            <field name="product_ids"  widget="many2many_tags"/>
+                            <field name="type" required="1"/>
+                            <field name="group_by"/>
+                        </group>
+                        <footer>
+                        <div>
+                            <button name="action_print" string="Print" type="object" default_focus="1" class="oe_highlight"/>
+                            or
+                            <button string="Cancel" class="oe_link" special="cancel" />
+                        </div>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- purchase.total.report action window -->
+        <record id="purchase_total_report_wizard" model="ir.actions.act_window">
+            <field name="name">Purchase total Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.total.report</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="purchase_total_report_menu" name="Purchase total Report" parent="purchase_requisition_custom.purchase_pdf_reports" action="purchase_total_report_wizard" sequence="2"/>
+        
+    </data>
+</odoo>

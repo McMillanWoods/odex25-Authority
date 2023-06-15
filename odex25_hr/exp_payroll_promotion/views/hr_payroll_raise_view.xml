@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="hr_payroll_raise_form_view" model="ir.ui.view">
+            <field name="name">Employee Raise Form</field>
+            <field name="model">hr.payroll.raise</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button string="Confirm" name="act_confirm" states="draft" type="object" class="oe_highlight"
+                                groups="hr.group_hr_user"/>
+                        <button string="Approve" name="act_approve" states="confirm" type="object" class="oe_highlight"
+                                groups="hr.group_hr_manager"/>
+                        <button string="Reset To Draft" name="act_reset" states="refuse,approve" type="object"
+                                class="oe_highlight"
+                                groups="hr.group_hr_user"/>
+                        <button string="Refuse" name="act_refuse" states="confirm" type="object" class="oe_highlight"
+                                groups="hr.group_hr_manager"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet string="Employee Raise">
+                        <div class="oe_title">
+                            <h1>
+                                <field name="employee_id" placeholder="Employee Name"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                            </h1>
+                        </div>
+                        <group col="2">
+                            <group col="2">
+                                <field name="percentage_bonus" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="percentage_raises" attrs="{'readonly':[('state','!=','draft')],'invisible':[('percentage_bonus','=',False)],
+                                                                        'required':[('percentage_bonus','=',True)]}"/>
+                                <field name="nominated_degree_id" widget="selection"
+                                       attrs="{'readonly':[('state','!=','draft')]}"
+                                       domain="[('salary_scale_group_id', '=', group_id), ('id', '!=', degree_id)]"/>
+                                <field name="new_salary"  readonly="1" force_save="1" />
+                                <field name="application_date" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="next_raise_date" readonly="1" force_save="1"/>
+                                <field name="deviation" readonly="1" force_save="1" groups="hr.group_hr_user"/>
+                                <field name="raise_type" readonly="1"/>
+                                <field name="last_raises" readonly="1" string="Last Raise"/>
+                            </group>
+                            <group col="2">
+                                <field name="scale_id" required="1" readonly="1" force_save="1"/>
+                                <field name="level_id" required="1" readonly="1" force_save="1"/>
+                                <field name="group_id" required="1" readonly="1" force_save="1"/>
+                                <field name="degree_id" required="1" readonly="1" force_save="1"/>
+                                <field name="current_salary" readonly="1" force_save="1"/>
+
+                                <field name="last_raise_date" readonly="1" force_save="1"/>
+                                <field name="current_salary_insurance" readonly="1" force_save="1" invisible="1"/>
+                            </group>
+                        </group>
+                        <group string="Notes">
+                            <field name="note" nolabel="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="hr_payroll_raise_tree_view">
+            <field name="name">Payroll Raise Tree</field>
+            <field name="model">hr.payroll.raise</field>
+            <field name="arch" type="xml">
+                <tree string="Payroll Raise">
+                    <field name="employee_id"/>
+                    <field name="application_date"/>
+                    <field name="scale_id"/>
+                    <field name="level_id"/>
+                    <field name="group_id"/>
+                    <field name="degree_id"/>
+                    <field name="nominated_degree_id"/>
+                    <field name="deviation"/>
+                    <field name="raise_type"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="hr_payroll_raise_action">
+            <field name="name">Payroll Raise</field>
+            <field name="res_model">hr.payroll.raise</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="hr_payroll_promotion_root"
+                  name="Promotions"
+                  parent="exp_hr_payroll.menu_hr_payroll_root"
+                  sequence="11"/>
+        <menuitem id="hr_payroll_raise_menu"
+                  name="Employee Raise"
+                  parent="exp_payroll_promotion.hr_payroll_promotion_root"
+                  sequence="1"
+                  action="hr_payroll_raise_action"/>
+
+    </data>
+</odoo>

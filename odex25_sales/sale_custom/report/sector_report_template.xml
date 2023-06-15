@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="sector_report">
+        <t t-call="web.html_container">
+            <div class="page">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                        <t t-set="seq" t-value="1"/>
+                        <h2  class="text-center">Proposal <span t-esc="data['form']['sector_id'][1]"/> Report</h2><br></br>
+                        <p class="text-center"> For The Period <span t-esc="data['form']['date_from']"/> -  <span t-esc="data['form']['date_to']"/> </p>
+
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;"><strong>#</strong></th>
+                                    <th style="text-align: center;"><strong>Submital Date</strong></th>
+                                    <th style="text-align: center;" width="10%"><strong>RFP No <br/> P No <br/> JOB no </strong></th>
+                                    <th style="text-align: center;"><strong>Proposal Name</strong></th>
+                                    <th style="text-align: center;"><strong>BL</strong></th>
+                                    <th style="text-align: center;"><strong>Proposal Status</strong></th>
+                                    <th style="text-align: center;"><strong>P Fee <br/> Revised Fee</strong></th>
+                                    <th style="text-align: center;"><strong>Job Fee</strong></th>
+                                    <th style="text-align: center;"><strong>Duration</strong></th>
+                                    <th style="text-align: center;"><strong>Note</strong></th>
+                                    <th style="text-align: center;"><strong>Contact</strong></th>
+                                    <th style="text-align: center;"><strong>Email <br/> Mobile</strong></th>
+                                    <th style="text-align: center;"><strong>Phone </strong></th>
+
+                                </tr>
+                            </thead>
+                            <tbody style="text-align: center;">
+                                <!-- <span t-esc="sector_data" /> -->
+                                <t t-foreach="keys" t-as="key">
+                                    <tr>
+                                        <td class="text-left" colspan="13">
+                                            <span t-esc="key.name" />
+                                        </td>
+                                    </tr>
+                                    <tr t-foreach="sector_data[key.id]" t-as="sector">
+                                        <td>
+                                            <span t-esc="seq"/>
+                                            <t t-set="seq" t-value="seq+1"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="sector['date']"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="sector['crm_seq']"/> <br/> <span t-esc="sector['proposal']"/> 
+                                        </td>
+                                        <td>
+                                            <span t-esc="sector['name']"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="sector['business_unit']"/>
+                                        </td>
+
+                                        <td>
+                                            <span t-esc="sector['proposal_status']"/>
+                                        </td>
+
+                                        <td>
+                                            <span t-esc="sector['p_fees']"/>
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                            <span t-esc="sector['project_duration']"/>
+                                        </td>
+                                        <td></td>
+
+                                        <td>
+                                            <span t-esc="key.name" /> 
+                                        </td>
+                                        <td>
+                                            <span t-esc="key.email" /> <br/> <span t-esc="key.mobile" /> 
+                                        </td>
+                                        <td>
+                                            <span t-esc="key.phone" /> <br/> 
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+
+                        </table>
+                    </t>
+                </t>
+            </div>
+        </t>
+    </template>
+    <report
+            id ="action_sector_report_pdf"
+            model ="sector.report.wiz"
+            string ="Sector Report Pdf"
+            report_type ="qweb-pdf"
+            name ="sale_custom.sector_report"
+            file ="sale_custom.sector_report"
+            menu="False" />
+
+    <report id ="action_sector_report_xlsx"
+            model ="sector.report.wiz"
+            string ="Sector Report XlsX"
+            report_type ="xlsx"
+            name ="sale_custom.sector_report_xlsx"
+            file ="sale_custom.sector_report_xlsx"
+            menu="False" />
+</odoo>

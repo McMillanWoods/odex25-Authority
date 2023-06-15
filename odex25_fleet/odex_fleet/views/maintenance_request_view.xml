@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id='fleet_request_maintenance_view_form' model='ir.ui.view'>
+            <field name="name">fleet.maintenance.vehicle.form</field>
+            <field name="model">fleet.maintenance</field>
+            <field name="arch" type="xml">
+                <form string="Maintenance">
+                    <header>
+                        <button name="action_confirm" groups="odex_fleet.fleet_group_hr,odex_fleet.fleet_group_supervisor" string="Confirm" type="object" class="oe_highlight" states="draft"/>
+                        <button name="action_approve" groups="odex_fleet.fleet_group_account,odex_fleet.fleet_group_gm" string="Approve" type="object" class="oe_highlight" states="confirm"/>
+                        <button name="action_refuse" groups="odex_fleet.fleet_group_account,odex_fleet.fleet_group_gm" string="Refuse" type="object" class="oe_highlight" states="confirm"/>
+                        <button name="action_paid" groups="odex_fleet.fleet_group_account,odex_fleet.fleet_group_supervisor"  string="Paid" type="object" class="oe_highlight" states="approve"/>
+                        <button name="action_cancel" groups="odex_fleet.fleet_group_supervisor" string="Cancel" type="object" class="oe_highlight" states="draft,confirm,approve"/>
+                        <field name="state"  widget="statusbar" />
+                    </header>
+                    <sheet>
+
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" attrs="{'readonly': [('state', '!=', 'draft')],'required':True}"/>
+                            </h1>
+                            <label for="vehicle_id" class="oe_edit_only"/>
+                            <h2>
+                                <field name="vehicle_id" class="oe_inline" attrs="{'readonly': [('state', '!=', 'draft')],'required':True}" />
+                            </h2>
+                        </div>
+                        <group col="4" colspan="2" string="Vehicle Information">
+                            <field name="branch_id" required="1"/>
+                            <field name="account_id" readonly="1" force_save="1" required="1"/>
+                            <field name="tax_id" readonly="1" force_save="1" required="1"/>
+                            <field name="employee_id" readonly="1" force_save="1"/>
+                            <field name="total_cost"/>
+                            <field name="license_plate" readonly="1" force_save="1"/>
+                            <field name="odometer"/>
+                            <field name="invoice_id" readonly="1" force_save="1"/>
+                            <field name="date" attrs="{'readonly': [('state', '!=', 'draft')],'required':True}"/>
+                            <field name="next_request_date" attrs="{'readonly': [('state', '!=', 'draft')],'required':True}" />
+                            <field name="next_odometer" attrs="{'readonly': [('state', '!=', 'draft')],'required':True}"/>
+                            <field name="edit_access" invisible="1"/>
+                            <field name="user_id" invisible="1"/>
+                        </group>
+                        <notebook>
+                            <page string="Service">
+                                <field name="service_ids" nolabel="1" attrs="{'readonly': [('state', '!=', 'draft')]}">
+                                    <tree editable="bottom">
+                                        <field name="service_id" required="1"/>
+                                        <field name="number" required="1"/>
+                                        <field name="qty" required="1"/>
+                                        <field name="total" sum="Total"/>
+                                    </tree>
+                                </field>
+
+                            </page>
+                            <page string="Quotations">
+                                <field name="quotation_ids" nolabel="1" attrs="{'readonly': [('state', '!=', 'draft'),('edit_access', '!=', True)]}">
+                                    <tree  editable="bottom">
+                                        <field name="partner_id" required="1"/>
+                                        <field name="cost" required="1"/>
+                                        <field name="offer" required="1"/>
+                                        <field name="reason" attrs="{'invisible': [('approve', '=',True)],'readonly':True}" force_save="1"/>
+                        <button name="action_approve" string="Approve" type="object" class="oe_highlight" attrs="{'invisible': ['|',('approve', '=', True),('edit_access', '!=', True),('state','!=','confirm')]}"/>
+                        <button name="action_reject" string="Reject" type="object" class="oe_highlight" attrs="{'invisible': ['|',('approve', '=', False),('edit_access', '!=', True),('state','!=','confirm')]}"/>
+                                                                           <field name="approve" invisible="1"/>
+                                                                           <field name="state" invisible="1"/>
+                                                                           <field name="edit_access" invisible="1"/>
+
+                                    </tree>
+                                </field>
+
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread" options='{"thread_level": 1}'/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id='fleet_maintenance_view_tree' model='ir.ui.view'>
+            <field name="name">fleet.vehicle.maintenance.tree</field>
+            <field name="model">fleet.maintenance</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="vehicle_id" />
+                    <field name="branch_id" />
+                    <field name="type" />
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="fleet_maintenance_vehicle_view_search" model="ir.ui.view">
+            <field name="name">fleet.vehicle.maintenance.search</field>
+            <field name="model">fleet.maintenance</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="vehicle_id"/>
+                    <field name="branch_id"/>
+                    <field name="state" />
+                    <separator/>
+                    <group expand="1" string="Group By">
+                        <filter name="groupby_status" context="{'group_by' : 'state'}" string="State"/>
+                        <filter name="groupby_branch" context="{'group_by' : 'branch_id'}" string="Branch"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+
+
+        <record id='fleet_vehicle_maintenance_action' model='ir.actions.act_window'>
+            <field name="name">Fleet Maintenance</field>
+            <field name="res_model">fleet.maintenance</field>
+           
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+        <menuitem name="Maintenance" parent="fleet.menu_root" id="fleet_maintenance_root" sequence="2" groups="fleet.fleet_group_user,fleet_group_vice_gm,fleet_group_account,fleet_group_hr"/>
+        <menuitem action="fleet_vehicle_maintenance_action" parent="fleet_maintenance_root" id="vehicle_maintenance_menu" groups="fleet.fleet_group_user,fleet_group_hr,fleet_group_account" sequence="1"/>
+        <menuitem action="fleet.fleet_vehicle_odometer_action" parent="fleet_maintenance_root" id="fleet.fleet_vehicle_odometer_menu" groups="fleet.fleet_group_user" sequence="2"/>
+        <menuitem action="fleet_vehicle_log_fuel_action" parent="fleet_maintenance_root" id="fleet_vehicle_log_fuel_menu" groups="fleet.fleet_group_user,fleet_group_account" sequence="3"/>
+        <menuitem action="fleet.fleet_vehicle_log_services_action" parent="fleet_maintenance_root" id="fleet.fleet_vehicle_log_services_menu" groups="fleet.fleet_group_user,fleet_group_account" sequence="4"/>
+        <menuitem action="fleet_vehicle_costs_action" parent="fleet_maintenance_root" id="fleet_vehicle_costs_menu" groups="fleet.fleet_group_user,fleet_group_account" sequence="5"/>
+
+    </data>
+</odoo>

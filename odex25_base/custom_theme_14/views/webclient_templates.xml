@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<template id="assets_backend" name="Odoo 14 Custom Theme" inherit_id="web.assets_backend">
+		<xpath expr="." position="inside">
+			<!--STYLE-->
+			<link rel="stylesheet" type="text/css" href="/custom_theme_14/static/src/css/custom.css"/>
+			<script src="/custom_theme_14/static/src/js/custom_backend.js"></script>
+		</xpath>
+	</template>
+
+	<template id="assets_frontend_css" inherit_id="web.assets_frontend">
+        <xpath expr="." position="inside">
+			<!--STYLE-->
+			<link rel="stylesheet" type="text/css" href="/custom_theme_14/static/src/css/custom_login.css"/>
+			<!--SCRIPT-->
+			<script src="/custom_theme_14/static/src/js/custom_login.js"></script>
+		</xpath>
+	</template>
+	
+	
+
+	<template id="MYSITE_layout" inherit_id="web.layout" name="MYSITE layout" priority="17">
+		<xpath expr="//head//link" position="replace">
+			<link rel="shortcut icon" href="/custom_theme_14/static/src/images/favicon.ico" type="image/x-icon"/>
+		</xpath>
+	</template>
+
+	<template id="custom_layout" inherit_id="website.layout">
+		<xpath expr="//div[hasclass('o_footer_copyright')]" position="replace">
+			<div t-if="not no_copyright" class="o_footer_copyright">
+				<div class="container py-3">
+					<div class="row">
+						<div class="col-sm text-center text-sm-left text-muted">
+							<t t-call="web.debug_icon"/>
+							<span class="o_footer_copyright_name mr-2">Copyright &amp;copy; Company name</span>
+						</div>
+						<div class="col-sm text-center text-sm-right">
+						</div>
+					</div>
+				</div>
+			</div>
+		</xpath>
+	</template>
+
+	<template id="assets" inherit_id="point_of_sale.assets">	
+		<xpath expr="." position="inside">
+			<!--STYLE-->
+			<link rel="stylesheet" type="text/css" href="/custom_theme_14/static/src/css/custom_point_of_sale.css"/>
+			<!--SCRIPT-->
+			<script src="/custom_theme_14/static/src/js/custom_pos.js"></script>
+		</xpath>
+	</template>
+	
+</odoo>

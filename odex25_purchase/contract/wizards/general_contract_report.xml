@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+    <record id="wizard_contract_report_form" model="ir.ui.view">
+        <field name="name">Vendors</field>
+        <field name="model">contract.report.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group colspan="3">
+                    <group>
+                            <field name="report_type"/>
+                        </group>
+                        <group>
+                            <field name="date_from" required="1"/>
+                              <field name="date_to" required="1"/>
+                          
+                           
+                            
+                        </group>
+                       
+                        <group>
+                          
+                             <field name="state"/>
+                              <field name="user_id" string="Responsible"/>
+                             
+                               
+                        </group>
+                         <group>
+                             
+                           
+                            
+                            <field name="supplier_id" options="{'no_create' : True , 'no_edit' : True ,'no_open' : True}" />
+                            <field name="contract_ids" 
+                            widget="many2many_tags"
+                            />
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="print_report" string="Print" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <!-- contract wizard action -->
+    <record id="wizard_contract_report_action" model="ir.actions.act_window">
+            <field name="name">General Contract</field>
+            <field name="res_model">contract.report.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    <!-- <act_window id="wizard_contract_report_action" target="new" name="General Contract" res_model="contract.report.wizard" view_mode="form"/> -->
+    <!-- contract wizard menu -->
+    <menuitem id= "report_contract_menu" name= "General Contract Report" parent= "contract_contract_reports" action= "wizard_contract_report_action" />
+
+</odoo>

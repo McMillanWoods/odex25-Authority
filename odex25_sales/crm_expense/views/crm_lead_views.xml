@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="crm_lead_view_form_inherit" model="ir.ui.view">
+            <field name="name">crm.lead.form</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form" />
+            <field name="arch" type="xml">
+
+                <xpath expr="//button[@name='action_set_won_rainbowman']" position="before">
+                    <button name="%(hr_expense.hr_expense_actions_my_unsubmitted)d" string="Expense"
+                            type="action" class="oe_highlight" context="{'default_crm_lead_id': active_id}"/>
+                </xpath>
+
+                <xpath expr="//button[@name='action_schedule_meeting']" position="after">
+
+                    <button class="oe_stat_button" type="object"
+                        name="action_view_expense" icon="fa-money" context="{'default_crm_lead_id': active_id}">
+                        <field name="expense_count" widget="statinfo" string="Expenses"/>
+                    </button>
+
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

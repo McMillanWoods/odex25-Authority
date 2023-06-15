@@ -1,0 +1,3026 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* contract
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-26 08:37+0000\n"
+"PO-Revision-Date: 2022-10-26 08:37+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: contract
+#: model:mail.template,body_html:contract.contract_installment_email_template
+msgid ""
+"\n"
+"                    <div style=\"font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"                    hello ${(object.contract_id.user_id)}!! <br/>\n"
+"                    only one month before installment date,please dont forget to follow up the following installment:\n"
+"                    ${(object.name)}!! <br/>\n"
+"                    </div>\n"
+"                    \n"
+"            "
+msgstr ""
+
+#. module: contract
+#: model:mail.template,body_html:contract.daily_installment_email_template
+msgid ""
+"\n"
+"                    <div style=\"font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"                    hello ${(object.contract_id.user_id)}!! <br/>\n"
+"                    today is the due day for this installment ${(object.name)}!! ,please dont forget to follow up the following installment:\n"
+"                    \n"
+"                    </div>\n"
+"                    \n"
+"            "
+msgstr ""
+
+#. module: contract
+#: model:mail.template,body_html:contract.email_contract_template
+msgid ""
+"\n"
+"<div style=\"font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"    <p>Hello ${object.partner_id.name or ''},</p>\n"
+"    <p>A new contract has been created: </p>\n"
+"\n"
+"    <p style=\"border-left: 1px solid #8e0000; margin-left: 30px;\">\n"
+"       &nbsp;&nbsp;<strong>REFERENCES</strong><br />\n"
+"       &nbsp;&nbsp;Contract: <strong>${object.name}</strong><br />\n"
+"       % if object.date_start:\n"
+"       &nbsp;&nbsp;Contract Date Start: ${object.date_start or ''}<br />\n"
+"       % endif\n"
+"\n"
+"       % if object.user_id:\n"
+"       % if object.user_id.email:\n"
+"       &nbsp;&nbsp;Your Contact: <a href=\"mailto:${object.user_id.email or ''}?subject=Contract%20${object.name}\">${object.user_id.name}</a>\n"
+"       % else:\n"
+"       &nbsp;&nbsp;Your Contact: ${object.user_id.name}\n"
+"       % endif\n"
+"       % endif\n"
+"    </p>\n"
+"\n"
+"    <br/>\n"
+"    <p>If you have any questions, do not hesitate to contact us.</p>\n"
+"    <p>Thank you for choosing ${object.company_id.name or 'us'}!</p>\n"
+"    <br/>\n"
+"    <br/>\n"
+"    <div style=\"width: 375px; margin: 0px; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;\">\n"
+"        <h3 style=\"margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;\">\n"
+"            <strong style=\"text-transform:uppercase;\">${object.company_id.name}</strong></h3>\n"
+"    </div>\n"
+"    <div style=\"width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;\">\n"
+"        <span style=\"color: #222; margin-bottom: 5px; display: block; \">\n"
+"            ${object.company_id.partner_id.sudo().with_context(show_address=True, html_format=True).name_get()[0][1] | safe}\n"
+"        </span>\n"
+"        % if object.company_id.phone:\n"
+"            <div style=\"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; \">\n"
+"                Phone: ${object.company_id.phone}\n"
+"            </div>\n"
+"        % endif\n"
+"        % if object.company_id.website:\n"
+"            <div>\n"
+"                Web: <a href=\"${object.company_id.website}\">${object.company_id.website}</a>\n"
+"            </div>\n"
+"        %endif\n"
+"        <p></p>\n"
+"    </div>\n"
+"</div>\n"
+"        "
+msgstr ""
+
+#. module: contract
+#: model:mail.template,body_html:contract.email_template_financial_request
+msgid ""
+"\n"
+"<p>Dear customer ${object.contract_id.partner_id.name},</p>\n"
+"<p>Best regards</p>\n"
+"<p>We would like to inform you that you have instllment called ${object.name} in project ${object.contract_id.name}.</p>\n"
+"<p>Best regards,</p>"
+msgstr ""
+"\n"
+"<p>عزيزي العميل ${object.contract_id.partner_id.name},</p>\n"
+"<p>تحية طيبه</p>\n"
+"<p>نفيدك انه لديك دفعيه بالأسم ${object.name} في مشروع ${object.contract_id.name}.</p>\n"
+"<p>شكرا</p>"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__taxed_invoice
+msgid " Taxed Invoice"
+msgstr ""
+
+#. module: contract
+#: model:mail.template,subject:contract.contract_installment_email_template
+#: model:mail.template,subject:contract.daily_installment_email_template
+#: model:mail.template,subject:contract.email_contract_template
+msgid "${object.company_id.name} Contract (Ref ${object.name or 'n/a'})"
+msgstr ""
+
+#. module: contract
+#: model:ir.actions.report,print_report_name:contract.action_report_details_contract
+#: model:ir.actions.report,print_report_name:contract.action_report_general_contract
+#: model:ir.actions.report,print_report_name:contract.action_report_vendor_contract
+#: model:ir.actions.report,print_report_name:contract.expert_contact_employee_action_report
+#: model:ir.actions.report,print_report_name:contract.report_contract
+#: model:ir.actions.report,print_report_name:contract.report_contract_residual_installlments
+#: model:ir.actions.report,print_report_name:contract.report_finaical_request
+msgid "(object._get_report_base_filename())"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_installment_view_kanban
+msgid "<span class=\"fa fa-ellipsis-v\" title=\"Selection\"/>"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_view_kanban
+msgid "<span title=\"Selection\" class=\"fa fa-ellipsis-v\"/>"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_residual_installlments
+msgid "<span>Accountant</span>"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_residual_installlments
+msgid "<span>Financial Manager</span>"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+#: model_terms:ir.ui.view,arch_db:contract.contract_template_form_view
+msgid "<strong>#END#</strong>: End date of the invoiced period"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+#: model_terms:ir.ui.view,arch_db:contract.contract_template_form_view
+msgid "<strong>#START#</strong>: Start date of the invoiced period"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_residual_installlments
+msgid "<strong>Amount</strong>"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_residual_installlments
+#: model_terms:ir.ui.view,arch_db:contract.report_contract_document
+msgid "<strong>Contract: </strong>"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.report_contract_document
+msgid "<strong>Date Start</strong>"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.report_contract_document
+msgid "<strong>Description</strong>"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_residual_installlments
+msgid "<strong>Due Date</strong>"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_residual_installlments
+msgid "<strong>Installment</strong>"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_residual_installlments
+msgid "<strong>No</strong>"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.report_contract_document
+msgid "<strong>Partner:</strong>"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.report_contract_document
+msgid "<strong>Price</strong>"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.report_contract_document
+msgid "<strong>Quantity</strong>"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.report_contract_document
+msgid "<strong>Recurring Items</strong>"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_residual_installlments
+msgid "<strong>Residual</strong>"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.report_contract_document
+msgid "<strong>Responsible: </strong>"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.report_contract_document
+msgid "<strong>Total</strong>"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.report_contract_document
+msgid "<strong>Unit Price</strong>"
+msgstr ""
+
+#. module: contract
+#: code:addons/contract/models/contract_line.py:0
+#, python-format
+msgid "A canceled contract line can't be set to auto-renew"
+msgstr "لا يمكن ضبط بند العقد الملغى على التجديد التلقائي"
+
+#. module: contract
+#: code:addons/contract/models/contract_line.py:0
+#, python-format
+msgid "A contract line with a successor can't be set to auto-renew"
+msgstr "لا يمكن ضبط بند العقد مع الوريث على التجديد التلقائي"
+
+#. module: contract
+#: code:addons/contract/models/contract_line.py:0
+#, python-format
+msgid "A contract line with a successor must have a end date"
+msgstr "يجب أن يكون لبند العقد مع الوريث تاريخ إنتهاء"
+
+#. module: contract
+#: model:ir.model,name:contract.model_contract_abstract_contract
+msgid "Abstract Recurring Contract"
+msgstr "عقد متكرر مجرد"
+
+#. module: contract
+#: model:ir.model,name:contract.model_contract_abstract_contract_line
+msgid "Abstract Recurring Contract Line"
+msgstr "ملخص بنود العقد المتكررة"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__account_id
+msgid "Account"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__message_needaction
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__active
+#: model:ir.model.fields,field_description:contract.field_contract_line__active
+msgid "Active"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__activity_ids
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__activity_exception_decoration
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__activity_state
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__activity_type_icon
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields.selection,name:contract.selection__line_contract_installment__taxed_invoice__with_invoice
+msgid "Advance (with Invoice)"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields.selection,name:contract.selection__line_contract_installment__taxed_invoice__without_invoice
+msgid "Advance (without invoice)"
+msgstr ""
+
+#. module: contract
+#: code:addons/contract/report/contract_details_report.py:0
+#: code:addons/contract/report/contract_vendor_report.py:0
+#: code:addons/contract/report/gernerl_contract_report.py:0
+#: code:addons/contract/report/installment_report.py:0
+#, python-format
+msgid "All"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__amount
+#: model_terms:ir.ui.view,arch_db:contract.contract_installment_tree
+#: model_terms:ir.ui.view,arch_db:contract.contract_installment_tree_view
+#: model_terms:ir.ui.view,arch_db:contract.detials_contract_report_template
+#: model_terms:ir.ui.view,arch_db:contract.installments_report_template
+msgid "Amount"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.general_contract_report_template
+#: model_terms:ir.ui.view,arch_db:contract.vendor_contract_report_template
+msgid "Amount Paid"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__with_tax_amount
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__total_amount
+#: model_terms:ir.ui.view,arch_db:contract.detials_contract_report_template
+#: model_terms:ir.ui.view,arch_db:contract.installments_report_template
+msgid "Amount With Tax"
+msgstr "المبلغ بالضريبة"
+
+#. module: contract
+#: code:addons/contract/models/contract_line.py:0
+#, python-format
+msgid "An auto-renew line must have a end date"
+msgstr "يجب أن يكون لخط التجديد التلقائي تاريخ انتهاء"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_res_partner__appointed
+#: model:ir.model.fields,field_description:contract.field_res_users__appointed
+msgid "Appointed"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_res_partner__app_email
+#: model:ir.model.fields,field_description:contract.field_res_users__app_email
+msgid "Appointed Email"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_search_view
+msgid "Archived"
+msgstr "ارشفت"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+msgid "Are you sure you want to cancel this installment?"
+msgstr "هل انت متأكد من الغاء هذه الدفعية"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_line_tree_view
+msgid "Are you sure you want to cancel this line"
+msgstr "هل انت متأكد من الغاء هذا الخط"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+msgid "Are you sure you want to close set this installment to draft?"
+msgstr "هل أنت متأكد من اغلاق هذه الدفعية ووضعها كمسودة"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+msgid "Are you sure you want to close this installment?"
+msgstr "هل أنت متأكد من اغلاق هذه الدفعية"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+msgid "Are you sure you want to confirm this installment?"
+msgstr "هل انت متأكد من تأكيد هذه الدفعية"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+msgid "Are you sure you want to do this?"
+msgstr "هل انت متأكد من فغل هذا"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+msgid "Are you sure you want to resume this installment?"
+msgstr "هل أنت متأكد من استانف هذه الدفعية"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+msgid "Are you sure you want to start this installment?"
+msgstr "هل أنت متأكد من بداية هذه الدفعية "
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+msgid "Are you sure you want to suspend this installment?"
+msgstr "هل أنت متأكد من تعليق هذه الدفعية"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_search_view
+msgid "Associated Partner"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__message_attachment_count
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract_line__is_auto_renew
+#: model:ir.model.fields,field_description:contract.field_contract_line__is_auto_renew
+#: model:ir.model.fields,field_description:contract.field_contract_line_wizard__is_auto_renew
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__is_auto_renew
+msgid "Auto Renew"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract_line__automatic_price
+#: model:ir.model.fields,field_description:contract.field_contract_line__automatic_price
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__automatic_price
+msgid "Auto-price?"
+msgstr ""
+
+#. module: contract
+#: code:addons/contract/models/contract.py:0
+#: code:addons/contract/report/contract_details_report.py:0
+#: code:addons/contract/report/contract_vendor_report.py:0
+#: code:addons/contract/report/gernerl_contract_report.py:0
+#: code:addons/contract/report/installment_report.py:0
+#: code:addons/contract/wizards/contract_details_report.py:0
+#: code:addons/contract/wizards/contract_vendor_report.py:0
+#: code:addons/contract/wizards/general_contract_report.py:0
+#: code:addons/contract/wizards/installments_report.py:0
+#: model:ir.model.fields.selection,name:contract.selection__contract_contract__state__cancel
+#: model:ir.model.fields.selection,name:contract.selection__contract_report_wizard__state__cancel
+#: model:ir.model.fields.selection,name:contract.selection__details_report_wizard__state__cancel
+#: model:ir.model.fields.selection,name:contract.selection__installment_report_wizard__state__cancel
+#: model:ir.model.fields.selection,name:contract.selection__line_contract_installment__state__cancel
+#: model:ir.model.fields.selection,name:contract.selection__vendor_contract_wizard__state__cancel
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+#: model_terms:ir.ui.view,arch_db:contract.contract_installment_form_view
+#: model_terms:ir.ui.view,arch_db:contract.contract_line_tree_view
+#: model_terms:ir.ui.view,arch_db:contract.contract_line_wizard_plan_successor_form_view
+#: model_terms:ir.ui.view,arch_db:contract.contract_line_wizard_stop_form_view
+#: model_terms:ir.ui.view,arch_db:contract.contract_line_wizard_stop_plan_successor_form_view
+#: model_terms:ir.ui.view,arch_db:contract.contract_line_wizard_uncancel_form_view
+#: model_terms:ir.ui.view,arch_db:contract.vendor_contract_report_form
+#: model_terms:ir.ui.view,arch_db:contract.wizard_contract_details_report_form
+#: model_terms:ir.ui.view,arch_db:contract.wizard_contract_report_form
+#: model_terms:ir.ui.view,arch_db:contract.wizard_installment_report_form
+#, python-format
+msgid "Cancel"
+msgstr ""
+
+#. module: contract
+#: model:res.groups,name:contract.group_cancel_contract
+msgid "Cancel Contract"
+msgstr "زر إلغاء"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_line__is_cancel_allowed
+msgid "Cancel allowed?"
+msgstr ""
+
+#. module: contract
+#: code:addons/contract/models/contract_line.py:0
+#, python-format
+msgid "Cancel not allowed for this line"
+msgstr "غير مسموح بإلغاء هذا الخط"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract_line__is_canceled
+#: model:ir.model.fields,field_description:contract.field_contract_line__is_canceled
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__is_canceled
+#: model:ir.model.fields.selection,name:contract.selection__contract_line__state__canceled
+msgid "Canceled"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,help:contract.field_res_partner__is_institution
+#: model:ir.model.fields,help:contract.field_res_users__is_institution
+msgid "Check if the contact is a company, otherwise it is a person"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.view_partner_form
+msgid "Classification"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.actions.act_window,help:contract.contract_template_action
+msgid "Click to create a new contract template."
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.actions.act_window,help:contract.action_customer_contract
+#: model_terms:ir.actions.act_window,help:contract.action_supplier_contract
+msgid "Click to create a new contract."
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.actions.act_window,help:contract.action_installment_contract
+msgid "Click to create a new installment."
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+msgid "Close"
+msgstr ""
+
+#. module: contract
+#: model:res.groups,name:contract.group_close_contract
+msgid "Close Contract"
+msgstr "زر إغلاق"
+
+#. module: contract
+#: code:addons/contract/models/contract.py:0
+#: code:addons/contract/report/contract_details_report.py:0
+#: code:addons/contract/report/contract_vendor_report.py:0
+#: code:addons/contract/report/gernerl_contract_report.py:0
+#: code:addons/contract/report/installment_report.py:0
+#: code:addons/contract/wizards/contract_details_report.py:0
+#: code:addons/contract/wizards/contract_vendor_report.py:0
+#: code:addons/contract/wizards/general_contract_report.py:0
+#: code:addons/contract/wizards/installments_report.py:0
+#: model:ir.model.fields.selection,name:contract.selection__contract_contract__state__closed
+#: model:ir.model.fields.selection,name:contract.selection__contract_line__state__closed
+#: model:ir.model.fields.selection,name:contract.selection__contract_report_wizard__state__closed
+#: model:ir.model.fields.selection,name:contract.selection__details_report_wizard__state__closed
+#: model:ir.model.fields.selection,name:contract.selection__installment_report_wizard__state__closed
+#: model:ir.model.fields.selection,name:contract.selection__vendor_contract_wizard__state__closed
+#, python-format
+msgid "Closed"
+msgstr "مغلق"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__commercial_partner_id
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_search_view
+msgid "Commercial Entity"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_res_partner__commercial_register
+#: model:ir.model.fields,field_description:contract.field_res_users__commercial_register
+msgid "Commercial Register"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract__company_id
+#: model:ir.model.fields,field_description:contract.field_contract_contract__company_id
+#: model:ir.model.fields,field_description:contract.field_contract_template__company_id
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_res_partner__company_type
+#: model:ir.model.fields,field_description:contract.field_res_users__company_type
+msgid "Company Type"
+msgstr "نوع المؤسسة"
+
+#. module: contract
+#: code:addons/contract/models/contract.py:0
+#, python-format
+msgid "Compose Email"
+msgstr ""
+
+#. module: contract
+#: model:ir.ui.menu,name:contract.menu_config_contract
+msgid "Configuration"
+msgstr "الاعدادات"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: contract
+#: model:res.groups,name:contract.group_confirm_contract
+msgid "Confirm Contract"
+msgstr "اخصائي المشتريات"
+
+#. module: contract
+#: code:addons/contract/models/contract.py:0
+#: code:addons/contract/report/contract_details_report.py:0
+#: code:addons/contract/report/contract_vendor_report.py:0
+#: code:addons/contract/report/gernerl_contract_report.py:0
+#: code:addons/contract/report/installment_report.py:0
+#: code:addons/contract/wizards/contract_details_report.py:0
+#: code:addons/contract/wizards/contract_vendor_report.py:0
+#: code:addons/contract/wizards/general_contract_report.py:0
+#: code:addons/contract/wizards/installments_report.py:0
+#: model:ir.model.fields.selection,name:contract.selection__contract_contract__state__confirmed
+#: model:ir.model.fields.selection,name:contract.selection__contract_report_wizard__state__confirmed
+#: model:ir.model.fields.selection,name:contract.selection__details_report_wizard__state__confirmed
+#: model:ir.model.fields.selection,name:contract.selection__installment_report_wizard__state__confirmed
+#: model:ir.model.fields.selection,name:contract.selection__vendor_contract_wizard__state__confirmed
+#, python-format
+msgid "Confirmed"
+msgstr "اخصائي المشتريات"
+
+#. module: contract
+#: model:ir.model,name:contract.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+msgid "Content"
+msgstr "المحتوى"
+
+#. module: contract
+#: model:ir.actions.report,name:contract.report_contract
+#: model:ir.model,name:contract.model_contract_contract
+#: model:ir.model.fields,field_description:contract.field_account_bank_statement_line__contract_id
+#: model:ir.model.fields,field_description:contract.field_account_move__contract_id
+#: model:ir.model.fields,field_description:contract.field_account_payment__contract_id
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract_line__contract_id
+#: model:ir.model.fields,field_description:contract.field_contract_line__contract_id
+#: model:ir.model.fields,field_description:contract.field_contract_report_wizard__contract_ids
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__contract_id
+#: model:ir.model.fields,field_description:contract.field_details_report_wizard__contract_ids
+#: model:ir.model.fields,field_description:contract.field_installment_report_wizard__contract_ids
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__contract_id
+#: model:ir.model.fields,field_description:contract.field_purchase_order__contract_id
+#: model:ir.model.fields,field_description:contract.field_sale_order__contract_id
+#: model:ir.model.fields,field_description:contract.field_vendor_contract_wizard__contract_ids
+#: model:ir.model.fields.selection,name:contract.selection__purchase_order__type__contract
+#: model:ir.model.fields.selection,name:contract.selection__sale_order__type__contract
+#: model:mail.template,report_name:contract.email_contract_template
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+#: model_terms:ir.ui.view,arch_db:contract.contract_installment_search_view
+#: model_terms:ir.ui.view,arch_db:contract.detials_contract_report_template
+#: model_terms:ir.ui.view,arch_db:contract.installments_report_template
+msgid "Contract"
+msgstr "العقد"
+
+#. module: contract
+#: model:ir.actions.act_window,name:contract.wizard_contract_details_report_action
+#: model:ir.actions.report,name:contract.action_report_details_contract
+msgid "Contract Details"
+msgstr "التفصيلي"
+
+#. module: contract
+#: model:ir.ui.menu,name:contract.report_contract_detials_menu
+msgid "Contract Details Report"
+msgstr "تقرير تفصيل العقد"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.general_contract_report_template
+msgid "Contract General Report"
+msgstr "التقرير العام للعقد"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.view_purchase_order_inherit_form
+msgid "Contract Info"
+msgstr "معلومات العقد"
+
+#. module: contract
+#: model:ir.model,name:contract.model_contract_line
+#: model:ir.model.fields,field_description:contract.field_account_move_line__contract_line_id
+#: model:ir.model.fields,field_description:contract.field_contract_line_wizard__contract_line_id
+msgid "Contract Line"
+msgstr "بند"
+
+#. module: contract
+#: model:ir.model,name:contract.model_contract_line_wizard
+msgid "Contract Line Wizard"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,help:contract.field_contract_line__predecessor_contract_line_id
+msgid "Contract Line origin of this one."
+msgstr ""
+
+#. module: contract
+#: model:res.groups,name:contract.group_contract_manager
+msgid "Contract Manager"
+msgstr "مدير العقد"
+
+#. module: contract
+#: model:ir.module.category,name:contract.contract_managment_category
+msgid "Contract Managment"
+msgstr "منظومة العقود"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_purchase_order__contract_name
+#: model:ir.model.fields,field_description:contract.field_sale_order__contract_name
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+msgid "Contract Name"
+msgstr "اسم العقد"
+
+#. module: contract
+#: model:ir.model,name:contract.model_contract_report_template
+#: model:ir.model.fields,field_description:contract.field_contract_contract__contract_report_template
+msgid "Contract Report Template"
+msgstr "نموذج العقد"
+
+#. module: contract
+#: model:ir.model,name:contract.model_contract_template
+#: model:ir.model.fields,field_description:contract.field_contract_contract__contract_template_id
+#: model:ir.model.fields,field_description:contract.field_contract_report_template__contract_template
+#: model:ir.model.fields,field_description:contract.field_purchase_order__contract_template_id
+#: model:ir.model.fields,field_description:contract.field_sale_order__contract_template_id
+#: model:ir.ui.menu,name:contract.contract_template_menu
+#: model_terms:ir.ui.view,arch_db:contract.contract_template_form_view
+msgid "Contract Template"
+msgstr "محتوي العقد"
+
+#. module: contract
+#: model:ir.model,name:contract.model_contract_template_line
+#: model_terms:ir.ui.view,arch_db:contract.contract_template_line_form_view
+msgid "Contract Template Line"
+msgstr "سطر نموذج العقد"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_template_form_view
+msgid "Contract Template Lines"
+msgstr "سطور نموذج العقد"
+
+#. module: contract
+#: model:ir.ui.menu,name:contract.contract_report_template_menu
+msgid "Contract Template Report"
+msgstr "نموذج العقد"
+
+#. module: contract
+#: model:ir.actions.act_window,name:contract.contract_template_action
+msgid "Contract Templates"
+msgstr "قوالب العقد"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract__contract_type
+#: model:ir.model.fields,field_description:contract.field_contract_contract__contract_type
+#: model:ir.model.fields,field_description:contract.field_contract_template__contract_type
+#: model_terms:ir.ui.view,arch_db:contract.contract_template_search_view
+msgid "Contract Type"
+msgstr "نوع العقد"
+
+#. module: contract
+#: model:res.groups,name:contract.group_contract_user
+msgid "Contract User"
+msgstr "عقد المستخدم"
+
+#. module: contract
+#: model:ir.actions.act_window,name:contract.wizard_vendors_contract_action
+#: model:ir.actions.report,name:contract.action_report_vendor_contract
+msgid "Contract Vendor"
+msgstr "الموردين"
+
+#. module: contract
+#: model:ir.ui.menu,name:contract.report_vendors_contract_menu
+msgid "Contract Vendor Report"
+msgstr "تقرير الموردين - عقود"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.detials_contract_report_template
+msgid "Contract details Report"
+msgstr ""
+
+#. module: contract
+#: code:addons/contract/models/purchase_order.py:0
+#, python-format
+msgid "Contract for Purchase order #%s"
+msgstr ""
+
+#. module: contract
+#: code:addons/contract/models/sale_order.py:0
+#, python-format
+msgid "Contract for sale order #%s"
+msgstr "عقد امر البيع #%s"
+
+#. module: contract
+#: code:addons/contract/models/contract.py:0
+#, python-format
+msgid "Contract has been resumed..."
+msgstr "تم إستئناف العقد..."
+
+#. module: contract
+#: code:addons/contract/models/contract.py:0
+#, python-format
+msgid "Contract has been suspended..."
+msgstr "تم وقف العقد ..."
+
+#. module: contract
+#: code:addons/contract/models/contract_installment.py:0
+#, python-format
+msgid "Contract is closed you cant create installments for it!"
+msgstr ""
+
+#. module: contract
+#: code:addons/contract/models/contract_line.py:0
+#, python-format
+msgid "Contract line '%s' start date can't be later than end date"
+msgstr "لا يمكن أن يكون تاريخ بدء بند العقد \"% s\" بعد تاريخ الانتهاء"
+
+#. module: contract
+#: code:addons/contract/models/contract_line.py:0
+#, python-format
+msgid "Contract line Un-canceled: %s<br/>- "
+msgstr ""
+
+#. module: contract
+#: code:addons/contract/models/contract_line.py:0
+#, python-format
+msgid "Contract line and its predecessor overlapped"
+msgstr "بند العقد وسلفه متداخلة"
+
+#. module: contract
+#: code:addons/contract/models/contract_line.py:0
+#, python-format
+msgid "Contract line and its successor overlapped"
+msgstr "بند العقد وتجدده متداخل"
+
+#. module: contract
+#: code:addons/contract/models/contract_line.py:0
+#, python-format
+msgid "Contract line canceled: %s<br/>- "
+msgstr ""
+
+#. module: contract
+#: code:addons/contract/models/contract_line.py:0
+#, python-format
+msgid ""
+"Contract line for <strong>{product}</strong>\n"
+"                            stopped: <br/>\n"
+"                            - <strong>End</strong>: {old_end} -- {new_end}\n"
+"                            "
+msgstr ""
+
+#. module: contract
+#: code:addons/contract/models/contract_line.py:0
+#, python-format
+msgid ""
+"Contract line for <strong>{product}</strong>\n"
+"                    planned a successor: <br/>\n"
+"                    - <strong>Start</strong>: {new_date_start}\n"
+"                    <br/>\n"
+"                    - <strong>End</strong>: {new_date_end}\n"
+"                    "
+msgstr ""
+
+#. module: contract
+#: code:addons/contract/models/contract_line.py:0
+#, python-format
+msgid ""
+"Contract line for <strong>{product}</strong>\n"
+"                renewed: <br/>\n"
+"                - <strong>Start</strong>: {new_date_start}\n"
+"                <br/>\n"
+"                - <strong>End</strong>: {new_date_end}\n"
+"                "
+msgstr ""
+
+#. module: contract
+#: code:addons/contract/models/contract_line.py:0
+#, python-format
+msgid ""
+"Contract line for <strong>{product}</strong>\n"
+"                suspended: <br/>\n"
+"                - <strong>Suspension Start</strong>: {new_date_start}\n"
+"                <br/>\n"
+"                - <strong>Suspension End</strong>: {new_date_end}\n"
+"                "
+msgstr ""
+
+#. module: contract
+#: code:addons/contract/models/contract_line.py:0
+#, python-format
+msgid "Contract line must be canceled before delete"
+msgstr "يجب إلغاء بند العقد قبل الحذف"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__contract_line_ids
+msgid "Contract lines"
+msgstr "سطور العقد"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_template__contract_line_ids
+msgid "Contract template lines"
+msgstr "سطور نموذج العقد"
+
+#. module: contract
+#: code:addons/contract/models/contract_installment.py:0
+#, python-format
+msgid ""
+"Contract total amount is zero hence you can't create installment for it!"
+msgstr "المبلغ الإجمالي للعقد هو صفر وبالتالي لا يمكنك إنشاء تقسيط له!"
+
+#. module: contract
+#: code:addons/contract/models/contract.py:0
+#: code:addons/contract/models/contract.py:0
+#: code:addons/contract/models/contract.py:0
+#, python-format
+msgid "Contract-%s Expired On %s"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__type_of_contraction
+msgid "Contraction Type"
+msgstr "نوع العقد"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_res_partner__contract_ids
+#: model:ir.model.fields,field_description:contract.field_res_users__contract_ids
+#: model:ir.ui.menu,name:contract.contract_contract_menu
+#: model:ir.ui.menu,name:contract.contract_contract_submenu
+msgid "Contracts"
+msgstr "العقود"
+
+#. module: contract
+#: model:ir.actions.server,name:contract.contract_cron_for_expires_ir_actions_server
+#: model:ir.cron,cron_name:contract.contract_cron_for_expires
+#: model:ir.cron,name:contract.contract_cron_for_expires
+msgid "Contracts Expiration"
+msgstr "انتهاء العقود"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_line__analytic_account_id
+msgid "Cost Center"
+msgstr "مركز التكلفة"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__create_invoice_visibility
+#: model:ir.model.fields,field_description:contract.field_contract_line__create_invoice_visibility
+msgid "Create Invoice Visibility"
+msgstr "إنشاء رؤية الفاتورة"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__create_uid
+#: model:ir.model.fields,field_description:contract.field_contract_line__create_uid
+#: model:ir.model.fields,field_description:contract.field_contract_line_wizard__create_uid
+#: model:ir.model.fields,field_description:contract.field_contract_report_template__create_uid
+#: model:ir.model.fields,field_description:contract.field_contract_report_wizard__create_uid
+#: model:ir.model.fields,field_description:contract.field_contract_template__create_uid
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__create_uid
+#: model:ir.model.fields,field_description:contract.field_details_report_wizard__create_uid
+#: model:ir.model.fields,field_description:contract.field_installment_report_wizard__create_uid
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__create_uid
+#: model:ir.model.fields,field_description:contract.field_odex_num__create_uid
+#: model:ir.model.fields,field_description:contract.field_vendor_contract_wizard__create_uid
+msgid "Created by"
+msgstr "انشأت بواسطة"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__create_date
+#: model:ir.model.fields,field_description:contract.field_contract_line__create_date
+#: model:ir.model.fields,field_description:contract.field_contract_line_wizard__create_date
+#: model:ir.model.fields,field_description:contract.field_contract_report_template__create_date
+#: model:ir.model.fields,field_description:contract.field_contract_report_wizard__create_date
+#: model:ir.model.fields,field_description:contract.field_contract_template__create_date
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__create_date
+#: model:ir.model.fields,field_description:contract.field_details_report_wizard__create_date
+#: model:ir.model.fields,field_description:contract.field_installment_report_wizard__create_date
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__create_date
+#: model:ir.model.fields,field_description:contract.field_odex_num__create_date
+#: model:ir.model.fields,field_description:contract.field_vendor_contract_wizard__create_date
+msgid "Created on"
+msgstr "انشئت على"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__currency_id
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: contract
+#: model:ir.model.fields.selection,name:contract.selection__contract_abstract_contract__contract_type__sale
+#: model:ir.model.fields.selection,name:contract.selection__contract_contract__contract_type__sale
+#: model:ir.model.fields.selection,name:contract.selection__contract_template__contract_type__sale
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_customer_form_view
+msgid "Customer"
+msgstr "العميل"
+
+#. module: contract
+#: model:ir.actions.act_window,name:contract.action_customer_contract
+#: model:ir.ui.menu,name:contract.contract_contract_customer_menu
+msgid "Customer Contracts"
+msgstr "عقود العملاء"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_installment_search_view
+msgid "Customer Payment"
+msgstr "دفعيات العميل"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__date
+#: model_terms:ir.ui.view,arch_db:contract.contract_installment_search_view
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__date_end
+#: model:ir.model.fields,field_description:contract.field_contract_line__date_end
+#: model:ir.model.fields,field_description:contract.field_contract_line_wizard__date_end
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_search_view
+msgid "Date End"
+msgstr "تاريخ النهاية"
+
+#. module: contract
+#: code:addons/contract/wizards/contract_details_report.py:0
+#: code:addons/contract/wizards/contract_vendor_report.py:0
+#: code:addons/contract/wizards/general_contract_report.py:0
+#: code:addons/contract/wizards/installments_report.py:0
+#, python-format
+msgid "Date From Must Be Greater Than Date To"
+msgstr "يجب ان يكون التاريخ من اكبر من التريخ إلى"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract_line__date_start
+#: model:ir.model.fields,field_description:contract.field_contract_contract__date_start
+#: model:ir.model.fields,field_description:contract.field_contract_line__date_start
+#: model:ir.model.fields,field_description:contract.field_contract_line_wizard__date_start
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__date_start
+msgid "Date Start"
+msgstr "تاريخ البداية"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract_line__recurring_next_date
+#: model:ir.model.fields,field_description:contract.field_contract_contract__recurring_next_date
+#: model:ir.model.fields,field_description:contract.field_contract_line__recurring_next_date
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__recurring_next_date
+msgid "Date of Next Invoice"
+msgstr "تاريخ الفاتورة القادمة"
+
+#. module: contract
+#: model:ir.model.fields.selection,name:contract.selection__contract_abstract_contract_line__auto_renew_rule_type__daily
+#: model:ir.model.fields.selection,name:contract.selection__contract_abstract_contract_line__recurring_rule_type__daily
+#: model:ir.model.fields.selection,name:contract.selection__contract_abstract_contract_line__termination_notice_rule_type__daily
+#: model:ir.model.fields.selection,name:contract.selection__contract_line__auto_renew_rule_type__daily
+#: model:ir.model.fields.selection,name:contract.selection__contract_line__recurring_rule_type__daily
+#: model:ir.model.fields.selection,name:contract.selection__contract_line__termination_notice_rule_type__daily
+#: model:ir.model.fields.selection,name:contract.selection__contract_template_line__auto_renew_rule_type__daily
+#: model:ir.model.fields.selection,name:contract.selection__contract_template_line__recurring_rule_type__daily
+#: model:ir.model.fields.selection,name:contract.selection__contract_template_line__termination_notice_rule_type__daily
+msgid "Day(s)"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_view_kanban
+#: model_terms:ir.ui.view,arch_db:contract.contract_installment_view_kanban
+msgid "Delete"
+msgstr "حذف"
+
+#. module: contract
+#: code:addons/contract/models/contract_installment.py:0
+#, python-format
+msgid ""
+"Delete Operation Cannot be Done Because on or more installment  has been "
+"invoiced"
+msgstr "لا يمكن إجراء عملية الحذف نظرا لوجود دفعية او اكثر مفوترة"
+
+#. module: contract
+#: code:addons/contract/models/account_invoice.py:0
+#, python-format
+msgid "Delivery installment"
+msgstr "الدفعيات المستلمة"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract_line__name
+#: model:ir.model.fields,field_description:contract.field_contract_line__name
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__name
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__description
+msgid "Description"
+msgstr "الوصف"
+
+#. module: contract
+#: code:addons/contract/wizards/general_contract_report.py:0
+#: model:ir.model.fields.selection,name:contract.selection__contract_report_wizard__report_type__details
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+#, python-format
+msgid "Details"
+msgstr "تفاصيل"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract_line__discount
+#: model:ir.model.fields,field_description:contract.field_contract_line__discount
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__discount
+msgid "Discount (%)"
+msgstr "تخفيض بالنسبة المئوية"
+
+#. module: contract
+#: code:addons/contract/models/abstract_contract_line.py:0
+#, python-format
+msgid "Discount should be less or equal to 100"
+msgstr "يجب أن يكون الخصم أقل من أو يساوي 100"
+
+#. module: contract
+#: model:ir.model.fields,help:contract.field_contract_abstract_contract_line__discount
+#: model:ir.model.fields,help:contract.field_contract_line__discount
+#: model:ir.model.fields,help:contract.field_contract_template_line__discount
+msgid ""
+"Discount that is applied in generated invoices. It should be less or equal "
+"to 100"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_account_move__display_name
+#: model:ir.model.fields,field_description:contract.field_account_move_line__display_name
+#: model:ir.model.fields,field_description:contract.field_account_payment__display_name
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract__display_name
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract_line__display_name
+#: model:ir.model.fields,field_description:contract.field_contract_contract__display_name
+#: model:ir.model.fields,field_description:contract.field_contract_line__display_name
+#: model:ir.model.fields,field_description:contract.field_contract_line_wizard__display_name
+#: model:ir.model.fields,field_description:contract.field_contract_report_template__display_name
+#: model:ir.model.fields,field_description:contract.field_contract_report_wizard__display_name
+#: model:ir.model.fields,field_description:contract.field_contract_template__display_name
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__display_name
+#: model:ir.model.fields,field_description:contract.field_details_report_wizard__display_name
+#: model:ir.model.fields,field_description:contract.field_installment_report_wizard__display_name
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__display_name
+#: model:ir.model.fields,field_description:contract.field_odex_num__display_name
+#: model:ir.model.fields,field_description:contract.field_product_product__display_name
+#: model:ir.model.fields,field_description:contract.field_purchase_order__display_name
+#: model:ir.model.fields,field_description:contract.field_report_contract_contract_residual_installlments__display_name
+#: model:ir.model.fields,field_description:contract.field_report_contract_detials_contract_report_template__display_name
+#: model:ir.model.fields,field_description:contract.field_report_contract_general_contract_report_template__display_name
+#: model:ir.model.fields,field_description:contract.field_report_contract_installments_report_template__display_name
+#: model:ir.model.fields,field_description:contract.field_report_contract_vendor_contract_report_template__display_name
+#: model:ir.model.fields,field_description:contract.field_res_partner__display_name
+#: model:ir.model.fields,field_description:contract.field_sale_order__display_name
+#: model:ir.model.fields,field_description:contract.field_vendor_contract_wizard__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__due_date
+#: model_terms:ir.ui.view,arch_db:contract.installments_report_template
+msgid "Due Date"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.detials_contract_report_template
+#: model_terms:ir.ui.view,arch_db:contract.general_contract_report_template
+#: model_terms:ir.ui.view,arch_db:contract.installments_report_template
+msgid "Duration"
+msgstr "المدة"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_view_kanban
+msgid "Edit Contract"
+msgstr "تعديل العقد"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_installment_view_kanban
+msgid "Edit Installment"
+msgstr "تعديل الدفعية"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.general_contract_report_template
+#: model_terms:ir.ui.view,arch_db:contract.vendor_contract_report_template
+msgid "End Date"
+msgstr "تاريخ النهاية"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_res_partner__executive_manager
+#: model:ir.model.fields,field_description:contract.field_res_users__executive_manager
+msgid "Executive Manager"
+msgstr "المدير التنفيذي"
+
+#. module: contract
+#: model:ir.actions.report,name:contract.report_finaical_request
+msgid "Finaical Request"
+msgstr "المطالبة المالية"
+
+#. module: contract
+#: model:ir.model.fields.selection,name:contract.selection__line_contract_installment__taxed_invoice__final_invoice
+msgid "Final invoice (reconciliation  advance payment and tax )"
+msgstr ""
+
+#. module: contract
+#: model:mail.template,subject:contract.email_template_financial_request
+msgid "Financial Request"
+msgstr "طلب مالي"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_search_view
+msgid "Finished"
+msgstr "منتهي"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__first_party
+msgid "First party"
+msgstr "الطرف الاول"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__fiscal_position_id
+msgid "Fiscal Position"
+msgstr "الوضع المالي"
+
+#. module: contract
+#: model:ir.model.fields.selection,name:contract.selection__contract_contract__penalty_type__fix
+#: model:ir.model.fields.selection,name:contract.selection__line_contract_installment__installment_type__fixed
+msgid "Fixed"
+msgstr "ثابت"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__message_follower_ids
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__message_follower_ids
+msgid "Followers"
+msgstr "المتابعين"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__message_channel_ids
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__message_partner_ids
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,help:contract.field_contract_contract__activity_type_icon
+#: model:ir.model.fields,help:contract.field_line_contract_installment__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_report_wizard__date_from
+#: model:ir.model.fields,field_description:contract.field_details_report_wizard__date_from
+#: model:ir.model.fields,field_description:contract.field_installment_report_wizard__date_from
+#: model:ir.model.fields,field_description:contract.field_vendor_contract_wizard__date_from
+#: model_terms:ir.ui.view,arch_db:contract.detials_contract_report_template
+#: model_terms:ir.ui.view,arch_db:contract.general_contract_report_template
+#: model_terms:ir.ui.view,arch_db:contract.installments_report_template
+msgid "From"
+msgstr "من"
+
+#. module: contract
+#: model:ir.actions.act_window,name:contract.wizard_contract_report_action
+#: model:ir.actions.report,name:contract.action_report_general_contract
+msgid "General Contract"
+msgstr "التقرير العام"
+
+#. module: contract
+#: model:ir.ui.menu,name:contract.report_contract_menu
+msgid "General Contract Report"
+msgstr "تقرير العقود العام"
+
+#. module: contract
+#: model:ir.actions.server,name:contract.contract_cron_for_invoice_ir_actions_server
+#: model:ir.cron,cron_name:contract.contract_cron_for_invoice
+#: model:ir.cron,name:contract.contract_cron_for_invoice
+msgid "Generate Recurring Invoices from Contracts"
+msgstr "إنشاء الفواتير المتكررة من العقود"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__group_id
+msgid "Group"
+msgstr "قروب"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_search_view
+#: model_terms:ir.ui.view,arch_db:contract.contract_installment_search_view
+msgid "Group By..."
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_account_move__id
+#: model:ir.model.fields,field_description:contract.field_account_move_line__id
+#: model:ir.model.fields,field_description:contract.field_account_payment__id
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract__id
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract_line__id
+#: model:ir.model.fields,field_description:contract.field_contract_contract__id
+#: model:ir.model.fields,field_description:contract.field_contract_line__id
+#: model:ir.model.fields,field_description:contract.field_contract_line_wizard__id
+#: model:ir.model.fields,field_description:contract.field_contract_report_template__id
+#: model:ir.model.fields,field_description:contract.field_contract_report_wizard__id
+#: model:ir.model.fields,field_description:contract.field_contract_template__id
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__id
+#: model:ir.model.fields,field_description:contract.field_details_report_wizard__id
+#: model:ir.model.fields,field_description:contract.field_installment_report_wizard__id
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__id
+#: model:ir.model.fields,field_description:contract.field_odex_num__id
+#: model:ir.model.fields,field_description:contract.field_product_product__id
+#: model:ir.model.fields,field_description:contract.field_purchase_order__id
+#: model:ir.model.fields,field_description:contract.field_report_contract_contract_residual_installlments__id
+#: model:ir.model.fields,field_description:contract.field_report_contract_detials_contract_report_template__id
+#: model:ir.model.fields,field_description:contract.field_report_contract_general_contract_report_template__id
+#: model:ir.model.fields,field_description:contract.field_report_contract_installments_report_template__id
+#: model:ir.model.fields,field_description:contract.field_report_contract_vendor_contract_report_template__id
+#: model:ir.model.fields,field_description:contract.field_res_partner__id
+#: model:ir.model.fields,field_description:contract.field_sale_order__id
+#: model:ir.model.fields,field_description:contract.field_vendor_contract_wizard__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__activity_exception_icon
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,help:contract.field_contract_contract__activity_exception_icon
+#: model:ir.model.fields,help:contract.field_line_contract_installment__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,help:contract.field_contract_contract__message_needaction
+#: model:ir.model.fields,help:contract.field_contract_contract__message_unread
+#: model:ir.model.fields,help:contract.field_line_contract_installment__message_needaction
+#: model:ir.model.fields,help:contract.field_line_contract_installment__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,help:contract.field_contract_contract__message_has_error
+#: model:ir.model.fields,help:contract.field_line_contract_installment__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,help:contract.field_contract_abstract_contract_line__automatic_price
+#: model:ir.model.fields,help:contract.field_contract_line__automatic_price
+#: model:ir.model.fields,help:contract.field_contract_template_line__automatic_price
+msgid ""
+"If this is marked, the price will be obtained automatically applying the "
+"pricelist to the product. If not, you will be able to introduce a manual "
+"price"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,help:contract.field_contract_line__successor_contract_line_id
+msgid ""
+"In case of restart after suspension, this field contain the new contract "
+"line created."
+msgstr ""
+
+#. module: contract
+#: code:addons/contract/models/contract.py:0
+#: code:addons/contract/wizards/contract_details_report.py:0
+#: code:addons/contract/wizards/contract_vendor_report.py:0
+#: code:addons/contract/wizards/general_contract_report.py:0
+#: code:addons/contract/wizards/installments_report.py:0
+#: model:ir.model.fields.selection,name:contract.selection__contract_contract__state__in_progress
+#: model:ir.model.fields.selection,name:contract.selection__contract_report_wizard__state__in_progress
+#: model:ir.model.fields.selection,name:contract.selection__details_report_wizard__state__in_progress
+#: model:ir.model.fields.selection,name:contract.selection__installment_report_wizard__state__in_progress
+#: model:ir.model.fields.selection,name:contract.selection__vendor_contract_wizard__state__in_progress
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_search_view
+#, python-format
+msgid "In progress"
+msgstr "تدقيق المستشار القانوني"
+
+#. module: contract
+#: model:ir.model.fields.selection,name:contract.selection__contract_line__state__in-progress
+msgid "In-progress"
+msgstr ""
+
+#. module: contract
+#: model:ir.actions.act_window,name:contract.action_installment_contract_lines
+#: model:ir.model,name:contract.model_line_contract_installment
+#: model:ir.ui.menu,name:contract.contract_installment_menu
+#: model_terms:ir.ui.view,arch_db:contract.contract_installment_calendar
+msgid "Installment"
+msgstr "الدفعة"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_installment_pivot_view
+msgid "Installment Analysis"
+msgstr ""
+
+#. module: contract
+#: model:ir.actions.act_window,name:contract.action_installment_contract
+msgid "Installment Contract"
+msgstr "الدفعة"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__installment_count
+msgid "Installment Count"
+msgstr "عدد الدفعية"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__name
+msgid "Installment Name"
+msgstr "اسم الدفعية"
+
+#. module: contract
+#: model:ir.actions.act_window,name:contract.wizard_vendro_report_action
+#: model:ir.actions.report,name:contract.action_report_installment
+#: model:ir.ui.menu,name:contract.submenu_contract_installment
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+#: model_terms:ir.ui.view,arch_db:contract.contract_installment_graph
+msgid "Installments"
+msgstr "الدفعيات"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.installments_report_template
+msgid "Installments Report"
+msgstr "تقرير الدفعيات"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_residual_installlments
+msgid "Installments:"
+msgstr "الدفعيات"
+
+#. module: contract
+#: model:ir.model.fields.selection,name:contract.selection__res_partner__company_type__institution
+msgid "Institution"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__invoice_id
+msgid "Invoice"
+msgstr "الفاتورة"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__invoice_count
+msgid "Invoice Count"
+msgstr "عدد الفاتورة"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract_line__recurring_interval
+#: model:ir.model.fields,field_description:contract.field_contract_line__recurring_interval
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__recurring_interval
+msgid "Invoice Every"
+msgstr "فاتورة كل"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__invoice_is_paid
+msgid "Invoice Is Paid"
+msgstr "الفاتورة دفعت"
+
+#. module: contract
+#: model:ir.model.fields,help:contract.field_contract_abstract_contract_line__recurring_interval
+#: model:ir.model.fields,help:contract.field_contract_line__recurring_interval
+#: model:ir.model.fields,help:contract.field_contract_template_line__recurring_interval
+msgid "Invoice every (Days/Week/Month/Year)"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields.selection,name:contract.selection__line_contract_installment__state__invoiced
+msgid "Invoiced"
+msgstr "مفوترة"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+msgid "Invoices"
+msgstr "فواتير"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__invoice_partner_id
+msgid "Invoicing contact"
+msgstr "فاتورة العقد"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract_line__recurring_invoicing_type
+#: model:ir.model.fields,field_description:contract.field_contract_line__recurring_invoicing_type
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__recurring_invoicing_type
+msgid "Invoicing type"
+msgstr "نوع الفاتورة"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__message_is_follower
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_res_partner__is_institution
+#: model:ir.model.fields,field_description:contract.field_res_users__is_institution
+msgid "Is a Institution"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_line_wizard_stop_form_view
+msgid "Is suspension without end date"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.view_partner_form
+msgid "Job Title"
+msgstr "المسمى الوظيفي"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract__journal_id
+#: model:ir.model.fields,field_description:contract.field_contract_contract__journal_id
+#: model:ir.model.fields,field_description:contract.field_contract_template__journal_id
+#: model_terms:ir.ui.view,arch_db:contract.contract_template_search_view
+msgid "Journal"
+msgstr "دفتر اليومية"
+
+#. module: contract
+#: model:ir.model,name:contract.model_account_move
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: contract
+#: model:ir.model,name:contract.model_account_move_line
+msgid "Journal Item"
+msgstr "عنصر اليومية"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract_line__last_date_invoiced
+#: model:ir.model.fields,field_description:contract.field_contract_line__last_date_invoiced
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__last_date_invoiced
+msgid "Last Date Invoiced"
+msgstr "تاريخ اخر فاتورة "
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_account_move____last_update
+#: model:ir.model.fields,field_description:contract.field_account_move_line____last_update
+#: model:ir.model.fields,field_description:contract.field_account_payment____last_update
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract____last_update
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract_line____last_update
+#: model:ir.model.fields,field_description:contract.field_contract_contract____last_update
+#: model:ir.model.fields,field_description:contract.field_contract_line____last_update
+#: model:ir.model.fields,field_description:contract.field_contract_line_wizard____last_update
+#: model:ir.model.fields,field_description:contract.field_contract_report_template____last_update
+#: model:ir.model.fields,field_description:contract.field_contract_report_wizard____last_update
+#: model:ir.model.fields,field_description:contract.field_contract_template____last_update
+#: model:ir.model.fields,field_description:contract.field_contract_template_line____last_update
+#: model:ir.model.fields,field_description:contract.field_details_report_wizard____last_update
+#: model:ir.model.fields,field_description:contract.field_installment_report_wizard____last_update
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment____last_update
+#: model:ir.model.fields,field_description:contract.field_odex_num____last_update
+#: model:ir.model.fields,field_description:contract.field_product_product____last_update
+#: model:ir.model.fields,field_description:contract.field_purchase_order____last_update
+#: model:ir.model.fields,field_description:contract.field_report_contract_contract_residual_installlments____last_update
+#: model:ir.model.fields,field_description:contract.field_report_contract_detials_contract_report_template____last_update
+#: model:ir.model.fields,field_description:contract.field_report_contract_general_contract_report_template____last_update
+#: model:ir.model.fields,field_description:contract.field_report_contract_installments_report_template____last_update
+#: model:ir.model.fields,field_description:contract.field_report_contract_vendor_contract_report_template____last_update
+#: model:ir.model.fields,field_description:contract.field_res_partner____last_update
+#: model:ir.model.fields,field_description:contract.field_sale_order____last_update
+#: model:ir.model.fields,field_description:contract.field_vendor_contract_wizard____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__write_uid
+#: model:ir.model.fields,field_description:contract.field_contract_line__write_uid
+#: model:ir.model.fields,field_description:contract.field_contract_line_wizard__write_uid
+#: model:ir.model.fields,field_description:contract.field_contract_report_template__write_uid
+#: model:ir.model.fields,field_description:contract.field_contract_report_wizard__write_uid
+#: model:ir.model.fields,field_description:contract.field_contract_template__write_uid
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__write_uid
+#: model:ir.model.fields,field_description:contract.field_details_report_wizard__write_uid
+#: model:ir.model.fields,field_description:contract.field_installment_report_wizard__write_uid
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__write_uid
+#: model:ir.model.fields,field_description:contract.field_odex_num__write_uid
+#: model:ir.model.fields,field_description:contract.field_vendor_contract_wizard__write_uid
+msgid "Last Updated by"
+msgstr "اخر تحديث بواسطة"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__write_date
+#: model:ir.model.fields,field_description:contract.field_contract_line__write_date
+#: model:ir.model.fields,field_description:contract.field_contract_line_wizard__write_date
+#: model:ir.model.fields,field_description:contract.field_contract_report_template__write_date
+#: model:ir.model.fields,field_description:contract.field_contract_report_wizard__write_date
+#: model:ir.model.fields,field_description:contract.field_contract_template__write_date
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__write_date
+#: model:ir.model.fields,field_description:contract.field_details_report_wizard__write_date
+#: model:ir.model.fields,field_description:contract.field_installment_report_wizard__write_date
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__write_date
+#: model:ir.model.fields,field_description:contract.field_odex_num__write_date
+#: model:ir.model.fields,field_description:contract.field_vendor_contract_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields.selection,name:contract.selection__contract_contract__type_of_contraction__contract
+msgid "Legal Contract"
+msgstr "عقد قانوني"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+#: model_terms:ir.ui.view,arch_db:contract.contract_template_form_view
+msgid "Legend (for the markers inside invoice lines description)"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__message_main_attachment_id
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_line__manual_renew_needed
+#: model:ir.model.fields,field_description:contract.field_contract_line_wizard__manual_renew_needed
+msgid "Manual renew needed"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__message_has_error
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__message_ids
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__message_ids
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: contract
+#: model:ir.model.fields.selection,name:contract.selection__contract_abstract_contract_line__auto_renew_rule_type__monthly
+#: model:ir.model.fields.selection,name:contract.selection__contract_abstract_contract_line__recurring_rule_type__monthly
+#: model:ir.model.fields.selection,name:contract.selection__contract_abstract_contract_line__termination_notice_rule_type__monthly
+#: model:ir.model.fields.selection,name:contract.selection__contract_line__auto_renew_rule_type__monthly
+#: model:ir.model.fields.selection,name:contract.selection__contract_line__recurring_rule_type__monthly
+#: model:ir.model.fields.selection,name:contract.selection__contract_line__termination_notice_rule_type__monthly
+#: model:ir.model.fields.selection,name:contract.selection__contract_template_line__auto_renew_rule_type__monthly
+#: model:ir.model.fields.selection,name:contract.selection__contract_template_line__recurring_rule_type__monthly
+#: model:ir.model.fields.selection,name:contract.selection__contract_template_line__termination_notice_rule_type__monthly
+msgid "Month(s)"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields.selection,name:contract.selection__contract_abstract_contract_line__recurring_rule_type__monthlylastday
+#: model:ir.model.fields.selection,name:contract.selection__contract_line__recurring_rule_type__monthlylastday
+#: model:ir.model.fields.selection,name:contract.selection__contract_template_line__recurring_rule_type__monthlylastday
+msgid "Month(s) last day"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__my_activity_date_deadline
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract__name
+#: model:ir.model.fields,field_description:contract.field_contract_contract__name
+#: model:ir.model.fields,field_description:contract.field_contract_template__name
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_tree_view
+#: model_terms:ir.ui.view,arch_db:contract.contract_installment_search_view
+#: model_terms:ir.ui.view,arch_db:contract.contract_report_template_tree_view
+#: model_terms:ir.ui.view,arch_db:contract.general_contract_report_template
+#: model_terms:ir.ui.view,arch_db:contract.vendor_contract_report_template
+msgid "Name"
+msgstr ""
+
+#. module: contract
+#: code:addons/contract/models/contract.py:0
+#: code:addons/contract/report/contract_details_report.py:0
+#: code:addons/contract/report/contract_vendor_report.py:0
+#: code:addons/contract/report/gernerl_contract_report.py:0
+#: code:addons/contract/report/installment_report.py:0
+#: code:addons/contract/wizards/contract_details_report.py:0
+#: code:addons/contract/wizards/contract_vendor_report.py:0
+#: code:addons/contract/wizards/general_contract_report.py:0
+#: code:addons/contract/wizards/installments_report.py:0
+#: model:ir.model.fields.selection,name:contract.selection__contract_contract__state__new
+#: model:ir.model.fields.selection,name:contract.selection__contract_report_wizard__state__new
+#: model:ir.model.fields.selection,name:contract.selection__details_report_wizard__state__new
+#: model:ir.model.fields.selection,name:contract.selection__installment_report_wizard__state__new
+#: model:ir.model.fields.selection,name:contract.selection__vendor_contract_wizard__state__new
+#, python-format
+msgid "New"
+msgstr "جديد"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__activity_date_deadline
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "الموعد النهائي للنشاط التالي"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__activity_summary
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__activity_summary
+msgid "Next Activity Summary"
+msgstr "ملخص النشاط التالي"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__activity_type_id
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__activity_type_id
+msgid "Next Activity Type"
+msgstr "نوع النشاط التالي"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_search_view
+msgid "Next Invoice"
+msgstr "الفاتورة التالية"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_line_wizard__recurring_next_date
+msgid "Next Invoice Date"
+msgstr "تاريخ الفاتورة التالية"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_report_template__name
+msgid "Nmae"
+msgstr "الاسم"
+
+#. module: contract
+#: model:ir.model.fields.selection,name:contract.selection__line_contract_installment__state__not_invoiced
+msgid "Not Invoiced"
+msgstr "غير مفوترة"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_installment_search_view
+msgid "Not Paid"
+msgstr "غير مدفوع"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__note
+msgid "Note"
+msgstr "ملاحظة"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__message_needaction_counter
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__message_has_error_counter
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الاخطاء"
+
+#. module: contract
+#: model:ir.model.fields,help:contract.field_contract_contract__message_needaction_counter
+#: model:ir.model.fields,help:contract.field_line_contract_installment__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,help:contract.field_contract_contract__message_has_error_counter
+#: model:ir.model.fields,help:contract.field_line_contract_installment__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,help:contract.field_contract_contract__message_unread_counter
+#: model:ir.model.fields,help:contract.field_line_contract_installment__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields.selection,name:contract.selection__purchase_order__type__ordinary
+#: model:ir.model.fields.selection,name:contract.selection__sale_order__type__ordinary
+msgid "Ordinary"
+msgstr "عادي"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+msgid "Other Information"
+msgstr "معلومات اخرى"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.custom_external_layout_exp_contract
+msgid "Page: <span class=\"page\"/> / <span class=\"topage\"/>"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields.selection,name:contract.selection__line_contract_installment__state__paid
+#: model_terms:ir.ui.view,arch_db:contract.contract_installment_search_view
+msgid "Paid"
+msgstr "مدفوع"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract__partner_id
+#: model:ir.model.fields,field_description:contract.field_contract_contract__partner_id
+#: model:ir.model.fields,field_description:contract.field_contract_template__partner_id
+msgid "Partner (always False)"
+msgstr "المورد"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__payment_id
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+msgid "Payment"
+msgstr "الدفعيات"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__payment_count
+msgid "Payment Count"
+msgstr "عدد المدفوعات"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_installment_form_view
+msgid "Payment Info"
+msgstr "معلوات الدفع "
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__payment_term_id
+msgid "Payment Terms"
+msgstr "شروط السداد"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__contract_type
+msgid "Payment Type"
+msgstr "نوع الدفعبات"
+
+#. module: contract
+#: model:ir.actions.server,name:contract.contract_cron_for_invoice_payment_ir_actions_server
+#: model:ir.cron,cron_name:contract.contract_cron_for_invoice_payment
+#: model:ir.cron,name:contract.contract_cron_for_invoice_payment
+msgid "Payment of Bills"
+msgstr "دفع الفواتير"
+
+#. module: contract
+#: model:ir.model,name:contract.model_account_payment
+msgid "Payments"
+msgstr "المدفوعات"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__is_penalty
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+msgid "Penalty"
+msgstr "الجزاء"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__penalty
+msgid "Penalty Amount"
+msgstr "مقدار الجزاء"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__penalty_type
+msgid "Penalty type"
+msgstr "نوع الجزاء"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__percent
+#: model:ir.model.fields.selection,name:contract.selection__contract_contract__penalty_type__percent
+#: model:ir.model.fields.selection,name:contract.selection__line_contract_installment__installment_type__percent
+msgid "Percent"
+msgstr "حالي"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_line_tree_view
+msgid "Plan Start"
+msgstr "بداية الخطة"
+
+#. module: contract
+#: code:addons/contract/models/contract_line.py:0
+#, python-format
+msgid "Plan contract line successor"
+msgstr "تواريخ تجديد بند العقد"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_line__is_plan_successor_allowed
+msgid "Plan successor allowed?"
+msgstr "يسمح بالخطة"
+
+#. module: contract
+#: code:addons/contract/models/contract_line.py:0
+#, python-format
+msgid "Plan successor not allowed for this line"
+msgstr "خطة التجديد غير مسموح بها فى هذا البند"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_installment_form_view
+msgid "Planned Date"
+msgstr "التاريخ المحدد"
+
+#. module: contract
+#: code:addons/contract/models/contract.py:0
+#, python-format
+msgid "Please Enter Contract Start Date!!"
+msgstr "من فضلك ادخل تاريخ بداية العقد"
+
+#. module: contract
+#: code:addons/contract/models/contract.py:0
+#, python-format
+msgid "Please define a %s journal for the company '%s'."
+msgstr "يرجى تحديد دفتر يومية% s للشركة '%s'."
+
+#. module: contract
+#: code:addons/contract/models/contract.py:0
+#, python-format
+msgid "Please enter the installments!"
+msgstr "الرجاء إدخال أقساط لهذا العقد اولا"
+
+#. module: contract
+#: model:ir.model.fields.selection,name:contract.selection__contract_abstract_contract_line__recurring_invoicing_type__post-paid
+#: model:ir.model.fields.selection,name:contract.selection__contract_line__recurring_invoicing_type__post-paid
+#: model:ir.model.fields.selection,name:contract.selection__contract_template_line__recurring_invoicing_type__post-paid
+msgid "Post-paid"
+msgstr "الدفع الاجل"
+
+#. module: contract
+#: model:ir.model.fields.selection,name:contract.selection__contract_abstract_contract_line__recurring_invoicing_type__pre-paid
+#: model:ir.model.fields.selection,name:contract.selection__contract_line__recurring_invoicing_type__pre-paid
+#: model:ir.model.fields.selection,name:contract.selection__contract_template_line__recurring_invoicing_type__pre-paid
+msgid "Pre-paid"
+msgstr "الدفع المثدم"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_line__predecessor_contract_line_id
+msgid "Predecessor Contract Line"
+msgstr "خط عقد السلف"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract_line__tax_amount
+#: model:ir.model.fields,field_description:contract.field_contract_line__tax_amount
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__tax_amount
+msgid "Price Tax"
+msgstr "سعر الضريبة"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract__pricelist_id
+#: model:ir.model.fields,field_description:contract.field_contract_contract__pricelist_id
+#: model:ir.model.fields,field_description:contract.field_contract_template__pricelist_id
+#: model_terms:ir.ui.view,arch_db:contract.contract_template_search_view
+msgid "Pricelist"
+msgstr "قائمة الاسعار"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.vendor_contract_report_form
+#: model_terms:ir.ui.view,arch_db:contract.wizard_contract_details_report_form
+#: model_terms:ir.ui.view,arch_db:contract.wizard_contract_report_form
+#: model_terms:ir.ui.view,arch_db:contract.wizard_installment_report_form
+msgid "Print"
+msgstr "الطباعة"
+
+#. module: contract
+#: model:ir.model,name:contract.model_product_product
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract_line__product_id
+#: model:ir.model.fields,field_description:contract.field_contract_line__product_id
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__product_id
+msgid "Product"
+msgstr "المنتج"
+
+#. module: contract
+#: model:res.groups,name:contract.group_progress_contract
+msgid "Progress Contract"
+msgstr "تدقيق المستشار القانوني"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__project_period
+msgid "Project Duration"
+msgstr "مدة المشروع"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.view_partner_form
+msgid "Purchase"
+msgstr "الشراء"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_res_partner__purchase_contract_count
+#: model:ir.model.fields,field_description:contract.field_res_users__purchase_contract_count
+#: model_terms:ir.ui.view,arch_db:contract.view_partner_form
+msgid "Purchase Contracts"
+msgstr "عقود الشراء"
+
+#. module: contract
+#: model:ir.model,name:contract.model_purchase_order
+msgid "Purchase Order"
+msgstr "أمر شراء"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract_line__quantity
+#: model:ir.model.fields,field_description:contract.field_contract_line__quantity
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__quantity
+#: model_terms:ir.ui.view,arch_db:contract.detials_contract_report_template
+msgid "Quantity"
+msgstr "الكمية"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract_line__recurring_rule_type
+#: model:ir.model.fields,field_description:contract.field_contract_line__recurring_rule_type
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__recurring_rule_type
+msgid "Recurrence"
+msgstr "تكرار"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_sale_order__ref_date
+msgid "Ref Date"
+msgstr "تاريخ المرجع"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_sale_order__ref_order
+msgid "Ref."
+msgstr "المرجع"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__code
+msgid "Reference"
+msgstr "المرجع"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.general_contract_report_template
+#: model_terms:ir.ui.view,arch_db:contract.vendor_contract_report_template
+msgid "Remain Amount"
+msgstr "المبلغ المتبقي"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__remaining_amount
+msgid "Remaining"
+msgstr "المتبقي"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_line_tree_view
+msgid "Renew"
+msgstr "إعادة الفتح"
+
+#. module: contract
+#: model:ir.actions.server,name:contract.contract_line_cron_for_renew_ir_actions_server
+#: model:ir.cron,cron_name:contract.contract_line_cron_for_renew
+#: model:ir.cron,name:contract.contract_line_cron_for_renew
+msgid "Renew Contract lines"
+msgstr "تجديد بنود العقد"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract_line__auto_renew_interval
+#: model:ir.model.fields,field_description:contract.field_contract_line__auto_renew_interval
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__auto_renew_interval
+msgid "Renew Every"
+msgstr "إعادة الفتح كل"
+
+#. module: contract
+#: model:ir.model.fields,help:contract.field_contract_abstract_contract_line__auto_renew_interval
+#: model:ir.model.fields,help:contract.field_contract_line__auto_renew_interval
+#: model:ir.model.fields,help:contract.field_contract_template_line__auto_renew_interval
+msgid "Renew every (Days/Week/Month/Year)"
+msgstr "إعادة الفتح كل (شهر/سنة/يوم)"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract_line__auto_renew_rule_type
+#: model:ir.model.fields,field_description:contract.field_contract_line__auto_renew_rule_type
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__auto_renew_rule_type
+msgid "Renewal type"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_report_wizard__report_type
+#: model_terms:ir.ui.view,arch_db:contract.general_contract_report_template
+msgid "Report Type"
+msgstr "نوع التقرير"
+
+#. module: contract
+#: model:ir.ui.menu,name:contract.contract_contract_reports
+msgid "Reports"
+msgstr "التقارير"
+
+#. module: contract
+#: model:ir.actions.report,name:contract.report_contract_residual_installlments
+msgid "Residual Installlments"
+msgstr "الدفعات المتبقية"
+
+#. module: contract
+#: code:addons/contract/models/contract_line.py:0
+#, python-format
+msgid "Resiliate contract line"
+msgstr "إيقاف البند"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__user_id
+#: model_terms:ir.ui.view,arch_db:contract.general_contract_report_template
+#: model_terms:ir.ui.view,arch_db:contract.vendor_contract_report_form
+#: model_terms:ir.ui.view,arch_db:contract.vendor_contract_report_template
+#: model_terms:ir.ui.view,arch_db:contract.wizard_contract_details_report_form
+#: model_terms:ir.ui.view,arch_db:contract.wizard_contract_report_form
+msgid "Responsible"
+msgstr "المسوؤل"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__activity_user_id
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__activity_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسوؤل"
+
+#. module: contract
+#: model:res.groups,name:contract.group_set_draft_contract
+msgid "Rest Draft Contract"
+msgstr "زر إعادة لمسودة"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+msgid "Resume"
+msgstr "إستانف"
+
+#. module: contract
+#: model:res.groups,name:contract.group_resume_contract
+msgid "Resume Contract"
+msgstr "زر استئناف"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_res_partner__sale_contract_count
+#: model:ir.model.fields,field_description:contract.field_res_users__sale_contract_count
+#: model_terms:ir.ui.view,arch_db:contract.view_partner_form
+msgid "Sale Contracts"
+msgstr "عقود الشراء"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__sale_order
+msgid "Sale Order"
+msgstr "امر الشراء"
+
+#. module: contract
+#: model:ir.model,name:contract.model_sale_order
+msgid "Sales Order"
+msgstr "أمر البيع"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__date_planned_finished
+msgid "Scheduled Date Finished"
+msgstr "التاريخ المجدول للانتهاء"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__date_planned_start
+msgid "Scheduled Date Start"
+msgstr "التاريخ المجدول للبداية"
+
+#. module: contract
+#: model:ir.model.fields,help:contract.field_contract_contract__type
+msgid ""
+"Select 'Sale' for customer invoices journals.\n"
+"Select 'Purchase' for vendor bills journals.\n"
+"Select 'Cash' or 'Bank' for journals that are used in customer or vendor payments.\n"
+"Select 'General' for miscellaneous operations journals."
+msgstr ""
+
+#. module: contract
+#: model:ir.actions.server,name:contract.send_daily_installment_contract_ir_actions_server
+#: model:ir.cron,cron_name:contract.send_daily_installment_contract
+#: model:ir.cron,name:contract.send_daily_installment_contract
+msgid "Send Daily Installment Mail "
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+msgid "Send by Email"
+msgstr "إرسال بالبريد"
+
+#. module: contract
+#: model:ir.actions.server,name:contract.send_email_contract_ir_actions_server
+#: model:ir.cron,cron_name:contract.send_email_contract
+#: model:ir.cron,name:contract.send_email_contract
+msgid "Send email"
+msgstr "إرسال بريد إلكتروني"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract_line__sequence
+#: model:ir.model.fields,field_description:contract.field_contract_contract__name_seq
+#: model:ir.model.fields,field_description:contract.field_contract_line__sequence
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__sequence
+msgid "Sequence"
+msgstr "التسلسل"
+
+#. module: contract
+#: model:ir.model.fields,help:contract.field_contract_abstract_contract_line__sequence
+#: model:ir.model.fields,help:contract.field_contract_line__sequence
+#: model:ir.model.fields,help:contract.field_contract_template_line__sequence
+msgid "Sequence of the contract line when displaying contracts"
+msgstr "تسلسل سطر العقد عند عرض العقود"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+msgid "Set to draft"
+msgstr "ارجع للمسودة"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.view_partner_form
+msgid "Show the purchase contracts for this partner"
+msgstr "عرض عقود الشراء لهذا المورد"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.view_partner_form
+msgid "Show the sale contracts for this partner"
+msgstr "عرض عقود البيع لهذا المورد"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_res_partner__specialist
+#: model:ir.model.fields,field_description:contract.field_res_users__specialist
+msgid "Specialist"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract_line__specific_price
+#: model:ir.model.fields,field_description:contract.field_contract_line__specific_price
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__specific_price
+msgid "Specific Price"
+msgstr "سعر محدد"
+
+#. module: contract
+#: model:ir.model.fields,help:contract.field_contract_abstract_contract_line__recurring_rule_type
+#: model:ir.model.fields,help:contract.field_contract_line__recurring_rule_type
+#: model:ir.model.fields,help:contract.field_contract_template_line__recurring_rule_type
+msgid "Specify Interval for automatic invoice generation."
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,help:contract.field_contract_abstract_contract_line__auto_renew_rule_type
+#: model:ir.model.fields,help:contract.field_contract_line__auto_renew_rule_type
+#: model:ir.model.fields,help:contract.field_contract_template_line__auto_renew_rule_type
+msgid "Specify Interval for automatic renewal."
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,help:contract.field_contract_abstract_contract_line__recurring_invoicing_type
+#: model:ir.model.fields,help:contract.field_contract_line__recurring_invoicing_type
+#: model:ir.model.fields,help:contract.field_contract_template_line__recurring_invoicing_type
+msgid "Specify if process date is 'from' or 'to' invoicing date"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+msgid "Start"
+msgstr "بداية"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.general_contract_report_template
+#: model_terms:ir.ui.view,arch_db:contract.vendor_contract_report_template
+msgid "Start Date"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__state
+#: model:ir.model.fields,field_description:contract.field_contract_line__state
+#: model:ir.model.fields,field_description:contract.field_contract_report_wizard__state
+#: model:ir.model.fields,field_description:contract.field_details_report_wizard__state
+#: model:ir.model.fields,field_description:contract.field_installment_report_wizard__state
+#: model:ir.model.fields,field_description:contract.field_vendor_contract_wizard__state
+#: model_terms:ir.ui.view,arch_db:contract.detials_contract_report_template
+#: model_terms:ir.ui.view,arch_db:contract.general_contract_report_template
+#: model_terms:ir.ui.view,arch_db:contract.installments_report_template
+#: model_terms:ir.ui.view,arch_db:contract.vendor_contract_report_template
+msgid "State"
+msgstr "الحالة"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__state
+#: model_terms:ir.ui.view,arch_db:contract.contract_installment_search_view
+msgid "Status"
+msgstr "الحالة"
+
+#. module: contract
+#: model:ir.model.fields,help:contract.field_contract_contract__activity_state
+#: model:ir.model.fields,help:contract.field_line_contract_installment__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_line_tree_view
+msgid "Stop"
+msgstr "توقف"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_line_wizard_stop_form_view
+msgid "Stop Date"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_line_tree_view
+msgid "Stop Plan Successor"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_line__is_stop_allowed
+msgid "Stop allowed?"
+msgstr ""
+
+#. module: contract
+#: code:addons/contract/models/contract_line.py:0
+#, python-format
+msgid "Stop not allowed for this line"
+msgstr "توقف غير مسموح لهذا البند"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_line__is_stop_plan_successor_allowed
+msgid "Stop/Plan successor allowed?"
+msgstr ""
+
+#. module: contract
+#: code:addons/contract/models/contract_line.py:0
+#, python-format
+msgid "Stop/Plan successor not allowed for this line"
+msgstr "إيقاف / خطة التجديد غير مسموح بيه لهذا البند"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract_line__price_subtotal
+#: model:ir.model.fields,field_description:contract.field_contract_line__price_subtotal
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__price_subtotal
+msgid "Sub Total"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields.selection,name:contract.selection__contract_contract__type_of_contraction__subs
+msgid "Subscription"
+msgstr "إشتراك"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_line__successor_contract_line_id
+msgid "Successor Contract Line"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_report_wizard__supplier_id
+#: model:ir.model.fields,field_description:contract.field_details_report_wizard__supplier_id
+#: model:ir.model.fields,field_description:contract.field_installment_report_wizard__supplier_id
+#: model:ir.model.fields,field_description:contract.field_vendor_contract_wizard__supplier_id
+#: model:ir.model.fields.selection,name:contract.selection__contract_abstract_contract__contract_type__purchase
+#: model:ir.model.fields.selection,name:contract.selection__contract_contract__contract_type__purchase
+#: model:ir.model.fields.selection,name:contract.selection__contract_template__contract_type__purchase
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_supplier_form_view
+#: model_terms:ir.ui.view,arch_db:contract.detials_contract_report_template
+#: model_terms:ir.ui.view,arch_db:contract.installments_report_template
+msgid "Supplier"
+msgstr "المورد"
+
+#. module: contract
+#: model:ir.actions.act_window,name:contract.action_supplier_contract
+#: model:ir.ui.menu,name:contract.contract_contract_supplier_menu
+msgid "Supplier Contracts"
+msgstr "عقود الموردين"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+msgid "Suspend"
+msgstr ""
+
+#. module: contract
+#: model:res.groups,name:contract.group_suspend_contract
+msgid "Suspend Contract"
+msgstr "زر تعليق"
+
+#. module: contract
+#: code:addons/contract/models/contract_line.py:0
+#, python-format
+msgid "Suspend contract line"
+msgstr "تعليق البند"
+
+#. module: contract
+#: code:addons/contract/models/contract.py:0
+#: code:addons/contract/report/contract_details_report.py:0
+#: code:addons/contract/report/contract_vendor_report.py:0
+#: code:addons/contract/report/gernerl_contract_report.py:0
+#: code:addons/contract/report/installment_report.py:0
+#: code:addons/contract/wizards/contract_details_report.py:0
+#: code:addons/contract/wizards/contract_vendor_report.py:0
+#: code:addons/contract/wizards/general_contract_report.py:0
+#: code:addons/contract/wizards/installments_report.py:0
+#: model:ir.model.fields.selection,name:contract.selection__contract_contract__state__suspended
+#: model:ir.model.fields.selection,name:contract.selection__contract_report_wizard__state__suspended
+#: model:ir.model.fields.selection,name:contract.selection__details_report_wizard__state__suspended
+#: model:ir.model.fields.selection,name:contract.selection__installment_report_wizard__state__suspended
+#: model:ir.model.fields.selection,name:contract.selection__vendor_contract_wizard__state__suspended
+#, python-format
+msgid "Suspended"
+msgstr "معلق"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_line_wizard_stop_plan_successor_form_view
+msgid "Suspension End Date"
+msgstr "تاريخ انتهاء التعليق"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_line_wizard_stop_plan_successor_form_view
+msgid "Suspension Start Date"
+msgstr "تاريخ بداية التعليق"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_pivot
+msgid "Tasks Analysis"
+msgstr "تحليل المهام"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__tax_amount
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__tax_amount
+#: model_terms:ir.ui.view,arch_db:contract.installments_report_template
+msgid "Tax Amount"
+msgstr "قيمة الضريبة "
+
+#. module: contract
+#: model:ir.model.fields.selection,name:contract.selection__line_contract_installment__taxed_invoice__taxed_invoice
+msgid "Taxed Invoice"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract_line__tax_id
+#: model:ir.model.fields,field_description:contract.field_contract_contract__tax_id
+#: model:ir.model.fields,field_description:contract.field_contract_line__tax_id
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__tax_id
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__tax_id
+msgid "Taxes"
+msgstr "الضريبة"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__contract_template
+msgid "Template"
+msgstr "النموذج"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract_line__termination_notice_interval
+#: model:ir.model.fields,field_description:contract.field_contract_line__termination_notice_interval
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__termination_notice_interval
+msgid "Termination Notice Before"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract_line__termination_notice_rule_type
+#: model:ir.model.fields,field_description:contract.field_contract_line__termination_notice_rule_type
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__termination_notice_rule_type
+msgid "Termination Notice type"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_line__termination_notice_date
+msgid "Termination notice date"
+msgstr "تاريخ إشعار الانهاء"
+
+#. module: contract
+#: code:addons/contract/report/contract_details_report.py:0
+#: code:addons/contract/report/contract_vendor_report.py:0
+#: code:addons/contract/report/gernerl_contract_report.py:0
+#: code:addons/contract/report/installment_report.py:0
+#, python-format
+msgid "There is no data"
+msgstr "لا يوجد تاريخ"
+
+#. module: contract
+#: code:addons/contract/models/contract_installment.py:0
+#, python-format
+msgid "This Contract Is In Progress State You Cant New Installments"
+msgstr " هذا العقد في الحالة معالجة لا يمكن إضافة اقساط جديدة"
+
+#. module: contract
+#: code:addons/contract/models/contract_installment.py:0
+#, python-format
+msgid "This Contract already has final installment"
+msgstr "هذا العقد له دفعية نهاية مسبقا "
+
+#. module: contract
+#: model:ir.model.fields,help:contract.field_contract_line__manual_renew_needed
+#: model:ir.model.fields,help:contract.field_contract_line_wizard__manual_renew_needed
+msgid ""
+"This flag is used to make a difference between a definitive stopand "
+"temporary one for which a user is not able to plan asuccessor in advance"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_report_wizard__date_to
+#: model:ir.model.fields,field_description:contract.field_details_report_wizard__date_to
+#: model:ir.model.fields,field_description:contract.field_installment_report_wizard__date_to
+#: model:ir.model.fields,field_description:contract.field_vendor_contract_wizard__date_to
+#: model_terms:ir.ui.view,arch_db:contract.detials_contract_report_template
+#: model_terms:ir.ui.view,arch_db:contract.general_contract_report_template
+#: model_terms:ir.ui.view,arch_db:contract.installments_report_template
+msgid "To"
+msgstr "إلى"
+
+#. module: contract
+#: code:addons/contract/models/contract.py:0
+#: code:addons/contract/report/contract_details_report.py:0
+#: code:addons/contract/report/contract_vendor_report.py:0
+#: code:addons/contract/report/gernerl_contract_report.py:0
+#: code:addons/contract/report/installment_report.py:0
+#: code:addons/contract/wizards/contract_details_report.py:0
+#: code:addons/contract/wizards/contract_vendor_report.py:0
+#: code:addons/contract/wizards/general_contract_report.py:0
+#: code:addons/contract/wizards/installments_report.py:0
+#: model:ir.model.fields.selection,name:contract.selection__contract_contract__state__to_confirm
+#: model:ir.model.fields.selection,name:contract.selection__contract_report_wizard__state__to_confirm
+#: model:ir.model.fields.selection,name:contract.selection__details_report_wizard__state__to_confirm
+#: model:ir.model.fields.selection,name:contract.selection__installment_report_wizard__state__to_confirm
+#: model:ir.model.fields.selection,name:contract.selection__vendor_contract_wizard__state__to_confirm
+#, python-format
+msgid "To Confirm"
+msgstr "للتاكيد"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_installment_form_view
+#: model_terms:ir.ui.view,arch_db:contract.contract_installment_view_kanban
+msgid "To Pay"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields.selection,name:contract.selection__contract_line__state__to-renew
+msgid "To renew"
+msgstr ""
+
+#. module: contract
+#: code:addons/contract/wizards/general_contract_report.py:0
+#: model:ir.model.fields.selection,name:contract.selection__contract_report_wizard__report_type__total
+#: model_terms:ir.ui.view,arch_db:contract.contract_residual_installlments
+#, python-format
+msgid "Total"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__total_amount
+#: model_terms:ir.ui.view,arch_db:contract.contract_installment_tree
+#: model_terms:ir.ui.view,arch_db:contract.contract_installment_tree_view
+#: model_terms:ir.ui.view,arch_db:contract.general_contract_report_template
+#: model_terms:ir.ui.view,arch_db:contract.vendor_contract_report_template
+msgid "Total Amount"
+msgstr "المبلغ الكلي"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.detials_contract_report_template
+#: model_terms:ir.ui.view,arch_db:contract.general_contract_report_template
+#: model_terms:ir.ui.view,arch_db:contract.installments_report_template
+#: model_terms:ir.ui.view,arch_db:contract.vendor_contract_report_template
+msgid "Total Amounts"
+msgstr "المبالغ الكلية"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_installment_tree
+#: model_terms:ir.ui.view,arch_db:contract.contract_installment_tree_view
+msgid "Total Tax"
+msgstr "الضريبة الكلية"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__type
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__installment_type
+#: model:ir.model.fields,field_description:contract.field_purchase_order__type
+#: model:ir.model.fields,field_description:contract.field_sale_order__type
+msgid "Type"
+msgstr "النوع"
+
+#. module: contract
+#: model:ir.model.fields,help:contract.field_contract_contract__activity_exception_decoration
+#: model:ir.model.fields,help:contract.field_line_contract_installment__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_line__is_un_cancel_allowed
+msgid "Un-Cancel allowed?"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_line_tree_view
+msgid "Un-cancel"
+msgstr ""
+
+#. module: contract
+#: code:addons/contract/models/contract_line.py:0
+#, python-format
+msgid "Un-cancel not allowed for this line"
+msgstr "عدم الالغاء مسموح به لهذا البند"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract_line__price_unit
+#: model:ir.model.fields,field_description:contract.field_contract_line__price_unit
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__price_unit
+#: model_terms:ir.ui.view,arch_db:contract.detials_contract_report_template
+msgid "Unit Price"
+msgstr "سعر الوحدة"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_abstract_contract_line__uom_id
+#: model:ir.model.fields,field_description:contract.field_contract_line__uom_id
+#: model:ir.model.fields,field_description:contract.field_contract_template_line__uom_id
+msgid "Unit of Measure"
+msgstr "وحدة القياس"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__message_unread
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__message_unread
+msgid "Unread Messages"
+msgstr "الرسائل الغير مقروءة"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__message_unread_counter
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields.selection,name:contract.selection__contract_line__state__upcoming
+msgid "Upcoming"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields.selection,name:contract.selection__contract_line__state__upcoming-close
+msgid "Upcoming Close"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_report_wizard__user_id
+#: model:ir.model.fields,field_description:contract.field_details_report_wizard__user_id
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__user_id
+#: model:ir.model.fields,field_description:contract.field_vendor_contract_wizard__user_id
+msgid "User"
+msgstr "المستخدم"
+
+#. module: contract
+#: model:ir.module.category,description:contract.contract_managment_category
+msgid "User access level for this module"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.report_contract_document
+msgid "VAT:"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_line_wizard_plan_successor_form_view
+#: model_terms:ir.ui.view,arch_db:contract.contract_line_wizard_stop_form_view
+#: model_terms:ir.ui.view,arch_db:contract.contract_line_wizard_stop_plan_successor_form_view
+#: model_terms:ir.ui.view,arch_db:contract.contract_line_wizard_uncancel_form_view
+msgid "Validate"
+msgstr "تأكيد"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.view_partner_form
+msgid "Vat"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.vendor_contract_report_template
+msgid "Vendor"
+msgstr "المورد"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_installment_search_view
+msgid "Vendor Payment"
+msgstr "دفعية المورد"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.vendor_contract_report_template
+msgid "Vendor Report"
+msgstr "تقرير المورد"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__website_message_ids
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,help:contract.field_contract_contract__website_message_ids
+#: model:ir.model.fields,help:contract.field_line_contract_installment__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields.selection,name:contract.selection__contract_abstract_contract_line__auto_renew_rule_type__weekly
+#: model:ir.model.fields.selection,name:contract.selection__contract_abstract_contract_line__recurring_rule_type__weekly
+#: model:ir.model.fields.selection,name:contract.selection__contract_abstract_contract_line__termination_notice_rule_type__weekly
+#: model:ir.model.fields.selection,name:contract.selection__contract_line__auto_renew_rule_type__weekly
+#: model:ir.model.fields.selection,name:contract.selection__contract_line__recurring_rule_type__weekly
+#: model:ir.model.fields.selection,name:contract.selection__contract_line__termination_notice_rule_type__weekly
+#: model:ir.model.fields.selection,name:contract.selection__contract_template_line__auto_renew_rule_type__weekly
+#: model:ir.model.fields.selection,name:contract.selection__contract_template_line__recurring_rule_type__weekly
+#: model:ir.model.fields.selection,name:contract.selection__contract_template_line__termination_notice_rule_type__weekly
+msgid "Week(s)"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.view_res_partner_filter
+msgid "With running contracts"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields.selection,name:contract.selection__contract_abstract_contract_line__auto_renew_rule_type__yearly
+#: model:ir.model.fields.selection,name:contract.selection__contract_abstract_contract_line__recurring_rule_type__yearly
+#: model:ir.model.fields.selection,name:contract.selection__contract_line__auto_renew_rule_type__yearly
+#: model:ir.model.fields.selection,name:contract.selection__contract_line__recurring_rule_type__yearly
+#: model:ir.model.fields.selection,name:contract.selection__contract_template_line__auto_renew_rule_type__yearly
+#: model:ir.model.fields.selection,name:contract.selection__contract_template_line__recurring_rule_type__yearly
+msgid "Year(s)"
+msgstr ""
+
+#. module: contract
+#: code:addons/contract/models/contract_installment.py:0
+#, python-format
+msgid "You Cant Create Invoice With Amout Zero Or Less"
+msgstr "لا يمكن إنشاء فاتوره بمبلغ صفر أو إقل"
+
+#. module: contract
+#: code:addons/contract/models/contract_line.py:0
+#, python-format
+msgid "You can't delay a contract line invoiced at least one time."
+msgstr "لا يمكنك تأجيل فاتورة العقد مرة واحدة على الأقل."
+
+#. module: contract
+#: code:addons/contract/models/contract_line.py:0
+#, python-format
+msgid ""
+"You can't have a date of next invoice anterior to the start of the contract "
+"line '%s'"
+msgstr ""
+"لا يمكنك الحصول على تاريخ الفاتورة التالية الأمامية لبدء بند العقد '%s'"
+
+#. module: contract
+#: code:addons/contract/models/contract_line.py:0
+#, python-format
+msgid ""
+"You can't have the end date before the date of last invoice for the contract"
+" line '%s'"
+msgstr "لا يمكنك تحديد تاريخ الانتهاء قبل تاريخ آخر فاتورة لبند العقد '% s'"
+
+#. module: contract
+#: code:addons/contract/models/contract_line.py:0
+#, python-format
+msgid ""
+"You can't have the start date after the date of last invoice for the "
+"contract line '%s'"
+msgstr "لا يمكنك الحصول على تاريخ البدء بعد تاريخ آخر فاتورة لبند العقد '% s'"
+
+#. module: contract
+#: code:addons/contract/models/purchase_order.py:0
+#: code:addons/contract/models/sale_order.py:0
+#, python-format
+msgid "You cannot Cancel This Sale order because it has Non draft Contract"
+msgstr ""
+
+#. module: contract
+#: code:addons/contract/models/contract.py:0
+#, python-format
+msgid "You cannot delete record in state not new"
+msgstr "لا يمكنك حذف السجل في الحالة ليست جديدة"
+
+#. module: contract
+#: code:addons/contract/models/contract_line.py:0
+#, python-format
+msgid "You must supply a date of next invoice for contract line '%s'"
+msgstr "يجب عليك تقديم تاريخ الفاتورة التالية لبند العقد '% s'"
+
+#. module: contract
+#: model:ir.actions.act_window,name:contract.action_contract_report_template_tree_view
+msgid "actions contract report temp"
+msgstr ""
+
+#. module: contract
+#: model:ir.actions.report,name:contract.expert_contact_employee_action_report
+msgid "contract.contract"
+msgstr ""
+
+#. module: contract
+#: model:ir.model,name:contract.model_contract_report_wizard
+msgid "contract.report.wizard"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.detials_contract_report_template
+msgid "description"
+msgstr "الوصف"
+
+#. module: contract
+#: model:ir.model,name:contract.model_details_report_wizard
+msgid "details.report.wizard"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+msgid "e.g. Contract XYZ"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_installment_form_view
+msgid "e.g. installment name"
+msgstr ""
+
+#. module: contract
+#: code:addons/contract/report/contract_details_report.py:0
+#: code:addons/contract/report/contract_vendor_report.py:0
+#: code:addons/contract/report/gernerl_contract_report.py:0
+#: code:addons/contract/report/installment_report.py:0
+#, python-format
+msgid "in_progress"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.installments_report_template
+msgid "installment name"
+msgstr "اسم الدفعية"
+
+#. module: contract
+#: model:ir.model,name:contract.model_installment_report_wizard
+msgid "installment.report.wizard"
+msgstr ""
+
+#. module: contract
+#: model:mail.template,report_name:contract.email_template_financial_request
+msgid "installment_of_${(object.name or '').replace('/','_')}"
+msgstr ""
+
+#. module: contract
+#: model:ir.ui.menu,name:contract.report_vendor_menu
+msgid "installments Report"
+msgstr "تقرير الدفعيات"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__journal_id
+msgid "journal"
+msgstr "دفتر اليومية"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.detials_contract_report_template
+msgid "name"
+msgstr "اسم العقد"
+
+#. module: contract
+#: model:ir.model,name:contract.model_odex_num
+msgid "odex.num"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_line_contract_installment__partner_id
+msgid "partner"
+msgstr "المورد"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__percent_amount
+msgid "percent"
+msgstr ""
+
+#. module: contract
+#: model:ir.model,name:contract.model_report_contract_contract_residual_installlments
+msgid "report.contract.contract_residual_installlments"
+msgstr ""
+
+#. module: contract
+#: model:ir.model,name:contract.model_report_contract_detials_contract_report_template
+msgid "report.contract.detials_contract_report_template"
+msgstr ""
+
+#. module: contract
+#: model:ir.model,name:contract.model_report_contract_general_contract_report_template
+msgid "report.contract.general_contract_report_template"
+msgstr ""
+
+#. module: contract
+#: model:ir.model,name:contract.model_report_contract_installments_report_template
+msgid "report.contract.installments_report_template"
+msgstr ""
+
+#. module: contract
+#: model:ir.model,name:contract.model_report_contract_vendor_contract_report_template
+msgid "report.contract.vendor_contract_report_template"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.installments_report_template
+msgid "status"
+msgstr "الحالة"
+
+#. module: contract
+#: code:addons/contract/models/contract_installment.py:0
+#, python-format
+msgid "the amount can't be greater than contract remaining amount!"
+msgstr ""
+
+#. module: contract
+#: code:addons/contract/models/contract_installment.py:0
+#, python-format
+msgid "the amount can't be zero or less"
+msgstr "يجب ان يكون المبلغ إكبر من الصفر"
+
+#. module: contract
+#: code:addons/contract/models/contract_installment.py:0
+#, python-format
+msgid "the percent must be zero or less"
+msgstr "يجب ان يكون المبلغ إكبر من الصفر"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.general_contract_report_template
+msgid "vendor"
+msgstr "المورد"
+
+#. module: contract
+#: model:ir.model,name:contract.model_vendor_contract_wizard
+msgid "vendor.contract.wizard"
+msgstr ""
+
+#. module: contract
+#: code:addons/contract/models/contract_installment.py:0
+#, python-format
+msgid "you cant create invoice without contract"
+msgstr "الرجاء ادحال العقد اولا"
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_finaical_requests
+msgid "أسم صاحب الشركة:شركة خبير المحدودة"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_finaical_requests
+msgid "الإجمالي"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_finaical_requests
+msgid "البنك:الراجحي"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_finaical_requests
+msgid "السادة/"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_finaical_requests
+msgid "السلام عليكم ورحمة الله و بركاته و بعد:"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_finaical_requests
+msgid "الشؤون المالية و الأدارية"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_finaical_requests
+msgid "الصنف"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_finaical_requests
+msgid "الضريبة"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_finaical_requests
+msgid "المبلغ"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_finaical_requests
+msgid "المجموع:"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_finaical_requests
+msgid "النسبة"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_finaical_requests
+msgid "بدون الضريبة"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_finaical_requests
+msgid "بقيمة"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_finaical_requests
+msgid "حساب شركة خبير لدي بنك الراجحي"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_finaical_requests
+msgid "حفظهم الله"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_finaical_requests
+msgid "رقم الأيبان:SA8280000511608010116491"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_finaical_requests
+msgid "رقم الحساب:511608010116491"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_finaical_requests
+msgid "فرع البنك:فرع الصحافة"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_finaical_requests
+msgid "لعقد"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_finaical_requests
+msgid "لعقد اوسكار بنسبة 30% من قيمة المشروع عند اعتماد خطة التنفيذ"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_finaical_requests
+msgid "مطالبة مالية"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_finaical_requests
+msgid "من قيمة العقد كما هو موضح في البيانات أدناه:"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_finaical_requests
+msgid "نفيدكم بأنه تم استحقاق"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_finaical_requests
+msgid "و صرفها لصالح شركة حبير المحدودة علي الحساب التالي:"
+msgstr ""
+
+#. module: contract
+#: model_terms:ir.ui.view,arch_db:contract.contract_finaical_requests
+msgid "والله يحفظكم و يرعاكم"
+msgstr ""
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_line__department
+msgid "Department Name"
+msgstr "اسم الادراة"
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_line__analytic_account_id
+msgid "Cost Center"
+msgstr "الحساب التحليلي"

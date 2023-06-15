@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_project_category,project.category,model_project_category,project.group_project_user,1,1,1,1
+access_project_component,project.component,model_project_component,project.group_project_manager,1,1,1,1
+access_project_phase,project.phase,model_project_phase,project.group_project_manager,1,1,1,1
+access_project_phase,project.phase,model_project_phase,project.group_project_user,1,1,1,1
+access_project_invoice_employee,project.invoice.employee,model_project_invoice_line_employee,project.group_project_user,1,1,1,1
+access_project_invoice,project.invoice,model_project_invoice_line,project.group_project_user,1,1,1,1
+access_project_time_plan,project.time.plan,model_project_time_plan,project.group_project_user,1,1,1,1
+access_project_time_plan_line,project.time.plan.line,model_project_time_plan_line,project.group_project_user,1,1,1,1
+access_week_week,week.week,model_week_week,,1,1,1,1
+access_week_generation_wizard,week.generation.wizard,model_week_generation_wizard,base.group_no_one,1,1,1,1
+access_project_task_progress,project.task.progress,model_project_task_progress,,1,1,1,1

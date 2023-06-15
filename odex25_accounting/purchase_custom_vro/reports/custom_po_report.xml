@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="custom_po_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="purchase_requisition_custom.purchase_layout">
+                    <style type="text/css">
+                    @font-face {
+                        font-family: 'ae_AlMohanad';
+                                        src: local('ae_AlMohanad'), local('ae_AlMohanad'),
+                                        url('/purchase_custom_vro/static/fonts/ae_AlMohanad.ttf') format('truetype');
+                                        }
+                                        *{
+                                        font-family: ae_AlMohanad;
+                                    }
+                                    .tab, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+                                    
+                        
+                    </style>
+                    <div class="page" style="font-size: 12px;">
+
+                        <h2 class="text-center">أمر الشراء</h2>
+                        <br/>
+
+                        <div class="row">
+                            <div class="col-xs-6 pull-left">
+
+                                <table class="table table-bordered table-hover" style="width:100%" dir="rtl">
+                                    <tr>
+                                        <th style="background-color:#D3D3D3;text-align:center;">الرقم / PO</th>
+                                        <td style="background-color:#F2F2F2;text-align:center;">
+                                            <span t-esc="o.name"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color:#D3D3D3;text-align:center;">التاريخ / Date</th>
+                                        <td style="background-color:#F2F2F2;text-align:center;">
+                                        <span t-field="o.date_order" t-field-options='{"format": "dd/MM/yyyy"}'/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color:#D3D3D3;text-align:center;">طريقة الدفع</th>
+                                        <td style="background-color:#F2F2F2;text-align:center;">تحويل بنكي | Bank Transfer</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-6 pull-right">
+
+                                <table class="table table-bordered table-hover" style="width:100%" dir="rtl">
+                                    <tr>
+                                        <th colspan="2" style="background-color:#D3D3D3;text-align:center;">بيانات المورد / Supplier Info</th>
+                                    </tr>
+                                    <tr>
+                                        <th style="text-align:right">عناية</th>
+                                        <td>
+                                            <span t-esc="o.partner_id.name"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="text-align:right" >اسم المورد</th>
+                                        <td >
+                                            <span t-esc="o.partner_id.name"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="text-align:right" >الهاتف</th>
+                                        <td >
+                                            <span dir="ltr" t-esc="o.partner_id.phone"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="text-align:right">الجوال</th>
+                                        <td >
+                                            <span dir="ltr" t-esc="o.partner_id.mobile"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="text-align:right">الإيميل</th>
+                                        <td >
+                                            <span t-esc="o.partner_id.email"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-xs-6 pull-left">
+
+                                <table class="table table-bordered table-hover" style="width:100%" dir="rtl">
+                                    <tr>
+                                        <th colspan="2" style="font-weight: bold;background-color:#D3D3D3;text-align:center;">ترسل إلى  / Send To</th>
+                                    </tr>
+                                    <tr>
+                                        <th style="text-align:right; font-weight: bold;" colspan="2">مكتب تحقيق الرؤية في وزارة التعليم</th>
+                                    </tr>
+                                    <tr>
+                                     <th style="text-align:right;"> العنوان</th>
+                                        
+                                        <td style="text-align:right;">
+                                        <p>
+                                       وزارة التعليم على طريق الملك عبدالله - موقف 22 بوابة 6 الدور الثالث
+                                     </p>                                        
+
+                                        </td>
+                                       
+       
+                                    </tr>
+                                    <tr>
+                                        <th style="text-align:right;">التواصل</th>
+                                        <td style="text-align:right;"><span t-esc="o.sudo().requisition_id.employee_id.name"/></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <th style="text-align:right;">الجوال</th>
+                                        <td style="text-align:right;">
+                                            <span dir="ltr" t-esc="o.sudo().requisition_id.employee_id.mobile_phone"/>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <th style="text-align:right;">الإيميل</th>
+                                        <td style="text-align:right;">
+                                            <span  t-esc="o.sudo().requisition_id.employee_id.work_email"/>
+                                        </td>
+                                        
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                       
+                        <table class="table table-bordered table-hover" style="width:100%">
+                            <tr>
+                            <th style="font-weight: bold;background-color:#D3D3D3;text-align:center;width:65%;">طريقة التسليم</th>
+                                <th style="font-weight: bold;background-color:#D3D3D3;text-align:center;width:10%;">تاريخ التسليم</th>
+                                <th style="font-weight: bold;background-color:#D3D3D3;text-align:center;width:25%;">ترسل إلي</th>
+                               
+                                 <!-- <th style="font-weight: bold;background-color:#D3D3D3;text-align:center;width:65%;">طريقة التسليم</th> -->
+                            </tr>
+                            <tr>
+                                <td>
+                                <p dir="ltr" style="dir:ltr;text-align:center;">Minstry of Education,Riyadh,King Abdullah,Rd Gate 3 Parking</p>
+                              
+                                </td>
+                                 <td style="text-align:center;"><span t-field="o.date_order" t-field-options='{"format": "dd/MM/yyyy"}'/>
+                                </td>
+                                <td  style="text-align:center;"><span t-esc="o.sudo().requisition_id.employee_id.name"/></td>
+                               
+                                <!-- <td>
+                                <p dir="ltr" style="dir:ltr;text-align:center;">Minstry of Education,Riyadh,King Abdullah,Rd Gate 3 Parking</p>
+                              
+                                </td> -->
+                            </tr>
+                        </table>
+                        <br/>
+
+                        <table class="table table-bordered table-hover" style="width:100%" dir="rtl">
+                            <t t-set="seq" t-value="1" />
+                            <tr>
+                                <th style="background-color:D3D3D3;text-align:center;">#</th>
+
+                                <th style="font-weight: bold;background-color:#D3D3D3;text-align:center;"> اسم الصنف / الوصف</th>
+                                <th style="font-weight: bold;background-color:#D3D3D3;text-align:center;">الكمية/qty</th>
+                                <!-- <th style="font-weight: bold;background-color:#D3D3D3;text-align:center;">الوحدة/unit</th> -->
+                                <th style="font-weight: bold;background-color:#D3D3D3;text-align:center;">السعر الفردي</th>
+                                <th style="font-weight: bold;background-color:#D3D3D3;text-align:center;">السعر الإجمالي</th>
+                            </tr>
+                            <tr t-foreach="o.order_line" t-as="line">
+                                <td style="text-align:center;">
+                                    <t t-esc="seq"/>
+                                </td>
+                                <td style="text-align:center;">
+                                    <t t-esc="line.product_id.name"/>
+                                </td>
+                                <td style="text-align:center;">
+                                    <t t-esc="line.product_qty"/>
+                                </td>
+                                <!-- <td style="text-align:center;">
+                                    <t t-esc="line.product_uom.name"/>
+                                </td> -->
+                                <td style="text-align:center;">
+                                    <t t-esc="line.price_unit"/>
+                                </td>
+                                <td style="text-align:center;">
+                                    <t t-esc="line.price_subtotal"/>
+                                </td>
+                                <t t-set="seq" t-value="seq + 1" />
+                            </tr>
+                            <tr>
+                                <td colspan="4" style="font-weight: bold;text-align:center">
+                                    الإجمالي                                   
+                                </td>
+                                <td style="font-weight: bold;text-align:center">
+                                 <t t-esc="o.amount_untaxed"/>
+                                 </td>
+
+                            </tr>
+                            <tr>
+                                <td colspan="4" style="font-weight: bold;text-align:center">
+                                    ضريبة القيمة المضافة                                    
+                                </td>
+                                <td style="font-weight: bold;text-align:center">
+                                 <t t-esc="o.amount_tax"/>
+                                 </td>
+                                
+
+                            </tr>
+                            <tr>
+                                <td colspan="4" style="font-weight: bold;text-align:center;background-color:lightseagreen;">
+                                    إجمالي قيمة الشراء                                      / Total
+                                </td>
+                                <td style="font-weight: bold;text-align:center">
+                                 <t t-esc="o.amount_total"/>
+                                 </td>
+
+
+                            </tr>
+                        </table>
+                        <center>
+
+                            <table class="table table-bordered table-hover" style="text-align:center;width:80%" dir="rtl">
+                                <tr>
+                                    <th style="font-weight: bold;text-align:center;">مُعِد أمر الشراء</th>
+                                    <td style="text-align:center;">
+                                        <span t-esc="o.sudo().create_uid.name"/>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table class="table table-bordered table-hover" style="width:80%" dir="rtl">
+                            <t t-foreach="o.requisition_id.prepare_state_changing_user_list()" t-as="line">
+                                <tr>
+                                   <th style="font-weight: bold;text-align:right;">
+                                   <!--<center><span t-field="line.state"/></center>-->
+                                   <center>مدير الإدارة المالية والمشتريات</center>
+                                   </th>
+
+                                    <td colspan="2" rowspan="2" style="width:50%">
+                                        
+                                        <!--<div widget="html" t-field="user.signature"/>-->
+                                         <div class="signture">
+                                         <img src="/purchase_custom_vro/static/img/signiture.jpeg" style="width: 130px; height: 70px;"/>
+                                         </div>
+
+
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                   <th style="font-weight: bold;text-align:right;">
+                                   <!--<center><span t-field="line.create_uid"/></center>-->
+                                   <center>عبدالله سعود عبدالله العنزي</center>
+                                   </th>
+
+                                    <!-- <td>
+                                        <span t-esc="o.partner_id.name"/>
+                                    </td> -->
+                                </tr>
+                             </t>
+                                 <!-- <t t-foreach="o.requisition_id.prepare_state_changing_user_list()" t-as="line">
+                                    <tr>
+                                    <th style="font-weight: bold;text-align:right;"><span t-field="line.state"/></th>
+                                    <th style="font-weight: bold;text-align:right;"><span t-field="line.create_uid"/></th>
+                                    
+                                </tr>
+                                </t> -->
+                            </table>
+                        </center>
+
+
+                    </div>
+
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

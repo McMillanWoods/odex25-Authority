@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <report string="Committee Meeting Report" id="action_report_committee_meeting_minutes" model="purchase.requisition"
+            report_type="qweb-pdf" name="purchase_requisition_custom.committee_meeting_minutes_report"
+            file="purchase_requisition_custom.committee_meeting_minutes_report"
+            print_report_name="'Committee Meeting Minutes - %s' % (object.name)"/>
+
+    <template id="purchase_internal_layout">
+        <t t-if="o and 'company_id' in o">
+            <t t-set="company" t-value="o.company_id"/>
+        </t>
+        <t t-if="not o or not 'company_id' in o">
+            <t t-set="company" t-value="res_company"/>
+        </t>
+        <div class="header">
+            <div class="row">
+                <div class="col-xs-3">
+                    <ul class="list-inline">
+                        <li>
+                            <span class="page"/>
+                        </li>
+                        <li>/</li>
+                        <li>
+                            <span class="topage"/>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xs-2 col-xs-offset-2 text-center">
+                    <span t-esc="company.name"/>
+                </div>
+                <div class="col-xs-3 text-right">
+                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
+                </div>
+            </div>
+        </div>
+        <div class="article">
+            <t t-raw="0"/>
+        </div>
+    </template>
+
+    <template id="committee_meeting_minutes_report_document">
+
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="purchase_requisition_custom.purchase_layout">
+                    <style type="text/css">
+                        @font-face {
+                        font-family: 'ae_AlMohanad';
+                        src: local('ae_AlMohanad'), local('ae_AlMohanad'),
+                        url('/purchase_custom_vro/static/fonts/ae_AlMohanad.ttf') format('truetype');
+                        }
+                        *{
+                        font-family: ae_AlMohanad;
+                        }
+                        .tab, th, td {
+                        border: 1px solid black;
+                        border-collapse: collapse;
+                        }
+
+
+                    </style>
+                    <div class="page">
+                        <t t-set="po"
+                           t-value="request.env['purchase.order'].search([('requisition_id','=',o.id),('recomandation_order','=',True)],limit=1)"/>
+
+                        <h2 class="text-center">محضر لجنة المشتريات</h2>
+                        <br/>
+
+                        <div class="row">
+                            <div class="col-xs-6 pull-right">
+
+                                <table class="table table-bordered table-hover" style="width:100%" dir="rtl">
+                                    <tr>
+                                        <th style="text-align:center;">تاريخ الإجتماع</th>
+                                        <td style="text-align:center;">
+                                            <span t-esc="o.ordering_date"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="text-align:center;">رقم المحضر</th>
+                                        <td style="text-align:center;">
+                                            <span t-esc="o.name"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <table class="table table-bordered table-hover" dir="rtl">
+                            <tr>
+                                <th colspan="4" style="background-color:lightseagreen;text-align:right;">إسم المشروع
+                                </th>
+                            </tr>
+                            <tr>
+                                <th style="text-align:center;width:10%;">الجهة الطالبة</th>
+                                <t t-if="o.line_ids">
+
+                                    <td style="text-align:center;width:40%;">
+                                        <t t-esc="o.line_ids[0].department_id.name"/>
+                                    </td>
+                                </t>
+                                <th style="text-align:center;width:10%;">صاحب الطلب</th>
+                                <td style="text-align:center;width:40%;">
+                                    <t t-esc="o.employee_id.name"/>
+                                </td>
+                            </tr>
+
+
+                        </table>
+
+
+                        <table class="table table-bordered table-hover" dir="rtl">
+
+                            <tr>
+                                <td style="width:10%;text-align:right;background-color:lightseagreen;">
+                                    <div style="height: 50px; overflow:hidden;">
+                                        نطاق العمل
+                                    </div>
+
+                                </td>
+                                <td style="width:40%;text-align:right;">
+                                    <div style="height: 50px; overflow:hidden;">
+                                        <t t-esc="o.purpose"/>
+                                    </div>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td style="width:10%;text-align:right;background-color:lightseagreen;">
+                                    <div style="height: 50px; overflow:hidden;">
+                                        التوصيات
+                                    </div>
+
+                                </td>
+                                <td style="width:40%;text-align:right;">
+                                    <div style="height: 50px; overflow:hidden;">
+
+                                        <t t-if="po">
+                                            <t t-esc="po.partner_id.name"/>
+                                        </t>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </table>
+
+                        <table class="table table-bordered table-hover" style="width:100%" dir="rtl">
+
+
+                            <tr>
+                                <td style="width:50%;text-align:center;">قرار اللجنة</td>
+                                <td style="width:50%;text-align:center;">
+                                    <t t-if="len(po.committe_members.filtered(lambda m :m.selection_reason != False)) &gt;= len(po.committe_members.filtered(lambda m :m.refusing_reason != False)) ">
+
+                                        أوافق
+
+                                    </t>
+                                    <t t-else="">
+                                        لا أوافق
+                                    </t>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td style="width:50%;text-align:center;">المورد الموصي به</td>
+                                <td style="width:50%;text-align:center;">
+                                    <t t-if="po">
+                                        <t t-esc="po.partner_id.name"/>
+                                    </t>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td style="width:50%;text-align:center;">مدة التنفيذ</td>
+                                <td style="width:50%;text-align:center;">
+
+
+                                    <t t-esc="o.days_count"/>
+
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:50%;text-align:center;">التكلفة المعتمدة</td>
+
+                                <td style="width:50%;text-align:center;">
+                                    <t t-if="po">
+                                        <t t-esc="po.amount_total"/>
+                                    </t>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table class="table table-bordered table-hover" style="width:100%" dir="rtl">
+
+                            <tr>
+                                <th style="background-color:lightseagreen;text-align:center;">الإسم</th>
+                                <th style="background-color:lightseagreen;text-align:center;">المسمي الوظيفي</th>
+                                <th style="background-color:lightseagreen;text-align:center;">التوقيع</th>
+                            </tr>
+
+                            <tr t-foreach="o.committe_members" t-as="line">
+                                <t t-set="job" t-value="request.env['hr.employee'].search([('user_id','=',line.id)])"/>
+                                <td style="text-align:center;">
+                                    <t t-esc="line.name"/>
+                                </td>
+                                <td style="text-align:center;">
+                                    <t t-if="job">
+
+
+                                        <t t-esc="job.job_id.name"/>
+                                    </t>
+                                </td>
+
+                                <td style="text-align:center;">
+                                </td>
+
+
+                            </tr>
+
+                        </table>
+
+                        <table class="table table-bordered table-hover" dir="rtl">
+
+
+                            <tr>
+                                <td style="width:20%;text-align:right;background-color:lightseagreen;">قرار المشرف العام
+                                    علي مكتب تحقيق الرؤية
+                                </td>
+
+                                <td style="text-align:center;">
+                                    <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </input>
+
+                                    <label class="container">أوافق
+                                    </label>
+                                </td>
+                                <td style="text-align:center;">
+                                    <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </input>
+
+                                    <label class="container">لا إوافق
+                                    </label>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td style="width:10%;text-align:right;background-color:lightseagreen;">الملاحظات</td>
+                                <td colspan="2"></td>
+
+                            </tr>
+                            <tr>
+                                <td style="width:10%;text-align:right;background-color:lightseagreen;">التوقيع</td>
+                                <td>
+                                    <span t-esc="o.company_id.general_supervisor_id.name"/>
+                                </td>
+                                <td></td>
+                            </tr>
+                        </table>
+
+
+                        <!-- <t t-call="web.html_container">
+                <t t-call="purchase_requisition_custom.purchase_internal_layout">
+                    <t t-set="o" t-value="doc" />
+                    <div class="page" style="direction: rtl !important;">
+                        <style>
+                            .heading-tr-vro {
+                                background: #a8c4f3;
+                            }
+                        </style>
+                        <table class="table table-bordered text-center">
+                            <colgroup>
+                                <col width='50%'/>
+                                <col width='50%'/>
+                            </colgroup>
+                            <thead>
+                                <tr class="heading-tr-vro">
+                                    <th colspan="2" class="text-center">
+                                        <strong>الموضوع: </strong><span t-field="o.purpose"/>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <strong>التاريخ: <span t-field="o.ordering_date"/></strong>
+                                    </td>
+                                    <td>
+                                        <strong>رقم اللجنة: <span t-field="o.name"/></strong>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h4><strong>أعضاء اللجنة:</strong></h4>
+                        <table class="table table-bordered text-center">
+                            <colgroup>
+                                <col width='50%'/>
+                                <col width='50%'/>
+                            </colgroup>
+                            <thead>
+                                <tr class="heading-tr-vro">
+                                    <th class="text-center"><strong>أعضاء اللجنة</strong></th>
+                                    <th class="text-center"><strong>مدير اللجنة</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="o.committe_members" t-as="committee_member">
+                                    <td>
+                                        <span t-field="committee_member.name"/>
+                                    </td>
+                                    <td t-if="committee_member.id == o.committe_members[0].id" t-att-rowspan="len(o.committe_members)">
+                                        <span t-field="o.committe_head.name"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h4><strong>تفاصيل المحضر:</strong></h4>
+                        <table class="table table-condensed mt48 text-center table-bordered">
+                            <thead>
+                                <tr class="heading-tr-vro">
+                                    <th class="text-center"><strong>#</strong></th>
+                                    <th class="text-center"><strong>Product - الصنف</strong></th>
+                                    <th class="text-center"><strong>Quantity - الكمية</strong></th>
+                                    <th class="text-center"><strong>Description - الوصف</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="lines" t-value="o.line_ids"/>
+                                <t t-set="counter" t-value="1"/>
+                                <tr t-foreach="lines" t-as="line">
+                                    <td>
+                                        <strong><span t-esc="counter"/></strong>
+                                        <t t-set="counter" t-value="counter+1"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.product_id"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.product_qty"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.name"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h4><strong>الفواتير:</strong></h4>
+                        <table class="table table-bordered text-center">
+                            <colgroup>
+                                <col width='25%'/>
+                                <col width='15%'/>
+                                <col width='15%'/>
+                                <col width='15%'/>
+                                <col width='15%'/>
+                                <col width='15%'/>
+                            </colgroup>
+                            <thead>
+                                <tr class="heading-tr-vro">
+                                    <th class="text-center"><strong>المورد</strong></th>
+                                    <th class="text-center"><strong>المنتج</strong></th>
+                                    <th class="text-center"><strong>الكمية</strong></th>
+                                    <th class="text-center"><strong>السعر</strong></th>
+                                    <th class="text-center"><strong>الضريبة</strong></th>
+                                    <th class="text-center"><strong>الإجمالي</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o.purchase_ids" t-as="purchase">
+                                    <t t-set="lines" t-value="purchase.order_line"/>
+                                    <t t-set="counter" t-value="1"/>
+                                    <tr t-foreach="lines" t-as="line">
+                                        <td t-if="line.id == lines[0].id" t-att-rowspan="len(lines)">
+                                            <span t-field="purchase.partner_id.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.product_qty"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.price_unit"/>
+                                        </td>
+                                        <td>
+                                            <t t-foreach="line.taxes_id" t-as="tax">
+                                                <span t-field="tax.name"/>
+                                                <span t-if="tax.id != line.taxes_id[-1]">-</span>
+                                                <span t-else="">.</span>
+                                            </t>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.price_subtotal"/>
+                                        </td>
+                                    </tr>
+                                    <tr style="background: #eee;">
+                                        <td colspan="3">
+                                            <span><strong>الإجمالي</strong></span>
+                                        </td>
+                                        <td>
+                                            <span t-field="purchase.amount_untaxed"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="purchase.amount_tax"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="purchase.amount_total"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <t t-if="o.selected_purchase_id">
+                            <h4><strong>قرار اللجنة:</strong></h4>
+                            <h5> تمت التوصية من قبل اللجنة بأن يتم الشراء من المورد <span t-field="o.selected_purchase_id.partner_id"/> وذلك للاسباب الاتية : </h5>
+                            <t t-set="counter" t-value="1"/>
+                            <h6 t-foreach="o.selected_purchase_id.committe_members" t-as="committee_member">
+                                <t t-esc="counter"/> - <span t-field="committee_member.selection_reason"/>
+                                <t t-set="counter" t-value="counter + 1"/>
+                            </h6>
+                        </t>
+
+                        <h4 class="text-center col-md-12 col-lg-12 col-xs-12"><strong>التوقيع</strong></h4>
+                        <div class="text-center col-md-6 col-lg-6 col-xs-6">
+                            <h4>الأعضاء</h4>
+                            <h5 class="mt16" t-foreach="o.committe_members" t-as="committee_member">
+                                <span t-field="committee_member.name"/>  .....................................
+                            </h5>
+                        </div>
+                        <div class="text-center col-md-6 col-lg-6 col-xs-6">
+                            <h4>رئيس اللجنة</h4>
+                            <h5><span t-field="o.committe_head.name"/></h5>  ......................................
+                        </div> -->
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="committee_meeting_minutes_report">
+        <t t-foreach="docs" t-as="doc">
+            <t t-call="purchase_requisition_custom.committee_meeting_minutes_report_document"/>
+        </t>
+    </template>
+
+</odoo>

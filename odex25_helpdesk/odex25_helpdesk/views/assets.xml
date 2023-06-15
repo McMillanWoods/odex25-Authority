@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<odoo>
+    <template id="assets_backend" name="Helpdesk assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/scss" href="/odex25_helpdesk/static/src/scss/odex25_helpdesk.scss"/>
+            <link rel="stylesheet" href="/odex25_helpdesk/static/src/css/portal_odex25_helpdesk.css"/>
+            <script type="text/javascript" src="/odex25_helpdesk/static/src/js/odex25_helpdesk_dashboard.js"></script>
+            <script type="text/javascript" src="/odex25_helpdesk/static/src/js/tours/odex25_helpdesk.js"></script>
+        </xpath>
+    </template>
+
+    <template id="qunit_suite" name="odex25_helpdesk_tests" inherit_id="web.qunit_suite_tests">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/odex25_helpdesk/static/tests/odex25_helpdesk_dashboard_tests.js"></script>
+        </xpath>
+    </template>
+</odoo>

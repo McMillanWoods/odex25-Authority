@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="cmis_common_transactions_internal_form" model="ir.ui.view">
+        <field name="name">cmis.common.transactions.internal.form</field>
+        <field name="model">internal.transaction</field>
+        <field name="inherit_id" ref="exp_transaction_documents.common_transactions_internal_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Documents" groups="base.group_user">
+                    <field name="cmis_folder"/>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>

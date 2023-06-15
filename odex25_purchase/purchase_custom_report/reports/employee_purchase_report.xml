@@ -1,0 +1,170 @@
+<odoo>
+    <data>
+       <template id="employee_purchase_report" name="Purchase Total Report">
+       <t t-call="web.html_container">
+                    <t t-call="web.internal_layout">
+                    
+            <style type="text/css">
+             @font-face {
+                    font-family: 'GE_SS_Unique_Bold';
+                    src: local('GE_SS_Unique_Bold.otf'), local('GE_SS_Unique_Bold.otf'),
+                    url('/purchase_custom_report/static/fonts/GE_SS_Unique_Bold.otf') format('truetype');
+                    }@font-face {
+                    font-family: 'ae_AlMohanad';
+                    src: local('ae_AlMohanad.ttf'), local('ae_AlMohanad.ttf'),
+                    url('/purchase_custom_report/static/fonts/ae_AlMohanad.ttf') format('truetype');
+                    }
+                .page{
+                    font-family: Times New Roman;;
+                }
+                table{
+                    width :100%;
+                    border : 1px solid black;
+                    border-collapse : collapse;
+                    font-size : 13pt;
+                    
+                }
+                th{
+                    border : 1px solid black;
+                    background-color: #07b8ad; color: #ffffff;
+                    text-align : center;
+                    padding : 5px;
+                }
+                td{
+                    border : 1px solid black;
+                    text-align : center;
+                    padding : 3px;
+                }
+                .cr_t{
+                    text-align : center;
+                }
+
+            </style>
+            <div class="page" size="A4">
+                <t t-if="type == 'total'">
+                    <center>
+                    <h3>Employee Products Purchase Total</h3>
+                    <table>
+                        <tr>
+                            <th rowspan="2" style="verical-align :center">Group By</th>
+                            <th colspan="2">Period</th>
+                        </tr>
+                        <tr>
+                            <th>From</th>
+                            <th>To</th>
+                        </tr>
+                        <tr>
+                            <td><t t-esc="'Employee'" /></td>
+                            <td><t t-esc="date_from" /></td>
+                            <td><t t-esc="date_to" /></td>
+                        </tr>
+                    </table>
+                    </center>
+                    <t t-set="count" t-value="1"/>
+                    <t t-set="qty_total" t-value="0"/>
+                    <t t-set="amount_total" t-value="0"/>
+                    <t t-foreach="report_values" t-as="o">
+                        <h3><t t-esc="o['lable']"/></h3>                 
+                        <table>
+                            <!-- <thead> -->
+                                <tr>
+                                    <th>#</th>
+                                    <th >Product</th>
+                                    <th >Quantity</th>
+                                    <th >Amount</th>
+                                </tr>
+                            <!-- </thead> -->
+                            <tbody>
+                                <t t-foreach="o['products']" t-as="prod">
+                                    <tr>
+                                        <td><t t-esc="count"/></td>
+                                        <td><t t-esc="prod['product_name']"/></td>
+                                        <td><t t-esc="prod['qty']" /></td>
+                                        <td><t t-esc="prod['product_price']" /></td>
+                                    </tr>
+                                    <t t-set="count" t-value="count + 1"/>
+                                    <t t-set="qty_total" t-value="qty_total +prod['qty']"/>
+                                    <t t-set="amount_total" t-value="amount_total+prod['product_price']"/>
+                                </t>
+                                <tr style="background-color: #07b8ad; color: #ffffff;">
+                                    <td colspan="2">Total</td>
+                                    <td><t t-esc="qty_total" /></td>
+                                    <td><t t-esc="amount_total" /></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <t t-set="count" t-value="1"/>
+                        <t t-set="qty_total" t-value="0"/>
+                        <t t-set="amount_total" t-value="0"/>
+                    <br/>
+                    </t>
+                </t>
+                <t t-else="">
+                    <center>
+                        <h3>Employee Products Purchase Detailed Report</h3>
+                    </center>
+                    <table>
+                        <tr>
+                            <th rowspan="2" style="verical-align :center">Group By</th>
+                            <th colspan="2">Period</th>
+                        </tr>
+                        <tr>
+                            <th>From</th>
+                            <th>To</th>
+                        </tr>
+                        <tr>
+                            <td><t t-esc="group_by" /></td>
+                            <td><t t-esc="date_from" /></td>
+                            <td><t t-esc="date_to" /></td>
+                        </tr>
+                    </table>
+                    
+                    <t t-set="count" t-value="1"/>
+                    <t t-set="qty_total" t-value="0"/>
+                    <t t-set="amount_total" t-value="0"/>
+                    <t t-foreach="report_values" t-as="o">
+                        <h3><t t-esc="o['lable']"/></h3>                 
+                        <table>
+                            <!-- <thead> -->
+                                <tr>
+                                    <th>#</th>
+                                    <th>Date</th>
+                                    <th >Product</th>
+                                    <th>Unit of Measure</th>
+                                    <th >Quantity</th>
+                                    <th >Amount</th>
+                                </tr>
+                            <!-- </thead> -->
+                            <tbody>
+                                <t t-foreach="o['lines']" t-as="line">
+                                    <tr>
+                                        <td><t t-esc="count"/></td>
+                                        <td><t t-esc="doc.date_format(line.order_id.date_order)"/></td>
+                                        <td><t t-esc="line.product_id.name" /></td>
+                                        <td><t t-esc="line.product_uom.name" /></td>
+                                        <td><t t-esc="line.product_qty" /></td>
+                                        <td><t t-esc="line.price_subtotal" /></td>
+                                    </tr>
+                                    <t t-set="count" t-value="count + 1"/>
+                                    <t t-set="qty_total" t-value="qty_total + line.product_qty"/>
+                                    <t t-set="amount_total" t-value="amount_total+ line.price_subtotal"/>
+                                </t>
+                                <tr style="background-color: #07b8ad; color: #ffffff;">
+                                    <td colspan="4">Total</td>
+                                    <td><t t-esc="qty_total" /></td>
+                                    <td><t t-esc="amount_total" /></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <t t-set="count" t-value="1"/>
+                        <t t-set="qty_total" t-value="0"/>
+                        <t t-set="amount_total" t-value="0"/>   
+                    <br/>
+                    </t>
+                </t>
+            </div>
+        </t>
+        </t>
+       </template>
+    </data>
+</odoo>

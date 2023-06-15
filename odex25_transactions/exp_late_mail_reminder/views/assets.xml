@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--add by fatima-ahmed 17/5/2020 to migration code of notify in -->
+    <template id="assets_backend_custom" name="autocomplete assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/exp_late_mail_reminder/static/src/css/style.css"/>
+            <script type="text/javascript" src="/exp_late_mail_reminder/static/src/js/notification_popup.js"/>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <template id="general_contract_report_template">
+            <t t-call="web.html_container">
+                  <t t-call="web.internal_layout">
+                <div class="page">
+                    <center>
+                            <h3>Contract General Report</h3>
+                    </center>
+                    <table class="table table-bordered" style="border: 2px solid black;font-family:Arial">
+                        <!-- <thead> -->
+                        <tr>
+                            <th colspan="2"
+                                style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                Duration
+                            </th>
+                            <th rowspan="2"
+                                style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                Report Type
+                            </th>
+                            <th rowspan="2"
+                                style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                State
+                            </th>
+                        </tr>
+                        <tr>
+                            <th style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                From
+                            </th>
+                            <th style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                To
+                            </th>
+                        </tr>
+                        <!-- </thead> -->
+                        <tbody>
+                            <tr>
+                                <td style="text-align:center;border:1px solid black;">
+                                    <t t-esc="date_from"/>
+                                </td>
+                                <td style="text-align:center;border:1px solid black;">
+                                    <t t-esc="date_to"/>
+                                </td>
+
+                                <td style="text-align:center;border:1px solid black;">
+                                    <t t-esc="report_type"/>
+                                </td>
+                                <td style="text-align:center;border:1px solid black;">
+                                    <t t-esc="state"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br/>
+                    <br/>
+                    <table class="table table-bordered"
+                           style="border: 2px solid black;font-family:Arial;page-break-inside: avoid;">
+                        <!-- <thead> -->
+                        <tr>
+                            <th rowspan="2"
+                                style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                #
+                            </th>
+                            <th rowspan="2"
+                                style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                Name
+                            </th>
+                            <th rowspan="2"
+                                style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                vendor
+                            </th>
+                            <th rowspan="2"
+                                style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                Start Date
+                            </th>
+                            <th rowspan="2"
+                                style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                End Date
+                            </th>
+                            <th rowspan="2"
+                                style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                Responsible
+                            </th>
+                            <th rowspan="2"
+                                style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                State
+                            </th>
+                            <th rowspan="2"
+                                style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                Total Amount
+                            </th>
+                            <t t-if="report_type == 'details'">
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Amount Paid
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Remain Amount
+                                </th>
+                            </t>
+
+                        </tr>
+                        <!-- </thead> -->
+                        <tbody>
+                            <t t-set="total" t-value="0"/>
+                            <t t-set="o_index" t-value="0"/>
+                            <t t-set="remain" t-value="0"/>
+                            <t t-set="paid" t-value="0"/>
+                            <t t-set="values" t-value="dict([('new', 'New'),
+                            ('to_confirm' ,'To Confirm'),
+                            ('confirmed', 'Confirmed'),
+                            ('in_progress', 'In progress'),
+                            ('suspended', 'Suspended'),
+                            ('closed', 'Closed'),
+                            ('cancel', 'Cancel'), (False,False)])"/>
+                            <t t-foreach="docs" t-as="o">
+
+                                <t t-set="amount"
+                                   t-value="sum(request.env['line.contract.installment'].search([('contract_id','=',o.id)]).mapped('total_amount'))"/>
+                                <tr>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="o_index + 1"/>
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="o.name"/>
+                                    </td>
+
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="o.partner_id.name"/>
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="o.date_start"/>
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="o.date_end"/>
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="o.user_id.name"/>
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="values[o.state]"/>
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black;">
+                                        <t t-esc="o.with_tax_amount"/>
+                                    </td>
+                                    <t t-if="report_type == 'details'">
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="amount"/>
+                                            <t t-set="paid" t-value="paid + amount"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="o.with_tax_amount - amount"/>
+                                            <t t-set="remain" t-value="remain + o.with_tax_amount - amount"/>
+                                        </td>
+
+                                    </t>
+
+
+                                </tr>
+                                <t t-set="o_index" t-value="o_index + 1"/>
+                            </t>
+
+                            <tr>
+                                <td style="text-align:center;border:1px solid black" colspan="7">Total Amounts</td>
+                                <td style="text-align:center;border:1px solid black">
+                                    <t t-esc="total_amount"/>
+                                </td>
+                                <t t-if="report_type == 'details'">
+                                    <td style="text-align:center;border:1px solid black">
+                                        <t t-esc="paid"/>
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black">
+                                        <t t-esc="remain"/>
+                                    </td>
+                                </t>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+            </t>
+        </template>
+    </data>
+</odoo>

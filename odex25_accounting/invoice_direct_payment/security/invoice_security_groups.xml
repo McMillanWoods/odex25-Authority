@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="group_create_expense_order" model="res.groups">
+            <field name="name">Create Expense Order</field>
+            <field name="category_id" ref="base.module_category_accounting_and_finance"/>
+        </record>
+        <record id="group_quality_control" model="res.groups">
+            <field name="name">Quality Control</field>
+            <field name="category_id" ref="base.module_category_accounting_and_finance"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="menu_access" eval="[(4,ref('account.menu_finance'))]" />
+        </record>
+        <record id="group_legal_counsel" model="res.groups">
+            <field name="name">Legal Counsel</field>
+            <field name="category_id" ref="base.module_category_accounting_and_finance"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="menu_access" eval="[(4,ref('account.menu_finance'))]" />
+        </record>
+        <record id="group_general_manager" model="res.groups">
+            <field name="name">General manager</field>
+            <field name="category_id" ref="base.module_category_accounting_and_finance"/>
+<!--             <field name="implied_ids" eval="[(4, ref('private_account_structure.group_reports_control'))]"/>
+ -->            <field name="menu_access" eval="[(4,ref('account.menu_finance')),
+                                             (4,ref('account.menu_account_reports'))]" />
+        </record>
+        <record id="group_general_supervisor" model="res.groups">
+            <field name="name">General Supervisor</field>
+            <field name="category_id" ref="base.module_category_accounting_and_finance"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="menu_access" eval="[(4,ref('account.menu_finance'))]" />
+        </record>
+
+
+        <record id="group_financial_request" model="res.groups">
+            <field name="name">Create Financial Request</field>
+            <field name="category_id" ref="base.module_category_accounting_and_finance"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+
+        <record id="group_accountant" model="res.groups">
+            <field name="name">Accountant</field>
+            <field name="category_id" ref="base.module_category_accounting_and_finance"/>
+            <field name="implied_ids" eval="[(4, ref('account.group_account_user')),
+                                             (4, ref('account.group_account_invoice')),
+                                             (4, ref('account_custom.group_validate_approve')),
+                                             (4, ref('account_custom.group_cancel_approve')),
+                                             (4, ref('account_custom.group_reset_approve')),
+                                             (4, ref('fiscalyears.group_fiscalyear_manager'))]"/>
+        </record>
+
+        <record id="account_custom.group_financial_controller" model="res.groups">
+            <field name="implied_ids" eval="[(4, ref('fiscalyears.group_fiscalyear_manager'))]"/>
+        </record>
+
+        <!-- Record Rules -->
+        <record id="financial_request_manager_rule" model="ir.rule">
+            <field name="name">Manager: views financial request of its subordinates </field>
+            <field name="model_id" ref="model_account_invoice"/>
+            <field name="domain_force">['|','|',('department_id.manager_id','=',False),
+                                                ('department_id.manager_id.user_id','child_of', [user.id]),
+                                                ('department_id.parent_id.manager_id.user_id','child_of', [user.id])]</field>
+            <field name="groups" eval="[(4, ref('hr_base.group_department_manager')),(4, ref('hr_base.group_division_manager'))]"/>
+        </record>
+        <record id="analytic_line_accountant_rule" model="ir.rule">
+            <field name="name">Accountant: view all Analytic Lines</field>
+            <field name="model_id" ref="account.model_account_analytic_line"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('account.group_account_invoice'))]"/>
+        </record>
+    </data>
+</odoo>

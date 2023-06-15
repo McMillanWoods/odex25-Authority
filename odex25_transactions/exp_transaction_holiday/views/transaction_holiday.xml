@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_transaction_holiday_tree" model="ir.ui.view">
+            <field name="name">view.transaction.holiday.tree</field>
+            <field name="model">transaction.holiday</field>
+            <field name="arch" type="xml">
+                <tree string="Holidays">
+                    <field name="name"/>
+                    <!--                    <field name="year"/>-->
+                </tree>
+            </field>
+        </record>
+        <record id="view_transaction_holiday_form" model="ir.ui.view">
+            <field name="name">view.transaction.holiday.form</field>
+            <field name="model">transaction.holiday</field>
+            <field name="arch" type="xml">
+                <form string="Holidays">
+                    <sheet>
+                        <group colspan="2" col="2">
+                            <field name="name" required="1"/>
+                            <field name="year"/>
+                        </group>
+                        <notebook>
+                            <page string="Day Off.">
+                                <group>
+                                    <field name="weekend_ids" nolabel="1">
+                                        <form string="Day Off.">
+                                            <group>
+                                                <group>
+                                                    <field name="name"/>
+                                                </group>
+                                            </group>
+                                        </form>
+                                        <tree string="Day Off." editable="bottom">
+                                            <field name="name"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            <page string="Public Holiday.">
+                                <group>
+                                    <field name="public_holiday_ids" nolabel="1">
+                                        <form string="Public Holiday.">
+                                            <group>
+                                                <group>
+                                                    <field name="name"/>
+                                                    <field name="from_date"/>
+                                                </group>
+                                                <group>
+                                                    <field name="to_date"/>
+                                                </group>
+                                            </group>
+                                        </form>
+                                        <tree string="Public Holiday." editable="bottom">
+                                            <field name="name"/>
+                                            <field name="from_date"/>
+                                            <field name="to_date"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="transaction_holiday_action" model="ir.actions.act_window">
+            <field name="name">Transaction Holiday</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">transaction.holiday</field>
+
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="parent_holiday_menu" name="Public Holidays"
+                  action="transaction_holiday_action" parent="exp_transaction_documents.cm_settings_menu"/>
+    </data>
+</odoo>

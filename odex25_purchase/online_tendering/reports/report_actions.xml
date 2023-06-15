@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+     
+    <report
+        id="action_online_tendering_report"
+        model="online.tender.report"
+        string="Online Tender Report"
+        report_type="qweb-pdf"
+        name="online_tendering.online_tender_report"
+        file="online_tendering.online_tender_report"
+    />
+
+</odoo>

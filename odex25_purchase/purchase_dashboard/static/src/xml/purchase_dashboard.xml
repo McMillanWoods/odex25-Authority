@@ -1,0 +1,158 @@
+<templates>
+    <t t-name="PurchaseDashboard">
+    <style type="text/css">
+                        @font-face {
+                            font-family: 'ae_AlMohanad';
+                            src: local('ae_AlMohanad'), local('ae_AlMohanad'),
+                            url('/purchase_dashboard/static/fonts/ae_AlMohanad.ttf') format('truetype');
+                            }
+                            *{
+                            font-family: ae_AlMohanad;
+                            }
+                           
+                    </style>
+        <div class="o_purchase_dashboards" style="background-color: white !important;">
+            <div class="well well-lg mt16">
+                <div class="o_dashboard_row row">
+                    <h5 class="text-center">Filters <i class="fa fa-filter"/>
+                    </h5>
+                    <table class="table table-condensed mt16">
+                        <tr>
+                            <td class="col-md-2">
+                                <h5 class="text-center mt16">
+                                    <label>Dashboard View Type</label>
+                                </h5>
+                            </td>
+                            <td class="col-md-2">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="view_type" id="view_year" value="year" checked="1"/>
+Annual
+                                    </label>
+                                </div>
+                            </td>
+                            <td class="col-md-2">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="view_type" id="view_period" value="period"/>
+Period
+                                    </label>
+                                </div>
+                            </td>
+                            <td class="col-md-2">
+                                <h5 class="text-center mt16">
+                                    <label for="state">Purchase Order Status</label>
+                                </h5>
+                            </td>
+                            <td class="col-md-2 text-center" colspan="2">
+                                <select class="form-control text-center" style="padding: 0px !important;" id="state" name="state">
+                                    <option value="all" selected="1">All</option>
+                                    <option value="unsign">UnSign</option>
+                                    <option value="sign">Sign</option>
+                                    <option value="waiting">Waiting For Budget Confirmation</option>
+                                    <option value="draft">RFQ</option>
+                                    <option value="sent">RFQ Sent</option>
+                                    <option value="to approve">To Approve</option>
+                                    <option value="purchase">Purchase Order</option>
+                                    <option value="done">Locked</option>
+                                    <option value="cancel">Cancelled</option>
+                                    <option value="budget_rejected">Rejected By Budget</option>
+                                    <option value="wait_for_send">Waiting For Send to Budget</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr id="period_filter">
+                            <td class="col-md-2">
+                                <h5 class="text-center mt16">
+                                    <label for="from_date">From Date</label>
+                                </h5>
+                            </td>
+                            <td class="col-md-2">
+                                <input type="text" class="form-control" placeholder="From" id="from_date" name="from_date"/>
+                            </td>
+                            <td class="col-md-2">
+                                <h5 class="text-center mt16">
+                                    <label for="to_date">To Date</label>
+                                </h5>
+                            </td>
+                            <td class="col-md-2">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="To" id="to_date" name="to_date"/>
+                                </div>
+                            </td>
+                            <td class="col-md-2" colspan="2"/>
+                        </tr>
+                        <tr id="year_filter">
+                            <td class="col-md-2">
+                                <h5 class="text-center mt16">
+                                    <label for="year">Year</label>
+                                </h5>
+                            </td>
+                            <td class="col-md-2 text-center">
+                                <select class="form-control text-center" required="1" style="padding: 0px !important;" id="year" name="year">
+                                </select>
+                            </td>
+                            <td class="col-md-2" colspan="4"/>
+                        </tr>
+                        <tr id="department_filter">
+                            <td class="col-md-2">
+                                <h5 class="text-center mt16">
+                                    <label>Departments</label>
+                                </h5>
+                            </td>
+                            <td class="col-md-8" colspan="4">
+                                <div class="dropdown-mul-departments">
+                                    <select style="display:none" multiple="1" placeholder="Select"/>
+                                </div>
+                            </td>
+                            <td class="col-md-2">
+                                <button class="btn btn-success" id="select_all_departments">Select ALL</button>
+                                <button class="btn btn-warning" id="clear_departments">Clear</button>
+                            </td>
+                        </tr>
+                        <tr id="partner_filter">
+                            <td class="col-md-2">
+                                <h5 class="text-center mt16">
+                                    <label>Vendors</label>
+                                </h5>
+                            </td>
+                            <td class="col-md-8" colspan="4">
+                                <div class="dropdown-mul-vendors">
+                                    <select style="display:none" multiple="1" placeholder="Select"/>
+                                </div>
+                            </td>
+                            <td class="col-md-2">
+                                <button class="btn btn-success" id="select_all_vendors">Select ALL</button>
+                                <button class="btn btn-warning" id="clear_vendors">Clear</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <br/>
+            <div class="container">
+                <div id="purchase_dashboard_content"/>
+                <div class="row mt64" id="purchase_quarter_pie_graph">
+                    <div class="col-md-12 col-lg-12 col-sm-12">
+                        <div id="chart1">
+                            <div id="canvas"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt64">
+                    <div class="col-md-6 col-lg-6 col-sm-6">
+                        <div id="chart2">
+                            <div id="canvas"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6">
+                        <div id="chart3">
+                            <div id="canvas"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

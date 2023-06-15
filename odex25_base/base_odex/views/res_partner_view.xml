@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="view_partner_form_inherit" model="ir.ui.view">
+            <field name="name">view.res.partner.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='industry_id']" position="replace"/>
+
+                <xpath expr="//field[@name='category_id']" position="before">
+                    <field name="sector_id" />
+                    <field name="industry_id" string="Industry(Classification)"/>
+                </xpath>
+            </field>
+        </record>
+
+         <!-- Industry -->
+        <record id="res_partner_industry_view_form_inherit" model="ir.ui.view">
+            <field name="name">Industry</field>
+            <field name="model">res.partner.industry</field>
+            <field name="inherit_id" ref="base.res_partner_industry_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="parent_id" />
+                </xpath>
+            </field>
+        </record>
+
+        <record id="res_partner_industry_view_tree_inherit" model="ir.ui.view">
+            <field name="name">Industry</field>
+            <field name="model">res.partner.industry</field>
+            <field name="inherit_id" ref="base.res_partner_industry_view_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="parent_id" />
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,1130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+	<data>
+
+		<!--		allbrach-->
+		<template id="fleet_branch_report_pdf">
+			<t t-call="web.html_container">
+				<t t-call="web.external_layout">
+					<div class="page">
+						<h2 colspan="10" class="text-center" style="font-size:20px">  Total Vehicle Expense For Branch Report <span t-esc="date_from"/> - <span t-esc="date_to"/></h2>
+						 <h2 colspan="10" class="text-center" style="font-size:20px" >
+                            <t t-esc="', '.join(department for department in department_ids)"/>
+                        </h2>
+						 <h2 colspan="10" class="text-center" style="font-size:20px" >
+                            <t t-esc="', '.join(project for project in project_ids)"/>
+                        </h2>
+						<div><t t-foreach="docs['branch']" t-as="doc">
+<!--							<style>-->
+<!--								* {-->
+<!--								box-sizing: border-box;-->
+<!--								}-->
+
+<!--								.row {-->
+<!--								margin-left:-5px;-->
+<!--								margin-right:-5px;-->
+<!--								}-->
+
+<!--								.column {-->
+<!--								float: left;-->
+<!--								width: 50%;-->
+<!--								padding: 5px;-->
+<!--								}-->
+
+<!--								/* Clearfix (clear floats) */-->
+<!--								.row::after {-->
+<!--								content: "";-->
+<!--								clear: both;-->
+<!--								display: table;-->
+<!--								}-->
+
+<!--								table {-->
+<!--								border-collapse: collapse;-->
+<!--								border-spacing: 0;-->
+<!--								width: 100%;-->
+<!--								border: 1px solid #ddd;-->
+<!--								}-->
+
+<!--								th, td {-->
+<!--								text-align: left;-->
+<!--								padding: 16px;-->
+<!--								}-->
+
+<!--								tr:nth-child(even) {-->
+<!--								background-color: #f2f2f2;-->
+<!--								}-->
+<!--							</style>-->
+							<div >
+								<table class="table table-condensed table-bordered" style="width: 100%;">
+									<thead class="text-center">
+										<tr style=" width:100%;">
+											<th colspan="2" style="text-align:center;">	<span t-esc="doc['branch']"/></th>
+										</tr>
+										<tr style=" width:100%;">
+											<th style="text-align:center;">Description</th>
+											<th style="text-align:center;">Total Expense</th>
+										</tr>
+									</thead>
+									<tbody class="text-center">
+										<t t-foreach="doc['data']" t-as="o">
+											<tr>
+												<td  class="text-center">
+													<span t-esc="o['type']"/>
+												</td>
+												<td  class="text-center">
+													<span t-esc="o['total']"/>
+												</td>
+											</tr>
+										</t>
+										<tr>
+											<td  class="text-center">
+												<span >Total Expense</span>
+											</td>
+											<td  class="text-center">
+												<span t-esc="doc['total']"/>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</t>
+						</div>
+						<div align="center">
+							<table class="table table-condensed table-bordered " style="width: 100%;">
+								<thead class="text-center">
+									<tr style=" width:100%;">
+										<th style="text-align:center;">Description</th>
+										<th style="text-align:center;">Total Expense</th>
+									</tr>
+								</thead>
+								<tbody class="text-center">
+									<t t-foreach="docs['total']" t-as="o">
+										<tr>
+											<td  class="text-center">
+												Total <span t-esc="o[0]"/>
+											</td>
+											<td  class="text-center">
+												<span t-esc="o[1]"/>
+											</td>
+										</tr>
+									</t>
+								</tbody>
+							</table>
+						</div>
+
+					</div>
+				</t>
+			</t>
+		</template>
+		<report
+				id ="fleet_branch_report_pdf_act"
+				model ="fleet.wiz"
+				string ="General Cost Report"
+				report_type ="qweb-pdf"
+				name ="odex_fleet.fleet_branch_report_pdf"
+				file ="odex_fleet.fleet_branch_report_pdf"
+				menu="False" />
+
+		<!--		chart-->
+		<template id="all_branch_cost_report_pdf">
+			<t t-call="web.html_container">
+				<t t-call="web.external_layout">
+					<link rel="stylesheet" href="/odex_fleet/static/css/chartjs/Chart.min.css"/>
+
+					<div class="page">
+						<h2 colspan="10" class="text-center" style="font-size:20px">  Total Vehicle Expense For Branch Report <span t-esc="date_from"/> - <span t-esc="date_to"/></h2>
+						 <h2 colspan="10" class="text-center" style="font-size:20px" >
+                            <t t-esc="', '.join(department for department in department_ids)"/>
+                        </h2>
+						 <h2 colspan="10" class="text-center" style="font-size:20px" >
+                            <t t-esc="', '.join(project for project in project_ids)"/>
+                        </h2>
+<!--						<style>-->
+<!--							* {-->
+<!--							box-sizing: border-box;-->
+<!--							}-->
+
+<!--							.row {-->
+<!--							margin-left:-5px;-->
+<!--							margin-right:-5px;-->
+<!--&lt;!&ndash;							margin-bottom:50px;&ndash;&gt;-->
+<!--							}-->
+
+<!--							.column {-->
+<!--&lt;!&ndash;							float: left;&ndash;&gt;-->
+<!--							width: 50%;-->
+<!--							padding: 5px;-->
+<!--							margin : 5px;-->
+<!--&lt;!&ndash;							margin-bottom : 20px;&ndash;&gt;-->
+<!--							}-->
+
+<!--							/* Clearfix (clear floats) */-->
+<!--							.row::after {-->
+<!--							content: "";-->
+<!--							clear: both;-->
+<!--							display: table;-->
+<!--							}-->
+
+<!--							table {-->
+<!--							border-collapse: collapse;-->
+<!--							border-spacing: 0;-->
+<!--							width: 100%;-->
+<!--							border: 1px solid #ddd;-->
+<!--							}-->
+
+<!--							th, td {-->
+<!--							text-align: left;-->
+<!--							padding: 16px;-->
+<!--							}-->
+<!--							tbody {-->
+<!--							margin-bottom:50px;-->
+<!--							}-->
+
+<!--							tr:nth-child(even) {-->
+<!--							background-color: #f2f2f2;-->
+<!--							}-->
+<!--						</style>-->
+<!--						<div class="row">-->
+<!--							<div class="column">-->
+
+								<table class="table table-condensed table-bordered" style=" width:100%;">
+									<thead class="text-center">
+										<tr style=" width:100%;">
+											<th style="text-align:center;">Description</th>
+											<th style="text-align:center;">Total </th>
+											<th style="text-align:center;">Total Percentage</th>
+										</tr>
+									</thead>
+									<tbody class="text-center">
+										<t t-foreach="docs['branch']" t-as="doc">
+											<tr>
+												<td  class="text-center">
+													<span t-esc="doc['branch']"/>
+												</td>
+												<td  class="text-center">
+													<span t-esc="round(doc['total'],2)"/>
+												</td>
+												<td  class="text-center">
+													<span t-esc="round(doc['total_per'],2)"/>
+												</td>
+											</tr>
+										</t>
+									</tbody>
+								</table>
+								
+								<table class="table table-condensed table-bordered" style=" width:100%;">
+									<thead class="text-center">
+										<tr style=" width:100%;">
+											<th style="text-align:center;">Description</th>
+											<th style="text-align:center;">Total </th>
+											<th style="text-align:center;">Total Percentage</th>
+										</tr>
+									</thead>
+									<tbody class="text-center">
+									<t t-foreach="docs['types']" t-as="t">
+										<tr>
+											<td  class="text-center">
+												<span t-esc="t['type']"/>
+											</td>
+											<td  class="text-center">
+												<span t-esc="round(t['total'],2)"/>
+											</td>
+											<td  class="text-center">
+												<span t-esc="round(t['total_per'],2)"/>
+											</td>
+										</tr>
+									</t>
+									</tbody>
+								</table>
+<!--							</div>-->
+
+<!--							<div class="column">-->
+<!--								<div align ="center">-->
+<!--									<img  t-att-src="'data:image/png;base64,%s' % to_text(docs['chart'])"-->
+<!--										   hieght="50%" width="50%"/>-->
+<!--								</div>-->
+<!--								<br></br>-->
+<!--								<div align ="center">-->
+<!--									<img  t-att-src="'data:image/png;base64,%s' % to_text(docs['chart_main'])"-->
+<!--										   hieght="50%" width="50%"/>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
+<!-- 						<div>
+
+						</div> -->
+						
+<!--						<div class="row">-->
+
+							<t t-foreach="docs['branch_types']" t-as="s">
+<!--								<div class="column">-->
+									<table class="table table-condensed table-bordered" style=" width:100%;">
+										<thead class="text-center">
+											<tr style=" width:100%;">
+												<th style="text-align:center;">Description</th>
+												<th style="text-align:center;">Total <span t-esc="s['type']"/> </th>
+												<th style="text-align:center;">Total Percentage</th>
+											</tr>
+										</thead>
+										<tbody class="text-center">
+											<t t-foreach="s['data']" t-as="b">
+												<tr>
+													<td  class="text-center">
+														<span t-esc="b['branch']"/>
+													</td>
+													<td  class="text-center">
+														<span t-esc="round(b['total'],2)"/>
+													</td>
+													<td  class="text-center">
+														<span t-esc="round(b['total_per'],2)"/>
+													</td>
+												</tr>
+											</t>
+
+										</tbody>
+									</table>
+<!--								</div>-->
+							</t>
+<!--							<t t-foreach="docs['bar_chart']" t-as="b">-->
+<!--								<div class="column">-->
+<!--									<img  t-att-src="'data:image/png;base64,%s' % to_text(b)"-->
+<!--										  class="pull-left" hieght="50%" width="50%"/>-->
+<!--								</div>-->
+<!--							</t>-->
+						</div>
+<!--					</div>-->
+				</t>
+			</t>
+		</template>
+		<report
+				id ="all_branch_cost_report_pdf_act"
+				model ="fleet.wiz"
+				string ="Branch Chart Cost Report"
+				report_type ="qweb-pdf"
+				name ="odex_fleet.all_branch_cost_report_pdf"
+				file ="odex_fleet.all_branch_cost_report_pdf"
+				menu="False" />
+		<!--		state-->
+		<template id="state_cost_report_pdf">
+			<t t-call="web.html_container">
+				<t t-call="web.external_layout">
+					<div class="page">
+						<t t-foreach="docs" t-as="o">
+							<h2 colspan="10" class="text-center" style="font-size:20px">  Total Vehicle Expense By state Report <span t-esc="date_from"/> - <span t-esc="date_to"/></h2>
+							<h2 colspan="10" class="text-center" style="font-size:20px">  <span t-esc="o['state']"/></h2>
+
+							<div><t t-foreach="o['branch']" t-as="doc">
+								<div class="column">
+									<table class="table table-condensed table-bordered">
+										<thead class="text-center">
+											<tr style=" width:100%;">
+												<th style="text-align:center;">Branch</th>
+												<th style="text-align:center;">Description</th>
+												<th style="text-align:center;">Total Expense</th>
+											</tr>
+										</thead>
+										<tbody class="text-center">
+											<t t-foreach="doc['data']" t-as="s">
+												<tr>
+													<td  class="text-center">
+														<span t-esc="doc['branch']"/>
+													</td>
+													<td  class="text-center">
+														<span t-esc="s['type']"/>
+													</td>
+													<td  class="text-center">
+														<span t-esc="s['total']"/>
+													</td>
+												</tr>
+											</t>
+											<tr>
+												<td  colspan="2" class="text-center">
+													<span ></span>
+												</td>
+												<td  class="text-center">
+													<span t-esc="doc['total']"/>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</t>
+							</div>
+							<div align="center" class="column">
+								<table class="table table-condensed table-bordered" >
+									<tbody class="text-center">
+										<t t-foreach="o['total']" t-as="a">
+											<tr>
+												<td  class="text-center" colspan="2">
+													Total <span t-esc="a[0]"/>
+												</td>
+												<td  class="text-center">
+													<span t-esc="a[1]"/>
+												</td>
+											</tr>
+
+										</t>
+										<tr>
+											<td  class="text-center" colspan="2">
+												Total Vehicle For State
+											</td>
+											<td  class="text-center">
+												<span t-esc="o['state_total']"/>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div style="page-break-before: always;"></div>
+						</t>
+					</div>
+				</t>
+			</t>
+		</template>
+		<report
+				id ="state_cost_report_pdf_act"
+				model ="fleet.wiz"
+				string ="All State Expense Report"
+				report_type ="qweb-pdf"
+				name ="odex_fleet.state_cost_report_pdf"
+				file ="odex_fleet.state_cost_report_pdf"
+				menu="False" />
+
+		<!--		&lt;!&ndash;		recive&ndash;&gt;-->
+		<!--		<template id="delegation_receive_report_pdf">-->
+		<!--			<t t-call="web.html_container">-->
+		<!--				<t t-call="web.external_layout">-->
+		<!--					<div class="page">-->
+		<!--						<t t-foreach="docs" t-as="o">-->
+		<!--							<h2 colspan="10" class="text-center" style="font-size:20px">   Vehicle Receive  Report</h2>-->
+		<!--							<br></br>-->
+		<!--							<p>I <span t-esc="o.employee_id.name"/>  Nationality <span t-esc="o.employee_id.country_id.name"/> Id Number/Iqama <span t-esc="o.employee_id.iqama_number.iqama_id"/><br></br>-->
+		<!--								From <span t-esc="o.employee_id.iqama_creat_date"/> End <span t-esc="o.employee_id.iqama_expiy_date"/> Have Receive Vehicle Type <span t-esc="o.vehicle_id.fleet_type_id.name"/><br></br>-->
+		<!--								Model <span t-esc="o.model_id.name"/> Plate <span t-esc="o.license_plate"/> Color <span t-esc="o.vehicle_id.color"/> from company <br></br> and i will use it for company work purpose only<br></br>-->
+		<!--								I Declare All above <br></br>-->
+
+		<!--								Name: <span t-esc="o.employee_id.name"/> <br></br>-->
+		<!--								Signature: <span t-esc="o.employee_id.name"/> <br></br>-->
+		<!--								Date: <br></br>-->
+		<!--							</p>-->
+		<!--						</t>-->
+		<!--					</div>-->
+		<!--				</t>-->
+		<!--			</t>-->
+		<!--		</template>-->
+		<!--		<report-->
+		<!--				id ="delegation_receive_report_pdf_act"-->
+		<!--				model ="vehicle.delegation"-->
+		<!--				string ="Receive Report"-->
+		<!--				report_type ="qweb-pdf"-->
+		<!--				name ="odex_fleet.delegation_receive_report_pdf"-->
+		<!--				file ="odex_fleet.delegation_receive_report_pdf"-->
+		<!--				menu="True" />-->
+
+		<!--		&lt;!&ndash;		car consumption&ndash;&gt;-->
+		<!--		<template id="car_consumption_cost_report_pdf">-->
+		<!--			<t t-call="web.html_container">-->
+		<!--				<t t-call="web.external_layout">-->
+		<!--					<div class="page">-->
+		<!--						<h2 colspan="10" class="text-center" style="font-size:20px">  Total Vehicle Expense For Branch Report <span t-esc="date_from"/> - <span t-esc="date_to"/></h2>-->
+
+		<!--						<t t-foreach="docs['branch']" t-as="doc">-->
+		<!--							<h3><span t-esc="doc['branch']"/> </h3>-->
+		<!--							<br></br>-->
+		<!--							<t t-foreach="doc['data']" t-as="s">-->
+		<!--								<h3 colspan="2" style="text-align:center;">	<span t-esc="s['type']"/></h3>-->
+
+		<!--								<table class="table table-condensed table-bordered">-->
+		<!--									<thead class="text-center">-->
+		<!--										<tr style=" width:100%;">-->
+		<!--											<th style="text-align:center;">#</th>-->
+		<!--											<th style="text-align:center;">Type</th>-->
+		<!--											<th style="text-align:center;">Model</th>-->
+		<!--											<th style="text-align:center;">Plate</th>-->
+		<!--											<th style="text-align:center;">Driver</th>-->
+		<!--											<th style="text-align:center;">Job</th>-->
+		<!--											<th style="text-align:center;">Fuel</th>-->
+		<!--											<th style="text-align:center;">Oil</th>-->
+		<!--											<th style="text-align:center;">Maintenance</th>-->
+		<!--											<th style="text-align:center;">Totel</th>-->
+		<!--											<th style="text-align:center;">Total Percentage</th>-->
+		<!--										</tr>-->
+		<!--									</thead>-->
+		<!--									<tbody class="text-center">-->
+		<!--										<t t-set="sequence" t-value="0"/>-->
+
+		<!--										<t t-foreach="s['data']" t-as="o">-->
+		<!--											<tr>-->
+		<!--												<td>-->
+		<!--													<t t-set="sequence" t-value="sequence +1"/>-->
+		<!--													<t t-esc="sequence"/>-->
+		<!--												</td>-->
+		<!--												<td  class="text-center">-->
+		<!--													<span t-esc="o['name']"/>-->
+		<!--												</td>-->
+		<!--												<td  class="text-center">-->
+		<!--													<span t-esc="o['model']"/>-->
+		<!--												</td>-->
+		<!--												<td  class="text-center">-->
+		<!--													<span t-esc="o['plate']"/>-->
+		<!--												</td>-->
+		<!--												<td  class="text-center">-->
+		<!--													<span t-esc="o['driver']"/>-->
+		<!--												</td>-->
+		<!--												<td  class="text-center">-->
+		<!--													<span t-esc="o['job']"/>-->
+		<!--												</td>-->
+		<!--												<td  class="text-center">-->
+		<!--													<span t-esc="round(o['fuel'],2)"/>-->
+		<!--												</td>-->
+		<!--												<td  class="text-center">-->
+		<!--													<span t-esc="round(o['service'],2)"/>-->
+		<!--												</td>-->
+		<!--												<td  class="text-center">-->
+		<!--													<span t-esc="round(o['man'],2)"/>-->
+		<!--												</td>-->
+		<!--												<td  class="text-center">-->
+		<!--													<span t-esc="round(o['total'],2)"/>-->
+		<!--												</td>-->
+		<!--												<td  class="text-center">-->
+		<!--													<span t-esc="round(o['all_tot_per'],2)"/>%-->
+		<!--												</td>-->
+		<!--											</tr>-->
+		<!--										</t>-->
+		<!--										<tr>-->
+		<!--											<td  colspan='6' class="text-center">-->
+		<!--												<span >Total <span t-esc="s['type']"/></span>-->
+		<!--											</td>-->
+		<!--											<t t-foreach="s['total']" t-as="a">-->
+		<!--												<td  class="text-center">-->
+		<!--													<span t-esc="round(a,2)"/>-->
+		<!--												</td>-->
+		<!--											</t>-->
+		<!--										</tr>-->
+		<!--									</tbody>-->
+		<!--								</table>-->
+		<!--								<br></br>-->
+		<!--							</t>-->
+		<!--						</t>-->
+		<!--						<div class="tabel_total"  >-->
+		<!--							<table class="table table-condensed table-bordered " style="width: 100%;">-->
+		<!--								<thead>-->
+		<!--									<tr style=" width:50%;">-->
+		<!--										<td style="text-align:center;">Total</td>-->
+		<!--										<td style="text-align:center;">Oil</td>-->
+		<!--										<td style="text-align:center;">Fuel</td>-->
+		<!--										<td style="text-align:center;">Maintenance</td>-->
+		<!--										<td style="text-align:center;">Totals</td>-->
+		<!--									</tr>-->
+		<!--								</thead>-->
+		<!--								<tbody class="text-center">-->
+		<!--									<tr style=" width:50%;">-->
+		<!--										<td style="text-align:center;">Branch</td>-->
+		<!--										<t t-foreach="docs['total'][0]" t-as="i">-->
+		<!--											<td  class="text-center">-->
+		<!--												Total <span t-esc="round(i,2)"/>-->
+		<!--											</td>-->
+		<!--										</t>-->
+		<!--									</tr>-->
+		<!--									<tr style=" width:50%;">-->
+		<!--										<td style="text-align:center;">Percentage</td>-->
+		<!--										<t t-foreach="docs['total'][1]" t-as="p">-->
+		<!--											<td  class="text-center">-->
+		<!--												Total <span t-esc="round(p,2)"/>-->
+		<!--											</td>-->
+		<!--										</t>-->
+		<!--									</tr>-->
+		<!--								</tbody>-->
+		<!--							</table>-->
+		<!--						</div>-->
+
+		<!--					</div>-->
+		<!--				</t>-->
+		<!--			</t>-->
+		<!--		</template>-->
+		<!--		<report-->
+		<!--				id ="car_consumption_cost_report_pdf_act"-->
+		<!--				model ="fleet.wiz"-->
+		<!--				string ="Car Consumption Report"-->
+		<!--				report_type ="qweb-pdf"-->
+		<!--				name ="odex_fleet.car_consumption_cost_report_pdf"-->
+		<!--				file ="odex_fleet.car_consumption_cost_report_pdf"-->
+		<!--				menu="False" />-->
+
+		<!--		&lt;!&ndash;		Form Renew&ndash;&gt;-->
+		<!--		&lt;!&ndash;		renew&ndash;&gt;-->
+		<!--		<template id="renew_report_pdf">-->
+		<!--			<t t-call="web.html_container">-->
+		<!--				<t t-call="web.external_layout">-->
+		<!--					<div class="page">-->
+		<!--						<h2 colspan="10" class="text-center" style="font-size:20px">   Vehicle Form Renew Cost Report <span t-esc="date_from"/> - <span t-esc="date_to"/></h2>-->
+		<!--						<table class="table table-condensed table-bordered">-->
+		<!--							<thead class="text-center">-->
+		<!--								<tr style=" width:100%;">-->
+		<!--									<th style="text-align:center;">Plate</th>-->
+		<!--									<th style="text-align:center;">Type</th>-->
+		<!--									<th style="text-align:center;">Branch</th>-->
+		<!--									<th style="text-align:center;">Manufacture Year</th>-->
+		<!--									<th style="text-align:center;">Serial</th>-->
+		<!--									<th style="text-align:center;">End Date</th>-->
+		<!--									<th style="text-align:center;">Cost</th>-->
+		<!--								</tr>-->
+		<!--							</thead>-->
+		<!--							<tbody class="text-center">-->
+		<!--								<t t-foreach="docs" t-as="o">-->
+		<!--									<tr>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.vehicle_id.license_plate"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.vehicle_id.model_id.name"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.branch_id.name"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.vehicle_id.model_year"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.vehicle_id.serial_number"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.new_date"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.cost"/>-->
+		<!--										</td>-->
+		<!--									</tr>-->
+		<!--								</t>-->
+
+		<!--							</tbody>-->
+		<!--						</table>-->
+		<!--					</div>-->
+
+
+		<!--				</t>-->
+		<!--			</t>-->
+		<!--		</template>-->
+		<!--		<report-->
+		<!--				id ="renew_report_pdf_act"-->
+		<!--				model ="form.renew"-->
+		<!--				string ="Renew Report"-->
+		<!--				report_type ="qweb-pdf"-->
+		<!--				name ="odex_fleet.renew_report_pdf"-->
+		<!--				file ="odex_fleet.renew_report_pdf"-->
+		<!--				menu="False" />-->
+		<!--		&lt;!&ndash;		to renew&ndash;&gt;-->
+		<!--		<template id="to_renew_report_pdf">-->
+		<!--			<t t-call="web.html_container">-->
+		<!--				<t t-call="web.external_layout">-->
+		<!--					<div class="page">-->
+		<!--						<h2 colspan="10" class="text-center" style="font-size:20px">   Vehicle Form To Renew Cost Report <span t-esc="date_from"/> - <span t-esc="date_to"/></h2>-->
+		<!--						<table class="table table-condensed table-bordered">-->
+		<!--							<thead class="text-center">-->
+		<!--								<tr style=" width:100%;">-->
+		<!--									<th style="text-align:center;">Plate</th>-->
+		<!--									<th style="text-align:center;">Type</th>-->
+		<!--									<th style="text-align:center;">Branch</th>-->
+		<!--									<th style="text-align:center;">Manufacture Year</th>-->
+		<!--									<th style="text-align:center;">Serial</th>-->
+		<!--									<th style="text-align:center;">End Date</th>-->
+		<!--								</tr>-->
+		<!--							</thead>-->
+		<!--							<tbody class="text-center">-->
+		<!--								<t t-foreach="docs" t-as="o">-->
+		<!--									<tr>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.license_plate"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.model_id.name"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.branch_id.name"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.model_year"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.serial_number"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.form_end"/>-->
+		<!--										</td>-->
+		<!--									</tr>-->
+		<!--								</t>-->
+
+		<!--							</tbody>-->
+		<!--						</table>-->
+		<!--					</div>-->
+
+
+		<!--				</t>-->
+		<!--			</t>-->
+		<!--		</template>-->
+		<!--		<report-->
+		<!--				id ="to_renew_report_pdf_act"-->
+		<!--				model ="fleet.vehicle"-->
+		<!--				string ="Renew Report"-->
+		<!--				report_type ="qweb-pdf"-->
+		<!--				name ="odex_fleet.to_renew_report_pdf"-->
+		<!--				file ="odex_fleet.to_renew_report_pdf"-->
+		<!--				menu="False" />-->
+
+
+		<!--		&lt;!&ndash;		Driver &ndash;&gt;-->
+
+		<!--		<template id="driver_report_pdf">-->
+		<!--			<t t-call="web.html_container">-->
+		<!--				<t t-call="web.external_layout">-->
+		<!--					<div class="page">-->
+		<!--						<h2 colspan="10" class="text-center" style="font-size:20px">   Driver Report <span t-esc="date_from"/> - <span t-esc="date_to"/></h2>-->
+		<!--						<table class="table table-condensed table-bordered">-->
+		<!--							<thead class="text-center">-->
+		<!--								<tr style=" width:100%;">-->
+		<!--									<th style="text-align:center;">#</th>-->
+		<!--									<th style="text-align:center;">Driver</th>-->
+		<!--									<th style="text-align:center;">Id Number</th>-->
+		<!--									<th style="text-align:center;">Type</th>-->
+		<!--									<th style="text-align:center;">Model</th>-->
+		<!--									<th style="text-align:center;">Plate</th>-->
+		<!--								</tr>-->
+		<!--							</thead>-->
+		<!--							<tbody class="text-center">-->
+		<!--								<t t-set="sequence" t-value="0"/>-->
+		<!--								<t t-foreach="docs" t-as="o">-->
+		<!--									<tr>-->
+		<!--										<td>-->
+		<!--											<t t-set="sequence" t-value="sequence +1"/>-->
+		<!--											<t t-esc="sequence"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.name"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.license_number"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.vehicle_id.fleet_type_id.name"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.vehicle_id.model_id.name"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.vehicle_id.license_plate"/>-->
+		<!--										</td>-->
+		<!--									</tr>-->
+		<!--								</t>-->
+
+		<!--							</tbody>-->
+		<!--						</table>-->
+		<!--					</div>-->
+
+
+		<!--				</t>-->
+		<!--			</t>-->
+		<!--		</template>-->
+		<!--		<report-->
+		<!--				id ="driver_report_pdf_act"-->
+		<!--				model ="hr.employee"-->
+		<!--				string ="Driver Report"-->
+		<!--				report_type ="qweb-pdf"-->
+		<!--				name ="odex_fleet.driver_report_pdf"-->
+		<!--				file ="odex_fleet.driver_report_pdf"-->
+		<!--				menu="False" />-->
+
+		<!--		&lt;!&ndash;		Driver Delegation &ndash;&gt;-->
+
+		<!--		<template id="driver_delegation_report_pdf">-->
+		<!--			<t t-call="web.html_container">-->
+		<!--				<t t-call="web.external_layout">-->
+		<!--					<div class="page">-->
+		<!--						<h2 colspan="10" class="text-center" style="font-size:20px">   Driver Delegation Report <span t-esc="date_from"/> - <span t-esc="date_to"/></h2>-->
+		<!--						<table class="table table-condensed table-bordered">-->
+		<!--							<thead class="text-center">-->
+		<!--								<tr style=" width:100%;">-->
+		<!--									<th style="text-align:center;">#</th>-->
+		<!--									<th style="text-align:center;">Driver</th>-->
+		<!--									<th style="text-align:center;">Id Number</th>-->
+		<!--									<th style="text-align:center;">Type</th>-->
+		<!--									<th style="text-align:center;">Model</th>-->
+		<!--									<th style="text-align:center;">Plate</th>-->
+		<!--									<th style="text-align:center;">State</th>-->
+		<!--									<th style="text-align:center;">Branch</th>-->
+		<!--									<th style="text-align:center;">Start</th>-->
+		<!--									<th style="text-align:center;">End</th>-->
+		<!--								</tr>-->
+		<!--							</thead>-->
+		<!--							<tbody class="text-center">-->
+		<!--								<t t-set="sequence" t-value="0"/>-->
+		<!--								<t t-foreach="docs" t-as="o">-->
+		<!--									<tr>-->
+		<!--										<td>-->
+		<!--											<t t-set="sequence" t-value="sequence +1"/>-->
+		<!--											<t t-esc="sequence"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.employee_id.name"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.license_number"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.fleet_type_id.name"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.model_id.name"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.license_plate"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.vehicle_id.branch_id.state_id.name"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.vehicle_id.branch_id.name"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.start_date"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.end_date"/>-->
+		<!--										</td>-->
+		<!--									</tr>-->
+		<!--								</t>-->
+
+		<!--							</tbody>-->
+		<!--						</table>-->
+		<!--					</div>-->
+
+
+		<!--				</t>-->
+		<!--			</t>-->
+		<!--		</template>-->
+		<!--		<report-->
+		<!--				id ="driver_delegation_report_pdf_act"-->
+		<!--				model ="vehicle.delegation"-->
+		<!--				string ="Driver Delegation Report"-->
+		<!--				report_type ="qweb-pdf"-->
+		<!--				name ="odex_fleet.driver_delegation_report_pdf"-->
+		<!--				file ="odex_fleet.driver_delegation_report_pdf"-->
+		<!--				menu="False" />-->
+
+		<!--		&lt;!&ndash;		state Service&ndash;&gt;-->
+		<!--		<template id="service_report_pdf">-->
+		<!--			<t t-call="web.html_container">-->
+		<!--				<t t-call="web.external_layout">-->
+		<!--					<div class="page">-->
+		<!--						<t t-foreach="docs" t-as="o">-->
+		<!--							<h2 colspan="10" class="text-center" style="font-size:20px">  Vehicle Service By state Report <span t-esc="date_from"/> - <span t-esc="date_to"/></h2>-->
+		<!--							<h2 colspan="10" class="text-center" style="font-size:20px">  <span t-esc="o['state']"/></h2>-->
+
+		<!--							<div class="row"><t t-foreach="o['branch']" t-as="doc">-->
+		<!--								<h3 colspan="10" class="text-center" style="font-size:20px">  <span t-esc="doc['branch']"/></h3>-->
+
+		<!--								<div class="column">-->
+		<!--									<table class="table table-condensed table-bordered">-->
+		<!--										<thead class="text-center">-->
+		<!--											<tr style=" width:100%;">-->
+		<!--												<th style="text-align:center;">Name</th>-->
+		<!--												<th style="text-align:center;">Type</th>-->
+		<!--												<th style="text-align:center;">License</th>-->
+		<!--												<th style="text-align:center;">Service</th>-->
+		<!--												<th style="text-align:center;">Cost</th>-->
+		<!--												<th style="text-align:center;">Total</th>-->
+		<!--											</tr>-->
+		<!--										</thead>-->
+		<!--										<tbody class="text-center">-->
+		<!--											<t t-foreach="doc['data']" t-as="s">-->
+		<!--												<tr>-->
+		<!--													<td  class="text-center">-->
+		<!--														<span t-esc="s['name']"/>-->
+		<!--													</td>-->
+		<!--													<td  class="text-center">-->
+		<!--														<span t-esc="s['vehicle']"/>-->
+		<!--													</td>-->
+		<!--													<td  class="text-center">-->
+		<!--														<span t-esc="s['license_number']"/>-->
+		<!--													</td>-->
+		<!--													<td  class="text-center">-->
+		<!--														<span t-esc="s['service']"/>-->
+		<!--													</td>-->
+		<!--													<td  class="text-center">-->
+		<!--														<span t-esc="s['cost']"/>-->
+		<!--													</td>-->
+		<!--												</tr>-->
+		<!--											</t>-->
+		<!--											<tr>-->
+		<!--												<td  colspan="5" class="text-center">-->
+		<!--													<span ></span>-->
+		<!--												</td>-->
+		<!--												<td  class="text-center">-->
+		<!--													<span t-esc="doc['total']"/>-->
+		<!--												</td>-->
+		<!--											</tr>-->
+		<!--										</tbody>-->
+		<!--									</table>-->
+		<!--								</div>-->
+		<!--							</t>-->
+		<!--							</div>-->
+
+		<!--						</t>-->
+		<!--					</div>-->
+		<!--				</t>-->
+		<!--			</t>-->
+		<!--		</template>-->
+		<!--		<report-->
+		<!--				id ="service_report_pdf_act"-->
+		<!--				model ="fleet.wiz"-->
+		<!--				string ="All State Service Report"-->
+		<!--				report_type ="qweb-pdf"-->
+		<!--				name ="odex_fleet.service_report_pdf"-->
+		<!--				file ="odex_fleet.service_report_pdf"-->
+		<!--				menu="False" />-->
+
+
+		<!--		&lt;!&ndash;		Invoice&ndash;&gt;-->
+		<!--		<template id="invoice_report_pdf">-->
+		<!--			<t t-call="web.html_container">-->
+		<!--				<t t-call="web.external_layout">-->
+		<!--					<div class="page">-->
+		<!--						<h2 colspan="10" class="text-center" style="font-size:20px">  Invoice Report</h2>-->
+		<!--						<t t-foreach="docs" t-as="o">-->
+		<!--							<table class="table table-condensed table-bordered">-->
+		<!--								<tbody class="text-center">-->
+		<!--									<tr>-->
+		<!--										<td>-->
+		<!--											<span style="text-align:center;">Vehicle</span>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--									Form Renew-->
+		<!--		renew-->
+		<!--		<template id="renew_report_pdf">-->
+		<!--			<t t-call="web.html_container">-->
+		<!--				<t t-call="web.external_layout">-->
+		<!--					<div class="page">-->
+		<!--						<h2 colspan="10" class="text-center" style="font-size:20px">   Vehicle Form Renew Cost Report <span t-esc="date_from"/> - <span t-esc="date_to"/></h2>-->
+		<!--						<table class="table table-condensed table-bordered">-->
+		<!--							<thead class="text-center">-->
+		<!--								<tr style=" width:100%;">-->
+		<!--									<th style="text-align:center;">Plate</th>-->
+		<!--									<th style="text-align:center;">Type</th>-->
+		<!--									<th style="text-align:center;">Branch</th>-->
+		<!--									<th style="text-align:center;">Manufacture Year</th>-->
+		<!--									<th style="text-align:center;">Serial</th>-->
+		<!--									<th style="text-align:center;">End Date</th>-->
+		<!--									<th style="text-align:center;">Cost</th>-->
+		<!--								</tr>-->
+		<!--							</thead>-->
+		<!--							<tbody class="text-center">-->
+		<!--								<t t-foreach="docs" t-as="o">-->
+		<!--									<tr>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.vehicle_id.license_plate"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.vehicle_id.model_id.name"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.branch_id.name"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.vehicle_id.model_year"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.vehicle_id.serial_number"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.new_date"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.cost"/>-->
+		<!--										</td>-->
+		<!--									</tr>-->
+		<!--								</t>-->
+
+		<!--							</tbody>-->
+		<!--						</table>-->
+		<!--					</div>-->
+
+
+		<!--				</t>-->
+		<!--			</t>-->
+		<!--		</template>-->
+		<!--		<report-->
+		<!--				id ="renew_report_pdf_act"-->
+		<!--				model ="form.renew"-->
+		<!--				string ="Renew Report"-->
+		<!--				report_type ="qweb-pdf"-->
+		<!--				name ="odex_fleet.renew_report_pdf"-->
+		<!--				file ="odex_fleet.renew_report_pdf"-->
+		<!--				menu="False" />-->
+		<!--		to renew-->
+		<!--		<template id="to_renew_report_pdf">-->
+		<!--			<t t-call="web.html_container">-->
+		<!--				<t t-call="web.external_layout">-->
+		<!--					<div class="page">-->
+		<!--						<h2 colspan="10" class="text-center" style="font-size:20px">   Vehicle Form To Renew Cost Report <span t-esc="date_from"/> - <span t-esc="date_to"/></h2>-->
+		<!--						<table class="table table-condensed table-bordered">-->
+		<!--							<thead class="text-center">-->
+		<!--								<tr style=" width:100%;">-->
+		<!--									<th style="text-align:center;">Plate</th>-->
+		<!--									<th style="text-align:center;">Type</th>-->
+		<!--									<th style="text-align:center;">Branch</th>-->
+		<!--									<th style="text-align:center;">Manufacture Year</th>-->
+		<!--									<th style="text-align:center;">Serial</th>-->
+		<!--									<th style="text-align:center;">End Date</th>-->
+		<!--								</tr>-->
+		<!--							</thead>-->
+		<!--							<tbody class="text-center">-->
+		<!--								<t t-foreach="docs" t-as="o">-->
+		<!--									<tr>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.license_plate"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.model_id.name"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.branch_id.name"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.model_year"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.serial_number"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o.form_end"/>-->
+		<!--										</td>-->
+		<!--									</tr>-->
+		<!--								</t>-->
+
+		<!--							</tbody>-->
+		<!--						</table>-->
+		<!--					</div>-->
+
+
+		<!--				</t>-->
+		<!--			</t>-->
+		<!--		</template>-->
+		<!--		<report-->
+		<!--				id ="to_renew_report_pdf_act"-->
+		<!--				model ="fleet.vehicle"-->
+		<!--				string ="Renew Report"-->
+		<!--				report_type ="qweb-pdf"-->
+		<!--				name ="odex_fleet.to_renew_report_pdf"-->
+		<!--				file ="odex_fleet.to_renew_report_pdf"-->
+		<!--				menu="False" />				<span t-esc="o['car']"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											From <span t-esc="date_from"/>-->
+		<!--										</td>-->
+
+		<!--										<td  class="text-center">-->
+		<!--											To <span t-esc="date_to"/>-->
+		<!--										</td>-->
+		<!--									</tr>-->
+		<!--									<tr>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span >Type</span>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o['type']"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span >Days</span>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o['date']"/>-->
+		<!--										</td>-->
+		<!--									</tr>-->
+		<!--									<tr>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span >Driver</span>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o['driver']"/>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span >Service</span>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center">-->
+		<!--											<span t-esc="o['service']"/>-->
+		<!--										</td>-->
+		<!--									</tr>-->
+		<!--								</tbody>-->
+		<!--							</table>-->
+		<!--							<table class="table table-condensed table-bordered">-->
+		<!--								<thead class="text-center">-->
+		<!--									<tr style=" width:100%;">-->
+		<!--										<th style="text-align:center;">#</th>-->
+		<!--										<th style="text-align:center;">Invoice Number</th>-->
+		<!--										<th style="text-align:center;">Date</th>-->
+		<!--										<th style="text-align:center;">Amount</th>-->
+		<!--									</tr>-->
+		<!--								</thead>-->
+		<!--								<tbody class="text-center">-->
+		<!--									<t t-set="sequence" t-value="0"/>-->
+		<!--									<t t-foreach="o['data']" t-as="a">-->
+		<!--										<tr>-->
+		<!--											<td>-->
+		<!--												<t t-set="sequence" t-value="sequence +1"/>-->
+		<!--												<t t-esc="sequence"/>-->
+		<!--											</td>-->
+		<!--											<td  class="text-center">-->
+		<!--												<span t-esc="a['number']"/>-->
+		<!--											</td>-->
+		<!--											<td  class="text-center">-->
+		<!--												<span t-esc="a['date']"/>-->
+		<!--											</td>-->
+		<!--											<td  class="text-center">-->
+		<!--												<span t-esc="a['amount']"/>-->
+		<!--											</td>-->
+		<!--										</tr>-->
+		<!--									</t>-->
+		<!--									<tr>-->
+		<!--										<td  colspan="2"  class="text-center">-->
+		<!--											<span >Total</span>-->
+		<!--										</td>-->
+		<!--										<td class="text-center" colspan="2">-->
+		<!--											<span t-esc="o['total']"/>-->
+		<!--										</td>-->
+		<!--									</tr>-->
+		<!--									<tr>-->
+		<!--										<td  colspan="2"  class="text-center">-->
+		<!--											<span >Liter Per Day</span>-->
+		<!--										</td>-->
+		<!--										<td colspan="2"  class="text-center">-->
+		<!--											<span t-esc="o['liter']"/>-->
+		<!--										</td>-->
+		<!--									</tr>-->
+		<!--									<tr>-->
+		<!--										<td  colspan="2"  class="text-center">-->
+		<!--											<span >Liter Price Per Day</span>-->
+		<!--										</td>-->
+		<!--										<td  class="text-center" colspan="2">-->
+		<!--											<span t-esc="o['liter_price']"/>-->
+		<!--										</td>-->
+		<!--									</tr>-->
+
+		<!--								</tbody>-->
+		<!--							</table>-->
+		<!--						</t>-->
+
+		<!--					</div>-->
+
+		<!--				</t>-->
+		<!--			</t>-->
+		<!--		</template>-->
+		<!--		<report-->
+		<!--				id ="invoice_report_pdf_act"-->
+		<!--				model ="fleet.wiz"-->
+		<!--				string ="Fleet Invoice Report"-->
+		<!--				report_type ="qweb-pdf"-->
+		<!--				name ="odex_fleet.invoice_report_pdf"-->
+		<!--				file ="odex_fleet.invoice_report_pdf"-->
+		<!--				menu="False" />-->
+
+	</data>
+</odoo>

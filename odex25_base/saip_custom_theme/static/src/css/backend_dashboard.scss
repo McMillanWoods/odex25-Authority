@@ -1,0 +1,2392 @@
+@import "./controller.scss";
+
+
+body.o_home_menu_background{
+    background-image: $apps_bg_img;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}   
+
+@media screen and (max-width: 319px){
+    .o_web_client{
+        header{
+            .o_main_navbar{
+                background-color: $navbar_bg_color;
+                /*Menu Toggle*/
+                a.o_menu_toggle{
+                    background-color: $navbar_toggle;
+                }
+                button.o_mobile_menu_toggle{}
+                /*Selection Apps*/
+                a.o_menu_brand{
+                    color: $slection_app_color;
+                    &:hover{
+                        background-color: $selection_app_bg_hover;
+                    }
+                }
+                /*Nav Left ul*/
+                ul.o_menu_sections{
+                    li{
+                        a{
+                            color:$navbar_left_ul_color;
+                            &:hover{
+                                background-color: $navbar_left_ul_bg_color_hover;
+                            }
+                        }
+                    }
+                    li.show{
+                        a{
+                            color:$navbar_left_ul_color;
+                            background-color: $navbar_left_ul_bg_color_hover;;
+                        }
+                        div.dropdown-menu{
+                            background-color: $navbar_left_ul_dropdown_bg_color;
+                            a{
+                                color: $navbar_left_ul_dropdown_item_color;
+                                background-color: $navbar_left_ul_dropdown_item_bg_color;
+                                &:hover{
+                                    color: $navbar_left_ul_dropdown_item_color_hover;
+                                    background-color: $navbar_left_ul_dropdown_item_hover_color;
+                                }
+                            }
+                        }
+                    }
+                }
+                /*Nav Right ul*/
+                ul.o_menu_systray{
+                    li.o_MessagingMenu{
+                        a.o_MessagingMenu_toggler{
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: $navbar_right_ul_li_icons_color;
+                                border-color: $navbar_right_ul_li_icons_border_color;
+                            }
+                        }
+                    }
+                    li.o_mail_systray_item{
+                        a.o-no-caret{
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: $navbar_right_ul_li_icons_color;
+                                border-color: $navbar_right_ul_li_icons_border_color;
+                            }
+                        }
+                    }
+                    li.o_mail_systray_item.show{
+                        a.o-no-caret{
+                            background-color: $navbar_ul_show_bg_color;;
+                        }
+                    }
+                    li.o_user_menu{
+                        a.o-no-caret{
+                            color: black!important;
+                            font-weight: 600!important;
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: transparent;
+                                border-color: transparent;
+                            }
+                        }
+                    }
+                    li.o_user_menu.show{
+                        a.o-no-caret{
+                            background-color: $navbar_ul_show_bg_color;
+                        }
+                        div.dropdown-menu{
+                            background-color: $navbar_right_ul_dropdown_bg_color;
+                            a{
+                                color: $navbar_right_ul_dropdown_item_color;
+                                background-color: $navbar_right_ul_dropdown_item_bg_color;
+                                &:hover{
+                                    color: $navbar_right_ul_dropdown_item_color_hover;
+                                    background-color: $navbar_right_ul_dropdown_item_hover_color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .o_home_menu{
+            /*search section*/
+            .o_menu_search{}
+            /*apps section*/
+            .o_home_menu_scrollable{
+                /*apps container*/
+                .o_apps{
+                    /*app*/
+                    .o_app{
+                        &:hover{
+                            background-color: $app_hover_bg_color!important;
+                        }
+                        .o_app_icon{}
+                        .o_caption{
+                            font-size: 12px!important;
+                            font-weight: 300!important;
+                            color: $app_name_color!important;
+                        }
+                    }
+                }
+            }
+        }
+        .o_action_manager{
+            .o_action{
+                .o_control_panel{
+                    .o_cp_top{
+                        .o_cp_top_right{
+                            .o_cp_searchview{
+                                .o_searchview{
+                                    .o_searchview_input_container{
+                                        .o_searchview_facet{
+                                            .o_searchview_facet_label{
+                                                background-color: $filter_icon_bg_color;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .o_content{
+                    /*Apps Module*/
+                    .o_search_panel{
+                        .o_search_panel_section{
+                            header.o_search_panel_section_header{
+                                i{
+                                    color: $sidebar_categories_icon_color;
+                                }
+                            }
+                            ul.o_search_panel_field{
+                                li{
+                                    header{
+                                        span{
+                                            color: $sidebar_categories_item_color!important;
+                                        }
+                                    }
+                                    header.active{
+                                        background-color: $sidebar_categories_item_bg_hover_active_color;
+                                        label{
+                                            color: $sidebar_categories_item_hover_active_color;
+                                        }
+                                        span{
+                                            color: $sidebar_categories_item_hover_active_color!important;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .o_kanban_view{
+                        .oe_module_vignette{
+                            .oe_module_desc{
+                                .oe_module_action{
+                                    a.btn-secondary{
+                                        color: $apps_more_info;
+                                    }
+                                    button.btn-primary{
+                                        color: $apps_install_color;
+                                        background-color: $apps_install_bg_color;
+                                        border-color: $apps_install_bg_color;
+                                    }
+                                    a.btn-info{
+                                        color: $apps_upgrade_color;
+                                        background-color: $apps_upgrade_bg_color;
+                                        border-color: $apps_upgrade_bg_color;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    /*accounting module-invoice*/
+                    .o_form_view.o_xxl_form_view{
+                        height: auto!important;
+                        display: flex!important;
+                        flex-direction: column!important;
+                        align-items: center!important;
+                        .o_form_sheet_bg{
+                            overflow: unset!important;
+                            width: 100%!important;
+                        }
+                    }
+                    /*Setting Module*/
+                    .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable{
+                        .o_control_panel{
+                            width: 100%!important;
+                        }
+                        .o_setting_container{
+                            width: 100%!important;
+                            .settings{
+                                .app_settings_block{
+                                    h2{
+                                        background-color: $sections_titles_bg!important;
+                                        color: $sections_titles_color!important;
+                                        font-weight: 500!important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 420px){
+    .o_web_client{
+        header{
+            .o_main_navbar{
+                background-color: $navbar_bg_color;
+                /*Menu Toggle*/
+                a.o_menu_toggle{
+                    background-color: $navbar_toggle;
+                }
+                button.o_mobile_menu_toggle{}
+                /*Selection Apps*/
+                a.o_menu_brand{
+                    color: $slection_app_color;
+                    &:hover{
+                        background-color: $selection_app_bg_hover;
+                    }
+                }
+                /*Nav Left ul*/
+                ul.o_menu_sections{
+                    li{
+                        a{
+                            color:$navbar_left_ul_color;
+                            &:hover{
+                                background-color: $navbar_left_ul_bg_color_hover;
+                            }
+                        }
+                    }
+                    li.show{
+                        a{
+                            color:$navbar_left_ul_color;
+                            background-color: $navbar_left_ul_bg_color_hover;;
+                        }
+                        div.dropdown-menu{
+                            background-color: $navbar_left_ul_dropdown_bg_color;
+                            a{
+                                color: $navbar_left_ul_dropdown_item_color;
+                                background-color: $navbar_left_ul_dropdown_item_bg_color;
+                                &:hover{
+                                    color: $navbar_left_ul_dropdown_item_color_hover;
+                                    background-color: $navbar_left_ul_dropdown_item_hover_color;
+                                }
+                            }
+                        }
+                    }
+                }
+                /*Nav Right ul*/
+                ul.o_menu_systray{
+                    li.o_MessagingMenu{
+                        a.o_MessagingMenu_toggler{
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: $navbar_right_ul_li_icons_color;
+                                border-color: $navbar_right_ul_li_icons_border_color;
+                            }
+                        }
+                    }
+                    li.o_mail_systray_item{
+                        a.o-no-caret{
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: $navbar_right_ul_li_icons_color;
+                                border-color: $navbar_right_ul_li_icons_border_color;
+                            }
+                        }
+                    }
+                    li.o_mail_systray_item.show{
+                        a.o-no-caret{
+                            background-color: $navbar_ul_show_bg_color;;
+                        }
+                    }
+                    li.o_user_menu{
+                        a.o-no-caret{
+                            color: black!important;
+                            font-weight: 600!important;
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: transparent;
+                                border-color: transparent;
+                            }
+                        }
+                    }
+                    li.o_user_menu.show{
+                        a.o-no-caret{
+                            background-color: $navbar_ul_show_bg_color;
+                        }
+                        div.dropdown-menu{
+                            background-color: $navbar_right_ul_dropdown_bg_color;
+                            a{
+                                color: $navbar_right_ul_dropdown_item_color;
+                                background-color: $navbar_right_ul_dropdown_item_bg_color;
+                                &:hover{
+                                    color: $navbar_right_ul_dropdown_item_color_hover;
+                                    background-color: $navbar_right_ul_dropdown_item_hover_color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .o_home_menu{
+            /*search section*/
+            .o_menu_search{}
+            /*apps section*/
+            .o_home_menu_scrollable{
+                /*apps container*/
+                .o_apps{
+                    /*app*/
+                    .o_app{
+                        &:hover{
+                            background-color: $app_hover_bg_color!important;
+                        }
+                        .o_app_icon{}
+                        .o_caption{
+                            font-size: 14px!important;
+                            font-weight: 300!important;
+                            color: $app_name_color!important;
+                        }
+                    }
+                }
+            }
+        }
+        .o_action_manager{
+            .o_action{
+                .o_control_panel{
+                    .o_cp_top{
+                        .o_cp_top_right{
+                            .o_cp_searchview{
+                                .o_searchview{
+                                    .o_searchview_input_container{
+                                        .o_searchview_facet{
+                                            .o_searchview_facet_label{
+                                                background-color: $filter_icon_bg_color;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .o_content{
+                    /*Apps Module*/
+                    .o_search_panel{
+                        .o_search_panel_section{
+                            header.o_search_panel_section_header{
+                                i{
+                                    color: $sidebar_categories_icon_color;
+                                }
+                            }
+                            ul.o_search_panel_field{
+                                li{
+                                    header{
+                                        span{
+                                            color: $sidebar_categories_item_color!important;
+                                        }
+                                    }
+                                    header.active{
+                                        background-color: $sidebar_categories_item_bg_hover_active_color;
+                                        label{
+                                            color: $sidebar_categories_item_hover_active_color;
+                                        }
+                                        span{
+                                            color: $sidebar_categories_item_hover_active_color!important;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .o_kanban_view{
+                        .oe_module_vignette{
+                            .oe_module_desc{
+                                .oe_module_action{
+                                    a.btn-secondary{
+                                        color: $apps_more_info;
+                                    }
+                                    button.btn-primary{
+                                        color: $apps_install_color;
+                                        background-color: $apps_install_bg_color;
+                                        border-color: $apps_install_bg_color;
+                                    }
+                                    a.btn-info{
+                                        color: $apps_upgrade_color;
+                                        background-color: $apps_upgrade_bg_color;
+                                        border-color: $apps_upgrade_bg_color;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    /*accounting module-invoice*/
+                    .o_form_view.o_xxl_form_view{
+                        height: auto!important;
+                        display: flex!important;
+                        flex-direction: column!important;
+                        align-items: center!important;
+                        .o_form_sheet_bg{
+                            overflow: unset!important;
+                            width: 100%!important;
+                        }
+                    }
+                    /*Setting Module*/
+                    .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable{
+                        .o_control_panel{
+                            width: 100%!important;
+                        }
+                        .o_setting_container{
+                            width: 100%!important;
+                            .settings{
+                                .app_settings_block{
+                                    h2{
+                                        background-color: $sections_titles_bg!important;
+                                        color: $sections_titles_color!important;
+                                        font-weight: 500!important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 421px) and (max-width: 767px){
+    .o_web_client{
+        header{
+            .o_main_navbar{
+                background-color: $navbar_bg_color;
+                /*Menu Toggle*/
+                a.o_menu_toggle{
+                    background-color: $navbar_toggle;
+                }
+                button.o_mobile_menu_toggle{}
+                /*Selection Apps*/
+                a.o_menu_brand{
+                    color: $slection_app_color;
+                    &:hover{
+                        background-color: $selection_app_bg_hover;
+                    }
+                }
+                /*Nav Left ul*/
+                ul.o_menu_sections{
+                    li{
+                        a{
+                            color:$navbar_left_ul_color;
+                            &:hover{
+                                background-color: $navbar_left_ul_bg_color_hover;
+                            }
+                        }
+                    }
+                    li.show{
+                        a{
+                            color:$navbar_left_ul_color;
+                            background-color: $navbar_left_ul_bg_color_hover;;
+                        }
+                        div.dropdown-menu{
+                            background-color: $navbar_left_ul_dropdown_bg_color;
+                            a{
+                                color: $navbar_left_ul_dropdown_item_color;
+                                background-color: $navbar_left_ul_dropdown_item_bg_color;
+                                &:hover{
+                                    color: $navbar_left_ul_dropdown_item_color_hover;
+                                    background-color: $navbar_left_ul_dropdown_item_hover_color;
+                                }
+                            }
+                        }
+                    }
+                }
+                /*Nav Right ul*/
+                ul.o_menu_systray{
+                    li.o_MessagingMenu{
+                        a.o_MessagingMenu_toggler{
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: $navbar_right_ul_li_icons_color;
+                                border-color: $navbar_right_ul_li_icons_border_color;
+                            }
+                        }
+                    }
+                    li.o_mail_systray_item{
+                        a.o-no-caret{
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: $navbar_right_ul_li_icons_color;
+                                border-color: $navbar_right_ul_li_icons_border_color;
+                            }
+                        }
+                    }
+                    li.o_mail_systray_item.show{
+                        a.o-no-caret{
+                            background-color: $navbar_ul_show_bg_color;;
+                        }
+                    }
+                    li.o_user_menu{
+                        a.o-no-caret{
+                            color: black!important;
+                            font-weight: 600!important;
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: transparent;
+                                border-color: transparent;
+                            }
+                        }
+                    }
+                    li.o_user_menu.show{
+                        a.o-no-caret{
+                            background-color: $navbar_ul_show_bg_color;
+                        }
+                        div.dropdown-menu{
+                            background-color: $navbar_right_ul_dropdown_bg_color;
+                            a{
+                                color: $navbar_right_ul_dropdown_item_color;
+                                background-color: $navbar_right_ul_dropdown_item_bg_color;
+                                &:hover{
+                                    color: $navbar_right_ul_dropdown_item_color_hover;
+                                    background-color: $navbar_right_ul_dropdown_item_hover_color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .o_home_menu{
+            /*search section*/
+            .o_menu_search{}
+            /*apps section*/
+            .o_home_menu_scrollable{
+                /*apps container*/
+                .o_apps{
+                    /*app*/
+                    .o_app{
+                        &:hover{
+                            background-color: $app_hover_bg_color!important;
+                        }
+                        .o_app_icon{}
+                        .o_caption{
+                            font-size: 14px!important;
+                            font-weight: 300!important;
+                            color: $app_name_color!important;
+                        }
+                    }
+                }
+            }
+        }
+        .o_action_manager{
+            .o_action{
+                .o_control_panel{
+                    .o_cp_top{
+                        .o_cp_top_right{
+                            .o_cp_searchview{
+                                .o_searchview{
+                                    .o_searchview_input_container{
+                                        .o_searchview_facet{
+                                            .o_searchview_facet_label{
+                                                background-color: $filter_icon_bg_color;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .o_content{
+                    /*Apps Module*/
+                    .o_search_panel{
+                        .o_search_panel_section{
+                            header.o_search_panel_section_header{
+                                i{
+                                    color: $sidebar_categories_icon_color;
+                                }
+                            }
+                            ul.o_search_panel_field{
+                                li{
+                                    header{
+                                        span{
+                                            color: $sidebar_categories_item_color!important;
+                                        }
+                                    }
+                                    header.active{
+                                        background-color: $sidebar_categories_item_bg_hover_active_color;
+                                        label{
+                                            color: $sidebar_categories_item_hover_active_color;
+                                        }
+                                        span{
+                                            color: $sidebar_categories_item_hover_active_color!important;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .o_kanban_view{
+                        .oe_module_vignette{
+                            .oe_module_desc{
+                                .oe_module_action{
+                                    a.btn-secondary{
+                                        color: $apps_more_info;
+                                    }
+                                    button.btn-primary{
+                                        color: $apps_install_color;
+                                        background-color: $apps_install_bg_color;
+                                        border-color: $apps_install_bg_color;
+                                    }
+                                    a.btn-info{
+                                        color: $apps_upgrade_color;
+                                        background-color: $apps_upgrade_bg_color;
+                                        border-color: $apps_upgrade_bg_color;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    /*accounting module-invoice*/
+                    .o_form_view.o_xxl_form_view{
+                        height: auto!important;
+                        display: flex!important;
+                        flex-direction: column!important;
+                        align-items: center!important;
+                        .o_form_sheet_bg{
+                            overflow: unset!important;
+                            width: 100%!important;
+                        }
+                    }
+                    /*Setting Module*/
+                    .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable{
+                        .o_control_panel{
+                            width: 100%!important;
+                        }
+                        .o_setting_container{
+                            width: 100%!important;
+                            .settings{
+                                .app_settings_block{
+                                    h2{
+                                        background-color: $sections_titles_bg!important;
+                                        color: $sections_titles_color!important;
+                                        font-weight: 500!important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    .o_web_client{
+        header{
+            .o_main_navbar{
+                background-color: $navbar_bg_color;
+                /*Menu Toggle*/
+                a.o_menu_toggle{
+                    background-color: $navbar_toggle;
+                }
+                button.o_mobile_menu_toggle{}
+                /*Selection Apps*/
+                a.o_menu_brand{
+                    color: $slection_app_color;
+                    &:hover{
+                        background-color: $selection_app_bg_hover;
+                    }
+                }
+                /*Nav Left ul*/
+                ul.o_menu_sections{
+                    li{
+                        a{
+                            color:$navbar_left_ul_color;
+                            &:hover{
+                                background-color: $navbar_left_ul_bg_color_hover;
+                            }
+                        }
+                    }
+                    li.show{
+                        a{
+                            color:$navbar_left_ul_color;
+                            background-color: $navbar_left_ul_bg_color_hover;;
+                        }
+                        div.dropdown-menu{
+                            background-color: $navbar_left_ul_dropdown_bg_color;
+                            a{
+                                color: $navbar_left_ul_dropdown_item_color;
+                                background-color: $navbar_left_ul_dropdown_item_bg_color;
+                                &:hover{
+                                    color: $navbar_left_ul_dropdown_item_color_hover;
+                                    background-color: $navbar_left_ul_dropdown_item_hover_color;
+                                }
+                            }
+                        }
+                    }
+                }
+                /*Nav Right ul*/
+                ul.o_menu_systray{
+                    li.o_MessagingMenu{
+                        a.o_MessagingMenu_toggler{
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: $navbar_right_ul_li_icons_color;
+                                border-color: $navbar_right_ul_li_icons_border_color;
+                            }
+                        }
+                    }
+                    li.o_mail_systray_item{
+                        a.o-no-caret{
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: $navbar_right_ul_li_icons_color;
+                                border-color: $navbar_right_ul_li_icons_border_color;
+                            }
+                        }
+                    }
+                    li.o_mail_systray_item.show{
+                        a.o-no-caret{
+                            background-color: $navbar_ul_show_bg_color;;
+                        }
+                    }
+                    li.o_user_menu{
+                        a.o-no-caret{
+                            color: black!important;
+                            font-weight: 600!important;
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: transparent;
+                                border-color: transparent;
+                            }
+                        }
+                    }
+                    li.o_user_menu.show{
+                        a.o-no-caret{
+                            background-color: $navbar_ul_show_bg_color;
+                        }
+                        div.dropdown-menu{
+                            background-color: $navbar_right_ul_dropdown_bg_color;
+                            a{
+                                color: $navbar_right_ul_dropdown_item_color;
+                                background-color: $navbar_right_ul_dropdown_item_bg_color;
+                                &:hover{
+                                    color: $navbar_right_ul_dropdown_item_color_hover;
+                                    background-color: $navbar_right_ul_dropdown_item_hover_color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .o_home_menu{
+            /*search section*/
+            .o_menu_search{}
+            /*apps section*/
+            .o_home_menu_scrollable{
+                /*apps container*/
+                .o_apps{
+                    /*app*/
+                    .o_app{
+                        &:hover{
+                            background-color: $app_hover_bg_color!important;
+                        }
+                        .o_app_icon{}
+                        .o_caption{
+                            font-size: 16px!important;
+                            font-weight: 300!important;
+                            color: $app_name_color!important;
+                        }
+                    }
+                }
+            }
+        }
+        .o_action_manager{
+            .o_action{
+                .o_control_panel{
+                    .o_cp_top{
+                        .o_cp_top_right{
+                            .o_cp_searchview{
+                                .o_searchview{
+                                    .o_searchview_input_container{
+                                        .o_searchview_facet{
+                                            .o_searchview_facet_label{
+                                                background-color: $filter_icon_bg_color;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .o_content{
+                    /*Apps Module*/
+                    .o_search_panel{
+                        .o_search_panel_section{
+                            header.o_search_panel_section_header{
+                                i{
+                                    color: $sidebar_categories_icon_color;
+                                }
+                            }
+                            ul.o_search_panel_field{
+                                li{
+                                    header{
+                                        span{
+                                            color: $sidebar_categories_item_color!important;
+                                        }
+                                    }
+                                    header.active{
+                                        background-color: $sidebar_categories_item_bg_hover_active_color;
+                                        label{
+                                            color: $sidebar_categories_item_hover_active_color;
+                                        }
+                                        span{
+                                            color: $sidebar_categories_item_hover_active_color!important;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .o_kanban_view{
+                        .oe_module_vignette{
+                            .oe_module_desc{
+                                .oe_module_action{
+                                    a.btn-secondary{
+                                        color: $apps_more_info;
+                                    }
+                                    button.btn-primary{
+                                        color: $apps_install_color;
+                                        background-color: $apps_install_bg_color;
+                                        border-color: $apps_install_bg_color;
+                                    }
+                                    a.btn-info{
+                                        color: $apps_upgrade_color;
+                                        background-color: $apps_upgrade_bg_color;
+                                        border-color: $apps_upgrade_bg_color;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    /*accounting module-invoice*/
+                    .o_form_view.o_xxl_form_view{
+                        height: auto!important;
+                        display: flex!important;
+                        flex-direction: column!important;
+                        align-items: center!important;
+                        .o_form_sheet_bg{
+                            overflow: unset!important;
+                            width: 100%!important;
+                        }
+                    }
+                    /*Setting Module*/
+                    .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable{
+                        .o_control_panel{
+                            width: 100%!important;
+                        }
+                        .o_setting_container{
+                            width: 100%!important;
+                            .settings{
+                                .app_settings_block{
+                                    h2{
+                                        background-color: $sections_titles_bg!important;
+                                        color: $sections_titles_color!important;
+                                        font-weight: 500!important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 896px) and (max-width: 1024px) and (max-device-height: 768px){}
+
+@media screen and (min-width: 700px) and (max-width: 950px) and (max-device-height: 550px){}
+
+@media screen and (max-width: 699px) and (max-device-height: 550px){}
+
+@media screen and (max-width: 699px) and (max-device-height: 319px){}
+
+@media screen and (min-width: 768px) and (max-width: 895px) and (min-device-height: 1200px){}
+
+@media screen and (min-width: 896px) and (max-width: 1024px) and (min-device-height: 1250px){
+    .o_web_client{
+        .o_action_manager{
+            .o_action.o_view_controller{
+                .o_content{
+                    /*accounting module-invoice*/
+                    .o_form_view.o_xxl_form_view{
+                        height: auto!important;
+                        display: flex!important;
+                        flex-direction: column!important;
+                        align-items: center!important;
+                        .o_form_sheet_bg{
+                            overflow: unset!important;
+                            width: 100%!important;
+                        }
+                    }
+                    /*Setting Module*/
+                    .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable{
+                        .o_control_panel{
+                            width: 100%!important;
+                        }
+                        .o_setting_container{
+                            width: 100%!important;
+                            .settings{
+                                .app_settings_block{
+                                    h2{
+                                        background-color: $sections_titles_bg!important;
+                                        color: $sections_titles_color!important;
+                                        font-weight: 500!important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1200px){
+    .o_web_client{
+        header{
+            .o_main_navbar{
+                background-color: $navbar_bg_color;
+                /*Menu Toggle*/
+                a.o_menu_toggle{
+                    background-color: $navbar_toggle;
+                }
+                button.o_mobile_menu_toggle{}
+                /*Selection Apps*/
+                a.o_menu_brand{
+                    color: $slection_app_color;
+                    &:hover{
+                        background-color: $selection_app_bg_hover;
+                    }
+                }
+                /*Nav Left ul*/
+                ul.o_menu_sections{
+                    li{
+                        a{
+                            color:$navbar_left_ul_color;
+                            &:hover{
+                                background-color: $navbar_left_ul_bg_color_hover;
+                            }
+                        }
+                    }
+                    li.show{
+                        a{
+                            color:$navbar_left_ul_color;
+                            background-color: $navbar_left_ul_bg_color_hover;;
+                        }
+                        div.dropdown-menu{
+                            background-color: $navbar_left_ul_dropdown_bg_color;
+                            a{
+                                color: $navbar_left_ul_dropdown_item_color;
+                                background-color: $navbar_left_ul_dropdown_item_bg_color;
+                                &:hover{
+                                    color: $navbar_left_ul_dropdown_item_color_hover;
+                                    background-color: $navbar_left_ul_dropdown_item_hover_color;
+                                }
+                            }
+                        }
+                    }
+                }
+                /*Nav Right ul*/
+                ul.o_menu_systray{
+                    li.o_MessagingMenu{
+                        a.o_MessagingMenu_toggler{
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: $navbar_right_ul_li_icons_color;
+                                border-color: $navbar_right_ul_li_icons_border_color;
+                            }
+                        }
+                    }
+                    li.o_mail_systray_item{
+                        a.o-no-caret{
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: $navbar_right_ul_li_icons_color;
+                                border-color: $navbar_right_ul_li_icons_border_color;
+                            }
+                        }
+                    }
+                    li.o_mail_systray_item.show{
+                        a.o-no-caret{
+                            background-color: $navbar_ul_show_bg_color;;
+                        }
+                    }
+                    li.o_user_menu{
+                        a.o-no-caret{
+                            color: black!important;
+                            font-weight: 600!important;
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: transparent;
+                                border-color: transparent;
+                            }
+                        }
+                    }
+                    li.o_user_menu.show{
+                        a.o-no-caret{
+                            background-color: $navbar_ul_show_bg_color;
+                        }
+                        div.dropdown-menu{
+                            background-color: $navbar_right_ul_dropdown_bg_color;
+                            a{
+                                color: $navbar_right_ul_dropdown_item_color;
+                                background-color: $navbar_right_ul_dropdown_item_bg_color;
+                                &:hover{
+                                    color: $navbar_right_ul_dropdown_item_color_hover;
+                                    background-color: $navbar_right_ul_dropdown_item_hover_color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .o_home_menu{
+            /*search section*/
+            .o_menu_search{}
+            /*apps section*/
+            .o_home_menu_scrollable{
+                /*apps container*/
+                .o_apps{
+                    /*app*/
+                    .o_app{
+                        &:hover{
+                            background-color: $app_hover_bg_color!important;
+                        }
+                        .o_app_icon{}
+                        .o_caption{
+                            font-size: 16px!important;
+                            font-weight: 300!important;
+                            color: $app_name_color!important;
+                        }
+                    }
+                }
+            }
+        }
+        .o_action_manager{
+            .o_action{
+                .o_control_panel{
+                    .o_cp_top{
+                        .o_cp_top_right{
+                            .o_cp_searchview{
+                                .o_searchview{
+                                    .o_searchview_input_container{
+                                        .o_searchview_facet{
+                                            .o_searchview_facet_label{
+                                                background-color: $filter_icon_bg_color;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .o_content{
+                    /*Apps Module*/
+                    .o_search_panel{
+                        .o_search_panel_section{
+                            header.o_search_panel_section_header{
+                                i{
+                                    color: $sidebar_categories_icon_color;
+                                }
+                            }
+                            ul.o_search_panel_field{
+                                li{
+                                    header{
+                                        span{
+                                            color: $sidebar_categories_item_color!important;
+                                        }
+                                    }
+                                    header.active{
+                                        background-color: $sidebar_categories_item_bg_hover_active_color;
+                                        label{
+                                            color: $sidebar_categories_item_hover_active_color;
+                                        }
+                                        span{
+                                            color: $sidebar_categories_item_hover_active_color!important;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .o_kanban_view{
+                        .oe_module_vignette{
+                            .oe_module_desc{
+                                .oe_module_action{
+                                    a.btn-secondary{
+                                        color: $apps_more_info;
+                                    }
+                                    button.btn-primary{
+                                        color: $apps_install_color;
+                                        background-color: $apps_install_bg_color;
+                                        border-color: $apps_install_bg_color;
+                                    }
+                                    a.btn-info{
+                                        color: $apps_upgrade_color;
+                                        background-color: $apps_upgrade_bg_color;
+                                        border-color: $apps_upgrade_bg_color;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    /*accounting module-invoice*/
+                    .o_form_view.o_xxl_form_view{
+                        height: auto!important;
+                        display: flex!important;
+                        flex-direction: column!important;
+                        align-items: center!important;
+                        .o_form_sheet_bg{
+                            overflow: unset!important;
+                            width: 100%!important;
+                        }
+                    }
+                    /*Setting Module*/
+                    .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable{
+                        .o_control_panel{
+                            width: 100%!important;
+                        }
+                        .o_setting_container{
+                            width: 100%!important;
+                            .settings{
+                                .app_settings_block{
+                                    h2{
+                                        background-color: $sections_titles_bg!important;
+                                        color: $sections_titles_color!important;
+                                        font-weight: 500!important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1201px) and (max-width: 1599px){
+    .o_web_client{
+        header{
+            .o_main_navbar{
+                background-color: $navbar_bg_color;
+                /*Menu Toggle*/
+                a.o_menu_toggle{
+                    background-color: $navbar_toggle;
+                }
+                button.o_mobile_menu_toggle{}
+                /*Selection Apps*/
+                a.o_menu_brand{
+                    color: $slection_app_color;
+                    &:hover{
+                        background-color: $selection_app_bg_hover;
+                    }
+                }
+                /*Nav Left ul*/
+                ul.o_menu_sections{
+                    li{
+                        a{
+                            color:$navbar_left_ul_color;
+                            &:hover{
+                                background-color: $navbar_left_ul_bg_color_hover;
+                            }
+                        }
+                    }
+                    li.show{
+                        a{
+                            color:$navbar_left_ul_color;
+                            background-color: $navbar_left_ul_bg_color_hover;;
+                        }
+                        div.dropdown-menu{
+                            background-color: $navbar_left_ul_dropdown_bg_color;
+                            a{
+                                color: $navbar_left_ul_dropdown_item_color;
+                                background-color: $navbar_left_ul_dropdown_item_bg_color;
+                                &:hover{
+                                    color: $navbar_left_ul_dropdown_item_color_hover;
+                                    background-color: $navbar_left_ul_dropdown_item_hover_color;
+                                }
+                            }
+                        }
+                    }
+                }
+                /*Nav Right ul*/
+                ul.o_menu_systray{
+                    li.o_MessagingMenu{
+                        a.o_MessagingMenu_toggler{
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: $navbar_right_ul_li_icons_color;
+                                border-color: $navbar_right_ul_li_icons_border_color;
+                            }
+                        }
+                    }
+                    li.o_mail_systray_item{
+                        a.o-no-caret{
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: $navbar_right_ul_li_icons_color;
+                                border-color: $navbar_right_ul_li_icons_border_color;
+                            }
+                        }
+                    }
+                    li.o_mail_systray_item.show{
+                        a.o-no-caret{
+                            background-color: $navbar_ul_show_bg_color;;
+                        }
+                    }
+                    li.o_user_menu{
+                        a.o-no-caret{
+                            color: black!important;
+                            font-weight: 600!important;
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: transparent;
+                                border-color: transparent;
+                            }
+                        }
+                    }
+                    li.o_user_menu.show{
+                        a.o-no-caret{
+                            background-color: $navbar_ul_show_bg_color;
+                        }
+                        div.dropdown-menu{
+                            background-color: $navbar_right_ul_dropdown_bg_color;
+                            a{
+                                color: $navbar_right_ul_dropdown_item_color;
+                                background-color: $navbar_right_ul_dropdown_item_bg_color;
+                                &:hover{
+                                    color: $navbar_right_ul_dropdown_item_color_hover;
+                                    background-color: $navbar_right_ul_dropdown_item_hover_color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .o_home_menu{
+            /*search section*/
+            .o_menu_search{}
+            /*apps section*/
+            .o_home_menu_scrollable{
+                /*apps container*/
+                .o_apps{
+                    /*app*/
+                    .o_app{
+                        &:hover{
+                            background-color: $app_hover_bg_color!important;
+                        }
+                        .o_app_icon{}
+                        .o_caption{
+                            font-size: 16px!important;
+                            font-weight: 300!important;
+                            color: $app_name_color!important;
+                        }
+                    }
+                }
+            }
+        }
+        .o_action_manager{
+            .o_action{
+                .o_control_panel{
+                    .o_cp_top{
+                        .o_cp_top_right{
+                            .o_cp_searchview{
+                                .o_searchview{
+                                    .o_searchview_input_container{
+                                        .o_searchview_facet{
+                                            .o_searchview_facet_label{
+                                                background-color: $filter_icon_bg_color;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .o_content{
+                    /*Apps Module*/
+                    .o_search_panel{
+                        .o_search_panel_section{
+                            header.o_search_panel_section_header{
+                                i{
+                                    color: $sidebar_categories_icon_color;
+                                }
+                            }
+                            ul.o_search_panel_field{
+                                li{
+                                    header{
+                                        span{
+                                            color: $sidebar_categories_item_color!important;
+                                        }
+                                    }
+                                    header.active{
+                                        background-color: $sidebar_categories_item_bg_hover_active_color;
+                                        label{
+                                            color: $sidebar_categories_item_hover_active_color;
+                                        }
+                                        span{
+                                            color: $sidebar_categories_item_hover_active_color!important;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .o_kanban_view{
+                        .oe_module_vignette{
+                            .oe_module_desc{
+                                .oe_module_action{
+                                    a.btn-secondary{
+                                        color: $apps_more_info;
+                                    }
+                                    button.btn-primary{
+                                        color: $apps_install_color;
+                                        background-color: $apps_install_bg_color;
+                                        border-color: $apps_install_bg_color;
+                                    }
+                                    a.btn-info{
+                                        color: $apps_upgrade_color;
+                                        background-color: $apps_upgrade_bg_color;
+                                        border-color: $apps_upgrade_bg_color;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    /*accounting module-invoice*/
+                    .o_form_view.o_xxl_form_view{
+                        height: auto!important;
+                        display: flex!important;
+                        flex-direction: column!important;
+                        align-items: center!important;
+                        .o_form_sheet_bg{
+                            overflow: unset!important;
+                            width: 100%!important;
+                        }
+                    }
+                    /*Setting Module*/
+                    .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable{
+                        .o_control_panel{
+                            width: 100%!important;
+                        }
+                        .o_setting_container{
+                            width: 100%!important;
+                            .settings{
+                                .app_settings_block{
+                                    h2{
+                                        background-color: $sections_titles_bg!important;
+                                        color: $sections_titles_color!important;
+                                        font-weight: 500!important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1600px) and (max-width: 1919px){
+    .o_web_client{
+        header{
+            .o_main_navbar{
+                background-color: $navbar_bg_color;
+                /*Menu Toggle*/
+                a.o_menu_toggle{
+                    background-color: $navbar_toggle;
+                }
+                button.o_mobile_menu_toggle{}
+                /*Selection Apps*/
+                a.o_menu_brand{
+                    color: $slection_app_color;
+                    &:hover{
+                        background-color: $selection_app_bg_hover;
+                    }
+                }
+                /*Nav Left ul*/
+                ul.o_menu_sections{
+                    li{
+                        a{
+                            color:$navbar_left_ul_color;
+                            &:hover{
+                                background-color: $navbar_left_ul_bg_color_hover;
+                            }
+                        }
+                    }
+                    li.show{
+                        a{
+                            color:$navbar_left_ul_color;
+                            background-color: $navbar_left_ul_bg_color_hover;;
+                        }
+                        div.dropdown-menu{
+                            background-color: $navbar_left_ul_dropdown_bg_color;
+                            a{
+                                color: $navbar_left_ul_dropdown_item_color;
+                                background-color: $navbar_left_ul_dropdown_item_bg_color;
+                                &:hover{
+                                    color: $navbar_left_ul_dropdown_item_color_hover;
+                                    background-color: $navbar_left_ul_dropdown_item_hover_color;
+                                }
+                            }
+                        }
+                    }
+                }
+                /*Nav Right ul*/
+                ul.o_menu_systray{
+                    li.o_MessagingMenu{
+                        a.o_MessagingMenu_toggler{
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: $navbar_right_ul_li_icons_color;
+                                border-color: $navbar_right_ul_li_icons_border_color;
+                            }
+                        }
+                    }
+                    li.o_mail_systray_item{
+                        a.o-no-caret{
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: $navbar_right_ul_li_icons_color;
+                                border-color: $navbar_right_ul_li_icons_border_color;
+                            }
+                        }
+                    }
+                    li.o_mail_systray_item.show{
+                        a.o-no-caret{
+                            background-color: $navbar_ul_show_bg_color;;
+                        }
+                    }
+                    li.o_user_menu{
+                        a.o-no-caret{
+                            color: black!important;
+                            font-weight: 600!important;
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: transparent;
+                                border-color: transparent;
+                            }
+                        }
+                    }
+                    li.o_user_menu.show{
+                        a.o-no-caret{
+                            background-color: $navbar_ul_show_bg_color;
+                        }
+                        div.dropdown-menu{
+                            background-color: $navbar_right_ul_dropdown_bg_color;
+                            a{
+                                color: $navbar_right_ul_dropdown_item_color;
+                                background-color: $navbar_right_ul_dropdown_item_bg_color;
+                                &:hover{
+                                    color: $navbar_right_ul_dropdown_item_color_hover;
+                                    background-color: $navbar_right_ul_dropdown_item_hover_color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .o_home_menu{
+            /*search section*/
+            .o_menu_search{}
+            /*apps section*/
+            .o_home_menu_scrollable{
+                /*apps container*/
+                .o_apps{
+                    /*app*/
+                    .o_app{
+                        &:hover{
+                            background-color: $app_hover_bg_color!important;
+                        }
+                        .o_app_icon{}
+                        .o_caption{
+                            font-size: 16px!important;
+                            font-weight: 300!important;
+                            color: $app_name_color!important;
+                        }
+                    }
+                }
+            }
+        }
+        .o_action_manager{
+            .o_action{
+                .o_control_panel{
+                    .o_cp_top{
+                        .o_cp_top_right{
+                            .o_cp_searchview{
+                                .o_searchview{
+                                    .o_searchview_input_container{
+                                        .o_searchview_facet{
+                                            .o_searchview_facet_label{
+                                                background-color: $filter_icon_bg_color;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .o_content{
+                    /*Apps Module*/
+                    .o_search_panel{
+                        .o_search_panel_section{
+                            header.o_search_panel_section_header{
+                                i{
+                                    color: $sidebar_categories_icon_color;
+                                }
+                            }
+                            ul.o_search_panel_field{
+                                li{
+                                    header{
+                                        span{
+                                            color: $sidebar_categories_item_color!important;
+                                        }
+                                    }
+                                    header.active{
+                                        background-color: $sidebar_categories_item_bg_hover_active_color;
+                                        label{
+                                            color: $sidebar_categories_item_hover_active_color;
+                                        }
+                                        span{
+                                            color: $sidebar_categories_item_hover_active_color!important;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .o_kanban_view{
+                        .oe_module_vignette{
+                            .oe_module_desc{
+                                .oe_module_action{
+                                    a.btn-secondary{
+                                        color: $apps_more_info;
+                                    }
+                                    button.btn-primary{
+                                        color: $apps_install_color;
+                                        background-color: $apps_install_bg_color;
+                                        border-color: $apps_install_bg_color;
+                                    }
+                                    a.btn-info{
+                                        color: $apps_upgrade_color;
+                                        background-color: $apps_upgrade_bg_color;
+                                        border-color: $apps_upgrade_bg_color;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                     /*accounting module-invoice*/
+                     .o_form_view.o_xxl_form_view{
+                        height: auto!important;
+                        display: flex!important;
+                        flex-direction: column!important;
+                        align-items: center!important;
+                        .o_form_sheet_bg{
+                            overflow: unset!important;
+                            width: 100%!important;
+                        }
+                    }
+                    /*Setting Module*/
+                    .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable{
+                        .o_control_panel{
+                            width: 100%!important;
+                        }
+                        .o_setting_container{
+                            width: 100%!important;
+                            .settings{
+                                .app_settings_block{
+                                    h2{
+                                        background-color: $sections_titles_bg!important;
+                                        color: $sections_titles_color!important;
+                                        font-weight: 500!important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1920px) and (max-width: 2559px){
+    .o_web_client{
+        header{
+            .o_main_navbar{
+                background-color: $navbar_bg_color;
+                /*Menu Toggle*/
+                a.o_menu_toggle{
+                    background-color: $navbar_toggle;
+                }
+                button.o_mobile_menu_toggle{}
+                /*Selection Apps*/
+                a.o_menu_brand{
+                    color: $slection_app_color;
+                    &:hover{
+                        background-color: $selection_app_bg_hover;
+                    }
+                }
+                /*Nav Left ul*/
+                ul.o_menu_sections{
+                    li{
+                        a{
+                            color:$navbar_left_ul_color;
+                            &:hover{
+                                background-color: $navbar_left_ul_bg_color_hover;
+                            }
+                        }
+                    }
+                    li.show{
+                        a{
+                            color:$navbar_left_ul_color;
+                            background-color: $navbar_left_ul_bg_color_hover;;
+                        }
+                        div.dropdown-menu{
+                            background-color: $navbar_left_ul_dropdown_bg_color;
+                            a{
+                                color: $navbar_left_ul_dropdown_item_color;
+                                background-color: $navbar_left_ul_dropdown_item_bg_color;
+                                &:hover{
+                                    color: $navbar_left_ul_dropdown_item_color_hover;
+                                    background-color: $navbar_left_ul_dropdown_item_hover_color;
+                                }
+                            }
+                        }
+                    }
+                }
+                /*Nav Right ul*/
+                ul.o_menu_systray{
+                    li.o_MessagingMenu{
+                        a.o_MessagingMenu_toggler{
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: $navbar_right_ul_li_icons_color;
+                                border-color: $navbar_right_ul_li_icons_border_color;
+                            }
+                        }
+                    }
+                    li.o_mail_systray_item{
+                        a.o-no-caret{
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: $navbar_right_ul_li_icons_color;
+                                border-color: $navbar_right_ul_li_icons_border_color;
+                            }
+                        }
+                    }
+                    li.o_mail_systray_item.show{
+                        a.o-no-caret{
+                            background-color: $navbar_ul_show_bg_color;;
+                        }
+                    }
+                    li.o_user_menu{
+                        a.o-no-caret{
+                            color: black!important;
+                            font-weight: 600!important;
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: transparent;
+                                border-color: transparent;
+                            }
+                        }
+                    }
+                    li.o_user_menu.show{
+                        a.o-no-caret{
+                            background-color: $navbar_ul_show_bg_color;
+                        }
+                        div.dropdown-menu{
+                            background-color: $navbar_right_ul_dropdown_bg_color;
+                            a{
+                                color: $navbar_right_ul_dropdown_item_color;
+                                background-color: $navbar_right_ul_dropdown_item_bg_color;
+                                &:hover{
+                                    color: $navbar_right_ul_dropdown_item_color_hover;
+                                    background-color: $navbar_right_ul_dropdown_item_hover_color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .o_home_menu{
+            /*search section*/
+            .o_menu_search{}
+            /*apps section*/
+            .o_home_menu_scrollable{
+                /*apps container*/
+                .o_apps{
+                    /*app*/
+                    .o_app{
+                        &:hover{
+                            background-color: $app_hover_bg_color!important;
+                        }
+                        .o_app_icon{}
+                        .o_caption{
+                            font-size: 16px!important;
+                            font-weight: 300!important;
+                            color: $app_name_color!important;
+                        }
+                    }
+                }
+            }
+        }
+        .o_action_manager{
+            .o_action{
+                .o_control_panel{
+                    .o_cp_top{
+                        .o_cp_top_right{
+                            .o_cp_searchview{
+                                .o_searchview{
+                                    .o_searchview_input_container{
+                                        .o_searchview_facet{
+                                            .o_searchview_facet_label{
+                                                background-color: $filter_icon_bg_color;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .o_content{
+                    /*Apps Module*/
+                    .o_search_panel{
+                        .o_search_panel_section{
+                            header.o_search_panel_section_header{
+                                i{
+                                    color: $sidebar_categories_icon_color;
+                                }
+                            }
+                            ul.o_search_panel_field{
+                                li{
+                                    header{
+                                        span{
+                                            color: $sidebar_categories_item_color!important;
+                                        }
+                                    }
+                                    header.active{
+                                        background-color: $sidebar_categories_item_bg_hover_active_color;
+                                        label{
+                                            color: $sidebar_categories_item_hover_active_color;
+                                        }
+                                        span{
+                                            color: $sidebar_categories_item_hover_active_color!important;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .o_kanban_view{
+                        .oe_module_vignette{
+                            .oe_module_desc{
+                                .oe_module_action{
+                                    a.btn-secondary{
+                                        color: $apps_more_info;
+                                    }
+                                    button.btn-primary{
+                                        color: $apps_install_color;
+                                        background-color: $apps_install_bg_color;
+                                        border-color: $apps_install_bg_color;
+                                    }
+                                    a.btn-info{
+                                        color: $apps_upgrade_color;
+                                        background-color: $apps_upgrade_bg_color;
+                                        border-color: $apps_upgrade_bg_color;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    /*accounting module-invoice*/
+                    .o_form_view.o_xxl_form_view{
+                        height: auto!important;
+                        display: flex!important;
+                        flex-direction: column!important;
+                        align-items: center!important;
+                        .o_form_sheet_bg{
+                            overflow: unset!important;
+                            width: 100%!important;
+                        }
+                    }
+                    /*Setting Module*/
+                    .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable{
+                        .o_control_panel{
+                            width: 100%!important;
+                        }
+                        .o_setting_container{
+                            width: 100%!important;
+                            .settings{
+                                .app_settings_block{
+                                    h2{
+                                        background-color: $sections_titles_bg!important;
+                                        color: $sections_titles_color!important;
+                                        font-weight: 500!important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 2560px) and (max-width: 3839px){
+    .o_web_client{
+        header{
+            .o_main_navbar{
+                background-color: $navbar_bg_color;
+                /*Menu Toggle*/
+                a.o_menu_toggle{
+                    background-color: $navbar_toggle;
+                }
+                button.o_mobile_menu_toggle{}
+                /*Selection Apps*/
+                a.o_menu_brand{
+                    color: $slection_app_color;
+                    &:hover{
+                        background-color: $selection_app_bg_hover;
+                    }
+                }
+                /*Nav Left ul*/
+                ul.o_menu_sections{
+                    li{
+                        a{
+                            color:$navbar_left_ul_color;
+                            &:hover{
+                                background-color: $navbar_left_ul_bg_color_hover;
+                            }
+                        }
+                    }
+                    li.show{
+                        a{
+                            color:$navbar_left_ul_color;
+                            background-color: $navbar_left_ul_bg_color_hover;;
+                        }
+                        div.dropdown-menu{
+                            background-color: $navbar_left_ul_dropdown_bg_color;
+                            a{
+                                color: $navbar_left_ul_dropdown_item_color;
+                                background-color: $navbar_left_ul_dropdown_item_bg_color;
+                                &:hover{
+                                    color: $navbar_left_ul_dropdown_item_color_hover;
+                                    background-color: $navbar_left_ul_dropdown_item_hover_color;
+                                }
+                            }
+                        }
+                    }
+                }
+                /*Nav Right ul*/
+                ul.o_menu_systray{
+                    li.o_MessagingMenu{
+                        a.o_MessagingMenu_toggler{
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: $navbar_right_ul_li_icons_color;
+                                border-color: $navbar_right_ul_li_icons_border_color;
+                            }
+                        }
+                    }
+                    li.o_mail_systray_item{
+                        a.o-no-caret{
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: $navbar_right_ul_li_icons_color;
+                                border-color: $navbar_right_ul_li_icons_border_color;
+                            }
+                        }
+                    }
+                    li.o_mail_systray_item.show{
+                        a.o-no-caret{
+                            background-color: $navbar_ul_show_bg_color;;
+                        }
+                    }
+                    li.o_user_menu{
+                        a.o-no-caret{
+                            color: black!important;
+                            font-weight: 600!important;
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: transparent;
+                                border-color: transparent;
+                            }
+                        }
+                    }
+                    li.o_user_menu.show{
+                        a.o-no-caret{
+                            background-color: $navbar_ul_show_bg_color;
+                        }
+                        div.dropdown-menu{
+                            background-color: $navbar_right_ul_dropdown_bg_color;
+                            a{
+                                color: $navbar_right_ul_dropdown_item_color;
+                                background-color: $navbar_right_ul_dropdown_item_bg_color;
+                                &:hover{
+                                    color: $navbar_right_ul_dropdown_item_color_hover;
+                                    background-color: $navbar_right_ul_dropdown_item_hover_color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .o_home_menu{
+            /*search section*/
+            .o_menu_search{}
+            /*apps section*/
+            .o_home_menu_scrollable{
+                /*apps container*/
+                .o_apps{
+                    /*app*/
+                    .o_app{
+                        &:hover{
+                            background-color: $app_hover_bg_color!important;
+                        }
+                        .o_app_icon{}
+                        .o_caption{
+                            font-size: 20px!important;
+                            font-weight: 300!important;
+                            color: $app_name_color!important;
+                        }
+                    }
+                }
+            }
+        }
+        .o_action_manager{
+            .o_action{
+                .o_control_panel{
+                    .o_cp_top{
+                        .o_cp_top_right{
+                            .o_cp_searchview{
+                                .o_searchview{
+                                    .o_searchview_input_container{
+                                        .o_searchview_facet{
+                                            .o_searchview_facet_label{
+                                                background-color: $filter_icon_bg_color;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .o_content{
+                    /*Apps Module*/
+                    .o_search_panel{
+                        .o_search_panel_section{
+                            header.o_search_panel_section_header{
+                                i{
+                                    color: $sidebar_categories_icon_color;
+                                }
+                            }
+                            ul.o_search_panel_field{
+                                li{
+                                    header{
+                                        span{
+                                            color: $sidebar_categories_item_color!important;
+                                        }
+                                    }
+                                    header.active{
+                                        background-color: $sidebar_categories_item_bg_hover_active_color;
+                                        label{
+                                            color: $sidebar_categories_item_hover_active_color;
+                                        }
+                                        span{
+                                            color: $sidebar_categories_item_hover_active_color!important;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .o_kanban_view{
+                        .oe_module_vignette{
+                            .oe_module_desc{
+                                .oe_module_action{
+                                    a.btn-secondary{
+                                        color: $apps_more_info;
+                                    }
+                                    button.btn-primary{
+                                        color: $apps_install_color;
+                                        background-color: $apps_install_bg_color;
+                                        border-color: $apps_install_bg_color;
+                                    }
+                                    a.btn-info{
+                                        color: $apps_upgrade_color;
+                                        background-color: $apps_upgrade_bg_color;
+                                        border-color: $apps_upgrade_bg_color;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                     /*accounting module-invoice*/
+                     .o_form_view.o_xxl_form_view{
+                        height: auto!important;
+                        display: flex!important;
+                        flex-direction: column!important;
+                        align-items: center!important;
+                        .o_form_sheet_bg{
+                            overflow: unset!important;
+                            width: 100%!important;
+                        }
+                    }
+                    /*Setting Module*/
+                    .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable{
+                        .o_control_panel{
+                            width: 100%!important;
+                        }
+                        .o_setting_container{
+                            width: 100%!important;
+                            .settings{
+                                .app_settings_block{
+                                    h2{
+                                        background-color: $sections_titles_bg!important;
+                                        color: $sections_titles_color!important;
+                                        font-weight: 500!important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 3840px){
+    .o_web_client{
+        header{
+            .o_main_navbar{
+                background-color: $navbar_bg_color;
+                /*Menu Toggle*/
+                a.o_menu_toggle{
+                    background-color: $navbar_toggle;
+                }
+                button.o_mobile_menu_toggle{}
+                /*Selection Apps*/
+                a.o_menu_brand{
+                    color: $slection_app_color;
+                    &:hover{
+                        background-color: $selection_app_bg_hover;
+                    }
+                }
+                /*Nav Left ul*/
+                ul.o_menu_sections{
+                    li{
+                        a{
+                            color:$navbar_left_ul_color;
+                            &:hover{
+                                background-color: $navbar_left_ul_bg_color_hover;
+                            }
+                        }
+                    }
+                    li.show{
+                        a{
+                            color:$navbar_left_ul_color;
+                            background-color: $navbar_left_ul_bg_color_hover;;
+                        }
+                        div.dropdown-menu{
+                            background-color: $navbar_left_ul_dropdown_bg_color;
+                            a{
+                                color: $navbar_left_ul_dropdown_item_color;
+                                background-color: $navbar_left_ul_dropdown_item_bg_color;
+                                &:hover{
+                                    color: $navbar_left_ul_dropdown_item_color_hover;
+                                    background-color: $navbar_left_ul_dropdown_item_hover_color;
+                                }
+                            }
+                        }
+                    }
+                }
+                /*Nav Right ul*/
+                ul.o_menu_systray{
+                    li.o_MessagingMenu{
+                        a.o_MessagingMenu_toggler{
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: $navbar_right_ul_li_icons_color;
+                                border-color: $navbar_right_ul_li_icons_border_color;
+                            }
+                        }
+                    }
+                    li.o_mail_systray_item{
+                        a.o-no-caret{
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: $navbar_right_ul_li_icons_color;
+                                border-color: $navbar_right_ul_li_icons_border_color;
+                            }
+                        }
+                    }
+                    li.o_mail_systray_item.show{
+                        a.o-no-caret{
+                            background-color: $navbar_ul_show_bg_color;;
+                        }
+                    }
+                    li.o_user_menu{
+                        a.o-no-caret{
+                            color: black!important;
+                            font-weight: 600!important;
+                            &:hover{
+                                background-color: $navbar_right_ul_li_hover_bg_color;
+                            }
+                            span{
+                                background-color: transparent;
+                                border-color: transparent;
+                            }
+                        }
+                    }
+                    li.o_user_menu.show{
+                        a.o-no-caret{
+                            background-color: $navbar_ul_show_bg_color;
+                        }
+                        div.dropdown-menu{
+                            background-color: $navbar_right_ul_dropdown_bg_color;
+                            a{
+                                color: $navbar_right_ul_dropdown_item_color;
+                                background-color: $navbar_right_ul_dropdown_item_bg_color;
+                                &:hover{
+                                    color: $navbar_right_ul_dropdown_item_color_hover;
+                                    background-color: $navbar_right_ul_dropdown_item_hover_color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .o_home_menu{
+            /*search section*/
+            .o_menu_search{}
+            /*apps section*/
+            .o_home_menu_scrollable{
+                /*apps container*/
+                .o_apps{
+                    /*app*/
+                    .o_app{
+                        &:hover{
+                            background-color: $app_hover_bg_color!important;
+                        }
+                        .o_app_icon{}
+                        .o_caption{
+                            font-size: 30px!important;
+                            font-weight: 300!important;
+                            color: $app_name_color!important;
+                        }
+                    }
+                }
+            }
+        }
+        .o_action_manager{
+            .o_action{
+                .o_control_panel{
+                    .o_cp_top{
+                        .o_cp_top_right{
+                            .o_cp_searchview{
+                                .o_searchview{
+                                    .o_searchview_input_container{
+                                        .o_searchview_facet{
+                                            .o_searchview_facet_label{
+                                                background-color: $filter_icon_bg_color;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .o_content{
+                    /*Apps Module*/
+                    .o_search_panel{
+                        .o_search_panel_section{
+                            header.o_search_panel_section_header{
+                                i{
+                                    color: $sidebar_categories_icon_color;
+                                }
+                            }
+                            ul.o_search_panel_field{
+                                li{
+                                    header{
+                                        span{
+                                            color: $sidebar_categories_item_color!important;
+                                        }
+                                    }
+                                    header.active{
+                                        background-color: $sidebar_categories_item_bg_hover_active_color;
+                                        label{
+                                            color: $sidebar_categories_item_hover_active_color;
+                                        }
+                                        span{
+                                            color: $sidebar_categories_item_hover_active_color!important;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .o_kanban_view{
+                        .oe_module_vignette{
+                            .oe_module_desc{
+                                .oe_module_action{
+                                    a.btn-secondary{
+                                        color: $apps_more_info;
+                                    }
+                                    button.btn-primary{
+                                        color: $apps_install_color;
+                                        background-color: $apps_install_bg_color;
+                                        border-color: $apps_install_bg_color;
+                                    }
+                                    a.btn-info{
+                                        color: $apps_upgrade_color;
+                                        background-color: $apps_upgrade_bg_color;
+                                        border-color: $apps_upgrade_bg_color;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                     /*accounting module-invoice*/
+                     .o_form_view.o_xxl_form_view{
+                        height: auto!important;
+                        display: flex!important;
+                        flex-direction: column!important;
+                        align-items: center!important;
+                        .o_form_sheet_bg{
+                            overflow: unset!important;
+                            width: 100%!important;
+                        }
+                    }
+                    /*Setting Module*/
+                    .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable{
+                        .o_control_panel{
+                            width: 100%!important;
+                        }
+                        .o_setting_container{
+                            width: 100%!important;
+                            .settings{
+                                .app_settings_block{
+                                    h2{
+                                        background-color: $sections_titles_bg!important;
+                                        color: $sections_titles_color!important;
+                                        font-weight: 500!important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.btn-primary{
+    color: $apps_install_color;
+    background-color: $apps_install_bg_color;
+    border-color: $apps_install_bg_color;
+    &:hover{
+        background-color: $apps_install_bg_color;
+    }
+}
+
+.btn-secondary{
+    color: $apps_more_info;
+}

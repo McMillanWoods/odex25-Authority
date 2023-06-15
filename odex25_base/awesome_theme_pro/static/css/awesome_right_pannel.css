@@ -1,0 +1,11 @@
+.rightbar-overlay {
+  background-color: rgba(52, 58, 64, 0.55);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: none;
+  z-index: 990;
+  transition: all 0.2s ease-out;
+}/*# sourceMappingURL=awesome_right_pannel.css.map */

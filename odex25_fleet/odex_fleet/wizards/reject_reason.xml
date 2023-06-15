@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="wizard_reject_reason_fleet_wiz_form" model="ir.ui.view">
+            <field name="name">Reject Reason</field>
+            <field name="model">reject.reason.fleet.wiz</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                            <group>
+                                <field name="reason" required="1"/>
+                                <field name="maintenance_id" invisible="1"/>
+                                <field name="delegation_id" invisible="1"/>
+                                <field name="request_id" invisible="1"/>
+                            </group>
+
+                    </sheet>
+                    <footer>
+                        <button name="action_reject" string="Confirm" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

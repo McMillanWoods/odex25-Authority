@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="cm_inter_entity_sync_action">
+            <field name="name">Inter Entity Sync</field>
+            <field name="res_model">cm.inter_entity.sync</field>
+            <field name="view_mode">form</field>
+            <field name="res_id" ref="cm_entity_sync_odex.sync_settings"/>
+        </record>
+        
+        
+        <menuitem id="cm_inter_entity_sync_menu" name="Inter Entity Sync"
+                  parent="exp_transaction_documents.cm_settings_menu" action="cm_inter_entity_sync_action" groups="base.group_no_one" />
+    
+    </data>
+</odoo>

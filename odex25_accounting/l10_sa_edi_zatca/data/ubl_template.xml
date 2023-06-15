@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--
+        Render a res.partner record to be added to the UBL xml document.
+        -->
+        <template id="export_ubl_invoice_partner">
+            <cac:Party
+                    xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
+                    xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+                    xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">
+                <t t-set="partner" t-value="partner_vals['partner']"/>
+                <cac:PartyIdentification>
+                    <cbc:ID schemeID="CRN">454634645645654</cbc:ID>
+                </cac:PartyIdentification>
+                <cac:PostalAddress>
+                    <cbc:StreetName
+                            t-if="partner.street"
+                            t-esc="partner.street"/>
+                    <cbc:BuildingNumber
+                            t-if="partner.street2"
+                            t-esc="partner.street2"/>
+                    <cbc:PlotIdentification
+                            t-if="partner.street2"
+                            t-esc="partner.street2"/>
+                    <cbc:CitySubdivisionName
+                            t-if="partner.street2"
+                            t-esc="partner.street2"/>
+                    <cbc:CityName
+                            t-if="partner.city"
+                            t-esc="partner.city"/>
+                    <cbc:PostalZone
+                            t-if="partner.zip"
+                            t-esc="partner.zip"/>
+                    <cbc:CountrySubentity
+                            t-if="partner.state_id"
+                            t-esc="partner.state_id.name"/>
+                    <cac:Country
+                            t-if="partner.country_id">
+                        <cbc:IdentificationCode t-esc="partner.country_id.code"/>
+                    </cac:Country>
+                </cac:PostalAddress>
+                <cac:PartyTaxScheme t-if="partner.vat">
+                    <cbc:CompanyID t-esc="partner.vat"/>
+                    <cac:TaxScheme>
+                        <cbc:ID
+                                schemeID="UN/ECE 5153"
+                                schemeAgencyID="6"
+                        >VAT
+                        </cbc:ID>
+                    </cac:TaxScheme>
+                </cac:PartyTaxScheme>
+                <cac:PartyLegalEntity>
+                    <cbc:RegistrationName t-esc="partner.name"/>
+                </cac:PartyLegalEntity>
+            </cac:Party>
+        </template>
+
+        <!--
+        Render an invoice's line to be added to the UBL xml document.
+        -->
+        <template id="export_ubl_invoice_line">
+            <cac:InvoiceLine
+                    xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
+                    xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+                    xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">
+                <t t-set="line" t-value="line_vals['line']"/>
+                <cbc:ID t-esc="line.id"/>
+                <cbc:InvoicedQuantity t-esc="line.quantity"/>
+                <cbc:LineExtensionAmount
+                        t-att-currencyID="line.currency_id.name"
+                        t-esc="format_monetary(line.price_subtotal)"/>
+                <cac:TaxTotal
+                        t-foreach="tax_details['invoice_line_tax_details'][line]['tax_details'].values()"
+                        t-as="tax_detail_vals">
+                    <cbc:TaxAmount
+                            t-att-currencyID="line.currency_id.name"
+                            t-esc="format_monetary(-tax_detail_vals['tax_amount_currency'])"/>
+                    <cbc:RoundingAmount t-att-currencyID="record.currency_id.name"
+                                        t-esc="format_monetary(record.amount_total)"/>
+                </cac:TaxTotal>
+                <cac:Item>
+                    <cbc:Name t-esc="line.product_id.name"/>
+                    <cac:ClassifiedTaxCategory>
+                        <cbc:ID>S</cbc:ID>
+                        <cbc:Percent>15.00</cbc:Percent>
+                        <cac:TaxScheme>
+                            <cbc:ID>VAT</cbc:ID>
+                        </cac:TaxScheme>
+                    </cac:ClassifiedTaxCategory>
+                </cac:Item>
+                <cac:Price>
+                    <cbc:PriceAmount
+                            t-att-currencyID="line.currency_id.name"
+                            t-esc="format_monetary(line.price_unit)"/>
+                    <!--                    <cac:AllowanceCharge>-->
+                    <!--                        <cbc:ChargeIndicator>false</cbc:ChargeIndicator>-->
+                    <!--                        <cbc:AllowanceChargeReason>discount</cbc:AllowanceChargeReason>-->
+                    <!--                        <cbc:Amount currencyID="SAR">2.00</cbc:Amount>-->
+                    <!--                    </cac:AllowanceCharge>-->
+                </cac:Price>
+            </cac:InvoiceLine>
+        </template>
+
+        <!--
+        Render an invoice to be added to the UBL xml document.
+        -->
+        <template id="export_ubl_invoice">
+            <Invoice
+                    xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
+                    xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+                    xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+                    xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2">
+
+                <ext:UBLExtensions>
+                    <ext:UBLExtension>
+                        <ext:ExtensionURI>urn:oasis:names:specification:ubl:dsig:enveloped:xades</ext:ExtensionURI>
+                        <ext:ExtensionContent>
+                            <!-- Please note that the signature values are sample values only -->
+                            <sig:UBLDocumentSignatures
+                                    xmlns:sig="urn:oasis:names:specification:ubl:schema:xsd:CommonSignatureComponents-2"
+                                    xmlns:sac="urn:oasis:names:specification:ubl:schema:xsd:SignatureAggregateComponents-2"
+                                    xmlns:sbc="urn:oasis:names:specification:ubl:schema:xsd:SignatureBasicComponents-2">
+                                <sac:SignatureInformation>
+                                    <cbc:ID>urn:oasis:names:specification:ubl:signature:1</cbc:ID>
+                                    <sbc:ReferencedSignatureID>urn:oasis:names:specification:ubl:signature:Invoice
+                                    </sbc:ReferencedSignatureID>
+                                    <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="signature">
+                                        <ds:SignedInfo>
+                                            <ds:CanonicalizationMethod
+                                                    Algorithm="http://www.w3.org/2006/12/xml-c14n11"/>
+                                            <ds:SignatureMethod
+                                                    Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256"/>
+                                            <ds:Reference Id="invoiceSignedData" URI="">
+                                                <ds:Transforms>
+                                                    <ds:Transform
+                                                            Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116">
+                                                        <ds:XPath>not(//ancestor-or-self::ext:UBLExtensions)</ds:XPath>
+                                                    </ds:Transform>
+                                                    <ds:Transform
+                                                            Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116">
+                                                        <ds:XPath>not(//ancestor-or-self::cac:Signature)</ds:XPath>
+                                                    </ds:Transform>
+                                                    <ds:Transform
+                                                            Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116">
+                                                        <ds:XPath>
+                                                            not(//ancestor-or-self::cac:AdditionalDocumentReference[cbc:ID='QR'])
+                                                        </ds:XPath>
+                                                    </ds:Transform>
+                                                    <ds:Transform Algorithm="http://www.w3.org/2006/12/xml-c14n11"/>
+                                                </ds:Transforms>
+                                                <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+                                                <ds:DigestValue>+bA1mucVI67H4WCbN/e9J2qUpHTt3TwMdxlkOWTeov8=
+                                                </ds:DigestValue>
+                                            </ds:Reference>
+                                            <ds:Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties"
+                                                          URI="#xadesSignedProperties">
+                                                <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+                                                <ds:DigestValue>
+                                                    ZDZjMzQyZTBjNGVjY2VlODgxYTBiMzhiNDFlM2QxZTlkZDkyMDQ1NTEwNzUwN2RhYjUwNGNmZmNmNTFmY2I2OA==
+                                                </ds:DigestValue>
+                                            </ds:Reference>
+                                        </ds:SignedInfo>
+                                        <ds:SignatureValue>
+                                            MEYCIQCYh5e3irIqWl5YtaCnKiujMITmokXYOPMpIDCIoWW79wIhAMXmc+MFHGtaeBseOuEGTlwD6g09gNQPRPuY89s65OWS
+                                        </ds:SignatureValue>
+                                        <ds:KeyInfo>
+                                            <ds:X509Data>
+                                                <ds:X509Certificate>
+                                                    MIID1DCCA3mgAwIBAgITbwAAe3UAYVU34I/+5QABAAB7dTAKBggqhkjOPQQDAjBjMRUwEwYKCZImiZPyLGQBGRYFbG9jYWwxEzARBgoJkiaJk/IsZAEZFgNnb3YxFzAVBgoJkiaJk/IsZAEZFgdleHRnYXp0MRwwGgYDVQQDExNUU1pFSU5WT0lDRS1TdWJDQS0xMB4XDTIyMDYxMjE3NDA1MloXDTI0MDYxMTE3NDA1MlowSTELMAkGA1UEBhMCU0ExDjAMBgNVBAoTBWFnaWxlMRYwFAYDVQQLEw1oYXlhIHlhZ2htb3VyMRIwEAYDVQQDEwkxMjcuMC4wLjEwVjAQBgcqhkjOPQIBBgUrgQQACgNCAATTAK9lrTVko9rkq6ZYcc9HDRZP4b9S4zA4Km7YXJ+snTVhLkzU0HsmSX9Un8jDhRTOHDKaft8C/uuUY934vuMNo4ICJzCCAiMwgYgGA1UdEQSBgDB+pHwwejEbMBkGA1UEBAwSMS1oYXlhfDItMjM0fDMtMTEyMR8wHQYKCZImiZPyLGQBAQwPMzAwMDc1NTg4NzAwMDAzMQ0wCwYDVQQMDAQxMTAwMREwDwYDVQQaDAhaYXRjYSAxMjEYMBYGA1UEDwwPRm9vZCBCdXNzaW5lc3MzMB0GA1UdDgQWBBSgmIWD6bPfbbKkmTwOJRXvIbH9HjAfBgNVHSMEGDAWgBR2YIz7BqCsZ1c1nc+arKcrmTW1LzBOBgNVHR8ERzBFMEOgQaA/hj1odHRwOi8vdHN0Y3JsLnphdGNhLmdvdi5zYS9DZXJ0RW5yb2xsL1RTWkVJTlZPSUNFLVN1YkNBLTEuY3JsMIGtBggrBgEFBQcBAQSBoDCBnTBuBggrBgEFBQcwAYZiaHR0cDovL3RzdGNybC56YXRjYS5nb3Yuc2EvQ2VydEVucm9sbC9UU1pFaW52b2ljZVNDQTEuZXh0Z2F6dC5nb3YubG9jYWxfVFNaRUlOVk9JQ0UtU3ViQ0EtMSgxKS5jcnQwKwYIKwYBBQUHMAGGH2h0dHA6Ly90c3RjcmwuemF0Y2EuZ292LnNhL29jc3AwDgYDVR0PAQH/BAQDAgeAMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDAzAnBgkrBgEEAYI3FQoEGjAYMAoGCCsGAQUFBwMCMAoGCCsGAQUFBwMDMAoGCCqGSM49BAMCA0kAMEYCIQCVwDMcq6PO+McmsBXUz/v1GdhGp7rqSa2AxTKSv838IAIhAOBNDBt9+3DSlijoVfxzrdDh528WC37smEdoGWVrSpG1
+                                                </ds:X509Certificate>
+                                            </ds:X509Data>
+                                        </ds:KeyInfo>
+                                        <ds:Object>
+                                            <xades:QualifyingProperties xmlns:xades="http://uri.etsi.org/01903/v1.3.2#"
+                                                                        Target="signature">
+                                                <xades:SignedProperties Id="xadesSignedProperties">
+                                                    <xades:SignedSignatureProperties>
+                                                        <xades:SigningTime>2022-06-13T11:06:14Z</xades:SigningTime>
+                                                        <xades:SigningCertificate>
+                                                            <xades:Cert>
+                                                                <xades:CertDigest>
+                                                                    <ds:DigestMethod
+                                                                            Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+                                                                    <ds:DigestValue>
+                                                                        NDliYWY0YmVmNzAyZmE4OWIwZDMzYWIzZjFkOTY5YzFhZjRhZDE4ZTFkODlkNDY2Y2UwYzI2N2QyNDg0MWVlYQ==
+                                                                    </ds:DigestValue>
+                                                                </xades:CertDigest>
+                                                                <xades:IssuerSerial>
+                                                                    <ds:X509IssuerName>CN=TSZEINVOICE-SubCA-1,
+                                                                        DC=extgazt, DC=gov,
+                                                                        DC=local
+                                                                    </ds:X509IssuerName>
+                                                                    <ds:X509SerialNumber>
+                                                                        2475382881139449094209233032847838632732556149
+                                                                    </ds:X509SerialNumber>
+                                                                </xades:IssuerSerial>
+                                                            </xades:Cert>
+                                                        </xades:SigningCertificate>
+                                                    </xades:SignedSignatureProperties>
+                                                </xades:SignedProperties>
+                                            </xades:QualifyingProperties>
+                                        </ds:Object>
+                                    </ds:Signature>
+                                </sac:SignatureInformation>
+                            </sig:UBLDocumentSignatures>
+                        </ext:ExtensionContent>
+                    </ext:UBLExtension>
+                </ext:UBLExtensions>
+
+                <!--                <cbc:ProfileID t-if="profile_id" t-esc="profile_id"/>-->
+                <cbc:ProfileID>reporting:1.0</cbc:ProfileID>
+                <cbc:ID t-esc="record.name"/>
+                <cbc:UUID t-esc="record.l10n_sa_zatca_uuid"/>
+                <cbc:IssueDate t-esc="record.l10n_sa_confirmation_datetime.date()"/>
+                <cbc:IssueTime t-esc="record.l10n_sa_confirmation_datetime.time()"/>
+                <!--                <cbc:InvoiceTypeCode t-att-name="type_code_name" t-esc="type_code"/>-->
+                <cbc:InvoiceTypeCode name="0211010" t-esc="type_code"/>
+                <cbc:DocumentCurrencyCode t-esc="record.currency_id.name"/>
+                <cbc:TaxCurrencyCode t-esc="record.currency_id.name"/>
+
+                <cac:AdditionalDocumentReference>
+                    <cbc:ID>ICV</cbc:ID>
+                    <cbc:UUID>62</cbc:UUID>
+                </cac:AdditionalDocumentReference>
+                <cac:AdditionalDocumentReference>
+                    <cbc:ID>PIH</cbc:ID>
+                    <cac:Attachment>
+                        <cbc:EmbeddedDocumentBinaryObject mimeCode="text/plain"
+                                                          t-esc="record.l10n_sa_qr_code_str">
+                        </cbc:EmbeddedDocumentBinaryObject>
+                    </cac:Attachment>
+                </cac:AdditionalDocumentReference>
+
+
+                <cac:AdditionalDocumentReference>
+                    <cbc:ID>QR</cbc:ID>
+                    <cac:Attachment>
+                        <cbc:EmbeddedDocumentBinaryObject mimeCode="text/plain"
+                                                          t-esc="record.l10n_sa_qr_code_str">
+                        </cbc:EmbeddedDocumentBinaryObject>
+                    </cac:Attachment>
+                </cac:AdditionalDocumentReference>
+
+                <cac:Signature>
+                    <cbc:ID>urn:oasis:names:specification:ubl:signature:Invoice</cbc:ID>
+                    <cbc:SignatureMethod>urn:oasis:names:specification:ubl:dsig:enveloped:xades</cbc:SignatureMethod>
+                </cac:Signature>
+
+
+                <cac:AccountingSupplierParty t-call="l10_sa_edi_zatca.export_ubl_invoice_partner">
+                    <t t-set="partner_vals" t-value="supplier_vals"/>
+                </cac:AccountingSupplierParty>
+                <cac:AccountingCustomerParty t-call="l10_sa_edi_zatca.export_ubl_invoice_partner">
+                    <t t-set="partner_vals" t-value="customer_vals"/>
+                </cac:AccountingCustomerParty>
+
+                <cac:Delivery>
+                    <cbc:ActualDeliveryDate t-esc="record.l10n_sa_delivery_date"/>
+                    <cbc:LatestDeliveryDate t-esc="record.l10n_sa_delivery_date"/>
+                </cac:Delivery>
+
+                <cac:PaymentMeans>
+                    <cbc:PaymentMeansCode listID="UN/ECE 4461" t-esc="payment_means_code"/>
+                </cac:PaymentMeans>
+
+                <cac:AllowanceCharge>
+                    <cbc:ID>1</cbc:ID>
+                    <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+                    <cbc:AllowanceChargeReason>discount</cbc:AllowanceChargeReason>
+                    <cbc:Amount currencyID="SAR">0.0</cbc:Amount>
+                    <cac:TaxCategory>
+                        <cbc:ID schemeAgencyID="6" schemeID="UN/ECE 5305">S</cbc:ID>
+                        <cbc:Percent>15</cbc:Percent>
+                        <cac:TaxScheme>
+                            <cbc:ID schemeAgencyID="6" schemeID="UN/ECE 5153">VAT</cbc:ID>
+                        </cac:TaxScheme>
+                    </cac:TaxCategory>
+                </cac:AllowanceCharge>
+
+                <cac:TaxTotal>
+                    <cbc:TaxAmount
+                            t-att-currencyID="record.currency_id.name"
+                            t-esc="format_monetary(record.amount_tax)"/>
+                    <cac:TaxSubtotal>
+                        <cbc:TaxableAmount currencyID="SAR" t-esc="record.amount_untaxed"/>
+                        <cbc:TaxAmount currencyID="SAR" t-esc="record.amount_tax"/>
+                        <cac:TaxCategory>
+                            <cbc:ID schemeAgencyID="6" schemeID="UN/ECE 5305">S</cbc:ID>
+                            <cbc:Percent>15.00</cbc:Percent>
+                            <cac:TaxScheme>
+                                <cbc:ID schemeAgencyID="6" schemeID="UN/ECE 5153">VAT</cbc:ID>
+                            </cac:TaxScheme>
+                        </cac:TaxCategory>
+                    </cac:TaxSubtotal>
+                </cac:TaxTotal>
+
+                <cac:TaxTotal>
+                    <cbc:TaxAmount
+                            t-att-currencyID="record.currency_id.name"
+                            t-esc="format_monetary(record.amount_tax)"/>
+                </cac:TaxTotal>
+
+                <cac:LegalMonetaryTotal>
+                    <cbc:LineExtensionAmount
+                            t-att-currencyID="record.currency_id.name"
+                            t-esc="format_monetary(record.amount_untaxed)"/>
+                    <cbc:TaxExclusiveAmount
+                            t-att-currencyID="record.currency_id.name"
+                            t-esc="format_monetary(record.amount_untaxed)"/>
+                    <cbc:TaxInclusiveAmount
+                            t-att-currencyID="record.currency_id.name"
+                            t-esc="format_monetary(record.amount_total)"/>
+
+                    <cbc:AllowanceTotalAmount currencyID="SAR">0.00</cbc:AllowanceTotalAmount>
+
+
+                    <cbc:PrepaidAmount
+                            t-att-currencyID="record.currency_id.name"
+                            t-esc="format_monetary(record.amount_total - record.amount_residual)"/>
+                    <cbc:PayableAmount
+                            t-att-currencyID="record.currency_id.name"
+                            t-esc="format_monetary(record.amount_residual)"/>
+                </cac:LegalMonetaryTotal>
+                <t t-foreach="invoice_line_vals_list" t-as="line_vals">
+                    <t t-call="l10_sa_edi_zatca.export_ubl_invoice_line"/>
+                </t>
+            </Invoice>
+        </template>
+    </data>
+</odoo>

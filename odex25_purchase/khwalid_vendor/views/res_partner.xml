@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="view_partner_form_inherited" model="ir.ui.view">
+            <field name="name">view.res.partner.form.inherited</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="before">
+                    <header>
+                        <button string="Vendor Approval" groups="khwalid_vendor.group_vendor_approve" states="new" class="oe_highlight" name="action_purchase_vendor_approve" type="object"/>
+                        <button string="Refuse" groups="khwalid_vendor.group_refuse_vendor" states="new" class="oe_highlight" name="action_purchase_vendor_refuse" type="object"/>
+                        
+                        <field name="state" widget="statusbar"/>
+
+
+                    </header>
+                </xpath>
+                <field name="vat" position="after">
+                        <field name="cancel_reason" readonly="1" attrs="{'invisible': [('state', '!=', 'cancel')]}" />
+                    </field>
+                    <xpath expr="//div[hasclass('oe_title')]" position="inside">
+                        <group>
+                        <field name="parnter_referencen" readonly="1"/>
+                         </group>
+                    </xpath>
+                    
+
+            </field>
+        </record>
+    </data>
+</odoo>
+
+

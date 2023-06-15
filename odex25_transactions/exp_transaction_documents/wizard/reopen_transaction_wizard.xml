@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="reopen_transaction_wizard_view" model="ir.ui.view">
+            <field name="name">Reopen Transaction</field>
+            <field name="model">reopen.transaction.wizard</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <group>
+                        <group>
+                            <field name="reason" required="1"/>
+                            <field name="date" readonly="True"/>
+                        </group>
+                        <group>
+                            <field name="procedure_id" required="1"/>
+                            <field name="note" required="False"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Reopen" type="object" name="action_reopen" class="oe_highlight"/>
+                        or
+                        <button special="cancel" string="Cancel" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

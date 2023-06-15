@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="outstanding_transaction_report_wizard_view" model="ir.ui.view">
+            <field name="name">Outstanding Transaction</field>
+            <field name="model">outstanding.transaction.report.wizard</field>
+            <field name="inherit_id" ref="exp_transaction_report.common_transaction_report_wizard_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form" position="inside">
+                    <footer>
+                        <button string="Print Report" type="object" name="print_report" class="oe_highlight"/>
+                        or
+                        <button special="cancel" string="Cancel" class="oe_link"/>
+                    </footer>
+                </xpath>
+            </field>
+        </record>
+        <record id="outstanding_transaction_report_wiz" model="ir.actions.act_window">
+            <field name="name">Print Outstanding transaction Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">outstanding.transaction.report.wizard</field>
+
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="outstanding_transaction_report_wizard_view"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem
+                id="outstanding_transaction_report"
+                action="outstanding_transaction_report_wiz"
+                parent="exp_transaction_documents.parent_report_menu"/>
+    </data>
+</odoo>

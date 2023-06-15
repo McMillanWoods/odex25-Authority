@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="common_transaction_report_wizard_view" model="ir.ui.view">
+            <field name="name">Common Transaction</field>
+            <field name="model">transaction.common.report</field>
+            <field name="arch" type="xml">
+                <form string="Transaction Report">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="type_transact" required="True"/>
+                                <field name="type"/>
+                            </group>
+                            <group>
+                                <field name="start_date"/>
+                                <field name="end_date" />
+                            </group>
+                        </group>
+                        <group>
+                            <field name="entity_ids" widget="many2many_tags" attrs="{'required': True, 'invisible': [('type','=',False)]}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

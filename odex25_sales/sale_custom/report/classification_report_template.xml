@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="classification_report">
+        <t t-call="web.html_container">
+            <div class="page">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-foreach="data['form']['classification_ids']" t-as="classification">
+                        <t t-call="web.external_layout">
+                            <t t-set="seq" t-value="1"/>
+                            <h2  class="text-center">Proposal Classification Report</h2><br></br>
+                            <p class="text-center"> For The Period <span t-esc="data['form']['date_from']"/> -  <span t-esc="data['form']['date_to']"/> </p>
+                            <!-- <span t-esc="classification_data[classification]" /> -->
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: center;"><strong>#</strong></th>
+                                        <th style="text-align: center;"><strong>Submital Date</strong></th>
+                                        <th style="text-align: center;"><strong>RFP No <br/> P No <br/> JOB No </strong></th>
+                                        <th style="text-align: center;"><strong>Proposal Name</strong></th>
+                                        <th style="text-align: center;"><strong>BL</strong></th>
+                                        <th style="text-align: center;"><strong>Proposal Status</strong></th>
+                                        <th style="text-align: center;"><strong>P Fee <br/> Revised Fee</strong></th>
+                                        <th style="text-align: center;"><strong>Job Fee</strong></th>
+                                        <th style="text-align: center;"><strong>Duration</strong></th>
+                                        <th style="text-align: center;"><strong>Note</strong></th>
+                                        <th style="text-align: center;"><strong>Contact</strong></th>
+                                        <th style="text-align: center;"><strong>Email <br/> Mobile</strong></th>
+                                        <th style="text-align: center;"><strong>Phone <br/> Ext</strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody style="text-align: center;">
+                                    <t t-foreach="classification_data[classification]" t-as="class_data">
+                                        <t t-foreach="class_data" t-as="prop">
+                                            <t t-set="partner" t-value="request.env['res.partner'].browse([prop])"/>
+                                            
+                                            <tr>
+                                                <td class="text-left" colspan="13">
+                                                    <span t-esc="partner.name" />
+                                                </td>
+                                            </tr>
+
+                                            <tr t-foreach="class_data[prop]" t-as="proposal">
+                                                <td>
+                                                    <span t-esc="seq"/>
+                                                    <t t-set="seq" t-value="seq+1"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="proposal['date']"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="proposal['crm_seq']"/> <br/> <span t-esc="proposal['proposal']"/> 
+                                                </td>
+                                                <td>
+                                                    <span t-esc="proposal['name']"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="proposal['business_unit']"/>
+                                                </td>
+
+                                                <td>
+                                                    <span t-esc="proposal['proposal_status']"/>
+                                                </td>
+
+                                                <td>
+                                                    <span t-esc="proposal['p_fees']"/>
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <span t-esc="proposal['project_duration']"/>
+                                                </td>
+                                                <td></td>
+
+                                                <td>
+                                                    <span t-esc="partner.name" /> <!-- <br/> <span t-esc="partner.name" /> --> 
+                                                </td>
+                                                <td>
+                                                    <span t-esc="partner.email" /> <br/> <span t-esc="partner.mobile" /> 
+                                                </td>
+                                                <td>
+                                                    <span t-esc="partner.phone" /> <br/> <span t-esc="partner.vat" /> 
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </t>
+                                </tbody>
+
+                            </table>
+                        </t>
+                    </t>
+                </t>
+            </div>
+        </t>
+    </template>
+    <report
+            id ="action_classification_report_pdf"
+            model ="classification.report.wiz"
+            string ="Classification Report Pdf"
+            report_type ="qweb-pdf"
+            name ="sale_custom.classification_report"
+            file ="sale_custom.classification_report"
+            menu="False" />
+
+    <report id ="action_classification_report_xlsx"
+            model ="classification.report.wiz"
+            string ="Classification Report XlsX"
+            report_type ="xlsx"
+            name ="sale_custom.classification_report_xlsx"
+            file ="sale_custom.classification_report_xlsx"
+            menu="False" />
+</odoo>

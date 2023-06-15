@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_attendance_transaction_create" model="ir.cron">
+        <field name="name">Attendance Transaction</field>
+        <field name="model_id" ref="model_hr_attendance_transaction"/>
+        <field name="state">code</field>
+        <field name="code">model.process_attendance_scheduler_queue()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+    </record>
+</odoo>

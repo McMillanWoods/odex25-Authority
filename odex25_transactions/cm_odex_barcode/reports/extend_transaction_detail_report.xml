@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="extend_tran_header" inherit_id="exp_transaction_documents.custom_external_layout_standard_tran">
+            <xpath expr="//div[@class='header']" position="replace">
+                <div class="header">
+                    <div class="row">
+                        <br/>
+                        <table align="left"
+                               style="border:1px solid white;width:50;margin-left:60px;margin-top:0px;margin-right:5px;margin-bottom:40px;text-align: justify;">
+                            <tr style="border:0px">
+                                <td style="font-weight: bold;border:0px;padding-right:30px !important;">Number:
+                                    <t t-esc="o.name"/>
+                                </td>
+                            </tr>
+                            <tr style="border:0px">
+                                <td colspan="2" style="border:0px;padding-right:30px !important;">
+                                    <span style="font-weight:bold;font-stretch: expanded;">
+                                        Date:
+                                    </span>
+
+                                    <t t-set="date_hijri" t-value="o.transaction_date_hijri"/>
+
+                                    <t t-set="date_hijri2" t-value="date_hijri.split('-')"/>
+
+                                    <t t-esc="date_hijri2[0]"/>/<t t-esc="date_hijri2[1]"/>/
+                                    <t t-esc="date_hijri2[2]"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="border:0px;padding-right:30px !important;">
+                                    <span style="font-weight:bold;">Reference:</span>
+                                    <span t-field="o.transaction_date" t-field-options='{"format": "yyyy/MM/dd"}'/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="border:0px;padding-right:30px !important;">
+                                    <span style="font-weight:bold">Attachment:</span>
+                                    <span style="direction: ltr !important;">
+                                        <t t-esc="o.attachment_num"/>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr style="border:0px">
+                                <td colspan="2" style="border:0px">
+                                    <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', o.name, 600, 100)"
+                                         style="width:250px;height:40px;margin-top:5px;"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br></br>
+            </xpath>
+        </template>
+    </data>
+</odoo>

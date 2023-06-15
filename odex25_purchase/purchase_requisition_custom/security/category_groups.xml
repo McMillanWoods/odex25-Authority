@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Category -->
+    <record model="ir.module.category" id="purchase_requisition_custom">
+        <field name="name">Purchase Requisition</field>
+        <field name="description">User access level for this module</field>
+        <field name="sequence">50</field>
+    </record>
+
+    <!-- Confirm group -->
+    <record id="group_confirm_purchase_requisition" model="res.groups">
+        <field name="name">Confirm Purchase Requisition</field>
+        <field name="category_id" ref="purchase_requisition_custom"/>
+    </record>
+
+    <!-- Employee submit request group -->
+    <record id="group_approve_purchase_requisition" model="res.groups">
+        <field name="name">Approve Purchase Requisition</field>
+        <field name="category_id" ref="purchase_requisition_custom"/>
+    </record>
+    <!-- it group-->
+    <record id="group_it_purchase_requisition" model="res.groups">
+        <field name="name">Approve IT Manager</field>
+        <field name="category_id" ref="purchase_requisition_custom"/>
+    </record>
+    <!-- direct manger group-->
+    <record id="group_direct_manger" model="res.groups">
+        <field name="name">Approve Direct Manager</field>
+        <field name="category_id" ref="purchase_requisition_custom"/>
+    </record>
+    <!-- Quotation group -->
+    <record id="group_quotation_purchase_requisition" model="res.groups">
+        <field name="name">Quotation Purchase Requisition</field>
+        <field name="category_id" ref="purchase_requisition_custom"/>
+    </record>
+    <!--  department Approve group -->
+    <record id="group_department_approve" model="res.groups">
+        <field name="name">Department Approve</field>
+        <field name="category_id" ref="purchase_requisition_custom"/>
+    </record>
+    <!-- Sign group -->
+    <record id="group_sign_purchase_order" model="res.groups">
+        <field name="name">Sign Purchase Order</field>
+        <field name="category_id" ref="purchase_requisition_custom"/>
+    </record>
+    <!-- UnSign group -->
+    <record id="group_unsign_purchase_order" model="res.groups">
+        <field name="name">UnSign Purchase Order</field>
+        <field name="category_id" ref="purchase_requisition_custom"/>
+    </record>
+    <!-- cancel group -->
+    <record id="group_cancel_purchase_requisition" model="res.groups">
+        <field name="name">Cancel Purchase Requisition</field>
+        <field name="category_id" ref="purchase_requisition_custom"/>
+    </record>
+
+    <!-- done group -->
+    <record id="group_done_purchase_requisition" model="res.groups">
+        <field name="name">Done Purchase Requisition</field>
+        <field name="category_id" ref="purchase_requisition_custom"/>
+    </record>
+
+    <record id="committe_member" model="res.groups">
+        <field name="name">Purchase Committe Member</field>
+        <field name="category_id" ref="purchase_requisition_custom"/>
+        <field name="menu_access" eval="[(4,ref('purchase.menu_purchase_root'))]"/>
+    </record>
+
+    <record id="purchase_rfq_send_to_committee" model="res.groups">
+        <field name="name">Send to the Committee</field>
+        <field name="category_id" ref="purchase_requisition_custom"/>
+    </record>
+
+    <record id="approve_purchase_request" model="res.groups">
+        <field name="name">Approve Purchase Request</field>
+        <field name="category_id" ref="purchase_requisition_custom"/>
+    </record>
+
+    <record id="group_skip_purchase_budget" model="res.groups">
+        <field name="name">Skip Purchase Budget</field>
+        <field name="category_id" ref="purchase_requisition_custom"/>
+    </record>
+
+    <record id="create_purchase_request" model="res.groups">
+        <field name="name">Employees Requests</field>
+        <field name="category_id" ref="purchase_requisition_custom"/>
+        <field name="menu_access" eval="[(4,ref('purchase.menu_purchase_root'))]"/>
+    </record>
+
+    <record id="purchase_requisition_second_approve" model="res.groups">
+        <field name="name">Minimum Amount Approval</field>
+        <field name="category_id" ref="purchase_requisition_custom"/>
+    </record>
+
+    <record id="purchase_requisition_third_approve" model="res.groups">
+        <field name="name">Maximum Amount Approval</field>
+        <field name="category_id" ref="purchase_requisition_custom"/>
+    </record>
+
+    <record id="group_purchase_requsition_reports" model="res.groups">
+        <field name="name">Purchase Reports Menu</field>
+        <field name="category_id" ref="purchase_requisition_custom"/>
+    </record>
+
+    <!-- groups category -->
+    <record id="group_category_product_manager" model="res.groups">
+        <field name="name">Product Category Manager</field>
+        <field name="category_id" ref="purchase_requisition_custom"/>
+    </record>
+
+    <!-- Accept group -->
+    <record id="group_accept_purchase_requisition" model="res.groups">
+        <field name="name">Accept Purchase Requisition</field>
+        <field name="category_id" ref="purchase_requisition_custom"/>
+    </record>
+
+    <!-- group For technical management use -->
+    <record id="group_For_technical_management_use" model="res.groups">
+        <field name="name">For technical management use</field>
+        <field name="category_id" ref="purchase_requisition_custom"/>
+    </record>
+
+    <!-- group Requesting ِAdministration -->
+    <record id="group_requesting_ِadministration" model="res.groups">
+        <field name="name">Requesting ِAdministration</field>
+        <field name="category_id" ref="purchase_requisition_custom"/>
+    </record>
+
+</odoo>

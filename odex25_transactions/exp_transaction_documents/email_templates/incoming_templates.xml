@@ -1,0 +1,65 @@
+<odoo>
+    <data>
+        <record id="incoming_notify_send_send_email" model="mail.template">
+            <field name="name">Transaction Send Message</field>
+            <field name="model_id" ref="exp_transaction_documents.model_incoming_transaction"/>
+            <field name="email_from"><![CDATA[${user.company_id.name} <${(user.company_id.email or user.email)|safe}>]]></field>
+            <field name="email_to">${object.get_email()|safe}</field>
+            <field name="subject"><![CDATA[  معاملة خارجية واردة  ]]></field>
+            <field name="body_html">
+                <![CDATA[
+                    <div style="text-align: right;direction:rtl">
+                         <p style="text-align: right">السادة الفضلاء: ${object.get_name()}</p>
+                        <p style="text-align: left">حفظهم الله،،</p>
+                        <p style="font-size: 1.1em;text-align: right">
+                            السلام عليكم ورحمة الله.
+
+                        </p>
+                        <p style="font-size: 1.1em;text-align: right;direction: ltr;float: left;">
+                                    توجد معاملة خارجية واردة للمعاملة
+                         </p><br/>
+
+                        <p style="font-size: 1.1em;text-align: right">
+                            يمكنكم الان المتابعة و تنفيذ الإجراء المطلوب
+                        </p><br/>
+                        <p style="font-size: 1em;text-align: right">
+                            <table>
+                                <tr>
+                                    <td><b>رقم المعاملة : </b></td>
+                                    <td style="text-decoration:underline;direction: ltr;float: left;">${object.name}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>موضوع المعاملة : </b></td>
+                                    <td style="text-decoration:underline">${object.subject}</td>
+                                </tr>
+
+                                <tr>
+                                    <td><b>نوع المعاملة : </b></td>
+                                    <td style="text-decoration:underline">${object.subject_type_id.name}</td>
+                                </tr>
+                                <tr>
+                                    <td><b> معِد المعاملة : </b></td>
+                                    <td style="text-decoration:underline">${object.employee_id.name}</td>
+                                </tr>
+                                <tr>
+                                    <td><b> آخر موعد لانجاز المعاملة : </b></td>
+                                    <td style="text-decoration:underline">${object.due_date}</td>
+                                </tr>
+                            </table>
+                        </p><br/>
+                        <p style="font-size: 1.1em;text-align: right;">
+                            <a href="${object.get_url()}">رابط المعاملة</a>
+                        </p>
+                        <p style="font-size: 1.1em;text-align: right">
+ <a href="${user.company_id.website}">${user.company_id.name}</a>
+
+
+                        </p>
+
+                    </div>
+                ]]>
+            </field>
+        </record>
+
+    </data>
+</odoo>

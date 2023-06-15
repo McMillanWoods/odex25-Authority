@@ -1,0 +1,208 @@
+<odoo>
+    <data>
+       <template id="online_tender_report" name="Online Tender Report">
+        <t t-call="purchase_requisition_custom.purchase_layout">
+            <style>
+                .page{
+                    font-family: Times New Roman;;
+                }
+                table{
+                    width :100%;
+                    border : 1px solid black;
+                    border-collapse : collapse;
+                    font-size : 13pt;
+                    
+                }
+                th{
+                    border : 1px solid black;
+                    background-color: #07b8ad; color: #ffffff;
+                    text-align : right;
+                    padding : 5px;
+                    text-align : center
+                }
+                td{
+                    border : 1px solid black;
+                    text-align : right;
+                    padding : 3px;
+                    text-align : center
+                }
+                .cr_t{
+                    text-align : center;
+                }
+
+            </style>
+            <div class="page" size="A4">
+                <t t-if="type == 'tender'">
+                    <center>
+                    <h3>Published Tenders </h3>
+                    </center>
+                    <table>
+                        <tr>
+                            <th rowspan="2" style="verical-align :center">Group By</th>
+                            <th rowspan="2" style="verical-align :center">Detailing Level</th>
+                            <th colspan="2">Period</th>
+                        </tr>
+                        <tr>
+                            <th>From</th>
+                            <th>To</th>
+                        </tr>
+                        <tr>
+                            <td>Department</td>
+                            <td><t t-esc="printed_type" /></td>
+                            <td><t t-esc="date_from" /></td>
+                            <td><t t-esc="date_to" /></td>
+                        </tr>
+                        
+                    </table>
+                    <br/>
+                    <t t-set="count" t-value="1"/>
+                    <t t-set="qty_total" t-value="0"/>
+                    <t t-set="amount_total" t-value="0"/>
+                    <t t-foreach="report_values" t-as="o">
+                        <h3><t t-esc="o['lable']"/></h3>                 
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th >Ref</th>
+                                    <th >Date</th>
+                                    <th >state</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o['data']" t-as="d">
+                                    <tr>
+                                        <td><t t-esc="count"/></td>
+                                        <td><t t-esc="d.name"/></td>
+                                        <td><t t-esc="d.ordering_date" /></td>
+                                        <td><t t-esc="dict(d._fields['state']._description_selection(d.env)).get(d.state)" /></td>
+                                    </tr>
+                                    <t t-set="count" t-value="count + 1"/>
+                                </t>
+                            </tbody>
+                        </table>
+                        <t t-set="count" t-value="1"/>
+                    <br/>
+                    </t>
+                </t>
+                <t t-if="type == 'application'">
+                   <center>
+                    <h3>Published Tenders </h3>
+                    </center>
+                    <table>
+                        <tr>
+                            <th rowspan="2" style="verical-align :center">Group By</th>
+                            <th rowspan="2" style="verical-align :center">Detailing Level</th>
+                            <th colspan="2">Period</th>
+                        </tr>
+                        <tr>
+                            <th>From</th>
+                            <th>To</th>
+                        </tr>
+                        <tr>
+                            <td>Tender</td>
+                            <td><t t-esc="printed_type" /></td>
+                            <td><t t-esc="date_from" /></td>
+                            <td><t t-esc="date_to" /></td>
+                        </tr>
+                        
+                    </table>
+                    <br/>
+                    <t t-set="count" t-value="1"/>
+                    <t t-set="qty_total" t-value="0"/>
+                    <t t-set="amount_total" t-value="0"/>
+                    <t t-foreach="report_values" t-as="o">
+                        <h3><t t-esc="o['lable']"/></h3>                 
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th >Ref</th>
+                                    <th >Vendor</th>
+                                    <th >Date</th>
+                                    <th>Total Price</th>
+                                    <th >state</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o['data']" t-as="d">
+                                    <tr>
+                                        <td><t t-esc="count"/></td>
+                                        <td><t t-esc="d.name"/></td>
+                                        <td><t t-esc="d.user_id.name"/></td>
+                                        <td><t t-esc="d.date" /></td>
+                                        <td><t t-esc="d.total" /></td>
+                                        <td><t t-esc="dict(d._fields['state']._description_selection(d.env)).get(d.state)" /></td>
+                                    </tr>
+                                    <t t-set="count" t-value="count + 1"/>
+                                </t>
+                            </tbody>
+                        </table>
+                        <t t-set="count" t-value="1"/>
+                    <br/>
+                    </t>
+                </t>
+                <t t-if="type == 'price'">
+                   <center>
+                    <h3>Prices Comparison </h3>
+                    </center>
+                    <table>
+                        <tr>
+                            <th rowspan="2" style="verical-align :center">Group By</th>
+                            <th rowspan="2" style="verical-align :center">Detailing Level</th>
+                            <th rowspan="2" style="verical-align :center">Tender</th>
+                            <th colspan="2">Period</th>
+                        </tr>
+                        <tr>
+                            <th>From</th>
+                            <th>To</th>
+                        </tr>
+                        <tr>
+                            <td>Product</td>
+                            <td><t t-esc="printed_type" /></td>
+                            <td><t t-esc="tender_id.name" /></td>
+                            <td><t t-esc="date_from" /></td>
+                            <td><t t-esc="date_to" /></td>
+                        </tr>
+                        
+                    </table>
+                    <br/>
+                    <t t-set="count" t-value="1"/>
+                    <t t-set="qty_total" t-value="0"/>
+                    <t t-set="amount_total" t-value="0"/>
+                    <t t-foreach="report_values" t-as="o">
+                        <h3><t t-esc="o['lable'].product_id.name"/></h3>                 
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th >Vendor</th>
+                                    <th >Date</th>
+                                    <th>Quantity</th>
+                                    <th>Price/Unit</th>
+                                    <th >Price Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o['data']" t-as="d">
+                                    <tr>
+                                        <td><t t-esc="count"/></td>
+                                        <td><t t-esc="d.application_id.user_id.name"/></td>
+                                        <td><t t-esc="d.application_id.date" /></td>
+                                        <td><t t-esc="d.product_qty" /></td>
+                                         <td><t t-esc="d.price_unit" /></td>
+                                        <td><t t-esc="d.product_qty *  d.price_unit" /></td>
+                                    </tr>
+                                    <t t-set="count" t-value="count + 1"/>
+                                </t>
+                            </tbody>
+                        </table>
+                        <t t-set="count" t-value="1"/>
+                    <br/>
+                    </t>
+                </t>
+            </div>
+        </t>
+       </template>
+    </data>
+</odoo>

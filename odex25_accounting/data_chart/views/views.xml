@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <template id="assets_backend" name="data Chart assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/data_chart/static/src/js/lib/webdatarocks/webdatarocks.toolbar.min.js"></script>
+                <script type="text/javascript" src="/data_chart/static/src/js/lib/webdatarocks/webdatarocks.js"></script>
+
+                <script type="text/javascript" src="/data_chart/static/src/js/lib/jspdf.debug.js"></script>
+                <script type="text/javascript" src="/data_chart/static/src/js/lib/Amiri-normal.js"></script>
+                <script type="text/javascript" src="/data_chart/static/src/js/lib/Amiri-Bold-bold.js"></script>
+
+                <script type="text/javascript" src="/data_chart/static/src/js/data_chart.js"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>

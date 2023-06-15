@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="odex_fleet_vehicle_account_config_form">
+            <field name="name">odex.fleet.account.form</field>
+            <field name="model">fleet.account.config</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_confirm" groups="odex_fleet.fleet_group_account" type="object" states="draft" class="oe_highlight" string="Confirm"/>
+                        <button name="action_close" type="object" states="confirm" class="oe_highlight" string="Close"/>
+                        <field name="state" widget="statusbar" nolabel="1"/>
+                    </header>
+                    <sheet>
+                         <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" attrs="{'readonly': [('state', '!=', 'draft')],'required':True}"/>
+                            </h1>
+                         </div>
+                        <group colspan="4" col="4">
+                            <field name="type" attrs="{'readonly':[('state','!=','draft')],'required':True}"/>
+                            <field name="account_id" attrs="{'readonly':[('state','!=','draft')],'required':True}"/>
+                            <field name="tax_id" domain="[('type_tax_use','=','purchase')]"  attrs="{'readonly':[('state','!=','draft')],'required':True}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="odex_fleet_vehicle_account_config_tree">
+            <field name="name">odex.fleet.account.tree</field>
+            <field name="model">fleet.account.config</field>
+            <field name="arch" type="xml">
+                    <tree>
+                        <field name="name"/>
+                        <field name="type"/>
+                        <field name="state"/>
+                    </tree>
+            </field>
+        </record>
+         <record model="ir.ui.view" id="odex_fleet_vehicle_account_config_serach">
+            <field name="name">odex.fleet.account.serach</field>
+            <field name="model">fleet.account.config</field>
+            <field name="arch" type="xml">
+                    <search>
+                        <field name="name"/>
+                        <field name="type"/>
+                        <field name="state"/>
+                    </search>
+            </field>
+        </record>
+                <record id='fleet_vehicle_account_config_action' model='ir.actions.act_window'>
+            <field name="name">Fleet Account Settings</field>
+            <field name="res_model">fleet.account.config</field>
+           
+            <field name="view_mode">tree,form</field>
+        </record>
+                <menuitem name="Account Configuration" groups="fleet.fleet_group_user,fleet_group_account" action="fleet_vehicle_account_config_action" parent="fleet.fleet_configuration" id="fleet_account_config" sequence="101" />
+
+    </data>
+</odoo>

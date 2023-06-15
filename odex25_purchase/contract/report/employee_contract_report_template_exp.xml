@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="custom_external_layout_exp_contract">
+            <div class="header">
+                <style type="text/css">
+                    @font-face {
+                    font-family: 'ae_AlMohanad';
+                    src: local('ae_AlMohanad'), local('ae_AlMohanad'),
+                    url('/contract/static/fonts/ae_AlMohanad.ttf') format('truetype');
+                    }
+                    *{
+                    font-family: ae_AlMohanad;
+                    }
+                </style>
+                <div class="row">
+                    <div>
+                        <img t-if="o.partner_id.image" t-att-src="'data:image/png;base64,%s' % to_text(o.partner_id.image)" style="width:20%;max-height:100px;"/>
+                        <span style="width:50%;color:white">...............................</span>
+                        <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % to_text(company.logo)" style="width:30%;max-height: 100px;"/>
+                    </div>
+                    <div class="col-xs-9 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto"/>
+                </div>
+            </div>
+            <div class="article o_report_layout_standard">
+                <t t-raw="0" />
+            </div>
+            <div class="footer">
+                <div class="text-center" style="border-top: 1px solid withe;">
+                    <div class="text-muted">
+                        Page: <span class="page"/> / <span class="topage"/>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="custom_external_layout_exp">
+            <!-- company -->
+            <t t-if="not o and doc">
+                <t t-set="o" t-value="doc"/>
+            </t>
+
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+            <t t-if="company.external_report_layout == 'background'">
+                <t t-call="contract.custom_external_layout_exp_contract"><t t-raw="0"/></t>
+            </t>
+            <t t-if="company.external_report_layout == 'boxed'">
+                <t t-call="contract.custom_external_layout_exp_contract"><t t-raw="0"/></t>
+            </t>
+            <t t-if="company.external_report_layout == 'clean'">
+                <t t-call="contract.custom_external_layout_exp_contract"><t t-raw="0"/></t>
+            </t>
+            <t t-if="company.external_report_layout in (False, 'standard')">
+                <t t-call="contract.custom_external_layout_exp_contract"><t t-raw="0"/></t>
+            </t>
+        </template>
+        <template id="expert_contract_report_temp">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                  <t t-call="web.internal_layout">
+                        <style type="text/css">
+                            @font-face {
+                            font-family: 'ae_AlMohanad';
+                            src: local('ae_AlMohanad'), local('ae_AlMohanad'),
+                            url('/contract/static/fonts/ae_AlMohanad.ttf') format('truetype');
+                            }
+                            *{
+                            font-family: ae_AlMohanad;
+                            }
+                        </style>
+                        <div class="page" dir ='rtl' style="font-size:17pt">
+                            <div style="width:100%">
+                                <p style="text-align:justify;margin: 5px;">
+                                    <span t-raw="o.get_contract_content(o.contract_template)"/>
+                                </p>
+                                <!--                                <p style="text-align:justify;margin: 10px;">-->
+                                <!--                                    حيث أن المذكور  <span t-esc="o.name"/>  <span t-esc="o.country_id.name"/> الجنسـية ، رقـم حسابـه-->
+                                <!--                                    (SA <span t-esc="o.bank_account_id.acc_number"/> ) والـذي يعمـل لدينـا قد أخطـرنا بحصوله على-->
+                                <!--                                    قرض منكم وطلب إلينـا في ذلك الصدد أن نقوم بتحويـل مرتباتـه الشـهرية إليكـم-->
+                                <!--                                    في تواريخ استحقاقها ، فإننـا بموجب هذا نتعهـد تعهـداً غير قابل للنقـض بأن نقـوم-->
+                                <!--                                    بتحويل مرتبـات المذكور الشـهرية إليكـم في تواريخ استحقاقها و أن نقوم كذلك-->
+                                <!--                                    في حالة إنهـاء أو انتهاء خدمة المذكور معنـا بإخطـاركم خطيـاً بذلك أولاً و من ثم-->
+                                <!--                                    تحويـل جميـع ما قد يكون مسـتحقاً له حينـذاك ، وفق نظام مكتب العمـل ، من-->
+                                <!--                                    مكـافأة أو معـاش أو أية مبالغ أخـرى إليكـم ، و تسـتمر تعهداتنـا المدرجة هنـا-->
+                                <!--                                    نافـذة و سـارية المفعول حتـى اسـتلامنـا لإشـعار خطـي منكـم بإعفـائنـا من-->
+                                <!--                                    التزامـاتنـا الوارد هنـا ، وإشـهاداً على مـا ورد قمنـا بوضع توقيعنـا وختمنا الرسـمي-->
+                                <!--                                    هنـا أدنـاه ، وقد حرر هذا الخطاب بناء على طلب السـيـد/ه <span t-esc="o.name"/>-->
+                                <!--                                    ودون أي التزام أو مسئولية على الشركة عدا ما ذكر أعلاه.-->
+                                <!--                                </p>-->
+                            </div>
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+         <record id="expert_contact_employee_action_report" model="ir.actions.report">
+            <field name="name">contract.contract</field>
+            <field name="model">contract.contract</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">contract.expert_contract_report_temp</field>
+            <field name="report_file">contract.expert_contract_report_temp</field>
+            <field name="print_report_name">(object._get_report_base_filename())</field>
+            <!-- <field name="attachment">(object.state == 'posted') and ((object.name or 'INV').replace('/','_')+'.pdf')</field> -->
+            <field name="binding_model_id" ref="model_contract_contract"/>
+            <field name="binding_type">report</field>
+            <field name="binding_model_id" eval="False"/>
+        </record>
+
+       
+    </data>
+</odoo>

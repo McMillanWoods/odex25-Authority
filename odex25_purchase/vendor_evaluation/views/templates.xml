@@ -1,0 +1,211 @@
+<odoo>
+    <data>
+        <template id="vendor_evaluation_report" name="report vendor evaluation">
+            <t t-call="web.html_container">
+                <t t-call="web.internal_layout">
+                    <style>
+                .page{
+                    font-family: Times New Roman;;
+                }
+                table{
+                    width :100%;
+                    border : 1px solid black;
+                    border-collapse : collapse;
+                    font-size : 13pt;
+                    
+                }
+                th{
+                    border : 1px solid black;
+                    background-color: #07b8ad; color: #ffffff;
+                    text-align : right;
+                    padding : 5px;
+                }
+                td{
+                    border : 1px solid black;
+                    text-align : right;
+                    padding : 3px;
+                }
+                .cr_t{
+                    text-align : center;
+                }
+
+                    </style>
+                    <t t-foreach="docs" t-as="o">
+                        <div class="page" dir="rtl" size="A4">
+                            <center>
+                                <h2>سجل التقييم للمورد</h2>
+                                <br/>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th width="25%">
+                                                <p>إسم المورد</p>
+                                            </th>
+                                            <td width="25%">
+                                                <p>
+                                                    <t t-esc="o.vendor_id.name"/>
+                                                </p>
+                                            </td>
+                                            <th width="25%">
+                                                <p>الجهة المقيمة</p>
+                                            </th>
+                                            <td width="25%">
+                                                <p>
+                                                    <t t-esc="o.owner"/>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th width="25%">
+                                                <p>اخر تقييم</p>
+                                            </th>
+                                            <td width="25%">
+                                                <p>
+                                                    <t t-esc="o.last_eval"/>
+                                                </p>
+                                            </td>
+                                            <th width="25%">
+                                                <p>التقييم التراكمي</p>
+                                            </th>
+                                            <td width="25%">
+                                                <p>
+                                                    <t t-esc="o.cumulative_eval"/>
+                                                </p>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </center>
+                            <h3>تفاصيل التقييم</h3>
+                            <center>
+                                <table>
+                                    <t t-foreach="o.line_ids" t-as="line">
+                                        <thead>
+                                            <tr>
+                                                <th class="cr_t" width="25%">التاريخ</th>
+                                                <th class="cr_t" width="25%">
+                                                    <t t-esc="line.date"/>
+                                                </th>
+                                                <th class="cr_t" width="25%">بواسطة</th>
+                                                <th class="cr_t" width="25%">
+                                                    <t t-esc="line.create_uid.name"/>
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th class="cr_t" colspan="2">المعيار</th>
+                                                <th class="cr_t" colspan="2"> التقييم</th>
+                                            </tr>
+                                            <t t-foreach="line.line_ids" t-as="l_line">
+                                                <tr>
+                                                    <td class="cr_t" colspan="2">
+                                                        <t t-esc="l_line.criteria_id.name"/>
+                                                    </td>
+                                                    <td class="cr_t" colspan="2">
+                                                        <t t-esc="l_line.value"/>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </thead>
+
+                                    </t>
+
+                                </table>
+                            </center>
+
+                        </div>
+
+                    </t>
+                </t>
+            </t>
+
+        </template>
+
+
+
+
+        <template id="vendor_comparison_report" name="report Coomparison Report">
+            <t t-call="web.html_container">
+                <t t-call="web.internal_layout">
+                    <style>
+                .page{
+                    font-family: Times New Roman;;
+                }
+                table{
+                    width :100%;
+                    border : 1px solid black;
+                    border-collapse : collapse;
+                    font-size : 13pt;
+                    
+                }
+                th{
+                    border : 1px solid black;
+                    background-color : gray;
+                    text-align : right;
+                    padding : 5px;
+                }
+                td{
+                    border : 1px solid black;
+                    text-align : right;
+                    padding : 3px;
+                }
+                .cr_t{
+                    text-align : center;
+                }
+
+                    </style>
+                    <div class="page" dir="rtl" size="A4">
+                        <center>
+                            <h2>نتيجة مفاضلة الموردين </h2>
+                        </center>
+                        <t t-set="count" t-value="1"/>
+                        <t t-foreach="data" t-as="o">
+                            <t t-if="type == 'detailed'">
+                                <h3>معيار التقييم:                                    <t t-esc="o['criteria_id'].name"/>
+                                </h3>
+                            </t>
+                            <t t-else="">
+                                <h3>القسم:                                    <t t-esc="o['department']"/>
+                                </h3>
+                            </t>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th width="10%">#</th>
+                                        <th width="45%">إسم المورد</th>
+                                        <th width="45%">متوسط التقييم</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="o['data']" t-as="line">
+                                        <tr>
+                                            <td>
+                                                <t t-esc="count"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="line['v_name']"/>
+                                            </td>
+                                            <td>
+                                                <t t-if="line['eval'] != None">
+                                                    <t t-esc="round(line['eval'],2)"/>
+                                                </t>
+                                                <t t-else=''>
+                                            0.0
+                                                </t>
+                                            </td>
+                                        </tr>
+                                        <t t-set="count" t-value="count + 1"/>
+                                    </t>
+                                </tbody>
+                            </table>
+                            <br/>
+                            <t t-set="count" t-value="1"/>
+                        </t>
+                    </div>
+
+                </t>
+            </t>
+
+        </template>
+    </data>
+</odoo>

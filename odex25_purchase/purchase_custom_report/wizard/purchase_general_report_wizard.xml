@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- purchase.general.report form view -->
+        <record id="purchase_general_report_wizard_form" model="ir.ui.view">
+            <field name="name">Purchase General Report</field>
+            <field name="model">purchase.general.report</field>
+            <field name="arch" type="xml">
+                <form string="">
+                        <group col="4" colspan="2">
+                            <field name="date_from" required="1"/>
+                            <field name="date_to" required="1"/>
+                            <field name="type" required="1"/>
+                            <field name="vendor_ids" widget="many2many_tags"/>
+                            <field name="employee_ids"  widget="many2many_tags" attrs="{'invisible' : [('type' , '!=' , 'employee')]}"/>
+                            <field name="department_ids" widget="many2many_tags" />
+                            <field name="show_emp_details" attrs="{'invisible' : [('type' , '!=' , 'department')]}"/>
+                        </group>
+                        <footer>
+                        <div>
+                            <button name="action_print" string="Print" type="object" default_focus="1" class="oe_highlight"/>
+                            or
+                            <button string="Cancel" class="oe_link" special="cancel" />
+                        </div>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- purchase.general.report action window -->
+        <record id="action_purchase_general_report_wizard" model="ir.actions.act_window">
+            <field name="name">Purchase General Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.general.report</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="purchase_general_report_menu" name="Purchase General Report" parent="purchase_requisition_custom.purchase_pdf_reports" action="action_purchase_general_report_wizard" sequence="1"/>
+        
+    </data>
+</odoo>

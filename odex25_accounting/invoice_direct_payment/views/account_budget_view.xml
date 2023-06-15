@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="crossovered_budget_view_form">
+        <field name="name">crossovered.budget.view.inherit.form</field>
+        <field name="model">crossovered.budget</field>
+        <field name="inherit_id" ref="account_budget_custom.crossovered_budget_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='crossovered_budget_line']/tree/field[@name='budget_confirm_amount']" position="replace">
+                <field name="confirm_amount" readonly="1" sum="Budget Confirmed Amount" widget="monetary"/>
+            </xpath>
+
+            <xpath expr="//button[@name='action_budget_draft']" position="attributes">
+                <attribute name="groups">account_custom.group_financial_controller</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_budget_confirm']" position="attributes">
+                <attribute name="groups">account_budget_custom.group_budget_control</attribute>
+            </xpath>
+
+            <xpath expr="//button[@name='action_budget_validate']" position="attributes">
+                <attribute name="groups">account_custom.group_financial_controller</attribute>
+            </xpath>
+
+            <xpath expr="//button[@name='action_budget_done']" position="attributes">
+                <attribute name="groups">invoice_direct_payment.group_general_manager</attribute>
+            </xpath>
+
+            <button name="action_budget_cancel" position="replace">
+                <button string="Cancel Budget" name="action_budget_cancel" states="confirm,done"
+                        groups="account_custom.group_financial_controller" type="object"/>
+                        
+                <button string="Cancel Budget" name="action_budget_cancel" states="validate"
+                        groups="invoice_direct_payment.group_general_manager" type="object"/>
+            </button>
+        </field>
+    </record>
+
+    <menuitem id="account_budget.menu_act_crossovered_budget_view"
+          name="Budgets"
+          action="account_budget.act_crossovered_budget_view"
+          parent="private_budget_structure.private_budget_main_menu"
+          sequence="1"
+          groups="account_budget_custom.group_budget_control,account_custom.group_financial_controller,invoice_direct_payment.group_general_manager"/>
+
+</odoo>
+

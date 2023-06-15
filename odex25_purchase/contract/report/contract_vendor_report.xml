@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <template id="vendor_contract_report_template">
+            <t t-call="web.html_container">
+                  <t t-call="web.internal_layout">
+                <div class="page">
+                    <center>
+                            <h3>Vendor Report</h3>
+                     </center>
+                    <t t-foreach="partners" t-as="p">
+
+
+                        <table class="table table-bordered"
+                               style="border: 2px solid black;font-family:Arial;page-break-inside: avoid;">
+                            <!-- <thead> -->
+                            <tr>
+                                <td style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Vendor
+                                </td>
+                                <td colspan="8">
+                                    <t t-esc="request.env['res.partner'].browse(p).name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    #
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Name
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Start Date
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    End Date
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Responsible
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    State
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Total Amount
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Amount Paid
+                                </th>
+                                <th rowspan="2"
+                                    style="border:1px solid black;text-align:center;background-color: #07b8ad; color: #ffffff;">
+                                    Remain Amount
+                                </th>
+
+                            </tr>
+                            <!-- </thead> -->
+                            <tbody>
+                                <t t-set="total" t-value="0"/>
+                                <t t-set="o_index" t-value="0"/>
+                                <t t-set="remain" t-value="0"/>
+                                <t t-set="total_paid" t-value="0"/>
+                                <t t-set="total_amount" t-value="0"/>
+
+
+                                <t t-set="values" t-value="dict([('new', 'New'),
+                    ('to_confirm' ,'To Confirm'),
+                   ('confirmed', 'Confirmed'),
+                   ('in_progress', 'In progress'),
+                   ('suspended', 'Suspended'),
+                   ('closed', 'Closed'),
+                   ('cancel', 'Cancel'), (False,False)])"/>
+                                <t t-foreach="docs.filtered(lambda r :r.partner_id.id == p)" t-as="o">
+
+                                    <t t-set="paid"
+                                       t-value="sum(request.env['line.contract.installment'].search([('contract_id','=',o.id)]).mapped('total_amount'))"/>
+                                    <tr>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="o_index + 1"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="o.name"/>
+                                        </td>
+
+
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="o.date_start"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="o.date_end"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="o.user_id.name"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="values[o.state]"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="o.with_tax_amount"/>
+                                            <t t-set="total_amount" t-value="total_amount + o.with_tax_amount"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="paid"/>
+                                            <t t-set="total_paid" t-value="total_paid + paid"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid black;">
+                                            <t t-esc="o.with_tax_amount - paid"/>
+                                            <t t-set="remain" t-value="remain + o.with_tax_amount - paid"/>
+                                        </td>
+
+
+                                    </tr>
+                                </t>
+                                <t t-set="o_index" t-value="o_index + 1"/>
+
+                                <tr>
+                                    <td style="text-align:center;border:1px solid black" colspan="6">Total Amounts</td>
+                                    <td style="text-align:center;border:1px solid black">
+                                        <t t-esc="total_amount"/>
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black">
+                                        <t t-esc="total_paid"/>
+                                    </td>
+                                    <td style="text-align:center;border:1px solid black">
+                                        <t t-esc="remain"/>
+                                    </td>
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+                    </t>
+
+                </div>
+            </t>
+             </t>
+        </template>
+
+    </data>
+</odoo>

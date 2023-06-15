@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--letters tree and form view-->
+        <record id="view_transaction_letters_tree" model="ir.ui.view">
+            <field name="name">view.transaction.letters.tree</field>
+            <field name="model">letters.letters</field>
+            <field name="arch" type="xml">
+                <tree string="Letters">
+                    <field name="name"/>
+                    <field name="unite"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_transaction_letters_form" model="ir.ui.view">
+            <field name="name">view.transaction.letters.form</field>
+            <field name="model">letters.letters</field>
+            <field name="arch" type="xml">
+                <form string="Letters">
+                    <header>
+                        <button name="action_generate_attachment" string="Add As Attachment to Transaction" class="oe_highlight" type="object"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" required="1"/>
+                                <field name="unite" required="1"/>
+                                <field name="letter_template" required="1"/>
+                            </group>
+                            <group>
+                                <field name="date" required="1"/>
+                                <field name="hijir_date"/>
+                                <field name="transaction_type"/>
+                                <field name="incoming_transaction_id"  attrs="{'invisible': [('transaction_type','!=','incoming')]}"/>
+                                <field name="internal_transaction_id" attrs="{'invisible': [('transaction_type','!=','internal')]}"/>
+                                <field name="outgoing_transaction_id" attrs="{'invisible': [('transaction_type','!=','outgoing')]}"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="content"/>
+                        </group>
+                        <group>
+                            <field name="signature"  widget="image"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--letter template  view and form -->
+
+        <record id="view_transaction_letters_temp_tree" model="ir.ui.view">
+            <field name="name">view.transaction.letters.temp.tree</field>
+            <field name="model">letters.template</field>
+            <field name="arch" type="xml">
+                <tree string="Letters template">
+                    <field name="name"/>
+                    <field name="unite"/>
+                    <field name="is_favorite" string=" " widget="priority"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_transaction_letters_temp_form" model="ir.ui.view">
+            <field name="name">view.transaction.letters.temp.form</field>
+            <field name="model">letters.template</field>
+            <field name="arch" type="xml">
+                <form string="Letters template">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <label for="name" class="oe_edit_only" string="" attrs="{'invisible': True}"/>
+                                <field placeholder="Name" name="name" class="oe_inline" required="1"/>
+                                <field name="is_favorite" widget="priority"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="unite"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="introduction"/>
+                            <field name="content"/>
+                            <field name="conclusion"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--action and menu for letters and letters template-->
+        <record id="transaction_letters_temp_action" model="ir.actions.act_window">
+            <field name="name">Letters Template</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">letters.template</field>
+
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="transaction_letters_action" model="ir.actions.act_window">
+            <field name="name">Transaction Letters</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">letters.letters</field>
+
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="parent_letters_menu" name="Letters Management" parent="exp_transaction_documents.cm_root_menu"/>
+        <menuitem id="letters_menu" name="Letters"
+                  action="transaction_letters_action" parent="parent_letters_menu"/>
+        <menuitem id="letters_temp_menu" name="Letters Template"
+                  action="transaction_letters_temp_action" parent="parent_letters_menu"/>
+    </data>
+</odoo>

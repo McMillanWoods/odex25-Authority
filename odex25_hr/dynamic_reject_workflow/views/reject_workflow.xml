@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="reject_workflow_form" model="ir.ui.view">
+            <field name="name">reject.workflow.form</field>
+            <field name="model">reject.workflow</field>
+            <field name="arch" type="xml">
+                <form string="Reject Workflow">
+                    <sheet>
+                        <header>
+                            <button name="reject_workflow_buttons" string="Choose Buttons"
+                                    class="btn-primary" type="object"/>
+                        </header>
+                        <group>
+                            <field name="name" required="1" />
+                            <field name="model_id" required="1"  />
+                            <field name="button_ids" force_save="1" readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="workflow_stage_tree" model="ir.ui.view">
+            <field name="name">reject.workflow.tree</field>
+            <field name="model">reject.workflow</field>
+            <field name="arch" type="xml">
+                <tree string="Reject Workflow">
+                    <field name="name" />
+                    <field name="model_id" />
+                </tree>
+            </field>
+        </record>
+        <record id="reject_workflow_action" model="ir.actions.act_window">
+            <field name="name">Reject Workflow</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">reject.workflow</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+                id="menu_reject_workflow"
+                name="Reject Workflow"
+                parent="base.next_id_2"
+                sequence="100"
+                groups="dynamic_reject_workflow.reject_group_manager"
+                action="reject_workflow_action"/>
+
+    </data>
+</odoo>

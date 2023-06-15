@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="driver_expiration_email_template" model="mail.template">
+            <field name="name">Driver Expiration e-mail template</field>
+            <field name="subject">Driver License</field>
+            <!-- <field name="email_from">${object.company_id.name}</field> -->
+            <field name="email_to">${object.email}</field>
+            <field name="lang">${object.lang}</field>
+            <field name="model_id" ref="hr.model_hr_employee"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html">
+                <![CDATA[
+              <p style="text-align: right;"> عزيزي العميل  <br/><br/>
+              نود تذكيركم بقرب انتهاء رخصة  السائق ${(object.name)}  رقم ${(object.license_number)}  القائد ${(object.employee_id.name)}   والتي تنتهي بتاريخ ${(object.license_end)}
+
+              </p>
+	    ]]>
+            </field>
+        </record>
+
+          <record id="delegation_expiration_email_template" model="mail.template">
+            <field name="name">Delegation Expiration e-mail template</field>
+            <field name="subject">Delegation End</field>
+            <!-- <field name="email_from">${object.company_id.name}</field> -->
+            <field name="email_to">${object.email}</field>
+            <field name="lang">${object.lang}</field>
+            <field name="model_id" ref="odex_fleet.model_vehicle_delegation"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html">
+                <![CDATA[
+              <p > عزيزي العميل  <br/><br/>
+              نود تذكيركم بقرب انتهاء تفويض سيارة  رقم  ${(object.vehicle_id.license_plate)}  القائد ${(object.employee_id.name)}  النوع ${(object.vehicle_id.fleet_type_id.name)}  والتي تنتهي بتاريخ ${(object.end_date)}
+
+              </p>
+	    ]]>
+            </field>
+        </record>
+
+        <record id="car_expiration_email_template" model="mail.template">
+            <field name="name">Expiration e-mail template</field>
+            <field name="subject">Car License</field>
+            <!-- <field name="email_from">${object.company_id.name}</field> -->
+            <field name="email_to">${object.driver_id.email}</field>
+            <field name="lang">${object.lang}</field>
+            <field name="model_id" ref="odex_fleet.model_fleet_vehicle"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html">
+                <![CDATA[
+              <p style="text-align: right;"> عزيزي العميل  <br/><br/>
+              نود تذكيركم بقرب انتهاء رخصة السير للسيارة رقم ${(object.license_plate)}  القائد ${(object.employee_id.name)}  النوع ${(object.fleet_type_id.name)}  والتي تنتهي بتاريخ ${(object.license_end)}
+
+              </p>
+	    ]]>
+            </field>
+        </record>
+
+        <record id="form_expiration_email_template" model="mail.template">
+            <field name="name">Form Expiration e-mail template</field>
+            <field name="subject">Car Form</field>
+            <!-- <field name="email_from">${object.company_id.name}</field> -->
+            <field name="email_to">${object.driver_id.email}</field>
+            <field name="lang">${object.lang}</field>
+            <field name="model_id" ref="odex_fleet.model_fleet_vehicle"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html">
+                <![CDATA[
+              <p style="text-align: right;"> عزيزي العميل  <br/><br/>
+              نود تذكيركم بقرب انتهاء الاستمارة  للسيارة رقم ${(object.license_plate)}  القائد ${(object.employee_id.name)}  النوع ${(object.fleet_type_id.name)}  والتي تنتهي بتاريخ ${(object.form_end)}
+
+              </p>
+	    ]]>
+            </field>
+        </record>
+
+        <record id="check_expiration_email_template" model="mail.template">
+            <field name="name">Check Expiration e-mail template</field>
+            <field name="subject">Car Check</field>
+            <!-- <field name="email_from">${object.company_id.name}</field> -->
+            <field name="email_to">${object.driver_id.email}</field>
+            <field name="lang">${object.lang}</field>
+            <field name="model_id" ref="odex_fleet.model_fleet_vehicle"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html">
+                <![CDATA[
+              <p style="text-align: right;" > عزيزي العميل  <br/><br/>
+              نود تذكيركم بقرب موعد الفحص  للسيارة رقم ${(object.license_plate)}  القائد ${(object.employee_id.name)}  النوع ${(object.fleet_type_id.name)}  والتي تنتهي بتاريخ ${(object.check_end)}
+
+              </p>
+	    ]]>
+            </field>
+        </record>
+
+
+
+        <record id="insurance_expiration_email_template" model="mail.template">
+            <field name="name">Insurance Expiration e-mail template</field>
+            <field name="subject">Car Insurance</field>
+            <!-- <field name="email_from">${object.company_id.name}</field> -->
+            <field name="email_to">${object.driver_id.email}</field>
+            <field name="lang">${object.lang}</field>
+            <field name="model_id" ref="odex_fleet.model_fleet_vehicle"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html">
+                <![CDATA[
+              <p style="text-align: right;"> عزيزي العميل  <br/><br/>
+              نود تذكيركم بقرب موعد انتهاء بوليصة التامين رقم ${(object.insurance_number)}  للسيارة رقم ${(object.license_plate)}   والتي تنتهي بتاريخ ${(object.insurance_end_date)}
+
+              </p>
+	    ]]>
+            </field>
+        </record>
+
+
+
+        <record id="operation_number_expiration_email_template" model="mail.template">
+            <field name="name">Operation Number Expiration e-mail template</field>
+            <field name="subject">Car Operation Number</field>
+            <!-- <field name="email_from">${object.company_id.name}</field> -->
+            <field name="email_to">${object.driver_id.email}</field>
+            <field name="lang">${object.lang}</field>
+            <field name="model_id" ref="odex_fleet.model_fleet_vehicle"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html">
+                <![CDATA[
+              <p style="text-align: right;" > عزيزي العميل  <br/><br/>
+              نود تذكيركم بقرب انتهاء كرت التشغيل  رقم ${(object.operation_card_number)} للسيارة رقم ${(object.license_plate)}  القائد ${(object.employee_id.name)}  النوع ${(object.fleet_type_id.name)}  والتي تنتهي بتاريخ ${(object.operation_card_number)}
+
+              </p>
+	    ]]>
+            </field>
+        </record>
+
+        <record id="installment_expiration_email_template" model="mail.template">
+            <field name="name">Installment  e-mail template</field>
+            <field name="subject">Car Installment</field>
+            <!-- <field name="email_from">${object.company_id.name}</field> -->
+            <field name="email_to">${object.driver_id.email}</field>
+            <field name="lang">${object.lang}</field>
+            <field name="model_id" ref="odex_fleet.model_insurance_installment"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html">
+                <![CDATA[
+              <p style="text-align: right;"> عزيزي العميل  <br/><br/>
+               نود تذكيركم بقرب موعد سداد قسط التامين بوليصة رقم ${(object.fleet_id.insurance_number)}  بتاريخ ${(object.date)}
+
+              </p>
+	    ]]>
+            </field>
+        </record>
+    </data>
+</odoo>

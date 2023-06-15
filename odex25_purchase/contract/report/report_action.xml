@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="report_contract" model="ir.actions.report">
+            <field name="name">Contract</field>
+            <field name="model">contract.contract</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">contract.report_contract_document</field>
+            <field name="report_file">contract.report_contract</field>
+            <field name="print_report_name">(object._get_report_base_filename())</field>
+            <!-- <field name="attachment">(object.state == 'posted') and ((object.name or 'INV').replace('/','_')+'.pdf')</field> -->
+            <field name="binding_model_id" ref="model_contract_contract"/>
+            <field name="binding_type">report</field>
+            
+        </record>
+
+
+    <!-- <report
+        id="report_contract"
+        model="contract.contract"
+        string="Contract"
+        report_type="qweb-pdf"
+        name="contract.report_contract_document"
+        file="contract.report_contract"/> -->
+
+
+<record id="report_contract_residual_installlments" model="ir.actions.report">
+            <field name="name">Residual Installlments</field>
+            <field name="model">contract.contract</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">contract.contract_residual_installlments</field>
+            <field name="report_file">contract.contract_residual_installlments</field>
+            <field name="print_report_name">(object._get_report_base_filename())</field>
+            <!-- <field name="attachment">(object.state == 'posted') and ((object.name or 'INV').replace('/','_')+'.pdf')</field> -->
+            <field name="binding_model_id" ref="model_contract_contract"/>
+            <field name="binding_type">report</field>
+            
+        </record>
+
+    <!-- <report
+        id="report_contract_residual_installlments"
+        model="contract.contract"
+        string="Residual Installlments"
+        report_type="qweb-pdf"
+        name="contract.contract_residual_installlments"
+        file="contract.contract_residual_installlments"/> -->
+
+
+<record id="action_report_installment" model="ir.actions.report">
+            <field name="name">Installments</field>
+            <field name="model">line.contract.installment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">contract.installments_report_template</field>
+            <field name="report_file">contract.installments_report_template</field>
+            <!-- <field name="print_report_name">(object._get_report_base_filename())</field> -->
+            <!-- <field name="attachment">(object.state == 'posted') and ((object.name or 'INV').replace('/','_')+'.pdf')</field> -->
+            <field name="binding_model_id" ref="model_line_contract_installment"/>
+            <field name="binding_type">report</field>
+            <field name="binding_model_id" eval="False"/>
+        </record>
+
+
+     <!-- <report
+            string="Installments"
+            id="action_report_installment"
+            model="line.contract.installment"
+            report_type="qweb-pdf"
+            name="contract.installments_report_template"
+            file="contract.installments_report_template"
+        />  -->
+
+        <record id="action_report_general_contract" model="ir.actions.report">
+            <field name="name">General Contract</field>
+            <field name="model">contract.contract</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">contract.general_contract_report_template</field>
+            <field name="report_file">contract.general_contract_report_template</field>
+            <field name="print_report_name">(object._get_report_base_filename())</field>
+            <!-- <field name="attachment">(object.state == 'posted') and ((object.name or 'INV').replace('/','_')+'.pdf')</field> -->
+            <field name="binding_model_id" ref="model_contract_contract"/>
+            <field name="binding_type">report</field>
+            <field name="binding_model_id" eval="False"/>
+            
+        </record>
+
+
+
+    <!-- <report
+            string="General Contract"
+            id="action_report_general_contract"
+            model="contract.contract"
+            report_type="qweb-pdf"
+            name="contract.general_contract_report_template"
+            file="contract.general_contract_report_template"
+        />   -->
+    <!-- <report
+            string="Contract Details"
+            id="action_report_details_contract"
+            model="contract.contract"
+            report_type="qweb-pdf"
+            name="contract.detials_contract_report_template"
+            file="contract.detials_contract_report_template"
+        />  -->
+
+        <record id="action_report_details_contract" model="ir.actions.report">
+            <field name="name">Contract Details</field>
+            <field name="model">contract.contract</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">contract.detials_contract_report_template</field>
+            <field name="report_file">contract.detials_contract_report_template</field>
+            <field name="print_report_name">(object._get_report_base_filename())</field>
+            <!-- <field name="attachment">(object.state == 'posted') and ((object.name or 'INV').replace('/','_')+'.pdf')</field> -->
+            <field name="binding_model_id" ref="model_contract_contract"/>
+            <field name="binding_type">report</field>
+            <field name="binding_model_id" eval="False"/>
+        </record>
+
+
+    <!-- <report
+            string="Contract Vendor"
+            id="action_report_vendor_contract"
+            model="contract.contract"
+            report_type="qweb-pdf"
+            name="contract.vendor_contract_report_template"
+            file="contract.vendor_contract_report_template"
+        />  -->
+
+            <record id="action_report_vendor_contract" model="ir.actions.report">
+            <field name="name">Contract Vendor</field>
+            <field name="model">contract.contract</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">contract.vendor_contract_report_template</field>
+            <field name="report_file">contract.vendor_contract_report_template</field>
+            <field name="print_report_name">(object._get_report_base_filename())</field>
+            <!-- <field name="attachment">(object.state == 'posted') and ((object.name or 'INV').replace('/','_')+'.pdf')</field> -->
+            <field name="binding_model_id" ref="model_contract_contract"/>
+            <field name="binding_type">report</field>
+            <field name="binding_model_id" eval="False"/>
+        </record>    
+</odoo>

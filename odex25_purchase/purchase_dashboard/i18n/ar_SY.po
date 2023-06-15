@@ -1,0 +1,300 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* purchase_dashboard
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-15 08:59+0000\n"
+"PO-Revision-Date: 2021-09-15 08:59+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:39
+#, python-format
+msgid "All"
+msgstr "الكل"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:18
+#, python-format
+msgid "Annual"
+msgstr "سنوي"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:48
+#, python-format
+msgid "Cancelled"
+msgstr "ملغي"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:95
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:107
+#, python-format
+msgid "Clear"
+msgstr "تفريغ"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:12
+#, python-format
+msgid "Dashboard View Type"
+msgstr "طريقة عرض لوحة المعلومات"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/js/purchase_dashboard.js:401
+#: code:addons/purchase_dashboard/static/src/js/purchase_dashboard.js:519
+#, python-format
+msgid "Department"
+msgstr "الإدارة"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:87
+#, python-format
+msgid "Departments"
+msgstr "الإدارات"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:8
+#: code:addons/purchase_dashboard/static/src/xml/purchase_quarter_dashboard.xml:8
+#, python-format
+msgid "Filters"
+msgstr "المرشحات"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:60
+#, python-format
+msgid "From"
+msgstr "من"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:56
+#, python-format
+msgid "From Date"
+msgstr "من تاريخ"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:47
+#, python-format
+msgid "Locked"
+msgstr "منتهي"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/js/purchase_dashboard.js:356
+#: code:addons/purchase_dashboard/static/src/js/purchase_dashboard.js:474
+#, python-format
+msgid "Partner"
+msgstr "الشريك"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:28
+#, python-format
+msgid "Period"
+msgstr "الفترة"
+
+#. module: purchase_dashboard
+#: model:ir.actions.client,name:purchase_dashboard.action_purchase_dashboard
+#: model:ir.ui.menu,name:purchase_dashboard.purchase_dashboard
+#: model:ir.ui.menu,name:purchase_dashboard.purchase_dashboard_menu
+msgid "Purchase Dashboard"
+msgstr "لوحة معلومات المشتريات"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:46
+#: model:ir.model,name:purchase_dashboard.model_purchase_order
+#, python-format
+msgid "Purchase Order"
+msgstr "أمر شراء"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:33
+#, python-format
+msgid "Purchase Order Status"
+msgstr "حالة أمر الشراء"
+
+#. module: purchase_dashboard
+#: model:ir.actions.client,name:purchase_dashboard.action_purchase_quarter_dashboard
+#: model:ir.ui.menu,name:purchase_dashboard.purchase_quarter_dashboard
+msgid "Purchase Quarterly Dashboard"
+msgstr "لوحة معلومات المشتريات بالأرباع"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/js/purchase_dashboard.js:293
+#: code:addons/purchase_dashboard/static/src/js/purchase_dashboard.js:308
+#: code:addons/purchase_dashboard/static/src/js/purchase_dashboard.js:338
+#: code:addons/purchase_dashboard/static/src/js/purchase_dashboard.js:353
+#: code:addons/purchase_dashboard/static/src/js/purchase_dashboard.js:383
+#: code:addons/purchase_dashboard/static/src/js/purchase_dashboard.js:398
+#: code:addons/purchase_dashboard/static/src/js/purchase_dashboard.js:456
+#: code:addons/purchase_dashboard/static/src/js/purchase_dashboard.js:471
+#: code:addons/purchase_dashboard/static/src/js/purchase_dashboard.js:501
+#: code:addons/purchase_dashboard/static/src/js/purchase_dashboard.js:516
+#, python-format
+msgid "Purchases"
+msgstr "المشتريات"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_quarter_dashboard.xml:29
+#, python-format
+msgid "Q1"
+msgstr "Q1"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_quarter_dashboard.xml:30
+#, python-format
+msgid "Q2"
+msgstr "Q2"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_quarter_dashboard.xml:31
+#, python-format
+msgid "Q3"
+msgstr "Q3"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_quarter_dashboard.xml:32
+#, python-format
+msgid "Q4"
+msgstr "Q4"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/js/purchase_dashboard.js:311
+#: code:addons/purchase_dashboard/static/src/xml/purchase_quarter_dashboard.xml:22
+#, python-format
+msgid "Quarter"
+msgstr "الربع"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:43
+#, python-format
+msgid "RFQ"
+msgstr "أمر شراء مبدئي"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:44
+#, python-format
+msgid "RFQ Sent"
+msgstr "تم إرسال أمر الشراء المبدئي"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:49
+#, python-format
+msgid "Rejected By Budget"
+msgstr "رفض بالموازنة"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:90
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:102
+#, python-format
+msgid "Select"
+msgstr "إختر"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:94
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:106
+#, python-format
+msgid "Select ALL"
+msgstr "تحديد الكل"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:41
+#, python-format
+msgid "Sign"
+msgstr "تم التوقيع"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:68
+#, python-format
+msgid "To"
+msgstr "إلى"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:45
+#, python-format
+msgid "To Approve"
+msgstr "للموافقة"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:63
+#, python-format
+msgid "To Date"
+msgstr "إلى تاريخ"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:40
+#, python-format
+msgid "UnSign"
+msgstr "تم رفض عرض سعر"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:99
+#, python-format
+msgid "Vendors"
+msgstr "الموردين"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:42
+#, python-format
+msgid "Waiting For Budget Confirmation"
+msgstr "في إنتظار تصديق الموازنة"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:50
+#, python-format
+msgid "Waiting For Send to Budget"
+msgstr "بإنتظار الإرسال إلى الموازنة"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_dashboard.xml:75
+#: code:addons/purchase_dashboard/static/src/xml/purchase_quarter_dashboard.xml:12
+#, python-format
+msgid "Year"
+msgstr "السنة"
+
+#. module: purchase_dashboard
+#. openerp-web
+#: code:addons/purchase_dashboard/static/src/xml/purchase_quarter_dashboard.xml:41
+#, python-format
+msgid "تقرير الحالة المالية للمشتريات في مكتب تحقيق الرؤية"
+msgstr "تقرير الحالة المالية للمشتريات في مكتب تحقيق الرؤية"
+

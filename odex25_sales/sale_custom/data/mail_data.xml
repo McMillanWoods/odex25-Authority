@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sale.email_template_edi_sale" model="mail.template">
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+Date:  ${object.date_order}
+
+Dears:  ${object.partner_id.name}
+
+
+السلام عليكم ورحمة الله وبركاته
+
+
+Reference to your letter, Dated${object.opportunity_id.date_open}Regarding your kind invitation to submit a bid for a project competition${object.opportunity_id.name}, We are pleased to present to you our offer for the above-mentioned competition as indicated in the attachments.
+
+
+Our total fees for these services, including value added tax, amount to an amount of ${format_amount(object.amount_total, object.pricelist_id.currency_id)}as shown in the attached table of quantities and prices.
+
+
+We hope that our offer will be accepted by you, and if you have any questions, please contact the site below - on the Phone No 4048484/011 Converted 1838 or by email: proposals_dept@zfp.com.
+                </div>
+            </field>
+        </record>
+
+    </data>
+
+</odoo>

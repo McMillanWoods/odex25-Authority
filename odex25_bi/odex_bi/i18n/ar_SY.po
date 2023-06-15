@@ -1,0 +1,162 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* superset
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0-20190819\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-10-16 10:13+0000\n"
+"PO-Revision-Date: 2019-10-16 10:13+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: odex_bi
+#: model:ir.ui.view,arch_db:odex_bi.res_config_settings_view_form
+msgid "BI Setting"
+msgstr "إعدادات تحليل الأعمال"
+
+#. module: odex_bi
+#: model:ir.ui.view,arch_db:odex_bi.res_config_settings_view_form
+msgid "BI URL"
+msgstr "رابط تحليل الاعمال"
+
+#. module: odex_bi
+#: model:ir.model.fields,field_description:odex_bi.field_backend_user_decoration_config_bi_url
+#: model:ir.model.fields,field_description:odex_bi.field_res_config_settings_bi_url
+#: model:ir.model.fields,field_description:odex_bi.field_test_config_settings_bi_url
+msgid "Bi Url"
+msgstr "رابط تحليل الاعمال"
+
+#. module: odex_bi
+#: model:ir.model,name:odex_bi.model_change_password_user
+msgid "Change Password Wizard User"
+msgstr "معالج تغيير كلمة المرور"
+
+#. module: odex_bi
+#: model:ir.model.fields,field_description:odex_bi.field_superset_create_uid
+#: model:ir.model.fields,field_description:odex_bi.field_superset_users_create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: odex_bi
+#: model:ir.model.fields,field_description:odex_bi.field_superset_create_date
+#: model:ir.model.fields,field_description:odex_bi.field_superset_users_create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: odex_bi
+#: model:ir.model.fields,field_description:odex_bi.field_superset_display_name
+#: model:ir.model.fields,field_description:odex_bi.field_superset_users_display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: odex_bi
+#: model:ir.model.fields,field_description:odex_bi.field_superset_id
+#: model:ir.model.fields,field_description:odex_bi.field_superset_users_id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: odex_bi
+#: model:ir.model.fields,field_description:odex_bi.field_superset___last_update
+#: model:ir.model.fields,field_description:odex_bi.field_superset_users___last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: odex_bi
+#: model:ir.model.fields,field_description:odex_bi.field_superset_users_write_uid
+#: model:ir.model.fields,field_description:odex_bi.field_superset_write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: odex_bi
+#: model:ir.model.fields,field_description:odex_bi.field_superset_users_write_date
+#: model:ir.model.fields,field_description:odex_bi.field_superset_write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: odex_bi
+#: model:ir.actions.client,name:odex_bi.action_superset
+#: model:ir.ui.menu,name:odex_bi.menu_superset
+#: model:res.groups,name:odex_bi.group_superset
+msgid "Odex BI"
+msgstr "تحليل الأعمال"
+
+#. module: odex_bi
+#: model:ir.model.fields,field_description:odex_bi.field_backend_user_decoration_config_password
+#: model:ir.model.fields,field_description:odex_bi.field_res_config_settings_password
+#: model:ir.model.fields,field_description:odex_bi.field_superset_users_password
+#: model:ir.model.fields,field_description:odex_bi.field_test_config_settings_password
+msgid "Password"
+msgstr "كلمة المرور"
+
+#. module: odex_bi
+#: model:ir.ui.view,arch_db:odex_bi.res_config_settings_view_form
+msgid "Set BI superuser login and password"
+msgstr "أدخل اسم مستخدم برنامج تحليل الاعمال و كلمة المرور"
+
+#. module: odex_bi
+#: model:ir.ui.view,arch_db:odex_bi.res_config_settings_view_form
+msgid "Set BI url"
+msgstr "ادخل رابط موقع تحليل الاعمال"
+
+#. module: odex_bi
+#: model:ir.model.fields,field_description:odex_bi.field_res_users_superset_uid
+msgid "Superset Uid"
+msgstr "مستخدم سوبرسيت"
+
+#. module: odex_bi
+#: model:ir.ui.view,arch_db:odex_bi.res_config_settings_view_form
+msgid "Superuser Credential"
+msgstr "معلومات الدخول"
+
+#. module: odex_bi
+#: code:addons/superset/models/res_users.py:44
+#, python-format
+msgid "Superuser cann't login to Odex BI \n"
+"                                            Kindly check superuser credential in General Setting"
+msgstr "المستخدم لا يستطيع الوصول الى مخدم تحليل الاعمال \n"
+"                                            الرجاء مراجعة بيانات الدخول الخاصة بمستخدم سوبرسيت في الاعدادات العامة"
+
+#. module: odex_bi
+#: model:ir.ui.view,arch_db:odex_bi.res_config_settings_view_form
+msgid "URL"
+msgstr "رابط ويب"
+
+#. module: odex_bi
+#: code:addons/superset/models/res_users.py:36
+#, python-format
+msgid "User cann't login to Odex BI"
+msgstr "المستخدم لا يستطيع تسجيل الدخول على نظام تحليل الاعمال"
+
+#. module: odex_bi
+#: model:ir.model.fields,field_description:odex_bi.field_backend_user_decoration_config_username
+#: model:ir.model.fields,field_description:odex_bi.field_res_config_settings_username
+#: model:ir.model.fields,field_description:odex_bi.field_test_config_settings_username
+msgid "Username"
+msgstr "اسم المستخدم"
+
+#. module: odex_bi
+#: model:ir.model,name:odex_bi.model_res_users
+msgid "Users"
+msgstr "المستخدمون"
+
+#. module: odex_bi
+#: model:ir.model,name:odex_bi.model_res_config_settings
+msgid "res.config.settings"
+msgstr "الدقة.التكوين.إعدادات"
+
+#. module: odex_bi
+#: model:ir.model,name:odex_bi.model_superset
+msgid "superset"
+msgstr "superset"
+
+#. module: odex_bi
+#: model:ir.model,name:odex_bi.model_superset_users
+msgid "superset.users"
+msgstr "superset.users"
+

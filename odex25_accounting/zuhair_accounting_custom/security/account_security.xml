@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="execution_guarantee_group" model="res.groups">
+            <field name="name">Execution Guarantee</field>
+        </record>
+
+        <record id="cash_flow_budget_report_group" model="res.groups">
+            <field name="name">Cash Flow Budget Report</field>
+        </record>
+
+    </data>
+</odoo>

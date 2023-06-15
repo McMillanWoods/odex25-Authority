@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+	<data>
+
+		<record model="ir.ui.view" id="summary_report_wiz_form">
+			<field name="name">summary.report.wiz.form</field>
+			<field name="model">summary.report.wiz</field>
+			<field name="inherit_id" ref="sale_custom.proposal_common_report_wiz_form"/>
+			<field name="arch" type="xml">
+
+				<xpath expr="//field[@name='company_id']" position="before">
+					<field name="business_unit_ids" widget="many2many_tags" required="1"/>
+					<field name="proposal_state_ids" widget="many2many_tags" required="1"/>
+				</xpath>
+
+			</field>
+		</record>
+
+
+		<record id="summary_report_action" model="ir.actions.act_window">
+			<field name="name">Summary Report</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">summary.report.wiz</field>
+			<field name="view_id" ref="summary_report_wiz_form"/>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+		<menuitem
+				id="summary_report_menu"
+				name="Summary Report"
+				parent="proposal_report_common_menu"
+				sequence="3"
+				action="summary_report_action"
+		/>
+	</data>
+
+</odoo>

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_order_form_inherit" model="ir.ui.view">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="replace">
+                    <header>
+
+                        <button name="action_proposal_sent" string="Send Proposal" type="object" states="draft" class="btn-primary"/>
+
+                        <button name="action_confirm" string="Confirm" type="object" states="sent" class="btn-primary"/>
+
+                        <button name="action_proposal_approve" string="Approve" type="object" states="sale" class="btn-primary"/>
+
+                        <button name="action_quotation_send" string="Send by Email" type="object" states="done"/>
+
+                        <button name="action_cancel" type="object" string="Cancel" states="sent,sale"/>
+
+                        <button name="action_draft" states="cancel" type="object" string="Set to Proposal"/>
+
+                        <button name="%(sale_custom.action_bid_bond_from_sale_order)d" string="Add Bid Bond" type="action" class="oe_highlight" context="{'default_sale_order_id': active_id, 'default_partner_id': partner_id}" attrs="{'invisible':[('bidbond', '=', False)]}"/>
+
+                        <button name="create_project" type="object" string="Create Project" class="btn-primary" attrs="{'invisible': [('contract_status', '!=', 'done')]}"/>
+
+                        <button name="%(sale_custom.action_import_sale_data)d" type="action" string="Update Estimate"
+                            context="{'default_sale_order_id': active_id}" />
+
+                        <!-- Contract Button -->
+                        <button name="action_contract_send" type="object" string="Send Contract" class="btn-primary" attrs="{'invisible': ['|', ('contract_status', '!=', 'draft'), ('upload_contract', '=', False)]}"/>
+
+                        <button name="action_contract_confirm" type="object" string="Confirm Contract" class="btn-primary" attrs="{'invisible': [('contract_status', '!=', 'sent')]}"/>
+
+                        <button name="action_contract_approve" type="object" string="Approve Contract" class="btn-primary" attrs="{'invisible': [('contract_status', '!=', 'confirm')]}"/>
+
+
+                        <field name="state" widget="statusbar" statusbar_visible="draft,sent,sale"/>
+
+                    </header>
+                </xpath>
+
+                <xpath expr="//button[@name='preview_sale_order']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//button[@name='action_view_invoice']" position="before">
+                   <button type="action"
+                       name="%(sale_custom.action_bid_bond_from_sale_order)d"
+                       class="oe_stat_button" string="Bid Bond"
+                       icon="fa-money" context="{'default_sale_order_id': active_id, 'default_partner_id': partner_id}">
+                   </button>
+                </xpath>
+
+                <xpath expr="//field[@name='name']" position="after">
+                    <br/>
+                    <field name="proposal_name" attrs="{'readonly': [('opportunity_id', '!=', False)]}"/>
+                </xpath>
+
+                <xpath expr="//field[@name='date_order']" position="attributes">
+                    <attribute name="string">Submit Date</attribute>
+                </xpath>
+
+                <xpath expr="//label[@for='date_order']" position="attributes">
+                    <attribute name="string">Submit Date</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='partner_shipping_id']" position="after">
+                    <field name="proposal_state_id" required="1"/>
+                    <field name="upload_contract" invisible="1"/>
+                </xpath>
+
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="contract_attachment_ids" widget="many2many_binary" attrs="{'invisible': [('upload_contract', '=', False)], 'required':  [('upload_contract', '=', True)]}"/>
+                    <field name="contract_status" attrs="{'invisible': [('upload_contract', '=', False)]}"/>
+                    <field name="contract_value" attrs="{'invisible': [('upload_contract', '=', False)]}"/>
+                </xpath>
+
+                <xpath expr="//field[@name='note']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//page[@name='order_lines']" position="attributes">
+                    <attribute name="string">Pricing</attribute>
+                </xpath>
+
+                <xpath expr="//page[@name='other_information']" position="before">
+
+                    <page name="mhrs_estimate" string="Mhrs Estimate">
+                        <field name="sale_department_ids" widget="section_and_note_one2many">
+                            <tree string="Mhrs Estimate" editable="bottom">
+                                <control>
+                                    <create name="add_department_control" string="Add a mhrs estimate"/>
+                                    <create name="add_section_control" string="Add a section" context="{'default_display_type': 'line_section'}"/>
+                                    <create name="add_note_control" string="Add a note" context="{'default_display_type': 'line_note'}"/>
+                                </control>
+
+                                <field name="display_type" invisible="1"/>
+                                <field name="department_id" attrs="{'required': [('display_type', '=', False)]}"/>
+                                <field name="name" widget="section_and_note_text"/>
+                                <field name="no_sheet" required="1" sum="Total"/>
+                                <field name="hrs_sheet" required="1" sum="Total"/>
+                                <field name="cairo_hrs" required="1" sum="Total"/>
+                                <field name="ksa_hrs" required="1" sum="Total"/>
+                                <field name="total_hrs" required="1" sum="Total"/>
+                            </tree>
+                        </field>
+                    </page>
+
+                    <page name="manpower" string="Manpower">
+                        <field name="sale_job_ids" widget="section_and_note_one2many">
+                            <tree editable="bottom">
+                                <control>
+                                    <create name="add_manpower_control" string="Add a manpower"/>
+                                    <create name="add_section_control" string="Add a section" context="{'default_display_type': 'line_section'}"/>
+                                    <create name="add_note_control" string="Add a note" context="{'default_display_type': 'line_note'}"/>
+                                </control>
+                                <field name="job_id" attrs="{'required': [('display_type', '=', False)]}"/>
+                                <field name="name" widget="section_and_note_text"/>
+                                <field name="no_year_experience"/>
+                                <field name="qty" required="1" sum="Total"/>
+                                <field name="duration" required="1" sum="Total"/>
+                                <field name="month_rate" required="1" sum="Total"/>
+                                <field name="total" required="1" sum="Total"/>
+                                <field name="display_type" invisible="1"/>
+                            </tree>
+                        </field>
+                    </page>
+
+                    <page name="project_description" string="Project Description">
+                        <field name="note" placeholder="Add a description"/>
+                    </page>
+
+                    <page name="project_location" string="Project Location">
+                        <group>
+                            <field name="project_country_id"/>
+                            <field name="project_state_id" />
+                            <field name="city_id"/>
+                        </group>
+                    </page>
+
+                    <page name="project_info" string="Project Information">
+                        <group>
+                            <group>
+                                <field name="project_category_id" />
+                                <field name="project_duration" />
+                                <field name="project_duration_internal" />
+                                <field name="total_site_area" />
+                            </group>
+
+                            <group>
+                                <field name="project_manager_id"/>
+                                <field name="project_coordinator_id"/>
+                            </group>
+
+                            <group>
+                                <field name="main_building_prototype" />
+                                <field name="main_building_site" />
+                                <field name="main_building_total" />
+                            </group>
+                            <group>
+                                <field name="floor_area_ratio"/>
+                                <field name="site_works_area"/>
+                                <field name="ancillary_building_prototype"/>
+                                <field name="ancillary_building_site"/>
+                                <field name="ancillary_building_total"/>
+                            </group>
+                        </group>
+                    </page>
+
+                    <page name="business_info" string="Business Information">
+                        <group>
+                            <field name="industry_id" required="1" domain="[('parent_id', '=', False)]"/>
+                            <field name="sector_id" required="1"/>
+                            <field name="department_id"  required="1"/>
+                            <field name="product_id" domain="[('department_id', '=', department_id)]" required="1"/>
+                        </group>
+                    </page>
+
+                    <page name="bid_bond" string="Bid Bond">
+                        <group>
+                            <field name="bidbond"/>
+                        </group>
+                    </page>
+
+                    <page name="proposal_doc" string="Proposal Document">
+                        <field name="proposal_attachment_ids" widget="many2many_binary"/>
+                    </page>
+
+                    <page name="bid_opening" string="Bid openig">
+                        <group>
+                            <field name="rank" />
+                        </group>
+                        <field name="bid_opening_ids">
+                            <tree editable="bottom">
+                                <field name="competitor_id" required="1"/>
+                                <field name="amount" required="1"/>
+                                <field name="rank" required="1"/>
+                            </tree>
+                        </field>
+                    </page>
+
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="sale_view_inherit123_form" model="ir.ui.view">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale_crm.sale_view_inherit123" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='opportunity_id']" position="replace"/>
+
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="opportunity_id" string="RFP" readonly="1" force_save="1"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_quotation_tree_inherit" model="ir.ui.view">
+            <field name="name">sale.order.tree</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_quotation_tree" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='create_date']" position="before">
+                    <field name="date_order" string="Submit Date"/>
+                    <field name="opportunity_id" string="RFP" />
+                </xpath>
+
+                <xpath expr="//field[@name='state']" position="before">
+                    <field name="proposal_state_id" />
+                </xpath>
+
+            </field>
+
+        </record>
+
+
+        <record id="view_order_form_inherit_sale_project" model="ir.ui.view">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale_project.view_order_form_inherit_sale_project" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='project_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="sale_crm.sale_order_menu_quotations_crm" model="ir.ui.menu">
+            <field name="name">My Proposal</field>
+        </record>
+
+        <record id="sale.sale_menu_root" model="ir.ui.menu">
+            <field name="name">Proposals</field>
+        </record>
+
+        <record id="sale.sale_order_menu" model="ir.ui.menu">
+            <field name="name">Proposals</field>
+        </record>
+
+        <record id="sale.menu_sale_quotations" model="ir.ui.menu">
+            <field name="name">Proposal</field>
+        </record>
+
+        <record id="sale.action_quotations_with_onboarding" model="ir.actions.act_window">
+            <field name="name">Proposal</field>
+        </record>
+
+
+        <record id="sale.menu_sale_order" model="ir.ui.menu">
+            <field name="active" eval="False"/>
+        </record>
+
+        <record id="sale.menu_sale_invoicing" model="ir.ui.menu">
+            <field name="active" eval="False"/>
+        </record>
+
+
+        <record id="sale.sales_team_config" model="ir.ui.menu">
+            <field name="name">Proposal Teams</field>
+        </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,118 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* zuhair_purchase
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-12 08:49+0000\n"
+"PO-Revision-Date: 2022-12-12 10:50+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.2.2\n"
+
+#. module: zuhair_purchase
+#: model:ir.model.fields,field_description:zuhair_purchase.field_res_partner__type
+#: model:ir.model.fields,field_description:zuhair_purchase.field_res_users__type
+msgid "Address Type"
+msgstr "نوع العنوان"
+
+#. module: zuhair_purchase
+#: model:ir.model.fields,field_description:zuhair_purchase.field_purchase_order__category_ids
+msgid "Categories"
+msgstr "ألاصناف"
+
+#. module: zuhair_purchase
+#: model:ir.model,name:zuhair_purchase.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: zuhair_purchase
+#: model:ir.model.fields,field_description:zuhair_purchase.field_product_category__display_name
+#: model:ir.model.fields,field_description:zuhair_purchase.field_product_template__display_name
+#: model:ir.model.fields,field_description:zuhair_purchase.field_purchase_order__display_name
+#: model:ir.model.fields,field_description:zuhair_purchase.field_purchase_order_line__display_name
+#: model:ir.model.fields,field_description:zuhair_purchase.field_res_partner__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: zuhair_purchase
+#: model:ir.model.fields,field_description:zuhair_purchase.field_product_category__id
+#: model:ir.model.fields,field_description:zuhair_purchase.field_product_template__id
+#: model:ir.model.fields,field_description:zuhair_purchase.field_purchase_order__id
+#: model:ir.model.fields,field_description:zuhair_purchase.field_purchase_order_line__id
+#: model:ir.model.fields,field_description:zuhair_purchase.field_res_partner__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: zuhair_purchase
+#: model:ir.model.fields,field_description:zuhair_purchase.field_product_category__it_categ
+#: model:ir.model.fields,field_description:zuhair_purchase.field_product_product__it_categ
+#: model:ir.model.fields,field_description:zuhair_purchase.field_product_template__it_categ
+msgid "IT Category?"
+msgstr "صنف تقني؟"
+
+#. module: zuhair_purchase
+#: model:ir.model.fields,help:zuhair_purchase.field_res_partner__type
+#: model:ir.model.fields,help:zuhair_purchase.field_res_users__type
+msgid ""
+"Invoice & Delivery addresses are used in sales orders. Private addresses "
+"are only visible by authorized users."
+msgstr ""
+"تُستخدم عناوين الفوترة والتوصيل في أوامر البيع. تكون العناوين الخاصة مرئية "
+"فقط من قِبَل المستخدمين المصرح لهم. "
+
+#. module: zuhair_purchase
+#: model:ir.model.fields,field_description:zuhair_purchase.field_product_category____last_update
+#: model:ir.model.fields,field_description:zuhair_purchase.field_product_template____last_update
+#: model:ir.model.fields,field_description:zuhair_purchase.field_purchase_order____last_update
+#: model:ir.model.fields,field_description:zuhair_purchase.field_purchase_order_line____last_update
+#: model:ir.model.fields,field_description:zuhair_purchase.field_res_partner____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: zuhair_purchase
+#: model:ir.model,name:zuhair_purchase.model_product_category
+msgid "Product Category"
+msgstr "فئة المنتج"
+
+#. module: zuhair_purchase
+#: model:ir.model,name:zuhair_purchase.model_product_template
+msgid "Product Template"
+msgstr "قالب المنتج"
+
+#. module: zuhair_purchase
+#: model_terms:ir.ui.view,arch_db:zuhair_purchase.pview_purchase_order
+msgid "Product name Desc"
+msgstr ""
+
+#. module: zuhair_purchase
+#: model:ir.model,name:zuhair_purchase.model_purchase_order
+msgid "Purchase Order"
+msgstr "أمر شراء"
+
+#. module: zuhair_purchase
+#: model:ir.model,name:zuhair_purchase.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "بند أمر الشراء"
+
+#. module: zuhair_purchase
+#: model_terms:ir.ui.view,arch_db:zuhair_purchase.pview_purchase_order
+msgid "Search Purchase Order Data"
+msgstr ""
+
+#. module: zuhair_purchase
+#: model:ir.model.fields.selection,name:zuhair_purchase.selection__res_partner__type__supplier_account_manager
+msgid "Supplier Account Manager"
+msgstr "مدير حساب المورد"
+
+#. module: zuhair_purchase
+#: model_terms:ir.ui.view,arch_db:zuhair_purchase.zuhair_login_view_users_form
+msgid "login name"
+msgstr ""

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+    <!-- Vendors wizard form -->
+    <record id="wizard_installment_report_form" model="ir.ui.view">
+        <field name="name">Vendors</field>
+        <field name="model">installment.report.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group colspan="2">
+                        <group>
+                            <field name="date_from" required="1"/>
+                            <field name="supplier_id" options="{'no_create' : True , 'no_edit' : True ,'no_open' : True}"  domain="[('supplier_rank','>', 0)]" />
+                            <!-- domain="[('supplier','=',True)]" -->
+                            
+                        </group>
+                        <group>
+                            <field name="date_to" required="1"/>
+                            <field name="state"/>
+                        </group>
+                        <group>
+                            <field name="contract_ids" 
+                            widget="many2many_tags"
+                            />
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="print_report" string="Print" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <!-- vendors wizard action -->
+     <record id="wizard_vendro_report_action" model="ir.actions.act_window">
+            <field name="name">Installments</field>
+            <field name="res_model">installment.report.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    <!-- <act_window id="wizard_vendro_report_action" target="new" name="Installments" res_model="installment.report.wizard" view_mode="form"/> -->
+    <!-- vendors wizard menu -->
+    <menuitem id= "report_vendor_menu" name= "installments Report" parent= "contract_contract_reports" action= "wizard_vendro_report_action" />
+
+</odoo>

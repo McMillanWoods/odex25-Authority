@@ -1,0 +1,72 @@
+<odoo>
+    <record id="crm_lead_view_form_inherit" model="ir.ui.view">
+        <field name="name">crm.lead.form</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form" />
+        <field name="arch" type="xml">
+            <field name="name" position="before">
+                <field name="code_rfi" class="oe_inline" attrs="{'invisible':[('type', '=', 'opportunity')]}"/>
+                <label for="code_rfi" string="  " class="oe_inline" attrs="{'invisible':[('type', '=', 'opportunity')]}"/>
+
+                <field name="code_rfp" class="oe_inline" attrs="{'invisible':[('type', '=', 'lead')]}"/>
+                <label for="code_rfp" string="  " class="oe_inline" attrs="{'invisible':[('type', '=', 'lead')]}"/>
+                <br/>
+
+            </field>
+        </field>
+    </record>
+    <record id="crm_case_tree_view_leads_inherit" model="ir.ui.view">
+        <field name="name">crm.lead.tree.lead</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_tree_view_leads" />
+        <field name="arch" type="xml">
+            <field name="name" position="before">
+                <field name="code_rfi" />
+            </field>
+        </field>
+    </record>
+    <record id="view_crm_case_leads_filter_inherit" model="ir.ui.view">
+        <field name="name">crm.lead.search.lead</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.view_crm_case_leads_filter" />
+        <field name="arch" type="xml">
+            <field name="name" position="attributes">
+                <attribute
+                    name="filter_domain"
+                >['|', ('name', 'ilike', self), ('code_rfi', 'ilike', self)]</attribute>
+            </field>
+        </field>
+    </record>
+    <record id="crm_case_tree_view_oppor_inherit" model="ir.ui.view">
+        <field name="name">crm.lead.tree.opportunity</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_tree_view_oppor" />
+        <field name="arch" type="xml">
+            <field name="name" position="before">
+                <field name="code_rfp" />
+            </field>
+        </field>
+    </record>
+    <record id="crm_case_kanban_view_leads_inherit" model="ir.ui.view">
+        <field name="name">crm.lead.kanban.lead</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_kanban_view_leads" />
+        <field name="arch" type="xml">
+            <field name="name" position="before">
+                <field name="code_rfp" />
+            </field>
+        </field>
+    </record>
+    <record id="view_crm_case_opportunities_filter_inherit" model="ir.ui.view">
+        <field name="name">crm.lead.search.opportunity</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.view_crm_case_opportunities_filter" />
+        <field name="arch" type="xml">
+            <field name="name" position="attributes">
+                <attribute
+                    name="filter_domain"
+                >['|', ('name', 'ilike', self), ('code_rfp', 'ilike', self)]</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>

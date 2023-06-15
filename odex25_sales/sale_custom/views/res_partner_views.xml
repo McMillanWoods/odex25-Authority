@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_partner_view_buttons" model="ir.ui.view">
+        <field name="name">res.partner.view.buttons</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="sale.res_partner_view_buttons" />
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='sale_order_count']" position="attributes">
+                <attribute name="string">Proposals</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

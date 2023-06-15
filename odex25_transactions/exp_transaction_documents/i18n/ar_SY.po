@@ -1,0 +1,2906 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* exp_transaction_documents
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0-20200928\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-08 13:32+0000\n"
+"PO-Revision-Date: 2022-12-08 13:32+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: exp_transaction_documents
+#: model:mail.template,body_html:exp_transaction_documents.internal_notify_close_email
+msgid ""
+"\n"
+"                \n"
+"                            <div style=\"text-align: right;direction:rtl\">\n"
+"\n"
+"                                <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                                    السلام عليكم ورحمة الله.\n"
+"                                </p>\n"
+"                                <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                                    تم حفظ المعاملة\n"
+"                                </p><br/>\n"
+"                                <p style=\"font-size: 1em;text-align: right\">\n"
+"                                    <table>\n"
+"                                        <tr>\n"
+"                                            <td><b>رقم المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline;direction: ltr;float: left;\">${object.name}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b>موضوع المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.subject}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b>مبرر الحفظ : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.get_latest_by_action('archive').archive_type_id.name}</td>\n"
+"                                        </tr>\n"
+"                                           <tr>\n"
+"                                            <td><b> الملاحظات : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.get_latest_by_action('archive').note}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b>تاريخ الحفظ : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.get_latest_by_action('archive').date}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b>نوع المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.subject_type_id.name}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b> معِد المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.employee_id.name}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b> آخر موعد لانجاز المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.due_date}</td>\n"
+"                                        </tr>\n"
+"                                    </table>\n"
+"                                </p><br/>\n"
+"                                <p style=\"font-size: 1.1em;text-align: right;\">\n"
+"                                    <a href=\"${object.get_url()}\">رابط المعاملة</a>\n"
+"                                </p>\n"
+"                                <p style=\"font-size: 1.1em;text-align: right\">\n"
+"         <a href=\"${user.company_id.website}\">${user.company_id.name}</a>\n"
+"                                </p>\n"
+"                            </div>\n"
+"                        \n"
+"            "
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:mail.template,body_html:exp_transaction_documents.internal_notify_reply_email
+msgid ""
+"\n"
+"                \n"
+"                            <div style=\"text-align: right;direction:rtl\">\n"
+"                                 <p style=\"text-align: right\">السادة الفضلاء: ${object.employee_id.name}</p>\n"
+"                                <p style=\"text-align: left\">حفظهم الله،،</p>\n"
+"                                <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                                    السلام عليكم ورحمة الله.\n"
+"                                </p>\n"
+"                                <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                                    تم الرد على الإحالة للمعاملة\n"
+"                                </p><br/>\n"
+"                                <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                                    يمكنكم الان المتابعة و إكمال اللازم\n"
+"                                </p><br/>\n"
+"                                <p style=\"font-size: 1em;text-align: right\">\n"
+"                                    <table>\n"
+"                                        <tr>\n"
+"                                            <td><b>رقم المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline;direction: ltr;float: left;\">${object.name}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b>موضوع المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.subject}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b>موجه من : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.get_latest_by_action('reply').from_id.name}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b>الإجراء المطلوب : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.get_latest_by_action('reply').procedure_id.name}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b> الملاحظات : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.get_latest_by_action('reply').note}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b>تاريخ الإحالة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.get_latest_by_action('reply').date}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b>نوع المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.subject_type_id.name}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b> معِد المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.employee_id.name}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b> آخر موعد لانجاز المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.due_date}</td>\n"
+"                                        </tr>\n"
+"                                    </table>\n"
+"                                </p><br/>\n"
+"                                <p style=\"font-size: 1.1em;text-align: right;\">\n"
+"                                    <a href=\"${object.get_url()}\">رابط المعاملة</a>\n"
+"                                </p>\n"
+"                                <p style=\"font-size: 1.1em;text-align: right\">\n"
+"         <a href=\"${user.company_id.website}\">${user.company_id.name}</a>\n"
+"                                </p>\n"
+"                            </div>\n"
+"                        \n"
+"            "
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:mail.template,body_html:exp_transaction_documents.internal_notify_forward_email
+msgid ""
+"\n"
+"                \n"
+"                            <div style=\"text-align: right;direction:rtl\">\n"
+"                                 <p style=\"text-align: right\">السادة الفضلاء: ${object.forward_user_id.name}</p>\n"
+"                                <p style=\"text-align: left\">حفظهم الله،،</p>\n"
+"                                <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                                    السلام عليكم ورحمة الله.\n"
+"\n"
+"                                </p>\n"
+"                                <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                                    توجد إحالة واردة للمعاملة\n"
+"                                </p><br/>\n"
+"                                <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                                    يمكنكم الان المتابعة و تنفيذ الإجراء المطلوب\n"
+"                                </p><br/>\n"
+"                                <p style=\"font-size: 1em;text-align: right\">\n"
+"                                    <table>\n"
+"                                        <tr>\n"
+"                                            <td><b>رقم المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline;direction: ltr;float: left;\">${object.name}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b>موضوع المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.subject}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b>محالة من قِبل : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.get_latest_forward().from_id.name}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b>الإجراء المطلوب : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.get_latest_forward().procedure_id.name}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b>تاريخ الإحالة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.get_latest_forward().date}</td>\n"
+"                                        </tr>\n"
+"\n"
+"                                        <tr>\n"
+"                                            <td><b>نوع المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.subject_type_id.name}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b> معِد المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.employee_id.name}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b> آخر موعد لانجاز المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.due_date}</td>\n"
+"                                        </tr>\n"
+"                                    </table>\n"
+"                                </p><br/>\n"
+"                                <p style=\"font-size: 1.1em;text-align: right;\">\n"
+"                                    <a href=\"${object.get_url()}\">رابط المعاملة</a>\n"
+"                                </p>\n"
+"                                <p style=\"font-size: 1.1em;text-align: right\">\n"
+"         <a href=\"${user.company_id.website}\">${user.company_id.name}</a>\n"
+"                                </p>\n"
+"                            </div>\n"
+"                        \n"
+"            "
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:mail.template,body_html:exp_transaction_documents.internal_approval1_request_email
+msgid ""
+"\n"
+"                \n"
+"                    <div style=\"text-align: right;direction:rtl\">\n"
+"                         <p style=\"text-align: right\"> ،، ${object.preparation_id.manager_id.name|safe} - السادة الفضلاء</p>\n"
+"                        <p style=\"text-align: left\">حفظهم الله،،</p>\n"
+"                        <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                            السلام عليكم ورحمة الله.\n"
+"                        </p>\n"
+"                        <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                            توجد معاملة داخلية في انتظار اعتماد الإدارة\n"
+"                        </p><br/>\n"
+"                        <p style=\"font-size: 1em;text-align: right\">\n"
+"                            <table>\n"
+"                                <tr>\n"
+"                                    <td><b>موجهة الى : </b></td>\n"
+"                                    <td style=\"text-decoration:underline\">${object.to_ids[0].name}</td>\n"
+"                                </tr>\n"
+"                                <tr>\n"
+"                                    <td><b> : موضوع المعاملة</b></td>\n"
+"                                    <td style=\"text-decoration:underline\">${object.subject}</td>\n"
+"                                </tr>\n"
+"                                <tr>\n"
+"                                    <td><b> : نوع المعاملة</b></td>\n"
+"                                    <td style=\"text-decoration:underline\">${object.subject_type_id.name}</td>\n"
+"                                </tr>\n"
+"                                <tr>\n"
+"                                    <td><b> : الإدارة المعدة</b></td>\n"
+"                                    <td style=\"text-decoration:underline\">${object.preparation_id.name}</td>\n"
+"                                </tr>\n"
+"                                <tr>\n"
+"                                    <td><b> : معِد المعاملة</b></td>\n"
+"                                    <td style=\"text-decoration:underline\">${object.employee_id.name}</td>\n"
+"                                </tr>\n"
+"                                <tr>\n"
+"                                    <td><b> : آخر موعد لإنجاز المعاملة</b></td>\n"
+"                                    <td style=\"text-decoration:underline\">${object.due_date}</td>\n"
+"                                </tr>\n"
+"                            </table>\n"
+"                        </p><br/>\n"
+"                        <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                            <a href=\"${object.get_url()}\">رابط المعاملة</a>\n"
+"                        </p>\n"
+"                        <p style=\"font-size: 1.1em;text-align: right\">\n"
+" <a href=\"${user.company_id.website}\">${user.company_id.name}</a>\n"
+"                        </p>\n"
+"                    </div>\n"
+"                \n"
+"            "
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:mail.template,body_html:exp_transaction_documents.incoming_notify_send_send_email
+msgid ""
+"\n"
+"                \n"
+"                    <div style=\"text-align: right;direction:rtl\">\n"
+"                         <p style=\"text-align: right\">السادة الفضلاء: ${object.get_name()}</p>\n"
+"                        <p style=\"text-align: left\">حفظهم الله،،</p>\n"
+"                        <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                            السلام عليكم ورحمة الله.\n"
+"\n"
+"                        </p>\n"
+"                        <p style=\"font-size: 1.1em;text-align: right;direction: ltr;float: left;\">\n"
+"                                    توجد معاملة خارجية واردة للمعاملة\n"
+"                         </p><br/>\n"
+"\n"
+"                        <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                            يمكنكم الان المتابعة و تنفيذ الإجراء المطلوب\n"
+"                        </p><br/>\n"
+"                        <p style=\"font-size: 1em;text-align: right\">\n"
+"                            <table>\n"
+"                                <tr>\n"
+"                                    <td><b>رقم المعاملة : </b></td>\n"
+"                                    <td style=\"text-decoration:underline;direction: ltr;float: left;\">${object.name}</td>\n"
+"                                </tr>\n"
+"                                <tr>\n"
+"                                    <td><b>موضوع المعاملة : </b></td>\n"
+"                                    <td style=\"text-decoration:underline\">${object.subject}</td>\n"
+"                                </tr>\n"
+"\n"
+"                                <tr>\n"
+"                                    <td><b>نوع المعاملة : </b></td>\n"
+"                                    <td style=\"text-decoration:underline\">${object.subject_type_id.name}</td>\n"
+"                                </tr>\n"
+"                                <tr>\n"
+"                                    <td><b> معِد المعاملة : </b></td>\n"
+"                                    <td style=\"text-decoration:underline\">${object.employee_id.name}</td>\n"
+"                                </tr>\n"
+"                                <tr>\n"
+"                                    <td><b> آخر موعد لانجاز المعاملة : </b></td>\n"
+"                                    <td style=\"text-decoration:underline\">${object.due_date}</td>\n"
+"                                </tr>\n"
+"                            </table>\n"
+"                        </p><br/>\n"
+"                        <p style=\"font-size: 1.1em;text-align: right;\">\n"
+"                            <a href=\"${object.get_url()}\">رابط المعاملة</a>\n"
+"                        </p>\n"
+"                        <p style=\"font-size: 1.1em;text-align: right\">\n"
+" <a href=\"${user.company_id.website}\">${user.company_id.name}</a>\n"
+"\n"
+"\n"
+"                        </p>\n"
+"\n"
+"                    </div>\n"
+"                \n"
+"            "
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:mail.template,body_html:exp_transaction_documents.internal_notify_send_send_email
+msgid ""
+"\n"
+"                \n"
+"                    <div style=\"text-align: right;direction:rtl\">\n"
+"                         <p style=\"text-align: right\">السادة الفضلاء: ${object.get_name()}</p>\n"
+"                        <p style=\"text-align: left\">حفظهم الله،،</p>\n"
+"                        <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                            السلام عليكم ورحمة الله.\n"
+"                        </p>\n"
+"                        <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                            توجد معاملة مرسلة\n"
+"                        </p><br/>\n"
+"                        <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                            يمكنكم الان المتابعة و تنفيذ الإجراء المطلوب\n"
+"                        </p><br/>\n"
+"                        <p style=\"font-size: 1em;text-align: right\">\n"
+"                            <table>\n"
+"                                <tr>\n"
+"                                    <td><b>رقم المعاملة : </b></td>\n"
+"                                    <td style=\"text-decoration:underline;direction: ltr;float: left;\">${object.name}</td>\n"
+"                                </tr>\n"
+"                                <tr>\n"
+"                                    <td><b>موضوع المعاملة : </b></td>\n"
+"                                    <td style=\"text-decoration:underline\">${object.subject}</td>\n"
+"                                </tr>\n"
+"                                <tr>\n"
+"                                    <td><b>نوع المعاملة : </b></td>\n"
+"                                    <td style=\"text-decoration:underline\">${object.subject_type_id.name}</td>\n"
+"                                </tr>\n"
+"                                <tr>\n"
+"                                    <td><b> معِد المعاملة : </b></td>\n"
+"                                    <td style=\"text-decoration:underline\">${object.employee_id.name}</td>\n"
+"                                </tr>\n"
+"                                <tr>\n"
+"                                    <td><b> آخر موعد لانجاز المعاملة : </b></td>\n"
+"                                    <td style=\"text-decoration:underline\">${object.due_date}</td>\n"
+"                                </tr>\n"
+"                            </table>\n"
+"                        </p><br/>\n"
+"                        <p style=\"font-size: 1.1em;text-align: right;\">\n"
+"                            <a href=\"${object.get_url()}\">رابط المعاملة</a>\n"
+"                        </p>\n"
+"                        <p style=\"font-size: 1.1em;text-align: right\">\n"
+" <a href=\"${user.company_id.website}\">${user.company_id.name}</a>\n"
+"                        </p>\n"
+"                    </div>\n"
+"                \n"
+"            "
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:mail.template,body_html:exp_transaction_documents.internal_return_transaction_email
+msgid ""
+"\n"
+"                \n"
+"                   <div style=\"text-align: right;direction:rtl\">\n"
+"                        <p style=\"text-align: right\">السادة الفضلاء: ${object.employee_id.name}</p>\n"
+"                        <p style=\"text-align: center\">حفظهم الله،،</p>\n"
+"                        <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                            السلام عليكم ورحمة الله.\n"
+"\n"
+"                        </p>\n"
+"                        <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                           تم إرجاع المعاملة\n"
+"                        </p><br/>\n"
+"                        <p style=\"font-size: 1em;text-align: right\">\n"
+"                                    <table>\n"
+"                                        <tr>\n"
+"                                            <td><b>رقم المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline;direction: ltr;float: left;\">${object.name}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b>موضوع المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.subject}</td>\n"
+"                                        </tr>\n"
+"\n"
+"                                           <tr>\n"
+"                                            <td><b> الملاحظات : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.get_latest_by_action('return').note}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b>تاريخ إرجاع المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.get_latest_by_action('return').date}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b>نوع المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.subject_type_id.name}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b> معِد المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.employee_id.name}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b> آخر موعد لانجاز المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.due_date}</td>\n"
+"                                        </tr>\n"
+"                                    </table>\n"
+"                                </p><br/>\n"
+"                        <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                            يمكنكم الان المتابعة و تنفيذ الإجراء المطلوب\n"
+"                        </p><br/>\n"
+"                        <br/>\n"
+"\n"
+"                  <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                            <a href=\"${object.get_url()}\">رابط المعاملة</a>\n"
+"                        </p>\n"
+"\n"
+"                        <p style=\"font-size: 1.1em;text-align: right\">\n"
+" <a href=\"${user.company_id.website}\">${user.company_id.name}</a>\n"
+"\n"
+"\n"
+"                        </p>\n"
+"\n"
+"                    </div>\n"
+"                \n"
+"            "
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:mail.template,body_html:exp_transaction_documents.internal_reopen_transaction_email
+msgid ""
+"\n"
+"                \n"
+"                   <div style=\"text-align: right;direction:rtl\">\n"
+"                        <p style=\"text-align: right\">السادة الفضلاء: ${object.employee_id.name}</p>\n"
+"                        <p style=\"text-align: center\">حفظهم الله،،</p>\n"
+"                        <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                            السلام عليكم ورحمة الله.\n"
+"\n"
+"                        </p>\n"
+"                        <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                           تم اعادة فتح المعاملة\n"
+"                        </p><br/>\n"
+"                        <p style=\"font-size: 1em;text-align: right\">\n"
+"                                    <table>\n"
+"                                        <tr>\n"
+"                                            <td><b>رقم المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline;direction: ltr;float: left;\">${object.name}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b>موضوع المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.subject}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b>الإجراء المطلوب : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.get_latest_by_action('reopen').procedure_id.name}</td>\n"
+"                                        </tr>\n"
+"                                           <tr>\n"
+"                                            <td><b> الملاحظات : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.get_latest_by_action('reopen').note}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b>تاريخ اعادة فتح المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.get_latest_by_action('reopen').date}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b>نوع المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.subject_type_id.name}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b> معِد المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.employee_id.name}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b> آخر موعد لانجاز المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.due_date}</td>\n"
+"                                        </tr>\n"
+"                                    </table>\n"
+"                                </p><br/>\n"
+"                        <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                            يمكنكم الان المتابعة و تنفيذ الإجراء المطلوب\n"
+"                        </p><br/>\n"
+"                        <br/>\n"
+"\n"
+"                  <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                            <a href=\"${object.get_url()}\">رابط المعاملة</a>\n"
+"                        </p>\n"
+"\n"
+"                        <p style=\"font-size: 1.1em;text-align: right\">\n"
+" <a href=\"${user.company_id.website}\">${user.company_id.name}</a>\n"
+"\n"
+"\n"
+"                        </p>\n"
+"\n"
+"                    </div>\n"
+"                \n"
+"            "
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:mail.template,body_html:exp_transaction_documents.internal_reject_transaction_email
+msgid ""
+"\n"
+"                \n"
+"                   <div style=\"text-align: right;direction:rtl\">\n"
+"                        <p style=\"text-align: right\">السادة الفضلاء: ${object.employee_id.name}</p>\n"
+"                        <p style=\"text-align: center\">حفظهم الله،،</p>\n"
+"                        <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                            السلام عليكم ورحمة الله.\n"
+"\n"
+"                        </p>\n"
+"                        <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                           تم رفض المعاملة\n"
+"                        </p><br/>\n"
+"                        <p style=\"font-size: 1em;text-align: right\">\n"
+"                                    <table>\n"
+"                                        <tr>\n"
+"                                            <td><b>رقم المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline;direction: ltr;float: left;\">${object.name}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b>موضوع المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.subject}</td>\n"
+"                                        </tr>\n"
+"\n"
+"                                           <tr>\n"
+"                                            <td><b> اسباب الرفض : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.get_latest_by_action('refuse').note}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b>تاريخ رفض المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.get_latest_by_action('refuse').date}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b>نوع المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.subject_type_id.name}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b> معِد المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.employee_id.name}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b> آخر موعد لانجاز المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.due_date}</td>\n"
+"                                        </tr>\n"
+"                                    </table>\n"
+"                                </p><br/>\n"
+"                        <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                            يمكنكم الان المتابعة و تنفيذ الإجراء المطلوب\n"
+"                        </p><br/>\n"
+"                        <br/>\n"
+"\n"
+"                  <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                            <a href=\"${object.get_url()}\">رابط المعاملة</a>\n"
+"                        </p>\n"
+"\n"
+"                        <p style=\"font-size: 1.1em;text-align: right\">\n"
+" <a href=\"${user.company_id.website}\">${user.company_id.name}</a>\n"
+"                        </p>\n"
+"                    </div>\n"
+"                \n"
+"            "
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:mail.template,body_html:exp_transaction_documents.internal_late_transaction_email
+msgid ""
+"\n"
+"                \n"
+"                   <div style=\"text-align: right;direction:rtl\">\n"
+"                        <p style=\"text-align: right\">السادة الفضلاء: ${object.employee_id.name}</p>\n"
+"                        <p style=\"text-align: center\">حفظهم الله،،</p>\n"
+"                        <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                            السلام عليكم ورحمة الله.\n"
+"                        </p>\n"
+"                        <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                           تأخر معاملة\n"
+"                        </p><br/>\n"
+"                        <p style=\"font-size: 1em;text-align: right\">\n"
+"                                    <table>\n"
+"                                        <tr>\n"
+"                                            <td><b>رقم المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline;direction: ltr;float: left;\">${object.name}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b>موضوع المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.subject}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b>نوع المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.subject_type_id.name}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b> معِد المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.employee_id.name}</td>\n"
+"                                        </tr>\n"
+"                                        <tr>\n"
+"                                            <td><b> آخر موعد لانجاز المعاملة : </b></td>\n"
+"                                            <td style=\"text-decoration:underline\">${object.due_date}</td>\n"
+"                                        </tr>\n"
+"                                    </table>\n"
+"                                </p><br/>\n"
+"                        <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                            يمكنكم الان المتابعة و تنفيذ الإجراء المطلوب\n"
+"                        </p><br/>\n"
+"                        <br/>\n"
+"                  <p style=\"font-size: 1.1em;text-align: right\">\n"
+"                            <a href=\"${object.get_url()}\">رابط المعاملة</a>\n"
+"                        </p>\n"
+"                        <p style=\"font-size: 1.1em;text-align: right\">\n"
+" <a href=\"${user.company_id.website}\">${user.company_id.name}</a>\n"
+"                        </p>\n"
+"                    </div>\n"
+"                \n"
+"            "
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,help:exp_transaction_documents.field_cm_entity__year_increment
+msgid ""
+"\n"
+"                Check if you want to continue incrementing in the start of every new year.\n"
+"            "
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:mail.template,subject:exp_transaction_documents.incoming_notify_send_send_email
+msgid "  معاملة خارجية واردة  "
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:mail.template,subject:exp_transaction_documents.internal_notify_forward_email
+msgid " إحالة واردة: معاملة داخلية بالرقم  ${object.name|safe}"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:mail.template,subject:exp_transaction_documents.internal_return_transaction_email
+msgid " إرجاع المعاملة ${object.name|safe}"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:mail.template,subject:exp_transaction_documents.internal_reopen_transaction_email
+msgid " إعادة فتح المعاملة ${object.name|safe}"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:mail.template,subject:exp_transaction_documents.internal_approval1_request_email
+msgid ""
+" إعتماد الإدارة لمعاملة داخلية موجهة الى  ${object.to_ids[0].name|safe}"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:mail.template,subject:exp_transaction_documents.internal_notify_send_send_email
+msgid " تم ارسال المعاملة : معاملة داخلية بالرقم  ${object.name|safe}"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:mail.template,subject:exp_transaction_documents.internal_notify_close_email
+msgid " حفظ المعاملة بالرقم  ${object.name|safe}"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:mail.template,subject:exp_transaction_documents.internal_notify_reply_email
+msgid " رد على إحالة: معاملة داخلية بالرقم  ${object.name|safe}"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.actions.report,print_report_name:exp_transaction_documents.report_incoming_transaction_receive_report
+#: model:ir.actions.report,print_report_name:exp_transaction_documents.report_internal_transaction_receive_report
+#: model:ir.actions.report,print_report_name:exp_transaction_documents.report_outgoing_transaction_receive_report
+msgid "'Transaction Letter Name- %s' % (object.name)"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.actions.report,print_report_name:exp_transaction_documents.report_incoming_transaction_detail_report
+#: model:ir.actions.report,print_report_name:exp_transaction_documents.report_internal_transaction_detail_report
+#: model:ir.actions.report,print_report_name:exp_transaction_documents.report_outgoing_transaction_detail_report
+msgid "'Transaction Name- %s' % (object.name)"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_outgoing_receive_report_temp
+msgid "- Corresponding -"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_transaction_trace__action
+msgid "Action"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__message_needaction
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__message_needaction
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__message_needaction
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/configuration.py:0
+#: code:addons/exp_transaction_documents/models/incoming_transaction.py:0
+#: code:addons/exp_transaction_documents/models/internal_transaction.py:0
+#: code:addons/exp_transaction_documents/models/internal_transaction.py:0
+#: code:addons/exp_transaction_documents/models/outgoing_transaction.py:0
+#: code:addons/exp_transaction_documents/wizard/forward_trasaction.py:0
+#: code:addons/exp_transaction_documents/wizard/reopen_transaction_wizard.py:0
+#: code:addons/exp_transaction_documents/wizard/transaction_reply_wizard.py:0
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_transaction_trace__procedure_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_reopen_transaction_wizard__procedure_id
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__cm_transaction_trace__action__action
+#, python-format
+msgid "Action Taken"
+msgstr "تم اتخاذ فعل"
+
+#. module: exp_transaction_documents
+#: model:ir.actions.server,name:exp_transaction_documents.action_add_incoming_transaction_from
+#: model:ir.actions.server,name:exp_transaction_documents.action_add_internal_transaction_from
+#: model:ir.actions.server,name:exp_transaction_documents.action_add_out_transaction_from
+msgid "Add To Favorite"
+msgstr "أضف إلى المفضلة"
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_outgoing_external_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.internal_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.outgoing_external_transaction_form
+msgid "Approve"
+msgstr "موافق"
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.archive_transaction_wizard_view
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transaction_external_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.incoming_external_transaction_form
+msgid "Archive"
+msgstr "أرشفة"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__archive_user_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__archive_user_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__archive_user_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__archive_user_id
+msgid "Archive Entity"
+msgstr "كيان الأرشيف"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_archive_transaction_wizard__archive_type_id
+msgid "Archive Reason"
+msgstr "سبب الأرشفة"
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/transaction.py:0
+#: model:ir.ui.menu,name:exp_transaction_documents.parent_archive_tran_menu
+#, python-format
+msgid "Archive Transaction"
+msgstr "أرشفة المعاملة"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_archive_type__name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_transaction_trace__archive_type_id
+msgid "Archive Type"
+msgstr "نوع الأرشيف"
+
+#. module: exp_transaction_documents
+#: model:ir.actions.act_window,name:exp_transaction_documents.cm_archive_type_list_action
+#: model:ir.ui.menu,name:exp_transaction_documents.cm_transaction_archive_type_menu
+msgid "Archive Types"
+msgstr "أنواع الأرشيف"
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/configuration.py:0
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__cm_transaction_trace__action__archive
+#, python-format
+msgid "Archived"
+msgstr "مؤرشف"
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_outgoing_external_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.internal_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.outgoing_external_transaction_form
+msgid "Are you sure you want to approve transaction ?"
+msgstr "هل أنت متأكد أنك تريد الموافقة على المعاملة؟"
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_outgoing_external_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transaction_external_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.internal_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.outgoing_external_transaction_form
+msgid "Are you sure you want to reopen transaction ?"
+msgstr "هل أنت متأكد أنك تريد إعادة فتح المعاملة؟"
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_outgoing_external_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.incoming_external_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.internal_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.outgoing_external_transaction_form
+msgid "Are you sure you want to restore transaction ?"
+msgstr "هل أنت متأكد أنك تريد استعادة المعاملة؟"
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_outgoing_external_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transactions_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.internal_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.outgoing_external_transaction_form
+msgid "Are you sure you want to send transaction ?"
+msgstr "هل أنت متأكد أنك تريد إرسال المعاملة؟"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_forward_transaction_wizard__att_description
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_reply_wizard__att_description
+msgid "Attach Description"
+msgstr "إرفاق الوصف"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__attachment_rule_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__attachment_rule_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__attachment_rule_ids
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transactions_incoming_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transactions_internal_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transactions_outgoing_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_details_report_temp
+msgid "Attaches"
+msgstr "المرفقات"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__message_attachment_count
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__message_attachment_count
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__message_attachment_count
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment_rule__attachment_filename
+msgid "Attachment Filename"
+msgstr "اسم ملف المرفق"
+
+#. module: exp_transaction_documents
+#: model:ir.actions.act_window,name:exp_transaction_documents.cm_attachment_type_list_action
+#: model:ir.ui.menu,name:exp_transaction_documents.cm_attachment_type_menu
+msgid "Attachment Types"
+msgstr "أنواع المرفقات"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment__type_id
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_details_report_temp
+msgid "Attachment type"
+msgstr "نوع المرفق"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__attachment_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__attachment_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__attachment_ids
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transactions_incoming_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transactions_internal_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transactions_outgoing_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_details_report_temp
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_outgoing_receive_report_temp
+msgid "Attachments"
+msgstr "المرفقات"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_transaction_trace__cc_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_forward_transaction_wizard__cc_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__cc_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__cc_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__cc_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_reply_wizard__cc_ids
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_details_report_temp
+msgid "CC To"
+msgstr "نسخة الي"
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/configuration.py:0
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__cm_transaction_trace__action__ceo_approve
+#, python-format
+msgid "CEO Approved"
+msgstr "موافقة المدير التنفيذي"
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.archive_transaction_wizard_view
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.forward_transaction_wizard_view
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.incoming_external_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.internal_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.outgoing_external_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.reopen_transaction_wizard_view
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.reply_transaction_wizard_view
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.view_reject_transaction_wizard
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.view_return_transaction_wizard
+msgid "Cancel"
+msgstr "الغاء"
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/transaction.py:0
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__incoming_transaction__state__canceled
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__internal_transaction__state__canceled
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__outgoing_transaction__state__canceled
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__transaction_transaction__state__canceled
+#, python-format
+msgid "Canceled"
+msgstr "تم الالغاء"
+
+#. module: exp_transaction_documents
+#: model:ir.actions.act_window,name:exp_transaction_documents.dep_outgoing_external_tran_cancelled_action
+#: model:ir.actions.act_window,name:exp_transaction_documents.outgoing_external_tran_cancelled_action
+msgid "Canceled Transaction"
+msgstr "المعاملات الملغية"
+
+#. module: exp_transaction_documents
+#: model:ir.actions.act_window,name:exp_transaction_documents.cancel_internal_tran_action
+#: model:ir.actions.act_window,name:exp_transaction_documents.dep_cancel_internal_tran_action
+#: model:ir.ui.menu,name:exp_transaction_documents.cancel_internal_tran_menu
+#: model:ir.ui.menu,name:exp_transaction_documents.dep_cancel_internal_tran_menu
+#: model:ir.ui.menu,name:exp_transaction_documents.dep_outgoing_external_tran_cancelled_menu
+#: model:ir.ui.menu,name:exp_transaction_documents.outgoing_external_tran_cancelled_menu
+msgid "Cancelled Transaction"
+msgstr "المعاملات الملغية"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,help:exp_transaction_documents.field_cm_subject_type__second_approval
+msgid "Check if this transaction type need a second (CEO) Approval."
+msgstr "تحقق مما إذا كان هذا النوع من المعاملات يحتاج إلى موافقة ثانية (رئيس تنفيذي)"
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/transaction.py:0
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__incoming_transaction__state__closed
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__internal_transaction__state__closed
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__outgoing_transaction__state__closed
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__transaction_transaction__state__closed
+#, python-format
+msgid "Closed"
+msgstr "قل"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__code
+msgid "Code"
+msgstr "رمز"
+
+#. module: exp_transaction_documents
+#: model:ir.module.category,name:exp_transaction_documents.module_category_cm
+msgid "Communications Management"
+msgstr "إدارة الاتصالات"
+
+#. module: exp_transaction_documents
+#: model:ir.ui.menu,name:exp_transaction_documents.cm_settings_menu
+msgid "Configuration"
+msgstr "اعدادت"
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.view_reject_transaction_wizard
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.view_return_transaction_wizard
+msgid "Confirm"
+msgstr "تاكيد"
+
+#. module: exp_transaction_documents
+#: model:ir.model,name:exp_transaction_documents.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__year_increment
+msgid "Continue Increment every year?"
+msgstr "مواصلة الزيادة كل عام؟"
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_details_report_temp
+msgid "Create by"
+msgstr "تم الانشاء بواسطة"
+
+#. module: exp_transaction_documents
+#: model_terms:ir.actions.act_window,help:exp_transaction_documents.cm_archive_type_list_action
+msgid "Create the first Archive Type"
+msgstr "أنشئ نوع الأرشيف الأول"
+
+#. module: exp_transaction_documents
+#: model_terms:ir.actions.act_window,help:exp_transaction_documents.cm_attachment_type_list_action
+msgid "Create the first Attachment Type"
+msgstr "قم بإنشاء أول نوع مرفق"
+
+#. module: exp_transaction_documents
+#: model_terms:ir.actions.act_window,help:exp_transaction_documents.cm_entity_list_action
+msgid "Create the first Entity"
+msgstr "قم بإنشاء الكيان الأول"
+
+#. module: exp_transaction_documents
+#: model_terms:ir.actions.act_window,help:exp_transaction_documents.incoming_external_tran_action
+msgid "Create the first External Incoming Transaction"
+msgstr "قم بإنشاء أول معاملة واردة خارجية"
+
+#. module: exp_transaction_documents
+#: model_terms:ir.actions.act_window,help:exp_transaction_documents.outgoing_external_tran_action
+msgid "Create the first External outgoing Transaction"
+msgstr "قم بإنشاء أول معاملة خارجية صادرة"
+
+#. module: exp_transaction_documents
+#: model_terms:ir.actions.act_window,help:exp_transaction_documents.cm_transaction_important_list_action
+msgid "Create the first Important Degrees"
+msgstr "قم بإنشاء الدرجات المهمة الأولى"
+
+#. module: exp_transaction_documents
+#: model_terms:ir.actions.act_window,help:exp_transaction_documents.cm_job_title_list_action
+msgid "Create the first Job titles"
+msgstr "قم بإنشاء المسميات الوظيفية الأولى"
+
+#. module: exp_transaction_documents
+#: model_terms:ir.actions.act_window,help:exp_transaction_documents.outgoing_internal_tran_action
+msgid "Create the first Outgoing Internal Transaction"
+msgstr "قم بإنشاء أول معاملة داخلية صادرة"
+
+#. module: exp_transaction_documents
+#: model_terms:ir.actions.act_window,help:exp_transaction_documents.cm_procedure_list_action
+msgid "Create the first Procedures"
+msgstr "قم بإنشاء الإجراءات الأولى"
+
+#. module: exp_transaction_documents
+#: model_terms:ir.actions.act_window,help:exp_transaction_documents.cm_project_domain_list_action
+msgid "Create the first Project domain"
+msgstr "أنشئ مجال المشروع الأول"
+
+#. module: exp_transaction_documents
+#: model_terms:ir.actions.act_window,help:exp_transaction_documents.cm_subject_type_list_action
+msgid "Create the first Subject Type"
+msgstr "قم بإنشاء نوع الموضوع الأول"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment_rule__employee_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__employee_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__employee_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__employee_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__employee_id
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_details_report_temp
+msgid "Created By"
+msgstr "تم الانشاء بواسطة"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_archive_transaction_wizard__create_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_archive_type__create_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment__create_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment_rule__create_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment_type__create_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__create_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_job_title__create_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_procedure__create_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_subject_type__create_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_transaction_important__create_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_transaction_trace__create_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_forward_transaction_wizard__create_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__create_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__create_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_odex_barcode__create_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__create_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_project_type__create_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_reject_reason_wizard__create_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_reopen_transaction_wizard__create_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_category__create_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_reply_wizard__create_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__create_uid
+msgid "Created by"
+msgstr "تم الأنشاء بواسطة"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_archive_transaction_wizard__create_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_archive_type__create_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment__create_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment_rule__create_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment_type__create_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__create_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_job_title__create_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_procedure__create_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_subject_type__create_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_transaction_important__create_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_transaction_trace__create_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_forward_transaction_wizard__create_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__create_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__create_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_odex_barcode__create_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__create_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_project_type__create_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_reject_reason_wizard__create_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_reopen_transaction_wizard__create_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_category__create_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_reply_wizard__create_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__create_date
+msgid "Created on"
+msgstr "تم الأنشاء في"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_archive_transaction_wizard__date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment_rule__date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_transaction_trace__date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_forward_transaction_wizard__date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_reopen_transaction_wizard__date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_reply_wizard__date
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_details_report_temp
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_outgoing_receive_report_temp
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__due_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__due_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__due_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__due_date
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_details_report_temp
+msgid "Deadline"
+msgstr "الموعد الاخير"
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_outgoing_receive_report_temp
+msgid "Departament"
+msgstr "الأدارة"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__department_id
+msgid "Department"
+msgstr "الأدارة"
+
+#. module: exp_transaction_documents
+#: model:res.groups,name:exp_transaction_documents.group_cm_department_manager
+msgid "Department Manager"
+msgstr "مدير الأدارة"
+
+#. module: exp_transaction_documents
+#: model:ir.ui.menu,name:exp_transaction_documents.parent_department_tran_menu
+msgid "Department Transaction"
+msgstr "الأدارة"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment__name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment_rule__description
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_forward_transaction_wizard__description
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_reopen_transaction_wizard__reason
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_reply_wizard__description
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_details_report_temp
+msgid "Description"
+msgstr "وصف"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_archive_transaction_wizard__display_name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_archive_type__display_name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment__display_name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment_rule__display_name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment_type__display_name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__display_name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_job_title__display_name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_procedure__display_name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_subject_type__display_name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_transaction_important__display_name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_transaction_trace__display_name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_forward_transaction_wizard__display_name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__display_name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__display_name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_odex_barcode__display_name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__display_name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_project_type__display_name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_reject_reason_wizard__display_name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_reopen_transaction_wizard__display_name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_res_partner__display_name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_category__display_name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_reply_wizard__display_name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/transaction.py:0
+#, python-format
+msgid "Draft"
+msgstr "مبدئ"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__ean13
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__ean13
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__ean13
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__ean13
+msgid "Ean13"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__email
+msgid "Email"
+msgstr "إيميل"
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/entity.py:0
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__employee_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_forward_transaction_wizard__employee
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__forward_transaction_wizard__forward_type__employee
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__internal_transaction__type_sender__employee
+#: model:res.groups,name:exp_transaction_documents.group_cm_employee_group
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.cm_entity_search
+#, python-format
+msgid "Employee"
+msgstr "موظف"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__employee_assignment_date
+msgid "Employee Assignment Date"
+msgstr "تاريخ تعيين الموظف"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__secretary_id
+msgid "Employee in charge of transactions"
+msgstr "الموظف المسؤول عن المعاملات"
+
+#. module: exp_transaction_documents
+#: model:ir.actions.act_window,name:exp_transaction_documents.cm_entity_list_action
+#: model:ir.ui.menu,name:exp_transaction_documents.cm_entity_menu
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.cm_entity_tree
+msgid "Entities"
+msgstr "جهات"
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.cm_entity_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_outgoing_receive_report_temp
+msgid "Entity"
+msgstr "جهة"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__type
+msgid "Entity Type"
+msgstr "نوع الجهة"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__establish_date
+msgid "Establish Date"
+msgstr "تاريخ التأسيس"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__executive_direction
+msgid "Executive direction"
+msgstr "التوجيه التنفيذي"
+
+#. module: exp_transaction_documents
+#: model:res.groups,name:exp_transaction_documents.group_cm_executive_manager
+msgid "Executive manager"
+msgstr "المدير التنفيذي"
+
+#. module: exp_transaction_documents
+#: model:ir.actions.act_window,name:exp_transaction_documents.external_archive_tran_action
+#: model:ir.ui.menu,name:exp_transaction_documents.external_in_department_tran_menu
+msgid "External Incoming Transaction"
+msgstr "المعاملات الخارجية الواردة"
+
+#. module: exp_transaction_documents
+#: model:ir.ui.menu,name:exp_transaction_documents.external_out_department_tran_menu
+msgid "External Outgoing Transaction"
+msgstr "المعاملات الخارجية الصادرة"
+
+#. module: exp_transaction_documents
+#: model:ir.ui.menu,name:exp_transaction_documents.parent_external_tran_menu
+msgid "External Transaction"
+msgstr "المعاملات الخارجية"
+
+#. module: exp_transaction_documents
+#: model:ir.ui.menu,name:exp_transaction_documents.external_archive_tran_menu
+msgid "External Transaction Archive"
+msgstr "أرشيف المعاملات الخارجية"
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/entity.py:0
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__cm_entity__type__external
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.cm_entity_search
+#, python-format
+msgid "External Unit"
+msgstr "الوحدة الخارجية"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__is_favorite
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__is_favorite
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__is_favorite
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__is_favorite
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__incoming_transaction__is_favorite__1
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__internal_transaction__is_favorite__1
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__outgoing_transaction__is_favorite__1
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__transaction_transaction__is_favorite__1
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.view_incoming_transaction_filter
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.view_internal_transaction_filter
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.view_outgoing_transaction_filter
+msgid "Favorite"
+msgstr "مفضل"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_forward_transaction_wizard__filename
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_reply_wizard__filename
+msgid "Filename"
+msgstr "اسم الملف"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__message_follower_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__message_follower_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__message_follower_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__message_follower_ids
+msgid "Followers"
+msgstr "متابعون"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__message_channel_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__message_channel_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__message_channel_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "المتابعون (القنوات)"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__message_partner_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__message_partner_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__message_partner_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعون (الشركاء)"
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transaction_external_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.forward_transaction_wizard_view
+msgid "Forward"
+msgstr "أعادة توجيه"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_forward_transaction_wizard__forward_attachment_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_reply_wizard__attachment_id
+msgid "Forward Attachment"
+msgstr "اعادة تووجيه المرفق"
+
+#. module: exp_transaction_documents
+#: model:ir.ui.menu,name:exp_transaction_documents.dep_forward_incoming_external_tran_menu
+#: model:ir.ui.menu,name:exp_transaction_documents.forward_incoming_external_tran_menu
+msgid "Forward Incoming Transaction"
+msgstr "اعادة توجيه المعاملات الواردة"
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/transaction.py:0
+#: model:ir.actions.act_window,name:exp_transaction_documents.dep_forward_incoming_external_tran_action
+#: model:ir.actions.act_window,name:exp_transaction_documents.dep_forward_internal_tran_action
+#: model:ir.actions.act_window,name:exp_transaction_documents.forward_internal_tran_action
+#: model:ir.ui.menu,name:exp_transaction_documents.dep_forward_internal_tran_menu
+#: model:ir.ui.menu,name:exp_transaction_documents.forward_internal_tran_menu
+#, python-format
+msgid "Forward Transaction"
+msgstr "احالة المعاملة"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_forward_transaction_wizard__forward_type
+msgid "Forward Type"
+msgstr "نوع الاحالة"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__forward_user_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__forward_user_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__forward_user_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__forward_user_id
+msgid "Forward User"
+msgstr "المستخدم"
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/configuration.py:0
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__cm_transaction_trace__action__forward
+#, python-format
+msgid "Forwarded"
+msgstr "تمت الاحالة"
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/transaction.py:0
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__incoming_transaction__type__forward
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__internal_transaction__type__forward
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__outgoing_transaction__type__forward
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__transaction_transaction__type__forward
+#, python-format
+msgid "Forwarded Transaction"
+msgstr "المعاملة المحالة"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__last_forwarded_user
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__last_forwarded_user
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__last_forwarded_user
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__last_forwarded_user
+msgid "Forwarded User"
+msgstr "المستخدم"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_transaction_trace__from_id
+msgid "From"
+msgstr "من"
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.cm_entity_search
+msgid "Group By"
+msgstr "تجميع حسب"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__to_user_have_leave
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__to_user_have_leave
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__to_user_have_leave
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__to_user_have_leave
+msgid "Have Leave?"
+msgstr "هل لديك إجازة؟"
+
+#. module: exp_transaction_documents
+#: model:ir.module.category,description:exp_transaction_documents.module_category_cm
+msgid "Helps you manage Communication Transaction"
+msgstr "يساعدك على إدارة معاملات الاتصالات"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_archive_transaction_wizard__id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_archive_type__id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment__id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment_rule__id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment_type__id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_job_title__id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_procedure__id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_subject_type__id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_transaction_important__id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_transaction_trace__id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_forward_transaction_wizard__id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_odex_barcode__id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_project_type__id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_reject_reason_wizard__id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_reopen_transaction_wizard__id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_res_partner__id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_category__id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_reply_wizard__id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,help:exp_transaction_documents.field_incoming_transaction__message_needaction
+#: model:ir.model.fields,help:exp_transaction_documents.field_incoming_transaction__message_unread
+#: model:ir.model.fields,help:exp_transaction_documents.field_internal_transaction__message_needaction
+#: model:ir.model.fields,help:exp_transaction_documents.field_internal_transaction__message_unread
+#: model:ir.model.fields,help:exp_transaction_documents.field_outgoing_transaction__message_needaction
+#: model:ir.model.fields,help:exp_transaction_documents.field_outgoing_transaction__message_unread
+#: model:ir.model.fields,help:exp_transaction_documents.field_transaction_transaction__message_needaction
+#: model:ir.model.fields,help:exp_transaction_documents.field_transaction_transaction__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,help:exp_transaction_documents.field_incoming_transaction__message_has_error
+#: model:ir.model.fields,help:exp_transaction_documents.field_incoming_transaction__message_has_sms_error
+#: model:ir.model.fields,help:exp_transaction_documents.field_internal_transaction__message_has_error
+#: model:ir.model.fields,help:exp_transaction_documents.field_internal_transaction__message_has_sms_error
+#: model:ir.model.fields,help:exp_transaction_documents.field_outgoing_transaction__message_has_error
+#: model:ir.model.fields,help:exp_transaction_documents.field_outgoing_transaction__message_has_sms_error
+#: model:ir.model.fields,help:exp_transaction_documents.field_transaction_transaction__message_has_error
+#: model:ir.model.fields,help:exp_transaction_documents.field_transaction_transaction__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_transaction_important__name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__important_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__important_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__important_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__important_id
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_details_report_temp
+msgid "Important Degree"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.ui.menu,name:exp_transaction_documents.cm_transaction_important_menu
+msgid "Important Degrees"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.actions.act_window,name:exp_transaction_documents.cm_transaction_important_list_action
+msgid "Important degrees"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_archive_transaction_wizard__outgoing_transaction_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_forward_transaction_wizard__outgoing_transaction_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_reject_reason_wizard__outgoing_transaction_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_reopen_transaction_wizard__outgoing_transaction_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_reply_wizard__incoming_transaction_id
+#: model:ir.ui.menu,name:exp_transaction_documents.parent_external_incoming_tran_menu
+msgid "Incoming"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__incoming_date
+msgid "Incoming Date"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__incoming_date_hijri
+msgid "Incoming Date (Hijri)"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__from_id
+msgid "Incoming From (External)"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__incoming_number
+msgid "Incoming Number"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.actions.act_window,name:exp_transaction_documents.dep_incoming_external_tran_action
+#: model:ir.actions.act_window,name:exp_transaction_documents.dep_incoming_internal_tran_action
+#: model:ir.actions.act_window,name:exp_transaction_documents.forward_incoming_external_tran_action
+#: model:ir.actions.act_window,name:exp_transaction_documents.incoming_external_tran_action
+#: model:ir.actions.act_window,name:exp_transaction_documents.incoming_internal_tran_action
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment__incoming_transaction_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment_rule__incoming_transaction_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_transaction_trace__incoming_transaction_id
+#: model:ir.ui.menu,name:exp_transaction_documents.dep_incoming_external_tran_menu
+#: model:ir.ui.menu,name:exp_transaction_documents.dep_incoming_internal_tran_menu
+#: model:ir.ui.menu,name:exp_transaction_documents.incoming_external_tran_menu
+#: model:ir.ui.menu,name:exp_transaction_documents.incoming_internal_tran_menu
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transaction_external_tree
+msgid "Incoming Transaction"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:res.groups,name:exp_transaction_documents.group_cm_user
+msgid "Incoming/Outgoing Employee "
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transactions_incoming_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transactions_internal_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transactions_outgoing_form
+msgid "Information"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_archive_transaction_wizard__internal_transaction_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_forward_transaction_wizard__internal_transaction_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_reject_reason_wizard__internal_transaction_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_reopen_transaction_wizard__internal_transaction_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_reply_wizard__internal_transaction_id
+msgid "Internal"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.actions.act_window,name:exp_transaction_documents.internal_archive_tran_action
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment__internal_transaction_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment_rule__internal_transaction_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_transaction_trace__internal_transaction_id
+#: model:ir.ui.menu,name:exp_transaction_documents.internal_department_tran_menu
+#: model:ir.ui.menu,name:exp_transaction_documents.parent_internal_tran_menu
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transaction_internal_tree
+msgid "Internal Transaction"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.ui.menu,name:exp_transaction_documents.internal_archive_tran_menu
+msgid "Internal Transaction Archive"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/entity.py:0
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_forward_transaction_wizard__internal_unit
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__cm_entity__type__unit
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__forward_transaction_wizard__forward_type__unit
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.cm_entity_search
+#, python-format
+msgid "Internal Unit"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__message_is_follower
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__message_is_follower
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__message_is_follower
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__is_forward
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__is_forward
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__is_forward
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__is_forward
+msgid "Is Forward"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__current_is_forward_user
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__current_is_manager
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__current_is_receive_manger
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__current_is_secret_user
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__current_is_forward_user
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__current_is_manager
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__current_is_receive_manger
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__current_is_secret_user
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__current_is_forward_user
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__current_is_manager
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__current_is_receive_manger
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__current_is_secret_user
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__current_is_forward_user
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__current_is_manager
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__current_is_receive_manger
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__current_is_secret_user
+msgid "Is Manager"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__is_partner
+msgid "Is Partner"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__is_reade
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__is_reade
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__is_reade
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__is_reade
+msgid "Is Reade?!"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__is_secret
+msgid "Is Secret"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_forward_transaction_wizard__is_secret
+msgid "Is Secret?"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_res_partner__is_transaction_entity
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_res_users__is_transaction_entity
+msgid "Is Transaction Entity?"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:res.groups,comment:exp_transaction_documents.group_cm_department_manager
+msgid "It has all the powers on internal transactions of the department"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:res.groups,comment:exp_transaction_documents.group_cm_reviewer
+msgid "It has all the powers on internal transactions only"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__job_title_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_job_title__name
+msgid "Job Title"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.actions.act_window,name:exp_transaction_documents.cm_job_title_list_action
+#: model:ir.model,name:exp_transaction_documents.model_cm_job_title
+#: model:ir.ui.menu,name:exp_transaction_documents.cm_transaction_job_title_menu
+msgid "Job Titles"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_archive_transaction_wizard____last_update
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_archive_type____last_update
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment____last_update
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment_rule____last_update
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment_type____last_update
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity____last_update
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_job_title____last_update
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_procedure____last_update
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_subject_type____last_update
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_transaction_important____last_update
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_transaction_trace____last_update
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_forward_transaction_wizard____last_update
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction____last_update
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction____last_update
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_odex_barcode____last_update
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction____last_update
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_project_type____last_update
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_reject_reason_wizard____last_update
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_reopen_transaction_wizard____last_update
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_res_partner____last_update
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_category____last_update
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_reply_wizard____last_update
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_archive_transaction_wizard__write_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_archive_type__write_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment__write_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment_rule__write_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment_type__write_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__write_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_job_title__write_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_procedure__write_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_subject_type__write_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_transaction_important__write_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_transaction_trace__write_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_forward_transaction_wizard__write_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__write_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__write_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_odex_barcode__write_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__write_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_project_type__write_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_reject_reason_wizard__write_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_reopen_transaction_wizard__write_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_category__write_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_reply_wizard__write_uid
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_archive_transaction_wizard__write_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_archive_type__write_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment__write_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment_rule__write_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment_type__write_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__write_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_job_title__write_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_procedure__write_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_subject_type__write_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_transaction_important__write_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_transaction_trace__write_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_forward_transaction_wizard__write_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__write_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__write_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_odex_barcode__write_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__write_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_project_type__write_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_reject_reason_wizard__write_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_reopen_transaction_wizard__write_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_category__write_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_reply_wizard__write_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__message_main_attachment_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__message_main_attachment_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__message_main_attachment_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__message_has_error
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__message_has_error
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__message_has_error
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/internal_transaction.py:0
+#, python-format
+msgid "Message Has been approved !"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/wizard/archive_transaction.py:0
+#, python-format
+msgid "Message Has been closed !"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/wizard/forward_trasaction.py:0
+#, python-format
+msgid "Message Has been forwarded !"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/wizard/reopen_transaction_wizard.py:0
+#, python-format
+msgid "Message Has been reopened !"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/wizard/transaction_reply_wizard.py:0
+#, python-format
+msgid "Message Has been replied !"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/incoming_transaction.py:0
+#: code:addons/exp_transaction_documents/models/internal_transaction.py:0
+#: code:addons/exp_transaction_documents/models/outgoing_transaction.py:0
+#, python-format
+msgid "Message Has been send !"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__message_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__message_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__message_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__need_approve
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__need_approve
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__need_approve
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__need_approve
+msgid "NEED approve"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment_type__name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_project_type__name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_category__name
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_details_report_temp
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_outgoing_receive_report_temp
+msgid "Name"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__is_need_approve
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__is_need_approve
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__is_need_approve
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__is_need_approve
+msgid "Need Approve"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__need_approve
+msgid "Need Aprove"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/incoming_transaction.py:0
+#: code:addons/exp_transaction_documents/models/internal_transaction.py:0
+#: code:addons/exp_transaction_documents/models/outgoing_transaction.py:0
+#, python-format
+msgid "New"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/transaction.py:0
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__incoming_transaction__type__new
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__internal_transaction__type__new
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__outgoing_transaction__type__new
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__transaction_transaction__type__new
+#, python-format
+msgid "New Transaction"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment__num_page
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_details_report_temp
+msgid "No. Pages"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__attachment_num
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__attachment_num
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__attachment_num
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__attachment_num
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_details_report_temp
+msgid "No. of Attachments"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_archive_transaction_wizard__note
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_transaction_trace__note
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_forward_transaction_wizard__note
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_reopen_transaction_wizard__note
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_reply_wizard__note
+msgid "Notes"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_outgoing_receive_report_temp
+msgid "Number"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__message_needaction_counter
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__message_needaction_counter
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__message_needaction_counter
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__message_has_error_counter
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__message_has_error_counter
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__message_has_error_counter
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,help:exp_transaction_documents.field_incoming_transaction__message_needaction_counter
+#: model:ir.model.fields,help:exp_transaction_documents.field_internal_transaction__message_needaction_counter
+#: model:ir.model.fields,help:exp_transaction_documents.field_outgoing_transaction__message_needaction_counter
+#: model:ir.model.fields,help:exp_transaction_documents.field_transaction_transaction__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,help:exp_transaction_documents.field_incoming_transaction__message_has_error_counter
+#: model:ir.model.fields,help:exp_transaction_documents.field_internal_transaction__message_has_error_counter
+#: model:ir.model.fields,help:exp_transaction_documents.field_outgoing_transaction__message_has_error_counter
+#: model:ir.model.fields,help:exp_transaction_documents.field_transaction_transaction__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,help:exp_transaction_documents.field_incoming_transaction__message_unread_counter
+#: model:ir.model.fields,help:exp_transaction_documents.field_internal_transaction__message_unread_counter
+#: model:ir.model.fields,help:exp_transaction_documents.field_outgoing_transaction__message_unread_counter
+#: model:ir.model.fields,help:exp_transaction_documents.field_transaction_transaction__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_archive_transaction_wizard__incoming_transaction_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_forward_transaction_wizard__incoming_transaction_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_reject_reason_wizard__incoming_transaction_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_reopen_transaction_wizard__incoming_transaction_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_reply_wizard__outgoing_transaction_id
+#: model:ir.ui.menu,name:exp_transaction_documents.parent_external_outgoing_tran_menu
+msgid "Outgoing"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.actions.act_window,name:exp_transaction_documents.dep_outgoing_external_tran_action
+#: model:ir.actions.act_window,name:exp_transaction_documents.dep_outgoing_internal_tran_action
+#: model:ir.actions.act_window,name:exp_transaction_documents.outgoing_external_tran_action
+#: model:ir.actions.act_window,name:exp_transaction_documents.outgoing_internal_tran_action
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment__outgoing_transaction_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment_rule__outgoing_transaction_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_transaction_trace__outgoing_transaction_id
+#: model:ir.ui.menu,name:exp_transaction_documents.dep_outgoing_external_tran_menu
+#: model:ir.ui.menu,name:exp_transaction_documents.dep_outgoing_internal_tran_menu
+#: model:ir.ui.menu,name:exp_transaction_documents.outgoing_external_tran_menu
+#: model:ir.ui.menu,name:exp_transaction_documents.outgoing_internal_tran_menu
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_outgoing_transaction_external_tree
+msgid "Outgoing Transaction"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.custom_external_layout_standard_tran
+msgid "Page: <span class=\"page\"/> / <span class=\"topage\"/>"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__parent_id
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.cm_entity_search
+msgid "Parent Entity"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__partner_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__partner_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__person_id
+msgid "Person ID"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__person_id_issue_date
+msgid "Person ID Issue Date"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__preparation_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__preparation_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__preparation_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__preparation_id
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_details_report_temp
+msgid "Preparation Unit"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_forward_transaction_wizard__procedure_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__procedure_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__procedure_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__procedure_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_reply_wizard__procedure_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__procedure_id
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_details_report_temp
+msgid "Procedure"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_procedure__name
+msgid "Procedure Name"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.actions.act_window,name:exp_transaction_documents.cm_procedure_list_action
+#: model:ir.ui.menu,name:exp_transaction_documents.cm_transaction_procedure_menu
+msgid "Procedures"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__processing_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__processing_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__processing_ids
+msgid "Process Transactions"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__project_id
+msgid "Project"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__project_domain
+msgid "Project Domain"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.actions.act_window,name:exp_transaction_documents.cm_project_domain_list_action
+#: model:ir.ui.menu,name:exp_transaction_documents.cm_transaction_project_domain_menu
+msgid "Project domain"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.actions.server,name:exp_transaction_documents.action_read_incoming_transaction_from
+#: model:ir.actions.server,name:exp_transaction_documents.action_read_internal_transaction_from
+#: model:ir.actions.server,name:exp_transaction_documents.action_read_out_transaction_from
+msgid "Read"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__reason
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__reason
+msgid "Reason"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/configuration.py:0
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__cm_transaction_trace__action__receive
+#, python-format
+msgid "Received"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__receive_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__receive_manger_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__receive_user_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__receive_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__receive_manger_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__receive_user_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__receive_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__receive_manger_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__receive_user_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__receive_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__receive_manger_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__receive_user_id
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_outgoing_receive_report_temp
+msgid "Receiver"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_outgoing_receive_report_temp
+msgid "Receiver Transaction Report"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__to_name
+msgid "Recipient"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/configuration.py:0
+#, python-format
+msgid "Refused"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_outgoing_external_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.outgoing_external_transaction_form
+msgid "Reject"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__reason
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_reject_reason_wizard__reason
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__reason
+msgid "Reject Reason"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/transaction.py:0
+#, python-format
+msgid "Reject Transaction"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transactions_incoming_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transactions_internal_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transactions_outgoing_form
+msgid "Related Info"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__child_ids
+msgid "Related Units"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__user_id
+msgid "Related User"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,help:exp_transaction_documents.field_cm_entity__user_id
+#: model:ir.model.fields,help:exp_transaction_documents.field_incoming_transaction__receive_user_id
+#: model:ir.model.fields,help:exp_transaction_documents.field_internal_transaction__receive_user_id
+#: model:ir.model.fields,help:exp_transaction_documents.field_outgoing_transaction__receive_user_id
+#: model:ir.model.fields,help:exp_transaction_documents.field_transaction_transaction__receive_user_id
+msgid "Related user name for the resource to manage its access."
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.ui.menu,name:exp_transaction_documents.reply_internal_tran_menu
+msgid "Relying Transaction"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.actions.server,name:exp_transaction_documents.action_remove_incoming_transaction_from
+#: model:ir.actions.server,name:exp_transaction_documents.action_remove_internal_transaction_from
+#: model:ir.actions.server,name:exp_transaction_documents.action_remove_out_transaction_from
+msgid "Remove from Favorite"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_outgoing_external_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transaction_external_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.incoming_external_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.internal_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.outgoing_external_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.reopen_transaction_wizard_view
+msgid "Reopen"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/transaction.py:0
+#, python-format
+msgid "Reopen Transaction"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/configuration.py:0
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__cm_transaction_trace__action__reopen
+#, python-format
+msgid "Reopened"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/configuration.py:0
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__cm_transaction_trace__action__reply
+#, python-format
+msgid "Replied"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/transaction.py:0
+#: code:addons/exp_transaction_documents/models/transaction.py:0
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__incoming_transaction__state__reply
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__incoming_transaction__type__reply
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__internal_transaction__state__reply
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__internal_transaction__type__reply
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__outgoing_transaction__state__reply
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__outgoing_transaction__type__reply
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__transaction_transaction__state__reply
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__transaction_transaction__type__reply
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transaction_external_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.reply_transaction_wizard_view
+#, python-format
+msgid "Reply"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/transaction.py:0
+#, python-format
+msgid "Reply Transaction"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.ui.menu,name:exp_transaction_documents.reply_incoming_external_tran_menu
+msgid "Replying Incoming Transaction"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.actions.act_window,name:exp_transaction_documents.reply_incoming_external_tran_action
+#: model:ir.actions.act_window,name:exp_transaction_documents.reply_internal_tran_action
+msgid "Replying Transaction"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.ui.menu,name:exp_transaction_documents.parent_report_menu
+msgid "Reports"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_outgoing_external_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.incoming_external_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.internal_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.outgoing_external_transaction_form
+msgid "Restore"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_outgoing_external_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.outgoing_external_transaction_form
+msgid "Return"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.view_return_transaction_wizard
+msgid "Return Reason"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/transaction.py:0
+#, python-format
+msgid "Return Transaction"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/configuration.py:0
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__cm_transaction_trace__action__return
+#, python-format
+msgid "Returned"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:res.groups,name:exp_transaction_documents.group_cm_reviewer
+msgid "Reviewer Employee"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/entity.py:0
+#, python-format
+msgid "Riyadh"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__message_has_sms_error
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__message_has_sms_error
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__message_has_sms_error
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__sale_order_id
+msgid "Sale Order"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment_rule__file_save
+msgid "Save File"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.cm_entity_search
+msgid "Search Entities"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_subject_type__second_approval
+msgid "Second Approval ?"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_forward_transaction_wizard__secret_reason
+msgid "Secret Description"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__secret_reason
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__secret_reason
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__secret_reason
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__secret_reason
+msgid "Secret reason"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/transaction.py:0
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_outgoing_external_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transactions_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.incoming_external_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.internal_transaction_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.outgoing_external_transaction_form
+#, python-format
+msgid "Send"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__to_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__to_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__to_ids
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_details_report_temp
+msgid "Send To"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/configuration.py:0
+#, python-format
+msgid "Sent"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment_type__sequence
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_subject_type__sequence
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_project_type__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_outgoing_receive_report_temp
+msgid "Signature"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__signature
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__signature
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__signature
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__signature
+msgid "Signature image"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__sketch_attachment_id
+msgid "Sketch Attachment"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__subject
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__subject
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__subject
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__subject
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_details_report_temp
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_outgoing_receive_report_temp
+msgid "Subject"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__subject_type_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__subject_type_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__subject_type_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__subject_type_id
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.cm_subject_type_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_details_report_temp
+msgid "Subject Type"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_transaction_trace__to_id
+msgid "To"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/transaction.py:0
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__incoming_transaction__state__to_approve
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__internal_transaction__state__to_approve
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__outgoing_transaction__state__to_approve
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__transaction_transaction__state__to_approve
+#, python-format
+msgid "To Approve"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.actions.act_window,name:exp_transaction_documents.dep_outgoing_external_tran_approve_action
+#: model:ir.actions.act_window,name:exp_transaction_documents.dep_to_approve_internal_tran_action
+#: model:ir.actions.act_window,name:exp_transaction_documents.outgoing_external_tran_approve_action
+#: model:ir.actions.act_window,name:exp_transaction_documents.to_approve_internal_tran_action
+#: model:ir.ui.menu,name:exp_transaction_documents.dep_outgoing_external_tran_approve_menu
+#: model:ir.ui.menu,name:exp_transaction_documents.outgoing_external_tran_approve_menu
+msgid "To Approve Transaction"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.ui.menu,name:exp_transaction_documents.to_view_incoming_external_tran_menu
+msgid "To View Incoming Transaction"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.actions.act_window,name:exp_transaction_documents.to_view_incoming_external_tran_action
+#: model:ir.ui.menu,name:exp_transaction_documents.outgoing_external_tran_view_menu
+msgid "To View Transaction"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.actions.act_window,name:exp_transaction_documents.outgoing_external_tran_view_action
+#: model:ir.actions.act_window,name:exp_transaction_documents.to_view_internal_tran_action
+msgid "To view Transaction"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__trace_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__trace_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__trace_ids
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transactions_incoming_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transactions_internal_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transactions_outgoing_form
+msgid "Trace Log"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transactions_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.view_incoming_transaction_filter
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.view_internal_transaction_filter
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.view_outgoing_transaction_filter
+msgid "Transaction"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__transaction_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__transaction_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__transaction_date
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__transaction_date
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_details_report_temp
+msgid "Transaction Date"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__transaction_date_hijri
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__transaction_date_hijri
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__transaction_date_hijri
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__transaction_date_hijri
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_details_report_temp
+msgid "Transaction Date (Hijri)"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__body
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__body
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__body
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__body
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transactions_incoming_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transactions_internal_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transactions_outgoing_form
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_details_report_temp
+msgid "Transaction Details"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__name
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.common_transactions_form
+msgid "Transaction Number"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_transaction_important__rank
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__add_rank
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__add_rank
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__add_rank
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__add_rank
+msgid "Transaction Rank"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.actions.report,name:exp_transaction_documents.report_incoming_transaction_receive_report
+#: model:ir.actions.report,name:exp_transaction_documents.report_internal_transaction_receive_report
+#: model:ir.actions.report,name:exp_transaction_documents.report_outgoing_transaction_receive_report
+msgid "Transaction Receive Report"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_details_report_temp
+msgid "Transaction Report"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.ui.menu,name:exp_transaction_documents.dep_to_approve_internal_tran_menu
+#: model:ir.ui.menu,name:exp_transaction_documents.to_approve_internal_tran_menu
+msgid "Transaction To Approve"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.ui.menu,name:exp_transaction_documents.to_view_internal_tran_menu
+msgid "Transaction To View"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model,name:exp_transaction_documents.model_cm_transaction_trace
+msgid "Transaction Trace"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_subject_type__name
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__type
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__type
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__type
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__type
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_details_report_temp
+msgid "Transaction Type"
+msgstr "نوع المعاملة"
+
+#. module: exp_transaction_documents
+#: model:ir.actions.act_window,name:exp_transaction_documents.cm_subject_type_list_action
+#: model:ir.ui.menu,name:exp_transaction_documents.cm_subject_type_menu
+msgid "Transaction Types"
+msgstr "انواع المعاملات"
+
+#. module: exp_transaction_documents
+#: model:ir.actions.report,name:exp_transaction_documents.report_incoming_transaction_detail_report
+#: model:ir.actions.report,name:exp_transaction_documents.report_internal_transaction_detail_report
+#: model:ir.actions.report,name:exp_transaction_documents.report_outgoing_transaction_detail_report
+msgid "Transaction detail Report"
+msgstr "تقرير تفاصيل المعاملة"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_subject_type__transaction_need_approve
+msgid "Transaction need approve"
+msgstr "تحتاج المعاملة إلى الموافقة"
+
+#. module: exp_transaction_documents
+#: model:ir.ui.menu,name:exp_transaction_documents.cm_root_menu
+msgid "Transactions Management"
+msgstr "إدارة المعاملات"
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.cm_entity_search
+msgid "Type"
+msgstr "النوع"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__type_sender
+msgid "Type Sender"
+msgstr "نوع المرسل"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__internal_transaction__type_sender__unit
+msgid "Unit"
+msgstr "الوحدة"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__unit_location
+msgid "Unit Location"
+msgstr "موقع الوحدة"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__manager_id
+#: model:res.groups,name:exp_transaction_documents.group_cm_unit_manager
+msgid "Unit Manager"
+msgstr "مدير الوحدة"
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/configuration.py:0
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__cm_transaction_trace__action__approve
+#, python-format
+msgid "Unit Manager Approved"
+msgstr "وافق مدير الوحدة"
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_attachment_rule__entity_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__entity_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__entity_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__entity_id
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__entity_id
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_details_report_temp
+msgid "Unit Responsible"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.actions.server,name:exp_transaction_documents.action_unread_incoming_transaction_from
+#: model:ir.actions.server,name:exp_transaction_documents.action_unread_internal_transaction_from
+#: model:ir.actions.server,name:exp_transaction_documents.action_unread_out_transaction_from
+msgid "Unread"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__message_unread
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__message_unread
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__message_unread
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__message_unread_counter
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__message_unread_counter
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__message_unread_counter
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.view_incoming_transaction_filter
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.view_internal_transaction_filter
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.view_outgoing_transaction_filter
+msgid "Unread Transaction"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__secret_forward_user
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__secret_forward_user
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__secret_forward_user
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__secret_forward_user
+msgid "User"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/entity.py:0
+#, python-format
+msgid "Validation Error Entity Code Must Be Composed from 3/2 characters"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/entity.py:0
+#, python-format
+msgid "Validation Error Entity Code Must Be unique !"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/configuration.py:0
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__cm_transaction_trace__action__waite
+#, python-format
+msgid "Waiting Approve"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__website_message_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__website_message_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__website_message_ids
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,help:exp_transaction_documents.field_incoming_transaction__website_message_ids
+#: model:ir.model.fields,help:exp_transaction_documents.field_internal_transaction__website_message_ids
+#: model:ir.model.fields,help:exp_transaction_documents.field_outgoing_transaction__website_message_ids
+#: model:ir.model.fields,help:exp_transaction_documents.field_transaction_transaction__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_cm_entity__dynamic_year
+msgid "Year"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/entity.py:0
+#, python-format
+msgid "You cannot duplicate an entity!"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model,name:exp_transaction_documents.model_archive_transaction_wizard
+msgid "archive.transaction.wizard"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model,name:exp_transaction_documents.model_cm_archive_type
+msgid "cm.archive.type"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model,name:exp_transaction_documents.model_cm_attachment
+msgid "cm.attachment"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model,name:exp_transaction_documents.model_cm_attachment_rule
+msgid "cm.attachment.rule"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model,name:exp_transaction_documents.model_cm_attachment_type
+msgid "cm.attachment.type"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model,name:exp_transaction_documents.model_cm_procedure
+msgid "cm.procedure"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model,name:exp_transaction_documents.model_cm_subject_type
+msgid "cm.subject.type"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model,name:exp_transaction_documents.model_cm_transaction_important
+msgid "cm.transaction.important"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__current_user
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__current_user
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__current_user
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__current_user
+msgid "current user"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model,name:exp_transaction_documents.model_transaction_transaction
+msgid "for common attribute between transaction"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model,name:exp_transaction_documents.model_cm_entity
+msgid "for mange transaction in multi level"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model,name:exp_transaction_documents.model_forward_transaction_wizard
+msgid "forward.transaction.wizard"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model,name:exp_transaction_documents.model_incoming_transaction
+msgid "incoming Transaction"
+msgstr "معاملات الوارد الخارجي"
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.view_incoming_transaction_filter
+msgid "incoming transaction"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model,name:exp_transaction_documents.model_internal_transaction
+msgid "internal Transaction"
+msgstr "المعاملات الداخلية"
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.view_internal_transaction_filter
+msgid "internal transaction"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.cm_entity_search
+msgid "name"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__incoming_transaction__is_favorite__0
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__internal_transaction__is_favorite__0
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__outgoing_transaction__is_favorite__0
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__transaction_transaction__is_favorite__0
+msgid "not"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model,name:exp_transaction_documents.model_odex_barcode
+msgid "odex.barcode"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.archive_transaction_wizard_view
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.forward_transaction_wizard_view
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.reopen_transaction_wizard_view
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.reply_transaction_wizard_view
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.view_reject_transaction_wizard
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.view_return_transaction_wizard
+msgid "or"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model,name:exp_transaction_documents.model_outgoing_transaction
+msgid "outgoing Transaction"
+msgstr "معاملات الصادر الخارجي"
+
+#. module: exp_transaction_documents
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.view_outgoing_transaction_filter
+msgid "outgoing transaction"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/transaction.py:0
+#, python-format
+msgid "please make sure transaction have Process Transactions..."
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model,name:exp_transaction_documents.model_project_type
+msgid "project.type"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model,name:exp_transaction_documents.model_reject_reason_wizard
+msgid "reject.reason.wizard"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model,name:exp_transaction_documents.model_reopen_transaction_wizard
+msgid "reopen.transaction.wizard"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_incoming_transaction__state
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_internal_transaction__state
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_outgoing_transaction__state
+#: model:ir.model.fields,field_description:exp_transaction_documents.field_transaction_transaction__state
+#: model_terms:ir.ui.view,arch_db:exp_transaction_documents.transaction_details_report_temp
+msgid "state"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:res.groups,comment:exp_transaction_documents.group_cm_user
+msgid "the user will be able to manage transactions"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model,name:exp_transaction_documents.model_transaction_category
+msgid "transaction.category"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model,name:exp_transaction_documents.model_transaction_reply_wizard
+msgid "transaction.reply.wizard"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/models/incoming_transaction.py:0
+#: code:addons/exp_transaction_documents/models/internal_transaction.py:0
+#: code:addons/exp_transaction_documents/models/internal_transaction.py:0
+#: code:addons/exp_transaction_documents/models/outgoing_transaction.py:0
+#: code:addons/exp_transaction_documents/wizard/forward_trasaction.py:0
+#: code:addons/exp_transaction_documents/wizard/reopen_transaction_wizard.py:0
+#: code:addons/exp_transaction_documents/wizard/transaction_reply_wizard.py:0
+#, python-format
+msgid "{} &larr; {}"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: code:addons/exp_transaction_documents/wizard/archive_transaction.py:0
+#, python-format
+msgid "{} &larr; {}.<br />{}"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__incoming_transaction__state__send
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__internal_transaction__state__send
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__outgoing_transaction__state__send
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__transaction_transaction__state__send
+msgid "إرسال"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__cm_entity__type__employee
+msgid "الموظف"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.actions.server,name:exp_transaction_documents.late_transaction_mail_ir_actions_server
+#: model:ir.cron,cron_name:exp_transaction_documents.late_transaction_mail
+#: model:ir.cron,name:exp_transaction_documents.late_transaction_mail
+msgid "تأخر المعاملات عن وقت الانتهاء"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:mail.template,subject:exp_transaction_documents.internal_late_transaction_email
+msgid "تأخر المعاملة ${object.name|safe}"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__cm_transaction_trace__action__sent
+msgid "تم الإرسال"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:mail.template,subject:exp_transaction_documents.internal_reject_transaction_email
+msgid "رفض المعاملة ${object.name|safe}"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__cm_transaction_trace__action__refuse
+msgid "مرفوض"
+msgstr ""
+
+#. module: exp_transaction_documents
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__incoming_transaction__state__draft
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__internal_transaction__state__draft
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__outgoing_transaction__state__draft
+#: model:ir.model.fields.selection,name:exp_transaction_documents.selection__transaction_transaction__state__draft
+msgid "مسودة"
+msgstr ""

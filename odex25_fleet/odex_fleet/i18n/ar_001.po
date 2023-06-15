@@ -1,0 +1,2953 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* odex_fleet
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-11 11:57+0000\n"
+"PO-Revision-Date: 2022-10-11 11:57+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: odex_fleet
+#: model:mail.template,body_html:odex_fleet.delegation_expiration_email_template
+msgid ""
+"\n"
+"                \n"
+"              <p > عزيزي العميل  <br/><br/>\n"
+"              نود تذكيركم بقرب انتهاء تفويض سيارة  رقم  ${(object.vehicle_id.license_plate)}  القائد ${(object.employee_id.name)}  النوع ${(object.vehicle_id.fleet_type_id.name)}  والتي تنتهي بتاريخ ${(object.end_date)}\n"
+"\n"
+"              </p>\n"
+"\t    \n"
+"            "
+msgstr ""
+
+#. module: odex_fleet
+#: model:mail.template,body_html:odex_fleet.operation_number_expiration_email_template
+msgid ""
+"\n"
+"                \n"
+"              <p style=\"text-align: right;\" > عزيزي العميل  <br/><br/>\n"
+"              نود تذكيركم بقرب انتهاء كرت التشغيل  رقم ${(object.operation_card_number)} للسيارة رقم ${(object.license_plate)}  القائد ${(object.employee_id.name)}  النوع ${(object.fleet_type_id.name)}  والتي تنتهي بتاريخ ${(object.operation_card_number)}\n"
+"\n"
+"              </p>\n"
+"\t    \n"
+"            "
+msgstr ""
+
+#. module: odex_fleet
+#: model:mail.template,body_html:odex_fleet.check_expiration_email_template
+msgid ""
+"\n"
+"                \n"
+"              <p style=\"text-align: right;\" > عزيزي العميل  <br/><br/>\n"
+"              نود تذكيركم بقرب موعد الفحص  للسيارة رقم ${(object.license_plate)}  القائد ${(object.employee_id.name)}  النوع ${(object.fleet_type_id.name)}  والتي تنتهي بتاريخ ${(object.check_end)}\n"
+"\n"
+"              </p>\n"
+"\t    \n"
+"            "
+msgstr ""
+
+#. module: odex_fleet
+#: model:mail.template,body_html:odex_fleet.installment_expiration_email_template
+msgid ""
+"\n"
+"                \n"
+"              <p style=\"text-align: right;\"> عزيزي العميل  <br/><br/>\n"
+"               نود تذكيركم بقرب موعد سداد قسط التامين بوليصة رقم ${(object.fleet_id.insurance_number)}  بتاريخ ${(object.date)}\n"
+"\n"
+"              </p>\n"
+"\t    \n"
+"            "
+msgstr ""
+
+#. module: odex_fleet
+#: model:mail.template,body_html:odex_fleet.form_expiration_email_template
+msgid ""
+"\n"
+"                \n"
+"              <p style=\"text-align: right;\"> عزيزي العميل  <br/><br/>\n"
+"              نود تذكيركم بقرب انتهاء الاستمارة  للسيارة رقم ${(object.license_plate)}  القائد ${(object.employee_id.name)}  النوع ${(object.fleet_type_id.name)}  والتي تنتهي بتاريخ ${(object.form_end)}\n"
+"\n"
+"              </p>\n"
+"\t    \n"
+"            "
+msgstr ""
+
+#. module: odex_fleet
+#: model:mail.template,body_html:odex_fleet.driver_expiration_email_template
+msgid ""
+"\n"
+"                \n"
+"              <p style=\"text-align: right;\"> عزيزي العميل  <br/><br/>\n"
+"              نود تذكيركم بقرب انتهاء رخصة  السائق ${(object.name)}  رقم ${(object.license_number)}  القائد ${(object.employee_id.name)}   والتي تنتهي بتاريخ ${(object.license_end)}\n"
+"\n"
+"              </p>\n"
+"\t    \n"
+"            "
+msgstr ""
+
+#. module: odex_fleet
+#: model:mail.template,body_html:odex_fleet.car_expiration_email_template
+msgid ""
+"\n"
+"                \n"
+"              <p style=\"text-align: right;\"> عزيزي العميل  <br/><br/>\n"
+"              نود تذكيركم بقرب انتهاء رخصة السير للسيارة رقم ${(object.license_plate)}  القائد ${(object.employee_id.name)}  النوع ${(object.fleet_type_id.name)}  والتي تنتهي بتاريخ ${(object.license_end)}\n"
+"\n"
+"              </p>\n"
+"\t    \n"
+"            "
+msgstr ""
+
+#. module: odex_fleet
+#: model:mail.template,body_html:odex_fleet.insurance_expiration_email_template
+msgid ""
+"\n"
+"                \n"
+"              <p style=\"text-align: right;\"> عزيزي العميل  <br/><br/>\n"
+"              نود تذكيركم بقرب موعد انتهاء بوليصة التامين رقم ${(object.insurance_number)}  للسيارة رقم ${(object.license_plate)}   والتي تنتهي بتاريخ ${(object.insurance_end_date)}\n"
+"\n"
+"              </p>\n"
+"\t    \n"
+"            "
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_res_config_settings__form
+msgid " Form"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__date
+msgid " Request Date"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_wiz__state_ids
+msgid " States"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.invoice_report_pdf
+msgid "<span style=\"text-align:center;\">Vehicle</span>"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.invoice_report_pdf
+msgid "<span>Days</span>"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.invoice_report_pdf
+msgid "<span>Driver</span>"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_view_fleet_vehicle_form
+msgid "<span>Km</span>"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.invoice_report_pdf
+msgid "<span>Liter Per Day</span>"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.invoice_report_pdf
+msgid "<span>Liter Price Per Day</span>"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.invoice_report_pdf
+msgid "<span>Service</span>"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_branch_report_pdf
+msgid "<span>Total Expense</span>"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.invoice_report_pdf
+msgid "<span>Total</span>"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.invoice_report_pdf
+msgid "<span>Type</span>"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_view_fleet_vehicle_form
+msgid "<span>g/km</span>"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_view_fleet_vehicle_form
+msgid "<span>kW</span>"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields.selection,name:odex_fleet.selection__vehicle_infraction__infraction_type__accident
+msgid "Accident"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_account_config__account_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__account_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__account_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_services__account_id
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__account_id
+msgid "Account"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.ui.menu,name:odex_fleet.fleet_account_config
+msgid "Account Configuration"
+msgstr "اعدادات الحسابات"
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_form_renew_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_log_fuel_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_log_services_view_form
+msgid "Account Details"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__message_needaction
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__message_needaction
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__activity_ids
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__activity_ids
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__activity_exception_decoration
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__activity_exception_decoration
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__activity_state
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__activity_state
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__activity_type_icon
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__activity_type_icon
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_log_fuel_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_log_services_view_form
+msgid "Additional Details"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_view_fleet_vehicle_form
+msgid "Additional Properties"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_wiz__report_type__all_branch_cost
+msgid "All Branch Cost"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.ui.menu,name:odex_fleet.menu_fleet_reporting_all_branch_cost
+msgid "All Branch Expense "
+msgstr "تقرير مركبات الفرع"
+
+#. module: odex_fleet
+#: model:ir.actions.report,name:odex_fleet.state_cost_report_pdf_act
+msgid "All State Expense Report"
+msgstr "تقرير تكاليف المناطق"
+
+#. module: odex_fleet
+#: model:ir.actions.report,name:odex_fleet.service_report_pdf_act
+msgid "All State Service Report"
+msgstr "تقرير خدمات المركبة بالمناطق"
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_delegation_vehicle_view_search
+msgid "All vehicles"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__cost_amount
+#: model:ir.model.fields,field_description:odex_fleet.field_insurance_installment__amount
+#: model_terms:ir.ui.view,arch_db:odex_fleet.invoice_report_pdf
+msgid "Amount"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_quotation__approve
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_maintenance__state__approve
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_form_renew_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_request_maintenance_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_delegation_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_log_fuel_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_log_services_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.vehicle_infraction_view_form
+msgid "Approve"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_vehicle_log_fuel__state__approve
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_vehicle_log_services__status__approve
+#: model:ir.model.fields.selection,name:odex_fleet.selection__form_renew__state__approve
+#: model:ir.model.fields.selection,name:odex_fleet.selection__vehicle_delegation__state__approve
+#: model:ir.model.fields.selection,name:odex_fleet.selection__vehicle_infraction__state__approve
+msgid "Approved"
+msgstr "موافقة"
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_view_fleet_vehicle_form
+msgid "Archived"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__message_attachment_count
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__message_attachment_count
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_cost__auto_generated
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__auto_generated
+msgid "Automatically Generated"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_res_branch
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__branch_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__branch_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_cost__branch_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_contract__branch_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__branch_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_services__branch_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_wiz__branch_ids
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__branch_id
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__branch_id
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_infraction__branch_id
+#: model:ir.model.fields.selection,name:odex_fleet.selection__vehicle_delegation__delegation_type__branch
+#: model:ir.model.fields.selection,name:odex_fleet.selection__vehicle_delegation__entity_type__branch
+#: model:ir.ui.menu,name:odex_fleet.res_branches_menu
+#: model_terms:ir.ui.view,arch_db:odex_fleet.driver_delegation_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_delegation_vehicle_view_search
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_maintenance_vehicle_view_search
+#: model_terms:ir.ui.view,arch_db:odex_fleet.maintains_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.renew_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.state_cost_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.to_renew_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.vehicle_infraction_view_view_search
+msgid "Branch"
+msgstr "فرع"
+
+#. module: odex_fleet
+#: model:ir.actions.report,name:odex_fleet.all_branch_cost_report_pdf_act
+msgid "Branch Chart Cost Report"
+msgstr "تقرير مركبات الفرع"
+
+#. module: odex_fleet
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_wiz__report_type__branch_cost
+msgid "Branch Cost"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.fleet_branch_delegation_action
+#: model:ir.ui.menu,name:odex_fleet.branch_delegation_menu
+msgid "Branch Delegation"
+msgstr "تفويض المركبات"
+
+#. module: odex_fleet
+#: model:ir.ui.menu,name:odex_fleet.menu_fleet_reporting_branch_cost
+msgid "Branch Expense "
+msgstr "تقرير مصروفات فرع"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_manufacture_company__brand_ids
+msgid "Brand"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_fleet_vehicle_model_brand
+msgid "Brand of the vehicle"
+msgstr "العلامة التجارية للمركبة"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__cal_type
+msgid "Calculation Type"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_maintenance__state__cancel
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_vehicle_log_fuel__state__cancel
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_vehicle_log_services__status__cancel
+#: model:ir.model.fields.selection,name:odex_fleet.selection__form_renew__state__cancel
+#: model:ir.model.fields.selection,name:odex_fleet.selection__vehicle_delegation__state__cancel
+#: model:ir.model.fields.selection,name:odex_fleet.selection__vehicle_infraction__state__cancel
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_form_renew_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_report_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_request_maintenance_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_delegation_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_log_fuel_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_log_services_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.vehicle_infraction_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.wizard_reject_reason_fleet_wiz_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.wizard_reject_reason_infraction_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.car_category_action
+#: model:ir.model,name:odex_fleet.model_car_category
+#: model:ir.model.fields,field_description:odex_fleet.field_car_category__car_category
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__car_category
+#: model:ir.ui.menu,name:odex_fleet.car_category_menu
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_car_category_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_car_category_view_tree
+msgid "Car Category"
+msgstr "فئة السيارة"
+
+#. module: odex_fleet
+#: model:mail.template,subject:odex_fleet.check_expiration_email_template
+msgid "Car Check"
+msgstr "فحص"
+
+#. module: odex_fleet
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_wiz__report_type__car_consumption
+msgid "Car Consumption"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.actions.report,name:odex_fleet.car_consumption_cost_report_pdf_act
+msgid "Car Consumption Report"
+msgstr "تقرير مصروفات المركبة"
+
+#. module: odex_fleet
+#: model:mail.template,subject:odex_fleet.form_expiration_email_template
+msgid "Car Form"
+msgstr "استمارة المركبة"
+
+#. module: odex_fleet
+#: model:mail.template,subject:odex_fleet.installment_expiration_email_template
+msgid "Car Installment"
+msgstr "اقساط المركية"
+
+#. module: odex_fleet
+#: model:mail.template,subject:odex_fleet.insurance_expiration_email_template
+msgid "Car Insurance"
+msgstr "تامين المركبة"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_res_config_settings__car_license
+msgid "Car Licence"
+msgstr ""
+
+#. module: odex_fleet
+#: model:mail.template,subject:odex_fleet.car_expiration_email_template
+msgid "Car License"
+msgstr "رخصة المركبة"
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_res_config_settings_view_form
+msgid "Car Notification"
+msgstr ""
+
+#. module: odex_fleet
+#: model:mail.template,subject:odex_fleet.operation_number_expiration_email_template
+msgid "Car Operation Number"
+msgstr "رقم تشغيل المركبة"
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.action_partner_owner_form
+#: model:ir.model.fields,field_description:odex_fleet.field_res_partner__car_owner
+#: model:ir.model.fields,field_description:odex_fleet.field_res_users__car_owner
+#: model:ir.ui.menu,name:odex_fleet.fleet_vehicle_owner_menu
+msgid "Car Owner"
+msgstr "مالك المركبة"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__car_weight
+msgid "Car Weight"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_cost__cost_type
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__cost_type
+msgid "Category of the cost"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__vin_sn
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_infraction__vin_sn
+msgid "Chassis Number"
+msgstr "رقم الشاسية"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_res_config_settings__check
+msgid "Check"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.actions.server,name:odex_fleet.ir_cron_data_check_delegation_close_ir_actions_server
+#: model:ir.cron,cron_name:odex_fleet.ir_cron_data_check_delegation_close
+#: model:ir.cron,name:odex_fleet.ir_cron_data_check_delegation_close
+msgid "Check Delegation Close"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.actions.server,name:odex_fleet.ir_cron_data_check_delegation_expiry_ir_actions_server
+#: model:ir.cron,cron_name:odex_fleet.ir_cron_data_check_delegation_expiry
+#: model:ir.cron,name:odex_fleet.ir_cron_data_check_delegation_expiry
+msgid "Check Delegation Expiry"
+msgstr "انتهاء التفويض"
+
+#. module: odex_fleet
+#: model:ir.actions.server,name:odex_fleet.ir_cron_data_check_delegation_start_ir_actions_server
+#: model:ir.cron,cron_name:odex_fleet.ir_cron_data_check_delegation_start
+#: model:ir.cron,name:odex_fleet.ir_cron_data_check_delegation_start
+msgid "Check Delegation Start"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.actions.server,name:odex_fleet.ir_cron_data_check_driver_expiry_ir_actions_server
+#: model:ir.cron,cron_name:odex_fleet.ir_cron_data_check_driver_expiry
+#: model:ir.cron,name:odex_fleet.ir_cron_data_check_driver_expiry
+msgid "Check Driver Expiry"
+msgstr "انتهاء فحص السائق"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__check_end
+msgid "Check End Date"
+msgstr "تاريخ انتهاء الفحص"
+
+#. module: odex_fleet
+#: model:ir.actions.server,name:odex_fleet.ir_cron_data_check_fleet_expiry_ir_actions_server
+#: model:ir.cron,cron_name:odex_fleet.ir_cron_data_check_fleet_expiry
+#: model:ir.cron,name:odex_fleet.ir_cron_data_check_fleet_expiry
+msgid "Check Fleet Expiry"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.actions.server,name:odex_fleet.ir_cron_data_check_fleet_maintenance_ir_actions_server
+#: model:ir.cron,cron_name:odex_fleet.ir_cron_data_check_fleet_maintenance
+#: model:ir.cron,name:odex_fleet.ir_cron_data_check_fleet_maintenance
+msgid "Check Fleet Maintenance"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.actions.act_window,help:odex_fleet.fleet_branch_delegation_action
+msgid "Click to create a new Branch Delegation."
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.actions.act_window,help:odex_fleet.car_category_action
+msgid "Click to create a new Car Category."
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.actions.act_window,help:odex_fleet.fleet_vehicle_delegation_action
+msgid "Click to create a new Driver Delegation."
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.actions.act_window,help:odex_fleet.fleet_vehicle_renew_action
+#: model_terms:ir.actions.act_window,help:odex_fleet.insurance_companies_action
+msgid "Click to create a new Form Renew."
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.actions.act_window,help:odex_fleet.fuel_price_action
+msgid "Click to create a new Fuel Price."
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.actions.act_window,help:odex_fleet.vehicle_infraction_action
+msgid "Click to create a new Infraction."
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.actions.act_window,help:odex_fleet.man_company_action
+msgid "Click to create a new Manufacture Company."
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.actions.act_window,help:odex_fleet.fleet_vehicle_costs_action
+msgid "Click to create a new cost."
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.actions.act_window,help:odex_fleet.fleet_vehicle_log_fuel_action
+msgid "Click to create a new fuel log."
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.actions.act_window,help:odex_fleet.transmission_setting_action
+msgid "Click to create a new transmission ."
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.actions.act_window,help:odex_fleet.fleet_vehicle_amount_action
+msgid "Click to create a new type."
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_account_config__state__close
+#: model:ir.model.fields.selection,name:odex_fleet.selection__vehicle_delegation__state__close
+#: model:ir.model.fields.selection,name:odex_fleet.selection__vehicle_infraction__state__close
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_delegation_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_account_config_form
+msgid "Close"
+msgstr "إلغاء"
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_res_company
+msgid "Companies"
+msgstr "شركات"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__company_id
+msgid "Company"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_insurance_companies__name
+msgid "Company Name"
+msgstr "اسم الشركة"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__computer_number
+msgid "Computer Number"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_res_config_settings
+msgid "Config Settings"
+msgstr "ضبط الاعدادات"
+
+#. module: odex_fleet
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_account_config__state__confirm
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_maintenance__state__confirm
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_vehicle_log_fuel__state__confirm
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_vehicle_log_services__status__confirm
+#: model:ir.model.fields.selection,name:odex_fleet.selection__form_renew__state__confirm
+#: model:ir.model.fields.selection,name:odex_fleet.selection__vehicle_delegation__state__confirm
+#: model:ir.model.fields.selection,name:odex_fleet.selection__vehicle_infraction__state__confirm
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_form_renew_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_request_maintenance_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_delegation_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_account_config_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_log_fuel_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_log_services_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.vehicle_infraction_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.wizard_reject_reason_fleet_wiz_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.wizard_reject_reason_infraction_form
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: odex_fleet
+#: model:ir.ui.menu,name:odex_fleet.menu_fleet_reporting_car_consumption
+msgid "Consumption Report"
+msgstr "تقرير مصروفات المركبة"
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_cost__contract_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__contract_id
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_vehicle_cost__cost_type__contract
+msgid "Contract"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,help:odex_fleet.field_fleet_vehicle_cost__contract_id
+#: model:ir.model.fields,help:odex_fleet.field_fleet_vehicle_log_fuel__contract_id
+msgid "Contract attached to this cost"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_view_fleet_vehicle_form
+msgid "Contracts"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_maintenance__type__corrective
+msgid "Corrective"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_quotation__cost
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_quotation_service__cost
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_quotation_service__qty
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__cost_id
+#: model_terms:ir.ui.view,arch_db:odex_fleet.renew_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.service_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.to_renew_report_pdf
+msgid "Cost"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_cost__description
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__description
+msgid "Cost Description"
+msgstr "وصف التكلفة"
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_costs_view_form
+msgid "Cost Details"
+msgstr "تفاصيل التكلفة"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_infraction__cost_percentage
+msgid "Cost Percentage"
+msgstr "نسبة التحمل"
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_costs_view_search
+msgid "Cost Subtype"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_costs_view_search
+msgid "Cost Type"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_fleet_vehicle_cost
+msgid "Cost related to a vehicle"
+msgstr "التكلفة المتعلقة لمركبة"
+
+#. module: odex_fleet
+#: model:ir.model.fields,help:odex_fleet.field_fleet_vehicle_cost__cost_subtype_id
+#: model:ir.model.fields,help:odex_fleet.field_fleet_vehicle_log_fuel__cost_subtype_id
+#: model:ir.model.fields,help:odex_fleet.field_fleet_vehicle_log_services__cost_subtype_id
+msgid "Cost type purchased with this cost"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_costs_view_graph
+msgid "Costs Per Month"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_log_fuel_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_log_services_view_form
+msgid "Create Invoice"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_car_category__create_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_account_config__create_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__create_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_quotation__create_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_quotation_service__create_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_service_line_config__create_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_type__create_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_cost__create_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__create_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_wiz__create_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__create_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_fuel_price__create_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_insurance_companies__create_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_insurance_installment__create_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_manufacture_company__create_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_reject_reason_fleet_wiz__create_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_reject_reason_infraction_wiz__create_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_transmission_setting__create_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__create_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_infraction__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_car_category__create_date
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_account_config__create_date
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__create_date
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_quotation__create_date
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_quotation_service__create_date
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_service_line_config__create_date
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_type__create_date
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_cost__create_date
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__create_date
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_wiz__create_date
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__create_date
+#: model:ir.model.fields,field_description:odex_fleet.field_fuel_price__create_date
+#: model:ir.model.fields,field_description:odex_fleet.field_insurance_companies__create_date
+#: model:ir.model.fields,field_description:odex_fleet.field_insurance_installment__create_date
+#: model:ir.model.fields,field_description:odex_fleet.field_manufacture_company__create_date
+#: model:ir.model.fields,field_description:odex_fleet.field_reject_reason_fleet_wiz__create_date
+#: model:ir.model.fields,field_description:odex_fleet.field_reject_reason_infraction_wiz__create_date
+#: model:ir.model.fields,field_description:odex_fleet.field_transmission_setting__create_date
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__create_date
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_infraction__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__custody_id
+msgid "Custody"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_cost__date
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__date
+#: model:ir.model.fields,field_description:odex_fleet.field_insurance_installment__date
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_service_line_config__type__date
+#: model_terms:ir.ui.view,arch_db:odex_fleet.invoice_report_pdf
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_wiz__date_from
+msgid "Date From"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_wiz__date_to
+msgid "Date To"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,help:odex_fleet.field_fleet_vehicle_cost__date
+#: model:ir.model.fields,help:odex_fleet.field_fleet_vehicle_log_fuel__date
+msgid "Date when the cost has been executed"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,help:odex_fleet.field_fuel_price__uom_id
+msgid "Default unit of measure used for all stock operations."
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_reject_reason_fleet_wiz__delegation_id
+#: model:ir.model.fields,field_description:odex_fleet.field_res_company__delegation
+#: model:ir.model.fields,field_description:odex_fleet.field_res_config_settings__delegation
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_wiz__report_type__delegation
+#: model:ir.ui.menu,name:odex_fleet.fleet_vehicles_delegation
+msgid "Delegation"
+msgstr "التفويض"
+
+#. module: odex_fleet
+#: model:mail.template,subject:odex_fleet.delegation_expiration_email_template
+msgid "Delegation End"
+msgstr "انتهاء تفويض"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_hr_employee__delegation_end
+#: model_terms:ir.ui.view,arch_db:odex_fleet.hr_kanban_view
+msgid "Delegation End Date"
+msgstr "تاريخ انتهاء التفويض"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_hr_employee__delegation_start
+#: model_terms:ir.ui.view,arch_db:odex_fleet.hr_kanban_view
+msgid "Delegation Start Date"
+msgstr "تاريخ بداية التفويض"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__delegation_type
+msgid "Delegation Type"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.all_branch_cost_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_branch_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.state_cost_report_pdf
+msgid "Description"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_car_category__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_account_config__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_quotation__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_quotation_service__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_service_line_config__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_type__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_cost__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_contract__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_services__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_model__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_model_brand__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_wiz__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_fuel_price__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_insurance_companies__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_insurance_installment__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_manufacture_company__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_reject_reason_fleet_wiz__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_reject_reason_infraction_wiz__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_all_branch_cost_report_pdf__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_car_consumption_cost_report_pdf__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_driver_delegation_report_pdf__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_driver_report_pdf__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_fleet_branch_report_pdf__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_invoice_report_pdf__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_maintains_report_pdf__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_renew_report_pdf__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_service_report_pdf__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_state_cost_report_pdf__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_to_renew_report_pdf__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_res_branch__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_res_company__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_res_partner__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_transmission_setting__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__display_name
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_infraction__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: odex_fleet
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_account_config__state__draft
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_maintenance__state__draft
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_vehicle_log_fuel__state__draft
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_vehicle_log_services__status__draft
+#: model:ir.model.fields.selection,name:odex_fleet.selection__form_renew__state__draft
+#: model:ir.model.fields.selection,name:odex_fleet.selection__vehicle_delegation__state__draft
+#: model:ir.model.fields.selection,name:odex_fleet.selection__vehicle_infraction__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__employee_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__driver_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__employee_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__employee_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_services__employee_id
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__employee_id
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_infraction__employee_id
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_wiz__report_type__driver
+#: model_terms:ir.ui.view,arch_db:odex_fleet.car_consumption_cost_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.driver_delegation_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.driver_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.maintains_report_pdf
+msgid "Driver"
+msgstr "السائق"
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.fleet_vehicle_delegation_action
+#: model:ir.ui.menu,name:odex_fleet.vehicle_delegation_menu
+msgid "Driver Delegation"
+msgstr "تفويض سائق مركبة"
+
+#. module: odex_fleet
+#: model:ir.actions.report,name:odex_fleet.driver_delegation_report_pdf_act
+#: model_terms:ir.ui.view,arch_db:odex_fleet.driver_delegation_report_pdf
+msgid "Driver Delegation Report"
+msgstr "تقرير تفويض سائق"
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.hr_driver_form_view
+msgid "Driver Information"
+msgstr ""
+
+#. module: odex_fleet
+#: model:mail.template,subject:odex_fleet.driver_expiration_email_template
+msgid "Driver License"
+msgstr "رخصة السائق"
+
+#. module: odex_fleet
+#: model:ir.actions.report,name:odex_fleet.driver_report_pdf_act
+#: model_terms:ir.ui.view,arch_db:odex_fleet.driver_report_pdf
+msgid "Driver Report"
+msgstr "تقرير السائقين"
+
+#. module: odex_fleet
+#: model:ir.model.fields,help:odex_fleet.field_fleet_vehicle__driver_id
+msgid "Driver of the vehicle"
+msgstr "سائق المركبة"
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.odex_employees_list_action
+#: model:ir.ui.menu,name:odex_fleet.fleet_vehicle_driver_menu
+msgid "Drivers"
+msgstr "السائقين"
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_view_fleet_vehicle_form
+msgid "Drivers History"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__edit_access
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_quotation__edit_access
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__edit_access
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_services__edit_access
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__edit_access
+msgid "Edit Access"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_costs_view_search
+msgid "Effective Costs"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_hr_employee
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_delegation_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.vehicle_infraction_view_form
+msgid "Employee Information"
+msgstr "بيانات السائق"
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.driver_delegation_report_pdf
+msgid "End"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__end_date
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__end_date
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_infraction__end_date
+#: model_terms:ir.ui.view,arch_db:odex_fleet.renew_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.to_renew_report_pdf
+msgid "End Date"
+msgstr "تاريخ النهاية"
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_view_fleet_vehicle_form
+msgid "Engine Options"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__entity_type
+msgid "Entity Type"
+msgstr "نوع الجهة"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_service_line_config__fleet_id
+#: model:ir.model.fields,field_description:odex_fleet.field_insurance_installment__fleet_id
+msgid "Fleet"
+msgstr ""
+
+#. module: odex_fleet
+#: model:res.groups,name:odex_fleet.fleet_group_account
+msgid "Fleet Account Manager"
+msgstr "المدير المالى"
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.fleet_vehicle_account_config_action
+msgid "Fleet Account Settings"
+msgstr "اعدادات الحسابات"
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.all_branch_cost_report_fleet_report_action
+msgid "Fleet All Branch Expense Report"
+msgstr "تقرير مركبات الفرع"
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.branch_cost_cost_report_fleet_report_action
+msgid "Fleet Branch Expense Report"
+msgstr "تقرير تكاليف فرع"
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.car_consumption_report_fleet_report_action
+msgid "Fleet Consumption Report"
+msgstr "تقرير مصروفات مركبة"
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_fleet_account_config
+msgid "Fleet Cost"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.delegation_report_fleet_report_action
+#: model:ir.ui.menu,name:odex_fleet.menu_fleet_reporting_car_delegation
+msgid "Fleet Delegation Report"
+msgstr "تقرير تفويض سائق"
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.driver_report_fleet_report_action
+#: model:ir.ui.menu,name:odex_fleet.menu_fleet_reporting_car_driver
+msgid "Fleet Driver Report"
+msgstr "تقرير السائقين"
+
+#. module: odex_fleet
+#: model:ir.ui.menu,name:odex_fleet.menu_fleet_reporting_car_invoice
+msgid "Fleet Expense Invoice Report"
+msgstr "تقرير إستهلاك وقود"
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.invoice_report_fleet_report_action
+msgid "Fleet Expense Report"
+msgstr "تقرير إستهلاك وقود"
+
+#. module: odex_fleet
+#: model:ir.actions.report,name:odex_fleet.invoice_report_pdf_act
+msgid "Fleet Invoice Report"
+msgstr "تقرير إستهلاك وقود"
+
+#. module: odex_fleet
+#: model:ir.ui.menu,name:odex_fleet.menu_fleet_reporting_maintains
+msgid "Fleet Maintains"
+msgstr "تقرير مركبة تجاوزت الصيانة"
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.maintains_report_fleet_report_action
+msgid "Fleet Maintains Report"
+msgstr "تقرير مركبة تجاوزت الصيانة"
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.fleet_vehicle_maintenance_action
+#: model:ir.model,name:odex_fleet.model_fleet_maintenance
+#: model:ir.ui.menu,name:odex_fleet.vehicle_maintenance_menu
+msgid "Fleet Maintenance"
+msgstr "صيانة المركبات"
+
+#. module: odex_fleet
+#: model:ir.ui.menu,name:odex_fleet.menu_fleet_reporting_to_maintains
+msgid "Fleet Need Maintains"
+msgstr " مركبات تحتاج الصيانة"
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.to_maintains_report_fleet_report_action
+msgid "Fleet Need Maintains Report"
+msgstr "تقرير مركبة تحت الصيانة"
+
+#. module: odex_fleet
+#: model:ir.ui.menu,name:odex_fleet.menu_fleet_reporting_to_renew
+msgid "Fleet Need Renew"
+msgstr "بيان تجديد استمارة مركبة"
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.to_renew_report_fleet_report_action
+msgid "Fleet Need Renew Report"
+msgstr "بيان تجديد استمارة مركبة"
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_res_config_settings_view_form
+msgid "Fleet Notification Before"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_fleet_quotation
+msgid "Fleet Quotation"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.renew_report_fleet_report_action
+msgid "Fleet Renew Report"
+msgstr "تقرير مركبة تم تجديد استمارة"
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.fleet_report_action
+msgid "Fleet Report"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_fleet_service_line_config
+msgid "Fleet Serive Line"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_fleet_quotation_service
+msgid "Fleet Service"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.service_report_fleet_report_action
+msgid "Fleet Service Report"
+msgstr "خدمات المركبة"
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.cost_state_report_fleet_report_action
+msgid "Fleet State Expense Report"
+msgstr "تقرير تكلفة المركبات"
+
+#. module: odex_fleet
+#: model:res.groups,name:odex_fleet.fleet_group_supervisor
+msgid "Fleet Supervisor"
+msgstr "مشرف الاسطول"
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_fleet_type
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__fleet_type_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_model__fleet_type_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_wiz__type_ids
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__fleet_type_id
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_infraction__fleet_type_id
+msgid "Fleet Type"
+msgstr "نوع المركبة"
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_fleet_wiz
+msgid "Fleet Wizard Report"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__message_follower_ids
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__message_follower_ids
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__message_channel_ids
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__message_channel_ids
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__message_partner_ids
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__message_partner_ids
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,help:odex_fleet.field_fleet_maintenance__activity_type_icon
+#: model:ir.model.fields,help:odex_fleet.field_form_renew__activity_type_icon
+#: model:ir.model.fields,help:odex_fleet.field_vehicle_delegation__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,help:odex_fleet.field_fleet_vehicle_cost__cost_type
+#: model:ir.model.fields,help:odex_fleet.field_fleet_vehicle_log_fuel__cost_type
+msgid "For internal purpose only"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_account_config__type__form
+msgid "Form"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__form_end
+msgid "Form End Date"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.insurance_companies_action
+msgid "Form Insurance Companies"
+msgstr "شركات التأمين"
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.fleet_vehicle_renew_action
+#: model:ir.ui.menu,name:odex_fleet.fleet_vehicle_renew_menu
+msgid "Form Renew"
+msgstr "تجديد استمارة"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__form_renew_cost
+msgid "Form Renew Cost"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_form_renew
+msgid "Forn Renew"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.invoice_report_pdf
+msgid "From"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_account_config__type__fuel
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_vehicle_cost__cost_type__fuel
+#: model_terms:ir.ui.view,arch_db:odex_fleet.car_consumption_cost_report_pdf
+msgid "Fuel"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_log_fuel_view_tree
+msgid "Fuel Logs"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.fuel_price_action
+#: model:ir.model,name:odex_fleet.model_fuel_price
+#: model:ir.ui.menu,name:odex_fleet.fuel_price_menu
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_fuel_price_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_fuel_price_view_tree
+msgid "Fuel Price"
+msgstr "سعر الوقود"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__fuel_type
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__fuel_type
+#: model:ir.model.fields,field_description:odex_fleet.field_fuel_price__fuel_type
+msgid "Fuel Type"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,help:odex_fleet.field_fleet_vehicle__fuel_type
+#: model:ir.model.fields,help:odex_fleet.field_fleet_vehicle_log_fuel__fuel_type
+#: model:ir.model.fields,help:odex_fleet.field_fuel_price__fuel_type
+msgid "Fuel Used by the vehicle"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__fuel_consumption
+msgid "Fuel consumption"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_fleet_vehicle_log_fuel
+msgid "Fuel log for vehicles"
+msgstr "سجل الوقود للمركبات"
+
+#. module: odex_fleet
+#: model:res.groups,name:odex_fleet.fleet_group_gm
+msgid "GM"
+msgstr "المدير العام"
+
+#. module: odex_fleet
+#: model:res.groups,name:odex_fleet.fleet_group_vice_gm
+msgid "GM Vice"
+msgstr "نائب المدير العام"
+
+#. module: odex_fleet
+#: model:ir.model.fields.selection,name:odex_fleet.selection__hr_employee__license_type__general
+msgid "General"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.actions.report,name:odex_fleet.fleet_branch_report_pdf_act
+msgid "General Cost Report"
+msgstr "تقرير مصروفات المركبة"
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_view_fleet_vehicle_form
+msgid "General Properties"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_delegation_vehicle_view_search
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_maintenance_vehicle_view_search
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_costs_view_search
+#: model_terms:ir.ui.view,arch_db:odex_fleet.vehicle_infraction_view_view_search
+msgid "Group By"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.actions.act_window,help:odex_fleet.fleet_vehicle_log_fuel_action
+msgid ""
+"Here you can add refuelling entries for all vehicles.  You can\n"
+"            also filter logs of a particular vehicle using the search\n"
+"            field."
+msgstr ""
+
+#. module: odex_fleet
+#: model:res.groups,name:odex_fleet.fleet_group_hr
+msgid "Hr Manager"
+msgstr "مدير الموارد البشرية"
+
+#. module: odex_fleet
+#: model:res.groups,name:odex_fleet.fleet_group_hr_officer
+msgid "Hr Officer"
+msgstr "مسؤل الموارد البشرية"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_car_category__id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_account_config__id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_quotation__id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_quotation_service__id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_service_line_config__id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_type__id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_cost__id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_contract__id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_services__id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_model__id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_model_brand__id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_wiz__id
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__id
+#: model:ir.model.fields,field_description:odex_fleet.field_fuel_price__id
+#: model:ir.model.fields,field_description:odex_fleet.field_hr_employee__id
+#: model:ir.model.fields,field_description:odex_fleet.field_insurance_companies__id
+#: model:ir.model.fields,field_description:odex_fleet.field_insurance_installment__id
+#: model:ir.model.fields,field_description:odex_fleet.field_manufacture_company__id
+#: model:ir.model.fields,field_description:odex_fleet.field_reject_reason_fleet_wiz__id
+#: model:ir.model.fields,field_description:odex_fleet.field_reject_reason_infraction_wiz__id
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_all_branch_cost_report_pdf__id
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_car_consumption_cost_report_pdf__id
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_driver_delegation_report_pdf__id
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_driver_report_pdf__id
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_fleet_branch_report_pdf__id
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_invoice_report_pdf__id
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_maintains_report_pdf__id
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_renew_report_pdf__id
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_service_report_pdf__id
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_state_cost_report_pdf__id
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_to_renew_report_pdf__id
+#: model:ir.model.fields,field_description:odex_fleet.field_res_branch__id
+#: model:ir.model.fields,field_description:odex_fleet.field_res_company__id
+#: model:ir.model.fields,field_description:odex_fleet.field_res_config_settings__id
+#: model:ir.model.fields,field_description:odex_fleet.field_res_partner__id
+#: model:ir.model.fields,field_description:odex_fleet.field_transmission_setting__id
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__id
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_infraction__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__activity_exception_icon
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__activity_exception_icon
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,help:odex_fleet.field_fleet_maintenance__activity_exception_icon
+#: model:ir.model.fields,help:odex_fleet.field_form_renew__activity_exception_icon
+#: model:ir.model.fields,help:odex_fleet.field_vehicle_delegation__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.driver_delegation_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.driver_report_pdf
+msgid "Id Number"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,help:odex_fleet.field_fleet_maintenance__message_needaction
+#: model:ir.model.fields,help:odex_fleet.field_fleet_maintenance__message_unread
+#: model:ir.model.fields,help:odex_fleet.field_form_renew__message_needaction
+#: model:ir.model.fields,help:odex_fleet.field_form_renew__message_unread
+#: model:ir.model.fields,help:odex_fleet.field_vehicle_delegation__message_needaction
+#: model:ir.model.fields,help:odex_fleet.field_vehicle_delegation__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,help:odex_fleet.field_fleet_maintenance__message_has_error
+#: model:ir.model.fields,help:odex_fleet.field_fleet_maintenance__message_has_sms_error
+#: model:ir.model.fields,help:odex_fleet.field_form_renew__message_has_error
+#: model:ir.model.fields,help:odex_fleet.field_form_renew__message_has_sms_error
+#: model:ir.model.fields,help:odex_fleet.field_vehicle_delegation__message_has_error
+#: model:ir.model.fields,help:odex_fleet.field_vehicle_delegation__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields.selection,name:odex_fleet.selection__vehicle_delegation__state__in_progress
+#: model:ir.model.fields.selection,name:odex_fleet.selection__vehicle_infraction__state__in_progress
+msgid "In Progress"
+msgstr "جاري العمل"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_cost__cost_ids
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__cost_ids
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_services__cost_ids
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_log_services_view_form
+msgid "Included Services"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_log_services_view_form
+msgid "Indicative Cost"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_costs_view_search
+msgid "Indicative Costs"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_reject_reason_infraction_wiz__infraction_id
+#: model:ir.model.fields.selection,name:odex_fleet.selection__vehicle_infraction__infraction_type__infraction
+#: model_terms:ir.ui.view,arch_db:odex_fleet.vehicle_infraction_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.vehicle_infraction_view_view_search
+msgid "Infraction"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_infraction__infraction_cost
+msgid "Infraction Cost"
+msgstr "قيمة المخالفة"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_infraction__infraction_date
+msgid "Infraction Date"
+msgstr "تاريخ المخالفة"
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.vehicle_infraction_view_form
+msgid "Infraction Information"
+msgstr "بيانات المخالفة"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_infraction__infraction_number
+msgid "Infraction Number"
+msgstr "رقم المخالفة"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_infraction__infraction_type
+msgid "Infraction Type"
+msgstr "نوع المخالفة"
+
+#. module: odex_fleet
+#: model:ir.ui.menu,name:odex_fleet.vehicles_infractions
+msgid "Infractions"
+msgstr "مخالفات المركبات"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__installment_ids
+msgid "Installment"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_res_config_settings__installment
+msgid "Installment "
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_res_company__installment
+msgid "Installment Notify Before"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__installment_number
+msgid "Installment Number"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_res_config_settings__insurance
+msgid "Insurance"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__insurance_companies_id
+#: model:ir.ui.menu,name:odex_fleet.insurance_companies_menu
+#: model_terms:ir.ui.view,arch_db:odex_fleet.insurance_companies_view_form
+msgid "Insurance Companies"
+msgstr "شركات التأمين"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__insurance_attachment
+msgid "Insurance Docs"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__insurance_end_date
+msgid "Insurance End Date"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_view_fleet_vehicle_form
+msgid "Insurance Information"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_insurance_installment
+msgid "Insurance Installment"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_res_company__insurance
+msgid "Insurance Notify Before"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__insurance_number
+msgid "Insurance Number"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__insurance_start_date
+msgid "Insurance Start Date"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__invoice_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__invoice_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_services__invoice_id
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__invoice_id
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_wiz__report_type__invoice
+msgid "Invoice"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.invoice_report_pdf
+msgid "Invoice Number"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__inv_ref
+msgid "Invoice Reference"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.invoice_report_pdf
+msgid "Invoice Report"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_vehicle_log_fuel__state__invoiced
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_vehicle_log_services__status__invoiced
+msgid "Invoiced"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_hr_employee__driver
+msgid "Is Driver"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__message_is_follower
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__message_is_follower
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.car_consumption_cost_report_pdf
+msgid "Job"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_car_category____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_account_config____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_quotation____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_quotation_service____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_service_line_config____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_type____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_cost____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_contract____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_services____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_model____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_model_brand____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_wiz____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_fuel_price____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_hr_employee____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_insurance_companies____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_insurance_installment____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_manufacture_company____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_reject_reason_fleet_wiz____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_reject_reason_infraction_wiz____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_all_branch_cost_report_pdf____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_car_consumption_cost_report_pdf____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_driver_delegation_report_pdf____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_driver_report_pdf____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_fleet_branch_report_pdf____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_invoice_report_pdf____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_maintains_report_pdf____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_renew_report_pdf____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_service_report_pdf____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_state_cost_report_pdf____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_report_odex_fleet_to_renew_report_pdf____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_res_branch____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_res_company____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_res_partner____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_transmission_setting____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation____last_update
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_infraction____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_car_category__write_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_account_config__write_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__write_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_quotation__write_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_quotation_service__write_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_service_line_config__write_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_type__write_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_cost__write_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__write_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_wiz__write_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__write_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_fuel_price__write_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_insurance_companies__write_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_insurance_installment__write_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_manufacture_company__write_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_reject_reason_fleet_wiz__write_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_reject_reason_infraction_wiz__write_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_transmission_setting__write_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__write_uid
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_infraction__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_car_category__write_date
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_account_config__write_date
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__write_date
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_quotation__write_date
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_quotation_service__write_date
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_service_line_config__write_date
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_type__write_date
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_cost__write_date
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__write_date
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_wiz__write_date
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__write_date
+#: model:ir.model.fields,field_description:odex_fleet.field_fuel_price__write_date
+#: model:ir.model.fields,field_description:odex_fleet.field_insurance_companies__write_date
+#: model:ir.model.fields,field_description:odex_fleet.field_insurance_installment__write_date
+#: model:ir.model.fields,field_description:odex_fleet.field_manufacture_company__write_date
+#: model:ir.model.fields,field_description:odex_fleet.field_reject_reason_fleet_wiz__write_date
+#: model:ir.model.fields,field_description:odex_fleet.field_reject_reason_infraction_wiz__write_date
+#: model:ir.model.fields,field_description:odex_fleet.field_transmission_setting__write_date
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__write_date
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_infraction__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_res_company__license
+#: model:ir.model.fields,field_description:odex_fleet.field_res_config_settings__license
+#: model_terms:ir.ui.view,arch_db:odex_fleet.service_report_pdf
+msgid "License"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_hr_employee__license_attache
+msgid "License Attachment"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__license_end
+#: model:ir.model.fields,field_description:odex_fleet.field_hr_employee__license_end
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__license_end
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_infraction__license_end
+#: model_terms:ir.ui.view,arch_db:odex_fleet.hr_kanban_view
+msgid "License End"
+msgstr "تاريخ انتهاء الرخصة"
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.hr_driver_form_view
+msgid "License Information"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_hr_employee__license_number
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__license_number
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_infraction__license_number
+#: model_terms:ir.ui.view,arch_db:odex_fleet.hr_kanban_view
+msgid "License Number"
+msgstr "رقم رخصة السياقة"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__license_plate
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__license_plate
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_infraction__license_plate
+msgid "License Plate"
+msgstr "رقم اللوحة"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_hr_employee__license_start
+#: model_terms:ir.ui.view,arch_db:odex_fleet.hr_kanban_view
+msgid "License Start"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_hr_employee__license_type
+#: model_terms:ir.ui.view,arch_db:odex_fleet.hr_kanban_view
+msgid "License Type"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,help:odex_fleet.field_fleet_maintenance__license_plate
+#: model:ir.model.fields,help:odex_fleet.field_vehicle_delegation__license_plate
+#: model:ir.model.fields,help:odex_fleet.field_vehicle_infraction__license_plate
+msgid "License plate number of the vehicle (i = plate number for a car)"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__line_id
+msgid "Line"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__liter
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_vehicle_log_fuel__cal_type__liter
+msgid "Liter"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,help:odex_fleet.field_fleet_vehicle__location
+msgid "Location of the vehicle (garage, ...)"
+msgstr "موقع السيارة (المرآب، ...)"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__message_main_attachment_id
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__message_main_attachment_id
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_reject_reason_fleet_wiz__maintenance_id
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_account_config__type__maintenance
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_wiz__report_type__maintains
+#: model:ir.ui.menu,name:odex_fleet.fleet_maintenance_root
+#: model_terms:ir.ui.view,arch_db:odex_fleet.car_consumption_cost_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_request_maintenance_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.maintains_report_pdf
+msgid "Maintenance"
+msgstr "صيانة"
+
+#. module: odex_fleet
+#: model:ir.actions.report,name:odex_fleet.maintains_purchase_req_act
+msgid "Maintenance Purchase Request"
+msgstr "طلب أمر شراء"
+
+#. module: odex_fleet
+#: model:ir.actions.report,name:odex_fleet.maintains_report_pdf_act
+msgid "Maintenance Report"
+msgstr "تقرير مركبة تحتاج صيانة"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_services__request_id
+msgid "Maintenance Request"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_view_fleet_vehicle_form
+msgid "Maintenance Settings"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__type
+msgid "Maintenance Type"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__man_company
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_model__man_company_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_model_brand__man_company_id
+msgid "Man Company"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.man_company_action
+#: model:ir.model,name:odex_fleet.model_manufacture_company
+#: model:ir.model.fields,field_description:odex_fleet.field_manufacture_company__man_company
+#: model:ir.ui.menu,name:odex_fleet.man_company_menu
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_man_company_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_man_company_view_tree
+msgid "Manufacture Company"
+msgstr "شركة الصنع"
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.renew_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.to_renew_report_pdf
+msgid "Manufacture Year"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__message_has_error
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__message_has_error
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__message_ids
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__message_ids
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__model_id
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_infraction__model_id
+#: model_terms:ir.ui.view,arch_db:odex_fleet.car_consumption_cost_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.driver_delegation_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.driver_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.maintains_report_pdf
+msgid "Model"
+msgstr "موديل المركبة"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__model_id
+msgid "Model Type"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_fleet_vehicle_model
+msgid "Model of a vehicle"
+msgstr "موديل مركبة"
+
+#. module: odex_fleet
+#: model:ir.model.fields,help:odex_fleet.field_fleet_vehicle__model_id
+#: model:ir.model.fields,help:odex_fleet.field_vehicle_delegation__model_id
+#: model:ir.model.fields,help:odex_fleet.field_vehicle_infraction__model_id
+msgid "Model of the vehicle"
+msgstr "موديل المركبة"
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_costs_view_search
+msgid "Month"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__my_activity_date_deadline
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__my_activity_date_deadline
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_account_config__name
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__name
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_type__name
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_cost__name
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__name
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__name
+#: model:ir.model.fields,field_description:odex_fleet.field_insurance_installment__name
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__name
+#: model_terms:ir.ui.view,arch_db:odex_fleet.service_report_pdf
+msgid "Name"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__new_date
+msgid "New End Date"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__activity_date_deadline
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__activity_date_deadline
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__activity_summary
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__activity_summary
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__activity_type_id
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__activity_type_id
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__next_request_date
+msgid "Next Maintenance Date"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__next_odometer
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_service_line_config__next_odometer
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_service_line_config__odometer
+msgid "Next Odometer"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__next_request_date
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_service_line_config__date
+msgid "Next Request Date"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__notes
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_log_services_view_form
+msgid "Notes"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_res_company__car_license
+msgid "Notify Before Car Licence"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_res_company__check
+msgid "Notify Before Check"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_res_company__form
+msgid "Notify Before Form"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_quotation_service__number
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_cost__number
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__number
+msgid "Number"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__message_needaction_counter
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__message_needaction_counter
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__message_has_error_counter
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__message_has_error_counter
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,help:odex_fleet.field_fleet_maintenance__message_needaction_counter
+#: model:ir.model.fields,help:odex_fleet.field_form_renew__message_needaction_counter
+#: model:ir.model.fields,help:odex_fleet.field_vehicle_delegation__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,help:odex_fleet.field_fleet_maintenance__message_has_error_counter
+#: model:ir.model.fields,help:odex_fleet.field_form_renew__message_has_error_counter
+#: model:ir.model.fields,help:odex_fleet.field_vehicle_delegation__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,help:odex_fleet.field_fleet_maintenance__message_unread_counter
+#: model:ir.model.fields,help:odex_fleet.field_form_renew__message_unread_counter
+#: model:ir.model.fields,help:odex_fleet.field_vehicle_delegation__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__odometer
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_cost__odometer_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__odometer_id
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_service_line_config__type__odometer
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_view_fleet_vehicle_form
+msgid "Odometer"
+msgstr "عداد المسافات"
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_log_fuel_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_log_services_view_form
+msgid "Odometer Details"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_cost__odometer
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__odometer
+msgid "Odometer Value"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,help:odex_fleet.field_fleet_vehicle_cost__odometer
+#: model:ir.model.fields,help:odex_fleet.field_fleet_vehicle_cost__odometer_id
+#: model:ir.model.fields,help:odex_fleet.field_fleet_vehicle_log_fuel__odometer
+#: model:ir.model.fields,help:odex_fleet.field_fleet_vehicle_log_fuel__odometer_id
+msgid "Odometer measure of the vehicle at the moment of this log"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.actions.act_window,help:odex_fleet.fleet_vehicle_costs_action
+msgid ""
+"Odoo helps you managing the costs for your different\n"
+"                vehicles. Costs are created automatically from services,\n"
+"                contracts (fixed or recurring) and fuel logs."
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_quotation__offer
+msgid "Offer Attachment"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.car_consumption_cost_report_pdf
+msgid "Oil"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__old_branch_id
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__old_branch_id
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_infraction__old_branch_id
+msgid "Old Branch"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_hr_employee__old_vehicle_id
+msgid "Old Vehicle"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_view_fleet_vehicle_form
+msgid "Operation"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_res_config_settings__operation
+msgid "Operation Card"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__operation_card_end
+msgid "Operation Card End"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__operation_card_number
+msgid "Operation Card Number"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_res_company__operation
+msgid "Operation Notify Before"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_vehicle_cost__cost_type__other
+msgid "Other"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__owner_id
+msgid "Owner"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_insurance_installment__paid
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_maintenance__state__paid
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_request_maintenance_view_form
+msgid "Paid"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_cost__parent_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__parent_id
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_costs_view_search
+msgid "Parent"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,help:odex_fleet.field_fleet_vehicle_cost__parent_id
+#: model:ir.model.fields,help:odex_fleet.field_fleet_vehicle_log_fuel__parent_id
+msgid "Parent cost to this current cost"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_quotation__partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__penalty_cost
+msgid "Penalty Cost"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.car_consumption_cost_report_pdf
+msgid "Percentage"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.car_consumption_cost_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.driver_delegation_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.driver_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.maintains_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.renew_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.to_renew_report_pdf
+msgid "Plate"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_maintenance__type__preventive
+msgid "Preventive"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fuel_price__price
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_log_fuel_view_tree
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_log_services_view_form
+msgid "Price"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__price_per_liter
+msgid "Price Per Liter"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_report_form
+msgid "Print PDF"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields.selection,name:odex_fleet.selection__hr_employee__license_type__private
+msgid "Private"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__project_id
+#: model:ir.model.fields.selection,name:odex_fleet.selection__vehicle_delegation__entity_type__project
+msgid "Project"
+msgstr "مشروع"
+
+#. module: odex_fleet
+#: model:ir.model.fields.selection,name:odex_fleet.selection__hr_employee__license_type__public
+msgid "Public"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__purchaser_id
+msgid "Purchaser"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__quotation_ids
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__service_ids
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_request_maintenance_view_form
+msgid "Quotations"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_reject_reason_fleet_wiz__reason
+#: model:ir.model.fields,field_description:odex_fleet.field_reject_reason_infraction_wiz__reason
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_infraction__reason
+msgid "Reason"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_hr_employee__receive_date
+msgid "Receive  Date"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.actions.report,name:odex_fleet.delegation_receive_report_pdf_act
+msgid "Receive Report"
+msgstr "تقرير الاستلام"
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_log_fuel_view_form
+msgid "Refueling Details"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_maintenance__state__refused
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_form_renew_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_request_maintenance_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_delegation_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_log_fuel_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_log_services_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.vehicle_infraction_view_form
+msgid "Refuse"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_vehicle_log_fuel__state__refused
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_vehicle_log_services__status__refused
+#: model:ir.model.fields.selection,name:odex_fleet.selection__form_renew__state__refused
+#: model:ir.model.fields.selection,name:odex_fleet.selection__vehicle_delegation__state__refused
+#: model:ir.model.fields.selection,name:odex_fleet.selection__vehicle_infraction__state__refused
+msgid "Refused"
+msgstr "رفض"
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_request_maintenance_view_form
+msgid "Reject"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__reason
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_quotation__reason
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__reason
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_delegation_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.vehicle_infraction_view_form
+msgid "Reject Reason"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_reject_reason_fleet_wiz
+msgid "Reject Wiz"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_wiz__report_type__renew
+msgid "Renew"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_type__amount
+msgid "Renew Amount"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__cost
+msgid "Renew Cost"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.actions.report,name:odex_fleet.renew_report_pdf_act
+#: model:ir.ui.menu,name:odex_fleet.menu_fleet_reporting_renew
+msgid "Renew Report"
+msgstr "تقرير مركبة تم تجديد إستمارة"
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_report_odex_fleet_fleet_branch_report_pdf
+msgid "Report Branch"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_report_odex_fleet_all_branch_cost_report_pdf
+msgid "Report Branch Cost"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_report_odex_fleet_car_consumption_cost_report_pdf
+msgid "Report Consumption"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_report_odex_fleet_driver_delegation_report_pdf
+msgid "Report Delegation"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_report_odex_fleet_driver_report_pdf
+msgid "Report Driver"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_report_odex_fleet_service_report_pdf
+msgid "Report Fleet Service"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_report_odex_fleet_invoice_report_pdf
+msgid "Report Invoice"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_report_odex_fleet_maintains_report_pdf
+msgid "Report Mainatains"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_report_odex_fleet_renew_report_pdf
+msgid "Report Renew"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_report_odex_fleet_state_cost_report_pdf
+msgid "Report State Cotst"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_report_odex_fleet_to_renew_report_pdf
+msgid "Report To Renew"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_wiz__report_type
+msgid "Report Type"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_quotation__request_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_quotation_service__request_id
+#: model:ir.model.fields,field_description:odex_fleet.field_reject_reason_fleet_wiz__request_id
+msgid "Request"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__date
+msgid "Request Date"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__user_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__user_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_services__user_id
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__user_id
+msgid "Responsible"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__activity_user_id
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__activity_user_id
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__message_has_sms_error
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__message_has_sms_error
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.renew_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.to_renew_report_pdf
+msgid "Serial"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__serial_number
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__serial_number
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_infraction__serial_number
+msgid "Serial Number"
+msgstr "الرقم المسلسل"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_quotation_service__service_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_service_line_config__service_ids
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_cost__service_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__service_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_wiz__service_ids
+#: model:ir.model.fields,field_description:odex_fleet.field_res_config_settings__service
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_account_config__type__service
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_wiz__report_type__service
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_request_maintenance_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_log_services_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.service_report_pdf
+msgid "Service"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_res_company__service
+msgid "Service Notify Before"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__partner_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_services__partner_id
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__partner_id
+msgid "Service Provider"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.ui.menu,name:odex_fleet.menu_fleet_reporting_car_service
+msgid "Service Report"
+msgstr " تكاليف خدمات "
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_services__service_type_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_wiz__cost_subtype_ids
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_log_services_view_form
+msgid "Service Type"
+msgstr "نوع الخدمة"
+
+#. module: odex_fleet
+#: model:ir.model.fields,help:odex_fleet.field_fleet_vehicle_cost__service_id
+#: model:ir.model.fields,help:odex_fleet.field_fleet_vehicle_log_fuel__service_id
+msgid "Service cost to this current cost"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__service_ids
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_vehicle_cost__cost_type__services
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_view_fleet_vehicle_form
+msgid "Services"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_log_services_view_form
+msgid "Services Details"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.actions.report,name:odex_fleet.services_purchase_req_act
+msgid "Services Purchase Request"
+msgstr "طلب أمر شراء"
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_fleet_vehicle_log_services
+msgid "Services for vehicles"
+msgstr "الخدمات للمركبات"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_services__state
+msgid "Stage"
+msgstr "المرحلة"
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.driver_delegation_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_delegation_view_form
+msgid "Start"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__start_date
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_infraction__start_date
+msgid "Start Date"
+msgstr "تاريخ البداية"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_account_config__state
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__states
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__state
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__state
+#: model:ir.model.fields,field_description:odex_fleet.field_res_branch__state_id
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__state
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__state_id
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_infraction__state
+#: model_terms:ir.ui.view,arch_db:odex_fleet.driver_delegation_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.driver_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_delegation_vehicle_view_search
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_maintenance_vehicle_view_search
+#: model_terms:ir.ui.view,arch_db:odex_fleet.maintains_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.vehicle_infraction_view_view_search
+msgid "State"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_wiz__report_type__state_cost
+msgid "State Cost"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.ui.menu,name:odex_fleet.menu_fleet_reporting_state_cost
+msgid "State Expense "
+msgstr "تكلفة المناطق "
+
+#. module: odex_fleet
+#: model:ir.ui.menu,name:odex_fleet.res_states_menu
+msgid "States"
+msgstr "المناطق / المحافظات"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_services__status
+msgid "Status"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,help:odex_fleet.field_fleet_maintenance__activity_state
+#: model:ir.model.fields,help:odex_fleet.field_form_renew__activity_state
+#: model:ir.model.fields,help:odex_fleet.field_vehicle_delegation__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.actions.report,name:odex_fleet.to_renew_report_pdf_act
+msgid "TO Renew Report"
+msgstr "بيان تجديد استمارة مركبة"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_account_config__tax_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__tax_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__price_tax
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__tax_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_services__tax_id
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__tax_id
+msgid "Tax"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.invoice_report_pdf
+msgid "To"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_wiz__report_type__to_maintains
+msgid "To Maintenance"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_wiz__report_type__to_renew
+msgid "To Renew"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__total1
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_quotation_service__total
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_cost__total
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__total
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__total_price_tax
+#: model:ir.model.fields.selection,name:odex_fleet.selection__fleet_vehicle_log_fuel__cal_type__total
+#: model_terms:ir.ui.view,arch_db:odex_fleet.all_branch_cost_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.car_consumption_cost_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_branch_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_request_maintenance_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_log_services_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.renew_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.service_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.state_cost_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.to_renew_report_pdf
+msgid "Total"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__total_cost
+msgid "Total Cost"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_branch_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.state_cost_report_pdf
+msgid "Total Expense"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.all_branch_cost_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.car_consumption_cost_report_pdf
+msgid "Total Percentage"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_cost__amount
+msgid "Total Price"
+msgstr "التكلفة الإجمالية"
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__amount
+msgid "Total Untax"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.state_cost_report_pdf
+msgid "Total Vehicle Expense By state Report"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.all_branch_cost_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.car_consumption_cost_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_branch_report_pdf
+msgid "Total Vehicle Expense For Branch Report"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.state_cost_report_pdf
+msgid "Total Vehicle For State"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.car_consumption_cost_report_pdf
+msgid "Totals"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.car_consumption_cost_report_pdf
+msgid "Totel"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__transmission_id
+#: model:ir.model.fields,field_description:odex_fleet.field_transmission_setting__transmission
+msgid "Transmission"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.transmission_setting_action
+#: model:ir.ui.menu,name:odex_fleet.transmission_setting_menu
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_transmission_setting_view_tree
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_transmission_view_form
+msgid "Transmission Type"
+msgstr "نوع الناقل"
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_transmission_setting
+msgid "Trnsmission Setting"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_account_config__type
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_service_line_config__type
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_cost__cost_subtype_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__cost_subtype_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_services__cost_subtype_id
+#: model_terms:ir.ui.view,arch_db:odex_fleet.car_consumption_cost_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.driver_delegation_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.driver_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_type_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_type_view_tree
+#: model_terms:ir.ui.view,arch_db:odex_fleet.maintains_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.renew_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.service_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.to_renew_report_pdf
+msgid "Type"
+msgstr "النوع"
+
+#. module: odex_fleet
+#: model:ir.model.fields,help:odex_fleet.field_fleet_maintenance__activity_exception_decoration
+#: model:ir.model.fields,help:odex_fleet.field_form_renew__activity_exception_decoration
+#: model:ir.model.fields,help:odex_fleet.field_vehicle_delegation__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,help:odex_fleet.field_vehicle_delegation__vin_sn
+#: model:ir.model.fields,help:odex_fleet.field_vehicle_infraction__vin_sn
+msgid "Unique number written on the vehicle motor (VIN/SN number)"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_cost__odometer_unit
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__odometer_unit
+msgid "Unit"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fuel_price__uom_id
+msgid "Unit of Measure"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,help:odex_fleet.field_fleet_vehicle_cost__odometer_unit
+#: model:ir.model.fields,help:odex_fleet.field_fleet_vehicle_log_fuel__odometer_unit
+msgid "Unit of the odometer "
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__message_unread
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__message_unread
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__message_unread_counter
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__message_unread_counter
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_fleet_vehicle
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__vehicle_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_cost__vehicle_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__vehicle_id
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_wiz__vehicle_ids
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__vehicle_id
+#: model:ir.model.fields,field_description:odex_fleet.field_hr_employee__vehicle_id
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__vehicle_id
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_infraction__vehicle_id
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_delegation_vehicle_view_search
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_form_renew_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_costs_view_search
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_delegation_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.hr_kanban_view
+msgid "Vehicle"
+msgstr "المركبة"
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_fleet_vehicle_log_contract
+msgid "Vehicle Contract"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.fleet_vehicle_costs_action
+#: model:ir.ui.menu,name:odex_fleet.fleet_vehicle_costs_menu
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_cost_view_tree
+msgid "Vehicle Costs"
+msgstr "تكلفة المركبات"
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_costs_view_search
+msgid "Vehicle Costs by Month"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_vehicle_delegation
+msgid "Vehicle Deleagation"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_log_fuel_view_form
+msgid "Vehicle Details"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.renew_report_pdf
+msgid "Vehicle Form Renew Cost Report"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.to_renew_report_pdf
+msgid "Vehicle Form To Renew Cost Report"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_form_renew_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_request_maintenance_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_delegation_view_form
+#: model_terms:ir.ui.view,arch_db:odex_fleet.vehicle_infraction_view_form
+msgid "Vehicle Information"
+msgstr "بيانات المركبة"
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_vehicle_infraction
+msgid "Vehicle Infraction"
+msgstr "مخالفات المركبات"
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.vehicle_infraction_action
+#: model:ir.ui.menu,name:odex_fleet.vehicles_infractions_menu
+msgid "Vehicle Infractions"
+msgstr "مخالفات المركبات"
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.maintains_report_pdf
+msgid "Vehicle Maintenance Report"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.maintains_report_pdf
+msgid "Vehicle Need Maintenance Report"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.service_report_pdf
+msgid "Vehicle Service By state Report"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.fleet_vehicle_amount_action
+#: model:ir.ui.menu,name:odex_fleet.fleet_type_menu
+msgid "Vehicle Type"
+msgstr "نوع المركبة"
+
+#. module: odex_fleet
+#: model:ir.model.fields,help:odex_fleet.field_fleet_vehicle_cost__vehicle_id
+#: model:ir.model.fields,help:odex_fleet.field_fleet_vehicle_log_fuel__vehicle_id
+msgid "Vehicle concerned by this log"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_costs_view_form
+msgid "Vehicle costs"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.actions.act_window,name:odex_fleet.fleet_vehicle_log_fuel_action
+#: model:ir.ui.menu,name:odex_fleet.fleet_vehicle_log_fuel_menu
+msgid "Vehicles Fuel Logs"
+msgstr "سجلات وقود المركبات"
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_cost_indicative_view_graph
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_cost_indicative_view_pivot
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_cost_view_graph
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_cost_view_pivot
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_costs_view_search
+msgid "Vehicles costs"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle_log_fuel__vendor_id
+msgid "Vendor"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__website_message_ids
+#: model:ir.model.fields,field_description:odex_fleet.field_form_renew__website_message_ids
+#: model:ir.model.fields,field_description:odex_fleet.field_vehicle_delegation__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,help:odex_fleet.field_fleet_maintenance__website_message_ids
+#: model:ir.model.fields,help:odex_fleet.field_form_renew__website_message_ids
+#: model:ir.model.fields,help:odex_fleet.field_vehicle_delegation__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_vehicle__location
+msgid "Work Location"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_log_fuel_view_form
+msgid "Write here any other information"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_fleet_vehicle_log_services_view_form
+msgid "Write here any other information related to the service completed."
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_costs_view_search
+msgid "Year"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.fleet_vehicle_delegation_view_form
+msgid "delegated entity"
+msgstr "الجهة المفوض إليها"
+
+#. module: odex_fleet
+#: model:ir.model.fields.selection,name:odex_fleet.selection__vehicle_delegation__delegation_type__driver
+msgid "driver"
+msgstr "السائق"
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_view_fleet_vehicle_form
+msgid "e.g. Model S"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_view_fleet_vehicle_form
+msgid "e.g. PAE 326"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_insurance_companies
+msgid "insurance.companies"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model,name:odex_fleet.model_reject_reason_infraction_wiz
+msgid "reject.reason.infraction.wiz"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_view_fleet_vehicle_form
+msgid "show the contract for this vehicle"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_view_fleet_vehicle_form
+msgid "show the odometer logs for this vehicle"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.odex_view_fleet_vehicle_form
+msgid "show the services logs for this vehicle"
+msgstr ""
+
+#. module: odex_fleet
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_maintenance__state
+#: model:ir.model.fields,field_description:odex_fleet.field_fleet_quotation__state
+msgid "state"
+msgstr ""
+
+#. module: odex_fleet
+#: model_terms:ir.ui.view,arch_db:odex_fleet.renew_report_pdf
+#: model_terms:ir.ui.view,arch_db:odex_fleet.to_renew_report_pdf
+msgid "التاريخ :"
+msgstr ""

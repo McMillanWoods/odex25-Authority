@@ -1,0 +1,73 @@
+<templates>
+    <t t-name="PurchaseDashboardQuarter">
+     <style type="text/css">
+                        @font-face {
+                            font-family: 'ae_AlMohanad';
+                            src: local('ae_AlMohanad'), local('ae_AlMohanad'),
+                            url('/purchase_dashboard/static/fonts/ae_AlMohanad.ttf') format('truetype');
+                            }
+                            *{
+                            font-family: ae_AlMohanad;
+                            }
+                           
+                    </style>
+        <div class="o_purchase_dashboards" style="background-color: white !important;">
+            <div class="well well-lg mt16">
+                <div class="o_dashboard_row row">
+                    <h5 class="text-center">Filters <i class="fa fa-filter"/>
+                    </h5>
+                    <table class="table table-condensed mt16">
+                        <tr>
+                            <td class="col-md-2">
+                                <h5 class="text-center mt16">
+                                    <label for="year">Year</label>
+                                </h5>
+                            </td>
+                            <td class="col-md-2">
+                                <div class="form-group">
+                                    <select required="1" style="padding: 0px !important;" class="form-control text-center" id="year"/>
+                                </div>
+                            </td>
+                            <td class="col-md-2">
+                                <h5 class="text-center mt16">
+                                    <label for="quarter">Quarter</label>
+                                </h5>
+                            </td>
+                            <td class="col-md-2">
+                                <div class="form-group">
+                                    <select required="1" style="padding: 0px !important;" class="form-control text-center" id="quarter">
+                                        <option value="Q1">Q1</option>
+                                        <option value="Q2">Q2</option>
+                                        <option value="Q3">Q3</option>
+                                        <option value="Q4">Q4</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td class="col-md-2" colspan="2"/>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <b>
+                <h2 class="text-center dash-text-success2 dash-text-bold">تقرير الحالة المالية للمشتريات</h2>
+            </b>
+           
+            <div class="row" id="top_content"/>
+            <div class="row mt64 dotted-top-border">
+                <div class="mt16">
+                    <div class="col-6  items-v-center" id="mid_content" />
+                    <div class="col-6">
+                        <div id="chart1">
+                            <div id="canvas"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt64 dotted-top-border">
+                <div class="mt16 mb64" id="bottom_content">
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

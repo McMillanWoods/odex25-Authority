@@ -1,0 +1,272 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <template id="contract_finaical_requests">
+        <t t-call="web.html_container">
+            
+                <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                  <t t-call="web.internal_layout">
+                    <style type="text/css">
+                      @font-face {
+                            font-family: 'ae_AlMohanad';
+                            src: local('ae_AlMohanad'), local('ae_AlMohanad'),
+                            url('/contract/static/fonts/ae_AlMohanad.ttf') format('truetype');
+                            }
+                            *{
+                            font-family: ae_AlMohanad;
+                            }
+
+                          
+                        .invoice-header {
+                            direction: rtl;
+                        }
+                        		.table-data th {
+			background-color: #2e74b5;
+
+		}
+		
+		.table-data th {
+			background-color: #2e74b5;
+            color: white;
+            
+
+		}
+		.table-data tr {
+			background-color: #bdd7ee;
+
+		}
+		.table-data tr:last-child td:nth-child(1)   {
+			background-color: #2e74b5;
+			color: white;
+
+		}
+		
+		/* .table-data tr:last-child td:nth-child(2)   {
+			background-color: #2e74b5;
+
+		} */
+
+		
+		/* .table-data tr:first-child td:nth-child(2){
+			border: none;
+		} */
+		.table-data tr td{
+			border: none;
+		}
+		.table-data tr{
+			border: none;
+		}
+		<!-- .table-data tr:first-child{
+		
+        color: white;
+        }    -->
+        .table-data thead tr{
+		
+        color: white;
+        }                 
+                    </style>
+                    <div class="page" style="font-size : 18;">
+
+                        <t t-set="sign" t-value="''" />
+                        <t t-set="amount" t-value="o.amount"/>
+
+                        <t t-if="o.installment_type == 'percent'">
+                            <t t-set="sign" t-value="'%'" />
+                            <t t-set="amount" t-value="o.percent"/>
+
+                        </t>
+
+
+                        <!-- header -->
+                        <div class="row invoice-header">
+                            <div class="col-xs-12">
+
+                                <div class="col-xs-4">
+
+                                </div>
+                                <div class="col-xs-4 text-center">
+                                    <h2>مطالبة مالية</h2>
+                                </div>
+
+                                <div class="col-xs-4">
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                        <div class="row invoice-header">
+                            <div class="col-xs-12 ">
+
+                                <div class="col-xs-6">
+                                    <h2>حفظهم الله</h2>
+
+                                </div>
+
+
+                                <div class="col-xs-6">
+                                    <h2>
+                                    السادة/                                       <span t-esc="o.contract_id.partner_id.name"/>
+                                    </h2>
+
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                        <div class="row invoice-header">
+
+
+                            <div class="col-xs-12">
+                                <h2>السلام عليكم ورحمة الله و بركاته و بعد:</h2>
+                            </div>
+
+
+                        </div>
+                        <div class="row invoice-header">
+                            <div class="col-xs-12">
+                                <p>نفيدكم بأنه تم استحقاق  <span t-esc="o.name"/> لعقد                                    <span t-esc="o.contract_id.name"/>
+ بقيمة                                    <span t-esc="amount"/>
+                                    <span t-esc="sign"/>
+ من قيمة العقد كما هو موضح في البيانات أدناه:
+                                </p>
+                            </div>
+
+                        </div>
+                        <table class="table table-data" dir="rtl">
+
+                            <thead>
+                                <tr>
+                                    <th class="text-center">
+					م
+                                    </th>
+                                    <th class="text-center">
+					الصنف
+                                    </th>
+                                    <th class="text-center">
+					النسبة
+                                    </th>
+                                    <th class="text-center">
+					المبلغ
+                                    </th>
+                                    <th class="text-center">
+
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-right">
+
+                                    </td>
+                                    <td class="text-center">
+                                        <p> <span t-esc="o.name"/> لعقد اوسكار بنسبة 30% من قيمة المشروع عند اعتماد خطة التنفيذ</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="amount"/> <span t-esc="sign"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <p>بدون الضريبة</p>
+                                    </td>
+                                    <td class="text-center">
+					                 <span t-esc="o.amount"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">
+
+                                    </td>
+                                    <td class="text-center">
+
+                                    </td>
+                                    <td class="text-center">
+
+                                    </td>
+                                    <td class="text-center">
+                                        <p> الضريبة</p>
+                                    </td>
+                                    <td class="text-center">
+					                    <span t-esc="o.tax_amount"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="text-right">
+                                        <p align="right">المجموع: <span t-esc="o.num_to_letter(o.total_amount)"/> </p>
+                                    </td>
+
+                                    <td class="text-center">
+
+                                    </td>
+                                    <td class="text-center">
+                                        <p> الإجمالي</p>
+                                    </td>
+                                    <td class="text-center">
+                                    <span t-esc="o.total_amount"/>
+				
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="row invoice-header">
+
+                            <div class="col-xs-12">
+                                <p>و صرفها لصالح شركة حبير المحدودة علي الحساب التالي:</p>
+                            </div>
+                        </div>
+                        <div class="row invoice-header">
+                            <div class="col-xs-12">
+                                <h2>حساب شركة خبير لدي بنك الراجحي</h2>
+                            </div>
+
+                            <div class="col-xs-12">
+                                <p>أسم صاحب الشركة:شركة خبير المحدودة</p>
+                            </div>
+                            <div class="col-xs-12">
+                                <p>البنك:الراجحي</p>
+                            </div>
+                            <div class="col-xs-12">
+                                <p>فرع البنك:فرع الصحافة</p>
+                            </div>
+                            <div class="col-xs-12">
+                                <p>رقم الحساب:511608010116491</p>
+                            </div>
+                            <div class="col-xs-12">
+                                <p>رقم الأيبان:SA8280000511608010116491</p>
+                            </div>
+                        </div>
+                        <div class="row invoice-header">
+                            <div class="col-xs-12">
+
+                                <div class="col-xs-4">
+
+                                </div>
+                                <div class="col-xs-4">
+                                    <p>والله يحفظكم و يرعاكم</p>
+                                </div>
+
+                                <div class="col-xs-4">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row invoice-header">
+                            <div class="col-xs-12">
+                                <div class="col-xs-6">
+                                    <h2>الشؤون المالية و الأدارية</h2>
+                                </div>
+                                <div class="col-xs-2"></div>
+                                <div class="col-xs-4"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+        </t>
+    </template>
+</odoo>

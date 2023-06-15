@@ -1,0 +1,248 @@
+<openerp>
+    <data>
+        <record id="out_approval1_request_email" model="mail.template">
+            <field name="name">Unit Manager Approval Request Message</field>
+            <field name="model_id" ref="cm_odex.model_cm_transaction_out"/>
+            <field name="email_from">
+                <![CDATA[${object.employee_id.name} <${(object.employee_id.user_id.partner_id.email)|safe}>]]></field>
+            <field name="email_to">${object.preparation_id.manager_id.user_id.partner_id.email|safe}</field>
+            <field name="subject"><![CDATA[ إعتماد معاملة صادر موجهة الى ]]> ${object.to_ids[0].name|safe}</field>
+            <field name="body_html">
+                <![CDATA[
+                    <div style="text-align: right;direction:rtl">
+                         <p style="text-align: right"> ،، ${object.preparation_id.manager_id.name} - السادة الفضلاء</p>
+                        <p style="text-align: left">حفظهم الله،،</p>
+                        <p style="font-size: 1.1em;text-align: right">
+                            السلام عليكم ورحمة الله.
+                        </p>
+                        <p style="font-size: 1.1em;text-align: right">
+                            توجد معاملة صادر جديدة في انتظار اعتماد مسئول الوحدة (${object.preparation_id.name})   
+                        </p><br/>
+                        <p style="font-size: 1em;text-align: right">
+                            <table>
+                                <tr>
+                                    <td><b>جهة الصادر : </b></td>
+                                    <td style="text-decoration:underline">${object.to_ids[0].name}</td>
+                                </tr>
+                                <tr>
+                                    <td><b> : موضوع المعاملة</b></td>
+                                    <td style="text-decoration:underline">${object.subject}</td>
+                                </tr>
+                                <tr>
+                                    <td><b> : نوع المعاملة</b></td>
+                                    <td style="text-decoration:underline">${object.subject_type_id.name}</td>
+                                </tr>
+                                <tr>
+                                    <td><b> : معِد المعاملة</b></td>
+                                    <td style="text-decoration:underline">${object.employee_id.name}</td>
+                                </tr>
+                                <tr>
+                                    <td><b> : آخر موعد لإنجاز المعاملة</b></td>
+                                    <td style="text-decoration:underline">${object.due_date}</td>
+                                </tr>
+                            </table> 
+                        </p><br/>
+                        <p style="font-size: 1.1em;text-align: right;">
+                            <a href="${object.get_url()}">رابط المعاملة</a>
+                        </p>
+                        <p style="font-size: 1.1em;text-align: right">
+ <a href="${user.company_id.website}">${user.company_id.name}</a>
+                           
+                             
+                        </p>
+
+                    </div>
+                ]]>
+            </field>
+        </record>
+
+        <record id="out_approval2_request_email" model="mail.template">
+            <field name="name">CEO Approval Request Message</field>
+            <field name="model_id" ref="cm_odex.model_cm_transaction_out"/>
+            <field name="email_from">
+                <![CDATA[${object.employee_id.name} <${(object.employee_id.user_id.partner_id.email)|safe}>]]></field>
+            <field name="email_to">${object.get_second_manager().partner_id.email|safe}</field>
+            <field name="subject"><![CDATA[ إعتماد الإدارة التنفيذية لمعاملة صادر موجهة الى ]]>
+                ${object.to_ids[0].name|safe}
+            </field>
+            <field name="body_html">
+                <![CDATA[
+                    <div style="text-align: right;direction:rtl">
+                         <p style="text-align: right"> ،، ${object.get_second_manager().name|safe} - السادة الفضلاء</p>
+                        <p style="text-align: left">حفظهم الله،،</p>
+                        <p style="font-size: 1.1em;text-align: right">
+                            السلام عليكم ورحمة الله.
+                             
+                        </p>
+                        <p style="font-size: 1.1em;text-align: right">
+                            توجد معاملة صادر جديدة في انتظار اعتماد الإدارة التنفيذية    
+                        </p><br/>
+                        <p style="font-size: 1em;text-align: right">
+                            <table>
+                                <tr>
+                                    <td><b>رقم المعاملة : </b></td>
+                                    <td style="text-decoration:underline;direction: ltr;float: left;">${object.name}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>جهة الصادر : </b></td>
+                                    <td style="text-decoration:underline">${object.to_ids[0].name}</td>
+                                </tr>
+                                <tr>
+                                    <td><b> : موضوع المعاملة</b></td>
+                                    <td style="text-decoration:underline">${object.subject}</td>
+                                </tr>
+                                <tr>
+                                    <td><b> : نوع المعاملة</b></td>
+                                    <td style="text-decoration:underline">${object.subject_type_id.name}</td>
+                                </tr>
+                                <tr>
+                                    <td><b> : معِد المعاملة</b></td>
+                                    <td style="text-decoration:underline">${object.employee_id.name}</td>
+                                </tr>
+                                <tr>
+                                    <td><b> : الإدارة المعدّة</b></td>
+                                    <td style="text-decoration:underline">${object.preparation_id.name}</td>
+                                </tr>
+                                <tr>
+                                    <td><b> : آخر موعد لإنجاز المعاملة</b></td>
+                                    <td style="text-decoration:underline">${object.due_date}</td>
+                                </tr>
+                            </table> 
+                        </p><br/>
+                        <p style="font-size: 1.1em;text-align: right;">
+                            <a href="${object.get_url()}">رابط المعاملة</a>
+                        </p>
+                        <p style="font-size: 1.1em;text-align: right">
+ <a href="${user.company_id.website}">${user.company_id.name}</a>
+                           
+                             
+                        </p>
+
+                    </div>
+                ]]>
+            </field>
+        </record>
+
+        <record id="out_ready_email" model="mail.template">
+            <field name="name">Transaction Ready for send Message</field>
+            <field name="model_id" ref="cm_odex.model_cm_transaction_out"/>
+            <field name="email_from">
+                <![CDATA[${user.company_id.name} <${(user.company_id.email or user.email)|safe}>]]></field>
+            <field name="email_to">
+                ${object.preparation_id.manager_id.user_id.partner_id.email|safe},${object.employee_id.user_id.partner_id.email|safe}
+            </field>
+            <field name="subject"><![CDATA[ تم إعتماد الإدارة التنفيذية لمعاملة صادر موجهة الى ]]>
+                ${object.to_ids[0].name|safe} <![CDATA[ بالرقم ]]> ${object.name|safe}
+            </field>
+            <field name="body_html">
+                <![CDATA[
+                    <div style="text-align: right;direction:rtl">
+                         <p style="text-align: right"> ،، ${object.employee_id.name} - السادة الفضلاء</p>
+                        <p style="text-align: left">حفظهم الله،،</p>
+                        <p style="font-size: 1.1em;text-align: right">
+                            السلام عليكم ورحمة الله.
+                        </p>
+                        <p style="font-size: 1.1em;text-align: right">
+                            تم اعتماد الادارة التنفيذية لمعاملة الصادر
+                        </p><br/>
+                        <p style="font-size: 1.1em;text-align: right">
+                            يمكنكم الان المتابعة و ترميز المعاملة كمرسل حال اكتمال اجراءات الارسال،،  
+                        </p><br/>
+                        <p style="font-size: 1em;text-align: right">
+                            <table>
+                                <tr>
+                                    <td><b>رقم المعاملة : </b></td>
+                                    <td style="text-decoration:underline;direction: ltr;float: left;">${object.name}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>جهة الصادر : </b></td>
+                                    <td style="text-decoration:underline">${object.to_ids[0].name}</td>
+                                </tr>
+                                <tr>
+                                    <td><b> : موضوع المعاملة</b></td>
+                                    <td style="text-decoration:underline">${object.subject}</td>
+                                </tr>
+                                <tr>
+                                    <td><b> : نوع المعاملة</b></td>
+                                    <td style="text-decoration:underline">${object.subject_type_id.name}</td>
+                                </tr>
+                                <tr>
+                                    <td><b> : معِد المعاملة</b></td>
+                                    <td style="text-decoration:underline">${object.employee_id.name}</td>
+                                </tr>
+                                <tr>
+                                    <td><b> : آخر موعد لإنجاز المعاملة</b></td>
+                                    <td style="text-decoration:underline">${object.due_date}</td>
+                                </tr>
+                            </table> 
+                        </p><br/>
+                        <p style="font-size: 1.1em;text-align: right;">
+                            <a href="${object.get_url()}">رابط المعاملة</a>
+                        </p>
+                        <p style="font-size: 1.1em;text-align: right">
+ <a href="${user.company_id.website}">${user.company_id.name}</a>
+                           
+                             
+                        </p>
+
+                    </div>
+                ]]>
+            </field>
+        </record>
+        <record id="out_email" model="mail.template">
+            <field name="name">Transaction Ready for send Message</field>
+            <field name="model_id" ref="cm_odex.model_cm_transaction_out"/>
+            <field name="email_from">
+                <![CDATA[${user.company_id.name} <${(user.company_id.email or user.email)|safe}>]]></field>
+            <field name="email_to">
+                ${object.preparation_id.manager_id.user_id.partner_id.email|safe},${object.employee_id.user_id.partner_id.email|safe}
+            </field>
+            <field name="subject">${object.to_ids[0].name|safe} <![CDATA[ بالرقم ]]> ${object.name|safe}</field>
+            <field name="body_html">
+                <![CDATA[
+                    <div style="text-align: right;direction:rtl">
+                         <p style="text-align: right"> ،، ${object.employee_id.name} - السادة الفضلاء</p>
+                        <p style="text-align: left">حفظهم الله،،</p>
+                        <p style="font-size: 1.1em;text-align: right">
+                            السلام عليكم ورحمة الله.
+                        </p>
+                        <p style="font-size: 1em;text-align: right">
+                            <table>
+                                <tr>
+                                    <td><b>رقم المعاملة : </b></td>
+                                    <td style="text-decoration:underline;direction: ltr;float: left;">${object.name}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>جهة الصادر : </b></td>
+                                    <td style="text-decoration:underline">${object.to_ids[0].name}</td>
+                                </tr>
+                                <tr>
+                                    <td><b> : موضوع المعاملة</b></td>
+                                    <td style="text-decoration:underline">${object.subject}</td>
+                                </tr>
+                                <tr>
+                                    <td><b> : نوع المعاملة</b></td>
+                                    <td style="text-decoration:underline">${object.subject_type_id.name}</td>
+                                </tr>
+                                <tr>
+                                    <td><b> : معِد المعاملة</b></td>
+                                    <td style="text-decoration:underline">${object.employee_id.name}</td>
+                                </tr>
+
+                            </table>
+                        </p><br/>
+                        <p style="font-size: 1.1em;text-align: right;">
+                            <a href="${object.get_url()}">رابط المعاملة</a>
+                        </p>
+                        <p style="font-size: 1.1em;text-align: right">
+ <a href="${user.company_id.website}">${user.company_id.name}</a>
+
+
+                        </p>
+
+                    </div>
+                ]]>
+            </field>
+        </record>
+    </data>
+</openerp>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="purchase_layout">
+        <!-- Multicompany -->
+        <t t-if="o and 'company_id' in o">
+            <t t-set="company" t-value="o.company_id"/>
+        </t>
+        <t t-if="not o or not 'company_id' in o">
+            <t t-set="company" t-value="res_company"/>
+        </t>
+        <div class="header" dir="rtl" style="height: 125px;border-bottom: 1px solid lightseagreen;">
+            <table style="width: 100%;">
+                <colgroup>
+                    <col width='25%'/>
+                    <col width='50%'/>
+                    <col width='25%'/>
+                </colgroup>
+                <tr>
+                    <td>
+                        <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % to_text(company.logo)"
+                             style="max-height:120px;max-width:170px;align:right"/>
+                    </td>
+                    <td></td>
+                    <td>
+                        <div class="text-center"
+                             style="padding: 5px 5px 5px 5px;height:30px;width:150px;align:left;background-color: #07b8ad;color: #ffffff;">
+                            الإدارة المالية
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="article">
+            <t t-raw="0"/>
+        </div>
+    </template>
+</odoo>

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="odex25_helpdesk_tickets_vip_view_tree" model="ir.ui.view">
+        <field name="name">odex25_helpdesk.ticket.vip.tree</field>
+        <field name="model">odex25_helpdesk.ticket</field>
+        <field name="arch" type="xml">
+            <tree string="Tickets" multi_edit="1" sample="1">
+                <field name="team_id" invisible="1" readonly="1"/>
+                <field name="display_name" string="Ticket Name" readonly="1"/>
+                <field name="employee_id" optional="show"/>
+                <field name="priority" optional="hide"/>
+                <field name="stage_id" optional="show" readonly="1"/>
+                <field name="company_id" groups="base.group_multi_company" optional="show" readonly="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="odex25_helpdesk_tickets_employee_request_view_tree" model="ir.ui.view">
+        <field name="name">odex25_helpdesk.ticket.request.tree</field>
+        <field name="model">odex25_helpdesk.ticket</field>
+        <field name="arch" type="xml">
+            <tree string="Tickets" multi_edit="1" sample="1">
+                <field name="team_id" invisible="1" readonly="1"/>
+                <field name="display_name" string="Ticket Name" readonly="1"/>
+                <field name="employee_id" optional="show" />
+                <field name="priority" optional="hide"/>
+                <field name="stage_id" optional="show" readonly="1"/>
+                <field name="company_id" groups="base.group_multi_company" optional="show" readonly="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="odex25_helpdesk_ticket_vip_view_form" model="ir.ui.view">
+        <field name="name">odex25_helpdesk.ticket.vip.form</field>
+        <field name="model">odex25_helpdesk.ticket</field>
+        <field name="groups_id"
+               eval="[(4, ref('helpdesk_employee_request.group_helpdesk_vip_employee'))]"/>
+        <field name="arch" type="xml">
+            <form string="Helpdesk Ticket">
+                <header>
+                    <field name="stage_id" widget="statusbar" attrs="{'clickable':[('requester_id','!=',False)]}"
+                           options="{'fold_field': 'fold'}"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" class="field_name" placeholder="Subject..." attrs="{'readonly':[('is_submitted','=',True)]}"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="active" invisible="1"/>
+                            <field name="requester_id" invisible="1"/>
+                            <field name="is_submitted" invisible="1"/>
+                            <field name="team_id" domain="[('is_vip_team','=',True)]" attrs="{'readonly':[('is_submitted','=',True)]}" options='{"no_open": True, "no_create": True}'/>
+                        </group>
+                        <group>
+                            <field name="employee_id" readonly="1" string="Employee"
+                                   options='{"no_open": True, "no_create": True}'/>
+                            <field name="work_email"/>
+                        </group>
+                    </group>
+                    <field name="description" attrs="{'readonly':[('is_submitted','=',True)]}" class="field_description" placeholder="Description of the ticket..."/>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <!--                    <field name="activity_ids"  />-->
+                    <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="ticket_request_view_form" model="ir.ui.view">
+        <field name="name">odex25_helpdesk.ticket.request.form</field>
+        <field name="model">odex25_helpdesk.ticket</field>
+        <field name="groups_id"
+               eval="[(4, ref('helpdesk_employee_request.group_helpdesk_employee'))]"/>
+        <field name="arch" type="xml">
+            <form string="Helpdesk Ticket">
+                <header>
+                    <field name="stage_id" widget="statusbar" attrs="{'clickable':[('requester_id','!=',False)]}"
+                           options="{'fold_field': 'fold'}"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" class="field_name" placeholder="Subject..." attrs="{'readonly':[('is_submitted','=',True)]}"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="requester_id" invisible="1"/>
+                            <field name="is_submitted" invisible="1"/>
+                            <field name="active" invisible="1"/>
+                            <field name="team_id" options='{"no_open": True, "no_create": True}'
+                                   domain="['&amp;', ('is_internal_team', '=', False),('is_vip_team','=',False)]" attrs="{'readonly':[('is_submitted','=',True)]}"/>
+                            <field name="category_id" required="1" attrs="{'readonly':[('is_submitted','=',True)]}" options='{"no_open": True, "no_create": True}'/>
+                            <field name="service_id" domain="[('category_id','=',category_id)]" options='{"no_open": True, "no_create": True}' required="1" attrs="{'readonly':[('is_submitted','=',True)]}"/>
+                        </group>
+                        <group>
+                            <field name="employee_id" readonly="1" string="Employee"
+                                   options='{"no_open": True, "no_create": True}'/>
+                            <field name="work_email"/>
+<!--                            <field name="work_location"/>-->
+                            <field name="department_id" options='{"no_open": True, "no_create": True}'/>
+                        </group>
+                    </group>
+                    <field name="description" class="field_description" placeholder="Description of the ticket..." attrs="{'readonly':[('is_submitted','=',True)]}"/>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_helpdesk_ticket_employee_request" model="ir.actions.act_window">
+        <field name="name">Employee Request Tickets</field>
+        <field name="res_model">odex25_helpdesk.ticket</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context" eval="{
+            'employee_request': True,
+            'default_active': False,
+            'default_ticket_service_type': 'request',
+            'default_is_internal_team': False,
+            'active_test':False,
+            'active_test':False}"/>
+        <field name="domain">[('ticket_service_type','=','request'),('requester_id','=',uid)]</field>
+        <field name="help" type="html">
+            <p>
+                No tickets to display.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_helpdesk_ticket_vip_request" model="ir.actions.act_window">
+        <field name="name">VIP Employee Request Tickets</field>
+        <field name="res_model">odex25_helpdesk.ticket</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context" eval="{
+            'employee_request': True,
+            'default_active': False,
+             'default_ticket_service_type': 'vip',
+            'active_test':False,
+            'active_test':False}"/>
+        <field name="domain">
+            [('ticket_service_type','=','vip'),('requester_id','=',uid)]
+        </field>
+        <field name="help" type="html">
+            <p>
+                No tickets to display.
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="action_vip_tree">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="odex25_helpdesk_tickets_vip_view_tree"/>
+        <field name="act_window_id" ref="action_helpdesk_ticket_vip_request"/>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="action_vip_form">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="odex25_helpdesk_ticket_vip_view_form"/>
+        <field name="act_window_id" ref="action_helpdesk_ticket_vip_request"/>
+    </record>
+
+
+    <record model="ir.actions.act_window.view" id="emp_req_action">
+        <field name="sequence" eval="3"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="ticket_request_view_form"/>
+        <field name="act_window_id" ref="action_helpdesk_ticket_employee_request"/>
+    </record>
+
+
+    <record model="ir.actions.act_window.view" id="action_request_tree">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="odex25_helpdesk_tickets_employee_request_view_tree"/>
+        <field name="act_window_id" ref="action_helpdesk_ticket_employee_request"/>
+    </record>
+
+
+    <menuitem id="menu_helpdesk_employee" name="Helpdesk"
+              web_icon="odex25_helpdesk,static/description/icon.png"
+              groups="helpdesk_employee_request.group_helpdesk_employee,helpdesk_employee_request.group_helpdesk_vip_employee,helpdesk_employee_request.group_helpdesk_Secretary"/>
+
+    <menuitem id="menu_helpdesk_vip_employee_request" name="VIP Employee Helpdesk"
+              parent="menu_helpdesk_employee"
+              sequence="10"
+              action="action_helpdesk_ticket_vip_request"
+              groups="helpdesk_employee_request.group_helpdesk_vip_employee,helpdesk_employee_request.group_helpdesk_Secretary"/>
+
+    <menuitem id="menu_helpdesk_employee_request" name="Employee Request Helpdesk"
+              parent="menu_helpdesk_employee"
+              sequence="12"
+              action="action_helpdesk_ticket_employee_request"
+              groups="helpdesk_employee_request.group_helpdesk_employee,helpdesk_employee_request.group_helpdesk_Secretary"/>
+
+
+</odoo>

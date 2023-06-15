@@ -1,0 +1,21 @@
+#wdr-toolbar-wrapper{
+    direction: ltr;
+}
+
+
+#wdr-toolbar{
+    direction: ltr;
+}
+
+
+#wdr-filter-view{
+    direction: ltr;
+}
+
+.wdr-cell.wdr-header.wdr-header-c.wdr-v-sort.wdr-filter-header.wdr-ui-element.wdr-draggable {
+    direction: ltr;
+}
+
+div#wdr-fields-view {
+    direction: ltr;
+}

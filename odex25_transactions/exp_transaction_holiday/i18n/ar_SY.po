@@ -1,0 +1,213 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* exp_transaction_holiday
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-20 15:30+0000\n"
+"PO-Revision-Date: 2020-04-20 15:30+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: exp_transaction_holiday
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_holiday_year
+msgid "Calendar Year"
+msgstr "السنه"
+
+#. module: exp_transaction_holiday
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_holiday_create_uid
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_public_holiday_create_uid
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_weekend_holiday_create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: exp_transaction_holiday
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_holiday_create_date
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_public_holiday_create_date
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_weekend_holiday_create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: exp_transaction_holiday
+#: code:addons/exp_transaction_holiday/models/transaction_holiday.py:56
+#, python-format
+msgid "Date from must be less than date to"
+msgstr "تاريخ البداية يجب ان يكون اقل من تاريخ النهاية"
+
+#. module: exp_transaction_holiday
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_weekend_holiday_name
+msgid "Day Off"
+msgstr "يوم العطله"
+
+#. module: exp_transaction_holiday
+#: model:ir.ui.view,arch_db:exp_transaction_holiday.view_transaction_holiday_form
+msgid "Day Off."
+msgstr "ايام العطل"
+
+#. module: exp_transaction_holiday
+#: code:addons/exp_transaction_holiday/models/transaction_holiday.py:42
+#, python-format
+msgid "Day off name must be unique in year"
+msgstr "اسم يوم العطلة يجب ان يكون فريد في السنه"
+
+#. module: exp_transaction_holiday
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_holiday_display_name
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_public_holiday_display_name
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_weekend_holiday_display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: exp_transaction_holiday
+#: selection:transaction.weekend.holiday,name:0
+msgid "Friday"
+msgstr "الجمعه"
+
+#. module: exp_transaction_holiday
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_public_holiday_from_date
+msgid "From Date"
+msgstr "من تاريخ"
+
+#. module: exp_transaction_holiday
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_public_holiday_holiday_id
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_weekend_holiday_holiday_id
+msgid "Holiday"
+msgstr "الاجازات العامه"
+
+#. module: exp_transaction_holiday
+#: model:ir.ui.view,arch_db:exp_transaction_holiday.view_transaction_holiday_form
+#: model:ir.ui.view,arch_db:exp_transaction_holiday.view_transaction_holiday_tree
+msgid "Holidays"
+msgstr "الاجازات العامه"
+
+#. module: exp_transaction_holiday
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_holiday_id
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_public_holiday_id
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_weekend_holiday_id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: exp_transaction_holiday
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_holiday___last_update
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_public_holiday___last_update
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_weekend_holiday___last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: exp_transaction_holiday
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_holiday_write_uid
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_public_holiday_write_uid
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_weekend_holiday_write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: exp_transaction_holiday
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_holiday_write_date
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_public_holiday_write_date
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_weekend_holiday_write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: exp_transaction_holiday
+#: selection:transaction.weekend.holiday,name:0
+msgid "Monday"
+msgstr "الاثنين"
+
+#. module: exp_transaction_holiday
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_holiday_name
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_public_holiday_name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: exp_transaction_holiday
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_holiday_public_holiday_ids
+msgid "Public Holiday"
+msgstr "العطل الرسمية"
+
+#. module: exp_transaction_holiday
+#: model:ir.ui.view,arch_db:exp_transaction_holiday.view_transaction_holiday_form
+msgid "Public Holiday."
+msgstr "العطل الرسمية"
+
+#. module: exp_transaction_holiday
+#: model:ir.ui.menu,name:exp_transaction_holiday.parent_holiday_menu
+msgid "Public Holidays"
+msgstr "العطل الرسمية"
+
+#. module: exp_transaction_holiday
+#: selection:transaction.weekend.holiday,name:0
+msgid "Saturday"
+msgstr "السبت"
+
+#. module: exp_transaction_holiday
+#: selection:transaction.weekend.holiday,name:0
+msgid "Sunday"
+msgstr "الاحد"
+
+#. module: exp_transaction_holiday
+#: selection:transaction.weekend.holiday,name:0
+msgid "Thursday"
+msgstr "الخميس"
+
+#. module: exp_transaction_holiday
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_public_holiday_to_date
+msgid "To Date"
+msgstr "إلى تاريخ"
+
+#. module: exp_transaction_holiday
+#: model:ir.actions.act_window,name:exp_transaction_holiday.transaction_holiday_action
+msgid "Transaction Holiday"
+msgstr "العطل العامة"
+
+#. module: exp_transaction_holiday
+#: selection:transaction.weekend.holiday,name:0
+msgid "Tuesday"
+msgstr "الثلاثاء"
+
+#. module: exp_transaction_holiday
+#: selection:transaction.weekend.holiday,name:0
+msgid "Wednesday"
+msgstr "الاربعاء"
+
+#. module: exp_transaction_holiday
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_holiday_weekend_ids
+msgid "Weekend Days"
+msgstr "ايام العطل الرسمية"
+
+#. module: exp_transaction_holiday
+#: code:addons/exp_transaction_holiday/models/transaction_holiday.py:65
+#, python-format
+msgid "You cannot create a new holiday in the same year in the same period"
+msgstr "لا يمكنك إنشاء عطلة جديدة في نفس العام في نفس الفترة الموجوده"
+
+#. module: exp_transaction_holiday
+#: model:ir.model,name:exp_transaction_holiday.model_transaction_transaction
+msgid "for common attribute between transaction"
+msgstr "for common attribute between transaction"
+
+#. module: exp_transaction_holiday
+#: model:ir.model,name:exp_transaction_holiday.model_transaction_holiday
+msgid "transaction.holiday"
+msgstr "transaction.holiday"
+
+#. module: exp_transaction_holiday
+#: model:ir.model,name:exp_transaction_holiday.model_transaction_public_holiday
+msgid "transaction.public.holiday"
+msgstr "transaction.public.holiday"
+
+#. module: exp_transaction_holiday
+#: model:ir.model,name:exp_transaction_holiday.model_transaction_weekend_holiday
+msgid "transaction.weekend.holiday"
+msgstr "transaction.weekend.holiday"
+
+#. module: exp_transaction_holiday
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_public_holiday_holiday_id
+#: model:ir.model.fields,field_description:exp_transaction_holiday.field_transaction_weekend_holiday_holiday_id
+#: model:res.groups,name:exp_transaction_holiday.group_cm_holiday
+msgid "Holiday"
+msgstr "الاجازات العامه"

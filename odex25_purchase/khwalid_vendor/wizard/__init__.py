@@ -1,0 +1,1 @@
+from . import messeage_wiz

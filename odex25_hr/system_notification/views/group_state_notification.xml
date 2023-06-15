@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Automation Form View -->
+    <record id="view_base_group_automation_form" model="ir.ui.view">
+        <field name="name">Automations</field>
+        <field name="model">automation.group</field>
+        <field name="arch" type="xml">
+            <!-- <field name="mode">primary</field> -->
+            <form>
+                <sheet>
+                    <group>
+                        <field name="model_id"/>
+                    </group>
+                    <notebook>
+                        <page string="states">
+                            <field name="atuomation_ids" context="{'default_model_id': model_id, }"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- automation Tree View -->
+    <record id="view_base_group_automation_tree" model="ir.ui.view">
+        <field name="name">base.automation.tree</field>
+        <field name="model">automation.group</field>
+        <field name="arch" type="xml">
+            <tree string="Automation">
+                <field name="atuomation_ids">
+                    <tree>
+                        <field name="state"/>
+                    </tree>
+                </field>
+
+                <field name="model_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- <record id="view_base_automation_search" model="ir.ui.view">
+            <field name="name">base.automation.search</field>
+            <field name="model">base.automation</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="model_id"/>
+                </search>
+            </field>
+        </record> -->
+
+    <!-- automation Action -->
+    <record id="base_automation_act" model="ir.actions.act_window">
+        <field name="name">Automated Actions</field>
+        <field name="res_model">automation.group</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_base_group_automation_tree"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to setup a new automated automation.
+            </p>
+            <p>
+                Use automated actions to automatically trigger actions for
+                various screens. Example: a lead created by a specific user may
+                be automatically set to a specific sales channel, or an
+                opportunity which still has status pending after 14 days might
+                trigger an automatic reminder email.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_base_group_automation_form" parent="base_automation.menu_base_automation_form"
+              name="states notificatin" action="base_automation_act"/>
+
+</odoo>

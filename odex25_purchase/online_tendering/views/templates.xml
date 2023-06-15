@@ -1,0 +1,382 @@
+<odoo>
+    <data>
+        <record id="tender_page" model="website.menu">
+            <field name="name">Tenders</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">15</field>
+            <field name="website_id" ref="website.default_website"/>
+        </record>
+
+        <record id="open_tenders" model="website.menu">
+            <field name="name">Open Tenders</field>
+            <field name="url">/tenders</field>
+            <field name="parent_id" ref="tender_page"/>
+            <field name="sequence" type="int">1</field>
+            <field name="website_id" ref="website.default_website"/>
+        </record>
+
+        <record id="website_menu_tenders" model="website.menu">
+            <field name="name">Tenders</field>
+            <field name="url" eval="'/tenders'"/>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">50</field>
+        </record>
+
+        <record id="my_application_page" model="website.menu">
+            <field name="name">My Application</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">15</field>
+            <field name="website_id" ref="website.default_website"/>
+        </record>
+
+         <record id="my_applications" model="website.menu">
+            <field name="name">My Applications</field>
+            <field name="url">/tenders/my_applications</field>
+            <field name="parent_id" ref="my_application_page"/>
+            <field name="sequence" type="int">2</field>
+            <field name="website_id" ref="website.default_website"/>
+        </record>
+
+        <record id="website_menu_my_applications" model="website.menu">
+            <field name="name">My Applications</field>
+            <field name="url" eval="'/tenders/my_applications'"/>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">50</field>
+        </record>
+        <template id="online_tender_js" name="tenders_page"  inherit_id="website.assets_frontend">
+            <xpath expr="." position="inside"> 
+               <script type="text/javascript" src="/online_tendering/static/src/js/online_tender.js"></script>
+           </xpath>
+        </template> 
+        
+        <template id="index"> 
+            <t t-call="website.layout">
+                <style>
+                    .card {
+                    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                    transition: 0.3s;
+                    margin : 6px;
+                   }
+
+                    .card:hover {
+                    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+                    }
+
+                    .container {
+                    padding: 20px 16px;
+                    }
+                    .main_container{
+                        margin-right : %;
+                        margin-left : 5%;
+                    }
+                </style>
+                <t t-if="len(tenders) == 0">
+                    <center><h1> There is No available Tenders</h1></center>
+                </t>
+                <t t-else="">
+                    <div class="main_container">
+                        <center><h1> Open Tenders</h1></center>
+                        <t t-foreach="tenders" t-as="tender">
+                            <div class="card col-md-3">
+                                <div class="container">
+                                    <h4><b>
+                                            <span class="tender" t-att-data-id="tender.id" t-esc="tender.name"/>
+                                       </b></h4> 
+                                        <p>available Until <t t-esc="tender.available_until"/> </p>
+                                        <form method="POST" action="/tender/details/" enctype="multipart/form-data">
+                                            <input type="number" name="tender_id" id="tender_id" t-att-value="tender.id" style="width:1px;visibility: hidden;"/>
+                                            <button type="submit"  class="btn btn-primary o_signup_btn">Show Details</button>
+                                        </form>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <template id="tender_details" name="Tender details">
+            <t t-call="website.layout">
+                <style>
+                    .main_container{
+                        margin-right : 5%;
+                        margin-left : 5%;
+                    }
+                </style>
+                <div class="main_container">
+                    <center>   
+                        <h1>    
+                            <t t-esc="tender.name"/>
+                        </h1>
+                    </center>
+                    <div class="container o_content">
+                        <div class="o_view_manager_content">
+                            <div class="table-responsive">
+                                <h2>Terms and Conditions</h2>
+                                <span><t t-esc="tender.description"/></span>
+                                <h2>Ordered Products</h2>
+                                <table class="o_list_view table table-condensed table-striped o_list_view_ungrouped">
+                                    <thead>
+                                        <tr>
+                                            <th >product</th>
+                                            <th>delivary date</th>
+                                            <th>quantity</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="tender.line_ids" t-as="line">
+                                            <td><span  t-field="line.product_id.name"/></td>
+                                            <td> <span  t-field="line.schedule_date"/></td>
+                                            <td> <span t-field="line.product_qty"/> </td>
+                                        </tr> 
+                                    </tbody>
+                                </table>
+                                <form method="POST" action="/tenders/apply/" enctype="multipart/form-data">
+                                    <input type="number" name="tender_id" id="tender_id" t-att-value="tender.id" style="width:1px;visibility: hidden;"/>
+                                    <button type="submit" t-if="user_id.partner_id.state == 'approved'"  class="btn btn-primary o_signup_btn">Apply</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>   
+
+                </div>
+                
+            </t>
+        </template>
+        
+        
+        <template id="tender_apply" name="Tender details">
+            <t t-call="website.layout">
+                <center>
+                    <form  id="prices_form" method="POST" action="/Application_result"  enctype="multipart/form-data">  
+                        <input style="visibility: hidden;" name="tender_id" type="number" readonly="1" t-att-value="tender.id" />
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <div class="container o_content">
+                            <div class="o_view_manager_content">
+                                <div class="table-responsive">
+                                    <t t-esc="tender.name"/>
+                                    <table class="o_list_view table table-condensed table-striped o_list_view_ungrouped">
+                                        <thead>
+                                            <tr>
+                                                <th>Product</th>
+                                                <th>Product Description</th>
+                                                <th>Delivary Date</th>
+                                                <th>Quantity</th>
+                                                <th>Unit price</th>
+                                                <!-- <th>Tax</th> -->
+                                                <th style="text-align:center;">Subtotal</th>
+                                                <th style="width:1px;visibility: hidden;">product id</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr t-foreach="tender.line_ids" t-as="line">
+                                                <td><span  t-field="line.product_id.name"/></td>
+                                                <td><span  t-field="line.product_id.description_purchase"/></td>
+                                                <td> <span  t-field="line.schedule_date"/></td>
+                                                <td class="qty"> <span t-field="line.product_qty"/> </td>
+                                                <td><input width="100%" min="0" class="price" type="number" t-att-name="str(line.product_id.id) + '-price'" required="required" /></td>
+                                                <!-- <td><input min="0" max="100" width="100%" type="number" t-att-name="str(line.product_id.id) + '-tax'" /></td> -->
+                                                <td class="subtotal" style="text-align:center;"></td>
+                                                <td style="width:1px;visibility: hidden;"><input t-att-name="str(line.product_id.id) + '-product_id'" type="number" readonly="1" t-att-value="line.product_id.id" /></td>
+                                            </tr> 
+                                            <tr>
+                                                <td>Total Without Tax</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td class="untax_total" style="text-align:center;"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tax</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td class="tax" style="text-align:center;">
+                                                    <select style="overflow: scroll;width:85%"  id="tax" name="tax" required="True" class="form-control">            
+                                                        <t t-foreach="taxs" t-as="tax">                
+                                                        <option  t-att-value="tax.id" t-esc="tax.amount"/></t>        
+                                                    </select> 
+                                                </td>
+                                                 <td style="text-align:center;" class="tax_total"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Attach Your Quotation</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td><input type="file" required="required" name="attachment" class="file" multiple="true" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true" id="file_input"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Note</td>
+                                                <td colspan="4"><input class="o_field_text o_field_widget"  type="text" style="width : 100%;height:50%;" required="required" name="vendor_note" id="file_input"/></td>
+                                            </tr>
+                                            <tr><td colspan="4"><button type="submit" class="btn btn-primary o_signup_btn">Submit</button></td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>   
+                    </form>
+                </center>
+            </t>
+        </template>
+
+        <template id="user_applications"> 
+            <t t-call="website.layout">
+                <div class="container o_content">
+                    <div class="o_view_manager_content">
+                        <div class="table-responsive">
+                            <t t-if="not error">
+                                <t t-if="applications">
+                                    <table class="o_list_view table table-condensed table-striped o_list_view_ungrouped">
+                                        <thead>
+                                            <tr>
+                                                <th>Request Number</th>
+                                                <th>Tender</th>
+                                                <th>Date</th>
+                                                <th>Totoal Amount</th>
+                                                <th>Application Status</th>
+                                                <th>My Note</th>
+                                                <th>Corp Note</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr t-foreach="applications" t-as="app">    
+                                                <td><t t-esc="app.name"/></td>
+                                                <td><t t-esc="app.tender_id.name"/></td>
+                                                <td><t t-esc="app.date"/></td>
+                                                <td><t t-esc="app.total"/></td>
+                                                <td><t t-esc="app.state"/></td>
+                                                <td><t t-esc="app.vendor_note"/></td>
+                                                <td><t t-esc="app.reject_reason"/></td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </t>
+                                <t t-else="">
+                                    <h1>There is No Application</h1>
+                                </t>   
+                            </t>
+                            <t t-else="">
+                                <h1><t t-esc="error"/></h1>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+        
+        <!-- signup exstra fields -->
+        <template id="signup_inherit" inherit_id="auth_signup.signup" name="Custom Sign Up">
+            <xpath expr="//form" position="attributes">
+                <attribute name="action">/tender_signup</attribute>
+            </xpath>
+             <xpath expr="//form[@class='oe_signup_form']" position="attributes">
+                <attribute name="enctype">multipart/form-data</attribute>
+            </xpath>
+        </template>
+
+        <template id="custom_signup" inherit_id="auth_signup.fields" name="Custom signup form">
+            <xpath expr="//div[@class='form-group field-name']" position="replace">
+                <div class="form-group field-name">
+                    <label for="name" class="control-label">Company Name</label>
+                    <input type="text" name="name" t-att-value="name" id="name" class="form-control form-control-sm" placeholder="e.g. Zuhair Company"
+                    required="required" t-att-readonly="'readonly' if only_passwords else None"
+                    t-att-autofocus="'autofocus' if login and not only_passwords else None"/>
+                </div>
+                
+
+             </xpath>    
+            <xpath expr="//div[@class='form-group field-name']" position="after">
+                <div class="form-group field-name">
+                    <label for="company_represent" class="control-label">Company representative name</label>
+                    <input type="text" name="company_represent" t-att-value="company_represent" id="company_represent" class="form-control form-control-sm" placeholder="e.g. Company representatve name"
+                    required="required" t-att-readonly="'readonly' if only_passwords else None"
+                    t-att-autofocus="'autofocus' if login and not only_passwords else None"/>
+                </div>
+                <div class="form-group field-name">
+                    <label for="street" class="control-label">Address</label>
+                    <input type="text" name="street" t-att-value="street" id="street" class="form-control"
+                        placeholder="Street" t-att-readonly="'readonly' if only_passwords else None"
+                        t-att-autofocus="'autofocus' if login and not only_passwords else None" />
+                    <label for="city" class="control-label">City</label>
+                    <input type="text" name="city" t-att-value="city" id="city" class="form-control"  placeholder="City"
+                         t-att-readonly="'readonly' if only_passwords else None"
+                        t-att-autofocus="'autofocus' if login and not only_passwords else None" /> 
+                </div>
+               <div class="form-group field-name">
+                    <label for="activity_type" class="control-label">Activity Type</label> 
+                    <select style="height: 50px; overflow: scroll;"  required="required" id="activity_type" name="activity_type"  class="form-control">                
+                            <option value="">Choose...</option>
+                            <t t-foreach="activity_types" t-as="actype">
+                                <option t-att-value="actype.id">
+                                    <t t-esc="actype.name" t-att-value="actype.id"/>
+                                </option>
+                            </t>   
+                    </select>    
+                </div>
+    
+                <div class="form-group field-name">
+                    <label for="phone" class="control-label">Phone</label>
+                    <input type="text" name="phone" t-att-value="phone" id="phone" class="form-control"
+                        required="required" t-att-readonly="'readonly' if only_passwords else None"
+                        t-att-autofocus="'autofocus' if login and not only_passwords else None" />
+                </div>
+                <div class="form-group field-name">
+                    <label for="mobile" class="control-label">Mobile</label>
+                    <input type="text" name="mobile" t-att-value="mobile" id="mobile" class="form-control"
+                        required="required" t-att-readonly="'readonly' if only_passwords else None"
+                        t-att-autofocus="'autofocus' if login and not only_passwords else None" />
+                </div>
+                <div class="form-group field-name">
+                    <label for="vat" class="control-label">Tax Registration No.</label>
+                    <input id="vat" name="vat" type="text" class="form-control" required="required"/>
+                </div>
+               <div class="form-group field-name">
+                    <label for="commercial_register" class="control-label">Commercial Registration No.</label>
+                    <input id="commercial_register" name="commercial_register" type="text" class="form-control" required="required"/>
+                </div>
+               <div class="form-group field-name">
+                    <label for="company_type" class="control-label">Supplier Type</label>
+                    <select class="form-control" id="company_type" name="company_type" required="required">
+                        <option value="company">Company</option>
+                        <option value="establish">Establish</option>
+                    </select>
+               </div>
+               <div class="form-group field-name">
+                    <label for="document" class="control-label">Supplier Document</label>
+                        <input type="file" required="required" name="document" class="file" multiple="true" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true" id="file_input"/>
+               </div>
+               <div class="form-group field-name">
+                    <label for="document_type" class="control-label">Document Type</label> 
+                    <select style="height: 50px; overflow: scroll;"  required="required" id="document_type" name="document_type"  class="form-control">                
+                            <option value="">Choose...</option>
+                            <t t-foreach="document_types" t-as="doctype">
+                                <option t-att-value="doctype.id">
+                                    <t t-esc="doctype.name" t-att-value="doctype.id"/>
+                                </option>
+                            </t>   
+                    </select>    
+                </div>
+
+               <div class="form-group field-name">
+                    <label for="exp_date" class="control-label">Document Expiration Date</label>
+                    <input name="exp_date" type="date"
+                        t-att-value="datetime.datetime.now().date()"
+                        id="exp_date" class="form-control"
+                        required="required" />
+                </div>
+
+                <div class="form-group field-name">
+                    <t t-if="not valid">
+                        <div class="alert alert-danger">
+                            <span t-esc="error"/>
+                        </div>
+                    </t>
+                </div>
+                
+            </xpath>
+
+        </template>
+    </data>
+</odoo>

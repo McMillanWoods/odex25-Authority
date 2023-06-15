@@ -1,0 +1,17 @@
+.barcode-title{
+    text-align: center;
+    margin: 3px;
+    padding: 3px;
+    font-size: 2em;
+}
+.barcode-date,.barcode-barcode{
+    text-align: center;
+}
+.barcode-no{
+    font-size: 1.3em;
+    font-weight: bold;
+}
+.barcode-barcode{
+    margin: auto !important;
+    float: left !important;
+}

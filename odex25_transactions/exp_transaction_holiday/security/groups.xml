@@ -1,0 +1,8 @@
+<odoo>
+    <data>
+        <record id="group_cm_holiday" model="res.groups">
+            <field name="name">Holiday</field>
+            <field name="category_id" ref="exp_transaction_documents.module_category_cm"/>
+        </record>
+    </data>
+</odoo>

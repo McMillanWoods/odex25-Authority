@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+
+        <record model="ir.module.category" id="system_board_management">
+             <field name="name">System Dashboard</field>
+             <field name="description">User access level for System Board module</field>
+             <field name="sequence">20</field>
+        </record>
+
+        <!--
+            Groups
+        -->
+        <record id="system_board_group_manager" model="res.groups">
+            <field name="name">System Dashboard Manager</field>
+            <field name="category_id" ref="system_board_management"/>
+        </record>
+
+         <record id="system_board_group_configurations" model="res.groups">
+            <field name="name">System Dashboard Configurations</field>
+            <field name="category_id" ref="system_board_management"/>
+        </record>
+
+    </data>
+</odoo>

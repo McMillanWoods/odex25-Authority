@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+	<data>
+
+		<record id="proposal_inprogress_report_action" model="ir.actions.act_window">
+			<field name="name">Proposal In-Progress Report</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">proposal.inprogress.report.wiz</field>
+			<field name="view_id" ref="proposal_common_report_wiz_form"/>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+		<menuitem
+				id="proposal_inprogress_report_menu"
+				name="Proposal In-Progress Report"
+				parent="proposal_report_common_menu"
+				sequence="2"
+				action="proposal_inprogress_report_action"
+		/>
+	</data>
+
+</odoo>

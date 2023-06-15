@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="expense_report_wiz_view">
+            <field name="name">expense.report.wiz.from</field>
+            <field name="model">expense.report.wiz</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="date_from"/>
+                        </group>
+                        <group>
+                            <field name="date_to"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="print_report"
+                                string="Print"
+                                type="object"
+                                class="oe_highlight"/>
+                        or
+                        <button special="cancel"
+                                string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="action_expense_report_wiz"
+                    name="Expense Details Report"
+                    res_model="expense.report.wiz"
+                    view_mode = "form"
+
+                    target="new"/>
+        <!--                    key2="client_action_multi"/>-->
+
+
+<!--        <record model="ir.actions.act_window" id="action_request_form">-->
+<!--            <field name="name">Request a file</field>-->
+<!--            <field name="res_model">documents.request_wizard</field>-->
+<!--            <field name="view_mode">form</field>-->
+<!--            <field name="target">new</field>-->
+<!--        </record>-->
+
+        <menuitem
+                  id="menu_action_expense_report_wiz_view"
+                  name="Expense Details Report"
+                  parent="menu_action_expense"
+                  action="action_expense_report_wiz"/>
+
+        <report
+                id="report_expense_details_xlsx"
+                model="expense.report.wiz"
+                string="Expenses report"
+                report_type="xlsx"
+                name="report_expense_details_xlsx"
+                file="Expenses report"
+                attachment_use="False"
+
+        />
+
+    </data>
+</odoo>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="outstand_transaction_report_temp">
+            <t t-call="web.html_container">
+                <t t-call="exp_transaction_report.custom_external_layout_all">
+                    <style type="text/css">
+                        @font-face {
+                        font-family: 'ae_AlMohanad';
+                        src: local('ae_AlMohanad'), local('ae_AlMohanad'),
+                        url('/exp_transaction_report/static/fonts/ae_AlMohanad.ttf') format('truetype');
+                        }
+                        *{
+                        font-family: ae_AlMohanad;
+                        }
+                    </style>
+                    <div class="page" style="font-size:11pt">
+                        <h4 style="text-align:center;font-weight:bold">Report outstanding Transaction</h4>
+                        <br/>
+                        <h4 style="text-align:center;font-weight:bold">
+                            <t t-esc="name"/>
+                        </h4>
+                        <br/>
+                        <div style="width:100%;text-align:center">
+                            <h4 style="text-align:right;font-weight:bold;display:inline-block;width:30%">Start Date
+                                <t t-esc="date_start"/>
+                            </h4>
+                            <h4 style="text-align:left;font-weight:bold;display:inline-block;width:30%;">End Date
+                                <t t-esc="date_end"/>
+                            </h4>
+                        </div>
+                        <t t-foreach="key" t-as="doc">
+                            <br/>
+                            <span t-esc="doc"/>
+                            <br/>
+                            <table style="width: 100%;margin-top:10px">
+                                <thead>
+                                    <tr>
+                                        <th style=" border: 1px solid black; padding: 1px; font-size:0.8em;background-color: #d3d3d3;color: black;">
+                                            #
+                                        </th>
+                                        <th style=" border: 1px solid black; padding: 1px;font-size:0.8em;background-color: #d3d3d3;color: black;text-align:center;">
+                                            Transaction Number
+                                        </th>
+                                        <th style=" border: 1px solid black; padding: 1px;font-size:0.8em;background-color: #d3d3d3;color: black;text-align:center;">
+                                            Transaction Date
+                                        </th>
+                                        <th style=" border: 1px solid black; padding: 1px;font-size:0.8em;background-color: #d3d3d3;color: black;text-align:center;">
+                                            Subject
+                                        </th>
+                                        <th style=" border: 1px solid black; padding: 1px;font-size:0.8em;background-color: #d3d3d3;color: black;text-align:center;">
+                                            Type
+                                        </th>
+                                        <th style=" border: 1px solid black; padding: 1px;font-size:0.8em;background-color: #d3d3d3;color: black;text-align:center;">
+                                            Send To
+                                        </th>
+                                        <th style=" border: 1px solid black; padding: 1px;font-size:0.8em;background-color: #d3d3d3;color: black;text-align:center;">
+                                            Process Transactions
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="group_dic[doc]" t-as="docs">
+                                        <tr>
+                                            <td style=" border-bottom: 1px solid black; border-right: 1px solid black;border-right: 1px solid black;padding: 1px; padding-left: 1px;font-size:0.8em;background-color: white;color: black; ">
+                                                <strong t-esc="docs_index + 1"/>
+                                            </td>
+                                            <td style=" border-bottom: 1px solid black; border-right: 1px solid black;padding: 1px;font-size:0.8em;background-color: white;color: black;text-align:right;direction: ltr;float: left;">
+                                                <t t-esc="docs['name']"/>
+                                            </td>
+                                            <td style=" border-bottom: 1px solid black; border-right: 1px solid black;padding: 1px;font-size:0.8em;background-color: white;color: black;text-align:right;">
+                                                <t t-esc="docs['transaction_date']"/>
+                                            </td>
+                                            <td style=" border-bottom: 1px solid black; border-right: 1px solid black;padding: 1px;font-size:0.8em;background-color: white;color: black;text-align:right;">
+                                                <t t-esc="docs['subject']"/>
+                                            </td>
+                                            <td style=" border-bottom: 1px solid black; border-right: 1px solid black;border-right: 1px solid left;padding: 1px;font-size:0.8em;background-color: white;color: black;text-align:right;">
+                                                <t t-esc="docs['type']"/>
+                                            </td>
+                                            <td style=" border-bottom: 1px solid black; border-right: 1px solid black;padding: 1px;font-size:0.8em;background-color: white;color: black;text-align:center;">
+                                                <span t-esc="docs['to']"/>
+                                            </td>
+                                            <td style=" border-bottom: 1px solid black; border-right: 1px solid black;border-left: 1px solid black;padding: 1px;font-size:0.8em;background-color: white;color: black;text-align:right;">
+                                                <table style="width: 100%;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style=" border: 1px solid black; padding: 1px; font-size:0.8em;background-color: white;color: black;">
+                                                                #
+                                                            </th>
+                                                            <th style=" border: 1px solid black; padding: 1px;font-size:0.8em;background-color: white;color: black;text-align:center;">
+                                                                Transaction Number
+                                                            </th>
+                                                            <th style=" border: 1px solid black; padding: 1px;font-size:0.8em;background-color: white;color: black;text-align:center;">
+                                                                Transaction Date
+                                                            </th>
+                                                            <th style=" border: 1px solid black; padding: 1px;font-size:0.8em;background-color: white;color: black;text-align:center;">
+                                                                Subject
+                                                            </th>
+                                                            <th style=" border: 1px solid black; padding: 1px;font-size:0.8em;background-color: white;color: black;text-align:center;">
+                                                                Type
+                                                            </th>
+                                                            <th style=" border: 1px solid black; padding: 1px;font-size:0.8em;background-color: white;color: black;text-align:center;">
+                                                                Send To
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <t t-foreach="docs['processing']" t-as="rel">
+                                                            <tr>
+                                                                <td style=" border-bottom: 1px solid black; border-right: 1px solid black;border-left: 1px solid black;padding: 1px; padding-left: 1px;font-size:0.8em;background-color: white;color: black; ">
+                                                                    <strong t-esc="rel_index + 1"/>
+                                                                </td>
+                                                                <td style=" border-bottom: 1px solid black; border-right: 1px solid black;border-left: 1px solid black;padding: 1px; padding-left: 1px;font-size:0.8em;background-color: white;color: black; ">
+                                                                    <t t-esc="rel.name"/>
+                                                                </td>
+                                                                <td style=" border-bottom: 1px solid black; border-right: 1px solid black;border-left: 1px solid black;padding: 1px; padding-left: 1px;font-size:0.8em;background-color: white;color: black; ">
+                                                                    <t t-esc="rel.transaction_date"/>
+                                                                </td>
+                                                                <td style=" border-bottom: 1px solid black; border-right: 1px solid black;border-left: 1px solid black;padding: 1px; padding-left: 1px;font-size:0.8em;background-color: white;color: black; ">
+                                                                    <t t-esc="rel.subject"/>
+                                                                </td>
+                                                                <td style=" border-bottom: 1px solid black; border-right: 1px solid black;border-left: 1px solid black;padding: 1px; padding-left: 1px;font-size:0.8em;background-color: white;color: black; ">
+                                                                    <span t-field="rel.subject_type_id.name"/>
+                                                                </td>
+                                                                <td style=" border-bottom: 1px solid black; border-right: 1px solid black;border-left: 1px solid black;padding: 1px; padding-left: 1px;font-size:0.8em;background-color: white;color: black; ">
+                                                                    <span t-esc="rel.to_ids.name"/>
+                                                                </td>
+                                                            </tr>
+                                                        </t>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <report id="outstanding_transaction_complete_report"
+                model="outstanding.transaction.report.wizard"
+                string="Outstanding Transaction Report"
+                report_type="qweb-pdf"
+                name="exp_transaction_report.outstand_transaction_report_temp"
+                menu="False"/>
+    </data>
+</odoo>

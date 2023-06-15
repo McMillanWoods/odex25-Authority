@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+<!--
+        Account Statement Sequences
+        -->
+        <record id="sequence_project_ksa_seq" model="ir.sequence">
+            <field name="name">Project sequence KSA</field>
+            <field name="code">project.project</field>
+            <field eval="100" name="number_next"/>
+            <field eval="100" name="number_increment"/>
+            <field name="prefix">J%(y)s-</field>
+            <field name="padding">5</field>
+            <field eval="False" name="company_id"/>
+        </record>
+
+        <record id="sequence_project_eg_seq" model="ir.sequence">
+            <field name="name">Project sequence EG</field>
+            <field name="code">project.project</field>
+            <field eval="100" name="number_next"/>
+            <field eval="100" name="number_increment"/>
+            <field name="prefix">C%(y)s-</field>
+            <field name="padding">5</field>
+            <field eval="False" name="company_id"/>
+        </record>
+    </data>
+</odoo>

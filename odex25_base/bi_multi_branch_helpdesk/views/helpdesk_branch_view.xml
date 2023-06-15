@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_helpdesk_ticket_branch_form_view" model="ir.ui.view">
+            <field name="name">helpdesk.ticket.branch.view.form</field>
+            <field name="model">odex25_helpdesk.ticket</field>
+            <field name="inherit_id" ref="odex25_helpdesk.odex25_helpdesk_ticket_view_form"/>
+            <field name="arch" type="xml">
+                <field name="tag_ids" position="after">
+                    <field name="branch_id" readonly="1" options="{'no_create':True}" groups="odex25_helpdesk_security.group_helpdesk_normal_user,odex25_helpdesk_security.group_helpdesk_normal_user_manager,odex25_helpdesk_security.group_helpdesk_normal_manager" />
+                </field>
+            </field>
+        </record>
+
+
+        <record id="view_odex25_helpdesk_team_branch_form_view" model="ir.ui.view">
+            <field name="name">helpdesk.ticket.branch.view.form</field>
+            <field name="model">odex25_helpdesk.team</field>
+            <field name="inherit_id" ref="odex25_helpdesk.odex25_helpdesk_team_view_form"/>
+            <field name="arch" type="xml">
+                 <xpath expr="//field[@name='assign_method']" position="after">
+                    <group>
+                    <field name="branch_id" options="{'no_create':True ,'no_open': True}"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="helpdesk_ticket_branch_tree_view" model="ir.ui.view">
+            <field name="name">helpdesk.ticket.branch.view.tree</field>
+            <field name="model">odex25_helpdesk.ticket</field>
+            <field name="inherit_id" ref="odex25_helpdesk.odex25_helpdesk_tickets_view_tree"/>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <field name="user_id" position="after">
+                    <field name="branch_id"  options="{'no_create':True ,'no_open': True}"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="helpdesk_ticket_branch_filter" model="ir.ui.view">
+            <field name="name">helpdesk.ticket.branch.select</field>
+            <field name="model">odex25_helpdesk.ticket</field>
+            <field name="inherit_id" ref="odex25_helpdesk.odex25_helpdesk_tickets_view_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group" position="inside">
+                    <filter name="branch" string="Branch" domain="[]" context="{'group_by':'branch_id'}"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_product_product_tree" model="ir.ui.view">
+            <field name="name">product.product.tree</field>
+            <field name="model">product.product</field>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <tree string="Service">
+                    <field name="name"/>
+                    <field name="department_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_product_product_form" model="ir.ui.view">
+            <field name="name">product.product.form</field>
+            <field name="model">product.product</field>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <form string="Service">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="department_id" required="1"/>
+                                <field name="categ_id" invisible="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_product_product_service" model="ir.actions.act_window">
+            <field name="name">Service</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.product</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids"
+                   eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'tree', 'view_id': ref('view_product_product_tree')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('view_product_product_form')})]"/>
+            <field name="context">{'default_type': 'service'}</field>
+            <field name="domain">[('type', '=', 'service'), ('department_id', '!=', False)]</field>
+        </record>
+
+
+        <menuitem id="menu_action_service"
+            action="action_product_product_service"
+            parent="crm.crm_menu_config"/>
+
+    </data>
+</odoo>

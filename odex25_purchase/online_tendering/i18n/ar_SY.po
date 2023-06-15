@@ -1,0 +1,810 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* online_tendering
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-15 11:05+0000\n"
+"PO-Revision-Date: 2022-01-15 11:05+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: online_tendering
+#: model:mail.template,body_html:online_tendering.email_template_tender_application
+msgid ""
+"\n"
+"                <p>${object.user_id.name} has apply for tender No. ${object.name} with total amount  = ${object.total}\n"
+"                </p>\n"
+"                \n"
+"            "
+msgstr ""
+
+#. module: online_tendering
+#: model:mail.template,body_html:online_tendering.not_win_email_template
+msgid ""
+"\n"
+"                <p>Dear ${object.partner_id.name} Thank you for Apply on our Tender NO ${object.requisition_id.name}\n"
+"                    we are pleased to inform you That your Application was not win\n"
+"                </p>\n"
+"                \n"
+"            "
+msgstr ""
+
+#. module: online_tendering
+#: model:mail.template,body_html:online_tendering.email_template_application_shortlist
+msgid ""
+"\n"
+"                <p>Dear ${object.user_id.partner_id.name} Thank you for Apply on our Tender NO ${object.tender_id.name}\n"
+"                    we are pleased to inform you That your Application has been shortlistedss\n"
+"                </p>\n"
+"                \n"
+"            "
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_res_users__activity_type
+#: model_terms:ir.ui.view,arch_db:online_tendering.custom_signup
+msgid "Activity Type"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.actions.act_window,name:online_tendering.activity_type
+msgid "Activity Types"
+msgstr "أنواع النشاطات"
+
+#. module: online_tendering
+#: model:ir.ui.menu,name:online_tendering.online_tender_config_menu
+msgid "Activity types"
+msgstr "أنواع النشاطات"
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_res_users__address
+#: model_terms:ir.ui.view,arch_db:online_tendering.custom_signup
+msgid "Address"
+msgstr ""
+
+#. module: online_tendering
+#: code:addons/online_tendering/controllers/controllers.py:0
+#, python-format
+msgid "Another user is already registered using this email address."
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application__user_id
+msgid "Applicant Name"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_application_reject_wizard__application_id
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application_line__application_id
+#: model:ir.model.fields.selection,name:online_tendering.selection__online_tender_report__type__application
+msgid "Application"
+msgstr ""
+
+#. module: online_tendering
+#: model:mail.template,subject:online_tendering.email_template_application_shortlist
+msgid "Application Shortlist.${object.name} "
+msgstr "تم قبول طلب المقدم للمناقصة.${object.name} "
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.user_applications
+msgid "Application Status"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.ui.menu,name:online_tendering.menu_tender_application_line
+msgid "Applications Products"
+msgstr "الاسعار"
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.tender_details
+msgid "Apply"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.form_tender_application
+msgid "Are you sure you want to shortlisting this Request?"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.tender_apply
+msgid "Attach Your Quotation"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application__attachment_id
+msgid "Attachment"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_purchase_requisition__availability_period
+msgid "Availability Period (days)"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_purchase_requisition__available_until
+msgid "Availablity date"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.application_reject_wizard
+#: model_terms:ir.ui.view,arch_db:online_tendering.employee_purchase_report_wizard_form
+#: model_terms:ir.ui.view,arch_db:online_tendering.period_extend
+msgid "Cancel"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields.selection,name:online_tendering.selection__online_tender_report__state__contract
+#: model:ir.model.fields.selection,name:online_tendering.selection__tender_application__state__contract
+msgid "Contract"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.user_applications
+msgid "Corp Note"
+msgstr ""
+
+#. module: online_tendering
+#: code:addons/online_tendering/controllers/controllers.py:0
+#, python-format
+msgid "Could not create a new account."
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_activity_type__create_uid
+#: model:ir.model.fields,field_description:online_tendering.field_application_reject_wizard__create_uid
+#: model:ir.model.fields,field_description:online_tendering.field_availability_period_extend__create_uid
+#: model:ir.model.fields,field_description:online_tendering.field_online_tender_report__create_uid
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application__create_uid
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_activity_type__create_date
+#: model:ir.model.fields,field_description:online_tendering.field_application_reject_wizard__create_date
+#: model:ir.model.fields,field_description:online_tendering.field_availability_period_extend__create_date
+#: model:ir.model.fields,field_description:online_tendering.field_online_tender_report__create_date
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application__create_date
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application__date
+#: model_terms:ir.ui.view,arch_db:online_tendering.online_tender_report
+#: model_terms:ir.ui.view,arch_db:online_tendering.user_applications
+msgid "Date"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_online_tender_report__date_from
+msgid "Date From"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_online_tender_report__date_to
+msgid "Date To"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_availability_period_extend__days
+msgid "Days"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_online_tender_report__department_ids
+msgid "Deparments"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.online_tender_report
+msgid "Department"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_online_tender_report__type
+#: model_terms:ir.ui.view,arch_db:online_tendering.online_tender_report
+msgid "Detailing Level"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application__line_ids
+msgid "Details"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_activity_type__display_name
+#: model:ir.model.fields,field_description:online_tendering.field_application_reject_wizard__display_name
+#: model:ir.model.fields,field_description:online_tendering.field_availability_period_extend__display_name
+#: model:ir.model.fields,field_description:online_tendering.field_online_tender_report__display_name
+#: model:ir.model.fields,field_description:online_tendering.field_purchase_order__display_name
+#: model:ir.model.fields,field_description:online_tendering.field_purchase_requisition__display_name
+#: model:ir.model.fields,field_description:online_tendering.field_report_online_tendering_online_tender_report__display_name
+#: model:ir.model.fields,field_description:online_tendering.field_res_users__display_name
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application__display_name
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application_line__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: online_tendering
+#: model:ir.model.fields.selection,name:online_tendering.selection__online_tender_report__state__draft
+#: model:ir.model.fields.selection,name:online_tendering.selection__tender_application__state__draft
+msgid "Draft"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_purchase_requisition__email
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application__email
+msgid "Email"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.period_extend
+msgid "Extend"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.online_purchase_requisition
+msgid "Extend Availability"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.online_tender_report
+msgid "From"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.online_tender_report
+#: model_terms:ir.ui.view,arch_db:online_tendering.tender_application_line_search
+#: model_terms:ir.ui.view,arch_db:online_tendering.tender_application_search
+msgid "Group By"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_activity_type__id
+#: model:ir.model.fields,field_description:online_tendering.field_application_reject_wizard__id
+#: model:ir.model.fields,field_description:online_tendering.field_availability_period_extend__id
+#: model:ir.model.fields,field_description:online_tendering.field_online_tender_report__id
+#: model:ir.model.fields,field_description:online_tendering.field_purchase_order__id
+#: model:ir.model.fields,field_description:online_tendering.field_purchase_requisition__id
+#: model:ir.model.fields,field_description:online_tendering.field_report_online_tendering_online_tender_report__id
+#: model:ir.model.fields,field_description:online_tendering.field_res_users__id
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application__id
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application_line__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_activity_type____last_update
+#: model:ir.model.fields,field_description:online_tendering.field_application_reject_wizard____last_update
+#: model:ir.model.fields,field_description:online_tendering.field_availability_period_extend____last_update
+#: model:ir.model.fields,field_description:online_tendering.field_online_tender_report____last_update
+#: model:ir.model.fields,field_description:online_tendering.field_purchase_order____last_update
+#: model:ir.model.fields,field_description:online_tendering.field_purchase_requisition____last_update
+#: model:ir.model.fields,field_description:online_tendering.field_report_online_tendering_online_tender_report____last_update
+#: model:ir.model.fields,field_description:online_tendering.field_res_users____last_update
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application____last_update
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application_line____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_activity_type__write_uid
+#: model:ir.model.fields,field_description:online_tendering.field_application_reject_wizard__write_uid
+#: model:ir.model.fields,field_description:online_tendering.field_availability_period_extend__write_uid
+#: model:ir.model.fields,field_description:online_tendering.field_online_tender_report__write_uid
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application__write_uid
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_activity_type__write_date
+#: model:ir.model.fields,field_description:online_tendering.field_application_reject_wizard__write_date
+#: model:ir.model.fields,field_description:online_tendering.field_availability_period_extend__write_date
+#: model:ir.model.fields,field_description:online_tendering.field_online_tender_report__write_date
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application__write_date
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_res_users__mobile
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application__mobile
+#: model_terms:ir.ui.view,arch_db:online_tendering.custom_signup
+msgid "Mobile"
+msgstr "الهاتف المحمول"
+
+#. module: online_tendering
+#: model:website.menu,name:online_tendering.my_applications
+msgid "My Applications"
+msgstr "طلباتي"
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.user_applications
+msgid "My Note"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_activity_type__name
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application__name
+msgid "Name"
+msgstr ""
+
+#. module: online_tendering
+#: model:mail.template,subject:online_tendering.email_template_tender_application
+msgid "New application NO.${object.name} "
+msgstr "طلب وارد جديد رقم.${object.name} "
+
+#. module: online_tendering
+#: model:mail.template,subject:online_tendering.not_win_email_template
+msgid "Not Selected To Purchase.${object.name} "
+msgstr "لم يتم الاختيار للشراء.${object.name} "
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.form_tender_application
+#: model_terms:ir.ui.view,arch_db:online_tendering.tender_apply
+msgid "Note"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.online_purchase_requisition
+msgid "Notification & Availabilty"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.form_tender_application
+#: model_terms:ir.ui.view,arch_db:online_tendering.online_tendering_form_view
+msgid "Online Tender Configuration"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.actions.act_window,name:online_tendering.action_online_tender_wizard
+#: model:ir.actions.report,name:online_tendering.action_online_tendering_report
+#: model:ir.model,name:online_tendering.model_online_tender_report
+#: model:ir.ui.menu,name:online_tendering.online_tender_report_menu
+msgid "Online Tender Report"
+msgstr "تقرير العطاءات علي البوابة"
+
+#. module: online_tendering
+#: model:res.groups,name:online_tendering.group_online_tender_user
+msgid "Online Tender User"
+msgstr "مستخدم المناقصة على البوابة"
+
+#. module: online_tendering
+#: model:ir.ui.menu,name:online_tendering.menu_online_tender_root
+msgid "Online Tendering"
+msgstr "العطاءات/المناقصات بالبوابة"
+
+#. module: online_tendering
+#: model:website.menu,name:online_tendering.open_tenders
+#: model_terms:ir.ui.view,arch_db:online_tendering.index
+msgid "Open Tenders"
+msgstr "العطاءات/المناقصات المفتوحة"
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.tender_details
+msgid "Ordered Products"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_purchase_requisition__po_notification
+msgid "PO Notification"
+msgstr ""
+
+#. module: online_tendering
+#: code:addons/online_tendering/controllers/controllers.py:0
+#, python-format
+msgid "Passwords do not match; please retype them."
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.online_tender_report
+msgid "Period"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_res_users__phone
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application__phone
+#: model_terms:ir.ui.view,arch_db:online_tendering.custom_signup
+msgid "Phone"
+msgstr "رقم الهاتف"
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_purchase_requisition__num_applications
+msgid "Portal Application"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.online_tender_report
+msgid "Price Total"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.online_tender_report
+msgid "Price/Unit"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields.selection,name:online_tendering.selection__online_tender_report__type__price
+msgid "Prices"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.online_tender_report
+msgid "Prices Comparison"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.employee_purchase_report_wizard_form
+msgid "Print"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application_line__name
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application_line__product_id
+#: model_terms:ir.ui.view,arch_db:online_tendering.online_tender_report
+msgid "Product"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application_line__product_uom_id
+msgid "Product Unit of Measure"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.form_tender_application
+#: model_terms:ir.ui.view,arch_db:online_tendering.tender_application_line_search
+msgid "Products"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_purchase_requisition__publish_in_portal
+msgid "Publish in Portal"
+msgstr "نشر على البوابة"
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.online_tender_report
+msgid "Published Tenders"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model,name:online_tendering.model_purchase_order
+msgid "Purchase Order"
+msgstr "أمر شراء"
+
+#. module: online_tendering
+#: model:ir.model,name:online_tendering.model_purchase_requisition
+msgid "Purchase Requisition"
+msgstr "طلب الشراء"
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application_line__product_qty
+#: model_terms:ir.ui.view,arch_db:online_tendering.online_tender_report
+msgid "Quantity"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_purchase_requisition__email_notify
+msgid "Receive Notification"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.online_tender_report
+msgid "Ref"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_purchase_order__application_id
+msgid "Referance Application"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.application_reject_wizard
+#: model_terms:ir.ui.view,arch_db:online_tendering.form_tender_application
+msgid "Reject"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_application_reject_wizard__reject_reason
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application__reject_reason
+msgid "Reject Reson"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields.selection,name:online_tendering.selection__online_tender_report__state__reject
+#: model:ir.model.fields.selection,name:online_tendering.selection__tender_application__state__reject
+msgid "Rejected"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.user_applications
+msgid "Request Number"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_availability_period_extend__requisition_id
+msgid "Requisition"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application_line__schedule_date
+msgid "Scheduled Date"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.tender_application_line_search
+#: model_terms:ir.ui.view,arch_db:online_tendering.tender_application_search
+msgid "Search Tender Application"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_purchase_requisition__published_in_portal
+msgid "Show"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.index
+msgid "Show Details"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.online_purchase_requisition
+msgid "Show in Portal"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_online_tender_report__state
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application__state
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application_line__state
+msgid "State"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.tender_application_search
+msgid "Status"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.tender_apply
+msgid "Submit"
+msgstr ""
+
+#. module: online_tendering
+#. openerp-web
+#: code:addons/online_tendering/static/src/xml/tender_templates.xml:0
+#, python-format
+msgid "Submit Your Prices"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.tender_apply
+msgid "Subtotal"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application_line__tax
+#: model_terms:ir.ui.view,arch_db:online_tendering.tender_apply
+msgid "Tax"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.actions.act_window,name:online_tendering.action_tender_application
+#: model:ir.actions.act_window,name:online_tendering.action_tender_application_line
+msgid "Teander Application"
+msgstr " طلبات المناقصات"
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_online_tender_report__tender_id
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application__tender_id
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application_line__tender_id
+#: model:ir.model.fields.selection,name:online_tendering.selection__online_tender_report__state__tender
+#: model:ir.model.fields.selection,name:online_tendering.selection__online_tender_report__type__tender
+#: model:ir.model.fields.selection,name:online_tendering.selection__tender_application__state__tender
+#: model_terms:ir.ui.view,arch_db:online_tendering.form_tender_application
+#: model_terms:ir.ui.view,arch_db:online_tendering.online_tender_report
+#: model_terms:ir.ui.view,arch_db:online_tendering.tender_application_line_search
+#: model_terms:ir.ui.view,arch_db:online_tendering.tender_application_search
+#: model_terms:ir.ui.view,arch_db:online_tendering.user_applications
+msgid "Tender"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.ui.menu,name:online_tendering.menu_tender_application
+msgid "Tender Applications"
+msgstr " طلبات المناقصات"
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application__tender_date
+msgid "Tender Date"
+msgstr ""
+
+#. module: online_tendering
+#: model:res.groups,name:online_tendering.group_online_tender_portal_user
+msgid "Tender Portal User"
+msgstr ""
+
+#. module: online_tendering
+#: model:website.menu,name:online_tendering.tender_page
+msgid "Tenders"
+msgstr "المناقصات / العطاءات"
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.tender_details
+msgid "Terms and Conditions"
+msgstr ""
+
+#. module: online_tendering
+#: code:addons/online_tendering/controllers/controllers.py:0
+#, python-format
+msgid "The form was not properly filled in."
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.user_applications
+msgid "There is No Application"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.index
+msgid "There is No available Tenders"
+msgstr ""
+
+#. module: online_tendering
+#: code:addons/online_tendering/wizard/online_tendering_wizard.py:0
+#, python-format
+msgid "There is no Data"
+msgstr "لاتوجد بيانات"
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.online_tender_report
+msgid "To"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application__total
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application_line__total
+#: model_terms:ir.ui.view,arch_db:online_tendering.form_tender_application
+#: model_terms:ir.ui.view,arch_db:online_tendering.tree_tender_application_line
+msgid "Total"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.online_tender_report
+msgid "Total Price"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.tender_apply
+msgid "Total without tax"
+msgstr "الإجمالي بدون ضريبة"
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.user_applications
+msgid "Totoal Amount"
+msgstr "الاجمالي"
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application_line__price_unit
+msgid "Unit Price"
+msgstr "سعر الوحدة"
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.online_purchase_requisition
+msgid "Unpublish"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model,name:online_tendering.model_res_users
+msgid "Users"
+msgstr "المستخدمون"
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application_line__vendor_id
+#: model_terms:ir.ui.view,arch_db:online_tendering.online_tender_report
+#: model_terms:ir.ui.view,arch_db:online_tendering.tender_application_line_search
+#: model_terms:ir.ui.view,arch_db:online_tendering.tender_application_search
+msgid "Vendor"
+msgstr "المورد"
+
+#. module: online_tendering
+#: model:ir.model.fields,field_description:online_tendering.field_tender_application__vendor_note
+msgid "Vendor Note"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model,name:online_tendering.model_activity_type
+msgid "activity.type"
+msgstr "النشاطات التجارية"
+
+#. module: online_tendering
+#: model:ir.model,name:online_tendering.model_application_reject_wizard
+msgid "application.reject.wizard"
+msgstr "سبب الرفض"
+
+#. module: online_tendering
+#: model:ir.model,name:online_tendering.model_availability_period_extend
+msgid "availability.period.extend"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.index
+msgid "available Until"
+msgstr ""
+
+#. module: online_tendering
+#. openerp-web
+#: code:addons/online_tendering/static/src/xml/tender_templates.xml:0
+#: model_terms:ir.ui.view,arch_db:online_tendering.tender_apply
+#: model_terms:ir.ui.view,arch_db:online_tendering.tender_details
+#, python-format
+msgid "delivary date"
+msgstr "تاريح التسليم"
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.application_reject_wizard
+#: model_terms:ir.ui.view,arch_db:online_tendering.employee_purchase_report_wizard_form
+#: model_terms:ir.ui.view,arch_db:online_tendering.period_extend
+msgid "or"
+msgstr ""
+
+#. module: online_tendering
+#. openerp-web
+#: code:addons/online_tendering/static/src/xml/tender_templates.xml:0
+#: model_terms:ir.ui.view,arch_db:online_tendering.tender_apply
+#, python-format
+msgid "price"
+msgstr "السعر"
+
+#. module: online_tendering
+#. openerp-web
+#: code:addons/online_tendering/static/src/xml/tender_templates.xml:0
+#: model_terms:ir.ui.view,arch_db:online_tendering.tender_apply
+#: model_terms:ir.ui.view,arch_db:online_tendering.tender_details
+#, python-format
+msgid "product"
+msgstr "الصنف"
+
+#. module: online_tendering
+#. openerp-web
+#: code:addons/online_tendering/static/src/xml/tender_templates.xml:0
+#: model_terms:ir.ui.view,arch_db:online_tendering.tender_apply
+#, python-format
+msgid "product id"
+msgstr ""
+
+#. module: online_tendering
+#. openerp-web
+#: code:addons/online_tendering/static/src/xml/tender_templates.xml:0
+#: model_terms:ir.ui.view,arch_db:online_tendering.tender_apply
+#: model_terms:ir.ui.view,arch_db:online_tendering.tender_details
+#, python-format
+msgid "quantity"
+msgstr "الكمية"
+
+#. module: online_tendering
+#: model:ir.model,name:online_tendering.model_report_online_tendering_online_tender_report
+msgid "report.online_tendering.online_tender_report"
+msgstr ""
+
+#. module: online_tendering
+#: model_terms:ir.ui.view,arch_db:online_tendering.online_tender_report
+msgid "state"
+msgstr "الحالة"
+
+#. module: online_tendering
+#: model:ir.model,name:online_tendering.model_tender_application
+msgid "tender.application"
+msgstr ""
+
+#. module: online_tendering
+#: model:ir.model,name:online_tendering.model_tender_application_line
+msgid "tender.application.line"
+msgstr ""

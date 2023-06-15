@@ -1,0 +1,62 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* private_budget_structure
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-30 05:28+0000\n"
+"PO-Revision-Date: 2019-09-30 05:28+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: private_budget_structure
+#: model:ir.ui.menu,name:private_budget_structure.private_budget_main_menu
+msgid "Budget Management"
+msgstr "ادارة الموازنة"
+
+#. module: account
+#: model:ir.ui.menu,name:account.account_analytic_def_account
+msgid "Cost Center Tree"
+msgstr "شجرة مراكز التكلفه"
+
+#. module: account_budget
+#: model:ir.ui.menu,name:account_budget.menu_budget_post_form
+msgid "Budgetary Position"
+msgstr "بنود الموازنه"
+
+#. module: account_budget
+#: model:ir.ui.menu,name:account_budget.menu_act_crossovered_budget_view
+msgid "Budgets"
+msgstr "الموازنات"
+
+#. module: private_budget_structure
+#: model:ir.ui.menu,name:private_budget_structure.private_budget_reporting_menu
+msgid "Reports"
+msgstr "التقارير"
+
+#. module: account_budget
+#: model:ir.ui.menu,name:account_budget.menu_act_crossovered_budget_lines_view
+msgid "Budgets lines"
+msgstr "عناصر الموازنات"
+
+#. module: private_budget_structure
+#: model:ir.actions.act_window,name:private_budget_structure.open_service_product_action
+#: model:ir.ui.menu,name:private_budget_structure.menu_service_product_form
+msgid "Services"
+msgstr "الخدمات"
+
+#. module: private_budget_structure
+#: model:res.groups,name:private_budget_structure.group_budget_control
+msgid "Budget"
+msgstr "الموازنة"
+
+#. module: account
+#: model:ir.ui.menu,name:account.account_analytic_tag_menu
+msgid "Cost Centers Tags"
+msgstr "وسوم مراكز التكلفة"

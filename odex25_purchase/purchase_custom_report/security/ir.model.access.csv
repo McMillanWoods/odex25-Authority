@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_purchase_general_report,access_purchase_general_report,model_purchase_general_report,,1,1,1,1
+access_purchase_total_report,access_purchase_total_report,model_purchase_total_report,,1,1,1,1
+access_employee_purchase_report,access_employee_purchase_report,model_employee_purchase_report,,1,1,1,1
+access_purchase_requisition_wizard,access_purchase_requisition_wizard,model_purchase_requisition_wizard,,1,1,1,1
+access_purchase_committee_report,access_purchase_committee_report,model_purchase_committee_report,,1,1,1,1
+access_purchase_order_report_wizard,access_purchase_order_report_wizard,model_purchase_order_report_wizard,,1,1,1,1
+access_vendor_report_wizard,access_vendor_report_wizard,model_vendor_report_wizard,,1,1,1,1

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="payment_cancel_form_inherit" model="ir.ui.view">
+            <field name="name">payment.cancel.form.inherit</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account_cancel.payment_cancel_form_inherit"/>
+            <field name="arch" type="xml">
+                <button name="cancel" position="replace">
+                    <button name="cancel" string="Cancel" type="object" states="draft"
+                            groups="account.group_account_user"/>
+                    <button name="cancel" string="Cancel" type="object" states="confirm_qc"
+                            groups="invoice_direct_payment.group_quality_control"/>
+                    <button name="cancel" type="object" states="confirm_fm" string="Cancel"
+                            groups="account_custom.group_financial_controller"/>
+                    <button name="cancel" type="object" states="check_lc" string="Cancel"
+                            groups="invoice_direct_payment.group_legal_counsel"/>
+                    <button name="cancel" type="object" states="approve_gm" string="Cancel"
+                            groups="invoice_direct_payment.group_general_manager"/>
+                    <button name="cancel" type="object" states="approve_gs" string="Cancel"
+                            groups="invoice_direct_payment.group_general_supervisor"/>
+                </button>
+            </field>
+        </record>
+        <record id="view_account_payment_form" model="ir.ui.view">
+            <field name="name">account.payment.form</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form" position="attributes">
+                    <attribute name="create">0</attribute>
+                </xpath>
+                <button name="post" position="before">
+                    <button name="act_accountant" type="object" states="draft" string="Accountant" class="oe_highlight"
+                            groups="account.group_account_user"/>
+                    <button name="act_confirm_qc" type="object" states="confirm_qc" string="Confirm QC" class="oe_highlight"
+                            groups="invoice_direct_payment.group_quality_control"/>
+                    <button name="act_confirm_fm" type="object" states="confirm_fm" string="Confirm FM" class="oe_highlight"
+                            groups="account_custom.group_financial_controller"/>
+                    <button name="act_check_lc" type="object" states="check_lc" string="Check LC" class="oe_highlight"
+                            groups="invoice_direct_payment.group_legal_counsel"/>
+                    <button name="act_approve_gm" type="object" states="approve_gm" string="Approve GM" class="oe_highlight"
+                            groups="invoice_direct_payment.group_general_manager"/>
+                </button>
+                <button name="post" position="attributes">
+                    <attribute name="states">approve_gs</attribute>
+                    <attribute name="groups">invoice_direct_payment.group_general_supervisor</attribute>
+                    <attribute name="string">Approve GS</attribute>
+                </button>
+                <xpath expr="//sheet/group" position="inside">
+                    <group string="Approvals">
+                        <field name="gm_approve" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        <field name="gs_approve" attrs="{'readonly':[('state','!=','draft')]}"/>
+                    </group>
+                </xpath>
+                <field name="communication" position="attributes">
+                    <attribute name="readonly">True</attribute>
+                </field>
+                <field name="state" position="attributes">
+                    <attribute name="statusbar_visible">draft,accountant,confirm_qc,confirm_fm,check_lc</attribute>
+                </field>
+                <field name="payment_transaction_id" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </field>
+                <xpath expr="//form/sheet" position="inside">
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_account_payment_form_create" model="ir.ui.view">
+            <field name="name">account.payment.form</field>
+            <field name="model">account.payment</field>
+            <field name="groups_id" eval="[(4, ref('invoice_direct_payment.group_create_expense_order'))]"/>
+            <field name="inherit_id" ref="view_account_payment_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form" position="attributes">
+                    <attribute name="create">1</attribute>
+                </xpath>
+            </field>
+        </record>
+        <!-- account.payment inherit form view -->
+        <record id="view_account_payment_invoice_form" model="ir.ui.view">
+            <field name="name">account.payment.invoice.inherit.view.form</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_invoice_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form" position="attributes">
+                    <attribute name="create">0</attribute>
+                </xpath>
+                <xpath expr="//form/sheet" position="inside">
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description" required="1"/>
+                        </page>
+                    </notebook>
+                </xpath>
+                <button name="action_validate_invoice_payment" position="replace">
+                    <button string="Create" special="save" class="btn-primary"/>
+                </button>
+            </field>
+        </record>
+
+        <record id="view_account_payment_invoice_form_create" model="ir.ui.view">
+            <field name="name">account.payment.invoice.inherit.view.form</field>
+            <field name="model">account.payment</field>
+            <field name="groups_id" eval="[(4, ref('invoice_direct_payment.group_create_expense_order'))]"/>
+            <field name="inherit_id" ref="view_account_payment_invoice_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form" position="attributes">
+                    <attribute name="create">1</attribute>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="view_account_supplier_payment_tree" model="ir.ui.view">
+            <field name="name">account.supplier.payment.tree</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_supplier_payment_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="create">0</attribute>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_account_supplier_payment_tree_create" model="ir.ui.view">
+            <field name="name">account.supplier.payment.tree</field>
+            <field name="model">account.payment</field>
+            <field name="groups_id" eval="[(4, ref('invoice_direct_payment.group_create_expense_order'))]"/>
+            <field name="inherit_id" ref="view_account_supplier_payment_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="create">1</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_account_payment_kanban" model="ir.ui.view">
+            <field name="name">account.payment.kanban</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="//kanban" position="attributes">
+                    <attribute name="create">0</attribute>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_account_payment_kanban_create" model="ir.ui.view">
+            <field name="name">account.payment.kanban</field>
+            <field name="model">account.payment</field>
+            <field name="groups_id" eval="[(4, ref('invoice_direct_payment.group_create_expense_order'))]"/>
+            <field name="inherit_id" ref="view_account_payment_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="//kanban" position="attributes">
+                    <attribute name="create">1</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <report
+            id="account.action_report_payment_receipt"
+            model="account.payment"
+            string="Payment Receipt"
+            report_type="qweb-pdf"
+            name="account.report_payment_receipt"
+            file="account.report_payment_receipt"
+            menu="False"
+        />
+    </data>
+</odoo>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!--		Form Renew-->
+        <!--		renew-->
+        <template id="renew_report_pdf">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <p style="text-align:right;margin-right:5%;font-weight: bold; line-height: 1.8;">
+                                <strong>
+                                    التاريخ :
+                                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
+                                </strong>
+                        </p>
+
+                        <h2 colspan="10" class="text-center" style="font-size:20px">Vehicle Form Renew Cost Report
+                            <span t-esc="date_from"/>
+                            -
+                            <span t-esc="date_to"/>
+                        </h2>
+                        <table class="table table-condensed table-bordered">
+                            <thead class="text-center">
+                                <tr style=" width:100%;">
+                                    <th style="text-align:center;">Plate</th>
+                                    <th style="text-align:center;">Type</th>
+                                    <th style="text-align:center;">Branch</th>
+                                    <th style="text-align:center;">Manufacture Year</th>
+                                    <th style="text-align:center;">Serial</th>
+                                    <th style="text-align:center;">End Date</th>
+                                    <th style="text-align:center;">Cost</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                                <t t-set="Total" t-value="0.0"/>
+                                <t t-foreach="docs" t-as="o">
+                                    <tr>
+                                        <td class="text-center">
+                                            <span t-esc="o.vehicle_id.license_plate"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.vehicle_id.model_id.name"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.branch_id.name"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.vehicle_id.model_year"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.vehicle_id.serial_number"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.new_date"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.cost"/>
+                                        </td>
+                                        <t t-set="Total" t-value="Total + o.cost"/>
+                                    </tr>
+                                </t>
+                                <tr>
+                                    <td style="text-align:center;" colspan="6">Total</td>
+                                    <td class="text-center">
+                                        <strong>
+                                            <span t-esc="Total"/>
+                                        </strong>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </t>
+            </t>
+        </template>
+        <report
+                id="renew_report_pdf_act"
+                model="form.renew"
+                string="Renew Report"
+                report_type="qweb-pdf"
+                name="odex_fleet.renew_report_pdf"
+                file="odex_fleet.renew_report_pdf"
+                menu="False"/>
+        <!--		to renew-->
+        <template id="to_renew_report_pdf">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <p style="text-align:right;margin-right:5%;font-weight: bold; line-height: 1.8;">
+                                <strong>
+                                    التاريخ :
+                                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
+                                </strong>
+                        </p>
+                        <h2 colspan="10" class="text-center" style="font-size:20px">Vehicle Form To Renew Cost Report
+                            <span t-esc="date_from"/>
+                            -
+                            <span t-esc="date_to"/>
+                        </h2>
+                        <table class="table table-condensed table-bordered">
+                            <thead class="text-center">
+                                <tr style=" width:100%;">
+                                    <th style="text-align:center;">Plate</th>
+                                    <th style="text-align:center;">Type</th>
+                                    <th style="text-align:center;">Branch</th>
+                                    <th style="text-align:center;">Manufacture Year</th>
+                                    <th style="text-align:center;">Serial</th>
+                                    <th style="text-align:center;">End Date</th>
+                                    <th style="text-align:center;">Cost</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                                <t t-set="Total" t-value="0.0"/>
+                                <t t-foreach="docs" t-as="o">
+                                    <tr>
+                                        <td class="text-center">
+                                            <span t-esc="o.license_plate"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.model_id.name"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.branch_id.name"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.model_year"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.serial_number"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.form_end"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.fleet_type_id.amount"/>
+                                        </td>
+                                        <t t-set="Total" t-value="Total + o.fleet_type_id.amount"/>
+                                    </tr>
+                                </t>
+                                <tr>
+                                    <td style="text-align:center;" colspan="6">Total</td>
+                                    <td class="text-center">
+                                        <strong>
+                                            <span t-esc="Total"/>
+                                        </strong>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </t>
+            </t>
+        </template>
+        <report
+                id="to_renew_report_pdf_act"
+                model="fleet.vehicle"
+                string="TO Renew Report"
+                report_type="qweb-pdf"
+                name="odex_fleet.to_renew_report_pdf"
+                file="odex_fleet.to_renew_report_pdf"
+                menu="False"/>
+    </data>
+</odoo>

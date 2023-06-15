@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="archive_transaction_wizard_view" model="ir.ui.view">
+            <field name="name">Archive Transaction</field>
+            <field name="model">archive.transaction.wizard</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <group>
+                        <group>
+                            <field name="archive_type_id" widget="selection" required="True"/>
+                            <field name="date" readonly="True"/>
+                        </group>
+                        <group>
+                            <field name="note"/>
+                            <field name="internal_transaction_id" invisible="True" readonly="True"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Archive" type="object" name="action_archive" class="oe_highlight"/>
+                        or
+                        <button special="cancel" string="Cancel" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

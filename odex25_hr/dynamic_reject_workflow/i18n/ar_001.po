@@ -1,0 +1,326 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* dynamic_reject_workflow
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-13 07:10+0000\n"
+"PO-Revision-Date: 2022-09-13 07:10+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: dynamic_reject_workflow
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_button__button_name
+msgid "Button Name"
+msgstr ""
+
+#. module: dynamic_reject_workflow
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_button__name
+msgid "Button String"
+msgstr ""
+
+#. module: dynamic_reject_workflow
+#: code:addons/dynamic_reject_workflow/models/reject_workflow.py:0
+#: model_terms:ir.ui.view,arch_db:dynamic_reject_workflow.view_form_reject_button_wizard
+#, python-format
+msgid "Buttons"
+msgstr ""
+
+#. module: dynamic_reject_workflow
+#: model_terms:ir.ui.view,arch_db:dynamic_reject_workflow.reject_wizard_view
+#: model_terms:ir.ui.view,arch_db:dynamic_reject_workflow.view_form_reject_button_wizard
+msgid "Cancel"
+msgstr ""
+
+#. module: dynamic_reject_workflow
+#: model_terms:ir.ui.view,arch_db:dynamic_reject_workflow.reject_workflow_form
+msgid "Choose Buttons"
+msgstr ""
+
+#. module: dynamic_reject_workflow
+#: model_terms:ir.ui.view,arch_db:dynamic_reject_workflow.reject_wizard_view
+#: model_terms:ir.ui.view,arch_db:dynamic_reject_workflow.view_form_reject_button_wizard
+msgid "Confirm"
+msgstr ""
+
+#. module: dynamic_reject_workflow
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_button__create_uid
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_button_wizard__create_uid
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_wizard__create_uid
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_workflow__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: dynamic_reject_workflow
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_button__create_date
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_button_wizard__create_date
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_wizard__create_date
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_workflow__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: dynamic_reject_workflow
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_mail_thread__display_name
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_button__display_name
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_button_wizard__display_name
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_wizard__display_name
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_workflow__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: dynamic_reject_workflow
+#: model:ir.model,name:dynamic_reject_workflow.model_mail_thread
+msgid "Email Thread"
+msgstr "المحادثة البريدية"
+
+#. module: dynamic_reject_workflow
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_mail_thread__id
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_button__id
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_button_wizard__id
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_wizard__id
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_workflow__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: dynamic_reject_workflow
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_button__invisible
+msgid "Invisible"
+msgstr ""
+
+#. module: dynamic_reject_workflow
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_mail_thread____last_update
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_button____last_update
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_button_wizard____last_update
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_wizard____last_update
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_workflow____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: dynamic_reject_workflow
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_button__write_uid
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_button_wizard__write_uid
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_wizard__write_uid
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_workflow__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: dynamic_reject_workflow
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_button__write_date
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_button_wizard__write_date
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_wizard__write_date
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_workflow__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: dynamic_reject_workflow
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_button__model_id
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_workflow__model_id
+msgid "Model Ref."
+msgstr ""
+
+#. module: dynamic_reject_workflow
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_workflow__name
+msgid "Name"
+msgstr ""
+
+#. module: dynamic_reject_workflow
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_internal_transaction__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_outgoing_transaction__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_salary_advance__reason
+msgid "Reason"
+msgstr ""
+
+#. module: dynamic_reject_workflow
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_account_analytic_account__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_account_asset__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_account_asset_modify__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_account_asset_multi_operation__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_account_asset_operation__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_account_bank_statement__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_account_bank_statement_import_journal_creation__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_account_bank_statement_line__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_account_fiscal_year__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_account_journal__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_account_loan__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_account_move__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_account_online_link__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_account_online_provider__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_account_payment__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_account_payment_method__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_account_payment_term__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_account_tax__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_appraisal_degree__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_appraisal_plan__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_asset_pause__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_asset_sell__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_budget_confirmation__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_calendar_event__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_company_document__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_consolidation_period__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_contract_advantage__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_crm_lead__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_crm_team__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_crossovered_budget__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_customize_appraisal__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_employee_checklist__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_employee_course_name__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_employee_department_jobs__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_employee_effective_form__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_employee_iqama_renewal__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_employee_leave__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_employee_other_request__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_employee_overtime_request__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_employee_promotions__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_event_event__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_event_registration__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_fiscalyears_periods__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_fleet_vehicle__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_fleet_vehicle_log_contract__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_fleet_vehicle_log_services__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_form_renew__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_forum_forum__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_forum_post__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_forum_tag__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_gamification_badge__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_gamification_challenge__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_administrative_circular__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_applicant__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_attendance_report__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_clearance_form__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_contract__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_contract_extension__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_deduction__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_department__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_employee_appraisal__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_employee_reward__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_exit_return__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_expense__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_expense_sheet__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_group_employee_appraisal__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_holiday_officials__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_holidays__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_holidays_restriction__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_job__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_loan_payment_suspension__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_loan_salary_advance__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_official_mission__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_official_mission_employee__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_payroll_nomination__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_payroll_promotion_setting__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_payroll_raise__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_penalty_register__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_penalty_ss__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_personal_permission__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_punishment__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_re_contract__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_renew_official_paper__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_request_visa__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_termination__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_termination_patch__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_hr_ticket_request__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_leave_cancellation__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_mail_blacklist__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_mail_channel__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_mail_thread__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_mail_thread_blacklist__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_mail_thread_cc__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_mail_thread_phone__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_mailing_contact__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_mailing_mailing__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_maintenance_equipment__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_maintenance_equipment_category__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_maintenance_request__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_manager_appraisal_line__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_mission_destination__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_note_note__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_petty_cash__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_phone_blacklist__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_product_product__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_product_template__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_project_project__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_project_task__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_purchase_order__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_purchase_requisition__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reconcile_leaves__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_wizard__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_res_currency__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_res_partner__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_res_users__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_return_from_leave__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_sale_order__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_stock_inventory__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_stock_picking__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_stock_production_lot__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_stock_scrap__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_survey_survey__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_ticket_class__reason
+msgid "Reason/Justification"
+msgstr ""
+
+#. module: dynamic_reject_workflow
+#: code:addons/dynamic_reject_workflow/models/reject_workflow.py:0
+#, python-format
+msgid "Reject"
+msgstr ""
+
+#. module: dynamic_reject_workflow
+#: model:ir.model,name:dynamic_reject_workflow.model_reject_button
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_button_wizard__button_ids
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_workflow__button_ids
+msgid "Reject Button"
+msgstr ""
+
+#. module: dynamic_reject_workflow
+#: model:ir.model,name:dynamic_reject_workflow.model_reject_button_wizard
+msgid "Reject Button Wizard"
+msgstr ""
+
+#. module: dynamic_reject_workflow
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_fleet_maintenance__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_incoming_transaction__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_transaction_transaction__reason
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_vehicle_delegation__reason
+msgid "Reject Reason"
+msgstr ""
+
+#. module: dynamic_reject_workflow
+#: model:ir.model,name:dynamic_reject_workflow.model_reject_wizard
+#: model_terms:ir.ui.view,arch_db:dynamic_reject_workflow.reject_wizard_view
+msgid "Reject Wizard"
+msgstr ""
+
+#. module: dynamic_reject_workflow
+#: model:ir.actions.act_window,name:dynamic_reject_workflow.reject_workflow_action
+#: model:ir.model,name:dynamic_reject_workflow.model_reject_workflow
+#: model:ir.ui.menu,name:dynamic_reject_workflow.menu_reject_workflow
+#: model_terms:ir.ui.view,arch_db:dynamic_reject_workflow.reject_workflow_form
+#: model_terms:ir.ui.view,arch_db:dynamic_reject_workflow.workflow_stage_tree
+msgid "Reject Workflow"
+msgstr ""
+
+#. module: dynamic_reject_workflow
+#: model:res.groups,name:dynamic_reject_workflow.reject_group_manager
+msgid "Reject Workflow Manager"
+msgstr ""
+
+#. module: dynamic_reject_workflow
+#: model:ir.model.fields,field_description:dynamic_reject_workflow.field_reject_button__states
+msgid "States"
+msgstr ""
+
+#. module: dynamic_reject_workflow
+#: code:addons/dynamic_reject_workflow/models/reject_workflow.py:0
+#, python-format
+msgid "mail.threadreasonstring"
+msgstr ""
+
+#. module: dynamic_reject_workflow
+#: model_terms:ir.ui.view,arch_db:dynamic_reject_workflow.view_form_reject_button_wizard
+msgid "or"
+msgstr ""

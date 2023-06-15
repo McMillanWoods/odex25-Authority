@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+letter_employee,employee_letter,exp_transation_letters.model_letters_letters,exp_transation_letters.group_cm_letter,1,1,1,1
+letter_employee__temp,employee_letter,exp_transation_letters.model_letters_template,exp_transation_letters.group_cm_letter,1,1,1,1

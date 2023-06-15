@@ -1,0 +1,8 @@
+<odoo>
+    <data>
+        <record id="group_cm_letter" model="res.groups">
+            <field name="name">Letter</field>
+            <field name="category_id" ref="exp_transaction_documents.module_category_cm"/>
+        </record>
+    </data>
+</odoo>
