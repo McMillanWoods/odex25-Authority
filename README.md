@@ -31,18 +31,5 @@
 ---
 ##### **ADDONS PATH** :
 
-                /home/odex/exp-project/odex25-sahli/odex25_accounting,
-                /home/odex/exp-project/odex25-sahli/odex25_base,
-                /home/odex/exp-project/odex25-sahli/odex25_bi,
-                /home/odex/exp-project/odex25-sahli/odex25_dms,
-                /home/odex/exp-project/odex25-sahli/odex25_fleet,
-                /home/odex/exp-project/odex25-sahli/odex25_helpdesk,
-                /home/odex/exp-project/odex25-sahli/odex25_hr,
-                /home/odex/exp-project/odex25-sahli/odex25_maintenance,
-                /home/odex/exp-project/odex25-sahli/odex25_project,
-                /home/odex/exp-project/odex25-sahli/odex25_purchase,
-                /home/odex/exp-project/odex25-sahli/odex25_realstate,
-                /home/odex/exp-project/odex25-sahli/odex25_sales,
-                /home/odex/exp-project/odex25-sahli/odex25_transactions,
-                /home/odex/exp-project/odex25-sahli/odex25_website,
+                /ho
 
