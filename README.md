@@ -11,8 +11,9 @@ $\textcolor{red}{The\ new\ domains\ is\ not\ working\ temporarily\}$
       - master server         --> auth-sys.exp-sa.com      -OR-  auth-sys.exp-sa.com/web/database/selector
 
 $\textcolor{red}{The\ domains\ that\ is\ currently\ working\:}$
-  - development server    --> authority-dev.exp-sa.com/web/database/selector
-  - preprod server        --> authority.exp-sa.com/web/database/selector
+
+        - development server    --> authority-dev.exp-sa.com/web/database/selector
+        - preprod server        --> authority.exp-sa.com/web/database/selector
 ---
 ## > Our stated policy for organizing development operations on all projects under development:
 
