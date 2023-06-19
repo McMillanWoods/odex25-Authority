@@ -1,14 +1,14 @@
 # odex25-Authority
   - created 15-6-2023
 
-## > This is the details of the servers and databases [$${\color{The new domains is not working temporarily}Red}$$]
+## > This is the details of the servers and databases <p style='color:red'> [ *The new domains is not working temporarily*]</p>
     - development server    --> auth-dev.exp-sa.com      -OR-  auth-dev.exp-sa.com/web/database/selector
     - preprod server        --> auth-stg.exp-sa.com      -OR-  auth-stg.exp-sa.com/web/database/selector
     - master server         --> auth-sys.exp-sa.com      -OR-  auth-sys.exp-sa.com/web/database/selector
 
-[$${\color{The domains that is currently working}Red}$$] :
-        * development server    --> $${\color{authority-dev.exp-sa.com/web/database/selector}Light \space Green}$$
-        * preprod server        --> $${\color{authority.exp-sa.com/web/database/selector}Light \space Green}$$
+<p style='color:red'> *The domains that is currently working*  :</p>
+    - development server    --> <p style='color:green'> *authority-dev.exp-sa.com/web/database/selector* </p>
+    - preprod server        --> <p style='color:green'> *authority.exp-sa.com/web/database/selector* </p>
 ---
 ## > Our stated policy for organizing development operations on all projects under development:
 
