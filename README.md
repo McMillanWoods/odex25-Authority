@@ -1,21 +1,18 @@
 # odex25-Authority
-  - created 15-6-2023
-```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
+#### $\textcolor{green}{created 15-6-2023}$
 
-## > This is the details of the servers and databases <p style='color:red'> [🛑 ```diff - *The new domains is not working temporarily* ```]</p>
-    - development server    --> auth-dev.exp-sa.com      -OR-  auth-dev.exp-sa.com/web/database/selector
-    - preprod server        --> auth-stg.exp-sa.com      -OR-  auth-stg.exp-sa.com/web/database/selector
-    - master server         --> auth-sys.exp-sa.com      -OR-  auth-sys.exp-sa.com/web/database/selector
+## > This is the details of the servers and databases 
+> __Warning__
 
-*The domains that is currently working*
-    - development server    --> <p style='color:green'> *authority-dev.exp-sa.com/web/database/selector* </p>
-    - preprod server        --> <p style='color:green'> *authority.exp-sa.com/web/database/selector* </p>
+$\textcolor{red}{The\ new\ domains\ is\ not\ working\ temporarily\}$
+
+      - development server    --> auth-dev.exp-sa.com      -OR-  auth-dev.exp-sa.com/web/database/selector
+      - preprod server        --> auth-stg.exp-sa.com      -OR-  auth-stg.exp-sa.com/web/database/selector
+      - master server         --> auth-sys.exp-sa.com      -OR-  auth-sys.exp-sa.com/web/database/selector
+
+$\textcolor{red}{The\ domains\ that\ is\ currently\ working\:}$
+  - development server    --> authority-dev.exp-sa.com/web/database/selector
+  - preprod server        --> authority.exp-sa.com/web/database/selector
 ---
 ## > Our stated policy for organizing development operations on all projects under development:
 
