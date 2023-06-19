@@ -1,5 +1,10 @@
 # odex25-Authority
   - created 15-6-2023
+<style>
+H1{color:Blue !important;}
+H2{color:DarkOrange !important;}
+p{color:Black !important;}
+</style>
 
 ## > This is the details of the servers and databases <p style='color:red'> [ *The new domains is not working temporarily*]</p>
     - development server    --> auth-dev.exp-sa.com      -OR-  auth-dev.exp-sa.com/web/database/selector
