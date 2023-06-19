@@ -1,5 +1,5 @@
 # odex25-Authority
-#### $\textcolor{green}{created 15-6-2023}$
+#### $\textcolor{green}{created\ 15-6-2023}$
 
 ## > This is the details of the servers and databases 
 > __Warning__
