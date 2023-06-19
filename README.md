@@ -8,7 +8,7 @@
 @@ text in purple (and bold)@@
 ```
 
-## > This is the details of the servers and databases <p style='color:red'> [🛑 *The new domains is not working temporarily*]</p>
+## > This is the details of the servers and databases <p style='color:red'> [🛑 ```diff -*The new domains is not working temporarily* ```]</p>
     - development server    --> auth-dev.exp-sa.com      -OR-  auth-dev.exp-sa.com/web/database/selector
     - preprod server        --> auth-stg.exp-sa.com      -OR-  auth-stg.exp-sa.com/web/database/selector
     - master server         --> auth-sys.exp-sa.com      -OR-  auth-sys.exp-sa.com/web/database/selector
