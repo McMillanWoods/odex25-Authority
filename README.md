@@ -5,7 +5,8 @@
     - development server    --> auth-dev.exp-sa.com      -OR-  auth-dev.exp-sa.com/web/database/selector
     - preprod server        --> auth-stg.exp-sa.com      -OR-  auth-stg.exp-sa.com/web/database/selector
     - master server         --> auth-sys.exp-sa.com      -OR-  auth-sys.exp-sa.com/web/database/selector
-  [$${\color{The domains that is currently working}Red}$$] :
+
+[$${\color{The domains that is currently working}Red}$$] :
         * development server    --> $${\color{authority-dev.exp-sa.com/web/database/selector}Light \space Green}$$
         * preprod server        --> $${\color{authority.exp-sa.com/web/database/selector}Light \space Green}$$
 ---
