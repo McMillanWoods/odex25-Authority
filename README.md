@@ -1,17 +1,19 @@
 # odex25-Authority
   - created 15-6-2023
-<style>
-H1{color:Blue !important;}
-H2{color:DarkOrange !important;}
-p{color:Black !important;}
-</style>
+```diff
+- text in red
++ text in green
+! text in orange
+# text in gray
+@@ text in purple (and bold)@@
+```
 
-## > This is the details of the servers and databases <p style='color:red'> [ *The new domains is not working temporarily*]</p>
+## > This is the details of the servers and databases <p style='color:red'> [🛑 *The new domains is not working temporarily*]</p>
     - development server    --> auth-dev.exp-sa.com      -OR-  auth-dev.exp-sa.com/web/database/selector
     - preprod server        --> auth-stg.exp-sa.com      -OR-  auth-stg.exp-sa.com/web/database/selector
     - master server         --> auth-sys.exp-sa.com      -OR-  auth-sys.exp-sa.com/web/database/selector
 
-<p style='color:red'> *The domains that is currently working*  :</p>
+*The domains that is currently working*
     - development server    --> <p style='color:green'> *authority-dev.exp-sa.com/web/database/selector* </p>
     - preprod server        --> <p style='color:green'> *authority.exp-sa.com/web/database/selector* </p>
 ---
