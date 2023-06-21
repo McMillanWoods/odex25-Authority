@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<template id="assets_backend" name="Odoo 14 Custom Theme" inherit_id="web.assets_backend">
+		<xpath expr="." position="inside">
+			<!--style-->
+			<link rel="stylesheet" type="text/css" href="/Taqeem_Theme/static/src/css/backend_dashboard.css"/>
+			<link rel="stylesheet" type="text/css" href="/Taqeem_Theme/static/src/css/custom_rtl.css"/>
+		</xpath>
+	</template>
+
+	<template id="assets_frontend_css" inherit_id="web.assets_frontend">
+        <xpath expr="." position="inside">
+			<!--Montserrat-->
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" />
+                <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+			<!--style-->
+			<link rel="stylesheet" type="text/css" href="/Taqeem_Theme/static/src/css/login.css"/>
+			<!--script-->
+			<script src="/Taqeem_Theme/static/js/login_page.js"></script>
+		</xpath>
+	</template>
+
+	<!-- <template id="MYSITE_layout" inherit_id="web.layout" name="MYSITE layout" priority="17">
+		<xpath expr="//head//link" position="replace">
+			<link rel="shortcut icon" href="/Taqeem_Theme/static/img/favicon.ico" type="image/x-icon"/>
+		</xpath>
+	</template> -->
+
+	<!-- <template id="custom_layout" inherit_id="website.layout">
+		<xpath expr="//div[hasclass('o_footer_copyright')]" position="replace">
+			<div t-if="not no_copyright" class="o_footer_copyright">
+				<div class="container py-3">
+					<div class="row">
+						<div class="col-sm text-center text-sm-left text-muted">
+							<t t-call="web.debug_icon"/>
+							<span class="o_footer_copyright_name mr-2">Copyright &amp;copy; Company name</span>
+						</div>
+						<div class="col-sm text-center text-sm-right">
+						</div>
+					</div>
+				</div>
+			</div>
+		</xpath>
+	</template> -->
+	
+</odoo>
