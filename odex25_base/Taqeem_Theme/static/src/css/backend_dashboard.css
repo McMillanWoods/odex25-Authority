@@ -1,0 +1,1606 @@
+body.o_home_menu_background {
+  background-image: url(../../img/taqeem-2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media screen and (max-width: 319px) {
+  .o_web_client header .o_main_navbar {
+    background-color: #02918d;
+    /*Menu Toggle*/
+    /*Selection Apps*/
+    /*Nav Left ul*/
+    /*Nav Right ul*/
+  }
+  .o_web_client header .o_main_navbar a.o_menu_toggle {
+    background-color: black;
+  }
+  .o_web_client header .o_main_navbar a.o_menu_brand {
+    color: white;
+  }
+  .o_web_client header .o_main_navbar a.o_menu_brand:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li a {
+    color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li a:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show a {
+    color: white;
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu {
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu a {
+    color: #02918d;
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu a:hover {
+    color: white;
+    background-color: #02918d;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_MessagingMenu a.o_MessagingMenu_toggler:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_MessagingMenu a.o_MessagingMenu_toggler span {
+    background-color: black;
+    border-color: black;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item a.o-no-caret:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item a.o-no-caret span {
+    background-color: black;
+    border-color: black;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item.show a.o-no-caret {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret {
+    color: black !important;
+    font-weight: 600 !important;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret span {
+    background-color: transparent;
+    border-color: transparent;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show a.o-no-caret {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu {
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu a {
+    color: #02918d;
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu a:hover {
+    color: white;
+    background-color: #02918d;
+  }
+  .o_web_client .o_home_menu {
+    /*search section*/
+    /*apps section*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable {
+    /*apps container*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps {
+    /*app*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps .o_app:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps .o_app .o_caption {
+    font-size: 12px !important;
+    font-weight: 300 !important;
+    color: white !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_control_panel .o_cp_top .o_cp_top_right .o_cp_searchview .o_searchview .o_searchview_input_container .o_searchview_facet .o_searchview_facet_label {
+    background-color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content {
+    /*Apps Module*/
+    /*accounting module-invoice*/
+    /*Setting Module*/
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section header.o_search_panel_section_header i {
+    color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header span {
+    color: black !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active {
+    background-color: #09504e;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active label {
+    color: white;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active span {
+    color: white !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action a.btn-secondary {
+    color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action button.btn-primary {
+    color: white;
+    background-color: #02918d;
+    border-color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action a.btn-info {
+    color: white;
+    background-color: #09504e;
+    border-color: #09504e;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view {
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view .o_form_sheet_bg {
+    overflow: unset !important;
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_control_panel {
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_setting_container {
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_setting_container .settings .app_settings_block h2 {
+    background-color: #02918d !important;
+    color: white !important;
+    font-weight: 500 !important;
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 420px) {
+  .o_web_client header .o_main_navbar {
+    background-color: #02918d;
+    /*Menu Toggle*/
+    /*Selection Apps*/
+    /*Nav Left ul*/
+    /*Nav Right ul*/
+  }
+  .o_web_client header .o_main_navbar a.o_menu_toggle {
+    background-color: black;
+  }
+  .o_web_client header .o_main_navbar a.o_menu_brand {
+    color: white;
+  }
+  .o_web_client header .o_main_navbar a.o_menu_brand:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li a {
+    color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li a:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show a {
+    color: white;
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu {
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu a {
+    color: #02918d;
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu a:hover {
+    color: white;
+    background-color: #02918d;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_MessagingMenu a.o_MessagingMenu_toggler:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_MessagingMenu a.o_MessagingMenu_toggler span {
+    background-color: black;
+    border-color: black;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item a.o-no-caret:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item a.o-no-caret span {
+    background-color: black;
+    border-color: black;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item.show a.o-no-caret {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret {
+    color: black !important;
+    font-weight: 600 !important;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret span {
+    background-color: transparent;
+    border-color: transparent;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show a.o-no-caret {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu {
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu a {
+    color: #02918d;
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu a:hover {
+    color: white;
+    background-color: #02918d;
+  }
+  .o_web_client .o_home_menu {
+    /*search section*/
+    /*apps section*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable {
+    /*apps container*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps {
+    /*app*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps .o_app:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps .o_app .o_caption {
+    font-size: 14px !important;
+    font-weight: 300 !important;
+    color: white !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_control_panel .o_cp_top .o_cp_top_right .o_cp_searchview .o_searchview .o_searchview_input_container .o_searchview_facet .o_searchview_facet_label {
+    background-color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content {
+    /*Apps Module*/
+    /*accounting module-invoice*/
+    /*Setting Module*/
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section header.o_search_panel_section_header i {
+    color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header span {
+    color: black !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active {
+    background-color: #09504e;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active label {
+    color: white;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active span {
+    color: white !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action a.btn-secondary {
+    color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action button.btn-primary {
+    color: white;
+    background-color: #02918d;
+    border-color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action a.btn-info {
+    color: white;
+    background-color: #09504e;
+    border-color: #09504e;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view {
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view .o_form_sheet_bg {
+    overflow: unset !important;
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_control_panel {
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_setting_container {
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_setting_container .settings .app_settings_block h2 {
+    background-color: #02918d !important;
+    color: white !important;
+    font-weight: 500 !important;
+  }
+}
+@media screen and (min-width: 421px) and (max-width: 767px) {
+  .o_web_client header .o_main_navbar {
+    background-color: #02918d;
+    /*Menu Toggle*/
+    /*Selection Apps*/
+    /*Nav Left ul*/
+    /*Nav Right ul*/
+  }
+  .o_web_client header .o_main_navbar a.o_menu_toggle {
+    background-color: black;
+  }
+  .o_web_client header .o_main_navbar a.o_menu_brand {
+    color: white;
+  }
+  .o_web_client header .o_main_navbar a.o_menu_brand:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li a {
+    color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li a:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show a {
+    color: white;
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu {
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu a {
+    color: #02918d;
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu a:hover {
+    color: white;
+    background-color: #02918d;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_MessagingMenu a.o_MessagingMenu_toggler:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_MessagingMenu a.o_MessagingMenu_toggler span {
+    background-color: black;
+    border-color: black;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item a.o-no-caret:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item a.o-no-caret span {
+    background-color: black;
+    border-color: black;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item.show a.o-no-caret {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret {
+    color: black !important;
+    font-weight: 600 !important;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret span {
+    background-color: transparent;
+    border-color: transparent;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show a.o-no-caret {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu {
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu a {
+    color: #02918d;
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu a:hover {
+    color: white;
+    background-color: #02918d;
+  }
+  .o_web_client .o_home_menu {
+    /*search section*/
+    /*apps section*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable {
+    /*apps container*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps {
+    /*app*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps .o_app:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps .o_app .o_caption {
+    font-size: 14px !important;
+    font-weight: 300 !important;
+    color: white !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_control_panel .o_cp_top .o_cp_top_right .o_cp_searchview .o_searchview .o_searchview_input_container .o_searchview_facet .o_searchview_facet_label {
+    background-color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content {
+    /*Apps Module*/
+    /*accounting module-invoice*/
+    /*Setting Module*/
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section header.o_search_panel_section_header i {
+    color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header span {
+    color: black !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active {
+    background-color: #09504e;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active label {
+    color: white;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active span {
+    color: white !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action a.btn-secondary {
+    color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action button.btn-primary {
+    color: white;
+    background-color: #02918d;
+    border-color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action a.btn-info {
+    color: white;
+    background-color: #09504e;
+    border-color: #09504e;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view {
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view .o_form_sheet_bg {
+    overflow: unset !important;
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_control_panel {
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_setting_container {
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_setting_container .settings .app_settings_block h2 {
+    background-color: #02918d !important;
+    color: white !important;
+    font-weight: 500 !important;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .o_web_client header .o_main_navbar {
+    background-color: #02918d;
+    /*Menu Toggle*/
+    /*Selection Apps*/
+    /*Nav Left ul*/
+    /*Nav Right ul*/
+  }
+  .o_web_client header .o_main_navbar a.o_menu_toggle {
+    background-color: black;
+  }
+  .o_web_client header .o_main_navbar a.o_menu_brand {
+    color: white;
+  }
+  .o_web_client header .o_main_navbar a.o_menu_brand:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li a {
+    color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li a:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show a {
+    color: white;
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu {
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu a {
+    color: #02918d;
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu a:hover {
+    color: white;
+    background-color: #02918d;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_MessagingMenu a.o_MessagingMenu_toggler:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_MessagingMenu a.o_MessagingMenu_toggler span {
+    background-color: black;
+    border-color: black;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item a.o-no-caret:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item a.o-no-caret span {
+    background-color: black;
+    border-color: black;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item.show a.o-no-caret {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret {
+    color: black !important;
+    font-weight: 600 !important;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret span {
+    background-color: transparent;
+    border-color: transparent;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show a.o-no-caret {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu {
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu a {
+    color: #02918d;
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu a:hover {
+    color: white;
+    background-color: #02918d;
+  }
+  .o_web_client .o_home_menu {
+    /*search section*/
+    /*apps section*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable {
+    /*apps container*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps {
+    /*app*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps .o_app:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps .o_app .o_caption {
+    font-size: 16px !important;
+    font-weight: 300 !important;
+    color: white !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_control_panel .o_cp_top .o_cp_top_right .o_cp_searchview .o_searchview .o_searchview_input_container .o_searchview_facet .o_searchview_facet_label {
+    background-color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content {
+    /*Apps Module*/
+    /*accounting module-invoice*/
+    /*Setting Module*/
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section header.o_search_panel_section_header i {
+    color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header span {
+    color: black !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active {
+    background-color: #09504e;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active label {
+    color: white;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active span {
+    color: white !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action a.btn-secondary {
+    color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action button.btn-primary {
+    color: white;
+    background-color: #02918d;
+    border-color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action a.btn-info {
+    color: white;
+    background-color: #09504e;
+    border-color: #09504e;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view {
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view .o_form_sheet_bg {
+    overflow: unset !important;
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_control_panel {
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_setting_container {
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_setting_container .settings .app_settings_block h2 {
+    background-color: #02918d !important;
+    color: white !important;
+    font-weight: 500 !important;
+  }
+}
+@media screen and (min-width: 896px) and (max-width: 1024px) and (min-device-height: 1250px) {
+  .o_web_client .o_action_manager .o_action.o_view_controller .o_content {
+    /*accounting module-invoice*/
+    /*Setting Module*/
+  }
+  .o_web_client .o_action_manager .o_action.o_view_controller .o_content .o_form_view.o_xxl_form_view {
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .o_web_client .o_action_manager .o_action.o_view_controller .o_content .o_form_view.o_xxl_form_view .o_form_sheet_bg {
+    overflow: unset !important;
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action.o_view_controller .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_control_panel {
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action.o_view_controller .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_setting_container {
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action.o_view_controller .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_setting_container .settings .app_settings_block h2 {
+    background-color: #02918d !important;
+    color: white !important;
+    font-weight: 500 !important;
+  }
+}
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+  .o_web_client header .o_main_navbar {
+    background-color: #02918d;
+    /*Menu Toggle*/
+    /*Selection Apps*/
+    /*Nav Left ul*/
+    /*Nav Right ul*/
+  }
+  .o_web_client header .o_main_navbar a.o_menu_toggle {
+    background-color: black;
+  }
+  .o_web_client header .o_main_navbar a.o_menu_brand {
+    color: white;
+  }
+  .o_web_client header .o_main_navbar a.o_menu_brand:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li a {
+    color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li a:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show a {
+    color: white;
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu {
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu a {
+    color: #02918d;
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu a:hover {
+    color: white;
+    background-color: #02918d;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_MessagingMenu a.o_MessagingMenu_toggler:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_MessagingMenu a.o_MessagingMenu_toggler span {
+    background-color: black;
+    border-color: black;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item a.o-no-caret:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item a.o-no-caret span {
+    background-color: black;
+    border-color: black;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item.show a.o-no-caret {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret {
+    color: black !important;
+    font-weight: 600 !important;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret span {
+    background-color: transparent;
+    border-color: transparent;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show a.o-no-caret {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu {
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu a {
+    color: #02918d;
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu a:hover {
+    color: white;
+    background-color: #02918d;
+  }
+  .o_web_client .o_home_menu {
+    /*search section*/
+    /*apps section*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable {
+    /*apps container*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps {
+    /*app*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps .o_app:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps .o_app .o_caption {
+    font-size: 16px !important;
+    font-weight: 300 !important;
+    color: white !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_control_panel .o_cp_top .o_cp_top_right .o_cp_searchview .o_searchview .o_searchview_input_container .o_searchview_facet .o_searchview_facet_label {
+    background-color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content {
+    /*Apps Module*/
+    /*accounting module-invoice*/
+    /*Setting Module*/
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section header.o_search_panel_section_header i {
+    color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header span {
+    color: black !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active {
+    background-color: #09504e;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active label {
+    color: white;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active span {
+    color: white !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action a.btn-secondary {
+    color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action button.btn-primary {
+    color: white;
+    background-color: #02918d;
+    border-color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action a.btn-info {
+    color: white;
+    background-color: #09504e;
+    border-color: #09504e;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view {
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view .o_form_sheet_bg {
+    overflow: unset !important;
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_control_panel {
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_setting_container {
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_setting_container .settings .app_settings_block h2 {
+    background-color: #02918d !important;
+    color: white !important;
+    font-weight: 500 !important;
+  }
+}
+@media screen and (min-width: 1201px) and (max-width: 1599px) {
+  .o_web_client header .o_main_navbar {
+    background-color: #02918d;
+    /*Menu Toggle*/
+    /*Selection Apps*/
+    /*Nav Left ul*/
+    /*Nav Right ul*/
+  }
+  .o_web_client header .o_main_navbar a.o_menu_toggle {
+    background-color: black;
+  }
+  .o_web_client header .o_main_navbar a.o_menu_brand {
+    color: white;
+  }
+  .o_web_client header .o_main_navbar a.o_menu_brand:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li a {
+    color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li a:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show a {
+    color: white;
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu {
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu a {
+    color: #02918d;
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu a:hover {
+    color: white;
+    background-color: #02918d;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_MessagingMenu a.o_MessagingMenu_toggler:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_MessagingMenu a.o_MessagingMenu_toggler span {
+    background-color: black;
+    border-color: black;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item a.o-no-caret:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item a.o-no-caret span {
+    background-color: black;
+    border-color: black;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item.show a.o-no-caret {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret {
+    color: black !important;
+    font-weight: 600 !important;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret span {
+    background-color: transparent;
+    border-color: transparent;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show a.o-no-caret {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu {
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu a {
+    color: #02918d;
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu a:hover {
+    color: white;
+    background-color: #02918d;
+  }
+  .o_web_client .o_home_menu {
+    /*search section*/
+    /*apps section*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable {
+    /*apps container*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps {
+    /*app*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps .o_app:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps .o_app .o_caption {
+    font-size: 16px !important;
+    font-weight: 300 !important;
+    color: white !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_control_panel .o_cp_top .o_cp_top_right .o_cp_searchview .o_searchview .o_searchview_input_container .o_searchview_facet .o_searchview_facet_label {
+    background-color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content {
+    /*Apps Module*/
+    /*accounting module-invoice*/
+    /*Setting Module*/
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section header.o_search_panel_section_header i {
+    color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header span {
+    color: black !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active {
+    background-color: #09504e;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active label {
+    color: white;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active span {
+    color: white !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action a.btn-secondary {
+    color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action button.btn-primary {
+    color: white;
+    background-color: #02918d;
+    border-color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action a.btn-info {
+    color: white;
+    background-color: #09504e;
+    border-color: #09504e;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view {
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view .o_form_sheet_bg {
+    overflow: unset !important;
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_control_panel {
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_setting_container {
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_setting_container .settings .app_settings_block h2 {
+    background-color: #02918d !important;
+    color: white !important;
+    font-weight: 500 !important;
+  }
+}
+@media screen and (min-width: 1600px) and (max-width: 1919px) {
+  .o_web_client header .o_main_navbar {
+    background-color: #02918d;
+    /*Menu Toggle*/
+    /*Selection Apps*/
+    /*Nav Left ul*/
+    /*Nav Right ul*/
+  }
+  .o_web_client header .o_main_navbar a.o_menu_toggle {
+    background-color: black;
+  }
+  .o_web_client header .o_main_navbar a.o_menu_brand {
+    color: white;
+  }
+  .o_web_client header .o_main_navbar a.o_menu_brand:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li a {
+    color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li a:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show a {
+    color: white;
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu {
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu a {
+    color: #02918d;
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu a:hover {
+    color: white;
+    background-color: #02918d;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_MessagingMenu a.o_MessagingMenu_toggler:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_MessagingMenu a.o_MessagingMenu_toggler span {
+    background-color: black;
+    border-color: black;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item a.o-no-caret:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item a.o-no-caret span {
+    background-color: black;
+    border-color: black;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item.show a.o-no-caret {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret {
+    color: black !important;
+    font-weight: 600 !important;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret span {
+    background-color: transparent;
+    border-color: transparent;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show a.o-no-caret {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu {
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu a {
+    color: #02918d;
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu a:hover {
+    color: white;
+    background-color: #02918d;
+  }
+  .o_web_client .o_home_menu {
+    /*search section*/
+    /*apps section*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable {
+    /*apps container*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps {
+    /*app*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps .o_app:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps .o_app .o_caption {
+    font-size: 16px !important;
+    font-weight: 300 !important;
+    color: white !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_control_panel .o_cp_top .o_cp_top_right .o_cp_searchview .o_searchview .o_searchview_input_container .o_searchview_facet .o_searchview_facet_label {
+    background-color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content {
+    /*Apps Module*/
+    /*accounting module-invoice*/
+    /*Setting Module*/
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section header.o_search_panel_section_header i {
+    color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header span {
+    color: black !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active {
+    background-color: #09504e;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active label {
+    color: white;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active span {
+    color: white !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action a.btn-secondary {
+    color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action button.btn-primary {
+    color: white;
+    background-color: #02918d;
+    border-color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action a.btn-info {
+    color: white;
+    background-color: #09504e;
+    border-color: #09504e;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view {
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view .o_form_sheet_bg {
+    overflow: unset !important;
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_control_panel {
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_setting_container {
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_setting_container .settings .app_settings_block h2 {
+    background-color: #02918d !important;
+    color: white !important;
+    font-weight: 500 !important;
+  }
+}
+@media screen and (min-width: 1920px) and (max-width: 2559px) {
+  .o_web_client header .o_main_navbar {
+    background-color: #02918d;
+    /*Menu Toggle*/
+    /*Selection Apps*/
+    /*Nav Left ul*/
+    /*Nav Right ul*/
+  }
+  .o_web_client header .o_main_navbar a.o_menu_toggle {
+    background-color: black;
+  }
+  .o_web_client header .o_main_navbar a.o_menu_brand {
+    color: white;
+  }
+  .o_web_client header .o_main_navbar a.o_menu_brand:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li a {
+    color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li a:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show a {
+    color: white;
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu {
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu a {
+    color: #02918d;
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu a:hover {
+    color: white;
+    background-color: #02918d;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_MessagingMenu a.o_MessagingMenu_toggler:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_MessagingMenu a.o_MessagingMenu_toggler span {
+    background-color: black;
+    border-color: black;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item a.o-no-caret:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item a.o-no-caret span {
+    background-color: black;
+    border-color: black;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item.show a.o-no-caret {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret {
+    color: black !important;
+    font-weight: 600 !important;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret span {
+    background-color: transparent;
+    border-color: transparent;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show a.o-no-caret {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu {
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu a {
+    color: #02918d;
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu a:hover {
+    color: white;
+    background-color: #02918d;
+  }
+  .o_web_client .o_home_menu {
+    /*search section*/
+    /*apps section*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable {
+    /*apps container*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps {
+    /*app*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps .o_app:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps .o_app .o_caption {
+    font-size: 16px !important;
+    font-weight: 300 !important;
+    color: white !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_control_panel .o_cp_top .o_cp_top_right .o_cp_searchview .o_searchview .o_searchview_input_container .o_searchview_facet .o_searchview_facet_label {
+    background-color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content {
+    /*Apps Module*/
+    /*accounting module-invoice*/
+    /*Setting Module*/
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section header.o_search_panel_section_header i {
+    color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header span {
+    color: black !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active {
+    background-color: #09504e;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active label {
+    color: white;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active span {
+    color: white !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action a.btn-secondary {
+    color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action button.btn-primary {
+    color: white;
+    background-color: #02918d;
+    border-color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action a.btn-info {
+    color: white;
+    background-color: #09504e;
+    border-color: #09504e;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view {
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view .o_form_sheet_bg {
+    overflow: unset !important;
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_control_panel {
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_setting_container {
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_setting_container .settings .app_settings_block h2 {
+    background-color: #02918d !important;
+    color: white !important;
+    font-weight: 500 !important;
+  }
+}
+@media screen and (min-width: 2560px) and (max-width: 3839px) {
+  .o_web_client header .o_main_navbar {
+    background-color: #02918d;
+    /*Menu Toggle*/
+    /*Selection Apps*/
+    /*Nav Left ul*/
+    /*Nav Right ul*/
+  }
+  .o_web_client header .o_main_navbar a.o_menu_toggle {
+    background-color: black;
+  }
+  .o_web_client header .o_main_navbar a.o_menu_brand {
+    color: white;
+  }
+  .o_web_client header .o_main_navbar a.o_menu_brand:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li a {
+    color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li a:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show a {
+    color: white;
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu {
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu a {
+    color: #02918d;
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu a:hover {
+    color: white;
+    background-color: #02918d;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_MessagingMenu a.o_MessagingMenu_toggler:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_MessagingMenu a.o_MessagingMenu_toggler span {
+    background-color: black;
+    border-color: black;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item a.o-no-caret:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item a.o-no-caret span {
+    background-color: black;
+    border-color: black;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item.show a.o-no-caret {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret {
+    color: black !important;
+    font-weight: 600 !important;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret span {
+    background-color: transparent;
+    border-color: transparent;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show a.o-no-caret {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu {
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu a {
+    color: #02918d;
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu a:hover {
+    color: white;
+    background-color: #02918d;
+  }
+  .o_web_client .o_home_menu {
+    /*search section*/
+    /*apps section*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable {
+    /*apps container*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps {
+    /*app*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps .o_app:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps .o_app .o_caption {
+    font-size: 20px !important;
+    font-weight: 300 !important;
+    color: white !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_control_panel .o_cp_top .o_cp_top_right .o_cp_searchview .o_searchview .o_searchview_input_container .o_searchview_facet .o_searchview_facet_label {
+    background-color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content {
+    /*Apps Module*/
+    /*accounting module-invoice*/
+    /*Setting Module*/
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section header.o_search_panel_section_header i {
+    color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header span {
+    color: black !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active {
+    background-color: #09504e;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active label {
+    color: white;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active span {
+    color: white !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action a.btn-secondary {
+    color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action button.btn-primary {
+    color: white;
+    background-color: #02918d;
+    border-color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action a.btn-info {
+    color: white;
+    background-color: #09504e;
+    border-color: #09504e;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view {
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view .o_form_sheet_bg {
+    overflow: unset !important;
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_control_panel {
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_setting_container {
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_setting_container .settings .app_settings_block h2 {
+    background-color: #02918d !important;
+    color: white !important;
+    font-weight: 500 !important;
+  }
+}
+@media screen and (min-width: 3840px) {
+  .o_web_client header .o_main_navbar {
+    background-color: #02918d;
+    /*Menu Toggle*/
+    /*Selection Apps*/
+    /*Nav Left ul*/
+    /*Nav Right ul*/
+  }
+  .o_web_client header .o_main_navbar a.o_menu_toggle {
+    background-color: black;
+  }
+  .o_web_client header .o_main_navbar a.o_menu_brand {
+    color: white;
+  }
+  .o_web_client header .o_main_navbar a.o_menu_brand:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li a {
+    color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li a:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show a {
+    color: white;
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu {
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu a {
+    color: #02918d;
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_sections li.show div.dropdown-menu a:hover {
+    color: white;
+    background-color: #02918d;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_MessagingMenu a.o_MessagingMenu_toggler:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_MessagingMenu a.o_MessagingMenu_toggler span {
+    background-color: black;
+    border-color: black;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item a.o-no-caret:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item a.o-no-caret span {
+    background-color: black;
+    border-color: black;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_mail_systray_item.show a.o-no-caret {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret {
+    color: black !important;
+    font-weight: 600 !important;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret:hover {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu a.o-no-caret span {
+    background-color: transparent;
+    border-color: transparent;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show a.o-no-caret {
+    background-color: #09504e;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu {
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu a {
+    color: #02918d;
+    background-color: white;
+  }
+  .o_web_client header .o_main_navbar ul.o_menu_systray li.o_user_menu.show div.dropdown-menu a:hover {
+    color: white;
+    background-color: #02918d;
+  }
+  .o_web_client .o_home_menu {
+    /*search section*/
+    /*apps section*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable {
+    /*apps container*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps {
+    /*app*/
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps .o_app:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+  }
+  .o_web_client .o_home_menu .o_home_menu_scrollable .o_apps .o_app .o_caption {
+    font-size: 30px !important;
+    font-weight: 300 !important;
+    color: white !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_control_panel .o_cp_top .o_cp_top_right .o_cp_searchview .o_searchview .o_searchview_input_container .o_searchview_facet .o_searchview_facet_label {
+    background-color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content {
+    /*Apps Module*/
+    /*accounting module-invoice*/
+    /*Setting Module*/
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section header.o_search_panel_section_header i {
+    color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header span {
+    color: black !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active {
+    background-color: #09504e;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active label {
+    color: white;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_search_panel .o_search_panel_section ul.o_search_panel_field li header.active span {
+    color: white !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action a.btn-secondary {
+    color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action button.btn-primary {
+    color: white;
+    background-color: #02918d;
+    border-color: #02918d;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_kanban_view .oe_module_vignette .oe_module_desc .oe_module_action a.btn-info {
+    color: white;
+    background-color: #09504e;
+    border-color: #09504e;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view {
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view .o_form_sheet_bg {
+    overflow: unset !important;
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_control_panel {
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_setting_container {
+    width: 100% !important;
+  }
+  .o_web_client .o_action_manager .o_action .o_content .o_form_view.o_xxl_form_view.oe_form_configuration.o_base_settings.o_form_nosheet.o_form_editable .o_setting_container .settings .app_settings_block h2 {
+    background-color: #02918d !important;
+    color: white !important;
+    font-weight: 500 !important;
+  }
+}
+.btn-primary {
+  color: white;
+  background-color: #02918d;
+  border-color: #02918d;
+}
+.btn-primary:hover {
+  background-color: #02918d;
+}
+
+.btn-secondary {
+  color: #02918d;
+}/*# sourceMappingURL=backend_dashboard.css.map */
