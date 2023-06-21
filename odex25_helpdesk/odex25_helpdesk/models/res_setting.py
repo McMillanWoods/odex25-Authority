@@ -8,11 +8,6 @@ class odex25_helpdeskSLA(models.Model):
     service_id = fields.Many2one('helpdesk.service')
 
 
-class HrEmployee(models.Model):
-    _inherit = 'hr.employee'
-
-    phone_ext = fields.Char(string="Extension Phone")
-
 
 class ServiceCategory(models.Model):
     _name = 'service.category'

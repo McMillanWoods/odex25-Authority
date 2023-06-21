@@ -112,7 +112,6 @@
                             <field name="work_email"/>
                             <field name="work_location"/>
                             <field name="department_id" options='{"no_open": True, "no_create": True}'/>
-                            <field name="transform_no"/>
                             <field name="on_behalf" groups="odex25_helpdesk.group_odex25_helpdesk_on_behalf" attrs="{'readonly':[('is_submitted','=',True)]}"/>
                         </group>
                     </group>

@@ -17,7 +17,6 @@
         'resource',
         'portal',
         'digest',
-        'zfp_hr_custom'
     ],
     'description': """
 Odex25 helpdesk - Ticket Management App

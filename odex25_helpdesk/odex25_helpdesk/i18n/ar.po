@@ -3443,11 +3443,6 @@ msgid "Project Number"
 msgstr "رقم المشروع"
 
 #. module: odex25_helpdesk
-#: model:ir.model.fields,field_description:odex25_helpdesk.field_hr_employee__phone_ext
-msgid "Extension Phone"
-msgstr "رقم التحويلة"
-
-#. module: odex25_helpdesk
 #: model:ir.model.fields,field_description:odex25_helpdesk.field_odex25_helpdesk_ticket__on_behalf
 msgid "On behalf of"
 msgstr "نيابة عن"
