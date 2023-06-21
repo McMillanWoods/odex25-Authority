@@ -15,16 +15,18 @@
             </p>
         </field>
     </record>
-
     <menuitem id="odex25_helpdesk_ticket_action_main_my_tree"
               action="helpdesk_manager_ticket_action_main_tree"
               sequence="10" parent="odex25_helpdesk.menu_odex25_helpdesk_root"/>
+     main actions
     <record id="odex25_helpdesk.odex25_helpdesk_ticket_action_main_my" model="ir.actions.act_window">
         <field name="domain">[('user_id','=',uid)]</field>
     </record>
     <record id="odex25_helpdesk.odex25_helpdesk_ticket_action_main_tree" model="ir.actions.act_window">
         <field name="domain">[('user_id','=',uid)]</field>
     </record>
+
+
 
 
     <!-- my ticket average hours action -->
@@ -39,6 +41,7 @@
     <record id="odex25_helpdesk.odex25_helpdesk_ticket_action_sla" model="ir.actions.act_window">
         <field name="domain">[('user_id','=',uid),('priority', '!=', False)]</field>
     </record>
+
 
 
     <!-- My performance actions -->
@@ -154,21 +157,19 @@
               sequence="5" parent="menu_helpdesk_normal_user_root"
               groups="group_helpdesk_normal_user"/>
 
-    <menuitem id="ticket_report_menu_main" name="Reporting" sequence="15" parent="menu_helpdesk_normal_user_root"
-              groups="group_helpdesk_normal_user_manager"/>
+    <menuitem id="ticket_report_menu_main" name="Reporting" sequence="15" parent="menu_helpdesk_normal_user_root" groups="group_helpdesk_normal_user_manager"/>
 
-    <menuitem id="helpdesk_ticket_report_menu" name="Tickets"
-              action="odex25_helpdesk.odex25_helpdesk_ticket_analysis_action"
+    <menuitem id="helpdesk_ticket_report_menu" name="Tickets" action="odex25_helpdesk.odex25_helpdesk_ticket_analysis_action"
               sequence="10" parent="ticket_report_menu_main" groups="group_helpdesk_normal_user_manager"/>
 
-    <menuitem id="menu_sla_analysis" name="SLA Status Analysis"
-              action="odex25_helpdesk.odex25_helpdesk_sla_report_analysis_action"
-              sequence="12" parent="ticket_report_menu_main" groups="group_helpdesk_normal_user_manager"/>
+    <menuitem id="menu_sla_analysis" name="SLA Status Analysis" action="odex25_helpdesk.odex25_helpdesk_sla_report_analysis_action"
+         sequence="12" parent="ticket_report_menu_main" groups="group_helpdesk_normal_user_manager"/>
 
 
-    <!--     <record model='ir.ui.menu' id='odex25_helpdesk.odex25_helpdesk_ticket_report_menu_main'>-->
-    <!--        <field name="groups_id" eval="[(4,ref('odex25_helpdesk_security.group_helpdesk_normal_user_manager'))]"/>-->
-    <!--    </record>-->
+
+<!--     <record model='ir.ui.menu' id='odex25_helpdesk.odex25_helpdesk_ticket_report_menu_main'>-->
+<!--        <field name="groups_id" eval="[(4,ref('odex25_helpdesk_security.group_helpdesk_normal_user_manager'))]"/>-->
+<!--    </record>-->
 
 
     <!-- action for halpdask team ticket in kanban user -->
@@ -186,58 +187,58 @@
         </field>
     </record>
 
-    <!--    <record id="helpdesk_team_normal_user_view_kanban" model="ir.ui.view">-->
-    <!--        <field name="name">helpdesk.team.dashboard</field>-->
-    <!--        <field name="model">odex25_helpdesk.team</field>-->
-    <!--        <field name="inherit_id" ref="odex25_helpdesk.odex25_helpdesk_team_view_kanban"/>-->
-    <!--        <field name="arch" type="xml">-->
-    <!--            <xpath expr='//kanban/templates/t/div/div[2]/div/div/button[1]' position="attributes">-->
-    <!--                <attribute name="groups">odex25_helpdesk_security.group_helpdesk_normal_manager</attribute>-->
-    <!--            </xpath>-->
-    <!--            <xpath expr='//kanban/templates/t/div/div[2]/div/div[2]/div[1]' position="attributes">-->
-    <!--                <attribute name="groups">odex25_helpdesk_security.group_helpdesk_normal_manager</attribute>-->
-    <!--            </xpath>-->
-    <!--            <xpath expr='//kanban/templates/t/div/div[2]/div/div[2]/div[2]' position="attributes">-->
-    <!--                <attribute name="groups">odex25_helpdesk_security.group_helpdesk_normal_manager</attribute>-->
-    <!--            </xpath>-->
-    <!--            <xpath expr='//kanban/templates/t/div/div[2]/div/div[2]/div[3]' position="attributes">-->
-    <!--                <attribute name="groups">odex25_helpdesk_security.group_helpdesk_normal_manager</attribute>-->
-    <!--            </xpath>-->
-    <!--            <xpath expr='//kanban/templates/t/div/div[2]/div/div[2]/div[4]' position="attributes">-->
-    <!--                <attribute name="groups">odex25_helpdesk_security.group_helpdesk_normal_manager</attribute>-->
-    <!--            </xpath>-->
-    <!--            <xpath expr='//kanban/templates/t/div/div[2]/div/div[2]/div[1]' position="after">-->
-    <!--                <a name="%(odex25_helpdesk_security.action_upcoming_sla_fail_all_tickets_normal_user)d"-->
-    <!--                   groups="odex25_helpdesk_security.group_helpdesk_normal_user"-->
-    <!--                   type="action" context="{'search_default_my_ticket': True, 'default_team_id': active_id}">-->
-    <!--                    <t t-esc="record.upcoming_sla_fail_tickets.raw_value"/>-->
-    <!--                    Tickets to Review-->
-    <!--                </a>-->
-    <!--            </xpath>-->
-    <!--            <xpath expr='//kanban/templates/t/div/div[2]/div/div[2]/div[2]' position="after">-->
-    <!--                <a name="%(odex25_helpdesk_security.helpdesk_ticket_action_unassigned_normal_user)d" type="action"-->
-    <!--                   groups="odex25_helpdesk_security.group_helpdesk_normal_user"-->
-    <!--                   context="{'search_default_team_id': active_id, 'default_team_id': active_id}">-->
-    <!--                    <t t-esc="record.unassigned_tickets.raw_value"/>-->
-    <!--                    Unassigned Tickets-->
-    <!--                </a>-->
-    <!--            </xpath>-->
-    <!--            <xpath expr='//kanban/templates/t/div/div[2]/div/div/button[1]' position="after">-->
-    <!--                <button class="btn btn-primary" groups="odex25_helpdesk_security.group_helpdesk_normal_user"-->
-    <!--                        name="%(helpdesk_ticket_action_team_user)d" type="action">Tickets-->
-    <!--                </button>-->
-    <!--            </xpath>-->
-    <!--            <xpath expr="//kanban/templates/t/div/div[3]/div/div[2]" position="attributes">-->
-    <!--                <attribute name="groups">-->
-    <!--                    odex25_helpdesk_security.group_helpdesk_normal_user_manager,odex25_helpdesk_security.group_helpdesk_normal_manager-->
-    <!--                </attribute>-->
-    <!--            </xpath>-->
-    <!--            <xpath expr="//kanban/templates/t/div/div[3]/div[2]" position="attributes">-->
-    <!--                <attribute name="groups">odex25_helpdesk_security.group_helpdesk_normal_manager</attribute>-->
-    <!--            </xpath>-->
-    <!--        </field>-->
-    <!--    </record>-->
-
+<!--     <record id="helpdesk_team_normal_user_view_kanban" model="ir.ui.view">
+        <field name="name">helpdesk.team.dashboard</field>
+        <field name="model">odex25_helpdesk.team</field>
+        <field name="inherit_id" ref="odex25_helpdesk.odex25_helpdesk_team_view_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr='//kanban/templates/t/div/div[2]/div/div/button[1]' position="attributes">
+                <attribute name="groups">odex25_helpdesk_security.group_helpdesk_normal_manager</attribute>
+            </xpath>
+            <xpath expr='//kanban/templates/t/div/div[2]/div/div[2]/div[1]' position="attributes">
+                <attribute name="groups">odex25_helpdesk_security.group_helpdesk_normal_manager</attribute>
+            </xpath>
+            <xpath expr='//kanban/templates/t/div/div[2]/div/div[2]/div[2]' position="attributes">
+                <attribute name="groups">odex25_helpdesk_security.group_helpdesk_normal_manager</attribute>
+            </xpath>
+            <xpath expr='//kanban/templates/t/div/div[2]/div/div[2]/div[3]' position="attributes">
+                <attribute name="groups">odex25_helpdesk_security.group_helpdesk_normal_manager</attribute>
+            </xpath>
+            <xpath expr='//kanban/templates/t/div/div[2]/div/div[2]/div[4]' position="attributes">
+                <attribute name="groups">odex25_helpdesk_security.group_helpdesk_normal_manager</attribute>
+            </xpath>
+            <xpath expr='//kanban/templates/t/div/div[2]/div/div[2]/div[1]' position="after">
+                <a name="%(odex25_helpdesk_security.action_upcoming_sla_fail_all_tickets_normal_user)d"
+                   groups="odex25_helpdesk_security.group_helpdesk_normal_user"
+                   type="action" context="{'search_default_my_ticket': True, 'default_team_id': active_id}">
+                    <t t-esc="record.upcoming_sla_fail_tickets.raw_value"/>
+                    Tickets to Review
+                </a>
+            </xpath>
+            <xpath expr='//kanban/templates/t/div/div[2]/div/div[2]/div[2]' position="after">
+                <a name="%(odex25_helpdesk_security.helpdesk_ticket_action_unassigned_normal_user)d" type="action"
+                   groups="odex25_helpdesk_security.group_helpdesk_normal_user"
+                   context="{'search_default_team_id': active_id, 'default_team_id': active_id}">
+                    <t t-esc="record.unassigned_tickets.raw_value"/>
+                    Unassigned Tickets
+                </a>
+            </xpath>
+            <xpath expr='//kanban/templates/t/div/div[2]/div/div/button[1]' position="after">
+                <button class="btn btn-primary" groups="odex25_helpdesk_security.group_helpdesk_normal_user"
+                        name="%(helpdesk_ticket_action_team_user)d" type="action">Tickets
+                </button>
+            </xpath>
+            <xpath expr="//kanban/templates/t/div/div[3]/div/div[2]" position="attributes">
+                <attribute name="groups">
+                    odex25_helpdesk_security.group_helpdesk_normal_user_manager,odex25_helpdesk_security.group_helpdesk_normal_manager
+                </attribute>
+            </xpath>
+            <xpath expr="//kanban/templates/t/div/div[3]/div[2]" position="attributes">
+                <attribute name="groups">odex25_helpdesk_security.group_helpdesk_normal_manager</attribute>
+            </xpath>
+        </field>
+    </record>
+ -->
     <record id="helpdesk_ticket_view_normal_kanban" model="ir.ui.view">
         <field name="name">helpdesk.ticket.kanban</field>
         <field name="model">odex25_helpdesk.ticket</field>
@@ -313,6 +314,9 @@
             </xpath>
         </field>
     </record>
+
+
+
 
 
     <template id="mail.message_user_assigned">

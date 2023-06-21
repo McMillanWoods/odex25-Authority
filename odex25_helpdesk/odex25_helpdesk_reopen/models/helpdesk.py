@@ -19,12 +19,20 @@ class HelpdeskStage(models.Model):
                                help="in this stage the ticket will be opened again if the customer"
                                     "replied to your close stage email"
                                )
+    is_done = fields.Boolean()
+
     reopen_time = fields.Float(string="Reopen Time", help="the time that make a ticket reopen task")
+    solve_time = fields.Datetime('Solved Time')
 
 
 class HelpdeskTicket(models.Model):
     _inherit = 'odex25_helpdesk.ticket'
 
+    @api.onchange('stage_id')
+    def _onchange_stage_id_date(self):
+        for rec in self:
+            if rec.stage_id.is_close:
+                rec.stage_id.solve_time = rec.stage_id.write_date
 
     def _message_post_after_hook(self, message, msg_vals):
         if self.partner_email and self.partner_id and not self.partner_id.email:
@@ -67,3 +75,25 @@ class HelpdeskTicket(models.Model):
                             self.stage_id = stage.id
 
         return super(HelpdeskTicket, self)._message_post_after_hook(message, msg_vals)
+
+    @api.model
+    def automatic_done_state(self):
+        today = datetime.datetime.now()
+        ticket = self.env['odex25_helpdesk.ticket'].search([])
+        stages = self.env['odex25_helpdesk.stage'].search([])
+        done_stage = self.env['odex25_helpdesk.stage'].search([('is_done', '=', True)], limit=1)
+        for rec in ticket:
+            if rec.stage_id.is_close:
+                difference = abs((today - rec.stage_id.solve_time))
+                difference = str(difference).split(':')
+                for i in stages:
+                    if i.is_reopen:
+                        hour, minute = divmod(i.reopen_time, 1)
+                        minute *= 60
+                        result = '{}:{}'.format(int(hour), int(minute))
+                        result = result.split(':')
+                        if int(difference[1]) > int(result[1]):
+                            rec.stage_id = done_stage.id
+                            break
+                        elif int(difference[2]) >= int(result[1]):
+                            rec.stage_id = done_stage.id

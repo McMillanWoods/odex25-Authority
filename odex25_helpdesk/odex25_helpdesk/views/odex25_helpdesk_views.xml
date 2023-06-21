@@ -579,12 +579,12 @@
                     <group>
                         <group>
                             <field name="active" invisible="1"/>
-                            <field name="team_id" domain="[('is_vip_team','=',False)]"/>
-                            <field name="category_id" required="1"/>
-                            <field name="service_id" domain="[('category_id','=',category_id)]" required="1"/>
+                            <field name="team_id" domain="[('is_vip_team','=',False)]" options='{"no_open": True, "no_create": True}'/>
+                            <field name="category_id" required="1" options='{"no_open": True, "no_create": True}'/>
+                            <field name="service_id" domain="[('category_id','=',category_id)]" required="1" options='{"no_open": True, "no_create": True}'/>
                             <field name="user_id" class="field_user_id"
                                    domain="['&amp;', ('id', 'in', domain_user_ids), ('share', '=', False)]"
-                                   widget="many2one_avatar_user"/>
+                                   widget="many2one_avatar_user" groups="odex25_helpdesk.group_odex25_helpdesk_assignment"/>
                             <field name="domain_user_ids" invisible="1"/>
                             <field name="ticket_type_id" invisible="1"/>
                             <field name="priority" widget="priority"/>
@@ -593,7 +593,7 @@
                             <field name="company_id" groups="base.group_multi_company"/>
                             <field name="sla_deadline" attrs="{'invisible': [('sla_deadline', '=', False)]}"
                                    groups="odex25_helpdesk.group_use_sla"/>
-<!--                            <field name="assistance_id" string="Assistance"/>-->
+                            <field name="assistance_id" string="Assistance" options='{"no_open": True, "no_create": True}'/>
                         </group>
                         <group>
                             <field name="partner_id" class="field_partner_id" invisible="1"
@@ -606,10 +606,16 @@
                             <field name="employee_id" readonly="1" string="Employee"
                                    options='{"no_open": True, "no_create": True}'/>
                             <field name="work_email"/>
-                            <field name="department_id"/>
+                            <field name="work_location"/>
+                            <field name="department_id" options='{"no_open": True, "no_create": True}'/>
+<!--                            <field name="division_id"/>-->
+<!--                             <field name="project_no"/> -->
+<!--                             <field name="transform_no"/> -->
+                            <field name="on_behalf"  options='{"no_open": True, "no_create": True}' groups="odex25_helpdesk.group_odex25_helpdesk_on_behalf"/>
                         </group>
                     </group>
-                    <field name="description" class="field_description" placeholder="Description of the ticket..."/>
+                    <field name="emp_req" invisible="1"/>
+                    <field name="description" class="field_description" attrs="{'readonly':[('emp_req','=',True)]}" placeholder="Description of the ticket..." />
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids"/>

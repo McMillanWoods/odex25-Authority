@@ -14,6 +14,7 @@
     'auto_install': True,
     'data': [
         'views/helpdesk_views.xml',
+        'data/cron_repair.xml',
     ],
     'license': '',
 }

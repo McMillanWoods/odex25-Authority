@@ -418,7 +418,7 @@ msgstr "الغاء"
 #. module: odex25_timesheet_grid
 #: model:ir.model,name:odex25_timesheet_grid.model_res_company
 msgid "Companies"
-msgstr "مؤسسات"
+msgstr "شركات"
 
 #. module: odex25_timesheet_grid
 #: model:ir.model,name:odex25_timesheet_grid.model_res_config_settings
