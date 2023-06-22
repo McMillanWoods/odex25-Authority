@@ -871,8 +871,7 @@
         <field name="view_ids"
                eval="[(5, 0, 0),
                       (0, 0, {'view_mode': 'graph', 'view_id': ref('odex25_helpdesk_ticket_view_graph_analysis')}),
-                      (0, 0, {'view_mode': 'pivot', 'view_id': ref('odex25_helpdesk_ticket_view_pivot_analysis')}),
-                      (0, 0, {'view_mode': 'cohort', 'view_id': ref('odex25_helpdesk_ticket_view_cohort')})]"/>
+                      (0, 0, {'view_mode': 'pivot', 'view_id': ref('odex25_helpdesk_ticket_view_pivot_analysis')})]"/>
         <field name="search_view_id" ref="odex25_helpdesk_ticket_view_search_analysis"/>
         <field name="context">{'search_default_group_by_create_date': 1}</field>
         <field name="help" type="html">
