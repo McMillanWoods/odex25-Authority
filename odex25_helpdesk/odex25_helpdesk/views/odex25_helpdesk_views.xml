@@ -311,14 +311,14 @@
             </graph>
         </field>
     </record>
-
+<!-- 
     <record id="odex25_helpdesk_ticket_view_cohort" model="ir.ui.view">
         <field name="name">odex25_helpdesk.ticket.view.cohort</field>
         <field name="model">odex25_helpdesk.ticket</field>
         <field name="arch" type="xml">
             <cohort string="Tickets" date_start="create_date" date_stop="close_date" interval="week" sample="1"/>
         </field>
-    </record>
+    </record> -->
 
     <record id="odex25_helpdesk_ticket_view_pivot_analysis" model="ir.ui.view">
         <field name="name">odex25_helpdesk.ticket.pivot.analysis</field>
