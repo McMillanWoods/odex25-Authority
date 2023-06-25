@@ -74,3 +74,4 @@ access_emplpyee_attachment_name_emp,Access.emplpyee_attachment_name_emp,model_em
 access_emplpyee_attachment_name_hr,Access.emplpyee_attachment_name_hr,model_emplpyee_attachment_name,hr.group_hr_user,1,1,1,1
 access_work_location_hr,Access.emplpyee_work_location_hr,model_work_location,hr.group_hr_user,1,1,1,1
 access_work_location_hr_group_user,Access.employee_work_location_group_user,model_work_location,base.group_user,1,1,1,1
+access_ir_sequence_group_hr_user,ir_sequence group_hr_user,base.model_ir_sequence,hr.group_hr_user,1,1,1,1

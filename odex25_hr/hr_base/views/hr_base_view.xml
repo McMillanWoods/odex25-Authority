@@ -43,8 +43,7 @@
             <field name="priority" eval="16"/>
             <field name="inherit_id" ref="hr.view_employee_form"/>
             <field name="arch" type="xml">
-                <sheet position="before">
-                    <header>
+                <button  name="%(hr.plan_wizard_action)d" position="before">
 
                         <button name="complete_state" string="Complete Employee Data" class="oe_highlight" type="object"
                                 states="draft" groups="hr.group_hr_user"/>
@@ -58,47 +57,49 @@
                         <button name="draft_state" string="Rest TO Draft" class="oe_highlight" type="object"
                                 states="complete,open" groups="hr.group_hr_manager"
                                 confirm="Are you sure to Rest To Draft This Record?"/>
-
                         <field name="state" widget="statusbar"/>
-                    </header>
-                </sheet>
+                </button>
 
 
                 <xpath expr="//notebook//page[@name='public']" position="replace">
                     <page name="public" string="Work Information">
-                        <group>
-                            <group string="Position Info">
-                                <!--                                <field name="Employee_type" string="Employee Type"-->
-                                <!--                                       attrs="{'readonly':[('state','!=','draft')]}" required="True"/>-->
-                                <field name="contract_id" string="Contract" readonly="1"
-                                       attrs="{'readonly':[('state','!=','draft')]}"/>
-                                <field name="department_id" required="True" string="Department"
-                                       attrs="{'readonly':[('state','!=','draft')]}"/>
-                                <field name="job_id" required="True" string="Job Position"
-                                       attrs="{'readonly':[('state','!=','draft')]}"/>
-                                <field name="parent_id" attrs="{'readonly':[('state','!=','draft')]}"/>
-                                <field name="coach_id" attrs="{'readonly':[('state','!=','draft')]}"
-                                       string="Department Manager"/>
-                            </group>
-                            <group string="Contact Information">
-                                <field name="address_id"
-                                       context="{'show_address': 1}"
-                                       options='{"always_reload": True, "highlight_first_line": True}'
-                                       groups="base.group_multi_company"
-                                       attrs="{'readonly':[('state','!=','draft')]}"/>
-                                <field name="work_location" invisible="1"/>
-                                <field name="working_location" attrs="{'readonly':[('state','!=','draft')]}"
-                                       string="Work Location"/>
-                                <field name="work_email" widget="email" attrs="{'readonly':[('state','!=','draft')]}"/>
-                                <field name="personal_email" widget="email"
-                                       attrs="{'readonly':[('state','!=','draft')]}"/>
-                                <field name="mobile_phone" attrs="{'readonly':[('state','!=','draft')]}"/>
-                                <field name="work_phone" attrs="{'readonly':[('state','!=','draft')]}"/>
-                            </group>
-                            <group name="managers" string="Approvers" class="hide-group-if-empty" invisible="1">
-                                <!-- is overridden in other hr related modules -->
-                            </group>
-                        </group>
+                        <div id="o_work_employee_container">
+                            <div id="o_work_employee_main">
+                                <group>
+                                    <group string="Position Info">
+                                        <!--                                <field name="Employee_type" string="Employee Type"-->
+                                        <!--                                       attrs="{'readonly':[('state','!=','draft')]}" required="True"/>-->
+                                        <field name="contract_id" string="Contract" readonly="1"
+                                               attrs="{'readonly':[('state','!=','draft')]}"/>
+                                        <field name="department_id" required="True" string="Department"
+                                               attrs="{'readonly':[('state','!=','draft')]}"/>
+                                        <field name="job_id" required="True" string="Job Position"
+                                               attrs="{'readonly':[('state','!=','draft')]}"/>
+                                        <field name="parent_id" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                        <field name="coach_id" attrs="{'readonly':[('state','!=','draft')]}"
+                                               string="Department Manager"/>
+                                    </group>
+                                    <group string="Contact Information">
+                                        <field name="address_id"
+                                               context="{'show_address': 1}"
+                                               options='{"always_reload": True, "highlight_first_line": True}'
+                                               groups="base.group_multi_company"
+                                               attrs="{'readonly':[('state','!=','draft')]}"/>
+                                        <field name="work_location" invisible="1"/>
+                                        <field name="working_location" attrs="{'readonly':[('state','!=','draft')]}"
+                                               string="Work Location"/>
+                                        <field name="work_email" widget="email" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                        <field name="personal_email" widget="email"
+                                               attrs="{'readonly':[('state','!=','draft')]}"/>
+                                        <field name="mobile_phone" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                        <field name="work_phone" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                    </group>
+                                    <group name="managers" string="Approvers" class="hide-group-if-empty" invisible="1">
+                                        <!-- is overridden in other hr related modules -->
+                                    </group>
+                                </group>
+                            </div>
+                        </div>
                         <field name="notes" placeholder="Other Information ..." colspan="4"
                                groups="hr.group_hr_manager,hr.group_hr_user"/>
                     </page>
@@ -379,10 +380,6 @@
                 <xpath expr="//notebook//page[@name='personal_information']/group/group[4]" position="replace">
                 </xpath>
 
-                <xpath expr="//sheet/group" position="attributes">
-                    <attribute name="invisible">1</attribute>
-
-                </xpath>
 
                 <xpath expr="//notebook//page[@name='personal_information']/group/group[6]" position="replace">
                     <group string="Birthday">
@@ -390,6 +387,11 @@
                         <field name="employee_age" string="Age"/>
                         <field name="place_of_birth" groups="hr.group_hr_user"/>
                     </group>
+                </xpath>
+
+                <xpath expr="//sheet/group" position="attributes">
+                    <attribute name="invisible">1</attribute>
+
                 </xpath>
                 <field name="emergency_contact" position="after">
                     <field name="relationship"/>
@@ -412,7 +414,7 @@
                         <field name="department_id"/>
                         <field name="job_id"/>
                         <field name="iqama_number"/>
-                        <field name="iqama_expiy_date" string="Iqama Expiry Date"/>
+                        <field name="iqama_expiy_date" string="Identity Expiry Date"/>
                         <field name="bank_code"/>
                         <field name="work_location" invisible="1"/>
                         <field name="state"/>
@@ -439,6 +441,27 @@
             </field>
         </record>
 
+    <!-- employee_view_kanban_inherit -->
+
+    <record id="hr_employee_kanban_inherit" model="ir.ui.view">
+        <field name="name">hr employee kanban </field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.hr_kanban_view_employees"/>
+        <field name="arch" type="xml">
+           <xpath expr='//field[@name="name"]' position='after'>
+                 <span t-if="record.emp_no.raw_value" class="o_kanban_record_subtitle">
+                      <field name="emp_no"/>
+                 </span>
+
+                <span t-if="record.department_id.raw_value" class="o_kanban_record_subtitle">
+                   <field name="department_id"/>
+                </span>
+
+           </xpath>     
+        </field>
+    </record>
+
+ <!-- end hr.employee -->
 
         <record id="view_hr_job_form_inherit" model="ir.ui.view">
             <field name="name">hr.job.form.inherit</field>

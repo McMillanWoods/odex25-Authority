@@ -17,7 +17,7 @@
 
         <!-- Employee iqama renewal menu item view-->
         <menuitem
-            name="Request iqama renewal"
+            name="Request Identity Renewal"
             id="employee_iqama_renewal_menu_item"
             parent="hr.menu_hr_main"
             sequence="6"

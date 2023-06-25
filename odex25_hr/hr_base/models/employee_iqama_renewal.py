@@ -216,7 +216,7 @@ class EmployeeIqamaRenewLine(models.Model):
         readonly=True,
     )
 
-    @api.onchange("employee_id")
+    @api.depends("employee_id")
     def _get_iqama_expiry(self):
         for item in self:
             item.iqama_expir_date = item.employee_id.iqama_expiy_date

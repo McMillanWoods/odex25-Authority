@@ -401,7 +401,7 @@
                                     </td>
                                 </tr>
                                 <tr class="text-center">
-                                    <td style="border: 1px solid #DADADA;">إقامة/Iqama</td>
+                                    <td style="border: 1px solid #DADADA;">هوية/Identity</td>
                                     <td style="border: 1px solid #DADADA;">
                                         <t t-if="o.country_id.name == 'Saudi Arabia' or o.country_id.name == 'المملكة العربية السعودية'">
                                             <span t-field="o.saudi_number.saudi_id"/>

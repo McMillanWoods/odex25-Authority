@@ -9,7 +9,7 @@
             <field name="arch" type="xml">
                 <form>
                     <sheet>
-                        <group string='Iqama/ID Details' name="group_top">
+                        <group string='Identity/ID Details' name="group_top">
                             <group name="group_left">
                                 <field name="iqama_no" />
                                 <field name="serial_no" />

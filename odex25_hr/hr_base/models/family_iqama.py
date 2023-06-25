@@ -8,7 +8,7 @@ class FamilyIqama(models.Model):
     _description = "Employee Family Iqama"
     _rec_name = "iqama_no"
 
-    iqama_no = fields.Char("Iqama/ID No", required=True)
+    iqama_no = fields.Char("Identity/ID No", required=True)
     serial_no = fields.Char()
     iqama_position = fields.Char()
     place_issue = fields.Char("Place of Issue")

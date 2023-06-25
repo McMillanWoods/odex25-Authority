@@ -22,7 +22,7 @@
                             <field name="d_gender" />
                             <field name="nationality" />
                         </group>
-                        <group string='Iqama Details'>
+                        <group string='Identity Details'>
                             <field name="relation" />
                             <field name="religion" />
                             <field name="iqama_num" />

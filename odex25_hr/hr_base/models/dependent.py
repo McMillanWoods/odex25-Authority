@@ -19,7 +19,7 @@ class Dependent(models.Model):
     nationality = fields.Many2one(comodel_name="res.country", string="Nationality")
     relation = fields.Many2one(comodel_name="hr.relation.relation")
     religion = fields.Many2one(comodel_name="hr.religion.religion")
-    iqama_num = fields.Char("Iqama Number")
+    iqama_num = fields.Char("Identity")
     issue_place = fields.Many2one(comodel_name="issued_place.issued_place")
     fn = fields.Char("First Name")
     mn = fields.Char("Middle Name")
