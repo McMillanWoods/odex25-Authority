@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-05 07:13+0000\n"
-"PO-Revision-Date: 2023-04-05 07:13+0000\n"
+"POT-Creation-Date: 2022-09-13 06:28+0000\n"
+"PO-Revision-Date: 2022-09-13 06:28+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -49,6 +49,584 @@ msgstr ""
 msgid ""
 "<br/>\n"
 "                                    <strong> الموافق</strong> :"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span class=\"pull-left\" style=\"font-size: 12px;direction:ltr;\">\n"
+"                            Kindly Submit:\n"
+"                            <br/>\n"
+"                            1) Copy of clear passport “Employee + Dependents” and all copies academic certificates.\n"
+"                            <br/>\n"
+"                            2) Bank Account Number.\n"
+"                        </span>\n"
+"                        <br/>\n"
+"                        <br/>\n"
+"                        <span class=\"text-center\" style=\"font-size: 12px;margin-right: 100px;\">\n"
+"                            أقر أن هذه المعلومات المذكورة في هذه الاستمارة صحيحة.\n"
+"                        </span>\n"
+"                        <span class=\"text-center\" style=\"text-align: center;font-size: 12px;margin-right: 160px;\">\n"
+"                            .I do here by declare that the information provided is to the best of my knowledge true and\n"
+"                            accurate\n"
+"                        </span>\n"
+"                        <br/>\n"
+"                        <span class=\"pull-right\" style=\"font-size: 15px;direction:rtl;\">\n"
+"                            التوقيع:\n"
+"                            ............................................................................................................Signature\n"
+"                        </span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span class=\"pull-left\">\n"
+"                                        :City\n"
+"                                    </span>\n"
+"                                    <br/>\n"
+"                                    <span>\n"
+"                                        الشارع:\n"
+"                                    </span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span class=\"pull-left\">\n"
+"                                        :Home\n"
+"                                    </span>\n"
+"                                    <br/>\n"
+"                                    <span>\n"
+"                                        جوال:\n"
+"                                    </span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span class=\"pull-left\">\n"
+"                                        :Mobile\n"
+"                                    </span>\n"
+"                                    <br/>\n"
+"                                    <span>\n"
+"                                        فاكس:\n"
+"                                    </span>\n"
+"                                    <span class=\"pull-left\">\n"
+"                                        :Fax\n"
+"                                    </span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span class=\"pull-left\">\n"
+"                                        :Street\n"
+"                                    </span>\n"
+"                                    <br/>\n"
+"                                    <span>\n"
+"                                        صندوق بريد رقم:\n"
+"                                    </span>\n"
+"                                    <span class=\"pull-left\">\n"
+"                                        :P.O. Box\n"
+"                                    </span>\n"
+"                                    <br/>\n"
+"                                    <span>\n"
+"                                        الرمز البريدي:\n"
+"                                    </span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span class=\"pull-left\">\n"
+"                                        :Work\n"
+"                                    </span>\n"
+"                                    <br/>\n"
+"                                    <span>\n"
+"                                        منزل:\n"
+"                                    </span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span class=\"pull-left\">\n"
+"                                        :Zip Code\n"
+"                                    </span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span class=\"pull-left\">:Address</span>\n"
+"                                    <br/>\n"
+"                                    <span>\n"
+"                                        المدينة:\n"
+"                                    </span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span style=\"font-size: 15px;color:#2c7873;\">\n"
+"                                        <strong>التعليم</strong>\n"
+"                                    </span>\n"
+"                                    <span class=\"pull-left\" style=\"font-size: 15px;color:#2c7873;\">\n"
+"                                        <strong>Education</strong>\n"
+"                                    </span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span style=\"font-size: 15px;color:#2c7873;\">\n"
+"                                        <strong>الخبرات العملية</strong>\n"
+"                                    </span>\n"
+"                                    <span class=\"pull-left\" style=\"font-size: 13px;color:#2c7873;\">\n"
+"                                        <strong>Work Experience</strong>\n"
+"                                    </span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span style=\"font-size: 15px;color:#2c7873;\">\n"
+"                                        <strong>الدورات التدريبية و المعاهد المهنية</strong>\n"
+"                                    </span>\n"
+"                                    <span class=\"pull-left\" style=\"font-size: 15px;color:#2c7873;\">\n"
+"                                        <strong>Training Courses and Vocational Training</strong>\n"
+"                                    </span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span style=\"font-size: 15px;color:#2c7873;\">\n"
+"                                        <strong>اللغات</strong>\n"
+"                                    </span>\n"
+"                                    <span class=\"pull-left\" style=\"font-size: 15px;color:#2c7873;\">\n"
+"                                        <strong>Languages</strong>\n"
+"                                    </span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span style=\"font-size: 15px;color:#2c7873;\">\n"
+"                                        <strong>بيانات أفراد العائلة</strong>\n"
+"                                    </span>\n"
+"                                    <span class=\"pull-left\" style=\"font-size: 13px;color:#2c7873;\">\n"
+"                                        <strong>Dependent Information</strong>\n"
+"                                    </span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span style=\"font-size: 15px;color:#2c7873;\">\n"
+"                                        <strong>في حالة الطوارئ الرجاء الإتصال بــــ:</strong>\n"
+"                                    </span>\n"
+"                                    <span class=\"pull-left\" style=\"font-size: 13px;color:#2c7873;\">\n"
+"                                        <strong>:In Case of Emergency Please Call</strong>\n"
+"                                    </span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span style=\"font-size: 18px;color:#2c7873;\">\n"
+"                                        <strong>مـعـلـومـات شـخـصـيـة</strong>\n"
+"                                    </span>\n"
+"                                    <span class=\"pull-left\" style=\"font-size: 18px;color:#2c7873;\">\n"
+"                                        <strong>Personal Information</strong>\n"
+"                                    </span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>إلى</span>\n"
+"                                    <span class=\"pull-left\">To</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>اسم الأب</span>\n"
+"                                    <span class=\"pull-left\">Father’s Name</span>\n"
+"                                    <br/>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>اسم الجامعة أو المدرسة</span>\n"
+"                                    <br/>\n"
+"                                    <span>Name of University or School</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>اسم الجد</span>\n"
+"                                    <span class=\"pull-left\">Grandfather’s Name</span>\n"
+"                                    <br/>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>اسم العائلة</span>\n"
+"                                    <span class=\"pull-left\">Family Name</span>\n"
+"                                    <br/>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>اسم المعهد</span>\n"
+"                                    <br/>\n"
+"                                    <span>Name of Institute</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>الإسم</span>\n"
+"                                    <br/>\n"
+"                                    <span>Name</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>الاسم الأول</span>\n"
+"                                    <span class=\"pull-left\">First Name</span>\n"
+"                                    <br/>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>التحدث</span>\n"
+"                                    <span class=\"pull-left\">Speaking</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>التخصص</span>\n"
+"                                    <br/>\n"
+"                                    <span>Major</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>الجنسية</span>\n"
+"                                    <span class=\"pull-left\">Nationality</span>\n"
+"                                    <br/>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>الجهة التي عملت معها</span>\n"
+"                                    <br/>\n"
+"                                    <span>Name of Employer</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>الديانة</span>\n"
+"                                    <span class=\"pull-left\">Religion</span>\n"
+"                                    <br/>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>الراتب</span>\n"
+"                                    <br/>\n"
+"                                    <span>Salary</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>الشهادة الحائز عليها</span>\n"
+"                                    <br/>\n"
+"                                    <span>Certificate Obtained</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>الشهادة</span>\n"
+"                                    <br/>\n"
+"                                    <span>Certificate</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid "<span>العنوان:</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>القراءة</span>\n"
+"                                    <span class=\"pull-left\">Reading</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>الكتابة</span>\n"
+"                                    <span class=\"pull-left\">Writing</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>اللغة الإنجليزية</span>\n"
+"                                    <span class=\"pull-left\">English</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>اللغة العربية</span>\n"
+"                                    <span class=\"pull-left\">Arabic</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>اللغة</span>\n"
+"                                    <span class=\"pull-left\">Language</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>الوظيفة</span>\n"
+"                                    <br/>\n"
+"                                    <span>Position</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>بلد الأصل</span>\n"
+"                                    <span class=\"pull-left\">Original Country</span>\n"
+"                                    <br/>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>تاريخ الإصدار</span>\n"
+"                                    <span class=\"pull-left\">Date of Issue</span>\n"
+"                                    <br/>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>تاريخ الحصول على الشهادة</span>\n"
+"                                    <br/>\n"
+"                                    <span>Date Certificate Obtained</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>تاريخ الميلاد</span>\n"
+"                                    <br/>\n"
+"                                    <span>Date of Birth</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>تاريخ الميلاد</span>\n"
+"                                    <span class=\"pull-left\">Date of Birth</span>\n"
+"                                    <br/>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>جيد</span>\n"
+"                                    <br/>\n"
+"                                    <span>Good</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>رقم الجوال</span>\n"
+"                                    <br/>\n"
+"                                    <span>Mobile No.</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>رقم الحفيظة أو الجواز</span>\n"
+"                                    <span class=\"pull-left\">Identity or Passport No</span>\n"
+"                                    <br/>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>رقم الهاتف\n"
+"                                    </span>\n"
+"                                    <span class=\"pull-left\">.Telephone No</span>\n"
+"                                    <br/>\n"
+"                                    <span>\n"
+"                                        عمل:\n"
+"                                    </span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>رقم الهاتف</span>\n"
+"                                    <br/>\n"
+"                                    <span>Telephone No.</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>رقم الهوية (الجواز)</span>\n"
+"                                    <br/>\n"
+"                                    <span>ID (Passport) No.</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>سبب ترك العمل</span>\n"
+"                                    <br/>\n"
+"                                    <span>Reason for Leaving</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>صلة القرابة</span>\n"
+"                                    <br/>\n"
+"                                    <span>Relationship</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>ضعيف</span>\n"
+"                                    <br/>\n"
+"                                    <span>Poor</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>عدد سنوات الدراسة</span>\n"
+"                                    <br/>\n"
+"                                    <span>No. of Years</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>لغات أخرى (حدد)</span>\n"
+"                                    <span class=\"pull-left\">Others (Specify)</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>مدة التدريب</span>\n"
+"                                    <br/>\n"
+"                                    <span>Period</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>مدة العمل</span>\n"
+"                                    <span class=\"pull-left\">Period</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>مكان الإصدار</span>\n"
+"                                    <span class=\"pull-left\">Place of Issue</span>\n"
+"                                    <br/>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>مكان الدراسة</span>\n"
+"                                    <br/>\n"
+"                                    <span>Location</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>مكان الميلاد</span>\n"
+"                                    <br/>\n"
+"                                    <span>Place of Birth</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>مكان الميلاد</span>\n"
+"                                    <span class=\"pull-left\">Place of Birth</span>\n"
+"                                    <br/>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>من</span>\n"
+"                                    <span class=\"pull-left\">From</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>نوع التدريب</span>\n"
+"                                    <br/>\n"
+"                                    <span>Type of Training</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<span>وسط</span>\n"
+"                                    <br/>\n"
+"                                    <span>Fair</span>"
+msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_info_report_template
+msgid ""
+"<strong style=\"font-size: 20px;margin-right:10%;color:#2c7873;\">\n"
+"                                    بـطــاقـــة مــعــلـومـــات موظف\n"
+"                                </strong>\n"
+"                                <br/>\n"
+"                                <strong style=\"font-size: 20px;margin-right:10%;color:#2c7873;\">\n"
+"                                    Employee Information Sheet\n"
+"                                </strong>"
 msgstr ""
 
 #. module: hr_base
@@ -158,6 +736,11 @@ msgid "Activity Type Icon"
 msgstr ""
 
 #. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
+msgid "Address Region"
+msgstr "الحي"
+
+#. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_hr_employee_history__address
 #: model_terms:ir.ui.view,arch_db:hr_base.sponsor_form_view
 msgid "Address"
@@ -170,7 +753,6 @@ msgstr "عنوان المدينة"
 
 #. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_hr_employee__address_region
-#: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
 msgid "Address Region"
 msgstr "منطقة العنوان"
 
@@ -213,11 +795,6 @@ msgid "Approved"
 msgstr "إعتمـاد"
 
 #. module: hr_base
-#: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
-msgid "Approvers"
-msgstr ""
-
-#. module: hr_base
 #: model:ir.model.fields.selection,name:hr_base.selection__hr_employee__attendance__apsent
 msgid "Apsent"
 msgstr "غائب"
@@ -232,11 +809,6 @@ msgstr "الاسم بالعربي"
 #. module: hr_base
 #: model_terms:ir.ui.view,arch_db:hr_base.employee_iqama_renewal_form_view
 msgid "Are you sure to Reset To Draft This Record?"
-msgstr ""
-
-#. module: hr_base
-#: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
-msgid "Are you sure to Rest To Draft This Record?"
 msgstr ""
 
 #. module: hr_base
@@ -264,11 +836,11 @@ msgstr ""
 #. module: hr_base
 #: model:ir.model,name:hr_base.model_ir_attachment
 #: model:ir.model.fields,field_description:hr_base.field_company_document__datas
-#: model:ir.model.fields,field_description:hr_base.field_emplpyee_attachment__attachment
 #: model:ir.model.fields,field_description:hr_base.field_hr_certification__attachment
+#: model:ir.model.fields,field_description:hr_base.field_hr_employee__attachment_ids
 #: model:ir.model.fields,field_description:hr_base.field_hr_employee_dependent__attachment
 #: model:ir.model.fields,field_description:hr_base.field_hr_qualification__attachment
-#: model:ir.model.fields,field_description:hr_base.field_ir_attachment__dependent_id
+#: model:ir.model.fields,field_description:hr_base.field_ir_attachment__dependent_rel
 #: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
 msgid "Attachment"
 msgstr "مرفق"
@@ -300,34 +872,14 @@ msgid "Attendance"
 msgstr "حضور"
 
 #. module: hr_base
-#: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
-msgid "Attendance Info"
-msgstr "معلومات الحضور والانصراف"
-
-#. module: hr_base
-#: model:ir.model.fields.selection,name:hr_base.selection__employee_iqama_renewal__state__hr_depart
-msgid "BU Head"
-msgstr ""
-
-#. module: hr_base
-#: model:ir.model.fields.selection,name:hr_base.selection__hr_employee__payment_method__bank
-msgid "Bank"
-msgstr ""
-
-#. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_hr_employee__bank_account_id
 msgid "Bank Account Number"
 msgstr "رقم الحساب البنكي"
 
 #. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_hr_employee__bank_code
-msgid "Bank Name"
-msgstr ""
-
-#. module: hr_base
-#: model:ir.model.fields,field_description:hr_base.field_hr_employee__base_salary
-msgid "Base Salary"
-msgstr "الراتب الاساسي"
+msgid "Bank Code"
+msgstr "كود البنك"
 
 #. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_hr_employee_dependent__birthday
@@ -400,16 +952,6 @@ msgid "Card Type"
 msgstr "نوع البطاقة"
 
 #. module: hr_base
-#: model:ir.model.fields.selection,name:hr_base.selection__hr_employee__payment_method__cash
-msgid "Cash"
-msgstr ""
-
-#. module: hr_base
-#: model:ir.model.fields,field_description:hr_base.field_hr_certification__category
-msgid "Category"
-msgstr "التصنيف"
-
-#. module: hr_base
 #: model_terms:ir.ui.view,arch_db:hr_base.category_form_view
 #: model_terms:ir.ui.view,arch_db:hr_base.category_tree_view
 msgid "Category Details"
@@ -457,6 +999,7 @@ msgid "Certification Specification"
 msgstr "مواصفات الشهادة"
 
 #. module: hr_base
+#: model:ir.model.fields,field_description:hr_base.field_hr_employee__certification_id
 #: model_terms:ir.ui.view,arch_db:hr_base.hr_certification_form_view
 #: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
 msgid "Certifications"
@@ -490,11 +1033,6 @@ msgid "Citizen"
 msgstr "مواطن"
 
 #. module: hr_base
-#: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
-msgid "Citizenship"
-msgstr "الجنسية و معلومات أخرى"
-
-#. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_res_sponsor__city
 #: model_terms:ir.ui.view,arch_db:hr_base.sponsor_form_view
 msgid "City"
@@ -523,7 +1061,7 @@ msgstr "اسم الكلية"
 #. module: hr_base
 #: model:ir.model,name:hr_base.model_res_company
 msgid "Companies"
-msgstr "مؤسسات"
+msgstr "شركات"
 
 #. module: hr_base
 #: model:ir.actions.act_window,name:hr_base.users_company1
@@ -564,11 +1102,6 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
 msgid "Company Name"
 msgstr "اسم الشركة"
-
-#. module: hr_base
-#: model:ir.model.fields.selection,name:hr_base.selection__hr_employee__drug_type__company_property
-msgid "Company Property"
-msgstr "ملك الشركة"
 
 #. module: hr_base
 #: model:ir.model,name:hr_base.model_res_company_tree
@@ -652,13 +1185,8 @@ msgstr "العقد"
 
 #. module: hr_base
 #: model_terms:ir.ui.view,arch_db:hr_base.inherit_res_config_settings_view_form
-msgid "Contract And Trial Period Remider"
+msgid "Contract And Trial Period Reminder"
 msgstr ""
-
-#. module: hr_base
-#: model_terms:ir.ui.view,arch_db:hr_base.employee_iqama_renewal_form_view
-msgid "Contract End Date"
-msgstr "تاريخ نهاية العقد"
 
 #. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_res_company__contract_end_reminder
@@ -700,10 +1228,9 @@ msgid "Controlling The percentage of employee Saudization for Foreigners"
 msgstr ""
 
 #. module: hr_base
-#: model:ir.model,name:hr_base.model_res_country
-#: model:ir.model.fields,field_description:hr_base.field_hr_employee__country_address_id
 #: model:ir.model.fields,field_description:hr_base.field_hr_employee_history__country
 #: model:ir.model.fields,field_description:hr_base.field_res_sponsor__country_id
+#: model:ir.model.fields,field_description:hr_base.field_hr_employee__country_address_id
 #: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
 #: model_terms:ir.ui.view,arch_db:hr_base.sponsor_form_view
 msgid "Country"
@@ -721,6 +1248,7 @@ msgid "Create Clearance"
 msgstr "انشاء تخليص"
 
 #. module: hr_base
+#: model:ir.model.fields.selection,name:hr_base.selection__hr_employee__state__open
 #: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
 msgid "Create Contract"
 msgstr "انشاء عقد"
@@ -744,8 +1272,6 @@ msgstr "انشاء عقد"
 #: model:ir.model.fields,field_description:hr_base.field_employee_iqama_renewal__create_uid
 #: model:ir.model.fields,field_description:hr_base.field_employee_iqama_renewal_line__create_uid
 #: model:ir.model.fields,field_description:hr_base.field_employee_payslip__create_uid
-#: model:ir.model.fields,field_description:hr_base.field_emplpyee_attachment__create_uid
-#: model:ir.model.fields,field_description:hr_base.field_emplpyee_attachment_name__create_uid
 #: model:ir.model.fields,field_description:hr_base.field_eos_leaving__create_uid
 #: model:ir.model.fields,field_description:hr_base.field_hr_certification__create_uid
 #: model:ir.model.fields,field_description:hr_base.field_hr_college__create_uid
@@ -770,6 +1296,8 @@ msgstr "انشاء عقد"
 #: model:ir.model.fields,field_description:hr_base.field_res_company_tree__create_uid
 #: model:ir.model.fields,field_description:hr_base.field_res_sponsor__create_uid
 #: model:ir.model.fields,field_description:hr_base.field_work_location__create_uid
+#: model:ir.model.fields,field_description:hr_base.field_membership_categorys__create_uid
+#: model:ir.model.fields,field_description:hr_base.field_membership_types__create_uid
 msgid "Created by"
 msgstr "انشئ بواسطة"
 
@@ -792,8 +1320,6 @@ msgstr "انشئ بواسطة"
 #: model:ir.model.fields,field_description:hr_base.field_employee_iqama_renewal__create_date
 #: model:ir.model.fields,field_description:hr_base.field_employee_iqama_renewal_line__create_date
 #: model:ir.model.fields,field_description:hr_base.field_employee_payslip__create_date
-#: model:ir.model.fields,field_description:hr_base.field_emplpyee_attachment__create_date
-#: model:ir.model.fields,field_description:hr_base.field_emplpyee_attachment_name__create_date
 #: model:ir.model.fields,field_description:hr_base.field_eos_leaving__create_date
 #: model:ir.model.fields,field_description:hr_base.field_hr_certification__create_date
 #: model:ir.model.fields,field_description:hr_base.field_hr_college__create_date
@@ -818,6 +1344,8 @@ msgstr "انشئ بواسطة"
 #: model:ir.model.fields,field_description:hr_base.field_res_company_tree__create_date
 #: model:ir.model.fields,field_description:hr_base.field_res_sponsor__create_date
 #: model:ir.model.fields,field_description:hr_base.field_work_location__create_date
+#: model:ir.model.fields,field_description:hr_base.field_membership_categorys__create_date
+#: model:ir.model.fields,field_description:hr_base.field_membership_types__create_date
 msgid "Created on"
 msgstr "انشئ"
 
@@ -883,11 +1411,6 @@ msgid "Days"
 msgstr "يوم"
 
 #. module: hr_base
-#: model:ir.model.fields,field_description:hr_base.field_emplpyee_attachment__db_datas
-msgid "Db Datas"
-msgstr ""
-
-#. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_hr_employee_dependent__degree_medical_insu
 msgid "Degree Medical Insurance"
 msgstr "درجة التأمين الصحي"
@@ -909,7 +1432,6 @@ msgstr "قسم الارتباط"
 #: model:ir.model.fields,field_description:hr_base.field_employee_iqama__department
 #: model:ir.model.fields,field_description:hr_base.field_eos_leaving__department
 #: model:ir.model.fields,field_description:hr_base.field_hr_employee__department
-#: model:ir.model.fields.selection,name:hr_base.selection__hr_department__department_type__department
 #: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
 msgid "Department"
 msgstr "القسم"
@@ -937,11 +1459,6 @@ msgstr "مدير الادارة"
 #: model:ir.model.fields,field_description:hr_base.field_it_department__department_relation
 msgid "Department Relation"
 msgstr "قسم العلاقات"
-
-#. module: hr_base
-#: model:ir.model.fields,field_description:hr_base.field_hr_department__department_type
-msgid "Department Type"
-msgstr "النوع"
 
 #. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_hr_job__department_ids
@@ -1025,6 +1542,11 @@ msgid "Direct Emp"
 msgstr "موظف مباشر"
 
 #. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
+msgid "Direct employee"
+msgstr "موظف مباشر"
+
+#. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_address_city__display_name
 #: model:ir.model.fields,field_description:hr_base.field_address_region__display_name
 #: model:ir.model.fields,field_description:hr_base.field_category_info__display_name
@@ -1043,8 +1565,6 @@ msgstr "موظف مباشر"
 #: model:ir.model.fields,field_description:hr_base.field_employee_iqama_renewal__display_name
 #: model:ir.model.fields,field_description:hr_base.field_employee_iqama_renewal_line__display_name
 #: model:ir.model.fields,field_description:hr_base.field_employee_payslip__display_name
-#: model:ir.model.fields,field_description:hr_base.field_emplpyee_attachment__display_name
-#: model:ir.model.fields,field_description:hr_base.field_emplpyee_attachment_name__display_name
 #: model:ir.model.fields,field_description:hr_base.field_eos_leaving__display_name
 #: model:ir.model.fields,field_description:hr_base.field_hr_certification__display_name
 #: model:ir.model.fields,field_description:hr_base.field_hr_college__display_name
@@ -1073,12 +1593,13 @@ msgstr "موظف مباشر"
 #: model:ir.model.fields,field_description:hr_base.field_res_company__display_name
 #: model:ir.model.fields,field_description:hr_base.field_res_company_tree__display_name
 #: model:ir.model.fields,field_description:hr_base.field_res_config_settings__display_name
-#: model:ir.model.fields,field_description:hr_base.field_res_country__display_name
 #: model:ir.model.fields,field_description:hr_base.field_res_sponsor__display_name
 #: model:ir.model.fields,field_description:hr_base.field_resource_calendar__display_name
 #: model:ir.model.fields,field_description:hr_base.field_resource_resource__display_name
 #: model:ir.model.fields,field_description:hr_base.field_work_location__display_name
 #: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
+#: model:ir.model.fields,field_description:hr_base.field_membership_categorys__display_name
+#: model:ir.model.fields,field_description:hr_base.field_membership_types__display_name
 msgid "Display Name"
 msgstr "الاسم المعروض"
 
@@ -1115,7 +1636,6 @@ msgstr "مطلّق"
 
 #. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_document_asset__name
-#: model:ir.model.fields,field_description:hr_base.field_emplpyee_attachment__doc_name
 msgid "Doc Name"
 msgstr "اسم المستند"
 
@@ -1209,7 +1729,7 @@ msgstr "المدة"
 #. module: hr_base
 #: model:ir.actions.act_window,name:hr_base.eos_list_action
 msgid "EOS"
-msgstr ""
+msgstr "EOS"
 
 #. module: hr_base
 #: model_terms:ir.ui.view,arch_db:hr_base.eos_form_view
@@ -1239,6 +1759,8 @@ msgstr "تاريخ التنفيذ"
 #. module: hr_base
 #: code:addons/hr_base/models/employee_iqama_renewal.py:0
 #: code:addons/hr_base/models/employee_iqama_renewal.py:0
+#: model:ir.model.fields.selection,name:hr_base.selection__employee_iqama_renewal__state__effective_department
+#: model:ir.model.fields.selection,name:hr_base.selection__employee_iqama_renewal_line__state__effective_department
 #, python-format
 msgid "Effective_Department"
 msgstr "المدير التنفيذي"
@@ -1280,12 +1802,11 @@ msgid "Employee Amedment"
 msgstr "وثيقة الموظف"
 
 #. module: hr_base
-#: model:ir.model.fields,field_description:hr_base.field_emplpyee_attachment__employee_attaches_id
+#: model:ir.model.fields,field_description:hr_base.field_ir_attachment__employee_attaches_id
 msgid "Employee Attaches"
-msgstr ""
+msgstr "ملحقات موظف"
 
 #. module: hr_base
-#: model:ir.model.fields,field_description:hr_base.field_hr_employee__attachment_ids
 #: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
 msgid "Employee Attachments"
 msgstr "مرفقات الموظف"
@@ -1350,11 +1871,6 @@ msgid "Employee From"
 msgstr "نموذج موظف"
 
 #. module: hr_base
-#: model:ir.actions.report,name:hr_base.employee_info_report
-msgid "Employee Info Sheet"
-msgstr "بطاقة معلومات الموظف"
-
-#. module: hr_base
 #: model_terms:ir.ui.view,arch_db:hr_base.amedment_form_view
 #: model_terms:ir.ui.view,arch_db:hr_base.cards_form_view
 #: model_terms:ir.ui.view,arch_db:hr_base.leaving_form_view
@@ -1368,7 +1884,7 @@ msgstr ""
 
 #. module: hr_base
 #: model:ir.actions.act_window,name:hr_base.iqama_list_action
-msgid "Employee Iqama / ID"
+msgid "Employee Identity / ID"
 msgstr "هوية شخصية لموظف"
 
 #. module: hr_base
@@ -1397,11 +1913,6 @@ msgid "Employee Payslip"
 msgstr ""
 
 #. module: hr_base
-#: model:ir.model.fields.selection,name:hr_base.selection__hr_employee__drug_type__property
-msgid "Employee Property"
-msgstr "ملك الموظف"
-
-#. module: hr_base
 #: model:ir.model.fields,help:hr_base.field_hr_employee__bank_account_id
 msgid "Employee bank salary account"
 msgstr "الحساب البنكي لراتب الموظف"
@@ -1410,6 +1921,7 @@ msgstr "الحساب البنكي لراتب الموظف"
 #: model_terms:ir.ui.view,arch_db:hr_base.employee_iqama_renewal_form_view
 msgid "Employee iqama renewal"
 msgstr "تجديد الإقامة الموظف"
+
 
 #. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_hr_employee__emp_no
@@ -1439,6 +1951,11 @@ msgid "Employement History"
 msgstr "الخبــرات السابقة"
 
 #. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
+msgid "Employer"
+msgstr ""
+
+#. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_hr_employee__employment_history_ids
 msgid "Employment History"
 msgstr "الخبــرات السابقة"
@@ -1449,16 +1966,10 @@ msgid "Employment history"
 msgstr "الخبــرات السابقة"
 
 #. module: hr_base
-#: model:ir.model.fields,field_description:hr_base.field_employee_iqama_renewal_line__contract_date_end
 #: model:ir.model.fields,field_description:hr_base.field_hr_insurance__expiry_date
 #: model:ir.model.fields,field_description:hr_base.field_hr_trainings__end_date
 msgid "End Date"
 msgstr "تاريخ النهاية"
-
-#. module: hr_base
-#: model:ir.model.fields,help:hr_base.field_employee_iqama_renewal_line__contract_date_end
-msgid "End date of the contract (if it's a fixed-term contract)."
-msgstr ""
 
 #. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_hr_department__english_name
@@ -1483,15 +1994,18 @@ msgstr "رقم عضوية المقيم"
 #. module: hr_base
 #: code:addons/hr_base/models/certification.py:0
 #: code:addons/hr_base/models/hr_base.py:0
+#: model:ir.model.fields.selection,name:hr_base.selection__hr_certification__certification_degree__excellent
+#: model:ir.model.fields.selection,name:hr_base.selection__hr_qualification__qualification_degree__excellent
 #, python-format
 msgid "Excellent"
 msgstr "ممتاز"
 
 #. module: hr_base
-#: model:res.groups,comment:hr_base.group_executive_manager
 #: model:res.groups,name:hr_base.group_executive_manager
+#: model:res.groups,comment:hr_base.group_executive_manager
 msgid "Executive Manager"
 msgstr "الرئيس التفيذي"
+
 
 #. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_eos_leaving__interview_date
@@ -1552,7 +2066,7 @@ msgstr "الرقم الإضافي"
 #. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_employee_iqama__t_link
 #: model_terms:ir.ui.view,arch_db:hr_base.iqama_form_view
-msgid "Family Iqama/ID Details"
+msgid "Family Identity/ID Details"
 msgstr "عائله مقيمه/ تفاصيل هويه شخصية"
 
 #. module: hr_base
@@ -1661,6 +2175,11 @@ msgid "Gender"
 msgstr "الجنس"
 
 #. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
+msgid "General Details"
+msgstr "تفاصيل عامة"
+
+#. module: hr_base
 #: model:res.groups,name:hr_base.group_general_manager
 msgid "General Manager"
 msgstr "المدير العام"
@@ -1701,6 +2220,7 @@ msgstr ""
 #. module: hr_base
 #: code:addons/hr_base/models/employee_iqama_renewal.py:0
 #: code:addons/hr_base/models/employee_iqama_renewal.py:0
+#: model:ir.model.fields.selection,name:hr_base.selection__employee_iqama_renewal__state__hr_depart
 #: model:ir.model.fields.selection,name:hr_base.selection__employee_iqama_renewal_line__state__hr_depart
 #, python-format
 msgid "HR Department"
@@ -1787,6 +2307,11 @@ msgid "Home No"
 msgstr "رقم المنزل"
 
 #. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
+msgid "Home No."
+msgstr "رقم المنزل."
+
+#. module: hr_base
 #: model:ir.model.fields.selection,name:hr_base.selection__hr_employee_dependent__relation__husband
 msgid "Husband/Wife"
 msgstr "زوج/زوجة"
@@ -1794,7 +2319,7 @@ msgstr "زوج/زوجة"
 #. module: hr_base
 #: model_terms:ir.ui.view,arch_db:hr_base.dependents_employee_report_temp
 msgid ""
-"I do hereby declare that the information provided is to the best of my "
+"I do here by declare that the information provided is to the best of my "
 "knowledge true and accurate."
 msgstr ""
 
@@ -1817,8 +2342,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_base.field_employee_iqama_renewal__id
 #: model:ir.model.fields,field_description:hr_base.field_employee_iqama_renewal_line__id
 #: model:ir.model.fields,field_description:hr_base.field_employee_payslip__id
-#: model:ir.model.fields,field_description:hr_base.field_emplpyee_attachment__id
-#: model:ir.model.fields,field_description:hr_base.field_emplpyee_attachment_name__id
 #: model:ir.model.fields,field_description:hr_base.field_eos_leaving__id
 #: model:ir.model.fields,field_description:hr_base.field_hr_certification__id
 #: model:ir.model.fields,field_description:hr_base.field_hr_college__id
@@ -1847,11 +2370,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_base.field_res_company__id
 #: model:ir.model.fields,field_description:hr_base.field_res_company_tree__id
 #: model:ir.model.fields,field_description:hr_base.field_res_config_settings__id
-#: model:ir.model.fields,field_description:hr_base.field_res_country__id
 #: model:ir.model.fields,field_description:hr_base.field_res_sponsor__id
 #: model:ir.model.fields,field_description:hr_base.field_resource_calendar__id
 #: model:ir.model.fields,field_description:hr_base.field_resource_resource__id
 #: model:ir.model.fields,field_description:hr_base.field_work_location__id
+#: model:ir.model.fields,field_description:hr_base.field_membership_categorys__id
+#: model:ir.model.fields,field_description:hr_base.field_membership_types__id
 msgid "ID"
 msgstr "المُعرف"
 
@@ -1919,7 +2443,6 @@ msgstr ""
 
 #. module: hr_base
 #: code:addons/hr_base/models/hr_base.py:0
-#: model:ir.model.fields.selection,name:hr_base.selection__hr_employee__state__open
 #, python-format
 msgid "In Service"
 msgstr "داخل الخدمة"
@@ -1947,8 +2470,8 @@ msgstr "تاريخ انتهاء الاقامة"
 
 #. module: hr_base
 #: model_terms:ir.ui.view,arch_db:hr_base.view_employee_inherit_tree
-msgid "Iqama Expiry Date"
-msgstr "تاريخ انتهاء الاقامة"
+msgid "Identity Expiry Date"
+msgstr "تاريخ انتهاء الهوية"
 
 #. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_employee_iqama_renewal_line__iqama_new_expiry
@@ -1957,38 +2480,38 @@ msgstr "صلاحيه جديده للاقامة"
 
 #. module: hr_base
 #: model_terms:ir.ui.view,arch_db:hr_base.employee_iqama_renewal_form_view
-msgid "Iqama No"
-msgstr "رقم الاقامة/الحدود"
+msgid "Identity No"
+msgstr "رقم الهوية/الحدود"
 
 #. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_employee_iqama_renewal_line__iqama_no
 #: model:ir.model.fields,field_description:hr_base.field_hr_dependent__iqama_num
 #: model:ir.model.fields,field_description:hr_base.field_hr_employee__iqama_number
-msgid "Iqama Number"
-msgstr "رقم الاقامة/الحدود"
+msgid "Identity"
+msgstr "رقم الهوية/الحدود"
 
 #. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_employee_family_iqama__iqama_position
 #: model:ir.model.fields,field_description:hr_base.field_employee_iqama__iqama_position
 msgid "Iqama Position"
-msgstr "موقف الاقامة"
+msgstr "موقف الهوية"
 
 #. module: hr_base
 #: model_terms:ir.ui.view,arch_db:hr_base.employee_iqama_renewal_form_view
-msgid "Iqama expire date"
-msgstr "تاريخ انتهاء الاقامة"
+msgid "Identity expire date"
+msgstr "تاريخ انتهاء الهوية"
 
 #. module: hr_base
 #: model_terms:ir.ui.view,arch_db:hr_base.iqama_form_view
 #: model_terms:ir.ui.view,arch_db:hr_base.iqama_tree_form_view
-msgid "Iqama/ID Details"
-msgstr "اقامة / تفاصيل الهوية الشخصية"
+msgid "Identity/ID Details"
+msgstr "الهوية / تفاصيل الهوية الشخصية"
 
 #. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_employee_family_iqama__iqama_no
 #: model:ir.model.fields,field_description:hr_base.field_employee_iqama__iqama_no
-msgid "Iqama/ID No"
-msgstr "اقامة / رقم الهوية الشخصية"
+msgid "Identity/ID No"
+msgstr "الهوية / رقم الهوية الشخصية"
 
 #. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_hr_employee__is_calender
@@ -2090,7 +2613,6 @@ msgstr "تاريخ دخول الوظيفة"
 #. module: hr_base
 #: model:ir.model,name:hr_base.model_hr_job
 #: model:ir.model.fields,field_description:hr_base.field_employee_iqama__job
-#: model:ir.model.fields,field_description:hr_base.field_hr_employee__iqama_job
 #: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
 msgid "Job Position"
 msgstr "المنصب الوظيفي"
@@ -2147,8 +2669,6 @@ msgstr "اخر يوم عمل"
 #: model:ir.model.fields,field_description:hr_base.field_employee_iqama_renewal____last_update
 #: model:ir.model.fields,field_description:hr_base.field_employee_iqama_renewal_line____last_update
 #: model:ir.model.fields,field_description:hr_base.field_employee_payslip____last_update
-#: model:ir.model.fields,field_description:hr_base.field_emplpyee_attachment____last_update
-#: model:ir.model.fields,field_description:hr_base.field_emplpyee_attachment_name____last_update
 #: model:ir.model.fields,field_description:hr_base.field_eos_leaving____last_update
 #: model:ir.model.fields,field_description:hr_base.field_hr_certification____last_update
 #: model:ir.model.fields,field_description:hr_base.field_hr_college____last_update
@@ -2177,11 +2697,12 @@ msgstr "اخر يوم عمل"
 #: model:ir.model.fields,field_description:hr_base.field_res_company____last_update
 #: model:ir.model.fields,field_description:hr_base.field_res_company_tree____last_update
 #: model:ir.model.fields,field_description:hr_base.field_res_config_settings____last_update
-#: model:ir.model.fields,field_description:hr_base.field_res_country____last_update
 #: model:ir.model.fields,field_description:hr_base.field_res_sponsor____last_update
 #: model:ir.model.fields,field_description:hr_base.field_resource_calendar____last_update
 #: model:ir.model.fields,field_description:hr_base.field_resource_resource____last_update
 #: model:ir.model.fields,field_description:hr_base.field_work_location____last_update
+#: model:ir.model.fields,field_description:hr_base.field_membership_categorys____last_update
+#: model:ir.model.fields,field_description:hr_base.field_membership_types____last_update
 msgid "Last Modified on"
 msgstr "آخر تعديل في"
 
@@ -2211,8 +2732,6 @@ msgstr "اخر اسم"
 #: model:ir.model.fields,field_description:hr_base.field_employee_iqama_renewal__write_uid
 #: model:ir.model.fields,field_description:hr_base.field_employee_iqama_renewal_line__write_uid
 #: model:ir.model.fields,field_description:hr_base.field_employee_payslip__write_uid
-#: model:ir.model.fields,field_description:hr_base.field_emplpyee_attachment__write_uid
-#: model:ir.model.fields,field_description:hr_base.field_emplpyee_attachment_name__write_uid
 #: model:ir.model.fields,field_description:hr_base.field_eos_leaving__write_uid
 #: model:ir.model.fields,field_description:hr_base.field_hr_certification__write_uid
 #: model:ir.model.fields,field_description:hr_base.field_hr_college__write_uid
@@ -2237,6 +2756,8 @@ msgstr "اخر اسم"
 #: model:ir.model.fields,field_description:hr_base.field_res_company_tree__write_uid
 #: model:ir.model.fields,field_description:hr_base.field_res_sponsor__write_uid
 #: model:ir.model.fields,field_description:hr_base.field_work_location__write_uid
+#: model:ir.model.fields,field_description:hr_base.field_membership_categorys__write_uid
+#: model:ir.model.fields,field_description:hr_base.field_membership_types__write_uid
 msgid "Last Updated by"
 msgstr "اخر تحديث"
 
@@ -2259,8 +2780,6 @@ msgstr "اخر تحديث"
 #: model:ir.model.fields,field_description:hr_base.field_employee_iqama_renewal__write_date
 #: model:ir.model.fields,field_description:hr_base.field_employee_iqama_renewal_line__write_date
 #: model:ir.model.fields,field_description:hr_base.field_employee_payslip__write_date
-#: model:ir.model.fields,field_description:hr_base.field_emplpyee_attachment__write_date
-#: model:ir.model.fields,field_description:hr_base.field_emplpyee_attachment_name__write_date
 #: model:ir.model.fields,field_description:hr_base.field_eos_leaving__write_date
 #: model:ir.model.fields,field_description:hr_base.field_hr_certification__write_date
 #: model:ir.model.fields,field_description:hr_base.field_hr_college__write_date
@@ -2310,9 +2829,20 @@ msgid "Leaving Date"
 msgstr "تاريخ نهاية الخدمة"
 
 #. module: hr_base
+#: code:addons/hr_base/models/hr_base.py:0
+#, python-format
+msgid "Leaving Date  must be greater than First Hiring Date"
+msgstr "يجب أن يكون تاريخ المغادرة أكبر من تاريخ التوظيف الأول"
+
+#. module: hr_base
 #: model_terms:ir.ui.view,arch_db:hr_base.leaving_form_view
 msgid "Leaving Information"
 msgstr "معلومات مغادرة"
+
+#. module: hr_base
+#: model:ir.model.fields.selection,name:hr_base.selection__hr_employee__marital__cohabitant
+msgid "Legal Cohabitant"
+msgstr "معاش قانوني"
 
 #. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_employee_clearance__letter_to_client
@@ -2431,11 +2961,6 @@ msgid "Member Name"
 msgstr "اسم العضو"
 
 #. module: hr_base
-#: model:ir.model.fields,field_description:hr_base.field_hr_certification__membership_type
-msgid "Membership Type"
-msgstr "نوع العضوية"
-
-#. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_company_document__message_has_error
 #: model:ir.model.fields,field_description:hr_base.field_employee_iqama_renewal__message_has_error
 msgid "Message Delivery error"
@@ -2485,18 +3010,10 @@ msgid "Muslim"
 msgstr "مسلم"
 
 #. module: hr_base
-#: model:ir.model.fields,field_description:hr_base.field_company_document__my_activity_date_deadline
-#: model:ir.model.fields,field_description:hr_base.field_employee_iqama_renewal__my_activity_date_deadline
-msgid "My Activity Deadline"
-msgstr ""
-
-#. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_address_city__name
 #: model:ir.model.fields,field_description:hr_base.field_address_region__name
 #: model:ir.model.fields,field_description:hr_base.field_company_document__name
 #: model:ir.model.fields,field_description:hr_base.field_employee_iqama_renewal__name
-#: model:ir.model.fields,field_description:hr_base.field_emplpyee_attachment__name
-#: model:ir.model.fields,field_description:hr_base.field_emplpyee_attachment_name__name
 #: model:ir.model.fields,field_description:hr_base.field_hr_college__name
 #: model:ir.model.fields,field_description:hr_base.field_hr_employee__r_name
 #: model:ir.model.fields,field_description:hr_base.field_hr_employee_attachments__name
@@ -2513,8 +3030,30 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_base.employee_iqama_renewal_form_view
 #: model_terms:ir.ui.view,arch_db:hr_base.res_company_ext
 #: model_terms:ir.ui.view,arch_db:hr_base.res_company_tree_ext
+#: model:ir.model.fields,field_description:hr_base.field_membership_categorys__name
+#: model:ir.model.fields,field_description:hr_base.field_membership_types__name
 msgid "Name"
 msgstr "الاسم"
+
+#. module: hr_base
+#: model:ir.model.fields,field_description:hr_base.field_membership_categorys_name
+msgid "Category"
+msgstr "تصنيف العضوية"
+
+#. module: hr_base
+#: model:ir.model,name:hr_base.model_membership_categorys
+msgid "membership.categorys"
+msgstr "تصنيف العضوية"
+
+#. module: hr_base
+#: model:ir.model.fields,field_description:hr_base.field_membership_types_name
+msgid "Membership Type"
+msgstr "نوع العضوية"
+
+#. module: hr_base
+#: model:ir.model,name:hr_base.model_membership_types
+msgid "membership.types"
+msgstr "نوع العضوية"
 
 #. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_employee_iqama__name
@@ -2554,16 +3093,14 @@ msgstr "نموذج إستكمال ملف موظف"
 
 #. module: hr_base
 #: model_terms:ir.ui.view,arch_db:hr_base.employee_iqama_renewal_form_view
-msgid "New Iqama Expiry"
-msgstr "تاريخ إنتهاء الإقامة الجديدة"
+msgid "New Identity Expiry"
+msgstr "تاريخ إنتهاء الهوية الجديدة"
 
 #. module: hr_base
 #: code:addons/hr_base/models/employee_iqama_renewal.py:0
 #, python-format
 msgid "New Iqama Expiry Date  must be greater than old expiry Date"
-msgstr ""
-"يجب أن يكون تاريخ إنتهاء الإقامة الجديدة أكبر من تاريخ انتهاء الصلاحية "
-"القديم"
+msgstr "يجب أن يكون تاريخ إنتهاء الإقامة الجديدة أكبر من تاريخ انتهاء الصلاحية القديم"
 
 #. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_contract_amedment__n_location
@@ -2683,6 +3220,7 @@ msgstr "مكتب"
 
 #. module: hr_base
 #: model:ir.model.fields.selection,name:hr_base.selection__hr_employee__employee_from__other
+#: model:ir.model.fields.selection,name:hr_base.selection__hr_employee__gender__other
 #: model:ir.model.fields.selection,name:hr_base.selection__hr_employee__religion__other
 msgid "Other"
 msgstr "غير ذلك"
@@ -2690,11 +3228,6 @@ msgstr "غير ذلك"
 #. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_hr_employee__other_asset
 msgid "Other Assets"
-msgstr ""
-
-#. module: hr_base
-#: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
-msgid "Other Information ..."
 msgstr ""
 
 #. module: hr_base
@@ -2774,11 +3307,6 @@ msgid "Payslip"
 msgstr "راتب الموظف"
 
 #. module: hr_base
-#: model:ir.model.fields,field_description:hr_base.field_hr_employee__payslip_lines
-msgid "Payslip Lines"
-msgstr ""
-
-#. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_hr_employee__performence_manager
 msgid "Performance Manager"
 msgstr "قسيمة الدفع"
@@ -2804,11 +3332,6 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_base.hr_calendar_view_form_inherit
 msgid "Permission Settings"
 msgstr ""
-
-#. module: hr_base
-#: model:ir.model.fields,field_description:hr_base.field_hr_employee__personal_email
-msgid "Personal Email"
-msgstr "البريد الشخصي"
 
 #. module: hr_base
 #: model_terms:ir.ui.view,arch_db:hr_base.dependent_form_view
@@ -2855,11 +3378,6 @@ msgid "Position"
 msgstr "الوظيفة"
 
 #. module: hr_base
-#: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
-msgid "Position Info"
-msgstr "معلومات الوظيفة"
-
-#. module: hr_base
 #: model_terms:ir.ui.view,arch_db:hr_base.sponsor_form_view
 msgid "Postal /Zip Code"
 msgstr "الرمز البريدي"
@@ -2886,9 +3404,14 @@ msgid "Present Address"
 msgstr "العنوان الحالي"
 
 #. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
+msgid "Present address"
+msgstr "العنوان الحالي"
+
+#. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_hr_employee__address_home_id
 msgid "Private Address"
-msgstr ""
+msgstr "اسم الشريك"
 
 #. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_hr_qualification__prg_status
@@ -2904,6 +3427,16 @@ msgstr "المشروع"
 #: model:ir.model,name:hr_base.model_projects_projects
 msgid "Projects"
 msgstr ""
+
+#. module: hr_base
+#: model:ir.model.fields.selection,name:hr_base.selection__hr_employee__drug_type__property
+msgid "Employee Property"
+msgstr "ملك الموظف"
+
+#. module: hr_base
+#: model:ir.model.fields.selection,name:hr_base.selection__hr_employee__drug_type__company_property
+msgid "Company Property"
+msgstr "ملك الشركة"
 
 #. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_hr_employee__property_type
@@ -3002,11 +3535,6 @@ msgid "Relation"
 msgstr "صلة القرابة"
 
 #. module: hr_base
-#: model:ir.model.fields,field_description:hr_base.field_hr_employee__relationship
-msgid "Relationship"
-msgstr "صلة القرابة"
-
-#. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_employee_iqama__religion
 #: model:ir.model.fields,field_description:hr_base.field_hr_dependent__religion
 #: model:ir.model.fields,field_description:hr_base.field_hr_employee__religion
@@ -3066,13 +3594,13 @@ msgstr "التاريخ المطلوب"
 
 #. module: hr_base
 #: model:ir.actions.act_window,name:hr_base.employee_iqama_renewal_list_action
-msgid "Request Iqama Renewal"
-msgstr "طلب تجديد الإقامة"
+msgid "Request Identity Renewal"
+msgstr "طلب تجديد الهوية"
 
 #. module: hr_base
 #: model:ir.ui.menu,name:hr_base.employee_iqama_renewal_menu_item
-msgid "Request iqama renewal"
-msgstr "طلب تجديد الإقامة"
+msgid "Request Identity Renewal"
+msgstr "طلب تجديد الهوية"
 
 #. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_eos_leaving__requested_date
@@ -3123,11 +3651,6 @@ msgid "Salary"
 msgstr "الراتب"
 
 #. module: hr_base
-#: model:ir.model.fields,field_description:hr_base.field_hr_employee__salary_in_words
-msgid "Salary In Words"
-msgstr ""
-
-#. module: hr_base
 #: model:ir.actions.report,name:hr_base.salary_confirmation_employee_action_report
 msgid "Salary confirmation Report"
 msgstr ""
@@ -3164,11 +3687,6 @@ msgstr "نسبة السعودة %"
 #: model_terms:ir.ui.view,arch_db:hr_base.employee_iqama_renewal_form_view
 msgid "Search"
 msgstr "بحث"
-
-#. module: hr_base
-#: model:ir.model.fields.selection,name:hr_base.selection__hr_department__department_type__unit
-msgid "Sector"
-msgstr "وحدة"
 
 #. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_employee_clearance__seniority_date
@@ -3228,11 +3746,6 @@ msgstr "يجب ادخال تاريخ تجديد الاقامة الجديد لل
 #, python-format
 msgid "Sorry,The Birthday Must Be Less than Date Today"
 msgstr "للأسف, تاريخ الميلاد يجب ان يكون اقل من تاريخ اليوم"
-
-#. module: hr_base
-#: model:ir.model.fields,field_description:hr_base.field_hr_certification__specialization
-msgid "Specialization"
-msgstr "التخصص"
 
 #. module: hr_base
 #: model:ir.actions.act_window,name:hr_base.res_sponsor_act
@@ -3335,6 +3848,8 @@ msgstr "الشارع 2"
 #. module: hr_base
 #: code:addons/hr_base/models/employee_iqama_renewal.py:0
 #: code:addons/hr_base/models/employee_iqama_renewal.py:0
+#: model:ir.model.fields.selection,name:hr_base.selection__employee_iqama_renewal__state__submit
+#: model:ir.model.fields.selection,name:hr_base.selection__employee_iqama_renewal_line__state__submit
 #: model_terms:ir.ui.view,arch_db:hr_base.employee_iqama_renewal_form_view
 #, python-format
 msgid "Submit"
@@ -3490,6 +4005,7 @@ msgstr "ترحيل القيد للمالية"
 
 #. module: hr_base
 #: code:addons/hr_base/models/employee_iqama_renewal.py:0
+#: model:ir.model.fields.selection,name:hr_base.selection__employee_iqama_renewal__state__chief_accountant
 #, python-format
 msgid "Transferred"
 msgstr "تم الترحيل"
@@ -3515,13 +4031,6 @@ msgstr "نوع من التدريب"
 #: model:ir.model.fields,help:hr_base.field_employee_iqama_renewal__activity_exception_decoration
 msgid "Type of the exception activity on record."
 msgstr ""
-
-#. module: hr_base
-#: code:addons/hr_base/models/hr_base.py:0
-#: model:ir.model.fields.selection,name:hr_base.selection__hr_employee__state__under_out_of_service
-#, python-format
-msgid "Under Out of service"
-msgstr "تحت اجراء انهاء الخدمة"
 
 #. module: hr_base
 #: model:ir.model.fields,field_description:hr_base.field_hr_qualification__uni_name
@@ -3558,6 +4067,8 @@ msgstr "المورد رقم"
 #. module: hr_base
 #: code:addons/hr_base/models/certification.py:0
 #: code:addons/hr_base/models/hr_base.py:0
+#: model:ir.model.fields.selection,name:hr_base.selection__hr_certification__certification_degree__very_good
+#: model:ir.model.fields.selection,name:hr_base.selection__hr_qualification__qualification_degree__very_good
 #, python-format
 msgid "Very Good"
 msgstr "جيد جدا"
@@ -3580,6 +4091,8 @@ msgstr "رقم الفيزا"
 #. module: hr_base
 #: code:addons/hr_base/models/certification.py:0
 #: code:addons/hr_base/models/hr_base.py:0
+#: model:ir.model.fields.selection,name:hr_base.selection__hr_certification__certification_degree__weak
+#: model:ir.model.fields.selection,name:hr_base.selection__hr_qualification__qualification_degree__weak
 #, python-format
 msgid "Weak"
 msgstr "ضعيف"
@@ -3632,13 +4145,7 @@ msgid "Work Hours"
 msgstr "ساعات العمل"
 
 #. module: hr_base
-#: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
-msgid "Work Information"
-msgstr "معلومات العمل"
-
-#. module: hr_base
 #: model:ir.model,name:hr_base.model_work_location
-#: model:ir.model.fields,field_description:hr_base.field_hr_employee__work_location
 #: model:ir.model.fields,field_description:hr_base.field_hr_employee__working_location
 #: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
 msgid "Work Location"
@@ -3681,17 +4188,6 @@ msgid "Yes"
 msgstr "نعم"
 
 #. module: hr_base
-#: code:addons/hr_base/models/hr_base.py:0
-#, python-format
-msgid "You Can Not Delete Department %s Have Employees"
-msgstr ""
-
-#. module: hr_base
-#: model:ir.model.fields,help:hr_base.field_hr_employee_dependent__attachment
-msgid "You can attach the copy of your document"
-msgstr ""
-
-#. module: hr_base
 #: code:addons/hr_base/models/employee_iqama_renewal.py:0
 #: code:addons/hr_base/models/employee_iqama_renewal.py:0
 #, python-format
@@ -3699,18 +4195,18 @@ msgid "You can not cancel account move \"%s\" in state not draft"
 msgstr "لايمكن الغاء القيدالمحاسبي %s اذا كان في حالة غير مبدئي"
 
 #. module: hr_base
-#: code:addons/hr_base/models/hr_base.py:0
-#, python-format
-msgid "You can not delete record has Hiring date"
-msgstr ""
-
-#. module: hr_base
 #: code:addons/hr_base/models/employee_iqama_renewal.py:0
 #: code:addons/hr_base/models/employee_iqama_renewal.py:0
 #: code:addons/hr_base/models/hr_base.py:0
 #, python-format
 msgid "You can not delete record in state not in draft"
-msgstr ""
+msgstr "لا يمكنك حذف السجل في حالة ليس مبدئي"
+
+#. module: hr_base
+#: code:addons/hr_base/models/hr_base.py:0
+#, python-format
+msgid "You cannot create Employee with the same employee number"
+msgstr "لا يمكنك إنشاء موظف بنفس رقم الموظف"
 
 #. module: hr_base
 #: code:addons/hr_base/models/hr_base.py:0
@@ -3722,6 +4218,11 @@ msgstr "تم انشاء العقد للموظف مسبقآ"
 #: model:ir.model.fields,field_description:hr_base.field_res_sponsor__zip_code
 msgid "Zip Code"
 msgstr "الرمز البريدي"
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
+msgid "address"
+msgstr "العنوان"
 
 #. module: hr_base
 #: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
@@ -3759,25 +4260,9 @@ msgid "e.g. www.odoo.com"
 msgstr ""
 
 #. module: hr_base
-#: model_terms:ir.ui.view,arch_db:hr_base.view_hr_department_form_inherit
-#: model_terms:ir.ui.view,arch_db:hr_base.view_hr_job_form_inherit
-msgid "e.g.. Sales Manager"
-msgstr ""
-
-#. module: hr_base
 #: model_terms:ir.ui.view,arch_db:hr_base.employee_iqama_renewal_tree_view
-msgid "employee iqama renewal"
-msgstr "تجديد الإقامة الموظف"
-
-#. module: hr_base
-#: model:ir.model,name:hr_base.model_emplpyee_attachment
-msgid "emplpyee.attachment"
-msgstr ""
-
-#. module: hr_base
-#: model:ir.model,name:hr_base.model_emplpyee_attachment_name
-msgid "emplpyee.attachment.name"
-msgstr ""
+msgid "employee identity renewal"
+msgstr "تجديد الهوية الموظف"
 
 #. module: hr_base
 #: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
@@ -3874,6 +4359,11 @@ msgid ""
 msgstr ""
 
 #. module: hr_base
+#: model:ir.model.fields.selection,name:hr_base.selection__hr_employee__payment_method__bank
+msgid "البنك"
+msgstr ""
+
+#. module: hr_base
 #: model_terms:ir.ui.view,arch_db:hr_base.dependents_employee_report_temp
 msgid "التاريخ"
 msgstr ""
@@ -3907,11 +4397,6 @@ msgid ""
 msgstr ""
 
 #. module: hr_base
-#: model:ir.model.fields.selection,name:hr_base.selection__employee_iqama_renewal_line__state__effective_department
-msgid "المدير التنفيذي"
-msgstr ""
-
-#. module: hr_base
 #: model_terms:ir.ui.view,arch_db:hr_base.dependents_employee_report_temp
 msgid "المعالين:"
 msgstr ""
@@ -3933,16 +4418,6 @@ msgid ""
 msgstr ""
 
 #. module: hr_base
-#: model:ir.model.fields.selection,name:hr_base.selection__employee_iqama_renewal_line__state__submit
-msgid "تصديق"
-msgstr ""
-
-#. module: hr_base
-#: model:ir.model.fields.selection,name:hr_base.selection__employee_iqama_renewal__state__chief_accountant
-msgid "تم الترحيل"
-msgstr ""
-
-#. module: hr_base
 #: model_terms:ir.ui.view,arch_db:hr_base.dependents_employee_report_temp
 msgid "تمت مطابقة الأسماء حسب الجواز / الإقامة / بطاقة الأحوال"
 msgstr ""
@@ -3951,12 +4426,6 @@ msgstr ""
 #: model:ir.model.fields.selection,name:hr_base.selection__hr_certification__certification_degree__good
 #: model:ir.model.fields.selection,name:hr_base.selection__hr_qualification__qualification_degree__good
 msgid "جيد"
-msgstr ""
-
-#. module: hr_base
-#: model:ir.model.fields.selection,name:hr_base.selection__hr_certification__certification_degree__very_good
-#: model:ir.model.fields.selection,name:hr_base.selection__hr_qualification__qualification_degree__very_good
-msgid "جيد جدا"
 msgstr ""
 
 #. module: hr_base
@@ -3989,25 +4458,8 @@ msgid ""
 msgstr ""
 
 #. module: hr_base
-#: model:ir.model.fields.selection,name:hr_base.selection__hr_certification__certification_degree__weak
-#: model:ir.model.fields.selection,name:hr_base.selection__hr_qualification__qualification_degree__weak
-msgid "ضعيف"
-msgstr ""
-
-#. module: hr_base
 #: model_terms:ir.ui.view,arch_db:hr_base.dependents_employee_report_temp
 msgid "لاستخدام إدارة الموارد البشرية"
-msgstr ""
-
-#. module: hr_base
-#: model:ir.model.fields.selection,name:hr_base.selection__employee_iqama_renewal__state__draft
-#: model:ir.model.fields.selection,name:hr_base.selection__employee_iqama_renewal_line__state__draft
-msgid "مبدئي"
-msgstr ""
-
-#. module: hr_base
-#: model:ir.model.fields.selection,name:hr_base.selection__employee_iqama_renewal__state__effective_department
-msgid "مدير إداري"
 msgstr ""
 
 #. module: hr_base
@@ -4017,8 +4469,9 @@ msgid "مرفوض"
 msgstr ""
 
 #. module: hr_base
-#: model:ir.model.fields.selection,name:hr_base.selection__employee_iqama_renewal__state__submit
-msgid "مسؤول إداري"
+#: model:ir.model.fields.selection,name:hr_base.selection__employee_iqama_renewal__state__draft
+#: model:ir.model.fields.selection,name:hr_base.selection__employee_iqama_renewal_line__state__draft
+msgid "مسودة"
 msgstr ""
 
 #. module: hr_base
@@ -4031,16 +4484,15 @@ msgid ""
 msgstr ""
 
 #. module: hr_base
-#: model:ir.model.fields.selection,name:hr_base.selection__hr_certification__certification_degree__excellent
-#: model:ir.model.fields.selection,name:hr_base.selection__hr_qualification__qualification_degree__excellent
-msgid "ممتاز"
-msgstr ""
-
-#. module: hr_base
 #: model_terms:ir.ui.view,arch_db:hr_base.dependents_employee_report_temp
 msgid ""
 "نأمل منكم تعبئة النموذج الخاص بكم موضحا فيه تواريخ الميلاد باليوم و الشهر و "
 "السنة بالميلادي (إذا أمكن) وإعادته لنا بعد التوقيع عليه، ولكم جزيل الشكر."
+msgstr ""
+
+#. module: hr_base
+#: model:ir.model.fields.selection,name:hr_base.selection__hr_employee__payment_method__cash
+msgid "نقدي"
 msgstr ""
 
 #. module: hr_base
@@ -4052,3 +4504,86 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_base.salary_confirmation_report_temp
 msgid "ودون أي التزام أو مسئولية على الشركة عدا ما ذكر أعلاه."
 msgstr ""
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
+msgid "Position Info"
+msgstr "معلومات الوظيفة"
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
+msgid "Work Information"
+msgstr "معلومات العمل"
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
+msgid "Citizenship"
+msgstr "الجنسية و معلومات أخرى"
+
+#. module: hr_base
+#: model:ir.model.fields,field_description:hr_base.field_hr_employee__relationship
+msgid "Relationship"
+msgstr "صلة القرابة"
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.hr_extension_form_view
+msgid "Attendance Info"
+msgstr "معلومات الحضور والانصراف"
+
+#. module: hr_base
+#: model:ir.model.fields,field_description:hr_base.field_hr_employee__personal_email
+msgid "Personal Email"
+msgstr "البريد الشخصي"
+
+#. module: hr_base
+#: code:addons/hr_base/models/hr_base.py:0
+#: model:ir.model.fields.selection,name:hr_base.selection__hr_employee__state__under_out_of_service
+#, python-format
+msgid "Under Out of service"
+msgstr "تحت اجراء انهاء الخدمة"
+
+#. module: hr_contract
+#: model:ir.model.fields,field_description:hr_contract.field_hr_employee__first_contract_date
+msgid "First Contract Date"
+msgstr "تاريخ أول عقد"
+
+#. module: hr_base
+#: model_terms:ir.ui.view,arch_db:hr_base.employee_iqama_renewal_form_view
+#: model:ir.model.fields,field_description:hr_base.field_employee_iqama_renewal_line__contract_date_end
+msgid "Contract End Date"
+msgstr "تاريخ نهاية العقد"
+
+#. module: hr_docs_expiry
+#: model:ir.model.fields,field_description:hr_base.field_hr_certification__membership_type
+msgid "Membership Type"
+msgstr "نوع العضوية"
+
+#. module: hr_docs_expiry
+#: model:ir.model.fields,field_description:hr_base.field_hr_certification__specialization
+msgid "Specialization"
+msgstr "التخصص"
+
+#. module: hr_docs_expiry
+#: model:ir.model.fields,field_description:hr_base.field_hr_certification__category
+msgid "Category"
+msgstr "التصنيف"
+
+#. module: hr_base
+#: model:ir.model.fields,field_description:hr_base.field_hr_department__department_type
+msgid "Department Type"
+msgstr "النوع"
+
+#. module: hr_base
+#: model:ir.model.fields.selection,name:hr_base.selection__hr_department__department_type__department
+msgid "Business Unit"
+msgstr "Business Unit"
+
+#. module: hr_base
+#: model:ir.model.fields.selection,name:hr_base.selection__hr_department__department_type__unit
+msgid "Department"
+msgstr "Department"
+
+#. module: hr_base
+#: model:ir.actions.report,name:hr_base.employee_info_report
+msgid "Employee Info Sheet"
+msgstr "بطاقة معلومات الموظف"

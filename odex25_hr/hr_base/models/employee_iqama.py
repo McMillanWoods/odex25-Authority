@@ -21,14 +21,14 @@ class Iqama(models.Model):
     dob = fields.Date("Date of Birth")
     serial_no = fields.Char()
     in_saudi = fields.Boolean("Is Saudi?")
-    iqama_no = fields.Char("Iqama/ID No", required=True)
+    iqama_no = fields.Char("Identity /ID No", required=True)
     iqama_position = fields.Char()
     place_issue = fields.Char("Place of Issue")
     issue_date = fields.Date(required=True)
     expiry_date = fields.Date(required=True)
     arrival_date = fields.Date("Arrival Date in Suadi")
     description = fields.Text()
-    t_link = fields.One2many("employee.family.iqama", "link", string="Family Iqama/ID Details")
+    t_link = fields.One2many("employee.family.iqama", "link", string="Family Identity/ID Details")
 
     @api.onchange("employee")
     def onchange_employee(self):

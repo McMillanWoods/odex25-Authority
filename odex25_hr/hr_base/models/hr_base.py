@@ -261,39 +261,39 @@ class HrEmployee(models.Model):
                             item.experience_month = item.experience_month + 1
                             item.experience_day = item.experience_day - 30
 
-    @api.onchange('employee_type_id')
-    def onchang_emp_no(self):
-        for rec in self:
-            seq = rec.env['ir.sequence'].next_by_code('hr.employee') or '/'
-            emp_seq = self.env['hr.employee'].search([])
-            heights = []
-            new_swq = False
-            currnt_sequance = rec.env['ir.sequence'].search([('code', '=', 'hr.employee')], limit=1)
-            if emp_seq and not rec.emp_no:
-                for emp in emp_seq:
-                    if emp.emp_no:
-                        currnt_code = emp.employee_type_id.code
-                        i = 0
-                        fix_code = 0
-                        size_seq = currnt_sequance.padding
-                        for c in emp.emp_no:
-                            i += 1
-                            first_chars = emp.emp_no[0:i]
-                            if currnt_code == first_chars:
-                                fix_code = emp.emp_no[i:i + size_seq]
-
-                        heights.append(int(fix_code))
-                        max_number = max(heights)
-                        if fix_code:
-                            if int(seq) > max_number + 1 or int(seq) < max_number:
-                                new_swq = max_number + 1
-                                rec.emp_no = str(rec.employee_type_id.code) + str(new_swq).zfill(size_seq)
-                            else:
-                                new_swq = seq
-                                rec.emp_no = str(rec.employee_type_id.code) + str(seq)
-                currnt_sequance.write({'number_next_actual': new_swq})
-            if not emp_seq or new_swq == False:
-                rec.emp_no = str(rec.employee_type_id.code) + str(seq)
+    # @api.onchange('employee_type_id')
+    # def onchang_emp_no(self):
+    #     for rec in self:
+    #         seq = rec.env['ir.sequence'].next_by_code('hr.employee') or '/'
+    #         emp_seq = self.env['hr.employee'].search([])
+    #         heights = []
+    #         new_swq = False
+    #         currnt_sequance = rec.env['ir.sequence'].search([('code', '=', 'hr.employee')], limit=1)
+    #         if emp_seq and not rec.emp_no:
+    #             for emp in emp_seq:
+    #                 if emp.emp_no:
+    #                     currnt_code = emp.employee_type_id.code
+    #                     i = 0
+    #                     fix_code = 0
+    #                     size_seq = currnt_sequance.padding
+    #                     for c in emp.emp_no:
+    #                         i += 1
+    #                         first_chars = emp.emp_no[0:i]
+    #                         if currnt_code == first_chars:
+    #                             fix_code = emp.emp_no[i:i + size_seq]
+    #
+    #                     heights.append(int(fix_code))
+    #                     max_number = max(heights)
+    #                     if fix_code:
+    #                         if int(seq) > max_number + 1 or int(seq) < max_number:
+    #                             new_swq = max_number + 1
+    #                             rec.emp_no = str(rec.employee_type_id.code) + str(new_swq).zfill(size_seq)
+    #                         else:
+    #                             new_swq = seq
+    #                             rec.emp_no = str(rec.employee_type_id.code) + str(seq)
+    #             currnt_sequance.write({'number_next_actual': new_swq})
+    #         if not emp_seq or new_swq == False:
+    #             rec.emp_no = str(rec.employee_type_id.code) + str(seq)
 
     def write(self, vals):
         for rec in self:
@@ -433,17 +433,17 @@ class HrEmployee(models.Model):
         if "context" in dir(self.env) and new_record.name:
             if new_record.english_name:
                 new_record.translate_employee_name()
-        seq = self.env['ir.sequence'].next_by_code('hr.employee') or '/'
+        # seq = self.env['ir.sequence'].next_by_code('hr.employee') or '/'
         return new_record
 
     @api.constrains("emp_no", "birthday", 'attachment_ids')
     def e_unique_field_name_constrains(self):
         for item in self:
             items = self.search([("emp_no", "=", item.emp_no)])
-            # if len(items) > 1:  # return more than one item with the same value
-            #     raise ValidationError(
-            #         _("You cannot create Employee with the same employee number")
-            #     )
+            if len(items) > 1:  # return more than one item with the same value
+                raise ValidationError(
+                    _("You cannot create Employee with the same employee number")
+                )
             if item.birthday >= date.today():
                 raise Warning(_("Sorry,The Birthday Must Be Less than Date Today"))
             if item.attachment_ids:
@@ -676,7 +676,7 @@ class HrDepartment(models.Model):
 
     job_ids = fields.Many2many("hr.job", string="Jobs")
     email_manager = fields.Char(string="Email Manager", related="manager_id.work_email")
-    department_type = fields.Selection(selection=[('department', 'Department'), ('unit', 'Sector')])
+    department_type = fields.Selection(selection=[('department', 'Business Unit'), ('unit', 'Department')])
     english_name = fields.Char(string='English Name')
 
     def unlink(self):

@@ -25,7 +25,7 @@
                                 <!-- <field name="profession"/> -->
                             </group>
                         </group>
-                        <group string='Iqama/ID Details' name="group_top">
+                        <group string='Identity/ID Details' name="group_top">
                             <group name="group_left">
                                 <field name="iqama_no" />
                                 <field name="serial_no" />
@@ -42,7 +42,7 @@
                             </group>
                         </group>
                         <separator />
-                        <h4>Family Iqama/ID Details</h4>
+                        <h4>Family Identity/ID Details</h4>
                         <separator />
                         <field name="t_link">
                             <tree editable="bottom">
@@ -61,7 +61,7 @@
 
         <!-- Employee Iqama -->
         <record model="ir.actions.act_window" id="iqama_list_action">
-            <field name="name">Employee Iqama / ID</field>
+            <field name="name">Employee Identity / ID</field>
             <field name="res_model">employee.iqama</field>
             <field name="view_mode">tree,form</field>
         </record>

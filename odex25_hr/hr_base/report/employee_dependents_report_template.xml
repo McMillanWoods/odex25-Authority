@@ -93,9 +93,9 @@
                                         name
                                     </td>
                                     <td style="border: 1px solid gray">
-                                        رقم بطاقة الأحوال / الإقامة
+                                        رقم بطاقة الأحوال / الهوية
                                         <br />
-                                        Saudi ID/ Iqama No.
+                                        Saudi ID/ Identity No.
                                     </td>
                                     <td style="border: 1px solid gray">
                                         الجنسية
@@ -178,9 +178,9 @@
                                         <th
                                             style=" border: 1px solid gray; padding: 1px;font-size:0.8em;background-color: white;color: black;width:30%;text-align:center;"
                                         >
-                                            رقم بطاقة الأحوال / الإقامة
+                                            رقم بطاقة الأحوال / الهوية
                                             <br />
-                                            Saudi ID/ Iqama No
+                                            Saudi ID/ Identity No
                                         </th>
                                     </tr>
                                 </thead>
@@ -318,7 +318,7 @@
                                     <td
                                         style="font-weight:bold;width:25%;border: 1px solid gray;background-color:#d3d3d3;"
                                     >
-                                        تمت مطابقة الأسماء حسب الجواز / الإقامة / بطاقة الأحوال
+                                        تمت مطابقة الأسماء حسب الجواز / الهوية / بطاقة الأحوال
                                     </td>
                                     <td
                                         style="text-align: right;font-weight:bold;width:25%;border-top: 1px solid gray"
