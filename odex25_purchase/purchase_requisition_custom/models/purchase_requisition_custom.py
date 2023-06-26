@@ -68,13 +68,11 @@ class PurchaseRequisitionCustom(models.Model):
         ('operational', 'Operational')
     ], default='operational')
     project_id = fields.Many2one('project.project', string='Project')
-    project_stage_id = fields.Many2one('project.phase', string='Project Stage')
     sent_to_commitee = fields.Boolean('Is Sent to Commitee?', default=False)
 
     @api.onchange('type', 'project_id')
     def _onchange_project_id(self):
         if self.type != 'project':
-            self.project_stage_id = False
             self.project_id = False
 
     ordering_date = fields.Date(default=fields.Datetime.now)
@@ -680,6 +678,17 @@ class PurchaseOrderCustom(models.Model):
             ('contract', 'Contract'),
         ],default='ordinary',string='Type',
     )
+
+    # New Added
+    email_to_vendor = fields.Boolean('Email Sent to Vendor?', default=False)
+    send_to_budget = fields.Boolean('Sent to Budget?', default=False)
+    # request_id = fields.Many2one('purchase.request', string="Request Source")
+    project_id = fields.Many2one('project.project', string='Project',
+                                 compute="_get_project_data",
+                                 store=True)
+    # project_stage_id = fields.Many2one('project.phase', string='Project Stage',compute="_get_project_data",store=True)
+    is_purchase_budget = fields.Boolean(string="Is Purchase Budget", compute='_compute_budget')
+    confirmation_ids = fields.One2many('budget.confirmation', 'po_id')
     
     def _prepare_invoice(self):
         res = super(PurchaseOrderCustom,self)._prepare_invoice()
@@ -755,18 +764,7 @@ class PurchaseOrderCustom(models.Model):
         }
     # End features on PO (related the cotract features) 
 
-    # New Added
-    email_to_vendor = fields.Boolean('Email Sent to Vendor?', default=False)
-    send_to_budget = fields.Boolean('Sent to Budget?', default=False)
-    # request_id = fields.Many2one('purchase.request', string="Request Source")
-    project_id = fields.Many2one('project.project', string='Project',
-                                 compute="_get_project_data",
-                                 store=True)
-    project_stage_id = fields.Many2one('project.phase', string='Project Stage',
-                                       compute="_get_project_data",
-                                       store=True)
-    is_purchase_budget = fields.Boolean(string="Is Purchase Budget", compute='_compute_budget')
-    confirmation_ids = fields.One2many('budget.confirmation', 'po_id')
+
 
     def open_confirmation(self):
         formview_ref = self.env.ref('account_budget_custom.view_budget_confirmation_form', False)
@@ -872,13 +870,11 @@ class PurchaseOrderCustom(models.Model):
             # elif obj.requisition_id and obj.state not in ['draft', 'sent']:
             #     obj.send_to_budget = True
 
-    @api.depends('requisition_id.project_id', 'requisition_id.project_stage_id')
+    @api.depends('requisition_id.project_id')
     def _get_project_data(self):
         for rec in self:
             if rec.requisition_id.project_id:
                 rec.project_id = rec.requisition_id.project_id.id
-            if rec.requisition_id.project_stage_id:
-                rec.project_stage_id = rec.requisition_id.project_stage_id.id
 
     def action_skip_budget(self):
         """ Skip purchase budget"""
