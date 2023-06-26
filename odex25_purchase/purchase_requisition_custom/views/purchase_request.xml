@@ -85,9 +85,6 @@
                                    invisible="1"/>
                             <field name="project_id" options="{'no_create': True, 'no_open': True}" attrs="{'invisible':[('type','!=', 'project')],
                              'required':[('type','=', 'project')], 'readonly':[('state' , '!=' , 'draft')]}"/>
-                            <field name="project_stage_id" options="{'no_create': True, 'no_open': True}"
-                                   domain="[('project_id', '=', project_id)]"
-                                   attrs="{'invisible':['|',('type','!=', 'project'), ('project_id','=', False)]}"/>
                             <field name="is_analytic"/>
 
                         </group>

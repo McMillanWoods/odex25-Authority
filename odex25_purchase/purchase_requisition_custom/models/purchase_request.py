@@ -50,7 +50,7 @@ class PurchaseRequest(models.Model):
         ('operational', 'Operational')
     ], default='operational')
     project_id = fields.Many2one('project.project', string='Project')
-    project_stage_id = fields.Many2one('project.phase', string='Project Stage')
+    # project_stage_id = fields.Many2one('project.phase', string='Project Stage')
     is_analytic = fields.Boolean("Use Analytic Account")
 
     type_id = fields.Many2one('purchase.requisition.type', string="Agreement Type")
@@ -142,7 +142,7 @@ class PurchaseRequest(models.Model):
     @api.onchange('type', 'project_id')
     def _onchange_project_id(self):
         if self.type != 'project':
-            self.project_stage_id = False
+            # self.project_stage_id = False
             self.project_id = False
 
     purchase_create = fields.Boolean(string='Purchase Create')
@@ -297,7 +297,7 @@ class PurchaseRequest(models.Model):
             'department_id': self.employee_id.department_id.id,
             'type': self.type,
             'project_id': self.project_id.id,
-            'project_stage_id': self.project_stage_id.id,
+            # 'project_stage_id': self.project_stage_id.id,
             'purpose': self.purchase_purpose,
             'request_id': self.id,
             'user_id': self.employee_id.user_id.id,
@@ -334,7 +334,7 @@ class PurchaseRequest(models.Model):
             'origin': self.name,
             'request_id': self.id,
             'project_id': self.project_id.id,
-            'project_stage_id': self.project_stage_id.id,
+            # 'project_stage_id': self.project_stage_id.id,
             'partner_id': self.partner_id.id,
             'purpose': self.purchase_purpose,
             'purchase_cost': 'product_line',
@@ -383,7 +383,7 @@ class PurchaseRequest(models.Model):
                 'request_id': self.id,
                 'date_order': datetime.today(),
                 'project_id': self.project_id.id,
-                'project_stage_id': self.project_stage_id.id,
+                # 'project_stage_id': self.project_stage_id.id,
                 'partner_id': self.partner_id.id,
                 'purpose': self.purchase_purpose,
                 'purchase_cost': 'product_line',

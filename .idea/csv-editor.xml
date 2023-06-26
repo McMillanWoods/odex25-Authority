@@ -10,6 +10,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/odex25_purchase/purchase_requisition_custom/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>

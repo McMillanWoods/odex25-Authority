@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/odex25-Authority.iml" filepath="$PROJECT_DIR$/.idea/odex25-Authority.iml" />
+      <module fileurl="file://$USER_HOME$/odoo14/odoo/.idea/odoo.iml" filepath="$USER_HOME$/odoo14/odoo/.idea/odoo.iml" />
     </modules>
   </component>
 </project>

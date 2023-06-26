@@ -24,7 +24,7 @@
         'reports/committee_meeting_minutes_report.xml',
         'views/budget_confirmation.xml',
     ],
-    'depends': ['exp_analytic','stock', 'purchase','project_custom', 'purchase_requisition', 'zuhair_purchase', 'analytic','hr','account_budget_custom','purchase_stock'],
+    'depends': ['exp_analytic','stock', 'purchase_stock','project', 'purchase_requisition', 'zuhair_purchase','account_budget_custom'],
     # 'account_budget_custom', exp_budget_check
     'installable': True,
     'application': True,
