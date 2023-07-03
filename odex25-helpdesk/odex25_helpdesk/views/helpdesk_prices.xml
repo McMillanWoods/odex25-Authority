@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="plan_helpdesk_price_form_view" model="ir.ui.view">
+        <field name="name">helpdesk.price.form</field>
+        <field name="model">helpdesk.price</field>
+        <field name="arch" type="xml">
+            <form string="Helpdesk Price">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h3>
+                            <field name="name" class="oe_inline"
+                                   placeholder="Plan name of price"/>
+                        </h3>
+                    </div>
+                    <group>
+                        <group colspan="4" col="4">
+                            <field name="recurrency"/>
+
+                            <field name="total_amount" force_save="1" readonly="1"/>
+                            <field name="amount" force_save="1"/>
+                            
+                            <field name="tax_amount" force_save="1" readonly="1"/>
+                            <field name="tax_id"/>
+                            <field name="company_id" invisible="1"/>
+                            <field name="description"/>
+                            <field name="is_active"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="plan_helpdesk_price_tree_view" model="ir.ui.view">
+        <field name="name">helpdesk.price.tree</field>
+        <field name="model">helpdesk.price</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="amount"/>
+                <field name="tax_amount"/>
+                <field name="total_amount" />
+                <field name="tax_id"/>
+                <field name="is_active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_plan_helpdesk_price" model="ir.actions.act_window">
+        <field name="name">Helpdesk Prices</field>
+        <field name="res_model">helpdesk.price</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Click to create a new paln price.
+            </p>
+        </field>
+    </record>
+
+    <menuitem name="Helpdesk Prices" id="plan_helpdesk_price_menu"
+        action="action_plan_helpdesk_price"
+        parent="odex25_helpdesk_menu_config"
+        groups="odex25_helpdesk.group_odex25_helpdesk_manager"/>
+
+</odoo>

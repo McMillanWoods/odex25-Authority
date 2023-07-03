@@ -1,0 +1,1310 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* odex_subscription_service
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-27 11:21+0000\n"
+"PO-Revision-Date: 2023-02-27 13:31+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.2.2\n"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "(Not in"
+msgstr "(ليس في"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "(Wrong address?)"
+msgstr "(هل العنوان خاطئ؟)"
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/models/subscription_service.py:0
+#, python-format
+msgid ", your subscription is about to finish"
+msgstr "، اشتراكك على وشك الانتهاء"
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/models/subscription_service.py:0
+#, python-format
+msgid ", your subscription is closed"
+msgstr "، تم إغلاق اشتراكك"
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/models/subscription_service.py:0
+#, python-format
+msgid ", your subscription is in progress"
+msgstr "، اشتراكك ساري"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid ""
+"<abbr title=\"You need to be logged in as this subscription's customer to change "
+"country\">Taxes</abbr>:<br/>"
+msgstr ""
+"<abbr title=\"تحتاج إلى تسجيل الدخول كعميل لهذا الاشتراك لتغيير البلد\">الضرائب</"
+"abbr> :<br/>"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "<i class=\"fa fa-envelope\"/> Send email"
+msgstr "<i class=\"fa fa-envelope\"/>ارسل بريد الكتروني</i>"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "<i class=\"fa fa-fw fa-check\"/> In Progress"
+msgstr "<i class=\"fa fa-fw fa-check\"/>ساري</i>"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "<i class=\"fa fa-fw fa-refresh\"/> To Renew"
+msgstr "<i class=\"fa fa-fw fa-refresh\"/>للتجديد</i>"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "<i class=\"fa fa-fw fa-remove\"/> Closed"
+msgstr "<i class=\"fa fa-fw fa-remove\"/>منتهي</i>"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "<small class=\"text-muted\">Subscription -</small>"
+msgstr "<small class=\"text-muted\">أشتراك -</small>"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.portal_my_subscriptions
+msgid ""
+"<span class=\"badge badge-pill badge-danger\"><i class=\"fa fa-fw fa-remove\"/> "
+"Closed</span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-danger\"><i class=\"fa fa-fw fa-remove\"/> "
+"منتهي</span>"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid ""
+"<span class=\"badge badge-pill badge-info\"><i class=\"fa fa-fw fa-clock-o\" aria-"
+"label=\"Opened\" title=\"Opened\" role=\"img\"/><span class=\"d-none d-md-inline\"> "
+"Waiting for Payment</span></span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-info\"><i class=\"fa fa-fw fa-clock-o\" aria-"
+"label=\"Opened\" title=\"Opened\" role=\"img\"/><span class=\"d-none d-md-inline\"> "
+"في أنتظار السداد</span></span>"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid ""
+"<span class=\"badge badge-pill badge-success\"><i class=\"fa fa-fw fa-check\" aria-"
+"label=\"Paid\" title=\"Paid\" role=\"img\"/><span class=\"d-none d-md-inline\"> "
+"Paid</span></span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-success\"><i class=\"fa fa-fw fa-check\" aria-"
+"label=\"Paid\" title=\"Paid\" role=\"img\"/><span class=\"d-none d-md-inline\"> "
+"مدفوعة</span></span>"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.portal_my_subscriptions
+msgid ""
+"<span class=\"badge badge-pill badge-success\"><i class=\"fa fa-fw fa-check\"/> In "
+"Progress</span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-success\"><i class=\"fa fa-fw fa-check\"/> "
+"ساري</span>"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.portal_my_subscriptions
+msgid ""
+"<span class=\"badge badge-pill badge-warning\"><i class=\"fa fa-fw fa-refresh\"/> To "
+"Renew</span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-warning\"><i class=\"fa fa-fw fa-refresh\"/> "
+"للتجديد</span>"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid ""
+"<span class=\"badge badge-pill badge-warning\"><i class=\"fa fa-fw fa-remove\" aria-"
+"label=\"Cancelled\" title=\"Cancelled\" role=\"img\"/><span class=\"d-none d-md-"
+"inline\"> Cancelled</span></span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-warning\"><i class=\"fa fa-fw fa-remove\" aria-"
+"label=\"Cancelled\" title=\"Cancelled\" role=\"img\"/><span class=\"d-none d-md-"
+"inline\"> ملغي</span></span>"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "<strong class=\"text-muted\">Subscription Manager:</strong>"
+msgstr "<strong class=\"text-muted\">مدير الإشتراك:</strong>"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "<strong>Next Billing Amount:</strong><br/>"
+msgstr "<strong>قيمة الفاتورة التالية:</strong><br/>"
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/models/subscription_service.py:0
+#, python-format
+msgid "A new invoice has been created for subscription"
+msgstr "تم إنشاء فاتورة جديدة للاشتراك"
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/models/account_move.py:0
+#, python-format
+msgid "A new invoice will be issued."
+msgstr "سيتم إصدار فاتورة جديدة."
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__access_warning
+msgid "Access warning"
+msgstr "تحذير الوصول"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__message_needaction
+msgid "Action Needed"
+msgstr "الإجراءات اللازمة"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__activity_ids
+msgid "Activities"
+msgstr "النشاطات"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "زخرفة استثناء النشاط"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__activity_state
+msgid "Activity State"
+msgstr "حالة النشاط"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "أيقونة نوع النشاط"
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/controllers/portal.py:0
+#, python-format
+msgid "All"
+msgstr "الكل"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "Amount Due"
+msgstr "المبلغ المستحق"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service_line__analytic_tag_ids
+msgid "Analytic Tags"
+msgstr "الوسوم التحليلية"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service_line__analytic_account_id
+msgid "Analytic account"
+msgstr "الحساب التحليلي"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_res_config_settings__days_before_end
+msgid "Before Subscription End"
+msgstr "قبل انتهاء الاشتراك"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "Billing:"
+msgstr "الفواتير:"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_form
+msgid "Cancel Subscription"
+msgstr "إلغاء الإشتراك"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields.selection,name:odex_subscription_service.selection__subscription_service__state__cancel
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_search
+msgid "Cancelled"
+msgstr "ملغي"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_search
+msgid "Cancelled contracts"
+msgstr "العقود الملغية"
+
+#. module: odex_subscription_service
+#: model_terms:ir.actions.act_window,help:odex_subscription_service.subscription_service_action
+msgid "Click to create a new contract."
+msgstr "إضغط لإنشاء عقد جديد."
+
+#. module: odex_subscription_service
+#: model_terms:ir.actions.act_window,help:odex_subscription_service.subscription_service_action_pending
+msgid "Click to define a new contract."
+msgstr "إضغط لتعريف عقد جديد."
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__close_date
+msgid "Close Date"
+msgstr "تاريخ الإنهاء"
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/models/subscription_service.py:0
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_form
+#, python-format
+msgid "Close Subscription"
+msgstr "إنهاء إشتراك"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "Close your subscription"
+msgstr "إنهاء إشتراكك"
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/controllers/portal.py:0
+#: model:ir.model.fields.selection,name:odex_subscription_service.selection__subscription_service__state__close
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_search
+#, python-format
+msgid "Closed"
+msgstr "منتهي"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_search
+msgid "Closed contracts"
+msgstr "عقود منتهية"
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/controllers/portal.py:0
+#, python-format
+msgid "Closing text : "
+msgstr "رسالة الإنهاء "
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "Communication"
+msgstr "المراسلات"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: odex_subscription_service
+#: model:ir.model,name:odex_subscription_service.model_res_config_settings
+msgid "Config Settings"
+msgstr "ضبط الاعدادات"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: odex_subscription_service
+#: model:ir.model,name:odex_subscription_service.model_res_partner
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_search
+msgid "Contract"
+msgstr "العقد"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_search
+msgid "Contracts in progress"
+msgstr "العقد ساري"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__create_uid
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service_line__create_uid
+msgid "Created by"
+msgstr "أنشئت بواسطة"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__create_date
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service_line__create_date
+msgid "Created on"
+msgstr "تاريخ الإنشاء"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,help:odex_subscription_service.field_subscription_service__access_url
+msgid "Customer Portal URL"
+msgstr "رابط بوابة العميل"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__recurring_next_date
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_form
+msgid "Date of Next Invoice"
+msgstr "تأريخ الفاتورة التالية"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields.selection,name:odex_subscription_service.selection__subscription_service__recurrency__daily
+msgid "Day(s)"
+msgstr "يومي"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,help:odex_subscription_service.field_subscription_service_line__uom_id
+msgid "Default unit of measure used for all stock operations."
+msgstr "وحدة القياس الافتراضية المستخدمة لجميع عمليات المخزون."
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__description
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service_line__name
+msgid "Description"
+msgstr "الوصف"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service_line__discount
+msgid "Discount (%)"
+msgstr "الخصم (%)"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_account_move__display_name
+#: model:ir.model.fields,field_description:odex_subscription_service.field_product_template__display_name
+#: model:ir.model.fields,field_description:odex_subscription_service.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:odex_subscription_service.field_res_partner__display_name
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__display_name
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service_line__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "Draft Invoice"
+msgstr "فاتورة مسودة"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "Due Date"
+msgstr "تاريخ الاستحقاق"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__date_end
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_search
+msgid "End Date"
+msgstr "تاريخ الإنتهاء"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_search
+msgid "End date is in the next month"
+msgstr "تاريخ الانتهاء في الشهر القادم"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_search
+msgid "End date passed"
+msgstr "تاريخ الانتهاء المنقضية"
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/models/subscription_service.py:0
+#, python-format
+msgid "End date should be greater than start date"
+msgstr "يجب أن يكون تاريخ الانتهاء أكبر من تاريخ البدء"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "Every:"
+msgstr "كل:"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_search
+msgid "Expired"
+msgstr "منتهية الصلاحية"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_search
+msgid "Expiring soon"
+msgstr "تنتهي قريبا"
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/models/subscription_service.py:0
+#, python-format
+msgid "Finishing Subscription Soon"
+msgstr "إقتراب نهاية  الإشتراك"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__message_follower_ids
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "المتابعون (القنوات)"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعون (الشركاء)"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,help:odex_subscription_service.field_subscription_service__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__fully_paid
+msgid "Fully Paid?"
+msgstr "مدفوعة بالكامل؟"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_search
+msgid "Group By"
+msgstr "تجميع حسب"
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/models/subscription_service.py:0
+#, python-format
+msgid "Hello,"
+msgstr "مرحبا،"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_account_move__id
+#: model:ir.model.fields,field_description:odex_subscription_service.field_product_template__id
+#: model:ir.model.fields,field_description:odex_subscription_service.field_res_config_settings__id
+#: model:ir.model.fields,field_description:odex_subscription_service.field_res_partner__id
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__id
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service_line__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__activity_exception_icon
+msgid "Icon"
+msgstr "أيقونة"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,help:odex_subscription_service.field_subscription_service__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "رمز للإشارة إلى نشاط استثناء."
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,help:odex_subscription_service.field_subscription_service__message_needaction
+#: model:ir.model.fields,help:odex_subscription_service.field_subscription_service__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "إذا تم تحديدها ، فإن الرسائل الجديدة تتطلب انتباهك."
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,help:odex_subscription_service.field_subscription_service__message_has_error
+#: model:ir.model.fields,help:odex_subscription_service.field_subscription_service__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا تم تحديده ، فإن بعض الرسائل بها خطأ في التسليم."
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,help:odex_subscription_service.field_subscription_service__date_end
+msgid ""
+"If set in advance, the subscription will be set to pending 1 month before the date "
+"and will be closed on the date set in this field."
+msgstr ""
+"إذا تم تعيينه مسبقًا ، فسيتم تعيين الاشتراك على معلق قبل شهر واحد من التاريخ وسيتم "
+"إغلاقه في التاريخ المحدد في هذا الحقل."
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid ""
+"If you confirm, you subscription will be closed right away. Your current invoicing "
+"period is valid until"
+msgstr ""
+"إذا قمت بالتأكيد ، فسيتم إغلاق اشتراكك على الفور. فترة الفواتير الحالية الخاصة بك "
+"صالحة حتى"
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/controllers/portal.py:0
+#: model:ir.model.fields.selection,name:odex_subscription_service.selection__subscription_service__state__open
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_search
+#, python-format
+msgid "In Progress"
+msgstr "ساري"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__invoice_ids
+msgid "Invoice"
+msgstr "الفاتورة"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "Invoice #"
+msgstr "الفاتورة #"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__invoice_count
+msgid "Invoice Count"
+msgstr "عدد الفاتورة"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "Invoice Date"
+msgstr "تأريخ الفاتورة"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__recurring_invoice_line_ids
+msgid "Invoice Lines"
+msgstr "بنود الفاتورة"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,help:odex_subscription_service.field_subscription_service__recurrency
+msgid "Invoice automatically repeat at specified interval"
+msgstr "تكرار الفاتورة تلقائيًا في فترة زمنية محددة"
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/models/subscription_service.py:0
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_form
+#, python-format
+msgid "Invoices"
+msgstr "الفواتير"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__message_is_follower
+msgid "Is Follower"
+msgstr "هل متابع"
+
+#. module: odex_subscription_service
+#: model:ir.model,name:odex_subscription_service.model_account_move
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_account_move____last_update
+#: model:ir.model.fields,field_description:odex_subscription_service.field_product_template____last_update
+#: model:ir.model.fields,field_description:odex_subscription_service.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:odex_subscription_service.field_res_partner____last_update
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service____last_update
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service_line____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__write_uid
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service_line__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__write_date
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service_line__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "المرفق الرئيسي"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__message_has_error
+msgid "Message Delivery error"
+msgstr "رسالة خطأ الاستلام"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__message_ids
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields.selection,name:odex_subscription_service.selection__subscription_service__recurrency__monthly
+msgid "Month(s)"
+msgstr "شهري"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__month_num
+msgid "Months Number"
+msgstr "عدد الشهور"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "الموعد النهائي لنشاطي"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_search
+msgid "My Subscriptions"
+msgstr "إشتراكاتي"
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/controllers/portal.py:0
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__name
+#, python-format
+msgid "Name"
+msgstr "الاسم"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields.selection,name:odex_subscription_service.selection__subscription_service__state__draft
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_search
+msgid "New"
+msgstr "جديد"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_search
+msgid "New Contracts"
+msgstr "العقود الجديدة"
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/controllers/portal.py:0
+#, python-format
+msgid "Newest"
+msgstr "الأحدث"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "الموعد النهائي للنشاط التالي"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__activity_summary
+msgid "Next Activity Summary"
+msgstr "ملخص النشاط التالي"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__activity_type_id
+msgid "Next Activity Type"
+msgstr "نوع النشاط التالي"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "Next Invoice:"
+msgstr "تأريخ الفاتورة التالية:"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "Next invoice:"
+msgstr "تأريخ الفاتورة التالية:"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.res_config_settings_odex_subscription_service_form
+msgid "Notify Days"
+msgstr "أشعار أقتراب النهاية (بالأيام)"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.res_config_settings_odex_subscription_service_form
+msgid "Notify Days Before Subscription End"
+msgstr "الأيام قبل انتهاء الاشتراك للأشعارات"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الأجراءات"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الاخطاء"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,help:odex_subscription_service.field_subscription_service__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "عدد الرسائل التي تتطلب اتخاذ إجراء"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,help:odex_subscription_service.field_subscription_service__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل التي بها خطأ في التسليم"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,help:odex_subscription_service.field_subscription_service__message_unread_counter
+msgid "Number of unread messages"
+msgstr "عدد الرسائل غير المقروءة"
+
+#. module: odex_subscription_service
+#: model_terms:ir.actions.act_window,help:odex_subscription_service.subscription_service_action_pending
+msgid ""
+"Odoo automatically sets contracts to be renewed in a pending\n"
+"            state. After the negociation, the salesman should close or renew\n"
+"            pending contracts."
+msgstr ""
+"يقوم Odoo تلقائيًا بتعيين العقود ليتم تجديدها في حالة معلقة. بعد التفاوض ، يجب على "
+"البائع إغلاق أو تجديد العقود المعلقة."
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "Open Invoices"
+msgstr "فتح الفواتير"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__partner_id
+msgid "Partner"
+msgstr "الشريك"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__payment_term_id
+msgid "Payment term"
+msgstr "شرط السداد"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_search
+msgid "Pending contracts"
+msgstr "عقود معلقة"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__days_period
+msgid "Period Days"
+msgstr "المدة بالأيام"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "Plan details"
+msgstr "تفاصيل الخطة"
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/models/subscription_service.py:0
+#, python-format
+msgid "Please define a %s journal for the company \"%s\"."
+msgstr "الرجاء تحديد دفتر يومية %s للشركة \"%s\"."
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__access_url
+msgid "Portal Access URL"
+msgstr "رابط وصول البوابة"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service_line__product_id
+msgid "Product"
+msgstr "المنتج"
+
+#. module: odex_subscription_service
+#: model:ir.model,name:odex_subscription_service.model_product_template
+msgid "Product Template"
+msgstr "قالب المنتج"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_search
+msgid "Provider"
+msgstr "المزود"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields.selection,name:odex_subscription_service.selection__subscription_service__type__purchase
+msgid "Purchase"
+msgstr "شراء"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.res_partner_view_inherit_purchase_subscription
+msgid "Purchase Subs"
+msgstr "أشتراكات شراء"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_product_product__po_subscription
+#: model:ir.model.fields,field_description:odex_subscription_service.field_product_template__po_subscription
+msgid "Purchase Subscription"
+msgstr "إشتراك شراء"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.product_template_search_view_inherit_subscription_service
+msgid "Purchase Subscription products"
+msgstr "منتجات إشتراك شراء"
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/models/res_partner.py:0
+#: model:ir.model.fields,field_description:odex_subscription_service.field_res_partner__po_subscription_count
+#: model:ir.model.fields,field_description:odex_subscription_service.field_res_users__po_subscription_count
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_graph
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_list
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_search
+#, python-format
+msgid "Purchase Subscriptions"
+msgstr "إشتراكات الشراء"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_search
+msgid "Purchases Rep"
+msgstr "ممثل الشراء"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service_line__qty
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "Quantity"
+msgstr "الكمية"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__recurrency
+msgid "Recurrency"
+msgstr "تكرار الفوترة"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__recurring_total
+msgid "Recurring Price"
+msgstr "السعر في الفوترة"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__code
+msgid "Reference"
+msgstr "المرجع"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "Reference:"
+msgstr "المرجع:"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__recurring_interval
+msgid "Repeat Every"
+msgstr "عدد مرات الفوترة"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,help:odex_subscription_service.field_subscription_service__recurring_interval
+msgid "Repeat every (Days/Week/Month/Year)"
+msgstr "تكرار كل (يوم / أسبوع / شهر / سنة)"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_form
+msgid "Representative"
+msgstr "الممثل والمسئول"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__activity_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسؤول"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "خطأ في تسليم الرسائل القصيرة"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields.selection,name:odex_subscription_service.selection__subscription_service__type__sale
+msgid "Sale"
+msgstr "بيع"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.res_partner_view_inherit_purchase_subscription
+msgid "Sale Subs"
+msgstr "أشتراكات بيع"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_product_product__so_subscription
+#: model:ir.model.fields,field_description:odex_subscription_service.field_product_template__so_subscription
+msgid "Sale Subscription"
+msgstr "أشتراكات بيع"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.product_template_search_view_inherit_subscription_service
+msgid "Sale Subscription products"
+msgstr "منتجات إشتراك بيع"
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/models/res_partner.py:0
+#: model:ir.model.fields,field_description:odex_subscription_service.field_res_partner__so_subscription_count
+#: model:ir.model.fields,field_description:odex_subscription_service.field_res_users__so_subscription_count
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_search
+#, python-format
+msgid "Sale Subscriptions"
+msgstr "إشتراكات بيع"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__user_id
+msgid "Sales Representative"
+msgstr "ممثل البيع"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_search
+msgid "Search Subscription Services"
+msgstr "بحث خدمات الأشتراكات"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__access_token
+msgid "Security Token"
+msgstr "رمز الحماية"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_search
+msgid "Service Type"
+msgstr "نوع الخدمة"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.odex_subscription_service_vendor_form
+msgid "Source Document"
+msgstr "المستند المصدر"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__date_start
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_search
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_form
+msgid "Start Subscription"
+msgstr "تفعيل الإشتراك"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "Start date:"
+msgstr "تاريخ البدء:"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__state
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.portal_my_subscriptions
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_search
+msgid "Status"
+msgstr "الحالة"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,help:odex_subscription_service.field_subscription_service__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"الوضع على أساس الأنشطة\n"
+"متأخر: تاريخ الاستحقاق فات بالفعل\n"
+"اليوم: تاريخ النشاط هو اليوم\n"
+"مخطط له: الأنشطة المستقبلية."
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_account_bank_statement_line__subscription_id
+#: model:ir.model.fields,field_description:odex_subscription_service.field_account_move__subscription_id
+#: model:ir.model.fields,field_description:odex_subscription_service.field_account_payment__subscription_id
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service_line__subscription_serv_id
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.portal_my_subscriptions
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_form
+msgid "Subscription"
+msgstr "إشتراك"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_form
+msgid "Subscription Lines"
+msgstr "بنود الإشتراك"
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/models/subscription_service.py:0
+#, python-format
+msgid "Subscription Progress"
+msgstr "، اشتراكك ساري"
+
+#. module: odex_subscription_service
+#: model:ir.model,name:odex_subscription_service.model_subscription_service
+msgid "Subscription Service"
+msgstr "خدمات إشتراك"
+
+#. module: odex_subscription_service
+#: model:ir.model,name:odex_subscription_service.model_subscription_service_line
+msgid "Subscription Service Line"
+msgstr "بند خدمات إشتراك"
+
+#. module: odex_subscription_service
+#: model:ir.ui.menu,name:odex_subscription_service.menu_subscription_service_root
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.res_config_settings_odex_subscription_service_form
+msgid "Subscription Services"
+msgstr "خدمات الأشتراكات"
+
+#. module: odex_subscription_service
+#: model:ir.actions.server,name:odex_subscription_service.check_fully_paid_subscription_cron_ir_actions_server
+#: model:ir.cron,cron_name:odex_subscription_service.check_fully_paid_subscription_cron
+#: model:ir.cron,name:odex_subscription_service.check_fully_paid_subscription_cron
+msgid "Subscription Services: Check Fully Paid"
+msgstr "خدمات الاشتراك: التحقق من المدفوعات بالكامل"
+
+#. module: odex_subscription_service
+#: model:ir.actions.server,name:odex_subscription_service.purchase_subscription_cron_ir_actions_server
+#: model:ir.cron,cron_name:odex_subscription_service.purchase_subscription_cron
+#: model:ir.cron,name:odex_subscription_service.purchase_subscription_cron
+msgid "Subscription Services: Expiration"
+msgstr "خدمات الاشتراك: انتهاء الصلاحية"
+
+#. module: odex_subscription_service
+#: model:ir.actions.server,name:odex_subscription_service.purchase_subscription_cron_for_invoice_ir_actions_server
+#: model:ir.cron,cron_name:odex_subscription_service.purchase_subscription_cron_for_invoice
+#: model:ir.cron,name:odex_subscription_service.purchase_subscription_cron_for_invoice
+msgid "Subscription Services: Generate Recurring Invoices and Payments"
+msgstr "خدمات الاشتراك: إنشاء الفواتير المتكررة والمدفوعات"
+
+#. module: odex_subscription_service
+#: model:mail.message.subtype,name:odex_subscription_service.subtype_state_change_purchase
+msgid "Subscription Services: State Change"
+msgstr "خدمات الاشتراك: تغيير الدولة"
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/models/subscription_service.py:0
+#, python-format
+msgid "Subscription should at least one day."
+msgstr "يجب أن يكون الاشتراك يومًا واحدًا على الأقل."
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/models/subscription_service.py:0
+#, python-format
+msgid "Subscription should at least one month."
+msgstr "يجب أن يكون الاشتراك شهراً واحدًا على الأقل."
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/models/subscription_service.py:0
+#, python-format
+msgid "Subscription should at least one week."
+msgstr "يجب أن يكون الاشتراك أسبوع واحدًا على الأقل."
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/models/subscription_service.py:0
+#, python-format
+msgid "Subscription should at least one year."
+msgstr "يجب أن يكون الاشتراك سنة واحدًا على الأقل."
+
+#. module: odex_subscription_service
+#: model:mail.message.subtype,description:odex_subscription_service.subtype_state_change_purchase
+msgid "Subscription state has changed"
+msgstr "لقد تغيرت حالة الاشتراك"
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/controllers/portal.py:0
+#, python-format
+msgid "Subscription viewed by customer"
+msgstr "رؤية الاشتراك من قبل العميل"
+
+#. module: odex_subscription_service
+#: model:ir.actions.act_window,name:odex_subscription_service.purchase_subscription_action_res_partner
+#: model:ir.actions.act_window,name:odex_subscription_service.sale_subscription_action_res_partner
+#: model:ir.ui.menu,name:odex_subscription_service.menu_subscription_service
+#: model:ir.ui.menu,name:odex_subscription_service.menu_subscription_service_action
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.portal_my_home_menu_subscription
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.portal_my_home_subscription
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.portal_my_subscriptions
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_pivot
+msgid "Subscriptions"
+msgstr "الإشتراكات"
+
+#. module: odex_subscription_service
+#: model:ir.actions.act_window,name:odex_subscription_service.subscription_service_action
+msgid "Subscriptions Services"
+msgstr "خدمات الأشتراكات"
+
+#. module: odex_subscription_service
+#: model:ir.actions.act_window,name:odex_subscription_service.subscription_service_action_pending
+#: model:ir.ui.menu,name:odex_subscription_service.menu_subscription_service_pending
+msgid "Subscriptions to Renew"
+msgstr "إشتراكات للتجديد"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service_line__subtotal
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "Subtotal"
+msgstr "المجموع الفرعي"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "Subtotal:<br/>"
+msgstr "المجموع الفرعي :<br/>"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__recurring_amount_tax
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service_line__sub_line_tax_ids
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "Taxes"
+msgstr "الضرائب"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "Taxes:<br/>"
+msgstr "الضرائب :<br/>"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "Terms and conditions"
+msgstr "الأحكام والشروط"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,help:odex_subscription_service.field_subscription_service__recurring_next_date
+msgid "The next invoice will be created on this date then the period will be extended."
+msgstr "سيتم إنشاء الفاتورة التالية في هذا التاريخ ثم سيتم تمديد الفترة."
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/models/subscription_service.py:0
+#, python-format
+msgid "This invoice covers the following period: %s - %s"
+msgstr "تغطي هذه الفاتورة الفترة التالية: %s - %s"
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/controllers/portal.py:0
+#: model:ir.model.fields.selection,name:odex_subscription_service.selection__subscription_service__state__pending
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_form
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_search
+#, python-format
+msgid "To Renew"
+msgstr "للتجديد"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.res_config_settings_odex_subscription_service_form
+msgid "To configure the Subscription Services"
+msgstr "يتعلق بإعدادات خدمات الاشتراك"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.portal_my_subscriptions
+msgid "Total"
+msgstr "الأجمالي"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service_line__price_tax
+msgid "Total Tax"
+msgstr "المجموع بدون ضريبة"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__type
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service_line__sub_type
+msgid "Type"
+msgstr "النوع"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,help:odex_subscription_service.field_subscription_service__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "نوع نشاط الاستثناء المسجل."
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service_line__unit_price
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "Unit Price"
+msgstr "سعر الوحدة"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service_line__uom_id
+msgid "Unit of Measure"
+msgstr "وحدة قياس المنتج"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__message_unread
+msgid "Unread Messages"
+msgstr "الرسائل غير المقروءة"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "عدد الرسائل غير المقروءة"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__amount_untaxed
+msgid "Untaxed Total"
+msgstr "إجمالي المبلغ"
+
+#. module: odex_subscription_service
+#: model_terms:ir.actions.act_window,help:odex_subscription_service.subscription_service_action
+msgid ""
+"Use contracts to follow tasks, issues, timesheets or invoicing based on\n"
+"                work done, expenses and/or purchase orders. Odoo will automatically "
+"manage\n"
+"                the alerts for the renewal of the contracts to the right salesperson."
+msgstr ""
+"استخدم العقود لمتابعة المهام أو المشكلات أو الجداول الزمنية أو الفواتير بناءً على\n"
+"                 العمل المنجز والمصروفات و / أو أوامر الشراء. سوف يقوم Odoo بإدارة "
+"ملفات\n"
+"                 تنبيهات تجديد العقود لمندوب المبيعات المناسب."
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_search
+msgid "User"
+msgstr "المستخدم"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "Valid until:"
+msgstr "صالح حتي:"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid ""
+"We always listen to our customer. Could you specify the reason for cancelling your "
+"subscription?"
+msgstr "نحن دائما نستمع لعملائنا. هل يمكنك تحديد سبب إلغاء اشتراكك؟"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,field_description:odex_subscription_service.field_subscription_service__website_message_ids
+msgid "Website Messages"
+msgstr "رسائل الوقع"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields,help:odex_subscription_service.field_subscription_service__website_message_ids
+msgid "Website communication history"
+msgstr "سجل اتصال الموقع"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields.selection,name:odex_subscription_service.selection__subscription_service__recurrency__weekly
+msgid "Week(s)"
+msgstr "أسبوعي"
+
+#. module: odex_subscription_service
+#: model:ir.model.fields.selection,name:odex_subscription_service.selection__subscription_service__recurrency__yearly
+msgid "Year(s)"
+msgstr "سنوي"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.portal_my_subscriptions
+msgid "You don't have any subscriptions yet."
+msgstr "ليس لديك أي اشتراكات حتى الآن."
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/models/subscription_service.py:0
+#, python-format
+msgid "You must add subscription lines!"
+msgstr "يجب عليك إضافة بنود اشتراك!"
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/models/subscription_service.py:0
+#, python-format
+msgid "You must first select a Customer for Subscription %s!"
+msgstr "يجب عليك أولاً تحديد عميل للاشتراك %s!"
+
+#. module: odex_subscription_service
+#: model_terms:ir.actions.act_window,help:odex_subscription_service.subscription_service_action_pending
+msgid ""
+"You will find here the contracts to be renewed because the\n"
+"            end date is passed or the working effort is higher than the\n"
+"            maximum authorized one."
+msgstr ""
+"ستجد هنا العقود المراد تجديدها لأن\n"
+"             تم تجاوز تاريخ الانتهاء أو أن جهد العمل أعلى من\n"
+"             الحد الأقصى المأذون به."
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "Your informations"
+msgstr "معلومات حساب الدعم الفني"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "Your plan"
+msgstr "معلومات خطة الإشتراك"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "day(s)"
+msgstr "الأيام"
+
+#. module: odex_subscription_service
+#: code:addons/odex_subscription_service/models/account_move.py:0
+#, python-format
+msgid "has been cancelled on subscription"
+msgstr "تم إلغاؤه عند الاشتراك"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "month(s)"
+msgstr "الشهور"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "week(s)"
+msgstr "الأسابيع"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription
+msgid "year(s)"
+msgstr "السنوات"
+
+#. module: odex_subscription_service
+#: model_terms:ir.ui.view,arch_db:odex_subscription_service.subscription_service_view_form
+msgid "⇒ Generate Invoice"
+msgstr "توليد فاتورة ⇒"

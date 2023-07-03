@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_helpdesk_team_member,helpdesk.team.member,odex25_helpdesk_assignation_method.model_helpdesk_team_member,,1,1,1,1
