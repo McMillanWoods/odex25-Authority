@@ -14,8 +14,6 @@ odoo.define('purchase_dashboard.PurchaseDashboard', function(require) {
     var currency;
     var PurchaseDashboard = AbstractAction.extend({
         contentTemplate: 'PurchaseDashboard',
-
-
         events: {
             'click #update_graphs': 'update_graphs'
         },
