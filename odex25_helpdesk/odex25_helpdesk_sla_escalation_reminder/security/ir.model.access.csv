@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_helpdesk_sla_policy,odex25_helpdesk_sla_escalation_reminder.sla.policy,odex25_helpdesk_sla_escalation_reminder.model_helpdesk_sla_policy,,1,1,1,1

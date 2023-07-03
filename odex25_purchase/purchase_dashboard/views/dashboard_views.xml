@@ -11,7 +11,7 @@
         <record id="action_purchase_dashboard" model="ir.actions.client">
             <field name="name">Purchase Dashboard</field>
             <field name="tag">purchase_dashboard</field>
-             <!-- <field name="target">new</field> -->
+            <!-- <field name="target">new</field> -->
         </record>
 
         <!-- Main Dashboard Menu item -->
@@ -22,7 +22,7 @@
                   action="action_purchase_dashboard"/>
 
         <!-- Quarterly Dashboard Action -->
-      
+
         <record id="action_purchase_quarter_dashboard" model="ir.actions.client">
             <field name="name">Purchase Quarterly Dashboard</field>
             <field name="tag">purchase_quarter_dashboard</field>
@@ -40,12 +40,12 @@
             <xpath expr="." position="inside">
                 <script type="text/javascript" src="/purchase_dashboard/static/src/js/purchase_dashboard.js"/>
                 <script type="text/javascript" src="/purchase_dashboard/static/src/js/purchase_quarter_dashboard.js"/>
-               <link href="/purchase_dashboard/static/lib/css/jquery.dropdown.min.css" rel="stylesheet"/>
+                <script type="text/javascript" src="/purchase_dashboard/static/lib/js/jquery.dropdown.min.js"/>
+<!--                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dropdown/2.0.3/jquery.dropdown.min.js"/>-->
+                <link href="/purchase_dashboard/static/lib/css/jquery.dropdown.min.css" rel="stylesheet"/>
                 <link href="/purchase_dashboard/static/src/css/dashboard.scss" rel="stylesheet"/>
                 <link href="/purchase_dashboard/static/src/css/colors.less" rel="stylesheet"/>
-                
-                 <script src="https://code.highcharts.com/highcharts.src.js"></script>
-               
+                <script src="https://code.highcharts.com/highcharts.src.js"></script>
             </xpath>
         </template>
 

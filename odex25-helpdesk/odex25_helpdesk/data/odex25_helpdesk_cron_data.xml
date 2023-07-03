@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.cron" id="dailay_cron_trial_period_checking">
+            <field name="name">Daily Trial Period Expiration</field>
+            <field name="model_id" ref="model_odex25_helpdesk_team"/>
+            <field name="state">code</field>
+            <field name="code">model.cron_trial_period_checking()</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+        </record>
+
+        <record id="check_qouta_ticket_limit_cron" model="ir.cron">
+            <field name="name">Helpdesk Tickets: Check Qouta limit</field>
+            <field name="active" eval="True"/>
+            <field name="state">code</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="model_id" ref="model_odex25_helpdesk_team"/>
+            <field name="code">model.cron_check_qouta_ticket_limit()</field>
+            <field eval="False" name="doall"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="priority" eval="7" />
+        </record>
+
+    </data>
+</odoo>

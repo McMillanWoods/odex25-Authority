@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+   <t t-name="helpdesk_statistics_main">
+       <div>
+           <br></br>
+           <div class="row h-100 justify-content-center align-items-center">
+
+               <h3>
+                  Helpdesk Statistics
+               </h3>
+
+           </div>
+           <div>
+               <div class="filter_view_tb"></div>
+           </div>
+           <br></br>
+           <div>
+               <div class="table_view"></div>
+           </div>
+       </div>
+
+   </t>
+   <t t-name="helpdesk_statistics_template">
+    
+    <div class="dashboard-container">
+            <div class="primary">
+                <div class="cards-statistics">
+                    <div class="card animation">
+                        <span class="all-tickets-border"></span>
+                        <div class="card-title-container">
+                            <img src="/odex25_helpdesk/static/img/all-tickets.svg" alt=""/>
+                            <p class="card-title tickets">All Tickets</p>
+                        </div>
+                        <div class="card-value">
+                            <p id="all_tickets_value">1250</p>
+                        </div>
+                    </div>
+                    <div class="card animation">
+                        <span class="in-progress-border"></span>
+                        <div class="card-title-container">
+                            <img src="/odex25_helpdesk/static/img/in-progress.svg" alt=""/>
+                            <p class="card-title in-progress">In Progress</p>
+                        </div>
+                        <div class="card-value">
+                            <p id="in_progress_value">680</p>
+                        </div>
+                    </div>
+                    <div class="card animation">
+                        <span class="close-border"></span>
+                        <div class="card-title-container">
+                            <img src="/odex25_helpdesk/static/img/closed.svg" alt=""/>
+                            <p class="card-title closed">Closed</p>
+                        </div>
+                        <div class="card-value">
+                            <p id="close_value">500</p>
+                        </div>
+                    </div>
+                    <div class="card animation">
+                        <span class="failed-border"></span>
+                        <div class="card-title-container">
+                            <img src="/odex25_helpdesk/static/img/failed.svg" alt=""/>
+                            <p class="card-title failed">Failed</p>
+                        </div>
+                        <div class="card-value">
+                            <p id="failed_value">150</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="teams-tickets">
+                    <div class="teams animation">
+                        <div class="teams-info">
+                            <p class="teams-title">Teams</p>
+                            <p id="teams_number">32</p>
+                            <p class="members"><span id="members">250</span> Members</p>
+                        </div>
+                        <div class="teams-img">
+                            <img src="/odex25_helpdesk/static/img/teams-img.png" alt=""/>
+                        </div>
+                    </div>
+                    <div class="tickets-periority animation">
+                        <div class="tickets-title">
+                            <span>Tickets</span>
+                            <span>Periority</span>
+                        </div>
+                        <div class="tickets-chart">
+                            <canvas id="donatusChart"></canvas>
+                        </div>
+                        <div class="tickets-info">
+                            <div class="urgent-container">
+                                <div class="status">
+                                    <img src="/odex25_helpdesk/static/img/urgent-dot.png" alt=""/>
+                                    <p class="urgent">Urgent</p>
+                                </div>
+                                <div class="tickets-numbers">
+                                    <span class="dashed urgent"></span>
+                                    <span id="tickets_urgent">320</span>
+                                </div>
+                                <div class="tickets-percentage">
+                                    <div class="urgent_percentage-container urgent">
+                                        <span id="urgent_percentage" class="urgent">30</span>
+                                        <span class="urgent">%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="high-container">
+                                <div class="status">
+                                    <img src="/odex25_helpdesk/static/img/high-dot.png" alt=""/>
+                                    <p class="high">High</p>
+                                </div>
+                                <div class="tickets-numbers">
+                                    <span class="dashed high"></span>
+                                    <span id="tickets_high">670</span>
+                                </div>
+                                <div class="tickets-percentage">
+                                    <div class="high_percentage-container high">
+                                        <span id="high_percentage" class="high">50</span>
+                                        <span class="high">%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="low-container">
+                                <div class="status">
+                                    <img src="/odex25_helpdesk/static/img/low-dot.png" alt=""/>
+                                    <p class="low">Low</p>
+                                </div>
+                                <div class="tickets-numbers">
+                                    <span class="dashed low"></span>
+                                    <span id="tickets_low">670</span>
+                                </div>
+                                <div class="tickets-percentage">
+                                    <div class="low_percentage-container low">
+                                        <span id="low_percentage" class="low">50</span>
+                                        <span class="low">%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="success-rate animation">
+                    <canvas id="lineChart"></canvas>
+                </div>
+                <div class="team-progress animation">
+                    <canvas id="barChart"></canvas>
+                </div>
+            </div>
+            <div class="clients-channels animation">
+                <div class="clients-channels-title animation">
+                    <p>Clients Channels</p>
+                </div>
+                <div class="projects-status-container">
+                    <div class="projects-status">
+                        <div class="project animation">
+                            <div class="project-name">
+                                <p id="project_name">Zuhair Fayez</p>
+                                <img id="project_menu" src="/odex25_helpdesk/static/img/dots.png" alt=""/>
+                            </div>
+                            <div class="project-progress">
+                                <p>Progress</p>
+                                <p class="progress_percentage"><span id="progress_percentage_value"
+                                        class="progress_percentage_value">75</span>%</p>
+                                <div class="progress-indicator-container">
+                                    <canvas id="progressChart"></canvas>
+                                </div>
+                            </div>
+                            <div class="project-all-details">
+                                <div class="project-all-tickets">
+                                    <div class="project-all-tickets-title">
+                                        <img src="/odex25_helpdesk/static/img/all-ticket-blue.svg" alt=""/>
+                                        <p>All Tickets</p>
+                                    </div>
+                                    <div class="all-tickets-info">
+                                        <span class="dashed"></span>
+                                        <span id="all_tickets_numbers">25</span>
+                                    </div>
+                                </div>
+                                <div class="project-teams">
+                                    <div class="project-teams-title">
+                                        <img src="/odex25_helpdesk/static/img/teams-blue.svg" alt=""/>
+                                        <p>Teams</p>
+                                    </div>
+                                    <div class="project-teams-info">
+                                        <span class="dashed"></span>
+                                        <span id="project-teams_numbers">5</span>
+                                    </div>
+                                </div>
+                                <div class="working-hours">
+                                    <div class="working-hours-title">
+                                        <img src="/odex25_helpdesk/static/img/working-hours-blue.svg" alt=""/>
+                                        <p>Working Hours</p>
+                                    </div>
+                                    <div class="working-hours-info">
+                                        <span class="dashed"></span>
+                                        <span id="working-hours_numbers">3100</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project animation">
+                            <div class="project-name">
+                                <p id="project_name">Zuhair Fayez</p>
+                                <img src="/odex25_helpdesk/static/img/dots.png" alt=""/>
+                            </div>
+                            <div class="project-progress">
+                                <p>Progress</p>
+                                <p class="progress_percentage"><span id="progress_percentage_value"
+                                        class="progress_percentage_value">75</span>%</p>
+                                <div class="progress-indicator-container">
+                                    <span id="progress_indicator"></span>
+                                </div>
+                            </div>
+                            <div class="project-all-details">
+                                <div class="project-all-tickets">
+                                    <div class="project-all-tickets-title">
+                                        <img src="/odex25_helpdesk/static/img/all-ticket-blue.svg" alt=""/>
+                                        <p>All Tickets</p>
+                                    </div>
+                                    <div class="all-tickets-info">
+                                        <span class="dashed"></span>
+                                        <span id="all_tickets_numbers">25</span>
+                                    </div>
+                                </div>
+                                <div class="project-teams">
+                                    <div class="project-teams-title">
+                                        <img src="/odex25_helpdesk/static/img/teams-blue.svg" alt=""/>
+                                        <p>Teams</p>
+                                    </div>
+                                    <div class="project-teams-info">
+                                        <span class="dashed"></span>
+                                        <span id="project-teams_numbers">5</span>
+                                    </div>
+                                </div>
+                                <div class="working-hours">
+                                    <div class="working-hours-title">
+                                        <img src="/odex25_helpdesk/static/img/working-hours-blue.svg" alt=""/>
+                                        <p>Working Hours</p>
+                                    </div>
+                                    <div class="working-hours-info">
+                                        <span class="dashed"></span>
+                                        <span id="working-hours_numbers">310</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project animation">
+                            <div class="project-name">
+                                <p id="project_name">Zuhair Fayez</p>
+                                <img src="/odex25_helpdesk/static/img/dots.png" alt=""/>
+                            </div>
+                            <div class="project-progress">
+                                <p>Progress</p>
+                                <p class="progress_percentage"><span id="progress_percentage_value"
+                                        class="progress_percentage_value">75</span>%</p>
+                                <div class="progress-indicator-container">
+                                    <span id="progress_indicator"></span>
+                                </div>
+                            </div>
+                            <div class="project-all-details">
+                                <div class="project-all-tickets">
+                                    <div class="project-all-tickets-title">
+                                        <img src="/odex25_helpdesk/static/img/all-ticket-blue.svg" alt=""/>
+                                        <p>All Tickets</p>
+                                    </div>
+                                    <div class="all-tickets-info">
+                                        <span class="dashed"></span>
+                                        <span id="all_tickets_numbers">25</span>
+                                    </div>
+                                </div>
+                                <div class="project-teams">
+                                    <div class="project-teams-title">
+                                        <img src="/odex25_helpdesk/static/img/teams-blue.svg" alt=""/>
+                                        <p>Teams</p>
+                                    </div>
+                                    <div class="project-teams-info">
+                                        <span class="dashed"></span>
+                                        <span id="project-teams_numbers">5</span>
+                                    </div>
+                                </div>
+                                <div class="working-hours">
+                                    <div class="working-hours-title">
+                                        <img src="/odex25_helpdesk/static/img/working-hours-blue.svg" alt=""/>
+                                        <p>Working Hours</p>
+                                    </div>
+                                    <div class="working-hours-info">
+                                        <span class="dashed"></span>
+                                        <span id="working-hours_numbers">310</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project animation">
+                            <div class="project-name">
+                                <p id="project_name">Zuhair Fayez</p>
+                                <img src="/odex25_helpdesk/static/img/dots.png" alt=""/>
+                            </div>
+                            <div class="project-progress">
+                                <p>Progress</p>
+                                <p class="progress_percentage"><span id="progress_percentage_value"
+                                        class="progress_percentage_value">75</span>%</p>
+                                <div class="progress-indicator-container">
+                                    <span id="progress_indicator"></span>
+                                </div>
+                            </div>
+                            <div class="project-all-details">
+                                <div class="project-all-tickets">
+                                    <div class="project-all-tickets-title">
+                                        <img src="/odex25_helpdesk/static/img/all-ticket-blue.svg" alt=""/>
+                                        <p>All Tickets</p>
+                                    </div>
+                                    <div class="all-tickets-info">
+                                        <span class="dashed"></span>
+                                        <span id="all_tickets_numbers">25</span>
+                                    </div>
+                                </div>
+                                <div class="project-teams">
+                                    <div class="project-teams-title">
+                                        <img src="/odex25_helpdesk/static/img/teams-blue.svg" alt=""/>
+                                        <p>Teams</p>
+                                    </div>
+                                    <div class="project-teams-info">
+                                        <span class="dashed"></span>
+                                        <span id="project-teams_numbers">5</span>
+                                    </div>
+                                </div>
+                                <div class="working-hours">
+                                    <div class="working-hours-title">
+                                        <img src="/odex25_helpdesk/static/img/working-hours-blue.svg" alt=""/>
+                                        <p>Working Hours</p>
+                                    </div>
+                                    <div class="working-hours-info">
+                                        <span class="dashed"></span>
+                                        <span id="working-hours_numbers">310</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project animation">
+                            <div class="project-name">
+                                <p id="project_name">Zuhair Fayez</p>
+                                <img src="/odex25_helpdesk/static/img/dots.png" alt=""/>
+                            </div>
+                            <div class="project-progress">
+                                <p>Progress</p>
+                                <p class="progress_percentage"><span id="progress_percentage_value"
+                                        class="progress_percentage_value">75</span>%</p>
+                                <div class="progress-indicator-container">
+                                    <span id="progress_indicator"></span>
+                                </div>
+                            </div>
+                            <div class="project-all-details">
+                                <div class="project-all-tickets">
+                                    <div class="project-all-tickets-title">
+                                        <img src="/odex25_helpdesk/static/img/all-ticket-blue.svg" alt=""/>
+                                        <p>All Tickets</p>
+                                    </div>
+                                    <div class="all-tickets-info">
+                                        <span class="dashed"></span>
+                                        <span id="all_tickets_numbers">25</span>
+                                    </div>
+                                </div>
+                                <div class="project-teams">
+                                    <div class="project-teams-title">
+                                        <img src="/odex25_helpdesk/static/img/teams-blue.svg" alt=""/>
+                                        <p>Teams</p>
+                                    </div>
+                                    <div class="project-teams-info">
+                                        <span class="dashed"></span>
+                                        <span id="project-teams_numbers">5</span>
+                                    </div>
+                                </div>
+                                <div class="working-hours">
+                                    <div class="working-hours-title">
+                                        <img src="/odex25_helpdesk/static/img/working-hours-blue.svg" alt=""/>
+                                        <p>Working Hours</p>
+                                    </div>
+                                    <div class="working-hours-info">
+                                        <span class="dashed"></span>
+                                        <span id="working-hours_numbers">310</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project animation">
+                            <div class="project-name">
+                                <p id="project_name">Zuhair Fayez</p>
+                                <img src="/odex25_helpdesk/static/img/dots.png" alt=""/>
+                            </div>
+                            <div class="project-progress">
+                                <p>Progress</p>
+                                <p class="progress_percentage"><span id="progress_percentage_value"
+                                        class="progress_percentage_value">75</span>%</p>
+                                <div class="progress-indicator-container">
+                                    <span id="progress_indicator"></span>
+                                </div>
+                            </div>
+                            <div class="project-all-details">
+                                <div class="project-all-tickets">
+                                    <div class="project-all-tickets-title">
+                                        <img src="/odex25_helpdesk/static/img/all-ticket-blue.svg" alt=""/>
+                                        <p>All Tickets</p>
+                                    </div>
+                                    <div class="all-tickets-info">
+                                        <span class="dashed"></span>
+                                        <span id="all_tickets_numbers">25</span>
+                                    </div>
+                                </div>
+                                <div class="project-teams">
+                                    <div class="project-teams-title">
+                                        <img src="/odex25_helpdesk/static/img/teams-blue.svg" alt=""/>
+                                        <p>Teams</p>
+                                    </div>
+                                    <div class="project-teams-info">
+                                        <span class="dashed"></span>
+                                        <span id="project-teams_numbers">5</span>
+                                    </div>
+                                </div>
+                                <div class="working-hours">
+                                    <div class="working-hours-title">
+                                        <img src="/odex25_helpdesk/static/img/working-hours-blue.svg" alt=""/>
+                                        <p>Working Hours</p>
+                                    </div>
+                                    <div class="working-hours-info">
+                                        <span class="dashed"></span>
+                                        <span id="working-hours_numbers">310</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<script src="/odex25_helpdesk/static/js/dashboard.js"></script>
+</t>
+
+</templates>

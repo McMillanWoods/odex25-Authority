@@ -18,7 +18,7 @@ class PurchaseOrder(models.Model):
 
     @api.model
     def get_vendors(self):
-        vendors = self.env["res.partner"].search([('supplier_rank', '>', 1)])
+        vendors = self.env["res.partner"].search([('supplier_rank', '>', 0)])
         vendor_list = []
         for vendor in vendors:
             vendor_list.append({"id": vendor.id, "name": vendor.name})
@@ -396,8 +396,8 @@ class PurchaseOrder(models.Model):
         purchase_request_count = cr.fetchone()[0] or 0
 
         select_clause = """SELECT count(id) AS cr_count"""
-        from_clause = """ FROM contract_contract """
-        where_clause = """ WHERE date {} AND state = 'closed' AND contract_type = 'purchase'""".format(date_condition)
+        from_clause = """ FROM purchase_order """
+        where_clause = """ WHERE date_order {} AND state = 'purchase' AND type = 'contract' """.format(date_condition)
         group_by_clause = """"""
 
         sql = (select_clause + from_clause + where_clause + group_by_clause)

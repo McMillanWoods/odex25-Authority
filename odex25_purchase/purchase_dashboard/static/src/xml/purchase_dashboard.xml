@@ -14,7 +14,7 @@
         <div class="o_purchase_dashboards" style="background-color: white !important;">
             <div class="well well-lg mt16">
                 <div class="o_dashboard_row row">
-                    <h5 class="text-center">Filters <i class="fa fa-filter"/>
+                    <h5 class="text-center" style="margin: auto !important;">Filters <i class="fa fa-filter"/>
                     </h5>
                     <table class="table table-condensed mt16">
                         <tr>
@@ -47,17 +47,17 @@ Period
                             <td class="col-md-2 text-center" colspan="2">
                                 <select class="form-control text-center" style="padding: 0px !important;" id="state" name="state">
                                     <option value="all" selected="1">All</option>
-                                    <option value="unsign">UnSign</option>
+<!--                                    <option value="unsign">UnSign</option>-->
                                     <option value="sign">Sign</option>
-                                    <option value="waiting">Waiting For Budget Confirmation</option>
-                                    <option value="draft">RFQ</option>
-                                    <option value="sent">RFQ Sent</option>
-                                    <option value="to approve">To Approve</option>
+<!--                                    <option value="waiting">Waiting For Budget Confirmation</option>-->
+<!--                                    <option value="draft">RFQ</option>-->
+<!--                                    <option value="sent">RFQ Sent</option>-->
+<!--                                    <option value="to approve">To Approve</option>-->
                                     <option value="purchase">Purchase Order</option>
-                                    <option value="done">Locked</option>
+<!--                                    <option value="done">Locked</option>-->
                                     <option value="cancel">Cancelled</option>
-                                    <option value="budget_rejected">Rejected By Budget</option>
-                                    <option value="wait_for_send">Waiting For Send to Budget</option>
+<!--                                    <option value="budget_rejected">Rejected By Budget</option>-->
+<!--                                    <option value="wait_for_send">Waiting For Send to Budget</option>-->
                                 </select>
                             </td>
                         </tr>

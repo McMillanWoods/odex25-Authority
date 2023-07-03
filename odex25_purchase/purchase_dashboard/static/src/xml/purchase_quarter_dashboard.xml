@@ -14,7 +14,7 @@
         <div class="o_purchase_dashboards" style="background-color: white !important;">
             <div class="well well-lg mt16">
                 <div class="o_dashboard_row row">
-                    <h5 class="text-center">Filters <i class="fa fa-filter"/>
+                    <h5 class="text-center" style="margin: auto !important;">Filters <i class="fa fa-filter"/>
                     </h5>
                     <table class="table table-condensed mt16">
                         <tr>
