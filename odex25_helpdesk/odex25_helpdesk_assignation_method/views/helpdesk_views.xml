@@ -19,7 +19,6 @@
                                     <field name="member_ids" invisible="1" class="mt16"/>
                                     <group>
                                         <field name="is_internal_team"/>
-                                        <field name="is_vip_team"/>
                                     </group>
                                 </div>
                             </div>

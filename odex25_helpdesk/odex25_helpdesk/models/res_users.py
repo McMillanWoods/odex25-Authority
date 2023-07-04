@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import fields, models, api
+from odoo import fields, models
 
 
 class ResUsers(models.Model):
@@ -34,12 +34,3 @@ class ResUsers(models.Model):
         type(self).SELF_READABLE_FIELDS = list(self.SELF_READABLE_FIELDS)
         type(self).SELF_READABLE_FIELDS.extend(odex25_helpdesk_fields)
         return init_res
-
-class GroupsView(models.Model):
-    _inherit = 'res.groups'
-
-    @api.model
-    def get_application_groups(self, domain):
-        group_helpdesk_user = self.env.ref('odex25_helpdesk.group_odex25_helpdesk_user', raise_if_not_found=False)
-        group_helpdesk_admin = self.env.ref('odex25_helpdesk.group_odex25_helpdesk_manager', raise_if_not_found=False)
-        return super().get_application_groups(domain+[('id', 'not in', (group_helpdesk_user.id,group_helpdesk_admin.id))])

@@ -383,7 +383,7 @@ msgstr "مدير"
 #. module: odex25_helpdesk
 #: model_terms:ir.ui.view,arch_db:odex25_helpdesk.odex25_helpdesk_team_view_form
 msgid "After Sales"
-msgstr "بعد البيع"
+msgstr ""
 
 #. module: odex25_helpdesk
 #: model:ir.model.fields,field_description:odex25_helpdesk.field_odex25_helpdesk_team__alias_id
@@ -530,7 +530,7 @@ msgstr ""
 #. module: odex25_helpdesk
 #: model:ir.model.fields,field_description:odex25_helpdesk.field_odex25_helpdesk_team__assign_method
 msgid "Assignment Method"
-msgstr "طريقة التعيين"
+msgstr ""
 
 #. module: odex25_helpdesk
 #: model_terms:ir.ui.view,arch_db:odex25_helpdesk.odex25_helpdesk_stage_view_form
@@ -1094,12 +1094,12 @@ msgstr "أدخل اسم العميل. يمكنك إنشاء واحد جديد س
 #. module: odex25_helpdesk
 #: model:ir.model.fields,field_description:odex25_helpdesk.field_odex25_helpdesk_sla_status__exceeded_days
 msgid "Excedeed Working Days"
-msgstr "أيام عمل متقطعة"
+msgstr ""
 
 #. module: odex25_helpdesk
 #: model:ir.model.fields,field_description:odex25_helpdesk.field_odex25_helpdesk_sla__exclude_stage_ids
 msgid "Exclude Stages"
-msgstr "استبعاد المراحل"
+msgstr ""
 
 #. module: odex25_helpdesk
 #: model:ir.model.fields.selection,name:odex25_helpdesk.selection__odex25_helpdesk_sla_report_analysis__sla_status__failed
@@ -2055,14 +2055,13 @@ msgstr "رابط الوصول لبوابة العملاء"
 
 #. module: odex25_helpdesk
 #: model:ir.model.fields,field_description:odex25_helpdesk.field_odex25_helpdesk_ticket__priority
-#: model:ir.model.fields,field_description:odex25_helpdesk.field_helpdesk_service__priority
 msgid "Priority"
 msgstr "الأولوية"
 
 #. module: odex25_helpdesk
 #: model_terms:ir.ui.view,arch_db:odex25_helpdesk.odex25_helpdesk_team_view_form
 msgid "Productivity &amp; Visibility"
-msgstr "الإنتاجية والرؤية"
+msgstr ""
 
 #. module: odex25_helpdesk
 #: model_terms:ir.ui.view,arch_db:odex25_helpdesk.odex25_helpdesk_team_view_form
@@ -2127,7 +2126,7 @@ msgstr "تقييمات"
 #. module: odex25_helpdesk
 #: model:ir.model.fields,field_description:odex25_helpdesk.field_odex25_helpdesk_team__use_rating
 msgid "Ratings on tickets"
-msgstr "التقييم على التذاكر"
+msgstr ""
 
 #. module: odex25_helpdesk
 #: model_terms:ir.ui.view,arch_db:odex25_helpdesk.odex25_helpdesk_sla_view_form
@@ -2339,24 +2338,24 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:odex25_helpdesk.odex25_helpdesk_sla_report_analysis_view_pivot
 #: model_terms:ir.ui.view,arch_db:odex25_helpdesk.odex25_helpdesk_sla_report_analysis_view_search
 msgid "SLA Status Analysis"
-msgstr "تحليل حالة اتفاقية مستوى الخدمة"
+msgstr ""
 
 #. module: odex25_helpdesk
 #: model_terms:ir.ui.view,arch_db:odex25_helpdesk.odex25_helpdesk_sla_report_analysis_view_search
 msgid "SLA Status Deadline"
-msgstr "الموعد النهائي لحالة SLA"
+msgstr ""
 
 #. module: odex25_helpdesk
 #: model:ir.model.fields,field_description:odex25_helpdesk.field_odex25_helpdesk_sla_report_analysis__sla_status_failed
 #: model_terms:ir.ui.view,arch_db:odex25_helpdesk.odex25_helpdesk_sla_report_analysis_view_search
 msgid "SLA Status Failed"
-msgstr "فشل حالة SLA"
+msgstr ""
 
 #. module: odex25_helpdesk
 #: model_terms:ir.ui.view,arch_db:odex25_helpdesk.odex25_helpdesk_sla_report_analysis_view_search
 #: model_terms:ir.ui.view,arch_db:odex25_helpdesk.odex25_helpdesk_ticket_view_search_analysis
 msgid "SLA Success"
-msgstr "نجاح SLA"
+msgstr ""
 
 #. module: odex25_helpdesk
 #: model_terms:ir.ui.view,arch_db:odex25_helpdesk.odex25_helpdesk_sla_report_analysis_view_search
@@ -2707,7 +2706,7 @@ msgstr "التذاكر المطلوب إقفالها"
 #: model:ir.model.fields,field_description:odex25_helpdesk.field_odex25_helpdesk_sla__target_type
 #: model:ir.model.fields,field_description:odex25_helpdesk.field_odex25_helpdesk_sla_status__target_type
 msgid "Target Type"
-msgstr "نوع الهدف"
+msgstr ""
 
 #. module: odex25_helpdesk
 #: model_terms:ir.ui.view,arch_db:odex25_helpdesk.odex25_helpdesk_stage_view_form
@@ -2990,7 +2989,7 @@ msgstr ""
 #. module: odex25_helpdesk
 #: model:ir.model.fields,field_description:odex25_helpdesk.field_odex25_helpdesk_team__allow_portal_ticket_closing
 msgid "Ticket closing"
-msgstr "إغلاق التذكرة"
+msgstr ""
 
 #. module: odex25_helpdesk
 #: model:mail.message.subtype,description:odex25_helpdesk.mt_ticket_new
@@ -3429,13 +3428,25 @@ msgstr "مكان العمل"
 
 #. module: odex25_helpdesk
 #: model:ir.model.fields,field_description:odex25_helpdesk.field_odex25_helpdesk_ticket__department_id
-msgid "Administrative Structure"
+msgid "Department"
 msgstr "الهيكل الإداري"
 
 #. module: odex25_helpdesk
 #: model:ir.model.fields,field_description:odex25_helpdesk.field_odex25_helpdesk_ticket__deb_name
 msgid "Department Name"
 msgstr "القسم"
+
+
+#. module: odex25_helpdesk
+#: model:ir.model.fields,field_description:odex25_helpdesk.field_helpdesk_service__priority
+#: model:ir.model.fields,field_description:odex25_helpdesk.field_odex25_helpdesk_ticket__priority
+msgid "Priority"
+msgstr "الأولوية"
+
+#. module: odex25_helpdesk
+#: model_terms:ir.ui.view,arch_db:odex25_helpdesk.odex25_helpdesk_team_view_form
+msgid "Productivity &amp; Visibility"
+msgstr ""
 
 #. module: odex25_helpdesk
 #: model:ir.model.fields,field_description:odex25_helpdesk.field_odex25_helpdesk_ticket__project_no
@@ -3444,13 +3455,7 @@ msgstr "رقم المشروع"
 
 #. module: odex25_helpdesk
 #: model:ir.model.fields,field_description:odex25_helpdesk.field_odex25_helpdesk_ticket__transform_no
-msgid "Extension Number"
-msgstr "رقم التحويلة"
-
-
-#. module: odex25_helpdesk
-#: model:ir.model.fields,field_description:odex25_helpdesk.field_hr_employee__phone_ext
-msgid "Extension Phone"
+msgid "Transform Number"
 msgstr "رقم التحويلة"
 
 #. module: odex25_helpdesk
@@ -3472,23 +3477,3 @@ msgstr "تصنيف الخدمة"
 #: model:ir.ui.menu,name:odex25_helpdesk.odex25_helpdesk_menu_service
 msgid "Helpdesk Service"
 msgstr "الخدمة"
-
-#. module: odex25_helpdesk
-#: model:ir.model.fields,field_description:odex25_helpdesk.field_odex25_helpdesk_team__is_internal_team
-msgid "Internal Team"
-msgstr "فريق داخلي"
-
-#. module: odex25_helpdesk
-#: model:ir.model.fields,field_description:odex25_helpdesk.field_odex25_helpdesk_team__is_vip_team
-msgid "VIP Team"
-msgstr "VIP فريق"
-
-#. module: odex25_helpdesk
-#: model:res.groups,name:odex25_helpdesk.group_odex25_helpdesk_assignment
-msgid "Assignment User"
-msgstr "مستخدم التعيين"
-
-#. module: odex25_helpdesk
-#: model:res.groups,name:odex25_helpdesk.group_odex25_helpdesk_on_behalf
-msgid "On Behalf User"
-msgstr "نيابة عن المستخدم"

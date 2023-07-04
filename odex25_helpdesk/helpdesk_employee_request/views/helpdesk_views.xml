@@ -13,6 +13,21 @@
         </field>
     </record>
 
+    <!--    <record id="helpdesk_ticket_view_form_complains_employee" model="ir.ui.view">-->
+    <!--        <field name="name">helpdesk.ticket.form.inherit.complain.managers</field>-->
+    <!--        <field name="model">odex25_helpdesk.ticket</field>-->
+    <!--        <field name="inherit_id" ref="helpdesk_complain.helpdesk_ticket_view_form_complains"/>-->
+    <!--        <field name="groups_id" eval="[(4, ref('helpdesk_employee_request.group_helpdesk_employee'))]"/>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <xpath expr="//button[@name='open_complains']" position="replace">-->
+    <!--                <button class="oe_stat_button" name="open_complains" icon="fa-ticket" type="object">-->
+    <!--                    <field name="complains" string="Complains" widget="statinfo"/>-->
+    <!--                </button>-->
+    <!--            </xpath>-->
+    <!--        </field>-->
+    <!--    </record>-->
+
+
     <record id="helpdesk_ticket_view_form_employee_request_requester_id" model="ir.ui.view">
         <field name="name">helpdesk.ticket.form.employee.requester</field>
         <field name="model">odex25_helpdesk.ticket</field>
@@ -30,7 +45,7 @@
         <field name="name">helpdesk.ticket.form.employee.request</field>
         <field name="model">odex25_helpdesk.ticket</field>
         <field name="inherit_id" ref="odex25_helpdesk.odex25_helpdesk_ticket_view_form"/>
-        <field name="groups_id" eval="[(4, ref('helpdesk_employee_request.group_helpdesk_employee')),(4, ref('helpdesk_employee_request.group_helpdesk_Secretary'))]"/>
+        <field name="groups_id" eval="[(4, ref('helpdesk_employee_request.group_helpdesk_employee'))]"/>
         <field name="arch" type="xml">
             <xpath expr="//header/button[@name='assign_ticket_to_self']" position="attributes">
                 <attribute name="invisible">1</attribute>
@@ -66,7 +81,7 @@
             <xpath expr="//field[@name='team_id']" position="attributes">
                 <attribute name="attrs">{'readonly':[('is_submitted','=',True)]}</attribute>
                 <attribute name="options">{'no_open' : True,"no_create": True}</attribute>
-                <attribute name="domain">['&amp;', ('is_internal_team', '=', False),('is_vip_team','=',False)]</attribute>
+                <attribute name="domain">[('is_internal_team', '=', False)]</attribute>
             </xpath>
             <xpath expr="//field[@name='user_id']" position="attributes">
                 <attribute name="attrs">{'readonly':True}</attribute>
@@ -96,7 +111,7 @@
     </record>
 
     <record id="helpdesk_ticket_view_form_employee_vip" model="ir.ui.view">
-        <field name="name">helpdesk.ticket.form.employee.request1</field>
+        <field name="name">helpdesk.ticket.form.employee.request</field>
         <field name="model">odex25_helpdesk.ticket</field>
         <field name="inherit_id" ref="odex25_helpdesk.odex25_helpdesk_ticket_view_form"/>
         <field name="groups_id" eval="[(4, ref('helpdesk_employee_request.group_helpdesk_vip_employee'))]"/>
@@ -110,7 +125,7 @@
             <xpath expr="//field[@name='team_id']" position="attributes">
                 <attribute name="attrs">{'readonly':[('is_submitted','=',True)]}</attribute>
                 <attribute name="options">{'no_open' : True,"no_create": True}</attribute>
-                <attribute name="domain">[('is_vip_team','=',True)]</attribute>
+                <attribute name="domain">[('is_internal_team', '=', False)]</attribute>
             </xpath>
             <xpath expr="//field[@name='stage_id']" position="replace">
                 <field name="stage_id" widget="statusbar" attrs="{'clickable':[('requester_id','!=',False)]}"
@@ -159,10 +174,12 @@
             <xpath expr="//field[@name='assistance_id']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
-            <xpath expr="//field[@name='department_id']" position="attributes">
+            <xpath expr="//field[@name='deb_name']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
-
+<!--            <xpath expr="//field[@name='division_id']" position="attributes">-->
+<!--                <attribute name="invisible">1</attribute>-->
+<!--            </xpath>-->
             <xpath expr="//field[@name='project_no']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
@@ -183,53 +200,47 @@
     </record>
 
 
+    <!--    <record id="helpdesk_complain_employee_view_form" model="ir.ui.view">-->
+    <!--        <field name="name">helpdesk.complain.form.employee</field>-->
+    <!--        <field name="model">helpdesk.complain</field>-->
+    <!--        <field name="inherit_id" ref="helpdesk_complain.helpdesk_complain_view_form"/>-->
+    <!--        <field name="groups_id" eval="[(4, ref('helpdesk_employee_request.group_helpdesk_employee'))]"/>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <xpath expr="//field[@name='customer_id']" position="attributes">-->
+    <!--            </xpath>-->
+    <!--        </field>-->
+    <!--    </record>-->
+    <!--           ,-->
 
     <record id="helpdesk_ticket_action_main_tree_employee_request" model="ir.actions.act_window">
-        <field name="name">Employee Request Tickets</field>
-        <field name="res_model">odex25_helpdesk.ticket</field>
-        <field name="view_mode">tree,kanban,form</field>
-        <field name="search_view_id"/>
-        <field name="context" eval="{
-            'employee_request': True,
-            'default_active': False,
-            'active_test':False,
-            'default_team_id': ref('helpdesk_employee_request.helpdesk_team_employee_request')}"/>
-        <field name="domain">[('requester_id','=',uid),('active','in',[True,False])]</field>
-        <field name="help" type="html">
-            <p>
-                No tickets to display.
-            </p>
-        </field>
-    </record>
-
-    <record id="helpdesk_ticket_action_vip_employee_request" model="ir.actions.act_window">
-        <field name="name">VIP Tickets</field>
-        <field name="res_model">odex25_helpdesk.ticket</field>
-        <field name="view_mode">tree,kanban,form</field>
-        <field name="search_view_id"/>
-        <field name="context" eval="{
-            'employee_request': True,
-            'default_active': False,
-            'active_test':False,
-            'default_team_id': ref('helpdesk_employee_request.helpdesk_team_vip_employee_request')}"/>
-        <field name="domain">[('requester_id','=',uid),('active','in',[True,False])]</field>
-        <field name="help" type="html">
-            <p>
-                No tickets to display.
-            </p>
-        </field>
-    </record>
-
-
-    <record id="helpdesk_ticket_action_group_helpdesk_Secretary" model="ir.actions.act_window">
-        <field name="name">Secretary Tickets</field>
+        <field name="name">My Tickets</field>
         <field name="res_model">odex25_helpdesk.ticket</field>
         <field name="view_mode">tree,kanban,form</field>
         <field name="search_view_id" ref="odex25_helpdesk.odex25_helpdesk_tickets_view_search"/>
         <field name="context" eval="{
             'employee_request': True,
             'default_active': False,
-            'active_test':False }"/>
+            'active_test':False,
+             'default_team_id': ref('helpdesk_employee_request.helpdesk_team_vip_employee_request')
+            }"/>
+        <field name="domain">[('requester_id','=',uid),('active','in',[True,False])]</field>
+        <field name="help" type="html">
+            <p>
+                No tickets to display.
+            </p>
+        </field>
+    </record>
+
+    <record id="helpdesk_ticket_action_group_helpdesk_Secretary" model="ir.actions.act_window">
+        <field name="name">Tickets</field>
+        <field name="res_model">odex25_helpdesk.ticket</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="search_view_id" ref="odex25_helpdesk.odex25_helpdesk_tickets_view_search"/>
+        <field name="context" eval="{
+            'employee_request': True,
+            'default_active': False,
+            'active_test':False,
+            }"/>
         <field name="domain">[('is_submitted','=',True)]</field>
         <field name="help" type="html">
             <p>
@@ -238,18 +249,11 @@
         </field>
     </record>
 
-    <menuitem id="menu_helpdesk_employee_request" name="Employee Helpdesk"
+    <menuitem id="menu_helpdesk_employee_request" name="Helpdesk"
               sequence="25"
               action="helpdesk_ticket_action_main_tree_employee_request"
               web_icon="odex25_helpdesk,static/description/icon.png"
-              groups="helpdesk_employee_request.group_helpdesk_employee,helpdesk_employee_request.group_helpdesk_Secretary"/>
-
-     <menuitem id="menu_helpdesk_vip_employee_request" name="VIP Employee Helpdesk"
-              sequence="25"
-              action="helpdesk_ticket_action_vip_employee_request"
-              web_icon="odex25_helpdesk,static/description/icon.png"
-              groups="helpdesk_employee_request.group_helpdesk_vip_employee"/>
-
+              groups="helpdesk_employee_request.group_helpdesk_employee,helpdesk_employee_request.group_helpdesk_vip_employee"/>
 
 
     <menuitem id="menu_helpdesk_employee_request_secretary" name="Helpdesk"

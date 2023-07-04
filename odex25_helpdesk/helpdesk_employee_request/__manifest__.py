@@ -6,16 +6,16 @@
     'summary': 'adding menu for employees to request tickets in helpdesk',
     'author': "Expert Co. Ltd.",
     'website': "http://www.exp-sa.com",
-    'depends': ['bi_multi_branch_helpdesk'],
+    'depends': ['odex25_helpdesk','odex25_helpdesk_timesheet'],
     'description': """
         Adding menu for employees to request tickets in helpdesk
     """,
     'auto_install': True,
     'data': [
-        # 'data/helpdesk_data.xml',
+        'data/helpdesk_data.xml',
         'security/helpdesk_timesheet_security.xml',
         'security/ir.model.access.csv',
-        'views/help_request_view.xml',
+        'views/helpdesk_views.xml',
     ],
     'license': '',
 }

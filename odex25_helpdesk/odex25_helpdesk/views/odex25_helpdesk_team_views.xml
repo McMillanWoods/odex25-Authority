@@ -556,8 +556,8 @@
                                 </div> -->
                             </div>
                             <div class="container o_kanban_card_manage_pane dropdown-menu" role="menu">
-                                <div class="row" >
-                                    <div class="col-xs-6 o_kanban_card_manage_section o_kanban_manage_view" invisible="1">
+                                <div class="row">
+                                    <div class="col-xs-6 o_kanban_card_manage_section o_kanban_manage_view">
                                         <div class="o_kanban_card_manage_title">
                                             <span>View Tickets</span>
                                         </div>
@@ -577,7 +577,7 @@
                                             <a name="action_unhappy_rating_ticket" type="object">Not Satisfied</a>
                                         </div>
                                     </div>
-                                    <div class="col-xs-6 o_kanban_card_manage_section o_kanban_manage_reports" invisible="1">
+                                    <div class="col-xs-6 o_kanban_card_manage_section o_kanban_manage_reports">
                                         <div class="o_kanban_card_manage_title">
                                             <span>Reporting</span>
                                         </div>

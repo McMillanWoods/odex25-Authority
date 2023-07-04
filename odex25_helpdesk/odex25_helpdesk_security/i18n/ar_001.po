@@ -20,7 +20,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:odex25_helpdesk_security.helpdesk_ticket_normal_user_action_main_tree
 #: model:ir.ui.menu,name:odex25_helpdesk_security.helpdesk_ticket_normal_user_menu_main
 msgid "All Tickets"
-msgstr "كل التذاكر"
+msgstr ""
 
 #. module: odex25_helpdesk_security
 #. openerp-web
@@ -135,13 +135,13 @@ msgstr "لا تذاكر لعرضها."
 
 #. module: odex25_helpdesk_security
 #: model:res.groups,name:odex25_helpdesk_security.group_helpdesk_normal_user_manager
-msgid "Team Manager"
-msgstr "قائد فريق"
+msgid "Normal Manager"
+msgstr "مدير عادي"
 
 #. module: odex25_helpdesk_security
 #: model:res.groups,name:odex25_helpdesk_security.group_helpdesk_normal_user
-msgid "Team Member"
-msgstr "عضو فريق"
+msgid "Normal User"
+msgstr "مستخدم عادي"
 
 #. module: odex25_helpdesk_security
 #. openerp-web
@@ -155,7 +155,6 @@ msgstr "استعادة السجلات"
 #: model:ir.actions.act_window,name:odex25_helpdesk_security.helpdesk_ticket_action_team_user
 #: model:ir.actions.act_window,name:odex25_helpdesk_security.helpdesk_ticket_action_unassigned_normal_user
 #: model_terms:ir.ui.view,arch_db:odex25_helpdesk_security.helpdesk_team_normal_user_view_kanban
-#: model:ir.ui.menu,name:odex25_helpdesk_security.helpdesk_ticket_report_menu
 msgid "Tickets"
 msgstr "تذاكر"
 
@@ -190,13 +189,3 @@ msgstr "غير مسموح لك بإنشاء تذكرة في هذا الفريق 
 #: model_terms:ir.actions.act_window,help:odex25_helpdesk_security.helpdesk_team_dashboard_normal_user_action_main
 msgid "Your teams will appear here."
 msgstr "ستظهر فرقك هنا."
-
-#. module: odex25_helpdesk_security
-#: model:ir.ui.menu,name:odex25_helpdesk_security.ticket_report_menu_main
-msgid "Reporting"
-msgstr "التقارير"
-
-#. module: odex25_helpdesk_security
-#: model:ir.ui.menu,name:odex25_helpdesk_security.menu_sla_analysis
-msgid "SLA Status Analysis"
-msgstr "تحليل حالة اتفاقية مستوى الخدمة"

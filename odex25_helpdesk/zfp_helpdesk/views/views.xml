@@ -1,0 +1,64 @@
+<odoo>
+    <data>
+<!--         <record id="helpdesk_team_view_form_internal_team" model="ir.ui.view">
+            <field name="name">helpdesk.team.form.inherit.internal.team</field>
+            <field name="model">odex25_helpdesk.team</field>
+            <field name="inherit_id" ref="odex25_helpdesk.odex25_helpdesk_team_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='team_leader_id']" position="after">
+                    <group>
+                        <field name="is_internal_team"/>
+                    </group>
+                </xpath>
+            </field>
+        </record> -->
+
+        <record id="odex25_helpdesk_sla_view_form_inherit" model="ir.ui.view">
+            <field name="name">odex25_helpdesk.sla.form</field>
+            <field name="model">odex25_helpdesk.sla</field>
+            <field name="inherit_id" ref="odex25_helpdesk.odex25_helpdesk_sla_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='tag_ids']" position="after">
+                    <field name="category_id"/>
+                    <field name="service_id" domain="[('category_id','=',category_id)]"/>
+                </xpath>
+            </field>
+        </record>
+
+<!--        <record id="helpdesk_ticket_view_form_inherit" model="ir.ui.view">-->
+<!--            <field name="name">helpdesk.ticket.form.inherit</field>-->
+<!--            <field name="model">odex25_helpdesk.ticket</field>-->
+<!--            <field name="inherit_id" ref="odex25_helpdesk.odex25_helpdesk_ticket_view_form"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//field[@name='user_id']" position="after">-->
+<!--                    <field name="category_id"/>-->
+<!--                    <field name="service_id" domain="[('category_id','=',category_id)]"/>-->
+<!--                </xpath>-->
+<!--                <xpath expr="//field[@name='partner_id']" position="attributes">-->
+<!--                    <attribute name="invisible">1</attribute>-->
+<!--                </xpath>-->
+
+<!--                <xpath expr="//field[@name='partner_name']" position="attributes">-->
+<!--                    <attribute name="invisible">1</attribute>-->
+<!--                </xpath>-->
+
+<!--                <xpath expr="//field[@name='partner_email']" position="attributes">-->
+<!--                    <attribute name="invisible">1</attribute>-->
+<!--                </xpath>-->
+<!--                <xpath expr="//field[@name='email_cc']" position="attributes">-->
+<!--                    <attribute name="invisible">1</attribute>-->
+<!--                </xpath>-->
+<!--                <xpath expr="//field[@name='email_cc']" position="after">-->
+<!--                    <field name="employee_id"/>-->
+<!--                    <field name="work_email"/>-->
+<!--                    <field name="work_location"/>-->
+<!--                    <field name="deb_name"/>-->
+<!--                    <field name="division_id"/>-->
+<!--                    <field name="project_no"/>-->
+<!--                    <field name="transform_no"/>-->
+<!--                </xpath>-->
+<!--            </field>-->
+<!--        </record>-->
+
+    </data>
+</odoo>

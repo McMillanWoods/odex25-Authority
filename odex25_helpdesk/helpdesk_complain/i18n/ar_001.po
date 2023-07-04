@@ -1,0 +1,228 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_complain
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-21 12:05+0000\n"
+"PO-Revision-Date: 2022-09-21 12:05+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: helpdesk_complain
+#: model:mail.template,subject:helpdesk_complain.ticket_complain_email_template
+msgid " Ticket ${object.display_name} Complain"
+msgstr ""
+
+#. module: helpdesk_complain
+#: model:mail.template,body_html:helpdesk_complain.ticket_complain_email_template
+msgid ""
+"<?xml version=\"1.0\"?>\n"
+"<table style=\"width:600px;margin:5px auto;direction:initial;\">\n"
+"                <tbody>\n"
+"                    <tr>\n"
+"                        <td style=\"text-align:left;\">\n"
+"                            Dear ${object.team_id.team_leader_id.name or 'Madam, Sir'},\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                    <tr>\n"
+"                        <td style=\"text-align:left;\">\n"
+"                            The Ticket\n"
+"                            % if object.access_token:\n"
+"                            <a href=\"/helpdesk/ticket/${object.id}/${object.access_token}\">${object.name}</a>\n"
+"                            % endif\n"
+"                            that assigned to ${(object.user_id.name or '')} have received a complain from the customer, please review the ticket.\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                    <tr>\n"
+"                        <td style=\"text-align:left;\">\n"
+"                            The reference of the ticket is ${object.id}.\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                    <tr style=\"direction:rtl;\" dir=\"rtl\">\n"
+"                        <td style=\"text-align:right;\">\n"
+"                            عزيزي ${object.team_id.team_leader_id.name or 'سيدي، سيدتي'}\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                    <tr style=\"direction:rtl;\" dir=\"rtl\">\n"
+"                        <td style=\"text-align:right;direction:rtl;\" dir=\"rtl\">\n"
+"                            التذكره\n"
+"                            % if object.access_token:\n"
+"                            <a href=\"/helpdesk/ticket/${object.id}/${object.access_token}\">${object.name}</a>\n"
+"                            % endif\n"
+"                            المسندة إلى ${(object.user_id.name or '')} تم رفع شكوى عليها من العميل، الرجاء مراجعة التذكرة\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                    <tr style=\"direction:rtl;\" dir=\"rtl\">\n"
+"                        <td style=\"text-align:right;\">\n"
+"                            الرقم المرجعي للتذكرة ${object.id}.\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                </tbody>\n"
+"            </table>\n"
+"        "
+msgstr ""
+
+#. module: helpdesk_complain
+#: model_terms:ir.ui.view,arch_db:helpdesk_complain.tickets_complain_followup
+msgid "Add Complain"
+msgstr "أضف شكوى"
+
+#. module: helpdesk_complain
+#: model:ir.model.fields,field_description:helpdesk_complain.field_helpdesk_complain__user_id
+msgid "Assigned to"
+msgstr "مسندة إلى"
+
+#. module: helpdesk_complain
+#: model_terms:ir.ui.view,arch_db:helpdesk_complain.tickets_complain_followup
+msgid "Close"
+msgstr "إلغاء"
+
+#. module: helpdesk_complain
+#: model:ir.model.fields,field_description:helpdesk_complain.field_odex25_helpdesk_ticket__complain_ids
+msgid "Complain"
+msgstr "شكوى"
+
+#. module: helpdesk_complain
+#: code:addons/helpdesk_complain/models/helpdesk_complain.py:0
+#: model:ir.model.fields,field_description:helpdesk_complain.field_odex25_helpdesk_ticket__complains
+#: model_terms:ir.ui.view,arch_db:helpdesk_complain.helpdesk_ticket_view_form_complains
+#, python-format
+msgid "Complains"
+msgstr "شكاوى"
+
+#. module: helpdesk_complain
+#: model_terms:ir.ui.view,arch_db:helpdesk_complain.tickets_complain_followup
+msgid "Create Complain"
+msgstr "إنشاء شكوى"
+
+#. module: helpdesk_complain
+#: model:ir.model.fields,field_description:helpdesk_complain.field_helpdesk_complain__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: helpdesk_complain
+#: model:ir.model.fields,field_description:helpdesk_complain.field_helpdesk_complain__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: helpdesk_complain
+#: model:ir.model.fields,field_description:helpdesk_complain.field_helpdesk_complain__customer_id
+msgid "Customer"
+msgstr "العميل"
+
+#. module: helpdesk_complain
+#: model:ir.model.fields,field_description:helpdesk_complain.field_helpdesk_complain__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: helpdesk_complain
+#: model:ir.model.fields,field_description:helpdesk_complain.field_helpdesk_complain__name
+#: model_terms:ir.ui.view,arch_db:helpdesk_complain.helpdesk_complain_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_complain.helpdesk_complain_view_tree
+msgid "Description"
+msgstr "الوصف"
+
+#. module: helpdesk_complain
+#: model:ir.model.fields,field_description:helpdesk_complain.field_helpdesk_complain__display_name
+#: model:ir.model.fields,field_description:helpdesk_complain.field_mail_template__display_name
+#: model:ir.model.fields,field_description:helpdesk_complain.field_odex25_helpdesk_ticket__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: helpdesk_complain
+#: model:ir.model,name:helpdesk_complain.model_mail_template
+msgid "Email Templates"
+msgstr "قوالب البريد"
+
+#. module: helpdesk_complain
+#: model:res.groups,name:helpdesk_complain.group_helpdesk_complain
+msgid "Helpdesk Complain"
+msgstr "شكاوى مكتب المساعدة"
+
+#. module: helpdesk_complain
+#: model:ir.model,name:helpdesk_complain.model_odex25_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr "تذكرة مكتب المساعدة"
+
+#. module: helpdesk_complain
+#: model:ir.model.fields,field_description:helpdesk_complain.field_helpdesk_complain__id
+#: model:ir.model.fields,field_description:helpdesk_complain.field_mail_template__id
+#: model:ir.model.fields,field_description:helpdesk_complain.field_odex25_helpdesk_ticket__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: helpdesk_complain
+#: model:ir.model.fields,field_description:helpdesk_complain.field_helpdesk_complain__is_submitted
+msgid "Is Submitted"
+msgstr "يقدم"
+
+#. module: helpdesk_complain
+#: model:ir.model.fields,field_description:helpdesk_complain.field_helpdesk_complain____last_update
+#: model:ir.model.fields,field_description:helpdesk_complain.field_mail_template____last_update
+#: model:ir.model.fields,field_description:helpdesk_complain.field_odex25_helpdesk_ticket____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: helpdesk_complain
+#: model:ir.model.fields,field_description:helpdesk_complain.field_helpdesk_complain__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: helpdesk_complain
+#: model:ir.model.fields,field_description:helpdesk_complain.field_helpdesk_complain__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: helpdesk_complain
+#: model_terms:ir.ui.view,arch_db:helpdesk_complain.tickets_complain_followup
+msgid "Send Complain"
+msgstr ""
+
+#. module: helpdesk_complain
+#: model_terms:ir.ui.view,arch_db:helpdesk_complain.helpdesk_complain_view_form
+msgid "Submit"
+msgstr "تقديم"
+
+#. module: helpdesk_complain
+#: code:addons/helpdesk_complain/controllers/portal.py:0
+#, python-format
+msgid "There is a new Complain for this Ticket"
+msgstr "هناك شكوى جديدة لهذه التذكرة"
+
+#. module: helpdesk_complain
+#: model:ir.model.fields,field_description:helpdesk_complain.field_helpdesk_complain__helpdesk_id
+msgid "Ticket"
+msgstr "تذكرة"
+
+#. module: helpdesk_complain
+#: model_terms:ir.ui.view,arch_db:helpdesk_complain.helpdesk_complain_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_complain.helpdesk_complain_view_tree
+msgid "Tickets"
+msgstr "التذاكر"
+
+#. module: helpdesk_complain
+#: model_terms:ir.ui.view,arch_db:helpdesk_complain.helpdesk_complain_view_form
+msgid "User"
+msgstr "مستخدم"
+
+#. module: helpdesk_complain
+#: model_terms:ir.ui.view,arch_db:helpdesk_complain.tickets_complain_followup
+msgid "avatar"
+msgstr "الصورة الرمزية"
+
+#. module: helpdesk_complain
+#: model_terms:ir.ui.view,arch_db:helpdesk_complain.tickets_complain_followup
+msgid "complains"
+msgstr "الشكاوى"
+
+#. module: helpdesk_complain
+#: model:ir.model,name:helpdesk_complain.model_helpdesk_complain
+msgid "helpdesk.complain"
+msgstr ""

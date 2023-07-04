@@ -283,18 +283,18 @@
         </record>
 
         <!-- make sure this view will be loaded after odex25_timesheet_grid.timesheet_view_search -->
-<!--        <record id="hr_timesheet.hr_timesheet_line_my_timesheet_search" model="ir.ui.view">-->
-<!--            <field name="inherit_id" ref="odex25_timesheet_grid.timesheet_view_search" />-->
-<!--        </record>-->
+        <record id="hr_timesheet.hr_timesheet_line_my_timesheet_search" model="ir.ui.view">
+            <field name="inherit_id" ref="timesheet_view_search" />
+        </record>
 
-<!--        <record id="hr_timesheet_line_inherit_my_timesheet_search" model="ir.ui.view">-->
-<!--            <field name="name">view.search.my.timesheet.inherit</field>-->
-<!--            <field name="model">account.analytic.line</field>-->
-<!--            <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_my_timesheet_search"/>-->
-<!--            <field name="arch" type="xml">-->
-<!--                <filter name="my_team_timesheet" position="replace"/>-->
-<!--            </field>-->
-<!--        </record>-->
+        <record id="hr_timesheet_line_inherit_my_timesheet_search" model="ir.ui.view">
+            <field name="name">view.search.my.timesheet.inherit</field>
+            <field name="model">account.analytic.line</field>
+            <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_my_timesheet_search"/>
+            <field name="arch" type="xml">
+                <filter name="my_team_timesheet" position="replace"/>
+            </field>
+        </record>
 
         <record id="project_view_form_inherit" model="ir.ui.view">
             <field name="name">project.view.form.inherit</field>
@@ -608,7 +608,7 @@
                     <attribute name="invisible">0</attribute>
                 </xpath>
                 <xpath expr="//group[@name='managers']" position="inside">
-                    <field name="timesheet_manager_id" invisible="1"/>
+                    <field name="timesheet_manager_id"/>
                 </xpath>
                 <xpath expr="//group[@name='managers']" position="attributes">
                     <attribute name="invisible">0</attribute>
@@ -622,7 +622,7 @@
             <field name="inherit_id" ref="hr.view_employee_tree"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='work_location']" position="after">
-                    <field name="timesheet_manager_id" optional="hide" string="Timesheet Approver" invisible="1"/>
+                    <field name="timesheet_manager_id" optional="hide" string="Timesheet Approver"/>
                 </xpath>
             </field>
         </record>

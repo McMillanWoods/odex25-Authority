@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+    <record id="ticket_complain_email_template" model="mail.template">
+        <field name="name">Ticket Complain</field>
+        <field name="email_from"></field>
+        <field name="subject"> Ticket ${object.display_name} Complain</field>
+        <field name="model_id" ref="odex25_helpdesk.model_odex25_helpdesk_ticket"/>
+        <field name="email_cc">${(object.user_id.partner_id.email or '')}</field>
+        <field name="email_to">${(object.team_id.team_leader_id.partner_id.email or '')}</field>
+<!--        <field name="recipient_ids">False</field>-->
+        <field name="auto_delete" eval="False"/>
+        <field name="body_html" type="xml">
+            <table style="width:600px;margin:5px auto;direction:initial;">
+                <tbody>
+                    <tr>
+                        <td style="text-align:left;">
+                            Dear ${object.team_id.team_leader_id.name or 'Madam, Sir'},
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left;">
+                            The Ticket
+                            % if object.access_token:
+                            <a href="/helpdesk/ticket/${object.id}/${object.access_token}">${object.name}</a>
+                            % endif
+                            that assigned to ${(object.user_id.name or '')} have received a complain from the customer, please review the ticket.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left;">
+                            The reference of the ticket is ${object.id}.
+                        </td>
+                    </tr>
+                    <tr style="direction:rtl;" dir="rtl">
+                        <td style="text-align:right;">
+                            عزيزي ${object.team_id.team_leader_id.name or 'سيدي، سيدتي'}
+                        </td>
+                    </tr>
+                    <tr style="direction:rtl;" dir="rtl">
+                        <td style="text-align:right;direction:rtl;" dir="rtl">
+                            التذكره
+                            % if object.access_token:
+                            <a href="/helpdesk/ticket/${object.id}/${object.access_token}">${object.name}</a>
+                            % endif
+                            المسندة إلى ${(object.user_id.name or '')} تم رفع شكوى عليها من العميل، الرجاء مراجعة التذكرة
+                        </td>
+                    </tr>
+                    <tr style="direction:rtl;" dir="rtl">
+                        <td style="text-align:right;">
+                            الرقم المرجعي للتذكرة ${object.id}.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </field>
+    </record>
+</odoo>

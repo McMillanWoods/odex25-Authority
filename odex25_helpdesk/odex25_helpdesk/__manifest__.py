@@ -17,7 +17,7 @@
         'resource',
         'portal',
         'digest',
-        # 'zfp_hr_custom'
+        'hr'
     ],
     'description': """
 Odex25 helpdesk - Ticket Management App
@@ -42,7 +42,7 @@ Features:
         'security/ir.model.access.csv',
         'data/digest_data.xml',
         'data/mail_data.xml',
-        # 'data/odex25_helpdesk_data.xml',
+        'data/odex25_helpdesk_data.xml',
         'views/odex25_helpdesk_views.xml',
         'views/odex25_helpdesk_views.xml',
         'views/zfp_config_setting.xml',
@@ -50,13 +50,13 @@ Features:
         'views/assets.xml',
         'views/digest_views.xml',
         'views/odex25_helpdesk_portal_templates.xml',
-        # 'views/res_partner_views.xml',
+        'views/res_partner_views.xml',
         'views/mail_activity_views.xml',
         'report/odex25_helpdesk_sla_report_analysis_views.xml',
     ],
     'qweb': [
         "static/src/xml/odex25_helpdesk_team_templates.xml",
     ],
-    # 'demo': ['data/odex25_helpdesk_demo.xml'],
+    'demo': ['data/odex25_helpdesk_demo.xml'],
     'application': True,
 }
