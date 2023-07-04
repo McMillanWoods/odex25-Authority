@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-24 12:58+0000\n"
-"PO-Revision-Date: 2022-10-24 12:58+0000\n"
+"POT-Creation-Date: 2022-09-26 09:48+0000\n"
+"PO-Revision-Date: 2022-09-26 09:48+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,10 +16,14 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: helpdesk_employee_request
-#: model_terms:ir.ui.view,arch_db:helpdesk_employee_request.odex25_helpdesk_ticket_vip_view_form
-#: model_terms:ir.ui.view,arch_db:helpdesk_employee_request.ticket_request_view_form
-msgid "Description of the ticket..."
-msgstr "وصف التذكرة..."
+#: model:odex25_helpdesk.stage,legend_blocked:helpdesk_employee_request.stage_in_employee_request
+msgid "Blocked"
+msgstr "مغلق"
+
+#. module: helpdesk_employee_request
+#: model_terms:ir.ui.view,arch_db:helpdesk_employee_request.helpdesk_ticket_view_form_complains_employee
+msgid "Complains"
+msgstr "شكاوى"
 
 #. module: helpdesk_employee_request
 #: model:ir.model.fields,field_description:helpdesk_employee_request.field_odex25_helpdesk_ticket__display_name
@@ -27,25 +31,20 @@ msgid "Display Name"
 msgstr "الاسم المعروض"
 
 #. module: helpdesk_employee_request
-#: model_terms:ir.ui.view,arch_db:helpdesk_employee_request.odex25_helpdesk_ticket_vip_view_form
-#: model_terms:ir.ui.view,arch_db:helpdesk_employee_request.ticket_request_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_employee_request.helpdesk_complain_employee_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_employee_request.helpdesk_ticket_view_form_employee_request
 msgid "Employee"
 msgstr "الموظف"
+
+#. module: helpdesk_employee_request
+#: model_terms:ir.ui.view,arch_db:helpdesk_employee_request.helpdesk_ticket_view_form_employee_request
+msgid "Employee Email"
+msgstr "البريد الإلكتروني للموظف"
 
 #. module: helpdesk_employee_request
 #: model:odex25_helpdesk.stage,name:helpdesk_employee_request.stage_in_employee_request
 msgid "Employee Request"
 msgstr "طلب موظف"
-
-#. module: helpdesk_employee_request
-#: model:ir.ui.menu,name:helpdesk_employee_request.menu_helpdesk_employee_request
-msgid "Employee Request Helpdesk"
-msgstr "طلبات موظفين"
-
-#. module: helpdesk_employee_request
-#: model:ir.actions.act_window,name:helpdesk_employee_request.action_helpdesk_ticket_employee_request
-msgid "Employee Request Tickets"
-msgstr "تذاكر طلبات الموظفين"
 
 #. module: helpdesk_employee_request
 #: model:odex25_helpdesk.team,name:helpdesk_employee_request.helpdesk_team_employee_request
@@ -58,16 +57,14 @@ msgid "Employee request"
 msgstr "طلب موظف"
 
 #. module: helpdesk_employee_request
-#: model:ir.ui.menu,name:helpdesk_employee_request.menu_helpdesk_employee
+#: model:ir.ui.menu,name:helpdesk_employee_request.menu_helpdesk_employee_request
 msgid "Helpdesk"
 msgstr "مكتب المساعدة"
 
 #. module: helpdesk_employee_request
 #: model:ir.model,name:helpdesk_employee_request.model_odex25_helpdesk_ticket
-#: model_terms:ir.ui.view,arch_db:helpdesk_employee_request.odex25_helpdesk_ticket_vip_view_form
-#: model_terms:ir.ui.view,arch_db:helpdesk_employee_request.ticket_request_view_form
 msgid "Helpdesk Ticket"
-msgstr "التذاكر"
+msgstr "تذكرة مكتب المساعدة"
 
 #. module: helpdesk_employee_request
 #: model:ir.model.fields,field_description:helpdesk_employee_request.field_odex25_helpdesk_ticket__id
@@ -75,9 +72,9 @@ msgid "ID"
 msgstr "المُعرف"
 
 #. module: helpdesk_employee_request
-#: model:ir.model.fields,field_description:helpdesk_employee_request.field_odex25_helpdesk_ticket__is_internal_team
-msgid "Internal Team"
-msgstr "فريق داخلي"
+#: model:odex25_helpdesk.stage,legend_normal:helpdesk_employee_request.stage_in_employee_request
+msgid "In Progress"
+msgstr "في تَقَدم"
 
 #. module: helpdesk_employee_request
 #: model:ir.model.fields,field_description:helpdesk_employee_request.field_odex25_helpdesk_ticket__is_submitted
@@ -85,105 +82,26 @@ msgid "Is Submitted"
 msgstr "يقدم"
 
 #. module: helpdesk_employee_request
-#: model:ir.model.fields,field_description:helpdesk_employee_request.field_odex25_helpdesk_ticket__ticket_service_type
-msgid "Kanban State"
-msgstr ""
-
-#. module: helpdesk_employee_request
 #: model:ir.model.fields,field_description:helpdesk_employee_request.field_odex25_helpdesk_ticket____last_update
 msgid "Last Modified on"
 msgstr "آخر تعديل في"
 
 #. module: helpdesk_employee_request
-#: model_terms:ir.actions.act_window,help:helpdesk_employee_request.action_helpdesk_ticket_employee_request
-#: model_terms:ir.actions.act_window,help:helpdesk_employee_request.action_helpdesk_ticket_vip_request
-msgid "No tickets to display."
-msgstr "لايوجد تذاكر لعرضها"
+#: model:ir.actions.act_window,name:helpdesk_employee_request.helpdesk_ticket_action_main_tree_employee_request
+msgid "My Tickets"
+msgstr "تذاكري"
 
 #. module: helpdesk_employee_request
-#: model:ir.model.fields.selection,name:helpdesk_employee_request.selection__odex25_helpdesk_ticket__ticket_service_type__request
-msgid "Request"
-msgstr "طلب"
+#: model_terms:ir.actions.act_window,help:helpdesk_employee_request.helpdesk_ticket_action_main_tree_employee_request
+msgid "No tickets to display."
+msgstr "لا تذاكر لعرضها"
+
+#. module: helpdesk_employee_request
+#: model:odex25_helpdesk.stage,legend_done:helpdesk_employee_request.stage_in_employee_request
+msgid "Ready"
+msgstr "مستعد"
 
 #. module: helpdesk_employee_request
 #: model:ir.model.fields,field_description:helpdesk_employee_request.field_odex25_helpdesk_ticket__requester_id
 msgid "Requester"
 msgstr "مقدم الطلب"
-
-#. module: helpdesk_employee_request
-#: model:ir.model.fields.selection,name:helpdesk_employee_request.selection__odex25_helpdesk_ticket__ticket_service_type__secretary
-#: model:res.groups,name:helpdesk_employee_request.group_helpdesk_Secretary
-msgid "Secretary"
-msgstr "السكرتير"
-
-#. module: helpdesk_employee_request
-#: model_terms:ir.ui.view,arch_db:helpdesk_employee_request.odex25_helpdesk_ticket_vip_view_form
-#: model_terms:ir.ui.view,arch_db:helpdesk_employee_request.ticket_request_view_form
-msgid "Subject..."
-msgstr "الموضوع"
-
-#. module: helpdesk_employee_request
-#: model_terms:ir.ui.view,arch_db:helpdesk_employee_request.odex25_helpdesk_tickets_employee_request_view_tree
-#: model_terms:ir.ui.view,arch_db:helpdesk_employee_request.odex25_helpdesk_tickets_vip_view_tree
-msgid "Ticket Name"
-msgstr "إسم التذكرة"
-
-#. module: helpdesk_employee_request
-#: model_terms:ir.ui.view,arch_db:helpdesk_employee_request.odex25_helpdesk_tickets_employee_request_view_tree
-#: model_terms:ir.ui.view,arch_db:helpdesk_employee_request.odex25_helpdesk_tickets_vip_view_tree
-msgid "Tickets"
-msgstr "التذاكر"
-
-#. module: helpdesk_employee_request
-#: model:ir.model.fields.selection,name:helpdesk_employee_request.selection__odex25_helpdesk_ticket__ticket_service_type__vip
-msgid "VIP"
-msgstr ""
-
-#. module: helpdesk_employee_request
-#: model:res.groups,name:helpdesk_employee_request.group_helpdesk_vip_employee
-msgid "VIP Employee"
-msgstr "VIP موظف"
-
-#. module: helpdesk_employee_request
-#: model:ir.ui.menu,name:helpdesk_employee_request.menu_helpdesk_vip_employee_request
-msgid "VIP Employee Helpdesk"
-msgstr "VIP تذاكر موظف"
-
-#. module: helpdesk_employee_request
-#: model:odex25_helpdesk.stage,name:helpdesk_employee_request.stage_in_vip_employee_request
-msgid "VIP Employee Request"
-msgstr "VIP طلب موظف"
-
-#. module: helpdesk_employee_request
-#: model:ir.actions.act_window,name:helpdesk_employee_request.action_helpdesk_ticket_vip_request
-msgid "VIP Employee Request Tickets"
-msgstr "VIP تذاكر طلب موظف"
-
-#. module: helpdesk_employee_request
-#: model:odex25_helpdesk.team,name:helpdesk_employee_request.helpdesk_team_vip_employee_request
-msgid "VIP Employee Request's"
-msgstr "VIP طلب موظف"
-
-#. module: helpdesk_employee_request
-#: model:ir.model.fields,field_description:helpdesk_employee_request.field_odex25_helpdesk_ticket__is_vip_team
-msgid "VIP Team"
-msgstr "VIP فريق"
-
-#. module: helpdesk_employee_request
-#: model:odex25_helpdesk.stage,legend_done:helpdesk_employee_request.stage_in_employee_request
-#: model:odex25_helpdesk.stage,legend_done:helpdesk_employee_request.stage_in_vip_employee_request
-msgid "جاهز"
-msgstr ""
-
-#. module: helpdesk_employee_request
-#: model:odex25_helpdesk.stage,legend_normal:helpdesk_employee_request.stage_in_employee_request
-#: model:odex25_helpdesk.stage,legend_normal:helpdesk_employee_request.stage_in_vip_employee_request
-msgid "قيد التنفيذ"
-msgstr ""
-
-#. module: helpdesk_employee_request
-#: model:odex25_helpdesk.stage,legend_blocked:helpdesk_employee_request.stage_in_employee_request
-#: model:odex25_helpdesk.stage,legend_blocked:helpdesk_employee_request.stage_in_vip_employee_request
-msgid "محجوب"
-msgstr ""
-

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="helpdesk_ticket_view_form_complains" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.form.inherit.complain</field>
+        <field name="model">odex25_helpdesk.ticket</field>
+        <field name="inherit_id" ref="odex25_helpdesk.odex25_helpdesk_ticket_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button class="oe_stat_button" name="open_complains" icon="fa-ticket" type="object" groups='helpdesk_complain.group_helpdesk_complain'>
+                    <field name="complains" string="Complains" widget="statinfo" />
+                </button>
+            </xpath>
+        </field>
+    </record>
+    <!-- complain tree -->
+    <record id="helpdesk_complain_view_tree" model="ir.ui.view">
+        <field name="name">helpdesk.complain.tree</field>
+        <field name="model">helpdesk.complain</field>
+        <field name="arch" type="xml">
+            <tree string="Tickets">
+                <field name="customer_id"/>
+                <field name="name" string="Description"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="helpdesk_complain_view_form" model="ir.ui.view">
+        <field name="name">helpdesk.complain.form</field>
+        <field name="model">helpdesk.complain</field>
+        <field name="arch" type="xml">
+            <form string="Tickets">
+                <header>
+                    <button name="submit_to_user" string="Submit"
+                        context="{'make_readonly':True}" attrs="{'invisible':[('is_submitted','=',True)]}"
+                        type="object" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name" required="1" string="Description" attrs="{'readonly':[('is_submitted','=',True)]}"/>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="helpdesk_id" required="1" domain="[('id','=',active_id)]" attrs="{'readonly':[('is_submitted','=',True)]}"/>
+                            <field name="customer_id" required="1" readonly="1"/>
+                            <field name="is_submitted" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="date" readonly="1"/>
+                            <field name="user_id" string="User" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

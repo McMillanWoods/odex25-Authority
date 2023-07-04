@@ -7,7 +7,7 @@
     'summary': 'Ticket Assignation methods for team members considering ticket types',
     'author': "Expert Co. Ltd.",
     'website': "http://www.exp-sa.com",
-    'depends': ['odex25_helpdesk_security'],
+    'depends': ['odex25_helpdesk'],
     'description': """
         Ticket Assignation methods for team members considering ticket types
     """,

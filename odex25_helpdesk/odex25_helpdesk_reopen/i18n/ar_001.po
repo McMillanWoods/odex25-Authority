@@ -64,14 +64,3 @@ msgstr "في هذه المرحلة ، سيتم فتح التذكرة مرة أخ
 #: model:ir.model.fields,help:odex25_helpdesk_reopen.field_odex25_helpdesk_stage__reopen_time
 msgid "the time that make a ticket reopen task"
 msgstr "الوقت الذي يجعل مهمة إعادة فتح تذكرة"
-
-#. module: odex25_helpdesk_reopen
-#: model:ir.model.fields,field_description:odex25_helpdesk_reopen.field_odex25_helpdesk_stage__is_done
-msgid "Is Done"
-msgstr "المرحلة النهائية"
-
-
-#. module: odex25_helpdesk_reopen
-#: model:ir.model.fields,field_description:odex25_helpdesk_reopen.field_odex25_helpdesk_stage__solve_time
-msgid "Solved Time"
-msgstr "زمن حل المرحلة"

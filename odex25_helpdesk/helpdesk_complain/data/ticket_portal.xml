@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <template id="tickets_complain_followup" inherit_id="odex25_helpdesk.tickets_followup">
+            <xpath expr="//t[1]/div[2]" position="after">
+                <div class="row mt32">
+                    <div class="col-md-10">
+                        <button type="button" groups="helpdesk_complain.group_helpdesk_complain" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                            Add Complain
+                        </button>
+                    </div>
+                </div>
+                <div class="row mt32" groups="helpdesk_complain.group_helpdesk_complain">
+                    <div class="col-xs-3">
+                    </div>
+                    <div class="col-xs-7" style="border-bottom:1px solid #3333;width:100%;height:30px;display:block;">
+                        <div class="o_message_counter">
+                            <span class="o_message_count fa fa-comments"><t t-esc="ticket.complains"/></span>
+                            complains
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" groups="helpdesk_complain.group_helpdesk_complain" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Create Complain</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"></span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" action="/rating/complain" data-success_page="/helpdesk/ticket/442" method="post">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                <input style="display:none;" name="ticket_id" t-att-value="ticket.id"/>
+                                <textarea class="form-control" name="complain" rows="8"></textarea>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary" style="margin-top:8px;margin-right:930px;">Send Complain</button>
+                                </div>
+                            </form>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div groups="helpdesk_complain.group_helpdesk_complain" class="row mt32">
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-9">
+                        <table>
+                            <tbody>
+                                <t t-foreach="ticket.complain_ids" t-as="complain">
+                                    <tr class="complains">
+                                        <td>
+                                            <div class="media-left">
+                                                <img class="media-object o_portal_chatter_avatar" alt="avatar" src="/web/image/mail.message/2321/author_avatar/50x50"/>
+                                            </div>
+                                            <div class="o_portal_chatter_message_title">
+                                                <h5 class="media-heading">
+                                                    <t t-esc="user_id.name"/>
+                                                </h5>
+                                                <p style="font-size:10px;color:#a8a8a8" class="o_portal_chatter_puslished_date"><t t-esc="complain.date"/></p>
+                                            </div>
+                                            <div class="media-body">
+                                                <p><t t-esc="complain.name" /></p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-xs-2"></div>
+                </div>
+                <script>
+                    $("table tr").each(function() { 
+                        $(this).parent().prepend(this);
+                    });
+                </script>
+            </xpath>
+        </template>
+    </data>
+</odoo>

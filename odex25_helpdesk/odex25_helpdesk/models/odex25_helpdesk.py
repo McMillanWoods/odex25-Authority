@@ -84,9 +84,6 @@ class odex25_helpdeskTeam(models.Model):
     resource_calendar_id = fields.Many2one('resource.calendar', 'Working Hours',
         default=lambda self: self.env.company.resource_calendar_id, domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
 
-    is_internal_team = fields.Boolean('Internal Team', default=False)
-    is_vip_team = fields.Boolean('VIP Team', default=False)
-
     @api.depends('name', 'portal_show_rating')
     def _compute_portal_rating_url(self):
         base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')

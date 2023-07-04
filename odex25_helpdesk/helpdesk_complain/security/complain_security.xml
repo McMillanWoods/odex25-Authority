@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="group_helpdesk_complain" model="res.groups">
+            <field name="name">Helpdesk Complain</field>
+            <field name="category_id" ref="base.module_category_odex25_services_helpdesk"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_portal'))]"/>
+        </record>
+
+    </data>
+</odoo>

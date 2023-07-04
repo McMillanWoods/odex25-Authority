@@ -8,17 +8,16 @@
         <field name="res_model">odex25_helpdesk.ticket</field>
         <field name="view_mode">tree,kanban,form</field>
         <field name="search_view_id" ref="odex25_helpdesk.odex25_helpdesk_tickets_view_search"/>
-        <field name="context">{'search_default_my_ticket': True}</field>
+        <field name="context">{'search_default_is_open': True}</field>
         <field name="help" type="html">
             <p>
                 No tickets to display.
             </p>
         </field>
     </record>
-    <menuitem id="odex25_helpdesk_ticket_action_main_my_tree"
-              action="helpdesk_manager_ticket_action_main_tree"
-              sequence="10" parent="odex25_helpdesk.menu_odex25_helpdesk_root"/>
-     main actions
+    <menuitem id="odex25_helpdesk.odex25_helpdesk_ticket_action_main_my" action="helpdesk_manager_ticket_action_main_tree"
+        sequence="10" parent="odex25_helpdesk.menu_odex25_helpdesk_root"/>
+    <!-- main actions -->
     <record id="odex25_helpdesk.odex25_helpdesk_ticket_action_main_my" model="ir.actions.act_window">
         <field name="domain">[('user_id','=',uid)]</field>
     </record>
@@ -27,6 +26,13 @@
     </record>
 
 
+    <!-- periority main action -->
+<!--    <record id="odex25_helpdesk.helpdesk_ticket_action_high_priorities" model="ir.actions.act_window">-->
+<!--        <field name="domain">[('user_id','=',uid),('priority', '=', '2')]</field>-->
+<!--    </record>-->
+<!--    <record id="odex25_helpdesk.helpdesk_ticket_action_urgent" model="ir.actions.act_window">-->
+<!--        <field name="domain">[('user_id','=',uid),('priority', '=', '3')]</field>-->
+<!--    </record>-->
 
 
     <!-- my ticket average hours action -->
@@ -37,34 +43,35 @@
     <record id="odex25_helpdesk.odex25_helpdesk_ticket_action_dashboard" model="ir.actions.act_window">
         <field name="domain">[('stage_id.is_close', '=', False),('user_id','=',uid),('priority', '=', '2')]</field>
     </record>
-
+<!--    <record id="odex25_helpdesk.helpdesk_ticket_action_dashboard_urgent" model="ir.actions.act_window">-->
+<!--        <field name="domain">[('stage_id.is_close', '=', False),('user_id','=',uid),('priority', '=', '3')]</field>-->
+<!--    </record>-->
+    <!-- sla faild actions -->
     <record id="odex25_helpdesk.odex25_helpdesk_ticket_action_sla" model="ir.actions.act_window">
         <field name="domain">[('user_id','=',uid),('priority', '!=', False)]</field>
     </record>
 
+    <!--    <record id="odex25_helpdesk.helpdesk_ticket_action_sla_high" model="ir.actions.act_window">-->
+<!--        <field name="domain">[('user_id','=',uid),('priority', '=', '2')]</field>-->
+<!--    </record>-->
+<!--    <record id="odex25_helpdesk.helpdesk_ticket_action_sla_urgent" model="ir.actions.act_window">-->
+<!--        <field name="domain">[('user_id','=',uid),('priority', '=', '3')]</field>-->
+<!--    </record>-->
 
 
     <!-- My performance actions -->
     <record id="odex25_helpdesk.odex25_helpdesk_ticket_action_close_analysis" model="ir.actions.act_window">
-        <field name="domain">[('user_id','=',uid),('close_date', '>=', (datetime.datetime.today() -
-            datetime.timedelta(hours=15)).strftime('%Y-%m-%d %H:%M:%S'))]
-        </field>
+        <field name="domain">[('user_id','=',uid),('close_date', '>=', (datetime.datetime.today() - datetime.timedelta(hours=15)).strftime('%Y-%m-%d %H:%M:%S'))]</field>
     </record>
     <record id="odex25_helpdesk.odex25_helpdesk_ticket_action_success" model="ir.actions.act_window">
-        <field name="domain">[('user_id','=',uid),('close_date', '>=', (datetime.datetime.today() -
-            datetime.timedelta(hours=15)).strftime('%Y-%m-%d %H:%M:%S'))]
-        </field>
+        <field name="domain">[('user_id','=',uid),('close_date', '>=', (datetime.datetime.today() - datetime.timedelta(hours=15)).strftime('%Y-%m-%d %H:%M:%S'))]</field>
     </record>
     <!-- 7 days avarage -->
     <record id="odex25_helpdesk.odex25_helpdesk_ticket_action_7days_analysis" model="ir.actions.act_window">
-        <field name="domain">[('user_id','=',uid),('close_date', '>=', (datetime.datetime.today() -
-            datetime.timedelta(days=7)).strftime('%Y-%m-%d %H:%M:%S'))]
-        </field>
+        <field name="domain">[('user_id','=',uid),('close_date', '>=', (datetime.datetime.today() - datetime.timedelta(days=7)).strftime('%Y-%m-%d %H:%M:%S'))]</field>
     </record>
     <record id="odex25_helpdesk.odex25_helpdesk_ticket_action_7dayssuccess" model="ir.actions.act_window">
-        <field name="domain">[('user_id','=',uid),('close_date', '>=', (datetime.datetime.today() -
-            datetime.timedelta(days=7)).strftime('%Y-%m-%d %H:%M:%S'))]
-        </field>
+        <field name="domain">[('user_id','=',uid),('close_date', '>=', (datetime.datetime.today() - datetime.timedelta(days=7)).strftime('%Y-%m-%d %H:%M:%S'))]</field>
     </record>
 
     <!-- in kanban, the Archived and SLA faild actions domained -->
@@ -93,7 +100,7 @@
         <field name="view_mode">kanban,tree,form,pivot,graph</field>
         <field name="search_view_id" ref="odex25_helpdesk.odex25_helpdesk_tickets_view_search"/>
         <field name="context">{'search_default_upcoming_sla_fail': True}</field>
-        <field name="domain">[('user_id','=',uid)]</field>
+        <field name="domain">['|',('team_id.member_ids' , 'in' , uid),('team_id.member_ids' , '=' ,False)]</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">
                 Click create a new ticket.
@@ -106,7 +113,7 @@
         <field name="res_model">odex25_helpdesk.ticket</field>
         <field name="view_mode">kanban,tree,form</field>
         <field name="context">{'search_default_team_id': active_id, 'search_default_unassigned': True}</field>
-        <field name="domain">[('user_id','=',uid)]</field>
+        <field name="domain">['|',('team_id.member_ids' , 'in' , uid),('team_id.member_ids' , '=' ,False)]</field>
         <field name="search_view_id" ref="odex25_helpdesk.odex25_helpdesk_tickets_view_search"/>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">
@@ -130,19 +137,18 @@
     </record>
 
     <menuitem id="menu_helpdesk_normal_user_root" name="Helpdesk"
-              sequence="26"
-              action="helpdesk_team_dashboard_normal_user_action_main"
-              web_icon="odex25_helpdesk,static/description/icon.png"
-              groups="group_helpdesk_normal_user"/>
-
+        sequence="26"
+        action="helpdesk_team_dashboard_normal_user_action_main"
+        web_icon="helpdesk,static/description/icon.png"
+        groups="group_helpdesk_normal_user"/>
 
     <record id="helpdesk_ticket_normal_user_action_main_tree" model="ir.actions.act_window">
         <field name="name">All Tickets</field>
         <field name="res_model">odex25_helpdesk.ticket</field>
         <field name="view_mode">tree,kanban,form</field>
         <field name="search_view_id" ref="odex25_helpdesk.odex25_helpdesk_tickets_view_search"/>
-        <field name="context">{'search_default_my_ticket': True}</field>
-        <field name="domain">['|',('user_id','=',uid),('team_leader_id','=',uid)]</field>
+        <field name="context">{'search_default_is_open': True}</field>
+        <field name="domain">['|',('team_id.member_ids' , 'in' , uid),('team_id.member_ids' , '=' ,False)]</field>
         <field name="help" type="html">
             <p>
                 No tickets to display.
@@ -151,25 +157,12 @@
     </record>
 
     <menuitem id="helpdesk_ticket_normal_user_menu_main" action="helpdesk_ticket_normal_user_action_main_tree"
-              sequence="10" parent="menu_helpdesk_normal_user_root" groups="group_helpdesk_normal_user"/>
-
+        sequence="10" parent="menu_helpdesk_normal_user_root" groups="group_helpdesk_normal_user"/>
+    
     <menuitem id="helpdesk_menu_team_normal_user_dashboard" action="helpdesk_team_dashboard_normal_user_action_main"
-              sequence="5" parent="menu_helpdesk_normal_user_root"
-              groups="group_helpdesk_normal_user"/>
-
-    <menuitem id="ticket_report_menu_main" name="Reporting" sequence="15" parent="menu_helpdesk_normal_user_root" groups="group_helpdesk_normal_user_manager"/>
-
-    <menuitem id="helpdesk_ticket_report_menu" name="Tickets" action="odex25_helpdesk.odex25_helpdesk_ticket_analysis_action"
-              sequence="10" parent="ticket_report_menu_main" groups="group_helpdesk_normal_user_manager"/>
-
-    <menuitem id="menu_sla_analysis" name="SLA Status Analysis" action="odex25_helpdesk.odex25_helpdesk_sla_report_analysis_action"
-         sequence="12" parent="ticket_report_menu_main" groups="group_helpdesk_normal_user_manager"/>
-
-
-
-<!--     <record model='ir.ui.menu' id='odex25_helpdesk.odex25_helpdesk_ticket_report_menu_main'>-->
-<!--        <field name="groups_id" eval="[(4,ref('odex25_helpdesk_security.group_helpdesk_normal_user_manager'))]"/>-->
-<!--    </record>-->
+        sequence="5" parent="menu_helpdesk_normal_user_root"
+        groups="group_helpdesk_normal_user"/>
+    
 
 
     <!-- action for halpdask team ticket in kanban user -->
@@ -177,8 +170,8 @@
         <field name="name">Tickets</field>
         <field name="res_model">odex25_helpdesk.ticket</field>
         <field name="view_mode">kanban,tree,form</field>
-        <field name="context">{'search_default_my_ticket': True}</field>
-        <field name="domain">['|',('user_id','=',uid),('team_leader_id','=',uid)]</field>
+        <field name="context">{'search_default_team_id': active_id}</field>
+        <field name="domain">['|',('team_id.member_ids' , 'in' , uid),('team_id.member_ids' , '=' ,False)]</field>
         <field name="search_view_id" ref="odex25_helpdesk.odex25_helpdesk_tickets_view_search"/>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">
@@ -187,7 +180,7 @@
         </field>
     </record>
 
-<!--     <record id="helpdesk_team_normal_user_view_kanban" model="ir.ui.view">
+    <record id="helpdesk_team_normal_user_view_kanban" model="ir.ui.view" >
         <field name="name">helpdesk.team.dashboard</field>
         <field name="model">odex25_helpdesk.team</field>
         <field name="inherit_id" ref="odex25_helpdesk.odex25_helpdesk_team_view_kanban"/>
@@ -208,56 +201,45 @@
                 <attribute name="groups">odex25_helpdesk_security.group_helpdesk_normal_manager</attribute>
             </xpath>
             <xpath expr='//kanban/templates/t/div/div[2]/div/div[2]/div[1]' position="after">
-                <a name="%(odex25_helpdesk_security.action_upcoming_sla_fail_all_tickets_normal_user)d"
-                   groups="odex25_helpdesk_security.group_helpdesk_normal_user"
-                   type="action" context="{'search_default_my_ticket': True, 'default_team_id': active_id}">
-                    <t t-esc="record.upcoming_sla_fail_tickets.raw_value"/>
-                    Tickets to Review
-                </a>
+                <a name="%(odex25_helpdesk_security.action_upcoming_sla_fail_all_tickets_normal_user)d" groups="odex25_helpdesk_security.group_helpdesk_normal_user"
+                    type="action"  context="{'search_default_team_id': active_id, 'default_team_id': active_id}">
+                    <t t-esc="record.upcoming_sla_fail_tickets.raw_value"/> Tickets to Review</a>
             </xpath>
             <xpath expr='//kanban/templates/t/div/div[2]/div/div[2]/div[2]' position="after">
-                <a name="%(odex25_helpdesk_security.helpdesk_ticket_action_unassigned_normal_user)d" type="action"
-                   groups="odex25_helpdesk_security.group_helpdesk_normal_user"
-                   context="{'search_default_team_id': active_id, 'default_team_id': active_id}">
-                    <t t-esc="record.unassigned_tickets.raw_value"/>
-                    Unassigned Tickets
-                </a>
+                <a name="%(odex25_helpdesk_security.helpdesk_ticket_action_unassigned_normal_user)d" type="action" groups="odex25_helpdesk_security.group_helpdesk_normal_user" context="{'search_default_team_id': active_id, 'default_team_id': active_id}">
+                <t t-esc="record.unassigned_tickets.raw_value"/> Unassigned Tickets</a>
             </xpath>
             <xpath expr='//kanban/templates/t/div/div[2]/div/div/button[1]' position="after">
-                <button class="btn btn-primary" groups="odex25_helpdesk_security.group_helpdesk_normal_user"
-                        name="%(helpdesk_ticket_action_team_user)d" type="action">Tickets
-                </button>
+                <button class="btn btn-primary" groups="odex25_helpdesk_security.group_helpdesk_normal_user" name="%(helpdesk_ticket_action_team_user)d" type="action">Tickets</button>
             </xpath>
             <xpath expr="//kanban/templates/t/div/div[3]/div/div[2]" position="attributes">
-                <attribute name="groups">
-                    odex25_helpdesk_security.group_helpdesk_normal_user_manager,odex25_helpdesk_security.group_helpdesk_normal_manager
-                </attribute>
+                <attribute name="groups">odex25_helpdesk_security.group_helpdesk_normal_user_manager,odex25_helpdesk_security.group_helpdesk_normal_manager</attribute>
             </xpath>
             <xpath expr="//kanban/templates/t/div/div[3]/div[2]" position="attributes">
                 <attribute name="groups">odex25_helpdesk_security.group_helpdesk_normal_manager</attribute>
             </xpath>
         </field>
     </record>
- -->
-    <record id="helpdesk_ticket_view_normal_kanban" model="ir.ui.view">
+
+    <!-- <record id="helpdesk_ticket_view_normal_kanban" model="ir.ui.view">
         <field name="name">helpdesk.ticket.kanban</field>
-        <field name="model">odex25_helpdesk.ticket</field>
-        <field name="inherit_id" ref="odex25_helpdesk.odex25_helpdesk_ticket_view_kanban"/>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_kanban"/>
         <field name="arch" type="xml">
-            <xpath expr="//kanban/templates/t/div/div[1]" position="attributes">
+            <xpath expr="//kanban/templates/t/div/div[1]/ul/li[1]" position="attributes">
                 <attribute name="groups">odex25_helpdesk_security.group_helpdesk_normal_manager</attribute>
             </xpath>
-            <!--            <xpath expr="//kanban/templates/t/div/div[1]/ul/li[2]" position="attributes">-->
-            <!--                <attribute name="groups">odex25_helpdesk_security.group_helpdesk_normal_manager</attribute>-->
-            <!--            </xpath>-->
-            <!--            <xpath expr="//kanban/templates/t/div/div[1]/ul/t[1]" position="attributes">-->
-            <!--                <attribute name="groups">odex25_helpdesk_security.group_helpdesk_normal_manager</attribute>-->
-            <!--            </xpath>-->
-            <!--            <xpath expr="//kanban/templates/t/div/div[1]/ul/t[2]" position="attributes">-->
-            <!--                <attribute name="groups">odex25_helpdesk_security.group_helpdesk_normal_manager</attribute>-->
-            <!--            </xpath>-->
+            <xpath expr="//kanban/templates/t/div/div[1]/ul/li[2]" position="attributes">
+                <attribute name="groups">odex25_helpdesk_security.group_helpdesk_normal_manager</attribute>
+            </xpath>
+            <xpath expr="//kanban/templates/t/div/div[1]/ul/t[1]" position="attributes">
+                <attribute name="groups">odex25_helpdesk_security.group_helpdesk_normal_manager</attribute>
+            </xpath>
+            <xpath expr="//kanban/templates/t/div/div[1]/ul/t[2]" position="attributes">
+                <attribute name="groups">odex25_helpdesk_security.group_helpdesk_normal_manager</attribute>
+            </xpath>
         </field>
-    </record>
+    </record> -->
 
     <!-- original -->
     <record model="ir.ui.menu" id="odex25_helpdesk.menu_odex25_helpdesk_root">
@@ -315,28 +297,36 @@
         </field>
     </record>
 
-
-
+<!-- 
+    <record model="ir.ui.menu" id="helpdesk.helpdesk_ticket_menu_main">
+        <field name="groups_id" eval="[(6,0, [ref('odex25_helpdesk_security.group_helpdesk_normal_manager')])]"/>
+    </record>     -->
 
 
     <template id="mail.message_user_assigned">
-        <p>Dear<t t-esc="object.user_id.sudo().name"/>,
-        </p>
-
-        <p>You have been assigned to the
-            <t t-esc="object.env['ir.model']._get(object._name).name.lower()"/>
+        <p>Dear <t t-esc="object.user_id.sudo().name"/>,</p>
+ 
+        <p>You have been assigned to the <t t-esc="object.env['ir.model']._get(object._name).name.lower()"/>
             <t t-esc="object.name_get()[0][1]"/>
-            .
-        </p>
+        .</p>
         <p>
-            <a groups="odex25_helpdesk_security.group_helpdesk_normal_manager,odex25_helpdesk_security.group_helpdesk_normal_user"
-               t-att-href="'/mail/view?model=%s&amp;res_id=%s' % (object._name, object.id)"
-               style="background-color: #3E5D7F; margin-top: 10px; padding: 10px; text-decoration: none; color: #fff; border-radius: 5px; font-size: 16px;">
-                View
-                <t t-esc="object.env['ir.model']._get(object._name).name.lower()"/>
+            <a groups="odex25_helpdesk_security.group_helpdesk_normal_manager,odex25_helpdesk_security.group_helpdesk_normal_user" t-att-href="'/mail/view?model=%s&amp;res_id=%s' % (object._name, object.id)" style="background-color: #3E5D7F; margin-top: 10px; padding: 10px; text-decoration: none; color: #fff; border-radius: 5px; font-size: 16px;">
+                        View <t t-esc="object.env['ir.model']._get(object._name).name.lower()"/>
             </a>
         </p>
     </template>
 
-
+<!--    <record id="helpdesk_ticket_view_form_complains_managers" model="ir.ui.view">-->
+<!--        <field name="name">helpdesk.ticket.form.inherit.complain.managers</field>-->
+<!--        <field name="model">odex25_helpdesk.ticket</field>-->
+<!--        <field name="inherit_id" ref="helpdesk_complain.helpdesk_ticket_view_form_complains"/>-->
+<!--        <field name="groups_id" eval="[(4, ref('odex25_helpdesk_security.group_helpdesk_normal_user_manager')),(4, ref('odex25_helpdesk_security.group_helpdesk_normal_manager'))]"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//button[@name='open_complains']" position="replace">-->
+<!--                <button class="oe_stat_button" name="open_complains" icon="fa-ticket" type="object">-->
+<!--                    <field name="complains" string="Complains" widget="statinfo" />-->
+<!--                </button>-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
 </odoo>

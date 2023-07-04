@@ -1,6 +1,15 @@
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError, UserError
 
+
+
+
+
+class odex25_helpdeskTeam(models.Model):
+    _inherit = "odex25_helpdesk.team"
+
+    is_internal_team = fields.Boolean('Internal Team', default=False)
+
 class odex25_helpdeskSLA(models.Model):
     _inherit = "odex25_helpdesk.sla"
 
@@ -11,12 +20,35 @@ class odex25_helpdeskSLA(models.Model):
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
-    phone_ext = fields.Char(string="Extension Phone")
+    phone_ext = fields.Char(string="Ext Phone")
 
 
+
+
+#
+# class odex25_helpdeskTicket(models.Model):
+#     _inherit = 'odex25_helpdesk.ticket'
+#
+#     service_id = fields.Many2one('helpdesk.service')
+#     category_id = fields.Many2one('service.category')
+#     employee_id = fields.Many2one('hr.employee', 'Employee Id',
+#                                   default=lambda item: item.get_user_id(), index=True)
+#     work_email = fields.Char(related='employee_id.work_email')
+#     work_location = fields.Char(related='employee_id.work_location')
+#     department_id = fields.Many2one(related='employee_id.department_id')
+#     deb_name = fields.Char(related='department_id.name')
+#     division_id = fields.Many2one(related='department_id.parent_id',string="Division")
+#     project_no = fields.Char("Project Number")
+#     transform_no = fields.Char("Transform Number")
+#
+#     def get_user_id(self):
+#         employee_id = self.env['hr.employee'].search([('user_id', '=', self.env.uid)], limit=1)
+#         if employee_id:
+#             return employee_id.id
+#         else:
+#             return False
 class ServiceCategory(models.Model):
     _name = 'service.category'
-    _description = 'Service Category'
 
     name = fields.Char('Service Category', required=True)
 
@@ -30,12 +62,10 @@ class ServiceCategory(models.Model):
 
 class HelpdeskService(models.Model):
     _name = 'helpdesk.service'
-    _description = 'Helpdesk Service'
 
     name = fields.Char('Service', required=True)
     category_id = fields.Many2one('service.category')
-    priority = fields.Selection([('0', 'All'), ('1', 'Low priority'), ('2', 'High priority'), ('3', 'Urgent')],
-                                string='Priority', default='0')
+    priority = fields.Selection([('0', 'All'),('1', 'Low priority'),('2', 'High priority'),('3', 'Urgent')] ,string='Priority', default='0')
 
     @api.constrains('name')
     def unique_helpdesk_service_constrains(self):

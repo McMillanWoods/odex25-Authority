@@ -36,9 +36,9 @@
         </field>
     </record>
 
-<!--    <menuitem id="odex25_helpdesk_tag_menu" action="odex25_helpdesk_tag_action"-->
-<!--              sequence="1" parent="odex25_helpdesk.odex25_helpdesk_menu_config"-->
-<!--              groups="base.group_no_one"/>-->
+    <menuitem id="odex25_helpdesk_tag_menu" action="odex25_helpdesk_tag_action"
+              sequence="1" parent="odex25_helpdesk.odex25_helpdesk_menu_config"
+              groups="base.group_no_one"/>
 
     <!-- odex25_helpdesk.TICKET.TYPE -->
     <record id="odex25_helpdesk_ticket_type_view_tree" model="ir.ui.view">
@@ -66,8 +66,8 @@
         </field>
     </record>
 
-<!--    <menuitem id="odex25_helpdesk_ticket_type_menu" action="odex25_helpdesk_ticket_type_action"-->
-<!--              sequence="1" parent="odex25_helpdesk.odex25_helpdesk_menu_config"/>-->
+    <menuitem id="odex25_helpdesk_ticket_type_menu" action="odex25_helpdesk_ticket_type_action"
+              sequence="1" parent="odex25_helpdesk.odex25_helpdesk_menu_config"/>
 
     <!-- odex25_helpdesk.STAGE -->
     <record id="odex25_helpdesk_stage_view_tree" model="ir.ui.view">
@@ -339,7 +339,7 @@
             <search string="Tickets Search">
                 <field name="name"/>
                 <field name="id" string="Ticket ID"/>
-                <field name="tag_ids" invisible="1"/>
+                <field name="tag_ids"/>
                 <field name="team_id"/>
                 <field name="user_id"/>
                 <field name="partner_id"/>
@@ -375,7 +375,7 @@
                 <group expand="0" string="Group By">
                     <filter string="Assigned to" name="assignee" context="{'group_by':'user_id'}"/>
                     <filter string="Team" name="team" context="{'group_by':'team_id'}"/>
-                    <filter string="Ticket Type" name="ticket_type_id" context="{'group_by':'ticket_type_id'}" invisible="1"/>
+                    <filter string="Ticket Type" name="ticket_type_id" context="{'group_by':'ticket_type_id'}"/>
                     <filter string="Stage" name="stage" context="{'group_by':'stage_id'}"/>
                 </group>
             </search>
@@ -388,7 +388,7 @@
         <field name="arch" type="xml">
             <search string="Tickets Search">
                 <field name="name"/>
-                <field name="ticket_type_id" invisible="1"/>
+                <field name="ticket_type_id"/>
                 <field name="team_id"/>
                 <field name="user_id"/>
                 <filter string="My Tickets" domain="[('user_id','=',uid)]" name="my_ticket"/>
@@ -419,9 +419,9 @@
                 <field name="display_name" string="Ticket Name" readonly="1"/>
                 <field name="partner_id" optional="show"/>
                 <field name="user_id" optional="show" widget="many2one_avatar_user"/>
-                <field name="ticket_type_id" optional="hide" invisible="1"/>
+                <field name="ticket_type_id" optional="hide"/>
                 <field name="priority" optional="hide"/>
-                <field name="tag_ids" optional="hide" widget="many2many_tags" options="{'color_field': 'color'}" invisible="1"/>
+                <field name="tag_ids" optional="hide" widget="many2many_tags" options="{'color_field': 'color'}"/>
                 <field name="activity_ids" widget="list_activity" optional="show"/>
                 <field name="stage_id" optional="show" readonly="1"/>
                 <field name="company_id" groups="base.group_multi_company" optional="show" readonly="1"/>
@@ -461,7 +461,7 @@
                 <field name="color"/>
                 <field name="priority"/>
                 <field name="sla_fail"/>
-                <field name="tag_ids" invisible="1"/>
+                <field name="tag_ids"/>
                 <field name="active"/>
                 <field name="activity_ids"/>
                 <field name="activity_state"/>
@@ -503,7 +503,7 @@
                             </div>
                             <div class="oe_kanban_content">
                                 <div>
-                                    <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}" invisible="1"/>
+                                    <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
                                 </div>
                                 <div>
                                     <strong>
@@ -579,12 +579,12 @@
                     <group>
                         <group>
                             <field name="active" invisible="1"/>
-                            <field name="team_id" domain="[('is_vip_team','=',False)]" options='{"no_open": True, "no_create": True}'/>
-                            <field name="category_id" required="1" options='{"no_open": True, "no_create": True}'/>
-                            <field name="service_id" domain="[('category_id','=',category_id)]" required="1" options='{"no_open": True, "no_create": True}'/>
+                            <field name="team_id"/>
+                            <field name="category_id" required="1"/>
+                            <field name="service_id" domain="[('category_id','=',category_id)]" required="1"/>
                             <field name="user_id" class="field_user_id"
                                    domain="['&amp;', ('id', 'in', domain_user_ids), ('share', '=', False)]"
-                                   widget="many2one_avatar_user" groups="odex25_helpdesk.group_odex25_helpdesk_assignment"/>
+                                   widget="many2one_avatar_user"/>
                             <field name="domain_user_ids" invisible="1"/>
                             <field name="ticket_type_id" invisible="1"/>
                             <field name="priority" widget="priority"/>
@@ -593,7 +593,7 @@
                             <field name="company_id" groups="base.group_multi_company"/>
                             <field name="sla_deadline" attrs="{'invisible': [('sla_deadline', '=', False)]}"
                                    groups="odex25_helpdesk.group_use_sla"/>
-                            <field name="assistance_id" string="Assistance" options='{"no_open": True, "no_create": True}'/>
+                            <field name="assistance_id" string="Assistance"/>
                         </group>
                         <group>
                             <field name="partner_id" class="field_partner_id" invisible="1"
@@ -607,19 +607,20 @@
                                    options='{"no_open": True, "no_create": True}'/>
                             <field name="work_email"/>
                             <field name="work_location"/>
-                            <field name="department_id" options='{"no_open": True, "no_create": True}'/>
+                            <field name="department_id"/>
 <!--                            <field name="division_id"/>-->
                             <field name="project_no"/>
                             <field name="transform_no"/>
-                            <field name="on_behalf"  options='{"no_open": True, "no_create": True}' groups="odex25_helpdesk.group_odex25_helpdesk_on_behalf"/>
+                            <field name="on_behalf"/>
                         </group>
                     </group>
-                    <field name="emp_req" invisible="1"/>
-                    <field name="description" class="field_description" attrs="{'readonly':[('emp_req','=',True)]}" placeholder="Description of the ticket..." />
+                    <field name="description" class="field_description" placeholder="Description of the ticket..."/>
                 </sheet>
                 <div class="oe_chatter">
-                    <field name="message_follower_ids"/>
-                    <field name="activity_ids"/>
+                    <field name="message_follower_ids"
+                           groups="odex25_helpdesk_security.group_helpdesk_normal_user,odex25_helpdesk_security.group_helpdesk_normal_user_manager,odex25_helpdesk_security.group_helpdesk_normal_manager"/>
+                    <field name="activity_ids"
+                           groups="odex25_helpdesk_security.group_helpdesk_normal_user,odex25_helpdesk_security.group_helpdesk_normal_user_manager,odex25_helpdesk_security.group_helpdesk_normal_manager"/>
                     <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
                 </div>
             </form>
@@ -648,7 +649,7 @@
         <field name="res_model">odex25_helpdesk.ticket</field>
         <field name="view_mode">list,kanban,form,activity</field>
         <field name="search_view_id" ref="odex25_helpdesk_tickets_view_search"/>
-       <field name="context">{'search_default_is_open': True}</field>
+        <field name="context">{'search_default_is_open': True}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 No tickets found. Let's create one!
@@ -825,7 +826,7 @@
         <field name="arch" type="xml">
             <search string="Tickets Search">
                 <field name="name"/>
-                <field name="ticket_type_id" invisible="1"/>
+                <field name="ticket_type_id"/>
                 <field name="priority" invisible="1"/>
                 <field name="team_id"/>
                 <field name="user_id"/>
@@ -850,7 +851,7 @@
                 <group expand="0" string="Group By">
                     <filter string="Assignee" name="assignee" context="{'group_by':'user_id'}"/>
                     <filter string="Team" name="team" context="{'group_by':'team_id'}"/>
-                    <filter string="Ticket Type" name="ticket_type_id" context="{'group_by':'ticket_type_id'}" invisible="1"/>
+                    <filter string="Ticket Type" name="ticket_type_id" context="{'group_by':'ticket_type_id'}"/>
                     <filter string="Creation Date" context="{'group_by':'create_date:week'}"
                             name="group_by_create_date"/>
                     <filter string="First Assignment Date" context="{'group_by': 'assign_date:month'}"

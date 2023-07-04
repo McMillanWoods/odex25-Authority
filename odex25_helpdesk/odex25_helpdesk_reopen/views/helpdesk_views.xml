@@ -7,9 +7,8 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='fold']" position="after">
                 <field name="is_reopen"/>
-                <field name="is_done"/>
-                <field name="reopen_time" widget="float_time" attrs="{'invisible':[('is_reopen','=',False)],'required':[('is_reopen','!=',False)]}"/>
-                <field name="solve_time" widget="float_time" attrs="{'invisible':[('is_close','=',False)]}"/>
+                <field name="reopen_time" widget="float_time"
+                    attrs="{'invisible':[('is_reopen','=',False)],'required':[('is_reopen','!=',False)]}"/>
             </xpath>
         </field>
     </record>
