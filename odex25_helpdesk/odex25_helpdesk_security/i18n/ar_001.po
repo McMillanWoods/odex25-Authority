@@ -1,0 +1,202 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* odex25_helpdesk_security
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-21 11:57+0000\n"
+"PO-Revision-Date: 2022-09-21 11:57+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: odex25_helpdesk_security
+#: model:ir.actions.act_window,name:odex25_helpdesk_security.helpdesk_manager_ticket_action_main_tree
+#: model:ir.actions.act_window,name:odex25_helpdesk_security.helpdesk_ticket_normal_user_action_main_tree
+#: model:ir.ui.menu,name:odex25_helpdesk_security.helpdesk_ticket_normal_user_menu_main
+msgid "All Tickets"
+msgstr "كل التذاكر"
+
+#. module: odex25_helpdesk_security
+#. openerp-web
+#: code:addons/odex25_helpdesk_security/static/src/xml/template.xml:0
+#, python-format
+msgid "Archive Records"
+msgstr "سجلات الأرشيف"
+
+#. module: odex25_helpdesk_security
+#: code:addons/odex25_helpdesk_security/models/odex25_helpdesk_ticket.py:0
+#, python-format
+msgid ""
+"Can't create ticket in team , only team leader can create ticket in this "
+"channel"
+msgstr "لا يمكن إنشاء تذكرة في الفريق ، يمكن لقائد الفريق فقط إنشاء تذكرة في هذه القناة"
+
+#. module: odex25_helpdesk_security
+#: code:addons/odex25_helpdesk_security/models/odex25_helpdesk_ticket.py:0
+#, python-format
+msgid ""
+"Can't create ticket in team without leader and members except for helpdesk "
+"manager"
+msgstr "لا يمكن إنشاء تذكرة في الفريق بدون قائد وأعضاء باستثناء مدير مكتب المساعدة"
+
+#. module: odex25_helpdesk_security
+#: model_terms:ir.actions.act_window,help:odex25_helpdesk_security.action_upcoming_sla_fail_all_tickets_normal_user
+#: model_terms:ir.actions.act_window,help:odex25_helpdesk_security.helpdesk_ticket_action_team_user
+#: model_terms:ir.actions.act_window,help:odex25_helpdesk_security.helpdesk_ticket_action_unassigned_normal_user
+msgid "Click create a new ticket."
+msgstr "انقر فوق إنشاء تذكرة جديدة"
+
+#. module: odex25_helpdesk_security
+#: model_terms:ir.ui.view,arch_db:odex25_helpdesk_security.helpdesk_ticket_view_form_complains_managers
+msgid "Complains"
+msgstr "شكاوى"
+
+#. module: odex25_helpdesk_security
+#: model:ir.actions.act_window,name:odex25_helpdesk_security.helpdesk_team_dashboard_normal_user_action_main
+#: model:ir.ui.menu,name:odex25_helpdesk_security.helpdesk_menu_team_normal_user_dashboard
+msgid "Dashboard"
+msgstr "لوحة عرض"
+
+#. module: odex25_helpdesk_security
+#. openerp-web
+#: code:addons/odex25_helpdesk_security/static/src/xml/template.xml:0
+#, python-format
+msgid "Delete"
+msgstr "حذف"
+
+#. module: odex25_helpdesk_security
+#: model:ir.model.fields,field_description:odex25_helpdesk_security.field_odex25_helpdesk_stage__display_name
+#: model:ir.model.fields,field_description:odex25_helpdesk_security.field_odex25_helpdesk_ticket__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: odex25_helpdesk_security
+#. openerp-web
+#: code:addons/odex25_helpdesk_security/static/src/xml/template.xml:0
+#, python-format
+msgid "Edit Stage"
+msgstr "تحرير المرحلة"
+
+#. module: odex25_helpdesk_security
+#. openerp-web
+#: code:addons/odex25_helpdesk_security/static/src/xml/template.xml:0
+#, python-format
+msgid "Fold"
+msgstr "يطوى"
+
+#. module: odex25_helpdesk_security
+#: model:ir.ui.menu,name:odex25_helpdesk_security.menu_helpdesk_normal_user_root
+msgid "Helpdesk"
+msgstr "مكتب المساعدة"
+
+#. module: odex25_helpdesk_security
+#: model:res.groups,name:odex25_helpdesk_security.group_helpdesk_normal_manager
+msgid "Helpdesk Manager"
+msgstr "مدير الدعم الفني"
+
+#. module: odex25_helpdesk_security
+#: model:ir.model,name:odex25_helpdesk_security.model_odex25_helpdesk_stage
+msgid "Helpdesk Stage"
+msgstr "مرحلة مكتب المساعدة"
+
+#. module: odex25_helpdesk_security
+#: model:ir.model,name:odex25_helpdesk_security.model_odex25_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr "تذكرة مكتب المساعدة"
+
+#. module: odex25_helpdesk_security
+#: model:ir.module.category,name:odex25_helpdesk_security.category_id
+msgid "Hidden Category"
+msgstr "فئة مخفية"
+
+#. module: odex25_helpdesk_security
+#: model:ir.model.fields,field_description:odex25_helpdesk_security.field_odex25_helpdesk_stage__id
+#: model:ir.model.fields,field_description:odex25_helpdesk_security.field_odex25_helpdesk_ticket__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: odex25_helpdesk_security
+#: model:ir.model.fields,field_description:odex25_helpdesk_security.field_odex25_helpdesk_stage____last_update
+#: model:ir.model.fields,field_description:odex25_helpdesk_security.field_odex25_helpdesk_ticket____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: odex25_helpdesk_security
+#: model_terms:ir.actions.act_window,help:odex25_helpdesk_security.helpdesk_manager_ticket_action_main_tree
+#: model_terms:ir.actions.act_window,help:odex25_helpdesk_security.helpdesk_ticket_normal_user_action_main_tree
+msgid "No tickets to display."
+msgstr "لا تذاكر لعرضها."
+
+#. module: odex25_helpdesk_security
+#: model:res.groups,name:odex25_helpdesk_security.group_helpdesk_normal_user_manager
+msgid "Team Manager"
+msgstr "قائد فريق"
+
+#. module: odex25_helpdesk_security
+#: model:res.groups,name:odex25_helpdesk_security.group_helpdesk_normal_user
+msgid "Team Member"
+msgstr "عضو فريق"
+
+#. module: odex25_helpdesk_security
+#. openerp-web
+#: code:addons/odex25_helpdesk_security/static/src/xml/template.xml:0
+#, python-format
+msgid "Restore Records"
+msgstr "استعادة السجلات"
+
+#. module: odex25_helpdesk_security
+#: model:ir.actions.act_window,name:odex25_helpdesk_security.action_upcoming_sla_fail_all_tickets_normal_user
+#: model:ir.actions.act_window,name:odex25_helpdesk_security.helpdesk_ticket_action_team_user
+#: model:ir.actions.act_window,name:odex25_helpdesk_security.helpdesk_ticket_action_unassigned_normal_user
+#: model_terms:ir.ui.view,arch_db:odex25_helpdesk_security.helpdesk_team_normal_user_view_kanban
+#: model:ir.ui.menu,name:odex25_helpdesk_security.helpdesk_ticket_report_menu
+msgid "Tickets"
+msgstr "تذاكر"
+
+#. module: odex25_helpdesk_security
+#: model_terms:ir.ui.view,arch_db:odex25_helpdesk_security.helpdesk_team_normal_user_view_kanban
+msgid "Tickets to Review"
+msgstr "تذاكر للمراجعة"
+
+#. module: odex25_helpdesk_security
+#: model_terms:ir.ui.view,arch_db:odex25_helpdesk_security.helpdesk_team_normal_user_view_kanban
+msgid "Unassigned Tickets"
+msgstr "التذاكر غير المخصصة"
+
+#. module: odex25_helpdesk_security
+#: code:addons/odex25_helpdesk_security/models/odex25_helpdesk_ticket.py:0
+#: code:addons/odex25_helpdesk_security/models/odex25_helpdesk_ticket.py:0
+#, python-format
+msgid ""
+"You don't have permission to delete this record, please contact Helpdesk "
+"Manager"
+msgstr "ليس لديك إذن بحذف هذا السجل ، يرجى الاتصال بمدير مكتب المساعدة"
+
+#. module: odex25_helpdesk_security
+#: code:addons/odex25_helpdesk_security/models/odex25_helpdesk_ticket.py:0
+#, python-format
+msgid ""
+"You're not allowed to create ticket in this team, please select a team that "
+"you are a member in."
+msgstr "غير مسموح لك بإنشاء تذكرة في هذا الفريق ، يرجى تحديد الفريق الذي أنت عضو فيه."
+
+#. module: odex25_helpdesk_security
+#: model_terms:ir.actions.act_window,help:odex25_helpdesk_security.helpdesk_team_dashboard_normal_user_action_main
+msgid "Your teams will appear here."
+msgstr "ستظهر فرقك هنا."
+
+#. module: odex25_helpdesk_security
+#: model:ir.ui.menu,name:odex25_helpdesk_security.ticket_report_menu_main
+msgid "Reporting"
+msgstr "التقارير"
+
+#. module: odex25_helpdesk_security
+#: model:ir.ui.menu,name:odex25_helpdesk_security.menu_sla_analysis
+msgid "SLA Status Analysis"
+msgstr "تحليل حالة اتفاقية مستوى الخدمة"
