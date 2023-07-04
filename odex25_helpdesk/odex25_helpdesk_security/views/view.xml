@@ -15,10 +15,10 @@
             </p>
         </field>
     </record>
-    <menuitem id="odex25_helpdesk.odex25_helpdesk_ticket_action_main_my" action="helpdesk_manager_ticket_action_main_tree"
+    <menuitem id="odex25_helpdesk.odex25_helpdesk_ticket_action_main_my_tree" action="helpdesk_manager_ticket_action_main_tree"
         sequence="10" parent="odex25_helpdesk.menu_odex25_helpdesk_root"/>
     <!-- main actions -->
-    <record id="odex25_helpdesk.odex25_helpdesk_ticket_action_main_my" model="ir.actions.act_window">
+    <record id="odex25_helpdesk.helpdesk_manager_ticket_action_main_tree" model="ir.actions.act_window">
         <field name="domain">[('user_id','=',uid)]</field>
     </record>
     <record id="odex25_helpdesk.odex25_helpdesk_ticket_action_main_tree" model="ir.actions.act_window">
