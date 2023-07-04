@@ -318,8 +318,8 @@ class odex25_helpdeskTicket(models.Model):
     department_id = fields.Many2one(related='employee_id.department_id', string="Administrative Structure")
     # deb_name = fields.Char(related='department_id.name')
     # division_id = fields.Many2one(related='department_id.parent_id', string="Division")
-    project_no = fields.Char(string="Project Number", readonly=True, related='employee_id.project_code')
-    transform_no = fields.Char(related='employee_id.phone_ext', string="Extension Number")
+    # project_no = fields.Char(string="Project Number", readonly=True, related='employee_id.project_code')
+    # transform_no = fields.Char(related='employee_id.phone_ext', string="Extension Number")
     on_behalf = fields.Many2one('hr.employee', string="On behalf of")
     emp_req = fields.Boolean(default=False)
 
