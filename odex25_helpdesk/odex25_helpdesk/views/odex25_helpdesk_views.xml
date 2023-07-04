@@ -2,21 +2,13 @@
 <odoo>
 
     <menuitem id="menu_odex25_helpdesk_root" name="Helpdesk"
-        sequence="25"
-        web_icon="odex25_helpdesk,static/description/icon.png"
-        groups="odex25_helpdesk.group_odex25_helpdesk_user"/>
+              sequence="25"
+              web_icon="odex25_helpdesk,static/description/icon.png"
+              groups="odex25_helpdesk.group_odex25_helpdesk_user"/>
 
     <menuitem id="odex25_helpdesk_menu_config" name="Configuration"
-        sequence="100" parent="odex25_helpdesk.menu_odex25_helpdesk_root"
-        groups="odex25_helpdesk.group_odex25_helpdesk_manager"/>
-
-    <record id="action_helpdesk_statistics" model="ir.actions.client">
-    <field name="name">Helpdesk Statistics</field>
-    <field name="tag">helpdesk_statistics_act</field>
-    <field name="target">current</field>
-    </record>
-    <menuitem id="menu_helpdesk_statistics"  action="action_helpdesk_statistics" sequence="7"
-    name="Helpdesk Statistics" parent="odex25_helpdesk.menu_odex25_helpdesk_root"/>
+              sequence="100" parent="odex25_helpdesk.menu_odex25_helpdesk_root"
+              groups="odex25_helpdesk.group_odex25_helpdesk_manager"/>
 
     <!-- odex25_helpdesk.TAG -->
     <record id="odex25_helpdesk_tag_view_tree" model="ir.ui.view">
@@ -35,20 +27,21 @@
         <field name="res_model">odex25_helpdesk.tag</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
-          <p class="o_view_nocontent_smiling_face">
-            No tags found. Let's create one!
-          </p><p>
-            Tags are perfect to organize your tickets.
-          </p>
+            <p class="o_view_nocontent_smiling_face">
+                No tags found. Let's create one!
+            </p>
+            <p>
+                Tags are perfect to organize your tickets.
+            </p>
         </field>
     </record>
 
-    <menuitem id="odex25_helpdesk_tag_menu" action="odex25_helpdesk_tag_action"
-        sequence="1" parent="odex25_helpdesk.odex25_helpdesk_menu_config"
-        groups="base.group_no_one"/>
+<!--    <menuitem id="odex25_helpdesk_tag_menu" action="odex25_helpdesk_tag_action"-->
+<!--              sequence="1" parent="odex25_helpdesk.odex25_helpdesk_menu_config"-->
+<!--              groups="base.group_no_one"/>-->
 
     <!-- odex25_helpdesk.TICKET.TYPE -->
-     <record id="odex25_helpdesk_ticket_type_view_tree" model="ir.ui.view">
+    <record id="odex25_helpdesk_ticket_type_view_tree" model="ir.ui.view">
         <field name="name">odex25_helpdesk.ticket.type.tree</field>
         <field name="model">odex25_helpdesk.ticket.type</field>
         <field name="arch" type="xml">
@@ -64,16 +57,17 @@
         <field name="res_model">odex25_helpdesk.ticket.type</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
-          <p class="o_view_nocontent_smiling_face">
-            No types found. Let's create one!
-          </p><p>
-            Types are perfect to categorize your tickets.
-          </p>
+            <p class="o_view_nocontent_smiling_face">
+                No types found. Let's create one!
+            </p>
+            <p>
+                Types are perfect to categorize your tickets.
+            </p>
         </field>
     </record>
 
-    <menuitem id="odex25_helpdesk_ticket_type_menu" action="odex25_helpdesk_ticket_type_action"
-        sequence="1" parent="odex25_helpdesk.odex25_helpdesk_menu_config"/>
+<!--    <menuitem id="odex25_helpdesk_ticket_type_menu" action="odex25_helpdesk_ticket_type_action"-->
+<!--              sequence="1" parent="odex25_helpdesk.odex25_helpdesk_menu_config"/>-->
 
     <!-- odex25_helpdesk.STAGE -->
     <record id="odex25_helpdesk_stage_view_tree" model="ir.ui.view">
@@ -113,20 +107,21 @@
                             of the default labels.
                         </p>
                         <label for="legend_normal" string=" " class="o_status oe_project_kanban_legend"
-                            title="Task in progress. Click to block or set as done."
-                            aria-label="Task in progress. Click to block or set as done." role="img"/>
+                               title="Task in progress. Click to block or set as done."
+                               aria-label="Task in progress. Click to block or set as done." role="img"/>
                         <field name="legend_normal" nolabel="1"/>
                         <label for="legend_blocked" string=" " class="o_status o_status_red oe_project_kanban_legend"
-                            title="Task is blocked. Click to unblock or set as done."
-                            aria-label="Task is blocked. Click to unblock or set as done." role="img"/>
+                               title="Task is blocked. Click to unblock or set as done."
+                               aria-label="Task is blocked. Click to unblock or set as done." role="img"/>
                         <field name="legend_blocked" nolabel="1"/>
                         <label for="legend_done" string=" " class="o_status o_status_green oe_project_kanban_legend"
-                            title="This step is done. Click to block or set in progress."
-                            aria-label="This step is done. Click to block or set in progress." role="img"/>
+                               title="This step is done. Click to block or set in progress."
+                               aria-label="This step is done. Click to block or set in progress." role="img"/>
                         <field name="legend_done" nolabel="1"/>
 
                         <p class="text-muted" colspan="2">
-                            You can also add a description to help your coworkers understand the meaning and purpose of the stage.
+                            You can also add a description to help your coworkers understand the meaning and purpose of
+                            the stage.
                         </p>
                         <field name="description" placeholder="Add a description..." nolabel="1" colspan="2"/>
                     </group>
@@ -140,16 +135,17 @@
         <field name="res_model">odex25_helpdesk.stage</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
-          <p class="o_view_nocontent_smiling_face">
-            No stages found. Let's create one!
-          </p><p>
-            Adapt your pipeline to your workflow and easily track the progress of your tickets.
-          </p>
+            <p class="o_view_nocontent_smiling_face">
+                No stages found. Let's create one!
+            </p>
+            <p>
+                Adapt your pipeline to your workflow and easily track the progress of your tickets.
+            </p>
         </field>
     </record>
 
     <menuitem id="odex25_helpdesk_stage_menu" action="odex25_helpdesk_stage_action"
-        sequence="3" parent="odex25_helpdesk.odex25_helpdesk_menu_config"/>
+              sequence="3" parent="odex25_helpdesk.odex25_helpdesk_menu_config"/>
 
     <!-- odex25_helpdesk.SLA -->
     <record id="odex25_helpdesk_sla_view_tree" model="ir.ui.view">
@@ -183,7 +179,8 @@
         <field name="arch" type="xml">
             <form string="SLA Policy">
                 <sheet>
-                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
                     <div class="oe_title">
                         <label for="name" class="oe_edit_only"/>
                         <h1>
@@ -196,26 +193,42 @@
                             <separator colspan="2" string="Apply on"/>
                             <field name="team_id" domain="[('use_sla', '=', True)]"/>
                             <field name="priority" widget="priority"/>
-                            <field name="ticket_type_id" widget="selection"/>
-                            <field name="tag_ids" widget="many2many_tags"/>
+                            <field name="ticket_type_id" widget="selection" invisible="1"/>
+                            <field name="tag_ids" widget="many2many_tags" invisible="1"/>
+                            <field name="category_id"/>
+                            <field name="service_id" domain="[('category_id','=',category_id)]"/>
 
                             <separator colspan="2" string="Target" class="mt32"/>
                             <field name="target_type" widget="radio"/>
                             <div class="o_td_label">
-                                <label string="Reach Stage" for="stage_id" attrs="{'invisible': [('target_type', '=', 'assigning')]}"/>
-                                <label string="Applies To Stage" for="stage_id" attrs="{'invisible': [('target_type', '=', 'stage')]}"/>
+                                <label string="Reach Stage" for="stage_id"
+                                       attrs="{'invisible': [('target_type', '=', 'assigning')]}"/>
+                                <label string="Applies To Stage" for="stage_id"
+                                       attrs="{'invisible': [('target_type', '=', 'stage')]}"/>
                             </div>
-                            <field name="stage_id" nolabel="1" domain="[('team_ids', '=', team_id), ('id', 'not in', exclude_stage_ids)]" attrs="{'required': [('target_type', '=', 'stage')]}"/>
+                            <field name="stage_id" nolabel="1"
+                                   domain="[('team_ids', '=', team_id), ('id', 'not in', exclude_stage_ids)]"
+                                   attrs="{'required': [('target_type', '=', 'stage')]}"/>
                             <div class="o_td_label">
-                                <label for="time_days" string="Reach In" attrs="{'invisible': [('target_type', '=', 'assigning')]}"/>
-                                <label for="time_days" string="Within" attrs="{'invisible': [('target_type', '=', 'stage')]}"/>
+                                <label for="time_days" string="Reach In"
+                                       attrs="{'invisible': [('target_type', '=', 'assigning')]}"/>
+                                <label for="time_days" string="Within"
+                                       attrs="{'invisible': [('target_type', '=', 'stage')]}"/>
                             </div>
                             <div class="o_row">
-                                <field name="time_days"/> days<br/>
-                                <field name="time_hours"/> hours<br/>
-                                <field name="time_minutes"/> minutes<br/>
+                                <field name="time_days"/>
+                                days
+                                <br/>
+                                <field name="time_hours"/>
+                                hours
+                                <br/>
+                                <field name="time_minutes"/>
+                                minutes
+                                <br/>
                             </div>
-                            <field name="exclude_stage_ids" widget="many2many_tags" options="{'no_create': True}" domain="[('id', '!=', stage_id), ('team_ids', '=', team_id)]" attrs="{'invisible': [('target_type', '=', 'assigning')]}"/>
+                            <field name="exclude_stage_ids" widget="many2many_tags" options="{'no_create': True}"
+                                   domain="[('id', '!=', stage_id), ('team_ids', '=', team_id)]"
+                                   attrs="{'invisible': [('target_type', '=', 'assigning')]}"/>
                         </group>
                     </group>
                     <field name="description" placeholder="Description of the policy..."/>
@@ -229,17 +242,19 @@
         <field name="res_model">odex25_helpdesk.sla</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
-          <p class="o_view_nocontent_smiling_face">
-                No SLA policies found. Let's create one! 
-            </p><p> 
-                Make sure tickets are handled in a timely manner by using SLA Policies.<br/>
+            <p class="o_view_nocontent_smiling_face">
+                No SLA policies found. Let's create one!
+            </p>
+            <p>
+                Make sure tickets are handled in a timely manner by using SLA Policies.
+                <br/>
             </p>
         </field>
     </record>
 
     <menuitem id="odex25_helpdesk_sla_menu_main" action="odex25_helpdesk_sla_action_main"
-        sequence="4" parent="odex25_helpdesk.odex25_helpdesk_menu_config"
-        groups="odex25_helpdesk.group_use_sla"/>
+              sequence="4" parent="odex25_helpdesk.odex25_helpdesk_menu_config"
+              groups="odex25_helpdesk.group_use_sla"/>
 
     <!-- odex25_helpdesk.TICKET -->
     <record id="odex25_helpdesk_ticket_view_activity" model="ir.ui.view">
@@ -324,7 +339,7 @@
             <search string="Tickets Search">
                 <field name="name"/>
                 <field name="id" string="Ticket ID"/>
-                <field name="tag_ids"/>
+                <field name="tag_ids" invisible="1"/>
                 <field name="team_id"/>
                 <field name="user_id"/>
                 <field name="partner_id"/>
@@ -342,22 +357,25 @@
                 <filter string="Creation Date" date="create_date" name="creation_date"/>
                 <separator/>
                 <filter invisible="1" string="Late Activities" name="activities_overdue"
-                    domain="[('activity_ids.date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
-                    help="Show all records which has next action date is before today"/>
+                        domain="[('activity_ids.date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
+                        help="Show all records which has next action date is before today"/>
                 <filter invisible="1" string="Today Activities" name="activities_today"
-                    domain="[('activity_ids.date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                        domain="[('activity_ids.date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
                 <filter invisible="1" string="Future Activities" name="activities_upcoming_all"
                         domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))
                         ]"/>
                 <separator/>
-                <filter string="Upcoming SLA Fail" domain="[('sla_deadline','!=',False),('sla_deadline', '&lt;=', (datetime.date.today() + relativedelta(days=1)).strftime('%Y-%m-%d'))]" name="upcoming_sla_fail" groups="odex25_helpdesk.group_use_sla"/>
-                <filter string="SLA Failed" domain="[('sla_fail','=', True)]" name="sla_failed" groups="odex25_helpdesk.group_use_sla"/>
+                <filter string="Upcoming SLA Fail"
+                        domain="[('sla_deadline','!=',False),('sla_deadline', '&lt;=', (datetime.date.today() + relativedelta(days=1)).strftime('%Y-%m-%d'))]"
+                        name="upcoming_sla_fail" groups="odex25_helpdesk.group_use_sla"/>
+                <filter string="SLA Failed" domain="[('sla_fail','=', True)]" name="sla_failed"
+                        groups="odex25_helpdesk.group_use_sla"/>
                 <separator/>
                 <filter string="Archived" domain="[('active','=',False)]" name="archive"/>
                 <group expand="0" string="Group By">
                     <filter string="Assigned to" name="assignee" context="{'group_by':'user_id'}"/>
                     <filter string="Team" name="team" context="{'group_by':'team_id'}"/>
-                    <filter string="Ticket Type" name="ticket_type_id" context="{'group_by':'ticket_type_id'}"/>
+                    <filter string="Ticket Type" name="ticket_type_id" context="{'group_by':'ticket_type_id'}" invisible="1"/>
                     <filter string="Stage" name="stage" context="{'group_by':'stage_id'}"/>
                 </group>
             </search>
@@ -370,7 +388,7 @@
         <field name="arch" type="xml">
             <search string="Tickets Search">
                 <field name="name"/>
-                <field name="ticket_type_id"/>
+                <field name="ticket_type_id" invisible="1"/>
                 <field name="team_id"/>
                 <field name="user_id"/>
                 <filter string="My Tickets" domain="[('user_id','=',uid)]" name="my_ticket"/>
@@ -382,10 +400,11 @@
                 <filter name="filter_assign_date" date="assign_date"/>
                 <filter name="filter_sla_deadline" date="sla_deadline"/>
                 <separator/>
-                <filter string="SLA Failed" name="sla_failed" domain="[('sla_fail','!=',False)]" groups="odex25_helpdesk.group_use_sla"/>
+                <filter string="SLA Failed" name="sla_failed" domain="[('sla_fail','!=',False)]"
+                        groups="odex25_helpdesk.group_use_sla"/>
                 <group expand="0" string="Group By">
-                  <filter string="Assignee" name="assignee" context="{'group_by':'user_id'}"/>
-                  <filter string="Team" name="team" context="{'group_by':'team_id'}"/>
+                    <filter string="Assignee" name="assignee" context="{'group_by':'user_id'}"/>
+                    <filter string="Team" name="team" context="{'group_by':'team_id'}"/>
                 </group>
             </search>
         </field>
@@ -400,9 +419,9 @@
                 <field name="display_name" string="Ticket Name" readonly="1"/>
                 <field name="partner_id" optional="show"/>
                 <field name="user_id" optional="show" widget="many2one_avatar_user"/>
-                <field name="ticket_type_id" optional="hide"/>
+                <field name="ticket_type_id" optional="hide" invisible="1"/>
                 <field name="priority" optional="hide"/>
-                <field name="tag_ids" optional="hide" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                <field name="tag_ids" optional="hide" widget="many2many_tags" options="{'color_field': 'color'}" invisible="1"/>
                 <field name="activity_ids" widget="list_activity" optional="show"/>
                 <field name="stage_id" optional="show" readonly="1"/>
                 <field name="company_id" groups="base.group_multi_company" optional="show" readonly="1"/>
@@ -422,7 +441,9 @@
                     <field name="user_id" domain="[('id', 'in', domain_user_ids)]" options="{'no_open': True}"/>
                     <field name="partner_id" options="{'no_open': True}" widget="res_partner_many2one"/>
                     <field name="priority" nolabel="1" widget="priority"/>
-                    <div class="float-right"><field name="kanban_state" widget="state_selection"/></div>
+                    <div class="float-right">
+                        <field name="kanban_state" widget="state_selection"/>
+                    </div>
                 </group>
             </form>
         </field>
@@ -433,13 +454,14 @@
         <field name="model">odex25_helpdesk.ticket</field>
         <field name="priority">10</field>
         <field name="arch" type="xml">
-            <kanban default_group_by="stage_id" class="o_kanban_small_column o_kanban_odex25_helpdesk_ticket" quick_create_view="odex25_helpdesk.quick_create_ticket_form" sample="1">
+            <kanban default_group_by="stage_id" class="o_kanban_small_column o_kanban_odex25_helpdesk_ticket"
+                    quick_create_view="odex25_helpdesk.quick_create_ticket_form" sample="1">
                 <field name="stage_id" options='{"group_by_tooltip": {"description": "Stage Description"}}'/>
                 <field name="user_id"/>
                 <field name="color"/>
                 <field name="priority"/>
                 <field name="sla_fail"/>
-                <field name="tag_ids"/>
+                <field name="tag_ids" invisible="1"/>
                 <field name="active"/>
                 <field name="activity_ids"/>
                 <field name="activity_state"/>
@@ -447,36 +469,54 @@
                 <field name="legend_blocked"/>
                 <field name="legend_normal"/>
                 <field name="legend_done"/>
-                <progressbar field="activity_state" colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/>
+                <progressbar field="activity_state"
+                             colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/>
                 <templates>
                     <t t-name="kanban-box">
                         <div t-attf-class="#{!selection_mode ? kanban_color(record.color.raw_value) : ''} oe_kanban_global_click">
-                            <span class="oe_kanban_color_help" t-attf-title="In #{kanban_getcolorname(record.color.raw_value)}" role="img" t-attf-aria-label="In #{kanban_getcolorname(record.color.raw_value)}"/>
+                            <span class="oe_kanban_color_help"
+                                  t-attf-title="In #{kanban_getcolorname(record.color.raw_value)}" role="img"
+                                  t-attf-aria-label="In #{kanban_getcolorname(record.color.raw_value)}"/>
                             <div class="o_dropdown_kanban dropdown">
-                                <a class="dropdown-toggle o-no-caret btn" role="button" data-toggle="dropdown" href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                <a class="dropdown-toggle o-no-caret btn" role="button" data-toggle="dropdown" href="#"
+                                   aria-label="Dropdown menu" title="Dropdown menu">
                                     <span class="fa fa-ellipsis-v"/>
                                 </a>
                                 <div class="dropdown-menu" role="menu">
-                                    <a name="%(portal.portal_share_action)d" type="action" class="dropdown-item" role="menuitem">Share</a>
-                                    <t t-if="widget.editable"><a type="edit" class="dropdown-item" role="menuitem">Edit</a></t>
-                                    <t t-if="widget.deletable"><a type="delete" class="dropdown-item" role="menuitem">Delete</a></t>
-                                    <a name="toggle_active" type="object" class="dropdown-item" role="menuitem" t-if="! record.active.value">Restore</a>
-                                    <a name="toggle_active" type="object" class="dropdown-item" role="menuitem" t-if="record.active.value">Archive</a>
+                                    <a name="%(portal.portal_share_action)d" type="action" class="dropdown-item"
+                                       role="menuitem">Share
+                                    </a>
+                                    <t t-if="widget.editable">
+                                        <a type="edit" class="dropdown-item" role="menuitem">Edit</a>
+                                    </t>
+                                    <t t-if="widget.deletable">
+                                        <a type="delete" class="dropdown-item" role="menuitem">Delete</a>
+                                    </t>
+                                    <a name="toggle_active" type="object" class="dropdown-item" role="menuitem"
+                                       t-if="! record.active.value">Restore
+                                    </a>
+                                    <a name="toggle_active" type="object" class="dropdown-item" role="menuitem"
+                                       t-if="record.active.value">Archive
+                                    </a>
                                     <ul class="oe_kanban_colorpicker" data-field="color"/>
                                 </div>
                             </div>
                             <div class="oe_kanban_content">
                                 <div>
-                                    <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                                    <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}" invisible="1"/>
                                 </div>
                                 <div>
-                                    <strong><field name="name"/> (#<field name="id"/>)</strong>
+                                    <strong>
+                                        <field name="name"/>
+                                        (#<field name="id"/>)
+                                    </strong>
                                 </div>
                                 <div>
                                     <field name="partner_id"/>
                                 </div>
                                 <div t-if="record.sla_deadline.raw_value">
-                                    <t t-if="new Date(record.sla_deadline.raw_value) &lt; (new Date())" t-set="red" t-value="'oe_kanban_text_red'"/>
+                                    <t t-if="new Date(record.sla_deadline.raw_value) &lt; (new Date())" t-set="red"
+                                       t-value="'oe_kanban_text_red'"/>
                                     <span class="fa fa-clock-o" title="Deadline" role="img" aria-label="Deadline"/>
                                     <span t-attf-class="{{red}}">
                                         <field name="sla_deadline" widget="remaining_days"/>
@@ -509,9 +549,11 @@
             <form string="Helpdesk Ticket">
                 <header>
                     <field name="is_self_assigned" invisible="1"/>
-                    <button name="assign_ticket_to_self" string="Assign To Me" type="object" class="oe_highlight" groups="odex25_helpdesk.group_odex25_helpdesk_user" attrs="{'invisible': [('is_self_assigned', '=', True)]}"/>
+                    <button name="assign_ticket_to_self" string="Assign To Me" type="object" class="oe_highlight"
+                            groups="odex25_helpdesk.group_odex25_helpdesk_user"
+                            attrs="{'invisible': [('is_self_assigned', '=', True)]}"/>
                     <field name="stage_id" widget="statusbar"
-                        options="{'clickable': '1', 'fold_field': 'fold'}"/>
+                           options="{'clickable': '1', 'fold_field': 'fold'}"/>
                 </header>
                 <sheet>
                     <field name="legend_blocked" invisible="1"/>
@@ -520,36 +562,60 @@
                     <field name="partner_ticket_count" invisible="1"/>
                     <div class="oe_button_box" name="button_box">
                         <button name="action_get_attachment_tree_view" class="oe_stat_button" icon="fa-book"
-                            type="object" attrs="{'invisible':  [('attachment_number', '=', 0)]}">
+                                type="object" attrs="{'invisible':  [('attachment_number', '=', 0)]}">
                             <field name="attachment_number" widget="statinfo" string="Documents"/>
                         </button>
                     </div>
-                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
                     <field name="kanban_state" widget="state_selection"/>
                     <div class="oe_title">
-                        <h1><field name="name" class="field_name" placeholder="Subject..."/></h1>
-                        <field name="sla_status_ids" widget="many2many_tags" options="{'color_field': 'color'}" readonly="1" groups="odex25_helpdesk.group_use_sla"/>
+                        <h1>
+                            <field name="name" class="field_name" placeholder="Subject..."/>
+                        </h1>
+                        <field name="sla_status_ids" widget="many2many_tags" options="{'color_field': 'color'}"
+                               readonly="1" groups="odex25_helpdesk.group_use_sla"/>
                     </div>
                     <group>
                         <group>
                             <field name="active" invisible="1"/>
-                            <field name="team_id"/>
-                            <field name="user_id" class="field_user_id" domain="['&amp;', ('id', 'in', domain_user_ids), ('share', '=', False)]" widget="many2one_avatar_user"/>
+                            <field name="team_id" domain="[('is_vip_team','=',False)]" options='{"no_open": True, "no_create": True}'/>
+                            <field name="category_id" required="1" options='{"no_open": True, "no_create": True}'/>
+                            <field name="service_id" domain="[('category_id','=',category_id)]" required="1" options='{"no_open": True, "no_create": True}'/>
+                            <field name="user_id" class="field_user_id"
+                                   domain="['&amp;', ('id', 'in', domain_user_ids), ('share', '=', False)]"
+                                   widget="many2one_avatar_user" groups="odex25_helpdesk.group_odex25_helpdesk_assignment"/>
                             <field name="domain_user_ids" invisible="1"/>
-                            <field name="ticket_type_id"/>
+                            <field name="ticket_type_id" invisible="1"/>
                             <field name="priority" widget="priority"/>
-                            <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                            <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"
+                                   invisible="1"/>
                             <field name="company_id" groups="base.group_multi_company"/>
-                            <field name="sla_deadline" attrs="{'invisible': [('sla_deadline', '=', False)]}" groups="odex25_helpdesk.group_use_sla"/>
+                            <field name="sla_deadline" attrs="{'invisible': [('sla_deadline', '=', False)]}"
+                                   groups="odex25_helpdesk.group_use_sla"/>
+                            <field name="assistance_id" string="Assistance" options='{"no_open": True, "no_create": True}'/>
                         </group>
                         <group>
-                            <field name="partner_id" class="field_partner_id" domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]" widget="res_partner_many2one"/>
-                            <field name="partner_name" attrs="{'invisible': [('partner_id', '!=', False)]}"/>
-                            <field name="partner_email"/>
-                            <field name="email_cc" groups="base.group_no_one"/>
+                            <field name="partner_id" class="field_partner_id" invisible="1"
+                                   domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]"
+                                   widget="res_partner_many2one"/>
+                            <field name="partner_name" invisible="1"
+                                   attrs="{'invisible': [('partner_id', '!=', False)]}"/>
+                            <field name="partner_email" invisible="1"/>
+                            <field name="email_cc" invisible="1" groups="base.group_no_one"/>
+                            <field name="employee_id" readonly="1" string="Employee"
+                                   options='{"no_open": True, "no_create": True}'/>
+                            <field name="work_email"/>
+                            <field name="work_location"/>
+                            <field name="department_id" options='{"no_open": True, "no_create": True}'/>
+<!--                            <field name="division_id"/>-->
+                            <field name="project_no"/>
+                            <field name="transform_no"/>
+                            <field name="on_behalf"  options='{"no_open": True, "no_create": True}' groups="odex25_helpdesk.group_odex25_helpdesk_on_behalf"/>
                         </group>
                     </group>
-                    <field name="description" class="field_description" placeholder="Description of the ticket..."/>
+                    <field name="emp_req" invisible="1"/>
+                    <field name="description" class="field_description" attrs="{'readonly':[('emp_req','=',True)]}" placeholder="Description of the ticket..." />
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids"/>
@@ -569,7 +635,9 @@
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 No tickets found. Let's create one!
-                </p><p>To get things done, use activities and status on tickets. <br/>
+            </p>
+            <p>To get things done, use activities and status on tickets.
+                <br/>
                 Chat in real time or by email to collaborate efficiently.
             </p>
         </field>
@@ -580,11 +648,13 @@
         <field name="res_model">odex25_helpdesk.ticket</field>
         <field name="view_mode">list,kanban,form,activity</field>
         <field name="search_view_id" ref="odex25_helpdesk_tickets_view_search"/>
-        <field name="context">{'search_default_is_open': True}</field>
+       <field name="context">{'search_default_is_open': True}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 No tickets found. Let's create one!
-                </p><p>To get things done, use activities and status on tickets. <br/>
+            </p>
+            <p>To get things done, use activities and status on tickets.
+                <br/>
                 Chat in real time or by email to collaborate efficiently.
             </p>
         </field>
@@ -598,8 +668,9 @@
         <field name="context">{'search_default_upcoming_sla_fail': True}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                Congratulations! 
-                </p><p>You completed all your tickets on time.
+                Congratulations!
+            </p>
+            <p>You completed all your tickets on time.
             </p>
         </field>
     </record>
@@ -610,11 +681,14 @@
         <field name="res_model">odex25_helpdesk.ticket</field>
         <field name="view_mode">list,kanban,form,activity</field>
         <field name="search_view_id" ref="odex25_helpdesk_tickets_view_search"/>
-        <field name="context">{'create': False, 'search_default_is_open': True, 'search_default_my_ticket': True}</field>
+        <field name="context">{'create': False, 'search_default_is_open': True, 'search_default_my_ticket': True}
+        </field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 No tickets found
-                </p><p>To get things done, use activities and status on tickets.<br/>
+            </p>
+            <p>To get things done, use activities and status on tickets.
+                <br/>
                 Chat in real time or by email to collaborate efficiently.
             </p>
         </field>
@@ -625,12 +699,15 @@
         <field name="res_model">odex25_helpdesk.ticket</field>
         <field name="view_mode">list,kanban,form,activity</field>
         <field name="domain">[]</field>
-        <field name="context">{'create': False, 'search_default_is_open': True, 'search_default_my_ticket': True, 'search_default_sla_failed': True}</field>
+        <field name="context">{'create': False, 'search_default_is_open': True, 'search_default_my_ticket': True,
+            'search_default_sla_failed': True}
+        </field>
         <field name="search_view_id" ref="odex25_helpdesk_tickets_view_search"/>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                Congratulations! 
-                </p><p>You completed all your tickets on time.
+                Congratulations!
+            </p>
+            <p>You completed all your tickets on time.
             </p>
         </field>
     </record>
@@ -641,16 +718,18 @@
         <field name="res_model">odex25_helpdesk.ticket</field>
         <field name="view_mode">pivot,graph</field>
         <field name="search_view_id" ref="odex25_helpdesk_ticket_view_search_analysis_closed"/>
-        <field name="domain" eval="[('close_date', '>=', (DateTime.today() - relativedelta(hours=12)).strftime('%Y-%m-%d %H:%M:%S'))]"/>
+        <field name="domain"
+               eval="[('close_date', '>=', (DateTime.today() - relativedelta(hours=12)).strftime('%Y-%m-%d %H:%M:%S'))]"/>
         <field name="context">{'search_default_my_ticket': True}</field>
         <field name="view_ids"
-                   eval="[(5, 0, 0),
+               eval="[(5, 0, 0),
                           (0, 0, {'view_mode': 'graph', 'view_id': ref('odex25_helpdesk_ticket_view_graph_analysis')}),
                           (0, 0, {'view_mode': 'pivot', 'view_id': ref('odex25_helpdesk_ticket_view_pivot_analysis')})]"/>
         <field name="help" type="html">
             <p class="o_view_nocontent_empty_folder">
-                No data yet ! 
-            </p><p>
+                No data yet !
+            </p>
+            <p>
                 Create tickets to get statistics.
             </p>
         </field>
@@ -661,16 +740,18 @@
         <field name="res_model">odex25_helpdesk.ticket</field>
         <field name="view_mode">pivot,graph</field>
         <field name="search_view_id" ref="odex25_helpdesk_ticket_view_search_analysis_closed"/>
-        <field name="domain" eval="[('close_date', '>=', (DateTime.today() - relativedelta(days=7)).strftime('%Y-%m-%d %H:%M:%S'))]"/>
+        <field name="domain"
+               eval="[('close_date', '>=', (DateTime.today() - relativedelta(days=7)).strftime('%Y-%m-%d %H:%M:%S'))]"/>
         <field name="view_ids"
-                   eval="[(5, 0, 0),
+               eval="[(5, 0, 0),
                           (0, 0, {'view_mode': 'graph', 'view_id': ref('odex25_helpdesk_ticket_view_graph_analysis')}),
                           (0, 0, {'view_mode': 'pivot', 'view_id': ref('odex25_helpdesk_ticket_view_pivot_analysis')})]"/>
         <field name="context">{'search_default_my_ticket': True, 'search_default_close': True}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_empty_folder">
-                No data yet ! 
-            </p><p>
+                No data yet !
+            </p>
+            <p>
                 Create tickets to get statistics.
             </p>
         </field>
@@ -687,8 +768,36 @@
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 No tickets found. Let's create one!
-                </p><p>To get things done, use activities and status on tickets. <br/>
+            </p>
+            <p>To get things done, use activities and status on tickets.
+                <br/>
                 Chat in real time or by email to collaborate efficiently.
+            </p>
+        </field>
+    </record>
+
+    <record id="helpdesk_ticket_action_Archived" model="ir.actions.act_window">
+        <field name="name">Tickets</field>
+        <field name="res_model">odex25_helpdesk.ticket</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="context">{'search_default_team_id': active_ids, 'search_default_archive': True}</field>
+        <field name="search_view_id" ref="odex25_helpdesk_tickets_view_search"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click create a new ticket.
+            </p>
+        </field>
+    </record>
+
+    <record id="helpdesk_ticket_action_slafailed" model="ir.actions.act_window">
+        <field name="name">Tickets</field>
+        <field name="res_model">odex25_helpdesk.ticket</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="context">{'search_default_team_id': active_id, 'search_default_sla_failed': True}</field>
+        <field name="search_view_id" ref="odex25_helpdesk_tickets_view_search"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click create a new ticket.
             </p>
         </field>
     </record>
@@ -702,7 +811,9 @@
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 No tickets found. Let's create one!
-                </p><p>To get things done, use activities and status on tickets. <br/>
+            </p>
+            <p>To get things done, use activities and status on tickets.
+                <br/>
                 Chat in real time or by email to collaborate efficiently.
             </p>
         </field>
@@ -714,11 +825,11 @@
         <field name="arch" type="xml">
             <search string="Tickets Search">
                 <field name="name"/>
-                <field name="ticket_type_id"/>
+                <field name="ticket_type_id" invisible="1"/>
                 <field name="priority" invisible="1"/>
                 <field name="team_id"/>
                 <field name="user_id"/>
-                
+
                 <filter string="My Tickets" domain="[('user_id','=',uid)]" name="my_ticket"/>
                 <filter string="Unassigned Tickets" domain="[('user_id','=',False)]" name="unassigned"/>
                 <separator/>
@@ -728,30 +839,35 @@
                 <filter name="filter_create_date" date="create_date"/>
                 <filter name="filter_sla_deadline" date="sla_deadline"/>
                 <separator/>
-                <filter string="SLA Failed" domain="[('sla_fail','!=',False)]" name="sla_failed" groups="odex25_helpdesk.group_use_sla"/>
-                <filter string="SLA in Progress" domain="[('sla_fail','=',False)]" name="not_sla_failed" groups="odex25_helpdesk.group_use_sla"/>
-                <filter string="SLA Success" name="sla_successed" domain="[('sla_success', '=', True)]" groups="odex25_helpdesk.group_use_sla"/>
+                <filter string="SLA Failed" domain="[('sla_fail','!=',False)]" name="sla_failed"
+                        groups="odex25_helpdesk.group_use_sla"/>
+                <filter string="SLA in Progress" domain="[('sla_fail','=',False)]" name="not_sla_failed"
+                        groups="odex25_helpdesk.group_use_sla"/>
+                <filter string="SLA Success" name="sla_successed" domain="[('sla_success', '=', True)]"
+                        groups="odex25_helpdesk.group_use_sla"/>
                 <separator/>
                 <filter string="Archived" domain="[('active','=',False)]" name="archive"/>
                 <group expand="0" string="Group By">
-                  <filter string="Assignee" name="assignee" context="{'group_by':'user_id'}"/>
-                  <filter string="Team" name="team" context="{'group_by':'team_id'}"/>
-                  <filter string="Ticket Type" name="ticket_type_id" context="{'group_by':'ticket_type_id'}"/>
-                  <filter string="Creation Date" context="{'group_by':'create_date:week'}" name="group_by_create_date"/>
-                  <filter string="First Assignment Date" context="{'group_by': 'assign_date:month'}" name="group_by_assign_date"/>
+                    <filter string="Assignee" name="assignee" context="{'group_by':'user_id'}"/>
+                    <filter string="Team" name="team" context="{'group_by':'team_id'}"/>
+                    <filter string="Ticket Type" name="ticket_type_id" context="{'group_by':'ticket_type_id'}" invisible="1"/>
+                    <filter string="Creation Date" context="{'group_by':'create_date:week'}"
+                            name="group_by_create_date"/>
+                    <filter string="First Assignment Date" context="{'group_by': 'assign_date:month'}"
+                            name="group_by_assign_date"/>
                 </group>
             </search>
         </field>
     </record>
 
     <menuitem id="odex25_helpdesk_ticket_report_menu_main" name="Reporting"
-        sequence="20" parent="odex25_helpdesk.menu_odex25_helpdesk_root"
-        groups="odex25_helpdesk.group_odex25_helpdesk_manager"/>
+              sequence="20" parent="odex25_helpdesk.menu_odex25_helpdesk_root"
+              groups="odex25_helpdesk.group_odex25_helpdesk_manager"/>
 
     <record id="odex25_helpdesk_ticket_analysis_action" model="ir.actions.act_window">
-       <field name="name">Helpdesk Ticket Analysis</field>
-       <field name="res_model">odex25_helpdesk.ticket</field>
-       <field name="view_mode">pivot,graph</field>
+        <field name="name">Helpdesk Ticket Analysis</field>
+        <field name="res_model">odex25_helpdesk.ticket</field>
+        <field name="view_mode">pivot,graph</field>
         <field name="view_ids"
                eval="[(5, 0, 0),
                       (0, 0, {'view_mode': 'graph', 'view_id': ref('odex25_helpdesk_ticket_view_graph_analysis')}),
@@ -761,16 +877,17 @@
         <field name="context">{'search_default_group_by_create_date': 1}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_empty_folder">
-                No data yet ! 
-            </p><p>
+                No data yet !
+            </p>
+            <p>
                 Create tickets to get statistics.
             </p>
         </field>
     </record>
 
     <menuitem id="odex25_helpdesk_ticket_report_menu" name="Tickets" action="odex25_helpdesk_ticket_analysis_action"
-        sequence="10" parent="odex25_helpdesk_ticket_report_menu_main"
-        groups="odex25_helpdesk.group_odex25_helpdesk_manager"/>
+              sequence="10" parent="odex25_helpdesk_ticket_report_menu_main"
+              groups="odex25_helpdesk.group_odex25_helpdesk_manager"/>
 
     <record id="odex25_helpdesk_ticket_team_analysis_action" model="ir.actions.act_window">
         <field name="name">Ticket Analysis</field>
@@ -784,8 +901,9 @@
         <field name="context">{'search_default_team_id': active_ids, 'search_default_is_open': True}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_empty_folder">
-                No data yet ! 
-            </p><p>
+                No data yet !
+            </p>
+            <p>
                 Create tickets to get statistics.
             </p>
         </field>
@@ -827,11 +945,13 @@
                       (0, 0, {'view_mode': 'graph', 'view_id': ref('odex25_helpdesk_team_view_graph_analysis')}),
                       (0, 0, {'view_mode': 'pivot', 'view_id': ref('odex25_helpdesk_team_view_pivot_analysis')})]"/>
         <field name="search_view_id" ref="odex25_helpdesk_ticket_view_search_analysis"/>
-        <field name="context">{'search_default_team_id': active_ids, 'pivot_measures': ['close_hours', '__count__']}</field>
+        <field name="context">{'search_default_team_id': active_ids, 'pivot_measures': ['close_hours', '__count__']}
+        </field>
         <field name="help" type="html">
             <p class="o_view_nocontent_empty_folder">
-                No data yet ! 
-            </p><p>
+                No data yet !
+            </p>
+            <p>
                 Create tickets to get statistics.
             </p>
         </field>
@@ -845,13 +965,17 @@
                eval="[(5, 0, 0),
                       (0, 0, {'view_mode': 'graph', 'view_id': ref('odex25_helpdesk_ticket_view_graph_analysis')}),
                       (0, 0, {'view_mode': 'pivot', 'view_id': ref('odex25_helpdesk_ticket_view_pivot_analysis')})]"/>
-        <field name="domain" eval="[('close_date', '>=', (DateTime.today() - relativedelta(hours=12)).strftime('%Y-%m-%d %H:%M:%S'))]"/>
+        <field name="domain"
+               eval="[('close_date', '>=', (DateTime.today() - relativedelta(hours=12)).strftime('%Y-%m-%d %H:%M:%S'))]"/>
         <field name="search_view_id" ref="odex25_helpdesk_ticket_view_search_analysis"/>
-        <field name="context">{'search_default_is_close': True, 'search_default_my_ticket': True, 'search_default_not_sla_failed': True,}</field>
+        <field name="context">{'search_default_is_close': True, 'search_default_my_ticket': True,
+            'search_default_not_sla_failed': True,}
+        </field>
         <field name="help" type="html">
             <p class="o_view_nocontent_empty_folder">
-                No data yet ! 
-            </p><p>
+                No data yet !
+            </p>
+            <p>
                 Create tickets to get statistics.
             </p>
         </field>
@@ -865,13 +989,17 @@
                eval="[(5, 0, 0),
                       (0, 0, {'view_mode': 'graph', 'view_id': ref('odex25_helpdesk_ticket_view_graph_analysis')}),
                       (0, 0, {'view_mode': 'pivot', 'view_id': ref('odex25_helpdesk_ticket_view_pivot_analysis')})]"/>
-        <field name="domain" eval="[('close_date', '>=', (DateTime.today() - relativedelta(days=7)).strftime('%Y-%m-%d %H:%M:%S'))]"/>
+        <field name="domain"
+               eval="[('close_date', '>=', (DateTime.today() - relativedelta(days=7)).strftime('%Y-%m-%d %H:%M:%S'))]"/>
         <field name="search_view_id" ref="odex25_helpdesk_ticket_view_search_analysis"/>
-        <field name="context">{'search_default_is_close': True, 'search_default_my_ticket': True, 'search_default_not_sla_failed': True,}</field>
+        <field name="context">{'search_default_is_close': True, 'search_default_my_ticket': True,
+            'search_default_not_sla_failed': True,}
+        </field>
         <field name="help" type="html">
             <p class="o_view_nocontent_empty_folder">
-                No data yet! 
-            </p><p>
+                No data yet!
+            </p>
+            <p>
                 Create tickets to get statistics.
             </p>
         </field>
@@ -890,19 +1018,20 @@
                       (0, 0, {'view_mode': 'pivot', 'view_id': ref('odex25_helpdesk_team_view_pivot_analysis')})]"/>
         <field name="help" type="html">
             <p class="o_view_nocontent_empty_folder">
-                No data yet! 
-            </p><p>
+                No data yet!
+            </p>
+            <p>
                 Create tickets to get statistics.
             </p>
         </field>
     </record>
 
     <menuitem id="odex25_helpdesk_ticket_menu_main" name="Tickets"
-        sequence="10" parent="odex25_helpdesk.menu_odex25_helpdesk_root"/>
+              sequence="10" parent="odex25_helpdesk.menu_odex25_helpdesk_root"/>
 
     <menuitem id="odex25_helpdesk_ticket_menu_my" name="My Tickets" action="odex25_helpdesk_ticket_action_main_my"
-        sequence="10" parent="odex25_helpdesk.odex25_helpdesk_ticket_menu_main"/>
+              sequence="10" parent="odex25_helpdesk.odex25_helpdesk_ticket_menu_main"/>
 
     <menuitem id="odex25_helpdesk_ticket_menu_all" name="All Tickets" action="odex25_helpdesk_ticket_action_main_tree"
-        sequence="20" parent="odex25_helpdesk.odex25_helpdesk_ticket_menu_main"/>
+              sequence="20" parent="odex25_helpdesk.odex25_helpdesk_ticket_menu_main"/>
 </odoo>

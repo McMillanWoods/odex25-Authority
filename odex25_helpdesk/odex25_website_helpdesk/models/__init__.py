@@ -1,4 +1,4 @@
 # -*- coding: utf-8 -*-
-from . import res_users
+
 from . import helpdesk
 from . import website

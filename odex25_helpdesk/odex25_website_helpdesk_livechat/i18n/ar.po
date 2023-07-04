@@ -55,7 +55,7 @@ msgstr "إعداد الردود الجاهزة"
 #: code:addons/odex25_website_helpdesk_livechat/models/helpdesk.py:0
 #, python-format
 msgid "Create a new helpdesk ticket"
-msgstr "إنشاء تذكرة جديدة من الدعم الفني"
+msgstr "إنشاء تذكرة جديدة من مكتب المساعدة"
 
 #. module: odex25_website_helpdesk_livechat
 #: code:addons/odex25_website_helpdesk_livechat/models/helpdesk.py:0
@@ -77,7 +77,7 @@ msgstr "الاسم المعروض"
 #. module: odex25_website_helpdesk_livechat
 #: model:ir.model,name:odex25_website_helpdesk_livechat.model_odex25_helpdesk_team
 msgid "Helpdesk Team"
-msgstr "فريق الدعم الفني"
+msgstr "فريق مكتب المساعدة"
 
 #. module: odex25_website_helpdesk_livechat
 #: model:ir.model.fields,field_description:odex25_website_helpdesk_livechat.field_helpdesk_team__id
@@ -120,7 +120,7 @@ msgstr ""
 #: code:addons/odex25_website_helpdesk_livechat/models/helpdesk.py:0
 #, python-format
 msgid "Search for a helpdesk ticket"
-msgstr "البحث عن تذكرة الدعم الفني"
+msgstr "البحث عن تذكرة مكتب المساعدة"
 
 #. module: odex25_website_helpdesk_livechat
 #: model_terms:ir.ui.view,arch_db:odex25_website_helpdesk_livechat.helpdesk_team_view_form_inherit_odex25_website_helpdesk_livechat

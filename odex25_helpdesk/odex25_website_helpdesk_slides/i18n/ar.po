@@ -34,7 +34,7 @@ msgstr "الاسم المعروض"
 #. module: odex25_website_helpdesk_slides
 #: model:ir.model,name:odex25_website_helpdesk_slides.model_odex25_helpdesk_team
 msgid "Helpdesk Team"
-msgstr "فريق الدعم الفني"
+msgstr "فريق مكتب المساعدة"
 
 #. module: odex25_website_helpdesk_slides
 #: model:ir.model.fields,field_description:odex25_website_helpdesk_slides.field_helpdesk_team__id

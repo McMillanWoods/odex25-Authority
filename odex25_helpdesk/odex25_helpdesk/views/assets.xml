@@ -1,33 +1,11 @@
 <?xml version="1.0"?>
 <odoo>
-
-    <template id="assets_frontend" inherit_id="website.assets_frontend" name="resources">
-        <xpath expr="." position="inside">
-           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-           <script type="text/javascript" src="/odex25_helpdesk/static/src/js/odex25_helpdesk_app.js"></script>
-
-        </xpath>
-    </template>
-
     <template id="assets_backend" name="Helpdesk assets" inherit_id="web.assets_backend">
         <xpath expr="." position="inside">
             <link rel="stylesheet" type="text/scss" href="/odex25_helpdesk/static/src/scss/odex25_helpdesk.scss"/>
             <link rel="stylesheet" href="/odex25_helpdesk/static/src/css/portal_odex25_helpdesk.css"/>
             <script type="text/javascript" src="/odex25_helpdesk/static/src/js/odex25_helpdesk_dashboard.js"></script>
             <script type="text/javascript" src="/odex25_helpdesk/static/src/js/tours/odex25_helpdesk.js"></script>
-
-            <!--Montserrat-->
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" />
-                <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
-            <!--CSS-->
-                <link rel="stylesheet" href="/odex25_helpdesk/static/src/css/dashboard.css"/>
-                <link rel="stylesheet" href="/odex25_helpdesk/static/src/css/fix_dashboard.css"/>
-            <!--GSAP-->
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
-            <!--JS-->
-                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                
         </xpath>
     </template>
 

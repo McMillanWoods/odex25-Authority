@@ -75,7 +75,8 @@
             <xpath expr="//field[@name='description']" position="replace">
                 <notebook>
                     <page string="Description" name="description">
-                        <field name="description" placeholder="Description of the ticket..."/>
+                        <field name="emp_req" invisible="1"/>
+                        <field name="description" placeholder="Description of the ticket..." attrs="{'readonly':[('emp_req','=',True)]}"/>
                     </page>
                     <page string="Timesheets" name="timesheets"
                         attrs="{'invisible': ['|', ('project_id', '=', False), ('use_odex25_helpdesk_timesheet', '=', False)]}"
