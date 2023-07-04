@@ -15,6 +15,5 @@ jobs:
       - name: Pull new updates and restart odoo service
         continue-on-error: false
         run: |
-            #if [[ ${GITHUB_REF##*\/} == master ]] ; then  ${{ secrets.GIT_PULL_MASTER }} &&  ${{ secrets.RESTART_MASTER_SERVICE }} && echo "master service has been restarted"; fi
             if [[ ${GITHUB_REF##*\/} == preprod ]] ; then  ${{ secrets.GIT_PULL_PREPROD }} && ${{ secrets.RESTART_PREPROD_SERVICE }} && echo "preprod service has been restarted"; fi
             if [[ ${GITHUB_REF##*\/} == test ]] ; then   ${{ secrets.GIT_PULL_DEV }} &&  ${{ secrets.RESTART_DEV_SERVICE }} && echo "dev service has been restarted " ; fi
