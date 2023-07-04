@@ -1,0 +1,17 @@
+name: Stage1 CD
+on:
+  push:
+    branches:
+      - '*'
+  workflow_dispatch: 
+jobs:
+  pull_new_push_and_restart_server:
+    runs-on: self-hosted
+    steps:
+      - name: get working branch
+        run: echo running on branch ${GITHUB_REF##*\/} and repo name is ${GITHUB_REPOSITORY##*\/}
+      - name: Pull new updates and restart odoo service
+        continue-on-error: true
+        run: |
+            if [[ ${GITHUB_REF##*\/} == test_13_oct_22 ]] ; then  ${{ secrets.GIT_PULL }} && ${{ secrets.RESTART_DEV_SERVICE }} && echo "dev service has been restarted " ; fi
+            if [[ ${GITHUB_REF##*\/} == preprod* ]] ; then  ${{ secrets.GIT_PULL_PREPROD }} && ${{ secrets.RESTART_PREPROD_SERVICE }} && echo "preprod service has been restarted"; fi
