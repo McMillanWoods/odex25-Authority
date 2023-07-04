@@ -202,12 +202,12 @@ class odex25_helpdeskTicket(models.Model):
                 timesheet.write(timesheet_vals)  # sudo since Helpdesk user can change task
         return result
 
-    @api.model
-    def _fields_view_get(self, view_id=None, view_type='form', toolbar=False, submenu=False):
-        """ Set the correct label for `unit_amount`, depending on company UoM """
-        result = super(odex25_helpdeskTicket, self)._fields_view_get(view_id=view_id, view_type=view_type, toolbar=toolbar, submenu=submenu)
-        result['arch'] = self.env['account.analytic.line']._apply_timesheet_label(result['arch'])
-        return result
+#     @api.model
+#     def _fields_view_get(self, view_id=None, view_type='form', toolbar=False, submenu=False):
+#         """ Set the correct label for `unit_amount`, depending on company UoM """
+#         result = super(odex25_helpdeskTicket, self)._fields_view_get(view_id=view_id, view_type=view_type, toolbar=toolbar, submenu=submenu)
+#         result['arch'] = self.env['account.analytic.line']._apply_timesheet_label(result['arch'])
+#         return result
 
     def action_view_ticket_task(self):
         # TODO: [XBO] remove me in master (task_id field will be removed in master)

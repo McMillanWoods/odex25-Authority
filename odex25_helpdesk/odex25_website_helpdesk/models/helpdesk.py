@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, models
+from odoo import api, models,fields
 from odoo.addons.http_routing.models.ir_http import slug
 
 
 class HelpdeskTeam(models.Model):
     _name = "odex25_helpdesk.team"
     _inherit = ['odex25_helpdesk.team', 'website.published.mixin']
+
+
+
 
     def _compute_website_url(self):
         super(HelpdeskTeam, self)._compute_website_url()

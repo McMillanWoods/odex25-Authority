@@ -11,11 +11,9 @@
     'depends': [
         'odex25_helpdesk',
         'website',
-        'odex_subscription_service',
     ],
     'data': [
         'views/assets.xml',
-        'views/portal_user_views.xml',
         'views/helpdesk_views.xml',
         'views/helpdesk_templates.xml',
     ],

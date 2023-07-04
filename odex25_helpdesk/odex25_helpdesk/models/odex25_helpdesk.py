@@ -1,18 +1,13 @@
 # -*- coding: utf-8 -*-
 
 import ast
-import re
 import datetime
-from datetime import timedelta
-import basehash
 
-import pytz
-
-from dateutil import relativedelta, parser
+from dateutil import relativedelta
 from odoo import api, fields, models, _
 from odoo.addons.odex25_helpdesk.models.odex25_helpdesk_ticket import TICKET_PRIORITY
 from odoo.addons.http_routing.models.ir_http import slug
-from odoo.exceptions import UserError, ValidationError,Warning
+from odoo.exceptions import UserError, ValidationError
 from odoo.osv import expression
 
 
@@ -37,259 +32,6 @@ class odex25_helpdeskTeam(models.Model):
         return [('groups_id', 'in', self.env.ref('odex25_helpdesk.group_odex25_helpdesk_user').id)]
 
     name = fields.Char('Helpdesk Team', required=True, translate=True)
-    portal_user_id = fields.Many2one('res.users', string='Portal User')
-    partner_id = fields.Many2one('res.partner', string='Customer')
-    
-    is_trial = fields.Boolean('Offer Trial?')
-    trial_date_start = fields.Date(string='Trial Start')
-    trial_date_end = fields.Date(string='Trial End')
-    trial_period = fields.Integer(string="Days of Trial")
-
-    subscription_id = fields.Many2one('subscription.service', string='Subscription')
-    invoice_count = fields.Integer(related='subscription_id.invoice_count', store=True)
-    fully_paid = fields.Boolean(related='subscription_id.fully_paid', store=True)
-    date_start = fields.Date(related='subscription_id.date_start', string='Start Date')
-    date_end = fields.Date(related='subscription_id.date_end', string="End Date")
-    sub_status = fields.Selection(related='subscription_id.state', string="Subscription Status")
-    tickets_no = fields.Integer(string='Allowed Tickets Number')
-
-    request_count = fields.Integer(string='Request Count')
-    request_remine = fields.Integer(string='Request Remine')
-    request_date = fields.Datetime(string='Request Date')
-    submit_request = fields.Boolean('Submit request?', default=True)
-
-    request_count = fields.Integer(string='Request Count')
-    request_remine = fields.Integer(string='Request Remine')
-    request_date = fields.Datetime(string='Request Date')
-    submit_request = fields.Boolean('Submit request?')
-
-    request_tickets_no = fields.Integer()
-    remine_tickets_no = fields.Integer()
-
-    @api.model
-    def check_tickets_requests(self):
-        # Check if allowed to submit a ticket
-        if self.tickets_no >0:
-            request_count_limit = int(self.tickets_no)
-        else:
-            request_count_limit = int(self.env['ir.config_parameter'].sudo().get_param('odex25_helpdesk.tickets_no', default=5))
-
-        if self.request_date:
-            request_date_timte = self.request_date
-            current_date_timte = fields.Datetime.now()
-            limit_date_timte = request_date_timte + timedelta(hours=24)
-
-            counter = int(self.request_count)
-            if current_date_timte > limit_date_timte:
-                # Reset Counter
-                self.request_count = 0
-                self.request_tickets_no = request_count_limit
-                self.request_remine = request_count_limit
-                self.remine_tickets_no = request_count_limit
-                counter = 0
-
-            if current_date_timte < limit_date_timte and counter >= request_count_limit:
-                tz = pytz.timezone('Asia/Riyadh')
-                remines = limit_date_timte.replace(tzinfo=tz).strftime("%I:%M")
-                self.submit_request = False
-                return _('Tickets Qouta is exceeded, submit tomorrow after clock') + ' {}.'.format(remines)
-            else:
-                self.submit_request = True
-                return True
-        else:
-            self.submit_request = True
-            return True
-
-    # Added 
-    def cron_check_qouta_ticket_limit(self):
-        records = self.env["odex25_helpdesk.team"].search([])
-        for record in records:
-            record.check_tickets_requests()
-
-    @api.model
-    def update_tickets_requests_data(self):
-        request_count_limit = int(self.env['ir.config_parameter'].sudo().get_param('odex25_helpdesk.tickets_no', default=5))
-        if self.tickets_no >0:
-            request_count_limit = int(self.tickets_no)
-
-        self.request_count = self.request_count + 1
-        self.request_remine = request_count_limit - self.request_count
-        self.request_tickets_no = request_count_limit
-        self.remine_tickets_no = request_count_limit - self.request_count
-        if int(self.request_count) == 1:
-            self.request_date = fields.Datetime.now()
-
-        if self.request_count >= request_count_limit:
-            self.submit_request = False
-        else:
-            self.submit_request = True
-
-    def cron_trial_period_checking(self):
-        date_now = datetime.datetime.now().date()
-        records = self.env["odex25_helpdesk.team"].search([])
-        for record in records:
-            # Check Submit
-            # record.check_tickets_requests()
-            if record.is_trial and record.trial_date_end:
-                
-                trial_date_end = fields.Date.from_string(record.trial_date_end)
-                if date_now == trial_date_end:
-                    # Send Notifications
-                    subject = _('Trial Period Expiration') + '- {} / {}'.format(record.name, record.trial_date_end)
-                    message = _('Hello, This is  a notice about the end date of support trial period.') + '\n' + _('Project Name: ') + '{}'.format(record.name) + '\n' + _('Expiration Date: ') + '{}'.format(record.trial_date_end) + '\n' + _('Partner Name: ') + '{}'.format(record.partner_id.name)
-                    group = 'odex25_helpdesk.group_odex25_helpdesk_manager'
-                    author_id = None
-                    record.partner_id.send_notification_message(subject=subject, body=message, author_id=author_id, group=group)
-                    record.is_trial = False
-                    record.trial_date_start = None
-                    record.trial_date_end = None
-                    # Send Email
-                    main_content = {
-                        'subject': subject,
-                        'author_id': False,
-                        'body_html': '<p style="margin: 0px; padding: 0px; font-size: 13px;"><pre>{}</pre></p>'.format(message),
-                        'email_to': record.partner_id.email,
-                        'email_cc': record.env.user.company_id.email,
-                    }
-                    record.env['mail.mail'].create(main_content).send()
-                    
-
-            if record.subscription_id and record.subscription_id.state not in ['open']:
-                date_end = fields.Date.from_string(record.trial_date_end)
-                if date_now == date_end:
-                    record.use_website_helpdesk_form = False
-                    subject = _('Support Stop') + ' - {} / {}'.format(record.name, record.date_end)
-                    message = _('Hello, This is  a notice about stoping of support for the project') + ' {}.'.format(record.name)
-                    group = 'odex25_helpdesk.group_odex25_helpdesk_manager'
-                    author_id = None
-                    record.partner_id.send_notification_message(subject=subject, body=message, author_id=author_id, group=group)
-                    # Send Email
-                    main_content = {
-                        'subject': subject,
-                        'author_id': False,
-                        'body_html': '<p style="margin: 0px; padding: 0px; font-size: 13px;"><pre>{}</pre></p>'.format(message),
-                        'email_to': record.partner_id.email,
-                        'email_cc': record.env.user.company_id.email,
-                    }
-                    record.env['mail.mail'].create(main_content).send()
-
-                days_before_finish = int(self.env['ir.config_parameter'].sudo().get_param('odex25_helpdesk.days_before_finish', default=30))
-                notify_date = fields.Date.from_string(record.date_end) - relativedelta.relativedelta(days=days_before_finish)
-                if date_now == notify_date:
-                    subject = _('Finishing Support Soon') + ' - {} / {}'.format(record.name, record.date_end)
-                    message = _('Hello, This is  a notice about to finish support for the project') + ' {} '.format(record.name) +  _('on date') + ' {}.'.format(record.date_end)
-                    group = 'odex25_helpdesk.group_odex25_helpdesk_manager'
-                    author_id = None
-                    record.partner_id.send_notification_message(subject=subject, body=message, author_id=author_id, group=group)
-                    # Send Email
-                    main_content = {
-                        'subject': subject,
-                        'author_id': False,
-                        'body_html': '<p style="margin: 0px; padding: 0px; font-size: 13px;"><pre>{}</pre></p>'.format(message),
-                        'email_to': record.partner_id.email,
-                        'email_cc': record.env.user.company_id.email,
-                    }
-                    record.env['mail.mail'].create(main_content).send()
-
-            elif record.subscription_id and record.subscription_id.fully_paid and record.subscription_id.state  == 'open':
-                record.use_website_helpdesk_form = True
-
-            elif record.is_trial:
-                record.use_website_helpdesk_form = True
-
-    def action_view_subscription_invoices(self):
-        # print("if_fully_paid: 1", self.subscription_id.fully_paid)
-        # print("if_fully_paid: 2", self.subscription_id.sudo().if_fully_paid())
-        if self.invoice_count > 0:
-            return self.subscription_id.action_view_invoice()
-        else:
-            return False
-        
-    @api.model
-    def to_check_trial_period(self):
-        if self.is_trial:
-            if self.trial_date_start and self.trial_date_end:
-                trial_date_start = fields.Date.from_string(self.trial_date_start)
-                trial_date_end = fields.Date.from_string(self.trial_date_end)
-                if trial_date_end <= trial_date_start:
-                    self.trial_date_end = None
-                    raise ValidationError(_("Trial end date should be greater than start date"))
-
-                self.trial_period = int(abs((trial_date_end - trial_date_start).days))
-            else:
-                self.trial_period = 0
-        else:
-            self.trial_period = 0
-            self.trial_date_end = None
-            self.trial_date_start = None
-
-    @api.constrains('trial_date_start', 'trial_date_end')
-    def _check_trial_period(self):
-        if self.trial_date_start and self.trial_date_end:
-            self.to_check_trial_period()
-
-    @api.onchange('is_trial','trial_date_start', 'trial_date_end')
-    def _compute_trial_period(self):
-        self.to_check_trial_period()
-
-    # Send mail
-    def send_account_info_email(self):
-        self.ensure_one()
-        if not self.partner_id.email:
-            raise ValidationError(
-                    _('No Customer Email!'))
-        
-        hash_fn = basehash.base36()
-        hash_value = hash_fn.hash(int(self.id))
-        invite_url = "%s%s" %( self.env['ir.config_parameter'].sudo().get_param('web.base.url'), '/support_account/{}'.format(hash_value))
-       
-        email = self.partner_id.email
-        email_from = self.env.user.email
-        company_name = self.env.user.company_id.name
-
-        partner_name = _('Customer') + ': {}'.format(self.partner_id.name)
-        subject = _("Support Account") + ' - {}'.format(self.name)
-        body = _('To create support account, please use this URL') +':\n{}'.format(invite_url)
-
-        ir_model_data = self.env['ir.model.data']
-        try:
-            template_id = ir_model_data.get_object_reference('odex25_helpdesk', 'support_account_email_template')[1]
-        except ValueError:
-            template_id = False
-        
-        try:
-            compose_form_id = ir_model_data.get_object_reference('mail', 'email_composemessage_wizard_form')[1]
-        except ValueError:
-            compose_form_id = False
-        
-        ctx = {
-            'default_model': 'odex25_helpdesk.team',
-            'default_res_id': self.ids[0],
-            'default_use_template': bool(template_id),
-            'default_template_id': template_id,
-            'default_composition_mode': 'comment',
-            'mark_so_as_sent': True,
-            'force_email': True,
-            # added ctx
-            'email_from': email_from,
-            'email_to': email,
-            'partner_name': partner_name,
-            'body': body,
-            'title': subject,
-            'company_name': company_name
-        }
-        return {
-            'name': _('Send Support Account'),
-            'type': 'ir.actions.act_window',
-            'View_type': 'form',
-            'view_mode': 'form',
-            'res_model': 'mail.compose.message',
-            'views': [(compose_form_id, 'form')],
-            'view_id': compose_form_id,
-            'target': 'new',
-            'context': ctx,
-        }
-
     description = fields.Text('About Team', translate=True)
     active = fields.Boolean(default=True)
     company_id = fields.Many2one('res.company', string='Company', required=True, default=lambda self: self.env.company)
@@ -330,6 +72,7 @@ class odex25_helpdeskTeam(models.Model):
     use_product_returns = fields.Boolean('Returns')
     use_product_repairs = fields.Boolean('Repairs')
     use_twitter = fields.Boolean('Twitter')
+    use_api = fields.Boolean('API')
     use_rating = fields.Boolean('Ratings on tickets')
     portal_show_rating = fields.Boolean(
         'Display Rating on Customer Portal', compute='_compute_portal_show_rating', store=True,
@@ -340,6 +83,9 @@ class odex25_helpdeskTeam(models.Model):
     unassigned_tickets = fields.Integer(string='Unassigned Tickets', compute='_compute_unassigned_tickets')
     resource_calendar_id = fields.Many2one('resource.calendar', 'Working Hours',
         default=lambda self: self.env.company.resource_calendar_id, domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
+
+    is_internal_team = fields.Boolean('Internal Team', default=False)
+    is_vip_team = fields.Boolean('VIP Team', default=False)
 
     @api.depends('name', 'portal_show_rating')
     def _compute_portal_rating_url(self):
@@ -606,12 +352,6 @@ class odex25_helpdeskTeam(models.Model):
 
     def action_view_ticket(self):
         action = self.env["ir.actions.actions"]._for_xml_id("odex25_helpdesk.odex25_helpdesk_ticket_action_team")
-        
-        context = dict(self.env.context or {})
-        context['default_team_id'] = self.id
-        context['default_partner_id'] = self.partner_id.id or self.portal_user_id.partner_id.id or False
-  
-        action['context'] = context
         action['display_name'] = self.name
         return action
 
@@ -772,6 +512,8 @@ class odex25_helpdeskSLA(models.Model):
     time_minutes = fields.Integer(
         'Minutes', default=0, inverse='_inverse_time_minutes', required=True,
         help="Minutes to reach given stage based on ticket creation date")
+    category_id = fields.Many2one('service.category')
+    service_id = fields.Many2one('helpdesk.service')
 
     @api.depends('target_type')
     def _compute_exclude_stage_ids(self):

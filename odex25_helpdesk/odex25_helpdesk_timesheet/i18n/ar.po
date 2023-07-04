@@ -173,13 +173,13 @@ msgstr ""
 #: model:ir.model,name:odex25_helpdesk_timesheet.model_odex25_helpdesk_team
 #: model:ir.model.fields,field_description:odex25_helpdesk_timesheet.field_project_project__odex25_helpdesk_team
 msgid "Helpdesk Team"
-msgstr "فريق الدعم الفني"
+msgstr "فريق مكتب المساعدة"
 
 #. module: odex25_helpdesk_timesheet
 #: model:ir.model,name:odex25_helpdesk_timesheet.model_odex25_helpdesk_ticket
 #: model:ir.model.fields,field_description:odex25_helpdesk_timesheet.field_account_analytic_line__odex25_helpdesk_ticket_id
 msgid "Helpdesk Ticket"
-msgstr "تذكرة الدعم الفني"
+msgstr "تذكرة مكتب المساعدة"
 
 #. module: odex25_helpdesk_timesheet
 #: model:ir.model.fields,field_description:odex25_helpdesk_timesheet.field_account_analytic_line__id

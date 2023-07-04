@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-  <g id="Group_3302" data-name="Group 3302" transform="translate(-112 -112)">
-    <circle id="Ellipse_95" data-name="Ellipse 95" cx="12" cy="12" r="12" transform="translate(112 112)" fill="rgba(220,0,0,0.4)"/>
-    <path id="Combined-Shape" d="M13.1,10.433V6.814a.529.529,0,0,0-.539-.529H10.972a.537.537,0,0,0-.539.529v3.619H6.814a.529.529,0,0,0-.529.539v1.586a.537.537,0,0,0,.529.539h3.619v3.619a.529.529,0,0,0,.539.529h1.586a.537.537,0,0,0,.539-.529V13.1h3.619a.529.529,0,0,0,.529-.539V10.972a.537.537,0,0,0-.529-.539Z" transform="translate(107.361 124) rotate(-45)" fill="#fff"/>
-  </g>
-</svg>

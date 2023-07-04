@@ -7,7 +7,7 @@ from odoo.addons.website_form.controllers.main import WebsiteForm
 
 class WebsiteForm(WebsiteForm):
 
-    def _handle_website_form(self, model_name, **kwargs):  
+    def _handle_website_form(self, model_name, **kwargs):
         email = request.params.get('partner_email')
         if email:
             partner = request.env['res.partner'].sudo().search([('email', '=', email)], limit=1)

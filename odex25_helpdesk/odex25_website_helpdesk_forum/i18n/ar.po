@@ -74,12 +74,12 @@ msgstr ""
 #. module: odex25_website_helpdesk_forum
 #: model:ir.model,name:odex25_website_helpdesk_forum.model_odex25_helpdesk_team
 msgid "Helpdesk Team"
-msgstr "فريق الدعم الفني"
+msgstr "فريق مكتب المساعدة"
 
 #. module: odex25_website_helpdesk_forum
 #: model:ir.model,name:odex25_website_helpdesk_forum.model_odex25_helpdesk_ticket
 msgid "Helpdesk Ticket"
-msgstr "تذكرة الدعم الفني"
+msgstr "تذكرة مكتب المساعدة"
 
 #. module: odex25_website_helpdesk_forum
 #: model:ir.model.fields,field_description:odex25_website_helpdesk_forum.field_helpdesk_team__id

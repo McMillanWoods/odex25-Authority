@@ -181,43 +181,4 @@
         <field name="auto_delete" eval="True"/>
     </record>
 </data>
-
-<data noupdate="0">
-
-    <record id="support_account_email_template" model="mail.template">
-        <field name="name">Create Customer Support Account</field>
-        <field name="model_id" ref="odex25_helpdesk.model_odex25_helpdesk_team"/>
-        <field name="subject">${ctx.get('company_name') | safe} - ${ctx.get('title') | safe}</field>
-        <field name="email_from">${ctx.get('email_from') or '' | safe}</field>
-        <field name="email_to">${ctx.get('email_to') | safe}</field>
-        <field name="partner_to" eval="False"/>
-        <field name="body_html" type="xml">
-        <div style="margin: 0px; padding: 0px;">
-            <p>
-                Dear ${ctx.get('partner_name')},
-            </p>
-
-            <br></br>
-            
-            <p style="margin: 0px; padding: 0px; font-size: 13px;"> 
-              <pre>${ctx.get('body')}</pre>
-            </p>
-
-            <br></br>
-            <p>
-                Thank you,
-            </p>
-
-            <br></br>
-            <p>
-                From ${ctx.get('company_name')}.
-            </p>
-        </div>
-        </field>
-        <field name="lang">${object.partner_id.lang}</field>
-        <field name="auto_delete" eval="True"/>
-    </record>
-
-</data>
-
 </odoo>

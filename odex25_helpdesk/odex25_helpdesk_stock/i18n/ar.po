@@ -47,7 +47,7 @@ msgstr "تأكد من إمكانية تتبع المنتج القابل للتخ
 #. module: odex25_helpdesk_stock
 #: model:ir.model,name:odex25_helpdesk_stock.model_odex25_helpdesk_ticket
 msgid "HelpdeskTicket"
-msgstr "تذكرة الدعم الفني"
+msgstr "تذكرة مكتب المساعدة"
 
 #. module: odex25_helpdesk_stock
 #: model:ir.model.fields,field_description:odex25_helpdesk_stock.field_odex25_helpdesk_ticket__id

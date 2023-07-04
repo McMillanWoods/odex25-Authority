@@ -1,108 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 <data noupdate="0">
-    <template id="not_subscribed_teams" name="Helpdesk Team">
-        <div t-if="teams_not_subscribed">
-            <div class="oe_structure"/>
-            <div class="card bg-secondary mt-2">
-            <h6 class="card-header"><b>Your projects that need a subcription</b></h6>
-            <div class="card-body">
-                
-                <table class="table borderless" style="width:100%;">
-                    <tr style="font-weight:bold;">
-                        <td>
-                           Project
-                        </td>
-                        <td>
-                           Notes
-                        </td>
-                    </tr>
-                    <t t-foreach="teams_not_subscribed" t-as="team">
-                   <tr style="font-weight:bold;">
-                        <td>
-                           <h5 t-field="team.name"/>
-                        </td>
-                        <td>
-                           <a t-attf-class="btn btn-primary" t-attf-href="/support_subscription/#{team.id}">
-                             Support Subscription
-                           </a>
-                        </td>
-                    </tr>
-                    </t>
-                </table>
-                
-            </div>
-
-            </div>
-          <div class="oe_structure"/>
-        </div>
-    </template>
-
-    <template id="teams_sub_appended" name="Helpdesk Team">
-        <div t-if="teams_appended">
-            <div class="oe_structure"/>
-            <div class="card bg-secondary mt-2">
-            <h6 class="card-header"><b>Your projects subcriptions</b></h6>
-            <div class="card-body">
-                
-                <table class="table borderless" style="width:100%;">
-                    <tr style="font-weight:bold;">
-                        <td>
-                           Project
-                        </td>
-                        
-                        <td>
-                           Subscription Status
-                        </td>
-                        <td>
-                           Notes
-                        </td>
-
-                        <td>
-                           View Subscription
-                        </td>
-                    </tr>
-                    <t t-foreach="teams_appended" t-as="team">
-                   <tr style="font-weight:bold;">
-                        <td>
-                           <h5 t-field="team.name"/>
-                        </td>
-                        
-                        <td>
-                           <h5 t-field="team.sub_status"/>
-                        </td>
-
-                        <td>
-                           <t t-if="team.sub_status == 'open'">
-                               <h5>
-                                You need to pay your invoices for this subscription.
-                                </h5>
-                           </t>
-
-                           <t t-if="team.sub_status != 'open'">
-                               <h5 t-if="team.fully_paid == False">
-                                You need to renew your subscription and pay your invoices.
-                               </h5>
-                           </t>
-                        </td>
-
-                        <td>
-                         <a t-attf-class="btn btn-primary" t-attf-href="/my/subscriptions/#{team.subscription_id.id}">
-                             <h5 t-field="team.subscription_id.code"/>
-                           </a>
-                       </td>
-
-                    </tr>
-                    </t>
-                </table>
-                
-            </div>
-
-            </div>
-          <div class="oe_structure"/>
-        </div>
-    </template>
-
     <template id="not_published_any_team" name="Helpdesk Team">
         <t t-call="website.layout">
             <div class="oe_structure" id="oe_structure_odex25_website_helpdesk_not_published_any_team_1"/>
@@ -112,29 +10,8 @@
                         <div class="navbar-brand">Helpdesk</div>
                     </div>
                 </div>
-                <div t-if="not (teams_not_subscribed or teams_appended)">
-                <p class="pl-4">There is no Helpdesk Subscription to show.</p>
+                <p class="pl-4">There is no public Helpdesk team to show.</p>
                 <div class="oe_structure"/>
-                </div>
-
-                <div t-if="teams_not_subscribed">
-                    <t t-call="odex25_website_helpdesk.not_subscribed_teams"/>
-                    <br></br>
-                    <br></br>
-                    <div class="oe_structure"/>
-                    <br></br>
-                    <br></br>
-                </div>
-
-                <div t-if="teams_appended">
-                    <t t-call="odex25_website_helpdesk.teams_sub_appended"/>
-                    <br></br>
-                    <br></br>
-                    <div class="oe_structure"/>
-                    <br></br>
-                    <br></br>
-                </div>
-
             </div>
             <div class="oe_structure" id="oe_structure_odex25_website_helpdesk_not_published_any_team_2"/>
         </t>
@@ -175,49 +52,11 @@
                     </div>
                     <div class="col-md-9 pl-4">
                         <!-- placeholder -->
-                        <div class="card-body">
-                            <h1><span t-field="team.name"/></h1>
-                        </div>
                         <div id="odex25_website_helpdesk_form"/>
-
-                        <br></br>
-                        <div t-if="not team.submit_request and team.sudo().request_tickets_no == team.sudo().request_count" class="alert alert-danger">
-                            <p>Your qouta for tickets submission is exceeded for this day.</p>
-                        </div>
-                        <div class="alert alert-info">
-                            <table class="table borderless" style="width:100%;">
-                                <tr style="font-weight:bold;">
-                                    <td>
-                                       Tickets Qouta
-                                    </td>
-                                    
-                                    <td>
-                                       Submited Tickets
-                                    </td>
-                                    <td>
-                                       Remined Tickets
-                                    </td>
-                                </tr>
-
-                                <tr style="font-weight:bold;">
-                                    <td>
-                                       <h5 t-field="team.sudo().request_tickets_no"/>
-                                    </td>
-                                    
-                                    <td>
-                                       <h5 t-field="team.sudo().request_count"/>
-                                    </td>
-                                    <td>
-                                       <h5 t-field="team.sudo().remine_tickets_no"/>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        
                     </div>
                     <div class="col-md-3" id="right-column">
                         <div class="oe_structure" id="oe_structure_odex25_website_helpdesk_team_2"/>
-                        <div class="row justify-content-end mb-5" id="website_published_button" groups="odex25_helpdesk.group_helpdesk_manager">
+                        <div class="row justify-content-end mb-5" id="website_published_button" groups="odex25_helpdesk.group_odex25_helpdesk_manager">
                             <t t-call="website.publish_management">
                                 <t t-set="object" t-value="team"/>
                                 <t t-set="publish_edit" t-value="True"/>
@@ -237,21 +76,14 @@
                             </t>
                         </div>
 
-                        <t t-if="team.name">
+                        <t t-if="team.description">
                             <div class="card bg-secondary mt-2" id="about_team">
-                                <h6 class="card-header"><b>Current Support</b></h6>
+                                <h6 class="card-header"><b>About our team</b></h6>
                             <div class="card-body">
-                                <span t-field="team.name"/>
-                                <br></br>
                                 <span t-field="team.description"/>
                             </div>
                             </div>
                         </t>
-
-                        <div t-if="teams_not_subscribed">
-                            <t t-call="odex25_website_helpdesk.not_subscribed_teams"/>
-                        </div>
-
                         <div class="oe_structure" id="oe_structure_odex25_website_helpdesk_team_3"/>
                     </div>
                 </div>
