@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="action_report_grn" model="ir.actions.report">
+        <field name="name">Goods Received Note</field>
+        <field name="model">purchase.request</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">purchase_custom_vro.report_deliveryslip</field>
+        <field name="report_file">purchase_custom_vro.goods_received_note_report</field>
+        <field name="print_report_name">'Goods Received Note - %s - %s' % (object.partner_id.name or '',
+            object.name)
+        </field>
+    </record>
+
+    <record id="action_report_grn_picking" model="ir.actions.report">
+        <field name="name">Goods Received Note</field>
+        <field name="model">stock.picking</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">purchase_custom_vro.report_grn_picking</field>
+        <field name="report_file">purchase_custom_vro.goods_received_note_report</field>
+        <field name="print_report_name">'Goods Received Note - %s - %s' % (object.partner_id.name or '',
+            object.name)
+        </field>
+    </record>
+
+    <record id="custom_purchase_order_report" model="ir.actions.report">
+        <field name="name">VRO Purchase Order</field>
+        <field name="model">purchase.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">purchase_custom_vro.custom_po_report</field>
+        <field name="report_file">purchase_custom_vro.custom_po_report</field>
+        <field name="print_report_name">'VRO PO - %s - %s' % (object.partner_id.name or '', object.name)</field>
+    </record>
+
+    <template id="report_delivery_document">
+        <t t-call="web.external_layout">
+            <div class="page" style="font-family:Amiri;">
+                <t t-set="l" t-value="request.env['purchase.order'].search([('quote_number','=',o.origin)])"/>
+                <h2 class="text-center">نموذج الاستلام للمواد/ خدمة</h2>
+                <br/>
+
+                <div class="row">
+
+                    <t t-set="values" t-value="dict([ ('material','مواد'),('service','خدمة') ])"/>
+                    <table class="table table-bordered table-hover" style="width:100%" dir="rtl">
+                        <tr>
+                            <th colspan="4" style="background-color:lightseagreen;text-align:center;">بيانات الإستلام
+                            </th>
+                        </tr>
+                        <tr>
+                            <th style="text-align:center;">التاريخ</th>
+                            <td style="text-align:center;">
+                                <span t-field="o.scheduled_date" t-field-options='{"format": "dd/MM/yyyy"}'/>
+                            </td>
+                            <th style="text-align:center;">رقم أمر الشراء/الفاتورة</th>
+                            <td style="text-align:center;">
+                                <span t-esc="l.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="text-align:center;">إسم المورد / مقدم الخدمة</th>
+                            <td colspan="3" style="text-align:center;">
+                                <span t-esc="o.partner_id.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="text-align:center;">نوع الإستلام</th>
+
+                            <td colspan="3" style="text-align:center;">
+                                <span t-esc="values[o.product_type]"/>
+                            </td>
+
+                        </tr>
+                    </table>
+
+                </div>
+
+
+                <div class="row">
+
+
+                    <table class="table table-bordered table-hover" style="width:100%" dir="rtl">
+                        <tr>
+                            <th colspan="3" style="background-color:lightseagreen;text-align:center;">بيانات الطلب</th>
+                        </tr>
+                        <tr>
+                            <th style="text-align:center;">بيان الخدمة/المواد</th>
+                            <th style="text-align:center;">الكميات المستلمة</th>
+                            <th style="text-align:center;">ملاحظات</th>
+                        </tr>
+
+                        <tr t-foreach="o.move_lines" t-as="line">
+
+                            <td style="text-align:center;">
+                                <t t-esc="line.purchase_line_id.product_id.name"/>
+                            </td>
+                            <td style="text-align:center;">
+                                <t t-esc="line.quantity_done"/>
+                                <!--<t t-if="line.purchase_line_id.product_qty != 0" t-esc="(line.purchase_line_id.price_total/line.purchase_line_id.product_qty)*line.quantity_done"/>
+                                <t t-if="line.purchase_line_id.product_qty == 0" t-esc="(0)"/>-->
+                            </td>
+                            <td style="text-align:center;">
+                                <t t-esc="line.note"/>
+                            </td>
+
+
+                        </tr>
+
+                    </table>
+
+                </div>
+
+                <table class="table table-bordered table-hover" style="width:100%" dir="rtl">
+                    <tr>
+                        <td style="width:10%;background-color:lightseagreen;text-align:center;">تم الاستلام بواسطة</td>
+
+                        <td colspan="2" style="width:40%;text-align:center;">
+                            <!--<t t-if="l.request_id">
+                            <t t-esc="l.sudo().request_id.employee_id.name"/>
+                            </t>
+                            <t t-else="l.requisition_id">
+                            <t t-esc="l.sudo().requisition_id.employee_id.name"/>
+                            </t>-->
+
+                        </td>
+                        <td style="width:10%;background-color:lightseagreen;text-align:center;">التوقيع</td>
+                        <td colspan="2" style="width:40%;text-align:center;"></td>
+                    </tr>
+                </table>
+
+
+                <table class="table table-bordered table-hover" style="width:100%" dir="rtl">
+                    <tr>
+                        <th colspan="3" style="background-color:lightseagreen;text-align:center;">تقييم الموردين</th>
+                    </tr>
+                    <tr>
+                        <th style="text-align:center;">الوصف</th>
+                        <th colspan="2" style="text-align:center;">التقييم</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            سرعة تنفيذ الطلب
+                        </td>
+                        <td style="text-align:center;">
+                            <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </input>
+
+                            <label class="container">راضي
+                            </label>
+                        </td>
+                        <td style="text-align:center;">
+                            <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </input>
+
+                            <label class="container">غير راضي
+                            </label>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            جودة الطلب
+                        </td>
+                        <td style="text-align:center;">
+                            <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </input>
+
+                            <label class="container">راضي
+                            </label>
+                        </td>
+                        <td style="text-align:center;">
+                            <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </input>
+
+                            <label class="container">غير راضي
+                            </label>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            نوصي بالتعامل مع المورد مرة اخري
+                        </td>
+                        <td style="text-align:center;">
+                            <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </input>
+
+                            <label class="container">لا
+                            </label>
+                        </td>
+                        <td style="text-align:center;">
+                            <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </input>
+
+                            <label class="container">نعم
+                            </label>
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+
+        </t>
+    </template>
+
+    <template id="report_deliveryslip">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-foreach="doc.picking_ids" t-as="o">
+                    <t t-call="purchase_custom_vro.report_delivery_document" t-lang="o.partner_id.lang"/>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_grn_picking">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="purchase_custom_vro.report_delivery_document" t-lang="o.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+
+    <record id="purchase.action_report_purchase_order" model="ir.actions.report">
+        <field name="binding_model_id"></field>
+    </record>
+
+    <record id="purchase.report_purchase_quotation" model="ir.actions.report">
+        <field name="binding_model_id"></field>
+    </record>
+
+</odoo>

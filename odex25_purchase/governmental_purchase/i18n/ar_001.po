@@ -1,0 +1,488 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* governmental_purchase
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-30 09:26+0000\n"
+"PO-Revision-Date: 2023-04-30 09:26+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: governmental_purchase
+#: code:addons/governmental_purchase/models/purchase_request.py:0
+#, python-format
+msgid " No budget for this service "
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_purchase_request__type_id
+msgid "Agreement Type"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:res.groups,name:governmental_purchase.approval_of_employee_purchase_requests_by_department_administration
+msgid "Approval of Employee Purchase Requests By Department Administration 11"
+msgstr ""
+
+#. module: governmental_purchase
+#: model_terms:ir.ui.view,arch_db:governmental_purchase.purchase_request_form
+msgid "Approve"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_budget_confirmation__available
+#: model:ir.model.fields,field_description:governmental_purchase.field_purchase_request__available
+msgid "Available"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields.selection,name:governmental_purchase.selection__purchase_request__state__budget_approve
+msgid "Budget Approved"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model,name:governmental_purchase.model_budget_confirmation
+#: model_terms:ir.ui.view,arch_db:governmental_purchase.purchase_request_form
+msgid "Budget Confirmation"
+msgstr "تصديق الموازنة"
+
+#. module: governmental_purchase
+#: model:ir.model,name:governmental_purchase.model_crossovered_budget_lines
+msgid "Budget Line"
+msgstr "خط الموازنة"
+
+#. module: governmental_purchase
+#: code:addons/governmental_purchase/models/purchase_request.py:0
+#, python-format
+msgid "Can't Confirm Request With No Item!"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields.selection,name:governmental_purchase.selection__purchase_request__state__cancel
+#: model_terms:ir.ui.view,arch_db:governmental_purchase.purchase_request_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: governmental_purchase
+#: code:addons/governmental_purchase/models/purchase_request.py:0
+#: code:addons/governmental_purchase/models/purchase_request.py:0
+#, python-format
+msgid "Choose A Department For this Employee!"
+msgstr "اختر قسم لهذا الموظف!"
+
+#. module: governmental_purchase
+#: model:ir.model.fields.selection,name:governmental_purchase.selection__purchase_request__state__cs_approve
+msgid "Common Services Approval"
+msgstr "الخدمات المشتركة"
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_crossovered_budget_lines__confirm
+msgid "Confirm Amount"
+msgstr "المبلغ المصدق"
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_purchase_request__confirmation_ids
+msgid "Confirmation"
+msgstr ""
+
+#. module: governmental_purchase
+#: code:addons/governmental_purchase/models/purchase_request.py:0
+#: code:addons/governmental_purchase/models/purchase_request.py:0
+#, python-format
+msgid "Create Date: "
+msgstr ""
+
+#. module: governmental_purchase
+#: model_terms:ir.ui.view,arch_db:governmental_purchase.purchase_request_form
+msgid "Create Purchase Order"
+msgstr ""
+
+#. module: governmental_purchase
+#: model_terms:ir.ui.view,arch_db:governmental_purchase.purchase_request_form
+msgid "Create Requisition"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields.selection,name:governmental_purchase.selection__purchase_request__state__direct_manager
+msgid "Direct Manager"
+msgstr ""
+
+#. module: governmental_purchase
+#: model_terms:ir.ui.view,arch_db:governmental_purchase.purchase_request_form
+msgid "Direct Manager Approve"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_budget_confirmation__display_name
+#: model:ir.model.fields,field_description:governmental_purchase.field_crossovered_budget_lines__display_name
+#: model:ir.model.fields,field_description:governmental_purchase.field_purchase_request__display_name
+#: model:ir.model.fields,field_description:governmental_purchase.field_purchase_request_line__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: governmental_purchase
+#: model:ir.model.fields.selection,name:governmental_purchase.selection__purchase_request__state__done
+#: model_terms:ir.ui.view,arch_db:governmental_purchase.purchase_request_form
+msgid "Done"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:res.groups,name:governmental_purchase.group_no_create_order
+msgid "Dont Create PO"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields.selection,name:governmental_purchase.selection__purchase_request__state__draft
+msgid "Draft"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_budget_confirmation__emergency
+#: model:ir.model.fields,field_description:governmental_purchase.field_purchase_request__emergency
+#: model:ir.model.fields.selection,name:governmental_purchase.selection__purchase_request__requesting_administration__emergency
+msgid "Emergency"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:res.groups,name:governmental_purchase.group_direct_manager_purchase_request
+msgid "Employees Direct Manager Purchase Request"
+msgstr ""
+
+#. module: governmental_purchase
+#: model_terms:ir.ui.view,arch_db:governmental_purchase.purchase_request_form
+msgid "First Budget Check"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:res.groups,name:governmental_purchase.group_For_technical_management_use
+#: model_terms:ir.ui.view,arch_db:governmental_purchase.purchase_request_form
+msgid "For technical management use"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields.selection,name:governmental_purchase.selection__purchase_request__state__general_supervisor
+msgid "General Supervisor Approval"
+msgstr "المشرف العام"
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_budget_confirmation__id
+#: model:ir.model.fields,field_description:governmental_purchase.field_crossovered_budget_lines__id
+#: model:ir.model.fields,field_description:governmental_purchase.field_purchase_request__id
+#: model:ir.model.fields,field_description:governmental_purchase.field_purchase_request_line__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: governmental_purchase
+#: model:ir.model.fields.selection,name:governmental_purchase.selection__purchase_request__state__waiting
+msgid "In Purchase"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_crossovered_budget_lines__initial_reserve
+msgid "Initial Reserve Amount"
+msgstr ""
+
+#. module: governmental_purchase
+#: code:addons/governmental_purchase/models/purchase_request.py:0
+#, python-format
+msgid "Item Quantity MUST be at Least ONE!"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_budget_confirmation____last_update
+#: model:ir.model.fields,field_description:governmental_purchase.field_crossovered_budget_lines____last_update
+#: model:ir.model.fields,field_description:governmental_purchase.field_purchase_request____last_update
+#: model:ir.model.fields,field_description:governmental_purchase.field_purchase_request_line____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: governmental_purchase
+#: code:addons/governmental_purchase/models/purchase_request.py:0
+#, python-format
+msgid ""
+"New Budget Confirmation Has Been Created for Purchase Request %s to "
+"Beneficiary %s in total %s"
+msgstr ""
+
+#. module: governmental_purchase
+#: code:addons/governmental_purchase/models/purchase_request.py:0
+#, python-format
+msgid "New Purchase Request"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_budget_confirmation__planned_for
+#: model:ir.model.fields,field_description:governmental_purchase.field_purchase_request__planned_for
+#: model:ir.model.fields.selection,name:governmental_purchase.selection__purchase_request__requesting_administration__planned_for
+msgid "Planned For"
+msgstr ""
+
+#. module: governmental_purchase
+#: code:addons/governmental_purchase/models/purchase_request.py:0
+#, python-format
+msgid "Please Select A Vendor."
+msgstr ""
+
+#. module: governmental_purchase
+#: code:addons/governmental_purchase/models/purchase_request.py:0
+#, python-format
+msgid "Please Select department for employee"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_budget_confirmation__po_id
+msgid "Po"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:res.groups,name:governmental_purchase.group_purchase_control_menu
+msgid "Purchase Control Menu"
+msgstr ""
+
+#. module: governmental_purchase
+#: code:addons/governmental_purchase/models/budget_confirmation.py:0
+#, python-format
+msgid "Purchase Order %s is Rejected By : %s  With Reject Reason : %s"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:res.groups,name:governmental_purchase.group_purchase_order_vendor_bills_button
+msgid "Purchase Order Vendor Bills Button"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model,name:governmental_purchase.model_purchase_request
+#: model:ir.model.fields.selection,name:governmental_purchase.selection__budget_confirmation__type__purchase_request
+msgid "Purchase Request"
+msgstr ""
+
+#. module: governmental_purchase
+#: code:addons/governmental_purchase/models/purchase_request.py:0
+#, python-format
+msgid "Purchase Request Approve"
+msgstr ""
+
+#. module: governmental_purchase
+#: code:addons/governmental_purchase/models/purchase_request.py:0
+#, python-format
+msgid "Purchase Request Confirmation"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields.selection,name:governmental_purchase.selection__budget_confirmation__type__purchase_order
+msgid "Purchase Requisition"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields.selection,name:governmental_purchase.selection__purchase_request__state__refuse
+#: model_terms:ir.ui.view,arch_db:governmental_purchase.purchase_request_form
+msgid "Refuse"
+msgstr ""
+
+#. module: governmental_purchase
+#: code:addons/governmental_purchase/models/budget_confirmation.py:0
+#, python-format
+msgid "Reject Purchase Order"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_budget_confirmation__request_id
+msgid "Request"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_purchase_request__requesting_administration
+msgid "Requesting Administration"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:res.groups,name:governmental_purchase.group_requesting_ِadministration
+#: model_terms:ir.ui.view,arch_db:governmental_purchase.purchase_request_form
+msgid "Requesting ِAdministration"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_crossovered_budget_lines__reserve
+msgid "Reserve Amount"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:res.groups,name:governmental_purchase.send_purchase_request_button
+msgid "Send Purchase Request Button"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:res.groups,name:governmental_purchase.group_send_to_committee_requisition
+msgid "Send To Committee"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields.selection,name:governmental_purchase.selection__purchase_request__state__send_budget
+msgid "Send to Budget Confirmation"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:res.groups,name:governmental_purchase.group_set_to_draft_button_requisition
+msgid "Set Purchase Requisition To Draft Button"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_purchase_request__custom_three_validation_steps
+msgid "Special validation steps"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_purchase_request_line__name_text1
+msgid "Specifications"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_purchase_request__state
+msgid "State"
+msgstr ""
+
+#. module: governmental_purchase
+#: model_terms:ir.ui.view,arch_db:governmental_purchase.purchase_request_form
+msgid "Submit"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_purchase_request_line__sum_total
+msgid "Sum Total"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_budget_confirmation__specifications_conform
+#: model:ir.model.fields,field_description:governmental_purchase.field_purchase_request__specifications_conform
+msgid "Technical specifications conform"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_budget_confirmation__specifications_not_conform
+#: model:ir.model.fields,field_description:governmental_purchase.field_purchase_request__specifications_not_conform
+msgid "Technical specifications do not match"
+msgstr ""
+
+#. module: governmental_purchase
+#: code:addons/governmental_purchase/models/purchase_request.py:0
+#, python-format
+msgid "There is no analytic account for this purchase request"
+msgstr ""
+
+#. module: governmental_purchase
+#: code:addons/governmental_purchase/models/purchase_request.py:0
+#, python-format
+msgid "This product has no expense account"
+msgstr ""
+
+#. module: governmental_purchase
+#: model_terms:ir.ui.view,arch_db:governmental_purchase.purchase_request_form
+msgid "Total amount"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_budget_confirmation__unavailable
+#: model:ir.model.fields,field_description:governmental_purchase.field_purchase_request__unavailable
+msgid "Unavailable"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_purchase_request_line__price_unit
+msgid "Unit Price"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_purchase_request_line__uom_id
+msgid "Unit of Measure"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_purchase_request__is_analytic
+msgid "Use Analytic Account"
+msgstr ""
+
+#. module: governmental_purchase
+#: model_terms:ir.ui.view,arch_db:governmental_purchase.purchase_request_form
+msgid "Use Purchases"
+msgstr ""
+
+#. module: governmental_purchase
+#: model_terms:ir.ui.view,arch_db:governmental_purchase.purchase_request_form
+msgid "Use of Circuits"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields.selection,name:governmental_purchase.selection__purchase_request__state__wait_budget
+msgid "Wait Budget"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_crossovered_budget_lines__year_end
+msgid "Year End"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_purchase_request_line__name_text
+msgid "category"
+msgstr ""
+
+#. module: governmental_purchase
+#: code:addons/governmental_purchase/models/purchase_request.py:0
+#, python-format
+msgid "need your approve."
+msgstr ""
+
+#. module: governmental_purchase
+#: code:addons/governmental_purchase/models/purchase_request.py:0
+#, python-format
+msgid "need your confirmation."
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model,name:governmental_purchase.model_purchase_request_line
+msgid "purchase request line"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_budget_confirmation__type
+msgid "type"
+msgstr "النوع"
+
+#. module: governmental_purchase
+#: model:ir.actions.act_window,name:governmental_purchase.purchase_type_contract_action
+#: model:ir.ui.menu,name:governmental_purchase.purchase_type_contract_menu
+msgid "Purchase Contracts"
+msgstr "عقود الشراء"
+
+#. module: governmental_purchase
+#: code:addons/governmental_purchase/models/purchase_order.py:0
+#, python-format
+msgid "Purchase To Contract"
+msgstr ""
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_purchase_requisition__agreement_name
+msgid "Agreement Name"
+msgstr "اسم الاتفاقية"
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_purchase_requisition__agreement_number
+msgid "Agreement Number"
+msgstr "رقم الاتفاقية"
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_purchase_requisition__city
+msgid "City"
+msgstr "المدينة"
+
+#. module: governmental_purchase
+#: model:ir.model.fields,field_description:governmental_purchase.field_purchase_requisition__agreement_date
+msgid "Agreement Date"
+msgstr "تاريخ توقيع الاتفاقية"

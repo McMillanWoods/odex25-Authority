@@ -1,28 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
     <data>
-  <!-- <record id="purchase_committee_rule" model="ir.rule">
-        <field name="name">Purchase committee Rule</field>
-        <field name="model_id" ref="purchase_requisition.model_purchase_requisition"/>
-        <field name="domain_force">[('committe_members' , 'in' , user.id)]</field>
-        <field name="groups" eval="[(4, ref('purchase_requisition_custom.committe_member'))]"/>
-        <field name="perm_unlink" eval="0"/>
-        <field name="perm_write" eval="0"/>
-        <field name="perm_read" eval="1"/>
-        <field name="perm_create" eval="0"/>
-    </record> -->
-
-<!-- <record id="purchase_committee_rule_read_only" model="ir.model.access">
-    <field name="name">Purchase committee Rule - Readonly</field>
-    <field name="model_id" ref="purchase_requisition.model_purchase_requisition"/>
-    <field name="group_id" ref="purchase_requisition_custom.committe_member"/>
-    <field name="perm_read" eval="True"/>
-    <field name="perm_create" eval="False"/>
-    <field name="perm_write" eval="False"/>
-    <field name="perm_unlink" eval="False"/>
-    <field name="active" eval="True"/>
-</record> -->
-
 <record id="committe_member_picking_type_rule" model="ir.rule">
     <field name="name">Committe Member Picking Type</field>
     <field name="model_id" ref="stock.model_stock_picking_type"/>
@@ -31,68 +9,67 @@
     <field name="groups" eval="[(4, ref('purchase_requisition_custom.committe_member'))]"/>
 </record>
 
-<!--    <record id="purchase_request_rule_department_manager" model="ir.rule">-->
-<!--        <field name="name">Department Manager</field>-->
-<!--        <field name="model_id" ref="purchase_requisition_custom.model_purchase_request"/>-->
-<!--        <field name="domain_force">['|','|','|','|','|',('employee_id.department_id','=',False),('employee_id.department_id.manager_id','=',False),-->
-<!--                                        ('employee_id.department_id.manager_id.user_id','child_of', [user.id]),-->
-<!--                                        ('employee_id.user_id','child_of', [user.id]),-->
-<!--                                        ('employee_id.department_id.parent_id.manager_id.user_id','child_of', [user.id]), ('employee_id.parent_id.user_id','child_of', [user.id])]</field>-->
+<record id="purchase_request_manager" model="ir.rule">
+    <field name="name">Purchase Manager Employee</field>
+    <field name="model_id" ref="purchase_requisition_custom.model_purchase_request"/>
+    <field name="global" eval="True"/>
+    <field name = "domain_force"> [(1, '=', 1)] </field>
+    <field name="groups" eval="[(4, ref('purchase.group_purchase_manager'))]"/>
+</record>
 
-<!--        <field name="groups" eval="[(4, ref('purchase_requisition_custom.group_department_approve')), (4, ref('purchase_requisition_custom.group_it_purchase_requisition')), (4, ref('purchase_requisition_custom.group_direct_manger'))]"/>-->
-<!--    </record>-->
+    <record id="purchase_request_rule_department_manager" model="ir.rule">
+        <field name="name">Department Manager</field>
+        <field name="model_id" ref="purchase_requisition_custom.model_purchase_request"/>        
+        <field name="domain_force">['|','|','|','|','|',('employee_id.department_id','=',False),('employee_id.department_id.manager_id','=',False),
+                                        ('employee_id.department_id.manager_id.user_id','child_of', [user.id]),
+                                        ('employee_id.user_id','child_of', [user.id]),
+                                        ('employee_id.department_id.parent_id.manager_id.user_id','child_of', [user.id]), ('employee_id.parent_id.user_id','child_of', [user.id])]</field>
+    
+        <field name="groups" eval="[(4, ref('purchase_requisition_custom.group_department_approve')), (4, ref('purchase_requisition_custom.group_direct_manger'))]"/>
+    </record>
 
 
-    <!-- <record id="purchase_request_rule_purchase_uesr" model="ir.rule">
-        <field name="name">Purchase Request Rule purchase user</field>
-        <field name="model_id" ref="purchase_requisition_custom.model_purchase_request"/>
-        <field name="domain_force">[]</field>
-        <field name="groups" eval="[(4, ref('purchase.group_purchase_user')),(4, ref('purchase_requisition_custom.send_purchase_rfq_send_to_committee'))]"/>
-
-    </record> -->
     <!-- employee request-->
    <record id = "employee_request_visibility_user" model = "ir.rule">
-       <field name = "name"> User can only see his / her request </field>
-       <field name = "model_id" ref = "purchase_requisition_custom.model_purchase_request" />
-       <field name = "groups" eval = "[(4, ref ('purchase_requisition_custom.create_purchase_request'))]" />
-       <field name = "perm_read" eval = "True" />
-       <field name = "perm_write" eval = "True" />
-       <field name = "perm_create" eval = "True" />
-       <field name = "perm_unlink" eval = "False" />
-       <field name = "domain_force"> [('employee_id.user_id', '=', user.id)] </field>
-
+       <field name = "name"> User can only see his / her request </field> 
+       <field name = "model_id" ref = "purchase_requisition_custom.model_purchase_request" /> 
+       <field name = "groups" eval = "[(4, ref ('purchase_requisition_custom.create_purchase_request'))]" /> 
+       <field name = "perm_read" eval = "True" /> 
+       <field name = "perm_write" eval = "True" /> 
+       <field name = "perm_create" eval = "True" /> 
+       <field name = "perm_unlink" eval = "False" /> 
+       <field name = "domain_force"> [('employee_id.user_id', '=', user.id)] </field>  
+   
 </record>
-<!-- '|',('department_id.member_ids','=',user.id), -->
  <!-- committe members rules-->
    <record id = "committee_member_visibility" model = "ir.rule">
-       <field name = "name"> Member can only see his / her agreement </field>
-       <field name = "model_id" ref = "purchase_requisition_custom.model_purchase_requisition" />
-       <field name = "groups" eval = "[(4, ref ('purchase_requisition_custom.committe_member'))]" />
-       <field name = "domain_force"> [('committe_members', 'child_of', user.id)] </field>
-
+       <field name = "name"> Member can only see his / her agreement </field> 
+       <field name = "model_id" ref = "purchase_requisition_custom.model_purchase_requisition" /> 
+       <field name = "groups" eval = "[(4, ref ('purchase_requisition_custom.committe_member'))]" /> 
+       <field name = "domain_force"> [('committe_members', 'child_of', user.id)] </field>  
+   
     </record>
     <!-- purchase manager -->
     <record id = "purchase_reqmanger_visibility" model = "ir.rule">
-       <field name = "name">Purchase User and Manager see all</field>
-       <field name = "model_id" ref = "purchase_requisition_custom.model_purchase_requisition" />
-       <field name = "groups" eval = "[(4, ref ('purchase.group_purchase_user')), (4, ref ('purchase.group_purchase_manager'))]" />
-       <field name = "domain_force">[(1, '=', 1)]</field>
+       <field name = "name">Purchase User and Manager see all</field> 
+       <field name = "model_id" ref = "purchase_requisition_custom.model_purchase_requisition" /> 
+       <field name = "groups" eval = "[(4, ref ('purchase.group_purchase_user')), (4, ref ('purchase.group_purchase_manager'))]" /> 
+       <field name = "domain_force">[(1, '=', 1)]</field>  
     </record>
 
     <!-- purchase manager request-->
     <!-- purchase manager -->
     <record id = "request_manager_visibility" model = "ir.rule">
-       <field name = "name">Purchase  Manager see all requests</field>
-       <field name = "model_id" ref = "purchase_requisition_custom.model_purchase_request" />
-       <field name = "groups" eval = "[(4, ref ('purchase.group_purchase_manager'))]" />
-       <field name = "perm_read" eval = "True" />
-       <field name = "perm_write" eval = "False" />
-       <field name = "perm_create" eval = "False" />
-       <field name = "perm_unlink" eval = "False" />
-       <field name = "domain_force">[(1, '=', 1)]</field>
-
+       <field name = "name">Purchase  Manager see all requests</field> 
+       <field name = "model_id" ref = "purchase_requisition_custom.model_purchase_request" /> 
+       <field name = "groups" eval = "[(4, ref ('purchase.group_purchase_manager'))]" /> 
+       <field name = "perm_read" eval = "True" /> 
+       <field name = "perm_write" eval = "False" /> 
+       <field name = "perm_create" eval = "False" /> 
+       <field name = "perm_unlink" eval = "False" /> 
+       <field name = "domain_force">[(1, '=', 1)]</field>  
+   
     </record>
-
 
     </data>
 </odoo>

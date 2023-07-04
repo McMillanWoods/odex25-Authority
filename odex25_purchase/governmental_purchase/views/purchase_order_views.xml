@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="purchase_order_governmental_form_view" model="ir.ui.view">
+        <field name="name">purchase.order.governmental.form.custom</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="priority" eval="200"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_rfq_send']" position="after">
+                <button string="PO To Contract" states="sign" name="open_convert_po_contract" type="object"
+                        class="oe_highlight"/>
+                <button type="object" name="action_recommend"
+                        confirm="Are you sure you want to process ?"
+                        attrs="{'invisible':['|',
+                        ('recommendation_order','=', True),('purchase_commitee', '=', False)]}" string="Recommend"/>
+            </xpath>
+            <xpath expr="//field[@name='project_stage_id']" position="after">
+                <field name="type"/>
+                <field name="contract_name"
+                       attrs="{'invisible':[('type','!=', 'contract')],'required':[('type','=', 'contract'),]}"/>
+                <field name="responsible_id"
+                       attrs="{'invisible':[('type','!=', 'contract')],'required':[('type','=', 'contract'),]}"/>
+                <field name="start_date"
+                       attrs="{'invisible':[('type','!=', 'contract')],'required':[('type','=', 'contract'),]}"/>
+                <field name="end_date"
+                       attrs="{'invisible':[('type','!=', 'contract')],'required':[('type','=', 'contract'),]}"/>
+
+                <field name="auto_notification" attrs="{'invisible':[('type','!=', 'contract')]}"/>
+                <field name="notify_before" string="Notify Before End"
+                       attrs="{'invisible':['|',('type','!=', 'contract'), ('auto_notification','=', False)],
+                       'required':[('auto_notification','=', True),]}"/>
+
+                <field name="period_type"
+                       attrs="{'invisible':['|',('type','!=', 'contract'), ('auto_notification','=', False)],
+                       'required':[('auto_notification','=', True),]}"/>
+                <field name="cron_end_date" invisible="1"/>
+            </xpath>
+            <xpath expr="//button[@name='button_confirm']" position="replace">
+                <button name="button_confirm" type="object" states="sign" string="Confirm Order"
+                        class="oe_highlight" id="bid_confirm"/>
+            </xpath>
+            <xpath expr="//group[@class='oe_subtotal_footer oe_right']" position="after">
+                <group class="oe_right"  style="float:right !important;">
+                    <field name="billed_amount"/>
+                    <field name="remaining_amount"/>
+                </group>
+            </xpath>
+
+        </field>
+    </record>
+
+    <!-- purchase.orders only for Purchase Contracts action window -->
+    <record id="purchase_type_contract_tree" model="ir.ui.view">
+        <field name="name">Purchase Contracts List</field>
+        <field name="model">purchase.order</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="contract_name"/>
+                <field name="name"/>
+                <field name="date_order"/>
+                <field name="partner_id"/>
+                <field name="date_planned"/>
+                <field name="origin"/>
+                <field name="amount_untaxed"/>
+                <field name="amount_total"/>
+                <field name="state"/>
+                <field name="invoice_status"/>
+            </tree>
+        </field>
+    </record>
+    <record id="purchase_type_contract_action" model="ir.actions.act_window">
+        <field name="name">Purchase Contracts</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">purchase.order</field>
+        <field name="view_mode">tree,kanban,form,pivot,graph,calendar</field>
+        <field name="domain">[('type' , '=' , 'contract'), ('state' , '=' , 'purchase')]</field>
+        <field name="context">{
+            'default_type': 'contract',
+            'create': False,
+            'edit': False,
+            'delete': False,
+            'duplicate': False,
+            'tree_view_ref': 'purchase_requisition_custom.purchase_type_contract_tree',
+            }
+        </field>
+        <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('purchase_type_contract_tree')}),
+                ]"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Create New a Purchase Contract
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="purchase_type_contract_menu" name="Purchase Contracts"
+              parent="purchase.menu_procurement_management" action="purchase_type_contract_action" sequence="7"/>
+
+</odoo>

@@ -14,18 +14,5 @@
             <field eval="False" name="doall"/>
         </record>
 
-        <!-- added for PO Contract Auto Notification -->
-        <record model="ir.cron" id="purchase_order_auto_notify_cron_job">
-            <field name="name">PO Contract Auto Notification</field>
-            <field name="model_id" ref="purchase.model_purchase_order"/>
-            <field name="state">code</field>
-            <field name="code">model.cron_po_auto_notify()</field>
-            <field name="user_id" ref="base.user_root"/>
-            <field name="interval_number">1</field>
-            <field name="interval_type">days</field>
-            <field name="numbercall">-1</field>
-            <field eval="False" name="doall"/>
-        </record>
-
     </data>
 </odoo>

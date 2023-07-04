@@ -1,0 +1,8 @@
+<odoo>
+    <data>
+<!--        <record id="group_purchase_financial_manager" model="res.groups">-->
+<!--            <field name="menu_access" eval="[(4,ref('purchase_requisition_custom.purchase_committe_type_menu')),]"/>-->
+<!--        </record>-->
+
+    </data>
+</odoo>

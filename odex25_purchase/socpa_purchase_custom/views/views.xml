@@ -1,0 +1,65 @@
+<odoo>
+    <data>
+        <!-- model.name inherit form view -->
+        <record id="purchas_requisition_custom_form" model="ir.ui.view">
+            <field name="name">purchase.requisition.inherit.view.form</field>
+            <field name="model">purchase.requisition</field>
+            <field name="inherit_id" ref="purchase_requisition_custom.purchase_requisition_custom_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='committe_head']" position="after">
+                     <field name="purchase_track" required="1"/>
+                </xpath>
+                <field name="committee_type_id" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')],
+                                'invisible' : [('purchase_commitee' , '!=' , True)],
+                                'required' : [('purchase_commitee' , '=' , True)]}</attribute>
+                </field>
+            </field>
+        </record>
+
+<!--        &lt;!&ndash; purchase.committee.type form view &ndash;&gt;-->
+<!--        <record id="purchase_committee_type_form" model="ir.ui.view">-->
+<!--            <field name="name">purchase.committee.type.view.form</field>-->
+<!--            <field name="model">purchase.committee.type</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <form string="">-->
+<!--                    <sheet>-->
+<!--                        <group col="4" colsapn="2">-->
+<!--                            <field name="name" required="1"/>-->
+<!--                            <field name="committee_head"/>-->
+<!--                        </group>-->
+<!--                        <notebook>-->
+<!--                            <page string="Committee Members">-->
+<!--                                <field name="committee_members">-->
+<!--                                    <tree editable="bottom">-->
+<!--                                        <field name="name"/>-->
+<!--                                    </tree>-->
+<!--                                </field>-->
+<!--                            </page>-->
+<!--                        </notebook>-->
+<!--                    </sheet>-->
+<!--                </form>-->
+<!--            </field>-->
+<!--        </record>-->
+
+
+<!--        &lt;!&ndash; model.name action window &ndash;&gt;-->
+<!--        <record id="purchase_committee_type_action" model="ir.actions.act_window">-->
+<!--            <field name="name">purchase.committee.type</field>-->
+<!--            <field name="type">ir.actions.act_window</field>-->
+<!--            <field name="res_model">purchase.committee.type</field>-->
+<!--            <field name="view_mode">tree,form</field>-->
+<!--            <field name="help" type="html">-->
+<!--                <p class="oe_view_nocontent_create">-->
+<!--                    Create Purchase Committee Type-->
+<!--                </p>-->
+<!--            </field>-->
+<!--        </record>-->
+<!--        &lt;!&ndash; This Menu Item must have a parent and an action &ndash;&gt;-->
+
+<!--        <menuitem id="purchase_committee_type_menu" name="Purchase Committee Types" parent="purchase.menu_purchase_config"-->
+<!--                  action="purchase_committee_type_action"-->
+<!--                  groups="purchase_requisition_custom.group_purchase_financial_manager" sequence="100"/>-->
+
+    </data>
+</odoo>

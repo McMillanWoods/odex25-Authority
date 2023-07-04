@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
-    <report string="Committee Meeting Report" id="action_report_committee_meeting_minutes" model="purchase.requisition"
-            report_type="qweb-pdf" name="purchase_requisition_custom.committee_meeting_minutes_report"
+    <report string="Committee Meeting Report"
+            id="action_report_committee_meeting_minutes"
+            model="purchase.requisition"
+            report_type="qweb-pdf"
+            name="purchase_requisition_custom.committee_meeting_minutes_report"
             file="purchase_requisition_custom.committee_meeting_minutes_report"
             print_report_name="'Committee Meeting Minutes - %s' % (object.name)"/>
 
@@ -15,7 +18,7 @@
         </t>
         <div class="header">
             <div class="row">
-                <div class="col-xs-3">
+                <div class="col-3">
                     <ul class="list-inline">
                         <li>
                             <span class="page"/>
@@ -26,10 +29,10 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-xs-2 col-xs-offset-2 text-center">
+                <div class="col-2 col-offset-2 text-center">
                     <span t-esc="company.name"/>
                 </div>
-                <div class="col-xs-3 text-right">
+                <div class="col-3 text-right">
                     <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
                 </div>
             </div>
@@ -62,13 +65,13 @@
                     </style>
                     <div class="page">
                         <t t-set="po"
-                           t-value="request.env['purchase.order'].search([('requisition_id','=',o.id),('recomandation_order','=',True)],limit=1)"/>
+                           t-value="request.env['purchase.order'].search([('requisition_id','=',o.id),('recommendation_order','=',True)],limit=1)"/>
 
                         <h2 class="text-center">محضر لجنة المشتريات</h2>
                         <br/>
 
                         <div class="row">
-                            <div class="col-xs-6 pull-right">
+                            <div class="col-6 pull-right">
 
                                 <table class="table table-bordered table-hover" style="width:100%" dir="rtl">
                                     <tr>
@@ -88,8 +91,10 @@
                         </div>
                         <table class="table table-bordered table-hover" dir="rtl">
                             <tr>
-                                <th colspan="4" style="background-color:lightseagreen;text-align:right;">إسم المشروع
-                                </th>
+                                 <th colspan="2" style="background-color:lightseagreen;text-align:right;">إسم المشروع</th>
+                                 <td colspan="2" style="text-align:center;">
+                                    <t t-esc="o.agreement_name"/>
+                                </td>
                             </tr>
                             <tr>
                                 <th style="text-align:center;width:10%;">الجهة الطالبة</th>

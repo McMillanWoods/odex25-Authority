@@ -16,7 +16,7 @@
             <xpath expr="//div[@data-string='Purchase']" position="inside">
                 <h2>Budgeting</h2>
                     <div class="row mt16 o_settings_container">
-                        <div class="col-xs-12 col-md-6 o_setting_box" title="Activate Budget check in purchase">
+                        <div class="col-12 col-md-6 o_setting_box" title="Activate Budget check in purchase">
                             <div class="o_setting_left_pane">
                                 <div class="mt16">
                                     <field name="purchase_budget" class="o_light_label" />
@@ -33,26 +33,26 @@
                 
             </xpath>
 
-<!--            <xpath expr="//div[@data-string='Purchase']" position="inside">-->
-<!--                <div id="purchase_analytic_account">-->
-<!--                    <h2>Purchase Costing</h2>-->
-<!--                    <div class="row mt16 o_settings_container">-->
-<!--                        <div class="col-xs-12 col-md-6 o_setting_box">-->
-<!--                            <div class="o_setting_right_pane">-->
-<!--                                <div class="text-muted">-->
-<!--                                    Set Defult Analytic account For Purchase-->
-<!--                                </div>-->
-<!--                                <div class="content-group">-->
-<!--                                    <div class="mt16 row">-->
-<!--                                        &lt;!&ndash; <label string="Analytic account" for="purchase_analytic_account"/> &ndash;&gt;-->
-<!--                                        <field name="purchase_analytic_account" class="oe_inline" required="1"/>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </xpath>-->
+            <xpath expr="//div[@data-string='Purchase']" position="inside">
+                <div id="purchase_analytic_account">
+                    <h2>Purchase Costing</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <div class="text-muted">
+                                    Set Default Analytic account For Purchase
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16 row">
+                                        <!-- <label string="Analytic account" for="purchase_analytic_account"/> -->
+                                        <field name="purchase_analytic_account" class="oe_inline" required="1"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
             
         </field>
     </record>

@@ -1,8 +1,9 @@
+from datetime import datetime
+
+from odoo.addons.purchase.models.purchase import PurchaseOrder as Purchase
+
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError, ValidationError
-from datetime import datetime, timedelta, date
-from odoo.tools.misc import get_lang
-
 
 
 # for test only
@@ -15,34 +16,71 @@ class PurchaseRequest(models.Model):
     _name = 'purchase.request'
     _description = 'Purchase Request'
     _inherit = ['mail.thread', 'mail.activity.mixin']
-    _order = 'id desc'
+
+    # dupicate employee request record
+    def copy(self, default=None):
+        data = super(PurchaseRequest, self).copy(default)
+        data.state = 'draft'
+        # data.line_ids = self.line_ids
+        data.purchase_create = False
+        return data
 
     @api.model
     def _default_emp(self):
         emp = self.env['hr.employee'].search([('user_id', '=', self.env.uid)])
         if emp:
-            return emp  # .id
+            return emp
         else:
             raise ValidationError(_("this user has no related emplyee!"))
 
-    name = fields.Char(string='Name', copy=False, default=lambda self: '/')
-    employee_id = fields.Many2one(comodel_name='hr.employee', string='Employee',
-                                  default=lambda s: s._default_emp().id)
-    department_id = fields.Many2one('hr.department', 'Department')
-    line_ids = fields.One2many(comodel_name='purchase.request.line', inverse_name='request_id', string='')
+    @api.model
+    def _get_picking_type(self, company_id):
+        picking_type = self.env['stock.picking.type'].search(
+            [('code', '=', 'incoming'), ('warehouse_id.company_id', '=', company_id)])
+        if not picking_type:
+            picking_type = self.env['stock.picking.type'].search(
+                [('code', '=', 'incoming'), ('warehouse_id', '=', False)])
+        return picking_type[:1]
 
-    date = fields.Date(string='Date', default=fields.Date.context_today, )
+    @api.model
+    def _default_picking_type(self):
+        return self._get_picking_type(self.env.context.get('company_id') or self.env.company.id)
+
+    @api.onchange('company_id')
+    def _onchange_company_id(self):
+        p_type = self.picking_type_id
+        if not (p_type and p_type.code == 'incoming' and (
+                p_type.warehouse_id.company_id == self.company_id or not p_type.warehouse_id)):
+            self.picking_type_id = self._get_picking_type(self.company_id.id)
+
+            # name = fields.Char(string='Name', copy=False, default=lambda self:'/')
+
+    name = fields.Char(string='Name', required=True,
+                       readonly=True, default=lambda self: _('New'), copy=False)
+    employee_id = fields.Many2one(comodel_name='hr.employee', string='Employee',
+                                  default=lambda s: s._default_emp().id, )
+    department_id = fields.Many2one('hr.department', 'Department')
+    line_ids = fields.One2many(comodel_name='purchase.request.line', inverse_name='request_id', copy=True)
+
+    date = fields.Date(string='Date', default=fields.Date.context_today, copy=False)
     state = fields.Selection(
-        [('draft', 'Draft'), ('direct manager', 'Direct Manager'),
-          ('send_budget', 'Send to Budget Confirmation'), ('wait_budget', 'Wait Budget'),
-         ('budget_approve', 'Budget Approved'), ('waiting', 'In Purchase'),
+        [('draft', 'Draft'), ('direct manager', 'Direct Manager'), ('department manager', 'Department Manager'),
+         ('waiting', 'In Purchase'),
          ('done', 'Done'), ('cancel', 'Cancel'), ('refuse', 'Refuse')], default="draft", tracking=True, )
     product_category_ids = fields.Many2many('product.category', string='Items Categories')
     it_categ = fields.Boolean()
+    company_id = fields.Many2one('res.company', 'Company', required=True, index=True,
+                                 default=lambda self: self.env.company)
     purchase_purpose = fields.Char("Purpose", default="/")
+    picking_type_id = fields.Many2one('stock.picking.type', 'Deliver To', states=Purchase.READONLY_STATES,
+                                      required=True, default=_default_picking_type,
+                                      domain="['|', ('warehouse_id', '=', False), ('warehouse_id.company_id', '=', company_id)]",
+                                      help="This will determine operation type of incoming shipment")
     note = fields.Text(string='Note')
-    amount_total = fields.Float(string="Amount Total")
-    partner_id = fields.Many2one(string='Vendor', comodel_name='res.partner')
+    partner_id = fields.Many2one(
+        string='Vendor',
+        comodel_name='res.partner'
+    )
 
     # New Added
     type = fields.Selection([
@@ -50,61 +88,29 @@ class PurchaseRequest(models.Model):
         ('operational', 'Operational')
     ], default='operational')
     project_id = fields.Many2one('project.project', string='Project')
-    # project_stage_id = fields.Many2one('project.phase', string='Project Stage')
-    is_analytic = fields.Boolean("Use Analytic Account")
-
-    type_id = fields.Many2one('purchase.requisition.type', string="Agreement Type")
-
-    requesting_administration = fields.Selection([
-        ('planned for', 'Planned For'),
-        ('emergency', 'Emergency')
-    ], string="Requesting Administration(hghh)")
-
-    planned_for = fields.Boolean(string="Planned For")
-    emergency = fields.Boolean(string="Emergency")
-
-    available = fields.Boolean(string="Available")
-    unavailable = fields.Boolean(string="Unavailable")
-    specifications_conform = fields.Boolean(string="Technical specifications conform")
-    specifications_not_conform = fields.Boolean(string="Technical specifications do not match")
-    confirmation_ids = fields.One2many('budget.confirmation','request_id')
-
-    def open_confirmation(self):
-        formview_ref = self.env.ref('account_budget_custom.view_budget_confirmation_form', False)
-        treeview_ref = self.env.ref('account_budget_custom.view_budget_confirmation_tree', False)
-        return {
-            'name': ("Budget  Confirmation"),
-            'view_mode': 'tree, form',
-            'view_id': False,
-            'view_type': 'form',
-            'res_model': 'budget.confirmation',
-            'type': 'ir.actions.act_window',
-            'target': 'current',
-            'domain': "[('id', 'in', %s)]" % self.confirmation_ids.ids,
-            'views': [(treeview_ref and treeview_ref.id or False, 'tree'),
-                      (formview_ref and formview_ref.id or False, 'form')],
-            'context': {'create':False}
-        }
+    project_stage_id = fields.Many2one('project.phase', string='Project Stage')
 
     # get analytic account based on type of request
-    # @api.onchange('type', 'line_ids')
-    # def on_change_line(self):
-    #     for line in self.line_ids:
-    #         if self.type == 'operational':
-    #             line.account_id = self.department_id.analytic_account_id
-    #         elif self.type == 'project':
-    #             line.account_id = self.project_id.analytic_account_id
-    #             # # get analytic account onchanage project name
+    @api.onchange('type', 'line_ids')
+    def on_chanage_line(self):
+        for line in self.line_ids:
+            if self.type == 'operational':
+                line.account_id = self.department_id.analytic_account_id
+            elif self.type == 'project':
+                line.account_id = self.project_id.analytic_account_id
+                # get analytic account onchanage project name
 
-    # @api.onchange('type', 'project_id', 'line_ids')
-    # def on_change_proj_name(self):
-    #     for line in self.line_ids:
-    #         if self.project_id:
-    #             line.account_id = self.project_id.analytic_account_id
-    #         self.set_line_vendor_prices(line)
-    #         self.set_line_maxmin_prices(line)
+    @api.onchange('type', 'project_id', 'line_ids')
+    def on_chanage_proj_name(self):
+        for line in self.line_ids:
+            if self.project_id:
+                line.account_id = self.project_id.analytic_account_id
 
-    # test empty department
+                # ddddd
+            self.set_line_vendor_prices(line)
+            self.set_line_maxmin_prices(line)
+
+    # test empyty department
     @api.onchange('employee_id', 'department_id', 'line_ids')
     def onchange_emp_depart(self):
         for line in self.line_ids:
@@ -123,11 +129,19 @@ class PurchaseRequest(models.Model):
                 'price_unit': price,
             })
 
-    # get max and min
+    # get max and min for product from purchase order
     def set_line_maxmin_prices(self, line):
         prices_list = []
-        purchase_orders = self.env['purchase.order'].search([('partner_id', '=', self.partner_id.id)])
-        for po in purchase_orders:
+        partner_purchase_orders = self.env['purchase.order'].search(
+            [('state', '=', 'purchase'), ('partner_id', '=', self.partner_id.id)])
+        for po in partner_purchase_orders:
+            line_ids = po.mapped('order_line')
+            for pl in line_ids:
+                if line.product_id.id == pl.product_id.id:
+                    prices_list.append(pl.price_unit)
+
+        all_purchase_orders = self.env['purchase.order'].search([('state', '=', 'purchase')])
+        for po in all_purchase_orders:
             line_ids = po.mapped('order_line')
             for pl in line_ids:
                 if line.product_id.id == pl.product_id.id:
@@ -142,7 +156,7 @@ class PurchaseRequest(models.Model):
     @api.onchange('type', 'project_id')
     def _onchange_project_id(self):
         if self.type != 'project':
-            # self.project_stage_id = False
+            self.project_stage_id = False
             self.project_id = False
 
     purchase_create = fields.Boolean(string='Purchase Create')
@@ -158,7 +172,7 @@ class PurchaseRequest(models.Model):
 
     def action_confirm(self):
         if len(self.line_ids) == 0:
-            raise ValidationError(_("Can't Confirm Request With No Item!"))
+            raise ValidationError(_("Can't Confirm Requset With No Item!"))
         if not self.department_id:
             raise ValidationError(_("Please Select department for employee"))
         else:
@@ -166,8 +180,7 @@ class PurchaseRequest(models.Model):
                 'state': 'direct manager'
             })
             # Send Notifications
-
-            subject = _('Purchase Request Confirmation') + ' - {}'.format(self.name)
+            subject = _('Purchase Requset Confirmation') + ' - {}'.format(self.name)
             message = '{} '.format(self.name) + _('need your confirmation.') + '\n' + _('Create Date: ') + '{}'.format(
                 self.create_date)
             group = 'purchase_requisition_custom.group_direct_manger'
@@ -175,12 +188,18 @@ class PurchaseRequest(models.Model):
             self.env.user.partner_id.send_notification_message(subject=subject, body=message, author_id=author_id,
                                                                group=group)
 
-        if self.name == '/':
-            self.name = self.env['ir.sequence'].next_by_code('stock.request.order') or '/'
+    # create sequence for purchase request
+    @api.model
+    def create(self, vals):
+        if vals.get('name', _('New')) == _('New'):
+            vals['name'] = self.env['ir.sequence'].next_by_code(
+                'stock.request.order') or _('New')
+        res = super(PurchaseRequest, self).create(vals)
+        return res
 
     def approve_department(self):
         self.write({
-            'state': 'send_budget'
+            'state': 'department manager'
         })
         # Send Notifications
         subject = _('Purchase Requset Approve') + ' - {}'.format(self.name)
@@ -191,6 +210,45 @@ class PurchaseRequest(models.Model):
         self.env.user.partner_id.send_notification_message(subject=subject, body=message, author_id=author_id,
                                                            group=group)
 
+    def it_approve(self):
+        self.write({
+            'state': 'waiting'
+        })
+
+    def action_approve(self):
+        # it_categ = False
+        # for product_category in self.product_category_ids:
+        #     if product_category.it_categ:
+        #         it_categ = True
+        #         break
+        #
+        # for line in self.line_ids:
+        #     if line.product_id.categ_id.it_categ:
+        #         it_categ = True
+        #         break
+        #
+        # if it_categ is True:
+        #     self.write({
+        #         'state': 'it manager'
+        #     })
+        #     # Send Notifications
+        #     subject = _('Purchase Requset IT Approve') + ' - {}'.format(self.name)
+        #     message = '{} '.format(self.name) + _('need your approve.') + '\n' + _('Create Date: ') + '{}'.format(
+        #         self.create_date)
+        #     group = 'purchase_requisition_custom.group_it_purchase_requisition'
+        #     author_id = self.env.user.partner_id.id or None
+        #     self.env.user.partner_id.send_notification_message(subject=subject, body=message, author_id=author_id,
+        #                                                        group=group)
+        #
+        #     self.it_categ = True
+        # else:
+        #     self.write({
+        #         'state': 'waiting'
+        #     })
+        #     self.it_categ = False
+        self.write({
+            'state': 'waiting'
+        })
 
     def action_refuse(self):
         self.write({
@@ -207,78 +265,6 @@ class PurchaseRequest(models.Model):
             'state': 'done'
         })
 
-
-    def action_budget(self):
-        confirmation_lines = []
-        amount = 0
-        for rec in self.line_ids:
-            if rec.request_id.is_analytic:
-                analytic_account = rec.account_id
-            else:
-                analytic_account = rec.request_id.department_id.analytic_account_id
-            if not analytic_account:
-                raise ValidationError(_('There is no analytic account for this purchase request'))
-            if not (rec.product_id.property_account_expense_id.id and
-                    rec.product_id.property_account_expense_id.id or
-                    rec.product_id.categ_id.property_account_expense_categ_id.id):
-                raise ValidationError(_("This product has no expense account") + ': {}'.format(rec.product_id.name))
-            budget_lines = analytic_account.crossovered_budget_line.filtered(
-                lambda x:
-                x.crossovered_budget_id.state == 'done' and
-                fields.Date.from_string(x.date_from) <= fields.Date.from_string(
-                    self.date) <= fields.Date.from_string(x.date_to))
-            if budget_lines:
-                remain = abs(budget_lines[0].remain)
-                amount = amount + rec.sum_total
-                new_remain = remain - amount
-                confirmation_lines.append((0, 0, {
-                    'amount': rec.sum_total,
-                    'analytic_account_id': analytic_account.id,
-                    'description': rec.product_id.name,
-                    'budget_line_id': budget_lines[0].id,
-                    'remain': new_remain + rec.sum_total,
-                    'new_balance': new_remain,
-                    'account_id': rec.product_id.property_account_expense_id.id and rec.product_id.property_account_expense_id.id or rec.product_id.categ_id.property_account_expense_categ_id.id
-                }))
-            else:
-                raise ValidationError(
-                    _(''' No budget for this service ''') + ': {} - {}'.format(rec.product_id.name,
-                                                                               analytic_account.name))
-
-                # Create budget.confirmation
-        if confirmation_lines:
-            data = {
-                'name': self.name,
-                'date': self.date,
-                'beneficiary_id': self.partner_id.id,
-                'department_id': self.department_id.id,
-                'type': 'purchase.request',
-                'ref': self.name,
-                'description': self.purchase_purpose,
-                'total_amount': amount,
-                'lines_ids': confirmation_lines,
-                'request_id': self.id,
-                'planned_for': self.planned_for,
-                'emergency': self.emergency,
-                'available': self.available,
-                'unavailable': self.unavailable,
-                'specifications_conform': self.specifications_conform,
-                'specifications_not_conform': self.specifications_not_conform,
-            }
-            budget_id = self.env['budget.confirmation'].create(data)
-            subject = _('New Purchase Request')
-            message = _(
-                "New Budget Confirmation Has Been Created for Purchase Request %s to Beneficiary %s in total %s" % (
-                    budget_id.name, budget_id.beneficiary_id.name, budget_id.total_amount))
-            group = 'purchase.group_purchase_manager'
-            author_id = self.env.user.partner_id.id or None
-            self.env.user.partner_id.send_notification_message(subject=subject, body=message, author_id=author_id,
-                                                               group=group)
-            self.write({'state': 'wait_budget'})
-
-
-
-
     def create_requisition(self):
         if not self.employee_id.department_id:
             raise ValidationError(_("Choose A Department For this Employee!"))
@@ -293,15 +279,13 @@ class PurchaseRequest(models.Model):
             }))
         requisition_id = self.env['purchase.requisition'].sudo().create({
             'category_ids': self.product_category_ids.ids,
-            'type_id_test': self.type_id.id,
             'department_id': self.employee_id.department_id.id,
             'type': self.type,
             'project_id': self.project_id.id,
-            # 'project_stage_id': self.project_stage_id.id,
+            'project_stage_id': self.project_stage_id.id,
             'purpose': self.purchase_purpose,
             'request_id': self.id,
-            'user_id': self.employee_id.user_id.id,
-            'is_analytic': self.is_analytic,
+            'user_id': self.env.user.id,
             'line_ids': line_ids
         })
         self.write({
@@ -316,7 +300,6 @@ class PurchaseRequest(models.Model):
             'res_id': requisition_id.id,
         }
 
-
     def create_purchase_order2(self):
         line_ids = []
         for line in self.line_ids:
@@ -326,15 +309,16 @@ class PurchaseRequest(models.Model):
                 'name': line.product_id.name,
                 'department_name': self.employee_id.department_id.id,
                 'account_analytic_id': line.account_id.id,
-                'initial_amount': line.sum_total,
             }))
 
-        purchase_order = self.env['purchase.order'].sudo().create({
+        purchase_order = self.env['purchase.order'].create({
             'category_ids': self.product_category_ids.ids,
             'origin': self.name,
+            'company_id': self.env.company.id,
             'request_id': self.id,
             'project_id': self.project_id.id,
-            # 'project_stage_id': self.project_stage_id.id,
+            'picking_type_id': self.picking_type_id.id,
+            'project_stage_id': self.project_stage_id.id,
             'partner_id': self.partner_id.id,
             'purpose': self.purchase_purpose,
             'purchase_cost': 'product_line',
@@ -383,7 +367,7 @@ class PurchaseRequest(models.Model):
                 'request_id': self.id,
                 'date_order': datetime.today(),
                 'project_id': self.project_id.id,
-                # 'project_stage_id': self.project_stage_id.id,
+                'project_stage_id': self.project_stage_id.id,
                 'partner_id': self.partner_id.id,
                 'purpose': self.purchase_purpose,
                 'purchase_cost': 'product_line',
@@ -416,59 +400,50 @@ class PurchaseRequest(models.Model):
 
 
 class PurchaseRequestLine(models.Model):
-        _name = 'purchase.request.line'
-        _description = 'purchase request line'
+    _name = 'purchase.request.line'
+    _description = 'purchase request line'
 
-        # for test
-        account_id = fields.Many2one('account.analytic.account',
-                                     'Analytic Account')
-        request_id = fields.Many2one(comodel_name='purchase.request', string='Request Ref.')
-        product_id = fields.Many2one(comodel_name='product.product', string='Item')
-        qty = fields.Integer(string='Qty')
-        name = fields.Char(string='Descrption')
-        name_text = fields.Char(string='category')
-        name_text1 = fields.Char(string='Specifications')
-        price_unit = fields.Float(string='Unit Price', digits='Product Price')
-        max_price = fields.Float(string='Maximum Price')
-        min_price = fields.Float(string='Minimum Price')
-        uom_id = fields.Many2one('uom.uom', string='Unit of Measure')
-        sum_total = fields.Float(String="sum_total")
+    # for test
+    account_id = fields.Many2one('account.analytic.account',
+                                 'Analytic Account')
+    request_id = fields.Many2one(comodel_name='purchase.request', string='Request Ref.')
+    product_id = fields.Many2one(comodel_name='product.product', string='Item')
+    qty = fields.Integer(string='Qty')
+    name = fields.Char(
+        string='Descrption'
+    )
+    price_unit = fields.Float(string='Unit Price', required=True, digits='Product Price')
+    max_price = fields.Float(string='Maximum Price')
+    min_price = fields.Float(string='Minimum Price')
 
-        @api.onchange('qty', 'price_unit')
-        def total_sum_lines(self):
-            sum_total = 0
-            # for line in self.line_ids:
-            if self.price_unit and self.qty:
-                self.sum_total = self.qty * self.price_unit
+    # get price for product
+    def _product_id_change(self):
+        if not self.product_id:
+            return
 
-        # get price for product
-        def _product_id_change(self):
-            if not self.product_id:
-                return
+        product_lang = self.product_id.with_context(
+            lang=get_lang(self.env, self.partner_id.lang).code,
+            partner_id=self.partner_id.id,
+            company_id=self.company_id.id,
+        )
+        self.name = self._get_product_purchase_description(product_lang)
 
-            product_lang = self.product_id.with_context(
-                lang=get_lang(self.env, self.partner_id.lang).code,
-                partner_id=self.partner_id.id,
-                company_id=self.company_id.id,
-            )
-            self.name = self._get_product_purchase_description(product_lang)
-
-        @api.constrains('qty')
-        def qty_validation(self):
-            for rec in self:
-                if rec.qty <= 0:
-                    raise ValidationError(_("Item Quantity MUST be at Least ONE!"))
+    @api.constrains('qty')
+    def qty_validation(self):
+        for rec in self:
+            if rec.qty <= 0:
+                raise ValidationError(_("Item Quantity MUST be at Least ONE!"))
 
 
-    # search on purchase request or  purchase order
 # search on purchase request or  purchase order
 class ProductsSearch(models.Model):
     _inherit = 'product.product'
+
     @api.model
     def _name_search(self, name, args=None, operator='ilike', limit=100, name_get_uid=None):
         product_ids = []
         res = super(ProductsSearch, self)._name_search(name, args=args, operator=operator, limit=limit,
-                                                           name_get_uid=name_get_uid)
+                                                       name_get_uid=name_get_uid)
         if name:
             product_ids = list(self._search([('description', 'ilike', name)] + args, limit=limit))
         if product_ids:

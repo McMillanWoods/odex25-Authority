@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        
+        <record id="purchase_order_approved_seq" model="ir.sequence">
+            <field name="name">Purchase Order Approved Sequence</field>
+            <field name="code">purchase.order.new_seq</field>
+            <field name="prefix">PURCHASE ORDER /</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+            <field name="implementation">no_gap</field>
+        </record>
+        
+    </data>
+</openerp>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_For_technical_management_use" model="res.groups">
+        <field name="name">For technical management use</field>
+        <field name="category_id" ref="purchase_requisition_custom.purchase_requisition_custom"/>
+    </record>
+    <!-- group Requesting ِAdministration -->
+    <record id="group_requesting_ِadministration" model="res.groups">
+        <field name="name">Requesting ِAdministration</field>
+        <field name="category_id" ref="purchase_requisition_custom.purchase_requisition_custom"/>
+    </record>
+
+    <record id="group_purchase_control_menu" model="res.groups">
+        <field name="name">Purchase Control Menu</field>
+        <field name="category_id" ref="purchase_requisition_custom.purchase_requisition_custom"/>
+    </record>
+
+    <record id="send_purchase_request_button" model="res.groups">
+        <field name="name">Send Purchase Request Button</field>
+        <field name="category_id" ref="purchase_requisition_custom.purchase_requisition_custom"/>
+        <field name="menu_access" eval="[(4,ref('purchase.menu_purchase_root'))]"/>
+    </record>
+
+    <record id="group_direct_manager_purchase_request" model="res.groups">
+        <field name="name">Employees Direct Manager Purchase Request</field>
+        <field name="category_id" ref="purchase_requisition_custom.purchase_requisition_custom"/>
+        <field name="menu_access" eval="[
+            (4,ref('purchase.menu_purchase_root')),
+            (4,ref('purchase_requisition_custom.purchase_request_menu'))]"/>
+        <field name="implied_ids" eval="[(4, ref('governmental_purchase.send_purchase_request_button'))]"/>
+    </record>
+
+    <record id="approval_of_employee_purchase_requests_by_department_administration" model="res.groups">
+        <field name="name">Approval of Employee Purchase Requests By Department Administration 11</field>
+        <field name="category_id" ref="purchase_requisition_custom.purchase_requisition_custom"/>
+        <field name="implied_ids" eval="[
+            (4, ref('purchase_requisition_custom.approve_purchase_request')),
+            (4, ref('purchase_custom_vro.group_employee_purchase_request'))]"/>
+        <!-- <field name="menu_access"
+        eval="[(4,ref('purchase_custom_vro.purchase_request_root_menu'))]" /> -->
+    </record>
+
+    <record id="group_purchase_order_vendor_bills_button" model="res.groups">
+        <field name="name">Purchase Order Vendor Bills Button</field>
+        <field name="category_id" ref="purchase_requisition_custom.purchase_requisition_custom"/>
+    </record>
+
+    <record id="purchase.group_purchase_user" model="res.groups">
+        <field name="name">Purchasing Specialist</field>
+        <field name="implied_ids"
+               eval="[
+        (4, ref('governmental_purchase.send_purchase_request_button')),
+        (4, ref('purchase_requisition_custom.group_confirm_purchase_requisition')),
+        (4, ref('purchase_requisition_custom.group_quotation_purchase_requisition')),
+        (4, ref('purchase_requisition_custom.group_sign_purchase_order')),
+        (4, ref('purchase_custom_vro.group_employee_purchase_request')),
+        (4, ref('purchase_requisition_custom.group_base_vro_functional_user')),
+        (4, ref('governmental_purchase.group_purchase_order_vendor_bills_button')),
+        (4, ref('purchase_custom_vro.group_purchase_order_shipment_button'))]"/>
+        <field name="menu_access"
+               eval="[(4,ref('purchase.menu_purchase_root')),
+             (4,ref('purchase_requisition.menu_purchase_requisition_pro_mgt')),
+             (4,ref('purchase.menu_procurement_management'))]"/>
+        <!-- (4, ref('purchase_custom_vro.group_purchase_budgeting_specialist')) -->
+    </record>
+
+
+    <record id="group_set_to_draft_button_requisition" model="res.groups">
+        <field name="name">Set Purchase Requisition To Draft Button</field>
+        <field name="category_id" ref="purchase_requisition_custom.purchase_requisition_custom"/>
+    </record>
+
+    <record id="group_send_to_committee_requisition" model="res.groups">
+        <field name="name">Send To Committee</field>
+        <field name="category_id" ref="purchase_requisition_custom.purchase_requisition_custom"/>
+    </record>
+
+    <record id="group_no_create_order" model="res.groups">
+        <field name="name">Dont Create PO</field>
+        <field name="category_id" ref="purchase_requisition_custom.purchase_requisition_custom"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <!-- Inherit the Purchase Request form -->
+        <record id="purchase_request_form_view_inherit" model="ir.ui.view">
+            <field name="name">purchase.request.form.view.inherirt</field>
+            <field name="model">purchase.request</field>
+            <field name="inherit_id" ref="purchase_requisition_custom.purchase_request_form"/>
+            <field name="arch" type="xml">
+
+                <!--                <xpath expr="//button[@name='action_approve']" position="after">-->
+                <!--                    <field name="picking_ids" invisible="1"/>-->
+                <!--                    <button type="action"-->
+                <!-- name="purchase_custom_vro.action_report_grn"-->
+                <!-- string="Print GRN"-->
+                <!-- attrs="{'invisible':[('picking_ids', '=', [])]}"/>-->
+                <!--                </xpath>-->
+
+                <xpath expr="//div[1]" position="before">
+                    <div class="oe_button_box" name="button_box">
+                        <button type="object" name="action_view_picking" class="oe_stat_button" icon="fa-truck"
+                                attrs="{'invisible':[('picking_ids','=',[])]}">
+                            <field name="picking_count" widget="statinfo" string="Deliveries"
+                                   help="Incoming Shipments"/>
+                            <field name="picking_ids" invisible="1"/>
+                        </button>
+                    </div>
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+
+                    <page string="Suggest Vendor" name="Suggest_Vendor">
+
+                        <field name="Suggest_vendors" attrs="{'readonly':[('state','!=','draft')]}"/>
+
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Employee requests -->
+
+        <menuitem id="purchase_request_root_menu" name="Employee Requests" parent="purchase.menu_purchase_root"
+                  sequence="4" groups="purchase_custom_vro.group_employee_purchase_request"/>
+
+        <!-- Purchase requests -->
+        <menuitem id="purchase_requisition_custom.purchase_request_menu" name="Purchase Request"
+                  parent="purchase_request_root_menu" sequence="4"
+                  groups="purchase_custom_vro.group_employee_purchase_request"/>
+
+        <record id="purchase_requisition_custom.group_department_approve"
+                model="res.groups">
+            <field name="menu_access" eval="[(4,ref('purchase_custom_vro.purchase_request_root_menu'))]"/>
+        </record>
+
+    </data>
+</odoo>

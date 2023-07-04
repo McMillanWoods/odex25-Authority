@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+purchase-committee_type,purchase-committee_type,purchase_requisition_custom.model_purchase_committee_type,purchase.group_purchase_user,1,1,1,1

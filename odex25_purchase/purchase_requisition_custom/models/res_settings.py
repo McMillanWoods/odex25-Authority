@@ -1,16 +1,14 @@
-from odoo import api, fields, models
-
-
+from odoo import fields, models
 
 
 class ResSetting(models.TransientModel):
     _inherit = 'res.config.settings'
 
-    second_approve = fields.Integer(string='Maximum Amount' ,related="company_id.second_approve",readonly=False)
+    second_approve = fields.Integer(string='second approve', related="company_id.second_approve", readonly=False)
     # third_approve = fields.Integer(string='third approve' , related="company_id.third_approve")
-    purchase_budget = fields.Boolean(string='Purchase budget' , related="company_id.purchase_budget",readonly=False)
-    # purchase_analytic_account = fields.Many2one('account.analytic.account',related="company_id.purchase_analytic_account",readonly=False )
-
+    purchase_budget = fields.Boolean(string='Purchase budget', related="company_id.purchase_budget", readonly=False)
+    purchase_analytic_account = fields.Many2one('account.analytic.account',
+                                                related="company_id.purchase_analytic_account", readonly=False)
 
     # def get_values(self):
     #     res = super(ResSetting, self).get_values()

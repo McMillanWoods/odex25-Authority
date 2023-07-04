@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="stock.product_template_action_product" model="ir.actions.act_window">
+
+            <field name="context">{"search_default_consumable": 1,}</field>
+
+        </record>
+    </data>
+
+    <record id="inheirt_product_template_form_view" model="ir.ui.view">
+        <field name="name">product.template.common.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <field name="sale_ok" position="after">
+                <field name="stock_ok" invisible="1"/>
+            </field>
+            <page name="inventory" position="attributes">
+                <attribute name="attrs">{'invisible':[('stock_ok','=',False)]}</attribute>
+            </page>
+        </field>
+    </record>
+
+<!--    <record id="product_category_custom_inherit" model="ir.ui.view">-->
+<!--        <field name="name">product.category.inherit.view.form</field>-->
+<!--        <field name="model">product.category</field>-->
+<!--        <field name="inherit_id" ref="product.product_category_form_view"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--&lt;!&ndash;            <xpath expr="//field[@name='service_id']" position="attributes">&ndash;&gt;-->
+<!--&lt;!&ndash;                <attribute name="invisible">True</attribute>&ndash;&gt;-->
+<!--&lt;!&ndash;            </xpath>&ndash;&gt;-->
+
+<!--            <xpath expr="//group[@name='first']/*" position="attributes">-->
+<!--                <attribute name="invisible">True</attribute>-->
+<!--            </xpath>-->
+
+<!--            <xpath expr="//field[@name='removal_strategy_id']" position="attributes">-->
+
+<!--                <attribute name="invisible">True</attribute>-->
+<!--            </xpath>-->
+
+
+<!--            <xpath expr="//field[@name='property_account_expense_categ_id']" position="attributes">-->
+<!--                <attribute name="required">True</attribute>-->
+<!--            </xpath>-->
+
+<!--            <xpath expr="//field[@name='property_stock_account_input_categ_id']" position="attributes">-->
+<!--                <attribute name="required">False</attribute>-->
+<!--            </xpath>-->
+
+<!--            <xpath expr="//field[@name='property_stock_account_output_categ_id']" position="attributes">-->
+<!--                <attribute name="required">False</attribute>-->
+<!--            </xpath>-->
+
+<!--            <xpath expr="//field[@name='property_stock_valuation_account_id']" position="attributes">-->
+<!--                <attribute name="required">False</attribute>-->
+<!--            </xpath>-->
+
+<!--            <xpath expr="//group[@name='account_property']" position="attributes">-->
+
+<!--                <attribute name="invisible">True</attribute>-->
+<!--            </xpath>-->
+
+<!--            <xpath expr="//field[@name='property_cost_method']" position="attributes">-->
+
+<!--                <attribute name="invisible">True</attribute>-->
+<!--            </xpath>-->
+<!--            <xpath expr="//field[@name='property_valuation']" position="attributes">-->
+
+<!--                <attribute name="invisible">True</attribute>-->
+<!--            </xpath>-->
+
+
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    <record id="product_category_form_view_custom" model="ir.ui.view">-->
+<!--        <field name="name">product.category.form</field>-->
+<!--        <field name="model">product.category</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <form class="oe_form_configuration">-->
+<!--                <sheet>-->
+<!--                    <div class="oe_button_box" name="button_box">-->
+<!--                        <button class="oe_stat_button" name="%(product.product_template_action_all)d" icon="fa-th-list"-->
+<!--                                type="action" context="{'search_default_categ_id': active_id}">-->
+<!--                            <div class="o_field_widget o_stat_info">-->
+<!--                                <span class="o_stat_value">-->
+<!--                                    <field name="product_count"/>-->
+<!--                                </span>-->
+<!--                                <span class="o_stat_text">Products</span>-->
+<!--                            </div>-->
+<!--                        </button>-->
+<!--                    </div>-->
+<!--                    <div class="oe_title">-->
+<!--                        <label for="name" string="Category name" class="oe_edit_only"/>-->
+<!--                        <h1>-->
+<!--                            <field name="name" placeholder="e.g. Lamps"/>-->
+<!--                        </h1>-->
+<!--                    </div>-->
+<!--                    <group name="account_property">-->
+<!--                        <group string="Account Properties" groups="account.group_account_user">-->
+<!--                            <field name="property_account_income_categ_id"-->
+<!--                                   domain="[('internal_type','=','other'),('deprecated', '=', False)]"/>-->
+<!--                            <field name="property_account_expense_categ_id" required="1"-->
+<!--                                   domain="[('internal_type','=','other'),('deprecated', '=', False)]"/>-->
+<!--                            <field name="parent_id"/>-->
+<!--                        </group>-->
+<!--                        &lt;!&ndash; <group name="account_stock_property" string="Account Stock Properties" groups="account.group_account_user">-->
+<!--                            <field name="property_stock_account_input_categ_id" domain="[('deprecated', '=', False)]" />-->
+<!--                            <field name="property_stock_account_output_categ_id" domain="[('deprecated', '=', False)]" />-->
+<!--                            <field name="property_stock_valuation_account_id" domain="[('deprecated', '=', False)]" />-->
+<!--                            <field name="property_stock_journal"/>-->
+<!--                        </group> &ndash;&gt;-->
+<!--                    </group>-->
+<!--                </sheet>-->
+<!--            </form>-->
+<!--        </field>-->
+<!--    </record>-->
+
+
+<!--    <record id="product.product_category_action_form" model="ir.actions.act_window">-->
+<!--        <field name="view_ids" eval="[(5, 0, 0),-->
+<!--                (0, 0, {'view_mode': 'tree', 'view_id': ref('product.product_category_list_view')}),-->
+<!--                (0, 0, {'view_mode': 'form', 'view_id': ref('product_category_form_view_custom')})]"/>-->
+<!--    </record>-->
+
+
+</odoo>
+ 

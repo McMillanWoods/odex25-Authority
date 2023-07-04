@@ -65,7 +65,7 @@
                     <label for="module_odex25_account_invoice_extract"/>
                 </label>
 
-                <div id="msg_invoice_extract" position="replace"/>
+                <div id="msg_invoice_extract"  position="replace"/>
 
                 <div id="monitor_product_margins" position="after">
                     <div class="col-12 col-lg-6 o_setting_box" id="exp_budget_check">

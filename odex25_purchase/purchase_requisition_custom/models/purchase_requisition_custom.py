@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
-
 from lxml import etree
-from odoo.exceptions import UserError, ValidationError
-from odoo import api, fields, models, _
-from odoo.tools.float_utils import float_is_zero
-from dateutil.relativedelta import relativedelta
 
+from odoo import api, fields, models, _
+from odoo.exceptions import UserError, ValidationError
+from odoo.tools.float_utils import float_is_zero
 
 
 class PurchaseRequisitionLineCustom(models.Model):
@@ -25,7 +23,6 @@ class PurchaseRequisitionLineCustom(models.Model):
 
 class PurchaseRequisitionCustom(models.Model):
     _inherit = 'purchase.requisition'
-
     # committee type
     committee_type_id = fields.Many2one('purchase.committee.type', string='Committee Type')
     state_blanket_order = fields.Selection(
@@ -43,7 +40,8 @@ class PurchaseRequisitionCustom(models.Model):
                        ('checked', 'Waiting Approval'),
                        ('approve', 'Approved'),
                        ('cancel', 'cancelled'),
-                       ])
+                       ]
+    )
 
     state = fields.Selection([
         ('draft', 'Draft'),
@@ -68,13 +66,8 @@ class PurchaseRequisitionCustom(models.Model):
         ('operational', 'Operational')
     ], default='operational')
     project_id = fields.Many2one('project.project', string='Project')
+    project_stage_id = fields.Many2one('project.phase', string='Project Stage')
     sent_to_commitee = fields.Boolean('Is Sent to Commitee?', default=False)
-
-    @api.onchange('type', 'project_id')
-    def _onchange_project_id(self):
-        if self.type != 'project':
-            self.project_id = False
-
     ordering_date = fields.Date(default=fields.Datetime.now)
     name = fields.Char(string='Agreement Reference', required=True, copy=False)
     department_id = fields.Many2one('hr.department')
@@ -92,66 +85,56 @@ class PurchaseRequisitionCustom(models.Model):
     purchase_cost = fields.Selection(
         [('department', 'Department'), ('default', 'Default Cost Center'), ('product_line', 'Product Line'),
          ('project', 'Project')],
-        string='Purchase Cost', default='department')
+        string='Purchase Cost')
     selected_purchase_id = fields.Many2one("purchase.order", compute="_compute_selected_purchase_order")
 
     is_purchase_budget = fields.Boolean(string="Is Purchase Budget", compute='_compute_purchase_budget')
 
-    type_id_test = fields.Many2one('purchase.requisition.type', string="Agreement Type", required=True)
-    Project_name = fields.Char(string='Project name')
-    Chair_number = fields.Char(string='Chair number')
-    agreement_data = fields.Date(string="Agreement data")
-    city_name = fields.Char(string="City")
-    department_id = fields.Many2one('hr.department')
-    days_count = fields.Char(   string='days_count',compute='_compute_days')
-    is_analytic = fields.Boolean("Use Analytic Account")
+    # duplicate purchase requisition
+    def copy(self, default=None):
+        data = super(PurchaseRequisitionCustom, self).copy(default)
+        data.sent_to_commitee = False
+        data.published_in_portal = False
+        data.publish_in_portal = False
+        data.availability_period = 0
+        data.po_notification = False
+        data.state = 'draft'
+        return data
 
+    @api.onchange('type', 'project_id')
+    def _onchange_project_id(self):
+        if self.type != 'project':
+            self.project_stage_id = False
+            self.project_id = False
 
+    @api.onchange('purchase_cost', 'type', 'line_ids', 'lines_ids.product_id', 'department_id')
+    def on_change_purchase_cost(self):
+        if self.purchase_cost == 'project':
+            self.type = 'project'
+        elif not self.purchase_cost == 'product_line':
+            self.type = 'operational'
 
-    # @api.onchange('purchase_cost', 'line_ids', 'lines_ids.product_id')
-    # def on_change_purchase_cost(self):
-    #     for line in self.line_ids:
-    #         if self.purchase_cost == 'department':
-    #             line.account_analytic_id = self.department_id.analytic_account_id
-    #             line.department_id = self.department_id.id
-    #         elif self.purchase_cost == 'default':
-    #             line.account_analytic_id = self.env.user.company_id.purchase_analytic_account
-    #         elif self.purchase_cost == 'project':
-    #             line.account_analytic_id = self.project_id.analytic_account_id
-
-    # @api.onchange('purchase_cost')
-    # def on_change_purchase_cost_value(self):
-    #     if self.purchase_cost == 'project':
-    #         self.type = 'project'
-    #         # get depertment when type project
-
-    @api.onchange('purchase_cost', 'line_ids', 'department_id')
-    def on_project_type_department(self):
         for line in self.line_ids:
-            if self.purchase_cost == 'project' and self.department_id:
+            if self.purchase_cost in ['project', 'department'] and self.department_id:
                 line.department_id = self.department_id
 
-    # @api.onchange('purchase_cost', 'type', 'line_ids', 'lines_ids.product_id')
-    # def change_product_line(self):
-    #     for line in self.line_ids:
-    #         if self.purchase_cost == 'product_line' and self.type == 'operational':
-    #             line.account_analytic_id = line.department_id.analytic_account_id
-    #         elif self.purchase_cost == 'product_line' and self.project_id:
-    #             line.account_analytic_id = self.project_id.analytic_account_id
+            if self.purchase_cost == 'product_line' and self.type == 'project':
+                line.account_analytic_id = self.project_id.analytic_account_id
+            elif self.purchase_cost == 'project' and self.type == 'project':
+                line.account_analytic_id = self.project_id.analytic_account_id
 
-    @api.onchange('department_id', 'line_ids', )
-    def change_department(self):
-        for line in self.line_ids:
-            if self.department_id and self.purchase_cost == 'department':
-                line.department_id = self.department_id
+            if self.purchase_cost == 'product_line' and self.type == 'operational':
+                line.account_analytic_id = line.department_id.analytic_account_id
+            elif self.purchase_cost == 'product_line' and self.project_id:
+                line.account_analytic_id = self.project_id.analytic_account_id
 
-    # @api.onchange('project_id', 'line_ids', )
-    # def change_project(self):
-    #     for line in self.line_ids:
-    #         if self.purchase_cost == 'product_line' and self.type == 'project':
-    #             line.account_analytic_id = self.project_id.analytic_account_id
-    #         elif self.purchase_cost == 'project' and self.type == 'project':
-    #             line.account_analytic_id = self.project_id.analytic_account_id
+            if self.purchase_cost == 'department':
+                line.account_analytic_id = self.department_id.analytic_account_id
+                line.department_id = self.department_id.id
+            elif self.purchase_cost == 'default':
+                line.account_analytic_id = self.env.user.company_id.purchase_analytic_account
+            elif self.purchase_cost == 'project':
+                line.account_analytic_id = self.project_id.analytic_account_id
 
     def _compute_purchase_budget(self):
         purchase_budget = self.env.company.purchase_budget
@@ -162,50 +145,28 @@ class PurchaseRequisitionCustom(models.Model):
                 rec.is_purchase_budget = False
 
     def action_skip_purchase_budget(self):
-        """ Skip purchase budget"""
+        """ Skip budget for requisition"""
         purchase_orders = self.env['purchase.order'].search([
             ('requisition_id', '=', self.id),
         ])
 
         for po_id in purchase_orders:
-            # Deal with double validation process
-            valid_amount = self.env.user.company_id.currency_id.compute(po_id.company_id.po_double_validation_amount,
-                                                                        po_id.currency_id)
-            # second_amount = self.env.user.company_id.currency_id.compute(po_id.company_id.second_approve, po_id.currency_id)
-            if po_id.company_id.po_double_validation == 'one_step' \
-                    or (po_id.company_id.po_double_validation == 'two_step' \
-                        and po_id.amount_total > valid_amount):
-                po_id.write({'state': 'to approve'})
-                self.write({
-                    'state': 'checked'
-                })
-            else:
-                if po_id.email_to_vendor:
-                    po_id.write({'state': 'sent'})
-                else:
-                    po_id.write({'state': 'draft'})
+            # Deal with double validation process if any
+            po_id.write({'state': 'to approve'})
+            self.write({
+                'state': 'checked'
+            })
 
-                po_id.write({'send_to_budget': False})
+    department_id = fields.Many2one('hr.department')
 
-                self.write({
-                    'state': 'approve'
-                })
-
-        # for order in self.purchase_ids.filtered(lambda x: x.state == 'sign'):
-        #     order.write({
-        #             'state': 'draft',
-        #         })
-
-        # self.write({
-        #         'state': 'approve'
-        #     })
-
-
-
-
+    days_count = fields.Char(
+        string='days_count',
+        compute='_compute_days'
+    )
+    change_state_line = fields.One2many('change.purchase.user.state', 'requisition_id')
 
     def _compute_days(self):
-        self.days_count = _("Unknown")
+        self.days_count = _("Unkown")
         for rec in self:
             if rec.schedule_date and rec.ordering_date:
                 schedule_date = fields.Date.from_string(rec.schedule_date)
@@ -301,7 +262,6 @@ class PurchaseRequisitionCustom(models.Model):
                 "default_department_name": self.department_id.id,
                 "default_category_ids": self.category_ids.ids,
                 "default_purpose": self.purpose,
-                # "default_purchase_cost":'product_line',
                 "default_state": 'draft',
                 "default_send_to_budget": True,
                 "default_request_id": self.request_id.id if self.request_id else False},
@@ -341,17 +301,30 @@ class PurchaseRequisitionCustom(models.Model):
             ('requisition_id', '=', self.id),
         ])
 
+        po_order_approval = self.env.company.po_double_validation == 'two_step'
+
         for po_id in purchase_orders:
-            # Deal with double validation process
+            # Deal with double validation process for first approve
             valid_amount = self.env.user.company_id.currency_id.compute(po_id.company_id.po_double_validation_amount,
                                                                         po_id.currency_id)
-            if po_id.company_id.po_double_validation == 'one_step' \
-                    or (po_id.company_id.po_double_validation == 'two_step' \
-                        and po_id.amount_total > valid_amount):
-                po_id.write({'state': 'to approve'})
-                self.write({
-                    'state': 'second_approve'
-                })
+            if po_order_approval:
+
+                if po_id.amount_total > valid_amount:
+                    po_id.write({'state': 'to approve'})
+                    self.write({
+                        'state': 'second_approve'
+                    })
+                else:
+                    if po_id.email_to_vendor:
+                        po_id.write({'state': 'sent'})
+                    else:
+                        po_id.write({'state': 'draft'})
+
+                    po_id.write({'send_to_budget': False})
+
+                    self.write({
+                        'state': 'approve'
+                    })
             else:
                 if po_id.email_to_vendor:
                     po_id.write({'state': 'sent'})
@@ -369,18 +342,30 @@ class PurchaseRequisitionCustom(models.Model):
             ('requisition_id', '=', self.id),
         ])
 
+        po_order_approval = self.env.company.po_double_validation == 'two_step'
+
         for po_id in purchase_orders:
-            # Deal with double validation process
+            # Deal with double validation process for second_approve
             valid_amount = self.env.user.company_id.currency_id.compute(po_id.company_id.second_approve,
                                                                         po_id.currency_id)
-            if po_id.company_id.po_double_validation == 'one_step' \
-                    or (po_id.company_id.po_double_validation == 'two_step' \
-                        and po_id.amount_total > valid_amount):
-                po_id.write({'state': 'to approve'})
-                self.write({
-                    'state': 'third_approve'
-                })
+            if po_order_approval:
 
+                if po_id.amount_total > valid_amount:
+                    po_id.write({'state': 'to approve'})
+                    self.write({
+                        'state': 'third_approve'
+                    })
+                else:
+                    if po_id.email_to_vendor:
+                        po_id.write({'state': 'sent'})
+                    else:
+                        po_id.write({'state': 'draft'})
+
+                    po_id.write({'send_to_budget': False})
+
+                    self.write({
+                        'state': 'approve'
+                    })
             else:
                 if po_id.email_to_vendor:
                     po_id.write({'state': 'sent'})
@@ -413,8 +398,15 @@ class PurchaseRequisitionCustom(models.Model):
     def set_line_account_and_dept(self, line):
         department_id = self.department_id
         analytic_account = False
-        if not self.is_analytic:
+        if self.purchase_cost == 'default':
+            analytic_account = self.env.user.company_id.purchase_analytic_account
+        elif self.purchase_cost == 'department':
             analytic_account = self.department_id.analytic_account_id
+        elif self.purchase_cost == 'project':
+            analytic_account = self.project_id.analytic_account_id
+        elif self.purchase_cost == 'product_line':
+            department_id = line.department_id
+            analytic_account = line.account_analytic_id
 
         if not line.department_id:
             line.update({
@@ -431,9 +423,13 @@ class PurchaseRequisitionCustom(models.Model):
         """
         if self.order_count == 0:
             raise ValidationError(_("Please create RFQ first"))
-        # Find all RFQs as sign
-        purchase_orders = self.env['purchase.order'].search([('requisition_id', '=', self.id),('state', '=', 'sign')])
 
+        # Find all RFQs as sign
+        purchase_orders = self.env['purchase.order'].search([
+            '&',
+            ('requisition_id', '=', self.id),
+            ('state', '=', 'sign'),
+        ])
 
         if len(purchase_orders) == 0:
             raise ValidationError(_("Please Sign your RFQs first"))
@@ -443,8 +439,19 @@ class PurchaseRequisitionCustom(models.Model):
 
         budget_confirmation_obj = self.env['budget.confirmation']
         analytic_account = None
+        product_line = False
         budget_lines = []
+        if self.purchase_cost == 'default':
+            analytic_account = self.env.user.company_id.purchase_analytic_account
+        elif self.purchase_cost == 'department':
+            analytic_account = self.department_id.analytic_account_id
 
+        elif self.purchase_cost == 'project':
+            if not self.project_id.analytic_account_id:
+                raise ValidationError(_("No analytic account for the project"))
+            analytic_account = self.project_id.analytic_account_id
+        elif self.purchase_cost == 'product_line':
+            product_line = True
 
         # if not analytic_account and not product_line:
         #     raise ValidationError(_("Please put cost center to the department"))
@@ -453,74 +460,75 @@ class PurchaseRequisitionCustom(models.Model):
         for order in purchase_orders:
             move_lines = []
             for rec in order.order_line:
-                analytic_account = rec.account_analytic_id
+                if rec.choosen:
+                    if product_line:
+                        analytic_account = rec.account_analytic_id
+                        if not analytic_account:
+                            raise ValidationError(
+                                _("Please put cost center to the product line") + ': {}'.format(rec.product_id.name))
 
-                if not analytic_account:
+                    if not (
+                            rec.product_id.property_account_expense_id.id and rec.product_id.property_account_expense_id.id or rec.product_id.categ_id.property_account_expense_categ_id.id):
                         raise ValidationError(
-                            _("Please put cost center to the product line") + ': {}'.format(rec.product_id.name))
+                            _("This product has no expense account") + ': {}'.format(rec.product_id.name))
 
-                if not (
-                        rec.product_id.property_account_expense_id.id and rec.product_id.property_account_expense_id.id or rec.product_id.categ_id.property_account_expense_categ_id.id):
-                    raise ValidationError(_("This product has no expense account") + ': {}'.format(rec.product_id.name))
+                    # Find Budget for line
+                    try:
+                        budget_lines = analytic_account.crossovered_budget_line.filtered(
+                            lambda x:
+                            x.crossovered_budget_id.state == 'done' and
+                            fields.Date.from_string(x.date_from) <= date and
+                            fields.Date.from_string(x.date_to) >= date)
+                    except Exception as e:
+                        budget_lines = None
 
-                # Find Budget for line
-                try:
-                    budget_lines = analytic_account.crossovered_budget_line.filtered(
-                        lambda x:
-                        x.crossovered_budget_id.state == 'done' and
-                        fields.Date.from_string(x.date_from) <= date and
-                        fields.Date.from_string(x.date_to) >= date)
-                except Exception as e:
-                    budget_lines = None
+                    if budget_lines:
+                        # Print reserve of budget_lines
+                        budget_line_id = budget_lines[0].id
+                        remain = budget_lines[0].remain
+                        new_balance = remain - rec.price_unit
+                        move_lines.append((0, 0, {
+                            'amount': rec.price_subtotal,
+                            'analytic_account_id': analytic_account.id,
+                            'description': rec.product_id.name,
+                            'budget_line_id': budget_line_id,
+                            'remain': remain,
+                            'new_balance': new_balance,
+                            'account_id': rec.product_id.property_account_expense_id.id and rec.product_id.property_account_expense_id.id or rec.product_id.categ_id.property_account_expense_categ_id.id
+                        }))
 
+                    else:
+                        raise ValidationError(
+                            _(''' No budget for this service ''') + ': {} - {}'.format(rec.product_id.name,
+                                                                                       analytic_account.name))
 
-                if budget_lines:
+            if move_lines:
+                data = {
+                    'name': self.name,
+                    'date': self.ordering_date,
+                    'beneficiary_id': order.partner_id.id,
+                    'department_id': self.department_id.id,
+                    'type': 'purchase.order',
+                    'ref': self.name,
+                    'description': self.purpose,
+                    'total_amount': order.amount_untaxed,
+                    'lines_ids': move_lines,
+                    'po_id': order.id,
+                }
+                budget_id = budget_confirmation_obj.create(data)
+                # Order to waiting
+                order.write({'state': 'waiting'})
+                # Send Notifications
+                subject = _('New Purchase Order')
+                message = _(
+                    "New Budget Confirmation Has Been Created for Purchase Order %s to Beneficiary %s in total %s" % (
+                        budget_id.name, budget_id.beneficiary_id.name, budget_id.total_amount))
+                group = 'purchase.group_purchase_manager'
+                author_id = self.env.user.partner_id.id or None
+                self.env.user.partner_id.send_notification_message(subject=subject, body=message, author_id=author_id,
+                                                                   group=group)
 
-                    # Print reserve of budget_lines
-                    budget_line_id = budget_lines[0].id
-                    remain = abs(budget_lines[0].remain)
-                    new_balance = remain - rec.price_unit
-                    move_lines.append((0, 0, {
-                        'amount': rec.price_subtotal,
-                        'analytic_account_id': analytic_account.id,
-                        'description': rec.product_id.name,
-                        'budget_line_id': budget_line_id,
-                        'remain': remain,
-                        'new_balance': new_balance,
-                        'account_id': rec.product_id.property_account_expense_id.id and rec.product_id.property_account_expense_id.id or rec.product_id.categ_id.property_account_expense_categ_id.id
-                    }))
-
-                else:
-                    raise ValidationError(
-                        _(''' No budget for this service ''') + ': {} - {}'.format(rec.product_id.name,
-                                                                                   analytic_account.name))
-
-            data = {
-                'name': self.name,
-                'date': self.ordering_date,
-                'beneficiary_id': order.partner_id.id,
-                'department_id': self.department_id.id,
-                'type': 'purchase.order',
-                'ref': self.name,
-                'description': self.purpose,
-                'total_amount': order.amount_untaxed,
-                'lines_ids': move_lines,
-                'po_id': order.id,
-            }
-            budget_id = budget_confirmation_obj.create(data)
-            # Order to wait
-            order.write({'state': 'waiting'})
-            # Send Notifications
-            subject = _('New Purchase Order')
-            message = _(
-                "New Budget Confirmation Has Been Created for Purchase Order %s to Beneficiary %s in total %s" % (
-                    budget_id.name, budget_id.beneficiary_id.name, budget_id.total_amount))
-            group = 'purchase.group_purchase_manager'
-            author_id = self.env.user.partner_id.id or None
-            self.env.user.partner_id.send_notification_message(subject=subject, body=message, author_id=author_id,
-                                                               group=group)
-
-        self.write({'state': 'waiting'})
+            self.write({'state': 'waiting'})
 
     def to_committee(self):
         orders = self.env['purchase.order'].search([
@@ -528,6 +536,22 @@ class PurchaseRequisitionCustom(models.Model):
         ])
         if not orders:
             raise ValidationError(_("Enter Quotations First!"))
+
+        # Send Notifications
+        smart_link_agreement = '<a href="#" data-oe-id="{}" data-oe-model="purchase.requisition">{}#{}</a>'.format(
+            self.id, self.name, self.id)
+        for po in orders:
+            smart_link_po = '<a href="#" data-oe-id="{}" data-oe-model="purchase.order">{}#{}</a>'.format(po.id,
+                                                                                                          po.name,
+                                                                                                          po.id)
+            subject = _('New Purchase Order') + " - {}".format(po.name)
+            message = _("This is Purchase Agreements, see here") + " {} .".format(
+                smart_link_agreement) + "To evaluate this Purchase Order, please click here" + " {} .".format(
+                smart_link_po)
+            author_id = self.env.user.partner_id.id or None
+            for member in self.committe_members:
+                member.partner_id.send_notification_message(subject=subject, body=message, author_id=author_id)
+
         self.write({
             'state': 'committee',
             'sent_to_commitee': True,
@@ -556,12 +580,12 @@ class PurchaseRequisitionCustom(models.Model):
             'state': 'done',
         })
 
-    # @api.onchange('committe_head')
-    # def on_change_com_head(self):
-    #     if self.committe_head:
-    #         self.committe_members = [self.committe_head.id]
-    #     if not self.committe_head:
-    #         self.committe_members = False
+    @api.onchange('committe_head')
+    def on_change_com_head(self):
+        if self.committe_head and not self.committee_type_id:
+            self.committe_members = [self.committe_head.id]
+        if not self.committe_head:
+            self.committe_members = False
 
     # @api.onchange('committee_type_id')
     # def on_change_com_head(self):
@@ -629,24 +653,23 @@ class StockPickingCustom(models.Model):
 class PurchaseOrderCustom(models.Model):
     _inherit = "purchase.order"
 
-    def copy(self, default=None):
-        data = super(PurchaseOrderCustom, self).copy(default)
-        data.state = 'draft'
-        return data
-
     state = fields.Selection([
-        ('wait', 'Waiting To Be Signed'),
-        ('unsign', 'UnSign'),
-        ('sign', 'Sign'),
-        ('waiting', 'Waiting For Budget Confirmation'),
-        ('draft', 'RFQ'),
-        ('sent', 'RFQ Sent'),
-        ('to approve', 'To Approve'),
-        ('purchase', 'Purchase Order'),
-        ('done', 'Locked'),
-        ('cancel', 'Cancelled'),
-        ('budget_rejected', 'Rejected By Budget'),
-        ('wait_for_send', 'Waiting For Send to Budget')])
+        ('wait', _('Waiting To Be Signed')),
+        ('unsign', _('UnSign')),
+        ('sign', _('Sign')),
+        ('waiting', _('Waiting For Budget Confirmation')),
+        ('draft', _('RFQ')),
+        ('sent', _('RFQ Sent')),
+        ('to approve', _('To Approve')),
+        ('purchase', _('Purchase Order')),
+        ('done', _('Locked')),
+        ('cancel', _('Cancelled')),
+        ('budget_rejected', _('Rejected By Budget')),
+        ('wait_for_send', _('Waiting For Send to Budget')),
+
+    ],
+        # inverse="_inverse_state"
+    )
     department_id = fields.Many2one('hr.department')  # related="requisition_id.department_id"
     purpose = fields.Char()  # related="requisition_id.purpose"
     category_ids = fields.Many2many('product.category', string='Categories')  # , related="requisition_id.category_ids"
@@ -662,126 +685,41 @@ class PurchaseOrderCustom(models.Model):
     state_of_delivery = fields.Char(string='Delivery State', compute="_compute_delviery_order")
     select = fields.Boolean(string="Select")
 
-    # New Added features on PO (related the cotract features)
-    auto_notification = fields.Boolean()
-    responsible_id = fields.Many2one('res.users')
-    notify_before = fields.Integer()
-    start_date = fields.Date()
-    end_date = fields.Date()
-    cron_end_date = fields.Date(compute="get_cron_end_date",store=True)
-    contract_name = fields.Char(srting='Contract Name')
-    period_type = fields.Selection(selection=[('day','Day(s)'),('week','Week(s)'),('month','Month(s)'),('year','Year(s)')])
-
-    type = fields.Selection(
-        selection=[
-            ('ordinary', 'Ordinary'),
-            ('contract', 'Contract'),
-        ],default='ordinary',string='Type',
-    )
-
     # New Added
+    budget_amount = fields.Float(string="Approved Budget")
+    # picking_type_id = fields.Many2one('stock.picking.type', string='Deliver To')
     email_to_vendor = fields.Boolean('Email Sent to Vendor?', default=False)
     send_to_budget = fields.Boolean('Sent to Budget?', default=False)
     # request_id = fields.Many2one('purchase.request', string="Request Source")
     project_id = fields.Many2one('project.project', string='Project',
                                  compute="_get_project_data",
                                  store=True)
-    # project_stage_id = fields.Many2one('project.phase', string='Project Stage',compute="_get_project_data",store=True)
+    project_stage_id = fields.Many2one('project.phase', string='Project Stage',
+                                       compute="_get_project_data",
+                                       store=True)
     is_purchase_budget = fields.Boolean(string="Is Purchase Budget", compute='_compute_budget')
-    confirmation_ids = fields.One2many('budget.confirmation', 'po_id')
-    
-    def _prepare_invoice(self):
-        res = super(PurchaseOrderCustom,self)._prepare_invoice()
-        res.update({'purchase_id': self.id})
-        return res
+    recommendation_order = fields.Boolean(string='Recommend')
+    parent_state = fields.Char(compute="_compute_parent_state",
+                               help="State of the parent purchase.requisition", compute_sudo=True)
+    purchase_commitee = fields.Boolean('Purchase Commitee?', compute="_compute_parent_state", compute_sudo=True)
 
-    @api.onchange('type')
-    def auto_type_change(self):
-        if self.type != 'contract':
-            self.auto_notification = False
-            self.responsible_id = False
-            self.notify_before = 0
-            self.start_date = None
-            self.end_date = None
-            self.contract_name = ''
-            self.period_type = ''
+    @api.depends('requisition_id')
+    def _compute_parent_state(self):
+        """ I use this function to compute state of requisition_id ,
+         cuse we need it in domain to make some buttons visible or not, also purchase_commitee"""
+        self.parent_state = False
+        self.purchase_commitee = False
+        for record in self.filtered('requisition_id'):
+            record.parent_state = record.requisition_id.state
+            record.purchase_commitee = record.requisition_id.purchase_commitee
 
-            return {}
-
-    @api.constrains('end_date','start_date', 'auto_notification')
-    def start_notify_constrain(self):
-        for rec in self:
-            if rec.start_date and rec.end_date:
-                if rec.start_date >= rec.end_date:
-                    raise ValidationError(_("Start Date Should Be Less Than End Date"))
-
-                if rec.auto_notification and rec.notify_before <1:
-                    raise ValidationError(_("Notify Before End Should Be Greater Than Zero"))
-    
-    @api.depends('end_date','notify_before','period_type')
-    def get_cron_end_date(self):
-        for rec in self:
-            if rec.end_date and rec.period_type:
-                end = fields.Datetime.from_string(rec.end_date)
-                type = self.period_type
-                date_to = False
-                if rec.period_type == 'day':
-                    date_to = (end + relativedelta(days=-rec.notify_before))
-                elif rec.period_type == 'month':
-                    date_to = (end + relativedelta(months=-rec.notify_before))
-                elif rec.period_type == 'week':
-                    date_to = (end + relativedelta(weeks=-rec.notify_before))
-                elif rec.period_type == 'year':
-                    date_to = (end + relativedelta(years=-rec.notify_before))
-                rec.cron_end_date = date_to
-
-    @api.model
-    def cron_po_auto_notify(self):
-        date = fields.Date.today()
-        records = self.env['purchase.order'].sudo().search([('state','not in',['cancel','done']),('cron_end_date','<=',str(date)),('auto_notification','=',True)])
-        for rec in records:
-            template = self.env.ref('purchase_requisition_custom.auto_po_notify')
-            template.send_mail(rec.id, force_send=True)
-
-    def open_convert_po_contract(self):
-        context = dict(self.env.context or {})
-        context['default_purchase_id'] = self.id
-        context['purchase_id'] = self.id
-
-        view = self.env.ref('purchase_requisition_custom.convert_to_contract_po_wizard')
-        wiz = self.env['convert.po.contract.wizard']
-        return {
-          'name': _('Purchase To Contract'),
-          'type': 'ir.actions.act_window',
-          'view_type': 'form',
-          'view_mode': 'form',
-          'res_model': 'convert.po.contract.wizard',
-          'views': [(view.id, 'form')],
-          'view_id': view.id,
-          'target': 'new',
-          'res_id': wiz.id,
-          'context': context,
-        }
-    # End features on PO (related the cotract features) 
-
-
-
-    def open_confirmation(self):
-        formview_ref = self.env.ref('account_budget_custom.view_budget_confirmation_form', False)
-        treeview_ref = self.env.ref('account_budget_custom.view_budget_confirmation_tree', False)
-        return {
-            'name': ("Budget  Confirmation"),
-            'view_mode': 'tree, form',
-            'view_id': False,
-            'view_type': 'form',
-            'res_model': 'budget.confirmation',
-            'type': 'ir.actions.act_window',
-            'target': 'current',
-            'domain': "[('id', 'in', %s)]" % self.confirmation_ids.ids,
-            'views': [(treeview_ref and treeview_ref.id or False, 'tree'),
-                      (formview_ref and formview_ref.id or False, 'form')],
-            'context': {'create': False}
-        }
+    @api.constrains('recommendation_order')
+    def check_recommendation_order(self):
+        recommended_po = self.env['purchase.order'].search([
+            ('requisition_id', '=', self.requisition_id.id), ('id', '!=', self.id), ('state', '!=', 'cancel'),
+            ('recommendation_order', '=', True)])
+        if recommended_po and self.recommendation_order:
+            raise ValidationError(_("sorry choose one recommended order"))
 
     # get account_analytic related to department in order line
     @api.onchange('order_line', 'order_line.product_id')
@@ -790,8 +728,57 @@ class PurchaseOrderCustom(models.Model):
             if not line.account_analytic_id and line.department_name:
                 line.account_analytic_id = line.department_name.analytic_account_id
 
-    def button_draft(self):
-        self.write({'state': 'draft'})
+    def copy(self, default=None):
+        data = super(PurchaseOrderCustom, self).copy(default)
+
+        data.email_to_vendor = False
+        purchase_budget = self.env.company.purchase_budget
+        if purchase_budget:
+            data.state = 'wait_for_send'
+        else:
+            data.state = 'draft'
+
+        return data
+
+    def action_button_draft(self):
+        purchase_budget = self.env.company.purchase_budget
+        if purchase_budget:
+            self.write({'state': 'wait_for_send', 'email_to_vendor': False})
+        else:
+            self.write({'state': 'draft', 'email_to_vendor': False})
+
+        return {}
+
+    def button_cancel(self):
+        budgets = self.env['budget.confirmation'].search([
+            ('po_id', '=', self.id),
+            ('state', '=', 'done'),
+        ])
+
+        for rec in budgets:
+            for line in rec.lines_ids:
+                budget_post = self.env['account.budget.post'].search([]).filtered(
+                    lambda x: line.account_id in x.account_ids)
+                analytic_account_id = line.analytic_account_id
+
+                budget_lines = analytic_account_id.crossovered_budget_line.filtered(
+                    lambda x: x.general_budget_id in budget_post and
+                              x.crossovered_budget_id.state == 'done' and
+                              x.date_from <= rec.date <= x.date_to)
+
+                # Revert reserve of budget_lines
+                amount = budget_lines.reserve
+                amount -= line.amount
+                budget_lines.write({'reserve': amount})
+
+        self.budget_amount = 0
+        super(PurchaseOrderCustom, self).button_cancel()
+
+    def action_sign_purchase_orders(self):
+        for rec in self:
+            if rec.state not in ['sign', 'purchase', 'to approve', 'sent', 'done', 'cancel', 'budget_rejected',
+                                 'wait_for_send', 'waiting']:
+                rec.action_sign()
 
     @api.model
     def fields_view_get(self, view_id=None, view_type='form', toolbar=False, submenu=False):
@@ -839,46 +826,34 @@ class PurchaseOrderCustom(models.Model):
         for rec in self:
             if rec.requisition_id and rec.requisition_id.state != 'approve':
                 raise ValidationError(_("Purchase agreement not approved"))
+
+            elif rec.send_to_budget is False and rec.state == 'to approve':
+                if rec.email_to_vendor:
+                    rec.write({'state': 'sent'})
+                else:
+                    rec.write({'state': 'draft'})
             else:
                 # You can Approve
-                for line in self.order_line:
-                    analytic_account_id = line.account_analytic_id
-                    budget_post = self.env['account.budget.post'].search([]).filtered(
-                        lambda
-                            x: line.product_id.property_account_expense_id.id and line.product_id.property_account_expense_id.id or line.product_id.categ_id.property_account_expense_categ_id.id in x.account_ids)
-                    budget_lines = analytic_account_id.crossovered_budget_line.filtered(
-                        lambda x:
-                        x.crossovered_budget_id.state == 'done' and
-                        fields.Date.from_string(x.date_from) <= fields.Date.from_string(
-                            self.date_order) <= fields.Date.from_string(x.date_to))
-                    budget_lines.write({'initial_reserve': abs((line.initial_amount) - budget_lines.initial_reserve)})
-
                 super(PurchaseOrderCustom, rec).button_approve()
 
     @api.constrains('state')
     def _state_on_change(self):
         for obj in self:
-            print("State is changed:", obj.state)
             if obj.state == 'sent':
-                # print("Email Sent to Vendor!")
                 obj.email_to_vendor = True
 
-            # if obj.state in ['draft', 'sent']:
-            #     print("Unlock Confirm!!")
-            #     obj.send_to_budget = False
-
-            # elif obj.requisition_id and obj.state not in ['draft', 'sent']:
-            #     obj.send_to_budget = True
-
-    @api.depends('requisition_id.project_id')
+    @api.depends('requisition_id.project_id', 'requisition_id.project_stage_id')
     def _get_project_data(self):
         for rec in self:
             if rec.requisition_id.project_id:
                 rec.project_id = rec.requisition_id.project_id.id
+            if rec.requisition_id.project_stage_id:
+                rec.project_stage_id = rec.requisition_id.project_stage_id.id
 
     def action_skip_budget(self):
         """ Skip purchase budget"""
         for po_id in self:
+            # po_id.requisition_id
             if po_id.state == 'wait_for_send':
                 # Deal with double validation process
                 valid_amount = self.env.user.company_id.currency_id.compute(
@@ -894,176 +869,168 @@ class PurchaseOrderCustom(models.Model):
                     else:
                         po_id.write({'state': 'draft'})
 
-                    po_id.write({'send_to_budget': False})
+                po_id.write({'send_to_budget': False})
 
-    # @api.model
-    # def _cumpute_discount_amount_all(self):
-    #     """
-    #     Compute the total amounts of the SO.
-    #     """
-    #     tax_discount_policy = self.env['ir.config_parameter'].sudo().get_param(
-    #         'odex25_global_discount.tax_discount_policy')
-    #     for order in self:
-    #         print("KKKKKKKKKKKKKKKKKKKKKK", order.discount_type, order.discount_amount)
-    #         applied_discount = line_discount = sums = amount_untaxed = amount_tax = 0.0
-    #         for line in order.order_line:
-    #             amount_untaxed += line.price_subtotal
-    #             amount_tax += line.price_tax
-    #             applied_discount += line.discount_amt
-    #             if line.discount_method == 'fix':
-    #                 line_discount += line.discount_amount
-    #             elif line.discount_method == 'per':
-    #                 line_discount += (line.price_subtotal+line.price_tax) * (line.discount_amount / 100)
-    #         order.is_global_discount = False
-    #         if tax_discount_policy:
-    #             if tax_discount_policy == 'tax':
-    #                 if order.discount_type == 'line':
-    #                     order.discount_amt = 0.00
-    #                     order.update({
-    #                         'amount_untaxed': amount_untaxed,
-    #                         'amount_tax': amount_tax,
-    #                         'amount_total': amount_untaxed + amount_tax - line_discount,
-    #                         'discount_amt_line': line_discount,
-    #                     })
-    #                 elif order.discount_type == 'global':
-    #                     order.is_global_discount = True
-    #                     print("ggggggggggggggggggggggg", order.discount_type, order.discount_amount)
-    #                     order.discount_amt_line = 0.00
-    #                     if order.discount_method == 'per':
-    #                         order_discount = (amount_untaxed+amount_tax) * (order.discount_amount / 100)
-    #                         order.update({
-    #                             'amount_untaxed': amount_untaxed,
-    #                             'amount_tax': amount_tax,
-    #                             'amount_total': amount_untaxed + amount_tax - order_discount,
-    #                             'discount_amt': order_discount,
-    #                         })
-    #                     elif order.discount_method == 'fix':
-    #                         order_discount = order.discount_amount
-    #                         order.update({
-    #                             'amount_untaxed': amount_untaxed,
-    #                             'amount_tax': amount_tax,
-    #                             'amount_total': amount_untaxed + amount_tax - order_discount,
-    #                             'discount_amt': order_discount,
-    #                         })
-    #                     else:
-    #                         order.update({
-    #                             'amount_untaxed': amount_untaxed,
-    #                             'amount_tax': amount_tax,
-    #                             'amount_total': amount_untaxed + amount_tax,
-    #                         })
-    #                 else:
-    #                     order.update({
-    #                         'amount_untaxed': amount_untaxed,
-    #                         'amount_tax': amount_tax,
-    #                         'amount_total': amount_untaxed + amount_tax,
-    #                     })
-    #             elif tax_discount_policy == 'untax':
-    #                 if order.discount_type == 'line':
-    #                     order.discount_amt = 0.00
-    #                     for line in order.order_line:
-    #                         if line.discount_method == 'fix' and line.taxes_id.price_include == True:
-    #                             price_amount = amount_untaxed - line.discount_amount
-    #                             taxes = line.taxes_id.compute_all(price_amount, line.order_id.currency_id, 1,
-    #                                                               product=line.product_id, partner=order.partner_id)
-    #                             sums += sum(t.get('amount', 0.0) for t in taxes.get('taxes', []))
-    #                         elif line.discount_method == 'per' and line.taxes_id.price_include == True:
-    #                             price_amount = line.price_subtotal - (
-    #                                         (line.discount_amount * line.price_subtotal) / 100.0)
-    #                             taxes = line.taxes_id.compute_all(price_amount, line.order_id.currency_id, 1,
-    #                                                               product=line.product_id, partner=order.partner_id)
-    #                             sums += sum(t.get('amount', 0.0) for t in taxes.get('taxes', []))
-    #                         elif line.discount_method == 'fix' and not line.taxes_id.price_include == True:
-    #                             sums = amount_tax
-    #                         elif line.discount_method == 'per' and not line.taxes_id.price_include == True:
-    #                             sums = amount_tax
-    #                     order.update({
-    #                         'amount_untaxed': amount_untaxed,
-    #                         'amount_tax': sums,
-    #                         'amount_total': amount_untaxed + sums - applied_discount,
-    #                         'discount_amt_line': applied_discount,
-    #                     })
-    #                 elif order.discount_type == 'global':
-    #                     order.discount_amt_line = 0.00
-    #                     if order.discount_method == 'per':
-    #                         order_discount = amount_untaxed * (order.discount_amount / 100)
-    #                         if order.order_line:
-    #                             for line in order.order_line:
-    #                                 if line.taxes_id:
-    #                                     final_discount = 0.0
-    #                                     try:
-    #                                         final_discount = ((order.discount_amount * line.price_subtotal) / 100.0)
-    #                                     except ZeroDivisionError:
-    #                                         pass
-    #                                     discount = line.price_subtotal - final_discount
-    #                                     taxes = line.taxes_id.compute_all(discount, \
-    #                                                                       order.currency_id, 1.0,
-    #                                                                       product=line.product_id, \
-    #                                                                       partner=order.partner_id)
-    #                                     sums += sum(t.get('amount', 0.0) for t in taxes.get('taxes', []))
-    #                         order.update({
-    #                             'amount_untaxed': amount_untaxed,
-    #                             'amount_tax': sums,
-    #                             'amount_total': amount_untaxed + sums - order_discount,
-    #                             'discount_amt': order_discount,
-    #                         })
-    #                     elif order.discount_method == 'fix':
-    #                         order_discount = order.discount_amount
-    #                         if order.order_line:
-    #                             for line in order.order_line:
-    #                                 if line.taxes_id:
-    #                                     final_discount = 0.0
-    #                                     try:
-    #                                         final_discount = (
-    #                                                     (order.discount_amount * line.price_subtotal) / amount_untaxed)
-    #                                     except ZeroDivisionError:
-    #                                         pass
-    #                                     discount = line.price_subtotal - final_discount
-    #                                     taxes = line.taxes_id.compute_all(discount, \
-    #                                                                       order.currency_id, 1.0,
-    #                                                                       product=line.product_id, \
-    #                                                                       partner=order.partner_id)
-    #                                     sums += sum(t.get('amount', 0.0) for t in taxes.get('taxes', []))
-    #                         order.update({
-    #                             'amount_untaxed': amount_untaxed,
-    #                             'amount_tax': sums,
-    #                             'amount_total': amount_untaxed + sums - order_discount,
-    #                             'discount_amt': order_discount,
-    #                         })
-    #                     else:
-    #                         order.update({
-    #                             'amount_untaxed': amount_untaxed,
-    #                             'amount_tax': amount_tax,
-    #                             'amount_total': amount_untaxed + amount_tax,
-    #                         })
-    #                 else:
-    #                     order.update({
-    #                         'amount_untaxed': amount_untaxed,
-    #                         'amount_tax': amount_tax,
-    #                         'amount_total': amount_untaxed + amount_tax,
-    #                     })
-    #             else:
-    #                 order.update({
-    #                     'amount_untaxed': amount_untaxed,
-    #                     'amount_tax': amount_tax,
-    #                     'amount_total': amount_untaxed + amount_tax,
-    #                 })
-    #         else:
-    #             order.update({
-    #                 'amount_untaxed': amount_untaxed,
-    #                 'amount_tax': amount_tax,
-    #                 'amount_total': amount_untaxed + amount_tax,
-    #             })
+    @api.model
+    def _cumpute_discount_amount_all(self):
+        """
+        Compute the total amounts of the SO.
+        """
+        tax_discount_policy = self.env['ir.config_parameter'].sudo().get_param(
+            'odex25_global_discount.tax_discount_policy')
+        for order in self:
+            applied_discount = line_discount = sums = amount_untaxed = amount_tax = 0.0
+            for line in order.order_line:
+                amount_untaxed += line.price_subtotal
+                amount_tax += line.price_tax
+                applied_discount += line.discount_amt
+                if line.discount_method == 'fix':
+                    line_discount += line.discount_amount
+                elif line.discount_method == 'per':
+                    line_discount += (line.price_subtotal + line.price_tax) * (line.discount_amount / 100)
+            if tax_discount_policy:
+                if tax_discount_policy == 'tax':
+                    if order.discount_type == 'line':
+                        order.discount_amt = 0.00
+                        order.update({
+                            'amount_untaxed': amount_untaxed,
+                            'amount_tax': amount_tax,
+                            'amount_total': amount_untaxed + amount_tax - line_discount,
+                            'discount_amt_line': line_discount,
+                        })
+                    elif order.discount_type == 'global':
+                        order.discount_amt_line = 0.00
+                        if order.discount_method == 'per':
+                            order_discount = (amount_untaxed + amount_tax) * (order.discount_amount / 100)
+                            order.update({
+                                'amount_untaxed': amount_untaxed,
+                                'amount_tax': amount_tax,
+                                'amount_total': amount_untaxed + amount_tax - order_discount,
+                                'discount_amt': order_discount,
+                            })
+                        elif order.discount_method == 'fix':
+                            order_discount = order.discount_amount
+                            order.update({
+                                'amount_untaxed': amount_untaxed,
+                                'amount_tax': amount_tax,
+                                'amount_total': amount_untaxed + amount_tax - order_discount,
+                                'discount_amt': order_discount,
+                            })
+                        else:
+                            order.update({
+                                'amount_untaxed': amount_untaxed,
+                                'amount_tax': amount_tax,
+                                'amount_total': amount_untaxed + amount_tax,
+                            })
+                    else:
+                        order.update({
+                            'amount_untaxed': amount_untaxed,
+                            'amount_tax': amount_tax,
+                            'amount_total': amount_untaxed + amount_tax,
+                        })
+                elif tax_discount_policy == 'untax':
+                    if order.discount_type == 'line':
+                        order.discount_amt = 0.00
+                        for line in order.order_line:
+                            if line.discount_method == 'fix' and line.taxes_id.price_include == True:
+                                price_amount = amount_untaxed - line.discount_amount
+                                taxes = line.taxes_id.compute_all(price_amount, line.order_id.currency_id, 1,
+                                                                  product=line.product_id, partner=order.partner_id)
+                                sums += sum(t.get('amount', 0.0) for t in taxes.get('taxes', []))
+                            elif line.discount_method == 'per' and line.taxes_id.price_include == True:
+                                price_amount = line.price_subtotal - (
+                                        (line.discount_amount * line.price_subtotal) / 100.0)
+                                taxes = line.taxes_id.compute_all(price_amount, line.order_id.currency_id, 1,
+                                                                  product=line.product_id, partner=order.partner_id)
+                                sums += sum(t.get('amount', 0.0) for t in taxes.get('taxes', []))
+                            elif line.discount_method == 'fix' and not line.taxes_id.price_include == True:
+                                sums = amount_tax
+                            elif line.discount_method == 'per' and not line.taxes_id.price_include == True:
+                                sums = amount_tax
+                        order.update({
+                            'amount_untaxed': amount_untaxed,
+                            'amount_tax': sums,
+                            'amount_total': amount_untaxed + sums - applied_discount,
+                            'discount_amt_line': applied_discount,
+                        })
+                    elif order.discount_type == 'global':
+                        order.discount_amt_line = 0.00
+                        if order.discount_method == 'per':
+                            order_discount = amount_untaxed * (order.discount_amount / 100)
+                            if order.order_line:
+                                for line in order.order_line:
+                                    if line.taxes_id:
+                                        final_discount = 0.0
+                                        try:
+                                            final_discount = ((order.discount_amount * line.price_subtotal) / 100.0)
+                                        except ZeroDivisionError:
+                                            pass
+                                        discount = line.price_subtotal - final_discount
+                                        taxes = line.taxes_id.compute_all(discount, \
+                                                                          order.currency_id, 1.0,
+                                                                          product=line.product_id, \
+                                                                          partner=order.partner_id)
+                                        sums += sum(t.get('amount', 0.0) for t in taxes.get('taxes', []))
+                            order.update({
+                                'amount_untaxed': amount_untaxed,
+                                'amount_tax': sums,
+                                'amount_total': amount_untaxed + sums - order_discount,
+                                'discount_amt': order_discount,
+                            })
+                        elif order.discount_method == 'fix':
+                            order_discount = order.discount_amount
+                            if order.order_line:
+                                for line in order.order_line:
+                                    if line.taxes_id:
+                                        final_discount = 0.0
+                                        try:
+                                            final_discount = (
+                                                    (order.discount_amount * line.price_subtotal) / amount_untaxed)
+                                        except ZeroDivisionError:
+                                            pass
+                                        discount = line.price_subtotal - final_discount
+                                        taxes = line.taxes_id.compute_all(discount, \
+                                                                          order.currency_id, 1.0,
+                                                                          product=line.product_id, \
+                                                                          partner=order.partner_id)
+                                        sums += sum(t.get('amount', 0.0) for t in taxes.get('taxes', []))
+                            order.update({
+                                'amount_untaxed': amount_untaxed,
+                                'amount_tax': sums,
+                                'amount_total': amount_untaxed + sums - order_discount,
+                                'discount_amt': order_discount,
+                            })
+                        else:
+                            order.update({
+                                'amount_untaxed': amount_untaxed,
+                                'amount_tax': amount_tax,
+                                'amount_total': amount_untaxed + amount_tax,
+                            })
+                    else:
+                        order.update({
+                            'amount_untaxed': amount_untaxed,
+                            'amount_tax': amount_tax,
+                            'amount_total': amount_untaxed + amount_tax,
+                        })
+                else:
+                    order.update({
+                        'amount_untaxed': amount_untaxed,
+                        'amount_tax': amount_tax,
+                        'amount_total': amount_untaxed + amount_tax,
+                    })
+            else:
+                order.update({
+                    'amount_untaxed': amount_untaxed,
+                    'amount_tax': amount_tax,
+                    'amount_total': amount_untaxed + amount_tax,
+                })
 
-    # @api.depends('order_line', 'order_line.price_total', 'order_line.price_subtotal', \
-    #              'order_line.product_qty', 'discount_amount', \
-    #              'discount_method', 'discount_type', 'order_line.discount_amount', \
-    #              'order_line.discount_method')
-    # def _compute_all_global_discount(self):
-    #     self._cumpute_discount_amount_all()
-
-    # def _compute_is_global_discount(self):
-    #     for rec in self:
-    #         rec._cumpute_discount_amount_all()
+    @api.onchange('order_line', 'order_line.price_total', 'order_line.price_subtotal', \
+                  'order_line.product_qty', 'discount_amount', \
+                  'discount_method', 'discount_type', 'order_line.discount_amount', \
+                  'order_line.discount_method')
+    def _compute_all_global_discount(self):
+        self._cumpute_discount_amount_all()
 
     # @api.depends('name')
     def _compute_delviery_order(self):
@@ -1188,11 +1155,11 @@ class PurchaseOrderCustom(models.Model):
         """
         # if not self.selection_reason:
         #     raise ValidationError(_("please Add Specify the selection reason"))
-        if self.requisition_id.purchase_commitee and self.requisition_id.actual_vote < self.requisition_id.min_vote:
-            raise ValidationError(_("Sorry The minimum number of committee member is not satsfied"))
-        if self.requisition_id.purchase_commitee and self.no_of_approve < self.requisition_id.min_approve:
-            raise ValidationError(
-                _("Sorry You cannot sign this quotation ,YOU NEED MORE COMMITTE MEMBERS TO choose it"))
+        # if self.requisition_id.purchase_commitee and self.requisition_id.actual_vote < self.requisition_id.min_vote:
+        #     raise ValidationError(_("Sorry The minimum number of committee member is not satsfied"))
+        # if self.requisition_id.purchase_commitee and self.no_of_approve < self.requisition_id.min_approve:
+        #     raise ValidationError(
+        #         _("Sorry You cannot sign this quotation ,YOU NEED MORE COMMITTE MEMBERS TO choose it"))
         if len(self.order_line.filtered(lambda line: line.choosen == True)) <= 0:
             raise ValidationError(_('Choose At Least on product to purchase'))
         if self.requisition_id.type_id.exclusive == 'exclusive':
@@ -1258,59 +1225,61 @@ class PurchaseOrderCustom(models.Model):
         }
 
     def action_budget(self):
+        remain = None
+        new_balance = None
         analytic_account = False
         confirmation_lines = []
         product_line = False
-        amount = 0
 
-        # if self.purchase_cost == 'default':
-        #     analytic_account = self.env.user.company_id.purchase_analytic_account
-        # elif self.purchase_cost == 'department':
-        #     analytic_account = self.department_id.analytic_account_id
-        #
-        # elif self.purchase_cost == 'project':
-        #     if not self.project_id.analytic_account_id:
-        #         raise ValidationError(_("No analytic account for the project"))
-        #     analytic_account = self.project_id.analytic_account_id
-        #
-        # elif self.purchase_cost == 'product_line':
-        #     product_line = True
+        if self.purchase_cost == 'default':
+            analytic_account = self.env.user.company_id.purchase_analytic_account
+        elif self.purchase_cost == 'department':
+            analytic_account = self.department_id.analytic_account_id
 
-        for rec in self.order_line:
-            if product_line:
-                analytic_account = rec.account_analytic_id
-                if not analytic_account:
-                    raise ValidationError(
-                        _("Please put cost center to the product line") + ': {}'.format(rec.product_id.name))
+        elif self.purchase_cost == 'project':
+            if not self.project_id.analytic_account_id:
+                raise ValidationError(_("No analytic account for the project"))
+            analytic_account = self.project_id.analytic_account_id
 
-            if not (rec.product_id.property_account_expense_id.id and rec.product_id.property_account_expense_id.id or
-                    rec.product_id.categ_id.property_account_expense_categ_id.id):
-                raise ValidationError(_("This product has no expense account") + ': {}'.format(rec.product_id.name))
+        elif self.purchase_cost == 'product_line':
+            product_line = True
 
-            budget_lines = analytic_account.crossovered_budget_line.filtered(
-                lambda x:
-                x.crossovered_budget_id.state == 'done' and
-                fields.Date.from_string(x.date_from) <= fields.Date.from_string(
-                    self.date_order) <= fields.Date.from_string(x.date_to))
+        for order in self:
+            for rec in order.order_line:
+                if rec.choosen:
+                    if product_line:
+                        analytic_account = rec.account_analytic_id
+                        if not analytic_account:
+                            raise ValidationError(
+                                _("Please put cost center to the product line") + ': {}'.format(rec.product_id.name))
 
-            if budget_lines:
-                remain = abs(budget_lines[0].remain)
-                amount = amount + (rec.price_subtotal + rec.price_tax)
-                new_remain = remain - amount
-                confirmation_lines.append((0, 0, {
-                    'initial_amount': rec.initial_amount,
-                    'amount': rec.price_subtotal + rec.price_tax,
-                    'analytic_account_id': analytic_account.id,
-                    'description': rec.product_id.name,
-                    'budget_line_id': budget_lines[0].id,
-                    'remain': new_remain + (rec.price_subtotal + rec.price_tax),
-                    'new_balance': new_remain + rec.initial_amount,
-                    'account_id': rec.product_id.property_account_expense_id.id and rec.product_id.property_account_expense_id.id or rec.product_id.categ_id.property_account_expense_categ_id.id
-                }))
-            else:
-                raise ValidationError(
-                    _(''' No budget for this service ''') + ': {} - {}'.format(rec.product_id.name,
-                                                                               analytic_account.name))
+                    if not (
+                            rec.product_id.property_account_expense_id.id and rec.product_id.property_account_expense_id.id or rec.product_id.categ_id.property_account_expense_categ_id.id):
+                        raise ValidationError(
+                            _("This product has no expense account") + ': {}'.format(rec.product_id.name))
+
+                    budget_lines = analytic_account.crossovered_budget_line.filtered(
+                        lambda x:
+                        x.crossovered_budget_id.state == 'done' and
+                        fields.Date.from_string(x.date_from) <= fields.Date.from_string(self.date_order) and
+                        fields.Date.from_string(x.date_to) >= fields.Date.from_string(self.date_order))
+
+                    if budget_lines:
+                        remain = budget_lines[0].remain
+                        new_balance = remain - rec.price_subtotal
+                        confirmation_lines.append((0, 0, {
+                            'amount': rec.price_subtotal,
+                            'analytic_account_id': analytic_account.id,
+                            'description': rec.product_id.name,
+                            'budget_line_id': budget_lines[0].id,
+                            'remain': remain,
+                            'new_balance': new_balance,
+                            'account_id': rec.product_id.property_account_expense_id.id and rec.product_id.property_account_expense_id.id or rec.product_id.categ_id.property_account_expense_categ_id.id
+                        }))
+                    else:
+                        raise ValidationError(
+                            _(''' No budget for this service ''') + ': {} - {}'.format(rec.product_id.name,
+                                                                                       analytic_account.name))
 
         # Create budget.confirmation
         if confirmation_lines:
@@ -1343,7 +1312,7 @@ class PurchaseOrderCustom(models.Model):
                                                                group=group)
 
         else:
-            raise ValidationError(_("No confirmation lines"))
+            raise ValidationError(_("No confirmaytion lines"))
 
     def budget_resend(self):
         self.action_budget()
@@ -1503,33 +1472,6 @@ class Attachment(models.Model):
 class AccountInvoice(models.Model):
     _inherit = "account.move"
 
-    purchase_id = fields.Many2one('purchase.order', store=True, readonly=False,force_save=True)
-
-
-    # def get_confirmation(self):
-    #     purchase_line_ids = self.invoice_line_ids.mapped('purchase_line_id').mapped('order_id')
-    #     requisition_no = purchase_line_ids.mapped('requisition_id').mapped('name')
-    #     return self.env['budget.confirmation'].search([('ref', 'in', requisition_no)])
-
-    # def action_invoice_open(self):
-    #     res = super(AccountInvoice, self).action_invoice_open()
-    #     budget_confirmation = self.get_confirmation()
-    #     if budget_confirmation:
-    #         budget_confirmation.write({'state': 'invoice_validated'})
-    #     return res
-
-    ''' why Did we do this???????'''
-    # def action_invoice_cancel(self):
-    #     res = super(AccountInvoice, self).action_invoice_cancel()
-    #     budget_confirmation = self.get_confirmation()
-    #     if budget_confirmation:
-    #         budget_confirmation.cancel()
-    #     return res
-
-    '''
-        get only chosen lines to purchase
-    '''
-
     @api.onchange('purchase_id')
     def purchase_order_change(self):
         if not self.purchase_id:
@@ -1556,14 +1498,7 @@ class AccountInvoice(models.Model):
         self.purchase_id = False
         return {}
 
-    def action_post(self):
-        res = super(AccountInvoice,self).action_post()
-        if self.purchase_id and self.purchase_id.confirmation_ids:
-            for r in self.purchase_id.confirmation_ids:
-                r.confirm_invoice = True
-                for l in r.lines_ids:
-                    r.get_confirm_reserve(l.budget_line_id)
-        return res
+
 class RejectWizard(models.TransientModel):
     _name = 'reject.wizard'
     _description = 'reject.wizard'
@@ -1578,3 +1513,34 @@ class RejectWizard(models.TransientModel):
             raise ValidationError(_('Sorry This object have no field named Selection Reasoon'))
         else:
             return origin_rec.with_context({'reject_reason': self.reject_reason}).cancel()
+
+
+class RejectWizard(models.Model):
+    _name = 'change.purchase.user.state'
+
+    state = fields.Selection([
+        ('draft', 'Draft'),
+        ('in_progress', 'Confirmed'),
+        ('committee', 'Committee'),
+        ('purchase_manager', 'Purchase manager'),
+        ('second_approve', 'Second Approval'),
+        ('legal_counsel', 'Legal Counsel'),
+        ('third_approve', 'Third Approval'),
+        ('finance approve', 'Financial Approval'),
+        ('cs approve', 'Common Services Approval'),
+        # ('legal counsel', _('Legal Counsel')),
+        ('general supervisor', 'General Supervisor Approval'),
+        ('accept', 'Accepted'),
+        ('open', 'Bid Selection'),
+        ('waiting', 'Waiting For Budget Confirmation'),
+        ('checked', 'Waiting Approval'),
+        ('done', 'Done'),
+        ('quality', 'Quality'),
+        ('user_approve', 'User Approve'),
+        ('refuse', 'Refused'),
+        ('approve', 'Approved'),
+        ('cancel', 'cancelled'),
+    ],
+    )
+    # user_id = fields.Many2one('res.users', "Auther Name")
+    requisition_id = fields.Many2one('purchase.requisition', "Requisition")

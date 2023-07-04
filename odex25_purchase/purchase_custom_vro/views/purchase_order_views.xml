@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- override report from purchase and add menu false -->
+        <record id="purchase.report_purchase_quotation" model="ir.actions.report">
+            <field name="binding_model_id" eval="False"/>
+        </record>
+
+        <record id="purchase.action_report_purchase_order" model="ir.actions.report">
+            <field name="binding_model_id" eval="False"/>
+        </record>
+
+
+        <!-- Inherit the Purchase Request form -->
+        <record id="purchase_order_form_view_inherit" model="ir.ui.view">
+            <field name="name">purchase.order.form.view.inherit</field>
+            <field name="model">purchase.order</field>
+            <field eval="101" name="priority"/>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <button name="button_confirm" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </button>
+                <xpath expr="//button[@name='print_quotation']" position="replace">
+                    <button name="print_order_sample" string="Print Order Sample" type="object" states="purchase"
+                            class="oe_highlight" groups="purchase_custom_vro.group_purchase_order_process"/>
+                </xpath>
+
+                <xpath expr="//field[@name='order_line']/tree[1]" position="attributes">
+                    <attribute name="create">false</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree[1]/field[@name='price_subtotal']" position="after">
+                    <field name="requisition_line_id" invisible="1" force_save="1"/>
+                </xpath>
+
+
+                <xpath expr="//button[@name='action_rfq_send'][1]" position="attributes">
+                    <attribute name="groups">purchase_custom_vro.group_purchase_order_process</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_rfq_send'][2]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_rfq_send'][3]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//button[@name='button_done']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//button[@name='print_quotation']" position="attributes">
+                    <attribute name="groups">purchase_custom_vro.group_purchase_order_process</attribute>
+                </xpath>
+                <xpath expr="//button[@name='button_confirm']" position="attributes">
+                    <attribute name="groups">purchase_custom_vro.group_purchase_order_process</attribute>
+                </xpath>
+                <!--                <xpath expr="//button[@name='action_confirm']" position="attributes">-->
+                <!--                    <attribute name="groups">purchase_custom_vro.group_purchase_order_process</attribute>-->
+                <!--                </xpath>-->
+
+                <!-- <xpath expr="//button[@name='action_cancel']" position="attributes">
+                    <attribute name="groups">purchase_custom_vro.group_purchase_order_process</attribute>
+                </xpath> -->
+                <xpath expr="//button[@name='button_done']" position="attributes">
+                    <attribute name="groups">purchase_custom_vro.group_purchase_order_process</attribute>
+                </xpath>
+
+
+                <xpath expr="//button[@name='button_confirm']" position="attributes">
+                    <attribute name="attrs">
+                        {'invisible':[('state', 'in', ('draft','sent','to approve')),('invoice_ids','=',[])]}
+                    </attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_view_picking']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//div[@class='oe_button_box']/button[@name='action_view_picking']" position="attributes">
+                    <attribute name="groups">purchase_custom_vro.group_purchase_order_shipment_button
+                    </attribute>
+                </xpath>
+
+                <xpath expr="//button[@name='button_confirm']" position="before">
+                    <button name="action_cancel" type="object" string="Cancel Order"
+                            attrs="{'invisible': [('state', '!=', 'draft')]}"
+                            groups="purchase_custom_vro.group_purchase_lock_cancel"/>
+                </xpath>
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <field name="request_id" invisible="1"/>
+                    <field name="state" invisible="1"/>
+                    <button name="action_view_purchase_request"
+                            type="object" class="oe_stat_button" icon="fa-file"
+                            attrs="{'invisible': [('request_id', '=', False)]}">
+                        PR
+                    </button>
+                </xpath>
+                <xpath expr="//field[@name='date_order']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </xpath>
+                <field name="purpose" position="after">
+
+                    <!--                    <field name="purchase_commitee" invisible="1"/>-->
+                    <!--                    <field name="parent_state" invisible="1"/>-->
+                    <field name="product_type"
+                           attrs="{'readonly':[('state','in',['done','cancel','waiting'])]}"
+                           required="1"/>
+
+                </field>
+
+
+                <!-- <xpath expr="//button[@name='action_view_invoice']" position="attributes">
+                    <attribute name="attrs">
+                        {'invisible':['|','&amp;',('state', 'in', ('draft','sent','to approve')),('invoice_ids','=',[]),
+                        '&amp;',('product_type','=','service'),('type','=','contract')]}
+                    </attribute>
+                </xpath> -->
+
+            </field>
+        </record>
+
+        <record id="requistion_purchase_order_tree" model="ir.ui.view">
+            <field name="name">purchase.order.tree</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_tree"/>
+            <field name="mode">primary</field>
+            <field name="priority" eval="3"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="create">false</attribute>
+                    <attribute name="edit">false</attribute>
+                    <attribute name="delete">false</attribute>
+                </xpath>
+
+            </field>
+        </record>
+        <record id="requistion_purchase_order_form" model="ir.ui.view">
+            <field name="name">purchase.order.form</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <!--            <field name="mode">primary</field>-->
+            <field name="priority" eval="20"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form" position="attributes">
+                    <attribute name="create">false</attribute>
+                    <attribute name="edit">false</attribute>
+                    <attribute name="delete">false</attribute>
+                </xpath>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_purchase_requisition_select">
+            <field name="name">Request for Quotations</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.order</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('requistion_purchase_order_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('requistion_purchase_order_form')})]"/>
+            <field name="domain">[('requisition_id','=',active_id),('recommendation_order','=',True)]</field>
+            <field name="context">{"default_requisition_id":active_id}</field>
+        </record>
+
+        <!-- Inherit the Purchase Requisition form ?purchase.purchase_order_form?-->
+        <record id="socpa_purchase_requisition_custom_form_view" model="ir.ui.view">
+            <field name="name">socpa.purchase.requisition.custom.form.inherit</field>
+            <field name="model">purchase.requisition</field>
+            <field name="inherit_id" ref="socpa_purchase_custom.purchas_requisition_custom_form"/>
+            <field name="arch" type="xml">
+                <field name="purchase_track" position="replace">
+                    <field name="purchase_track" invisible="1"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="purchase.purchase_rfq" model="ir.actions.act_window">
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('purchase_custom_vro.requistion_purchase_order_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('purchase_custom_vro.requistion_purchase_order_form')})]"/>
+            <field name="domain">[('state','not in',('purchase','done'))]</field>
+        </record>
+
+        <record id="purchase.purchase_form_action" model="ir.actions.act_window">
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('purchase_custom_vro.requistion_purchase_order_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('purchase_custom_vro.requistion_purchase_order_form')})]"/>
+
+            <field name="context">{'search_default_todo':1, 'show_purchase': True}</field>
+            <field name="domain">[('state','in',('purchase','done'))]</field>
+
+        </record>
+    </data>
+</odoo>

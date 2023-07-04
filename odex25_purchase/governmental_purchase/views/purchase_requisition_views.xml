@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="purchase_governmental_requisition_form_view_inherit" model="ir.ui.view">
+        <field name="name">purchase.governmental.requisition.form.inherit</field>
+        <field name="model">purchase.requisition</field>
+        <field name="inherit_id" ref="purchase_requisition.view_purchase_requisition_form"/>
+        <field name="arch" type="xml">
+            <field name="custom_three_validation_steps" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <xpath expr="//field[@name='date_end']" position="before">
+                <field name="agreement_name" attrs="{'readonly': [('state','!=', 'draft')]}"/>
+                <field name="agreement_number" attrs="{'readonly': [('state','!=', 'draft')]}"/>
+                <field name="agreement_date" attrs="{'readonly': [('state','!=', 'draft')]}"/>
+                <field name="city" attrs="{'readonly': [('state','!=', 'draft')]}"/>
+            </xpath>
+            <field name="type_id" position="replace"/>
+            <xpath expr="//field[@name='user_id']" position="before">
+                <field name="type_id" readonly="1"/>
+            </xpath>
+            <field name="account_analytic_id" position="attributes">
+                <attribute name="optional"></attribute>
+            </field>
+        </field>
+
+    </record>
+</odoo>

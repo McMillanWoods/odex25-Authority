@@ -39,6 +39,11 @@ msgid "Accept"
 msgstr "قبول"
 
 #. module: purchase_requisition_custom
+#: model:res.groups,name:purchase_requisition_custom.group_accept_purchase_requisition
+msgid "Accept Purchase Requisition"
+msgstr "صلاحية القبول في طلب الشراء"
+
+#. module: purchase_requisition_custom
 #: code:addons/purchase_requisition_custom/models/purchase_requisition_custom.py:0
 #: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__purchase_requisition__state__accept
 #: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__purchase_requisition__state_blanket_order__accept
@@ -91,10 +96,6 @@ msgstr "مرجع الاتفاقية"
 msgid "Approve"
 msgstr "تأكيد"
 
-#. module: purchase_requisition_custom
-#: model:res.groups,name:purchase_requisition_custom.group_it_purchase_requisition
-msgid "Approve IT Manager"
-msgstr "أعتماد مدير التقنية"
 
 #. module: purchase_requisition_custom
 #: model:res.groups,name:purchase_requisition_custom.approve_purchase_request
@@ -584,10 +585,6 @@ msgstr ""
 msgid "ID"
 msgstr "المُعرف"
 
-#. module: purchase_requisition_custom
-#: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__purchase_request__state__it_manager
-msgid "IT Manager"
-msgstr "مدير التقنية"
 
 #. module: purchase_requisition_custom
 #: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request__activity_exception_icon
@@ -1862,115 +1859,3 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.committee_meeting_minutes_report_document
 msgid "نطاق العمل"
 msgstr ""
-
-#. module: purchase_requisition_custom
-#: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__purchase_request__state__budget_approve
-msgid "Budget Approved"
-msgstr "إعتماد الإرتباط"
-
-#. module: purchase_requisition_custom
-#: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__purchase_request__state__send_budget
-msgid "Send to Budget Confirmation"
-msgstr "إرتباط مبدئي"
-
-#. module: purchase_requisition_custom
-#: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__purchase_request__state__wait_budget
-msgid "Wait Budget"
-msgstr "إنتظار الإرتباط"
-
-#. module: purchase_requisition_custom
-#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order_line__initial_amount
-msgid "Initial amount"
-msgstr "المبلغ المبدئي"
-
-#. module: purchase_requisition_custom
-#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request__is_analytic
-msgid "Use Analytic Account"
-msgstr "إستخدام الحساب التحليلي"
-
-#. module: purchase_requisition_custom
-#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_line__name_text
-msgid "category"
-msgstr "نوع النشاط"
-
-#. module: purchase_requisition_custom
-#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_line__uom_id
-msgid "Unit of Measure"
-msgstr "وحدة القياس"
-
-#. module: purchase_requisition_custom
-#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_line__sum_total
-msgid "Sum Total"
-msgstr "القيمة"
-
-
-#. module: purchase_requisition_custom
-#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request_line__name_text1
-msgid "Specifications"
-msgstr "المواصفات"
-
-#. module: purchase_requisition_custom
-#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_request_form
-msgid "Use of Circuits"
-msgstr "لإستخدام الإدارات"
-
-#. module: purchase_requisition_custom
-#: model:res.groups,name:purchase_requisition_custom.group_requesting_ِadministration
-#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_request_form
-msgid "Requesting ِAdministration"
-msgstr "لإستخدام الإدارة الطالبة"
-
-#. module: purchase_requisition_custom
-#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request__planned_for
-#: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__purchase_request__requesting_administration__planned_for
-msgid "Planned For"
-msgstr "مخطط لة"
-
-#. module: purchase_requisition_custom
-#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request__emergency
-#: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__purchase_request__requesting_administration__emergency
-msgid "Emergency"
-msgstr "طارئ"
-
-#. module: purchase_requisition_custom
-#: model:res.groups,name:purchase_requisition_custom.group_For_technical_management_use
-#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_request_form
-msgid "For technical management use"
-msgstr "لإستخدام الإدارة الفنية"
-
-#. module: purchase_requisition_custom
-#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request__available
-msgid "Available"
-msgstr "متوفر"
-
-#. module: purchase_requisition_custom
-#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request__unavailable
-msgid "Unavailable"
-msgstr "غير متوفر"
-
-#. module: purchase_requisition_custom
-#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request__specifications_conform
-msgid "Technical specifications conform"
-msgstr "المواصفات الفنية مطابقة"
-
-#. module: purchase_requisition_custom
-#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request__specifications_not_conform
-msgid "Technical specifications do not match"
-msgstr "المواصفات الفنية غير مطابقة"
-
-#. module: purchase_requisition_custom
-#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_request_form
-msgid "Use Purchases"
-msgstr "لاستخدام إدارة المشتريات"
-
-#. module: purchase_requisition_custom
-#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_request__type_id
-#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition__type_id_test
-msgid "Agreement Type"
-msgstr "إجراء الشراء"
-
-#. module: purchase_requisition_custom
-#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_request_form
-msgid "First Budget Check"
-msgstr "أمر الإرتباط المبدئي"
-

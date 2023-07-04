@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_convert_po_contract_wizard,convert.po.contract.wizard,model_convert_po_contract_wizard,,1,1,1,1

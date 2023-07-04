@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="purchase_request_form" model="ir.ui.view">
+        <field name="name">purchase.request.view.form</field>
+        <field name="model">purchase.request</field>
+        <field name="inherit_id" ref="purchase_requisition_custom.purchase_request_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="replace">
+                <header>
+                    <button name="action_confirm" groups="purchase_requisition_custom.create_purchase_request"
+                            type="object" string="Submit" states="draft" class="oe_highlight"/>
+                    <!--                        <button name="action_approve" groups="purchase_requisition_custom.group_department_approve" type="object" string=" Department Approve" states="department manager" class="oe_highlight"/>-->
+                    <button name="approve_department" type="object" string="Direct Manager Approve"
+                            groups="purchase_requisition_custom.group_direct_manger" states="direct manager"
+                            class="oe_highlight"/>
+                    <button name="action_refuse" type="object" string="Refuse"
+                            groups="purchase_requisition_custom.group_direct_manger"
+                            attrs="{'invisible':[('state', 'not in', ['direct manager','it manager'])]}"/>
+                    <!--                        <button name="action_refuse_department" type="object" string="Refuse"  groups="purchase_requisition_custom.group_department_approve" attrs="{'invisible':[('state', 'in', ['waiting', 'refuse','done','cancel','draft','it manager','direct manager','send_budget'])]}"/>-->
+
+                    <button type="object" name="action_budget" string="First Budget Check" class="oe_highlight"
+                            states="send_budget"/>
+
+                    <button name="create_requisition"
+                            groups="purchase.group_purchase_user,purchase.group_purchase_manager" type="object"
+                            string="Create Requisition"
+                            class="oe_highlight"
+                            attrs="{'invisible' : ['|',('purchase_create' , '=' , True),
+                                                ('state' , 'not in' , ['budget_approve','waiting'])]}"/>
+
+
+                    <button type="object" name="action_cs_approve" class="oe_highlight"
+                            groups="purchase_custom_vro.group_po_legal_counsel" string="Approve"
+                            attrs="{'invisible':[('state', '!=', 'cs_approve')]}"/>
+                    <button type="object" name="action_general_supervisor_approve" class="oe_highlight"
+                            groups="purchase_custom_vro.group_po_general_supervisor_approve" string="Approve"
+                            attrs="{'invisible':[('state', '!=', 'general_supervisor')]}"/>
+
+                    <button name="action_cancel" type="object" string="Cancel" states="draft"
+                            class="oe_stat_button" groups="purchase.group_purchase_manager"/>
+                    <button name="action_done" type="object" string="Done" class="oe_stat_button"
+                            groups="purchase.group_purchase_manager" states="waiting"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,direct manager,send_budget,
+                    wait_budget,budget_approve,cs_approve,general_supervisor,waiting,done,cancel,refuse"/>
+                </header>
+            </xpath>
+            <xpath expr="//div[@class='oe_button_box']" position="inside">
+                <button
+                        class="oe_stat_button"
+                        name="open_confirmation"
+                        type="object"
+                        string="Budget Confirmation"
+                        icon="fa-list-ol"
+                ></button>
+            </xpath>
+            <field name="type" position="after">
+                <field name="is_analytic"/>
+                <field name="custom_three_validation_steps" attrs="{'readonly':[('state', '=', 'send_budget')]}"/>
+            </field>
+            <field name="line_ids" position="attributes">
+                <attribute name="attrs">{'readonly':[('state', 'not in', ['draft','send_budget'])]}</attribute>
+            </field>
+            <xpath expr="//field[@name='line_ids']/tree" position="replace">
+                <tree editable="bottom">
+                    <field name="name_text"/>
+                    <field name="product_id"
+                           domain="[('purchase_ok', '=', True),('categ_id','child_of',parent.product_category_ids)]"
+                           options="{'no_create' : True , 'no_edit' : True ,'no_open' : True}"
+                           attrs="{'required':[('parent.state','=','send_budget')]}"/>
+                    <field name="uom_id" attrs="{'required':[('parent.state','=','send_budget')]}"/>
+                    <field name="qty" required="1"/>
+                    <field name="price_unit"/>
+                    <field name="name"/>
+                    <field name="sum_total" force_save="1" sum="Total amount"/>
+                    <field name="account_id" attrs="{'column_invisible':[('parent.is_analytic','!=',True)]}"/>
+                    <field name="name_text1"/>
+                </tree>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Use of Circuits" name="">
+                    <group>
+                        <group string="Requesting ِAdministration"
+                               groups="governmental_purchase.group_requesting_ِadministration">
+                            <field name="planned_for" attrs="{'readonly':[('state' , '!=' , 'draft')]}"/>
+                            <field name="emergency" attrs="{'readonly':[('state' , '!=' , 'draft')]}"/>
+                        </group>
+                        <group string="Use Purchases"
+                               attrs="{'invisible':[('state' , 'not in' , ('budget_approve', 'waiting', 'done'))]}">
+                            <field name="type_id"
+                                   attrs="{'required':['|',
+                                   '&amp;',('state' , '=' , 'budget_approve'),('custom_three_validation_steps','=', False),
+                                  '&amp;', ('state' , '=' , 'waiting'),('custom_three_validation_steps','=', True)]}"
+                                   options="{'no_create': True}"/>
+                        </group>
+                    </group>
+                    <group string="For technical management use"
+                           groups="governmental_purchase.group_For_technical_management_use">
+                        <group>
+                            <field name="available"
+                                   attrs="{'readonly':[('state' , '!=' , 'direct manager')]}"/>
+                            <field name="unavailable"
+                                   attrs="{'readonly':[('state' , '!=' , 'direct manager')]}"/>
+                            <field name="specifications_conform"
+                                   attrs="{'readonly':[('state' , '!=' , 'direct manager')]}"/>
+                            <field name="specifications_not_conform"
+                                   attrs="{'readonly':[('state' , '!=' , 'direct manager')]}"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

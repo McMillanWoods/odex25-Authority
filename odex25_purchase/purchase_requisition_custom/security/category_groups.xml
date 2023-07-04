@@ -13,20 +13,20 @@
         <field name="name">Confirm Purchase Requisition</field>
         <field name="category_id" ref="purchase_requisition_custom"/>
     </record>
-
+    
     <!-- Employee submit request group -->
     <record id="group_approve_purchase_requisition" model="res.groups">
         <field name="name">Approve Purchase Requisition</field>
         <field name="category_id" ref="purchase_requisition_custom"/>
     </record>
     <!-- it group-->
-    <record id="group_it_purchase_requisition" model="res.groups">
-        <field name="name">Approve IT Manager</field>
-        <field name="category_id" ref="purchase_requisition_custom"/>
-    </record>
+<!--   <record id="group_it_purchase_requisition" model="res.groups">-->
+<!--        <field name="name">Approve IT Manager</field>-->
+<!--        <field name="category_id" ref="purchase_requisition_custom"/>-->
+<!--   </record>-->
     <!-- direct manger group-->
     <record id="group_direct_manger" model="res.groups">
-        <field name="name">Approve Direct Manager</field>
+        <field name="name"> Approve Direct Manager </field>
         <field name="category_id" ref="purchase_requisition_custom"/>
     </record>
     <!-- Quotation group -->
@@ -60,17 +60,17 @@
         <field name="name">Done Purchase Requisition</field>
         <field name="category_id" ref="purchase_requisition_custom"/>
     </record>
-
+  
     <record id="committe_member" model="res.groups">
         <field name="name">Purchase Committe Member</field>
         <field name="category_id" ref="purchase_requisition_custom"/>
-        <field name="menu_access" eval="[(4,ref('purchase.menu_purchase_root'))]"/>
+        <field name="menu_access" eval="[(4,ref('purchase.menu_purchase_root'))]" />
     </record>
-
+    
     <record id="purchase_rfq_send_to_committee" model="res.groups">
         <field name="name">Send to the Committee</field>
         <field name="category_id" ref="purchase_requisition_custom"/>
-    </record>
+    </record> 
 
     <record id="approve_purchase_request" model="res.groups">
         <field name="name">Approve Purchase Request</field>
@@ -85,7 +85,7 @@
     <record id="create_purchase_request" model="res.groups">
         <field name="name">Employees Requests</field>
         <field name="category_id" ref="purchase_requisition_custom"/>
-        <field name="menu_access" eval="[(4,ref('purchase.menu_purchase_root'))]"/>
+        <field name="menu_access" eval="[(4,ref('purchase.menu_purchase_root'))]" />
     </record>
 
     <record id="purchase_requisition_second_approve" model="res.groups">
@@ -115,16 +115,13 @@
         <field name="category_id" ref="purchase_requisition_custom"/>
     </record>
 
-    <!-- group For technical management use -->
-    <record id="group_For_technical_management_use" model="res.groups">
-        <field name="name">For technical management use</field>
-        <field name="category_id" ref="purchase_requisition_custom"/>
-    </record>
-
-    <!-- group Requesting ِAdministration -->
-    <record id="group_requesting_ِadministration" model="res.groups">
-        <field name="name">Requesting ِAdministration</field>
-        <field name="category_id" ref="purchase_requisition_custom"/>
+    <record id="group_base_vro_functional_user" model="res.groups">
+        <field name="name">User job role</field>
+        <field name="category_id" ref="purchase_requisition_custom.purchase_requisition_custom"/>
+        <field name="menu_access"
+               eval="[(4,ref('purchase.menu_purchase_root')),
+             (4,ref('purchase_requisition.menu_purchase_requisition_pro_mgt')),
+             (4,ref('purchase.menu_procurement_management')),(4,ref('purchase.menu_purchase_config'))]"/>
     </record>
 
 </odoo>

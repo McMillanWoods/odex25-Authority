@@ -1,11 +1,11 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_product_category,category_purchase_requisition_custom,product.model_product_category,group_category_product_manager,1,1,0,1
-committe_member_right4,Committe member access,purchase_requisition_custom.model_purchase_requisition,purchase_requisition_custom.committe_member,1,1,0,0
+committe_member_right4,Committe member access,purchase_requisition.model_purchase_requisition,purchase_requisition_custom.committe_member,1,1,0,0
 committe_member_right7,Committe member,purchase.model_account_move_line,purchase_requisition_custom.committe_member,1,1,0,0
 res_users_emp,res_users_emp,base.model_res_users,base.group_user,1,0,0,0
 purchase_user_res_user,name,base.model_res_users,purchase.group_purchase_user,1,1,1,1
 hr_department_purchase,department,hr.model_hr_department,purchase.group_purchase_user,1,1,1,1
-partner_document_emp,Partner Document,purchase_requisition_custom.model_partner_document,base.group_user,1,1,1,1
+partner_document_emp,partner_document_emp_access,purchase_requisition_custom.model_partner_document,base.group_user,1,1,1,1
 select_reason,select.reason,purchase_requisition_custom.model_select_reason,,1,1,1,1
 refuse_reason,refuse.reason,purchase_requisition_custom.model_refuse_reason,,1,1,1,1
 document_type,document.type,purchase_requisition_custom.model_document_type,,1,1,1,1
@@ -22,6 +22,5 @@ committe_member_purchase_user,committe_member_purchase_user,purchase_requisition
 committe_stock_move_user,committe_stock_move_user,stock.model_stock_move,purchase_requisition_custom.committe_member,1,0,0,0
 access_manager_purchase_committee_type,group_manager_purchase_committee_type,purchase_requisition_custom.model_purchase_committee_type,purchase.group_purchase_manager,1,1,1,1
 access_user_purchase_order_line,group_user_purchase_order_line,purchase.model_purchase_order_line,purchase_requisition_custom.create_purchase_request,1,1,0,0
-committe_member_right5,Committe member,purchase_requisition_custom.model_purchase_order,purchase_requisition_custom.committe_member,1,1,0,0
-access_convert_po_contract_wizard,convert.po.contract.wizard,purchase_requisition_custom.model_convert_po_contract_wizard,,1,1,1,1
-
+committe_member_right5,Committe member,purchase.model_purchase_order,purchase_requisition_custom.committe_member,1,1,0,0
+change_purchase_user_state_purchase_user,change_purchase_user_state,purchase_requisition_custom.model_change_purchase_user_state,base.group_user,1,1,1,1
