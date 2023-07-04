@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="helpdesk_ticket_view_tree_employee_request" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.tree.employee.request</field>
+        <field name="model">odex25_helpdesk.ticket</field>
+        <field name="inherit_id" ref="odex25_helpdesk.odex25_helpdesk_tickets_view_tree"/>
+        <field name="groups_id" eval="[(4, ref('helpdesk_employee_request.group_helpdesk_employee'))]"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="helpdesk_ticket_view_form_employee_request_requester_id" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.form.employee.requester</field>
+        <field name="model">odex25_helpdesk.ticket</field>
+        <field name="inherit_id" ref="odex25_helpdesk.odex25_helpdesk_ticket_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="requester_id" invisible="1"/>
+                <field name="is_submitted" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="helpdesk_ticket_view_form_employee_request" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.form.employee.request</field>
+        <field name="model">odex25_helpdesk.ticket</field>
+        <field name="inherit_id" ref="odex25_helpdesk.odex25_helpdesk_ticket_view_form"/>
+        <field name="groups_id" eval="[(4, ref('helpdesk_employee_request.group_helpdesk_employee')),(4, ref('helpdesk_employee_request.group_helpdesk_Secretary'))]"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header/button[@name='assign_ticket_to_self']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//header/button[@name='action_timer_start']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="attrs">{'readonly':[('is_submitted','=',True)]}</attribute>
+            </xpath>
+
+             <xpath expr="//field[@name='assistance_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='stage_id']" position="replace">
+                <field name="stage_id" widget="statusbar" attrs="{'clickable':[('requester_id','!=',False)]}"
+                       options="{'fold_field': 'fold'}"/>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="requester_id" invisible="1"/>
+                <field name="is_submitted" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='partner_email']" position="attributes">
+                <attribute name="attrs">{'readonly':[('is_submitted','=',True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='ticket_type_id']" position="attributes">
+                <attribute name="attrs">{'readonly':[('is_submitted','=',True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='tag_ids']" position="attributes">
+                <attribute name="attrs">{'readonly':[('is_submitted','=',True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='team_id']" position="attributes">
+                <attribute name="attrs">{'readonly':[('is_submitted','=',True)]}</attribute>
+                <attribute name="options">{'no_open' : True,"no_create": True}</attribute>
+                <attribute name="domain">['&amp;', ('is_internal_team', '=', False),('is_vip_team','=',False)]</attribute>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="attributes">
+                <attribute name="attrs">{'readonly':True}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='priority']" position="attributes">
+                <attribute name="attrs">{'readonly':[('is_submitted','=',True)]}</attribute>
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="attrs">{'readonly':[('is_submitted','=',True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='description']" position="attributes">
+                <attribute name="attrs">{'readonly':[('is_submitted','=',True)]}</attribute>
+            </xpath>
+            <xpath expr="//widget[@name='web_ribbon']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+              <xpath expr="//field[@name='user_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//page[@name='timesheets']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="helpdesk_ticket_view_form_employee_vip" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.form.employee.request1</field>
+        <field name="model">odex25_helpdesk.ticket</field>
+        <field name="inherit_id" ref="odex25_helpdesk.odex25_helpdesk_ticket_view_form"/>
+        <field name="groups_id" eval="[(4, ref('helpdesk_employee_request.group_helpdesk_vip_employee'))]"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header/button[@name='assign_ticket_to_self']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//header/button[@name='action_timer_start']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='team_id']" position="attributes">
+                <attribute name="attrs">{'readonly':[('is_submitted','=',True)]}</attribute>
+                <attribute name="options">{'no_open' : True,"no_create": True}</attribute>
+                <attribute name="domain">[('is_vip_team','=',True)]</attribute>
+            </xpath>
+            <xpath expr="//field[@name='stage_id']" position="replace">
+                <field name="stage_id" widget="statusbar" attrs="{'clickable':[('requester_id','!=',False)]}"
+                       options="{'fold_field': 'fold'}"/>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='service_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='category_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='ticket_type_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='priority']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='tag_ids']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='partner_name']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='partner_email']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='email_cc']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='work_location']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='assistance_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='department_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='project_no']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='transform_no']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='on_behalf']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//widget[@name='web_ribbon']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[@name='timesheets']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+
+
+    <record id="helpdesk_ticket_action_main_tree_employee_request" model="ir.actions.act_window">
+        <field name="name">Employee Request Tickets</field>
+        <field name="res_model">odex25_helpdesk.ticket</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="search_view_id"/>
+        <field name="context" eval="{
+            'employee_request': True,
+            'default_active': False,
+            'active_test':False,
+            'default_team_id': ref('helpdesk_employee_request.helpdesk_team_employee_request')}"/>
+        <field name="domain">[('requester_id','=',uid),('active','in',[True,False])]</field>
+        <field name="help" type="html">
+            <p>
+                No tickets to display.
+            </p>
+        </field>
+    </record>
+
+    <record id="helpdesk_ticket_action_vip_employee_request" model="ir.actions.act_window">
+        <field name="name">VIP Tickets</field>
+        <field name="res_model">odex25_helpdesk.ticket</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="search_view_id"/>
+        <field name="context" eval="{
+            'employee_request': True,
+            'default_active': False,
+            'active_test':False,
+            'default_team_id': ref('helpdesk_employee_request.helpdesk_team_vip_employee_request')}"/>
+        <field name="domain">[('requester_id','=',uid),('active','in',[True,False])]</field>
+        <field name="help" type="html">
+            <p>
+                No tickets to display.
+            </p>
+        </field>
+    </record>
+
+
+    <record id="helpdesk_ticket_action_group_helpdesk_Secretary" model="ir.actions.act_window">
+        <field name="name">Secretary Tickets</field>
+        <field name="res_model">odex25_helpdesk.ticket</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="search_view_id" ref="odex25_helpdesk.odex25_helpdesk_tickets_view_search"/>
+        <field name="context" eval="{
+            'employee_request': True,
+            'default_active': False,
+            'active_test':False }"/>
+        <field name="domain">[('is_submitted','=',True)]</field>
+        <field name="help" type="html">
+            <p>
+                No tickets to display.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_helpdesk_employee_request" name="Employee Helpdesk"
+              sequence="25"
+              action="helpdesk_ticket_action_main_tree_employee_request"
+              web_icon="odex25_helpdesk,static/description/icon.png"
+              groups="helpdesk_employee_request.group_helpdesk_employee,helpdesk_employee_request.group_helpdesk_Secretary"/>
+
+     <menuitem id="menu_helpdesk_vip_employee_request" name="VIP Employee Helpdesk"
+              sequence="25"
+              action="helpdesk_ticket_action_vip_employee_request"
+              web_icon="odex25_helpdesk,static/description/icon.png"
+              groups="helpdesk_employee_request.group_helpdesk_vip_employee"/>
+
+
+
+    <menuitem id="menu_helpdesk_employee_request_secretary" name="Helpdesk"
+              sequence="27"
+              action="helpdesk_ticket_action_group_helpdesk_Secretary"
+              web_icon="odex25_helpdesk,static/description/icon.png"
+              groups="helpdesk_employee_request.group_helpdesk_Secretary"/>
+
+</odoo>

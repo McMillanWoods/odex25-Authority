@@ -1,0 +1,77 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* odex25_helpdesk_reopen
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-21 11:43+0000\n"
+"PO-Revision-Date: 2022-09-21 11:43+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: odex25_helpdesk_reopen
+#: model:ir.model.fields,field_description:odex25_helpdesk_reopen.field_odex25_helpdesk_stage__display_name
+#: model:ir.model.fields,field_description:odex25_helpdesk_reopen.field_odex25_helpdesk_ticket__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: odex25_helpdesk_reopen
+#: model:ir.model,name:odex25_helpdesk_reopen.model_odex25_helpdesk_stage
+msgid "Helpdesk Stage"
+msgstr "مرحلة مكتب المساعدة"
+
+#. module: odex25_helpdesk_reopen
+#: model:ir.model,name:odex25_helpdesk_reopen.model_odex25_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr "تذكرة مكتب المساعدة"
+
+#. module: odex25_helpdesk_reopen
+#: model:ir.model.fields,field_description:odex25_helpdesk_reopen.field_odex25_helpdesk_stage__id
+#: model:ir.model.fields,field_description:odex25_helpdesk_reopen.field_odex25_helpdesk_ticket__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: odex25_helpdesk_reopen
+#: model:ir.model.fields,field_description:odex25_helpdesk_reopen.field_odex25_helpdesk_stage____last_update
+#: model:ir.model.fields,field_description:odex25_helpdesk_reopen.field_odex25_helpdesk_ticket____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: odex25_helpdesk_reopen
+#: model:ir.model.fields,field_description:odex25_helpdesk_reopen.field_odex25_helpdesk_stage__is_reopen
+msgid "Re-open Kanban Stage"
+msgstr "أعد فتح مرحلة كانبان"
+
+#. module: odex25_helpdesk_reopen
+#: model:ir.model.fields,field_description:odex25_helpdesk_reopen.field_odex25_helpdesk_stage__reopen_time
+msgid "Reopen Time"
+msgstr "وقت إعادة الفتح"
+
+#. module: odex25_helpdesk_reopen
+#: model:ir.model.fields,help:odex25_helpdesk_reopen.field_odex25_helpdesk_stage__is_reopen
+msgid ""
+"in this stage the ticket will be opened again if the customerreplied to your"
+" close stage email"
+msgstr "في هذه المرحلة ، سيتم فتح التذكرة مرة أخرى إذا قام العميل بالرد على البريد الإلكتروني الخاص بك"
+
+#. module: odex25_helpdesk_reopen
+#: model:ir.model.fields,help:odex25_helpdesk_reopen.field_odex25_helpdesk_stage__reopen_time
+msgid "the time that make a ticket reopen task"
+msgstr "الوقت الذي يجعل مهمة إعادة فتح تذكرة"
+
+#. module: odex25_helpdesk_reopen
+#: model:ir.model.fields,field_description:odex25_helpdesk_reopen.field_odex25_helpdesk_stage__is_done
+msgid "Is Done"
+msgstr "المرحلة النهائية"
+
+
+#. module: odex25_helpdesk_reopen
+#: model:ir.model.fields,field_description:odex25_helpdesk_reopen.field_odex25_helpdesk_stage__solve_time
+msgid "Solved Time"
+msgstr "زمن حل المرحلة"
